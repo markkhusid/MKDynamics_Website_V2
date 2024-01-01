@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-58919029-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<html>
+
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type">
+  <meta name="robots" content="follow" />
+  
+  <title>
+    MK Dynamics - Computer Security - Shellcode Generation and Testing - ARM
+  </title>
+  
+  <link href="../../css/styles.css" type = "text/css" rel = "stylesheet" />
+  
+  <style>
+    .content {
+	overflow: auto;
+	height: 80%; 
+	background: url("../../images/saturn.jpg") no-repeat center center fixed;
+	background-size: cover;
+	background-position: center;
+	padding: 10px;
+	margin: 10px;
+	border: 5px solid black;
+      }
+      
+    h1, h2, h3, h4 {
+      color: white;
+      display: block;     
+    }
+    
+    .current_project_1 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1370px;
+      height		: 200px;
+      top		: 0px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_2 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1370px;
+      height		: 2500px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_3 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1370px;
+      height		: 1500px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_4 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1370px;
+      height		: 1500px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_5 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1370px;
+      height		: 1500px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_6 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1370px;
+      height		: 1500px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_7 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1370px;
+      height		: 1500px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_8 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1370px;
+      height		: 1500px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_9 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1370px;
+      height		: 1500px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_10 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1370px;
+      height		: 1500px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_11 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1370px;
+      height		: 1500px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_12 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1370px;
+      height		: 1500px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    div .img {
+      margin		: 0px;
+      padding		: 10px;
+      height		: auto;
+      width		: auto;
+      float		: left;
+    }
+    
+    div .img img {
+      display		: inline;
+      margin		: 0px;
+      padding		: 0px;
+    }
+    
+    div .desc {
+      color		: white;
+      width		: 600px;
+      margin		: 5px;
+      padding		: 10px;
+    }
+  </style>
+</head>
+
+<body>
+    <div class="wrapper">
+    
+        <header>
+    
+            <hgroup>
+                <h1> 
+                    <big> <big> MK Dynamics </big> </big>
+                </h1>
+
+
+                <h2>
+                    Computer Security - Shellcode Generation and Testing - ARM
+                </h2>
+            </hgroup>
+    
+
+            <nav>
+                <ul>
+                    <li> <a href="../../index.php">Home</a> </li>
+                    <li> <a href="shellcode_generation_and_testing.html">Back</a> </li>
+                </ul>
+            </nav>
+    
+        </header>
+    
+        <section class="content">
+            
+            <!-- ************************************************************************************** First Section Start ************ -->
+            <section class="section">
+        
+                <div class="current_project_1">
+                    
+                    <hgroup>
+                        <h2>
+                            Introduction
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            In this section we will be writing shellcode for the ARM platform.  We will try to mirror the shellcoding for x86 section as closely as possible.  In other words, every time we make an accomplishment for the x86 platform, we will strive to repeat that accomplishment for the ARM platform.
+                        </p>
+                        
+                        <p>
+                            The shellcode we will be writing here will set the setruid to that of root and spawn a shell with root level privileges.
+                        </p>
+                            
+                        <p>
+                            Project code is contained in my <a href="https://github.com/markkhusid/Gray-Hat-Hacking">github</a>.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+
+                </div> <!-- .current_project_1 -->
+        
+            </section> <!-- first_section -->
+            <!-- *********************************************************************************** Section End ************** -->
+            
+            <!-- *********************************************************************************** Section Start ************ -->
+            <section class="section">
+                
+                <div class="current_project_2">
+                
+                    <hgroup>
+                        <h2>
+                            The program <i>shellcode.s</i>
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            The screenshot below displays the contents of the program <i>shellcode.s</i>.  We need to assemble, link, run and instruction step this program in GDB.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="images/Shellcode_generation/ARM/ARM_shellcode_version1.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                The program <i>shellcode.s</i>
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            Since our computer is an AMD64 platform, we will execute the assembly code on a Raspberry Pi 2, which is an ARM platform.  We will connect to a running RPi2 via the VNC viewer.
+                        </p>
+                        
+                        <p>
+                            The program is assembled with:
+                            <blockquote>
+                                $ as -ggdb3 shellcode.s -o shellcode.o
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            We then obtain the object file and look at it's objdump.  The results of these operations is shown below:
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="images/Shellcode_generation/ARM/ARM_shellcode_version1_assembling_and_objdump.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Assembling and Objdump of the Program <i>shellcode.s</i>
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                   
+                </div> <!-- .current_project_2 -->
+            
+            </section> <!-- section -->
+            <!-- ************************************************************************************* Section End ************* -->
+            
+            
+            <!-- *********************************************************************************** Section Start ************ -->
+            <section class="section">
+                
+                <div class="current_project_3">
+                
+                    <hgroup>
+                        <h2>
+                            Linking and Running <i>shellcode.s</i> to Obtain Root Shell
+                        </h2>
+                    </hgroup>
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="images/Shellcode_generation/ARM/ARM_shellcode_version1_linkling_objdump_execute_and_root_shell.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Linking and Running <i>shellcode.s</i> to Obtain Root Shell
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                
+                </div> <!-- .current_project_3 -->
+            
+            </section> <!-- section -->
+            <!-- ************************************************************************************* Section End ************* -->
+        
+            <!-- ************************************************************************************* Section Start *********** -->
+            <section class="section">
+                
+                <div class="current_project_4">
+                
+                    <hgroup>
+                        <h2>
+                            Running <i>shellcode.s</i> in GDB + GEF
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            Running step 1
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="images/Shellcode_generation/ARM/ARM_shellcode_version1_in_GDB_step1.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Running step 1
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                
+                </div> <!-- .current_project_4 -->
+            
+            </section> <!-- section -->
+            <!-- ************************************************************************************* Section End ************ -->
+            
+            <!-- ************************************************************************************* Section Start *********** -->
+            <section class="section">
+                
+                <div class="current_project_5">
+                
+                    <hgroup>
+                        <h2>
+                            Running <i>shellcode.s</i> in GDB + GEF
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            Running step 2
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="images/Shellcode_generation/ARM/ARM_shellcode_version1_in_GDB_step2.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Running step 2
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                
+                </div> <!-- .current_project_5 -->
+            
+            </section> <!-- section -->
+            <!-- ************************************************************************************* Section End ************ -->
+            
+            <!-- ************************************************************************************* Section Start *********** -->
+            <section class="section">
+                
+                <div class="current_project_6">
+                
+                    <hgroup>
+                        <h2>
+                            Running <i>shellcode.s</i> in GDB + GEF
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            Running step 3
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="images/Shellcode_generation/ARM/ARM_shellcode_version1_in_GDB_step3.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Running step 3
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                
+                </div> <!-- .current_project_6 -->
+            
+            </section> <!-- section -->
+            <!-- ************************************************************************************* Section End ************ -->
+            
+            <!-- ************************************************************************************* Section Start *********** -->
+            <section class="section">
+                
+                <div class="current_project_7">
+                
+                    <hgroup>
+                        <h2>
+                            Running <i>shellcode.s</i> in GDB + GEF
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            Running step 4
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="images/Shellcode_generation/ARM/ARM_shellcode_version1_in_GDB_step4.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Running step 4
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                
+                </div> <!-- .current_project_7 -->
+            
+            </section> <!-- section -->
+            <!-- ************************************************************************************* Section End ************ -->
+            
+            <!-- ************************************************************************************* Section Start *********** -->
+            <section class="section">
+                
+                <div class="current_project_8">
+                
+                    <hgroup>
+                        <h2>
+                            Running <i>shellcode.s</i> in GDB + GEF
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            Running step 5
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="images/Shellcode_generation/ARM/ARM_shellcode_version1_in_GDB_step5.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Running step 5
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                
+                </div> <!-- .current_project_8 -->
+            
+            </section> <!-- section -->
+            <!-- ************************************************************************************* Section End ************ -->
+            
+            
+            
+        </section>	<!-- .content -->
+    
+    <div> <!-- .wrapper -->
+
+  </body>
+
+</html>

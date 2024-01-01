@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-58919029-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<html>
+
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type">
+  <meta name="robots" content="follow" />
+  
+  <title>
+    MK Dynamics - Computer Security - SLAE64 - SecurityTube Linux Assembly Language and Shellcoding Expert 64-Bit
+  </title>
+  
+  <link href="../../css/styles.css" type = "text/css" rel = "stylesheet" />
+  
+  <style>
+    .content {
+	overflow: auto;
+	height: 80%; 
+	background: url("../../images/saturn.jpg") no-repeat center center fixed;
+	background-size: cover;
+	background-position: center;
+	padding: 10px;
+	margin: 10px;
+	border: 5px solid black;
+      }
+      
+    h1, h2, h3, h4 {
+      color: white;
+      display: block;     
+    }
+    
+    .current_project_1 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1370px;
+      height		: 250px;
+      top		: 0px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_2 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1370px;
+      height		: 1200px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_3 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1370px;
+      height		: 1500px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_4 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1370px;
+      height		: 1500px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_5 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1370px;
+      height		: 1500px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_6 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1370px;
+      height		: 1500px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_7 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1370px;
+      height		: 1500px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_8 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1370px;
+      height		: 1500px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_9 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1370px;
+      height		: 1500px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_10 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1370px;
+      height		: 1500px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_11 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1370px;
+      height		: 1500px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    div .img {
+      margin		: 0px;
+      padding		: 10px;
+      height		: auto;
+      width		: auto;
+      float		: left;
+    }
+    
+    div .img img {
+      display		: inline;
+      margin		: 0px;
+      padding		: 0px;
+    }
+    
+    div .desc {
+      color		: white;
+      width		: 600px;
+      margin		: 5px;
+      padding		: 10px;
+    }
+  </style>
+</head>
+
+<body>
+    <div class="wrapper">
+    
+        <header>
+    
+            <hgroup>
+                <h1> 
+                    <big> <big> MK Dynamics </big> </big>
+                </h1>
+
+
+                <h2>
+                    Computer Security - SLAE64 - Module 1 - GDB Test
+                </h2>
+            </hgroup>
+    
+
+            <nav>
+                <ul>
+                    <li> <a href="../../index.php">Home</a> </li>
+                    <li> <a href="computer_security.html">Back</a> </li>
+                </ul>
+            </nav>
+    
+        </header>
+    
+        <section class="content">
+            
+            <!-- ************************************************************************************** First Section Start ************ -->
+            <section class="section">
+        
+                <div class="current_project_1">
+                    
+                    <hgroup>
+                        <h2>
+                            Introduction
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            In this section we will be following along with and completing course material from the Pentester Academy's SecurityTube Linux Assembly language Expert 64 Bit course.  The first assignment is called gdbtest.  The goal is to use GDB to modify the contents of the CPU registers so that the password checking program will allow the student to view the message: Welcome to the SLAE 64-bit course! Please proceed to the next video!  Otherwise, the program will display: It's time to review those GDB videos again!
+                        </p>
+                        <p>
+                            Project code is contained in my <a href="https://github.com/markkhusid/SLAE64">github</a>.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+
+                </div> <!-- .current_project_1 -->
+        
+            </section> <!-- first_section -->
+            <!-- *********************************************************************************** Section End ************** -->
+            
+            <!-- *********************************************************************************** Section Start ************ -->
+            <section class="section">
+                
+                <div class="current_project_2">
+                
+                    <hgroup>
+                        <h2>
+                            The program <i>gdb_test.c</i>
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            The screenshot below displays the contents of the program <i>gdb_test.c</i>.  The program contains a string variable called <i>p</i> that hold the password "PentesterAcademyPass".  We need to run this program in GDB and trick the program into thinking that a randomly entered command line argument is the password.
+                        </p>
+                        
+                        <p>
+                            The program is compiled with:
+                            <blockquote>
+                                $ gcc -m32 -ggdb3 -zexecstack -mpreferred-stack-boundary=2 gdb_test.c -o gdb_test
+                            </blockquote>
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="images/SLAE64/gdb_test_c.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                The test program <i>gdb_test.c</i>
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                
+                </div> <!-- .current_project_2 -->
+            
+            </section> <!-- section -->
+            <!-- ************************************************************************************* Section End ************* -->
+            
+            
+            <!-- *********************************************************************************** Section Start ************ -->
+            <section class="section">
+                
+                <div class="current_project_3">
+                
+                    <hgroup>
+                        <h2>
+                            Running <i>gdbtest</i> in GDB + GEF
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="images/SLAE64/running_gdb_test_in_GEF.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Lorem
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                
+                </div> <!-- .current_project_2 -->
+            
+            </section> <!-- section -->
+            <!-- ************************************************************************************* Section End ************* -->
+        
+            <!-- ************************************************************************************* Section Start *********** -->
+            <section class="section">
+                
+                <div class="current_project_4">
+                
+                    <hgroup>
+                        <h2>
+                            Lorem
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            Lorem
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="images/SLAE64/disassembly_of_main.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Lorem
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                
+                </div> <!-- .current_project_3 -->
+            
+            </section> <!-- third_section -->
+            <!-- ************************************************************************************* Section End ************ -->
+            
+            <!-- ************************************************************************************* Section Start *********** -->
+            <section class="section">
+                
+                <div class="current_project_5">
+                
+                    <hgroup>
+                        <h2>
+                            Lorem
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            Lorem
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="images/SLAE64/disassembly_of_main_ATT_zoomed.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Lorem
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                
+                </div> <!-- .current_project_4 -->
+            
+            </section> <!-- third_section -->
+            <!-- ************************************************************************************* Section End ************ -->
+            
+            <!-- ************************************************************************************* Section Start *********** -->
+            <section class="section">
+                
+                <div class="current_project_6">
+                
+                    <hgroup>
+                        <h2>
+                            Lorem
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            Lorem
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="images/SLAE64/disassembly_of_main_strcpy_highlighted.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Lorem
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                
+                </div> <!-- .current_project_5 -->
+            
+            </section> <!-- third_section -->
+            <!-- ************************************************************************************* Section End ************ -->
+            
+            <!-- ************************************************************************************* Section Start *********** -->
+            <section class="section">
+                
+                <div class="current_project_7">
+                
+                    <hgroup>
+                        <h2>
+                            Lorem
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            Lorem
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="images/SLAE64/set_breakpoint_before_strcpy.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Lorem
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                
+                </div> <!-- .current_project_6 -->
+            
+            </section> <!-- third_section -->
+            <!-- ************************************************************************************* Section End ************ -->
+            
+            <!-- ************************************************************************************* Section Start *********** -->
+            <section class="section">
+                
+                <div class="current_project_8">
+                
+                    <hgroup>
+                        <h2>
+                            Lorem
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            Lorem
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="images/SLAE64/before_strcpy_showing_rdi_and_rsi.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Lorem
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                
+                </div> <!-- .current_project_7 -->
+            
+            </section> <!-- third_section -->
+            <!-- ************************************************************************************* Section End ************ -->
+            
+            <!-- ************************************************************************************* Section Start *********** -->
+            <section class="section">
+                
+                <div class="current_project_9">
+                
+                    <hgroup>
+                        <h2>
+                            Lorem
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            Lorem
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="images/SLAE64/setting_rdi_equal_to_rsi.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Lorem
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                
+                </div> <!-- .current_project_8 -->
+            
+            </section> <!-- third_section -->
+            <!-- ************************************************************************************* Section End ************ -->
+            
+            <!-- ************************************************************************************* Section Start *********** -->
+            <section class="section">
+                
+                <div class="current_project_10">
+                
+                    <hgroup>
+                        <h2>
+                            Lorem
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            Lorem
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="images/SLAE64/result_of_setting_rdi_to_rsi.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Lorem
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                
+                </div> <!-- .current_project_9 -->
+            
+            </section> <!-- third_section -->
+            <!-- ************************************************************************************* Section End ************ -->
+            
+            <!-- ************************************************************************************* Section Start *********** -->
+            <section class="section">
+                
+                <div class="current_project_11">
+                
+                    <hgroup>
+                        <h2>
+                            Lorem
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            Lorem
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="images/SLAE64/successful_hack_of_gdbtest.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Lorem
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                
+                </div> <!-- .current_project_10 -->
+            
+            </section> <!-- third_section -->
+            <!-- ************************************************************************************* Section End ************ -->
+            
+        </section>	<!-- .content -->
+    
+    <div> <!-- .wrapper -->
+
+  </body>
+
+</html>

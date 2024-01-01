@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-58919029-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<html>
+
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type">
+  <meta name="robots" content="follow" />
+  
+  <title>
+    MK Dynamics - Computer Security - Disassembling Binaries - C - AMD 64-Bit Platform
+  </title>
+  
+  <link href="../../../../../css/styles.css" type = "text/css" rel = "stylesheet" />
+  
+  <style>
+    .content {
+	overflow: auto;
+	height: 80%; 
+	background: url("../../../../../images/saturn.jpg") no-repeat center center fixed;
+	background-size: cover;
+	background-position: center;
+	padding: 10px;
+	margin: 10px;
+	border: 5px solid black;
+      }
+      
+    h1, h2, h3, h4 {
+      color: white;
+      display: block;     
+    }
+    
+    .current_project_1 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1360px;
+      height		: 200px;
+      top		: 0px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_2 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1360px;
+      height		: 2600px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_3 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1360px;
+      height		: 2600px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_4 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1360px;
+      height		: 7800px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_5 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1360px;
+      height		: 1500px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_6 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1360px;
+      height		: 1500px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_7 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1360px;
+      height		: 1500px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_8 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1360px;
+      height		: 1500px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_9 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1360px;
+      height		: 1500px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_10 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1360px;
+      height		: 1500px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_11 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1360px;
+      height		: 1500px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    div .img {
+      margin		: 0px;
+      padding		: 10px;
+      height		: auto;
+      width		: auto;
+      float		: left;
+    }
+    
+    div .img img {
+      display		: inline;
+      margin		: 0px;
+      padding		: 0px;
+    }
+    
+    div .desc {
+      color		: white;
+      width		: 600px;
+      margin		: 5px;
+      padding		: 10px;
+    }
+  </style>
+</head>
+
+<body>
+    <div class="wrapper">
+    
+        <header>
+    
+            <hgroup>
+                <h1> 
+                    <big> <big> MK Dynamics </big> </big>
+                </h1>
+
+
+                <h2>
+                    Computer Security - Disassembling Binaries - C - AMD 64-Bit Platform
+                </h2>
+            </hgroup>
+    
+
+            <nav>
+                <ul>
+                    <li> <a href="../../../../../index.php">Home</a> </li>
+                    <li> <a href="../disassembling_binaries_Fortran.html">Back</a> </li>
+                </ul>
+            </nav>
+    
+        </header>
+    
+        <section class="content">
+            
+            <!-- ************************************************************************************** First Section Start ************ -->
+            <section class="section">
+        
+                <div class="current_project_1">
+                    
+                    <hgroup>
+                        <h2>
+                            Introduction
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            In this section we will be disassembling simple binaries generated by the C high-level language compiled for the 64-bit AMD platform.  We will disassemble the binaries using GDB+GEF as well Radare2.
+                        </p>
+                        <p>
+                            Project code for this section is contained in my <a href="https://github.com/markkhusid/Disassembling-Binaries/tree/master/Fortran/ARM_architecture/ARM32">github</a> repository.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+
+                </div> <!-- .current_project_1 -->
+        
+            </section> <!-- first_section -->
+            <!-- *********************************************************************************** Section End ************** -->
+            
+            <!-- *********************************************************************************** Section Start ************ -->
+            <section class="section">
+                
+                <div class="current_project_2">
+                
+                    <hgroup>
+                        <h2>
+                            The program <i>add_int.c</i>
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            The screenshot below displays the contents of the program <i>add_int.c</i>.  This is the same program that we have already used in the ARM64 section.  The program creates three integers: a, b, and c.  a is assigned the value of 1, b is assigned the value of 9, and c is assigned the result of the operation a + b.
+                        </p>
+                        
+                        <iframe
+                            src="../../../code/Disassembling_Binaries/add_int.c.html" 
+                            height=210" 
+                            width="1000">
+                        </iframe>
+                    
+                        <div class="desc">
+                            <p>
+                                The program <i>add_int.c</i>
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                        
+                        <p>
+                            The program is obviously very simple, with no inputs and outputs.  The idea is to generate the binary and look at the disassembly to learn about the workings of the 64-bit AMD processor platform, as well as the gfortran compiler.
+                        </p>
+                        
+                        <p>
+                            The chosen test system is a AMD 64 Bit micro instance on Amazon Web Services.  It fits very well for this application due to its speed, availability, ease of stand up and tear down, as well as ease of access from multiple remote systems via SSH.
+                        </p>
+                        
+                        <p>
+                            The program is compiled with:
+                            <blockquote>
+                                $ gcc -ggdb3 add_int.c -o add_int_C_AMD64_ggdb3
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            For general edification, we also have gcc produce generic assembly with the -S option, an object file with the -o option and object dumps of the object and executable files.
+                        </p>
+                        
+                        <p>
+                            The generic assembly is generated by using the -S (assembly) option:
+                            <blockquote>
+                                $ gcc -S -ggdb3 add_int.c
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            The object file is generated by using the -c (compile) option:
+                            <blockquote>
+                                $ gcc -c -ggdb3 add_int.s
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            The objdump files are generated by using the following command and options:
+                            <blockquote>
+                                $ objdump -x -D -S -s -g -t -Mintel add_int.o > objdump_of_dot_o.txt<br>
+                                $ objdump -x -D -S -s -g -t -Mintel add_int_C_AMD64_ggdb3 > objdump_of_dot_exe.txt
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            A rundown of the objdump options is shown here:
+                            <blockquote>
+<pre>
+$objdump 
+Usage: objdump (option(s)) (file(s))
+Display information from object (file(s)).
+ At least one of the following switches must be given:
+  -a, --archive-headers    Display archive header information
+  -f, --file-headers       Display the contents of the overall file header
+  -p, --private-headers    Display object format specific file header contents
+  -P, --private=OPT,OPT... Display object format specific contents
+  -h, --[section-]headers  Display the contents of the section headers
+  -x, --all-headers        Display the contents of all headers
+  -d, --disassemble        Display assembler contents of executable sections
+  -D, --disassemble-all    Display assembler contents of all sections
+  -S, --source             Intermix source code with disassembly
+  -s, --full-contents      Display the full contents of all sections requested
+  -g, --debugging          Display debug information in object file
+  -e, --debugging-tags     Display debug information using ctags style
+  -G, --stabs              Display (in raw form) any STABS info in the file
+  -W[lLiaprmfFsoRtUuTgAckK] or
+  --dwarf[=rawline,=decodedline,=info,=abbrev,=pubnames,=aranges,=macro,=frames,
+          =frames-interp,=str,=loc,=Ranges,=pubtypes,
+          =gdb_index,=trace_info,=trace_abbrev,=trace_aranges,
+          =addr,=cu_index,=links,=follow-links]
+                           Display DWARF info in the file
+  -t, --syms               Display the contents of the symbol table(s)
+  -T, --dynamic-syms       Display the contents of the dynamic symbol table
+  -r, --reloc              Display the relocation entries in the file
+  -R, --dynamic-reloc      Display the dynamic relocation entries in the file
+  @<file>                  Read options from <file>
+  -v, --version            Display this program's version number
+  -i, --info               List object formats and architectures supported
+  -H, --help               Display this information
+</pre>
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            In our case, we want -x (all headers), -D (disassemble all), -S (display source code with assembly), -s (full contents of all sections), -g (debug info), and finally, -t (display contents of the symbol tables).  We also include the -Mintel option so that the object file's disassembly code is shown in Intel format.
+                        </p>
+
+                        <p>
+                            We will now disassemble this program on the 64-bit AMD platform and step through the assembly instructions.
+                        </p>
+
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                
+                </div> <!-- .current_project_2 -->
+            
+            </section> <!-- section -->
+            <!-- ************************************************************************************* Section End ************* -->
+            
+            
+            <!-- *********************************************************************************** Section Start ************ -->
+
+
+        </section>	<!-- .content -->
+    
+    <div> <!-- .wrapper -->
+
+  </body>
+
+</html>

@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-58919029-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<html>
+
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type">
+  <meta name="robots" content="follow" />
+  
+  <title>
+    MK Dynamics - Computer Security - Disassembling Binaries - Fortran - AMD 64-Bit Platform
+  </title>
+  
+  <link href="../../../../../css/styles.css" type = "text/css" rel = "stylesheet" />
+  
+  <style>
+    .content {
+	overflow: auto;
+	height: 80%; 
+	background: url("../../../../../images/saturn.jpg") no-repeat center center fixed;
+	background-size: cover;
+	background-position: center;
+	padding: 10px;
+	margin: 10px;
+	border: 5px solid black;
+      }
+      
+    h1, h2, h3, h4 {
+      color: white;
+      display: block;     
+    }
+    
+    .current_project_1 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1360px;
+      height		: 200px;
+      top		: 0px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_2 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1360px;
+      height		: 2600px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_3 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1360px;
+      height		: 2600px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_4 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1360px;
+      height		: 7800px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_5 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1360px;
+      height		: 1500px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_6 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1360px;
+      height		: 1500px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_7 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1360px;
+      height		: 1500px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_8 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1360px;
+      height		: 1500px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_9 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1360px;
+      height		: 1500px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_10 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1360px;
+      height		: 1500px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_11 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1360px;
+      height		: 1500px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    div .img {
+      margin		: 0px;
+      padding		: 10px;
+      height		: auto;
+      width		: auto;
+      float		: left;
+    }
+    
+    div .img img {
+      display		: inline;
+      margin		: 0px;
+      padding		: 0px;
+    }
+    
+    div .desc {
+      color		: white;
+      width		: 600px;
+      margin		: 5px;
+      padding		: 10px;
+    }
+  </style>
+</head>
+
+<body>
+    <div class="wrapper">
+    
+        <header>
+    
+            <hgroup>
+                <h1> 
+                    <big> <big> MK Dynamics </big> </big>
+                </h1>
+
+
+                <h2>
+                    Computer Security - Disassembling Binaries - Fortran - AMD 64-Bit Platform
+                </h2>
+            </hgroup>
+    
+
+            <nav>
+                <ul>
+                    <li> <a href="../../../../../index.php">Home</a> </li>
+                    <li> <a href="../disassembling_binaries_Fortran.html">Back</a> </li>
+                </ul>
+            </nav>
+    
+        </header>
+    
+        <section class="content">
+            
+            <!-- ************************************************************************************** First Section Start ************ -->
+            <section class="section">
+        
+                <div class="current_project_1">
+                    
+                    <hgroup>
+                        <h2>
+                            Introduction
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            In this section we will be disassembling simple binaries generated by the Fortran high-level language compiled for the 64-bit AMD platform.  We will disassemble the binaries using GDB+GEF as well Radare2.
+                        </p>
+                        <p>
+                            Project code for this section is contained in my <a href="https://github.com/markkhusid/Disassembling-Binaries/tree/master/Fortran/ARM_architecture/ARM32">github</a> repository.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+
+                </div> <!-- .current_project_1 -->
+        
+            </section> <!-- first_section -->
+            <!-- *********************************************************************************** Section End ************** -->
+            
+            <!-- *********************************************************************************** Section Start ************ -->
+            <section class="section">
+                
+                <div class="current_project_2">
+                
+                    <hgroup>
+                        <h2>
+                            The program <i>add_int.f08</i>
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            The screenshot below displays the contents of the program <i>add_int.f08</i>.  This is the same program that we have already used in the ARM64 section.  The program creates three integers: a, b, and c.  a is assigned the value of 1, b is assigned the value of 9, and c is assigned the result of the operation a + b.
+                        </p>
+                        
+                        <figure>
+                            <div class="img">
+                                <img 
+                                src="../../../images/Disassembling_binaries/Fortran/AMD64/add_int_f08.jpg"
+                                width="1250"
+                                height="900"
+                                title=""
+                                >
+                            </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                The program <i>add_int.f08</i>
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                        
+                        <p>
+                            The program is obviously very simple, with no inputs and outputs.  The idea is to generate the binary and look at the disassembly to learn about the workings of the 64-bit AMD processor platform, as well as the gfortran compiler.
+                        </p>
+                        
+                        <p>
+                            The chosen test system is a AMD 64 Bit micro instance on Amazon Web Services.  It fits very well for this application due to its speed, availability, ease of stand up and tear down, as well as ease of access from multiple remote systems via SSH.
+                        </p>
+                        
+                        <p>
+                            The program is compiled with:
+                            <blockquote>
+                                $ gfortran -ggdb3 add_int.f08 -o add_int_Fortran_AMD64_ggdb3
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            For general edification, we also have gfortran produce generic assembly with the -S option, an object file with the -o option and object dumps of the object and executable files.
+                        </p>
+                        
+                        <p>
+                            The generic assembly is generated by using the -S (assembly) option:
+                            <blockquote>
+                                $ gfortran -S -ggdb3 add_int.f08
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            The object file is generated by using the -c (compile) option:
+                            <blockquote>
+                                $ gfortran -c -ggdb3 add_int.s
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            The objdump files are generated by using the following command and options:
+                            <blockquote>
+                                $ objdump -x -D -S -s -g -t -Mintel add_int.o > objdump_of_dot_o.txt<br>
+                                $ objdump -x -D -S -s -g -t -Mintel add_int_Fortran_AMD64_ggdb3 > objdump_of_dot_exe.txt
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            A rundown of the objdump options is shown here:
+                            <blockquote>
+<pre>
+$objdump 
+Usage: objdump (option(s)) (file(s))
+Display information from object (file(s)).
+ At least one of the following switches must be given:
+  -a, --archive-headers    Display archive header information
+  -f, --file-headers       Display the contents of the overall file header
+  -p, --private-headers    Display object format specific file header contents
+  -P, --private=OPT,OPT... Display object format specific contents
+  -h, --[section-]headers  Display the contents of the section headers
+  -x, --all-headers        Display the contents of all headers
+  -d, --disassemble        Display assembler contents of executable sections
+  -D, --disassemble-all    Display assembler contents of all sections
+  -S, --source             Intermix source code with disassembly
+  -s, --full-contents      Display the full contents of all sections requested
+  -g, --debugging          Display debug information in object file
+  -e, --debugging-tags     Display debug information using ctags style
+  -G, --stabs              Display (in raw form) any STABS info in the file
+  -W[lLiaprmfFsoRtUuTgAckK] or
+  --dwarf[=rawline,=decodedline,=info,=abbrev,=pubnames,=aranges,=macro,=frames,
+          =frames-interp,=str,=loc,=Ranges,=pubtypes,
+          =gdb_index,=trace_info,=trace_abbrev,=trace_aranges,
+          =addr,=cu_index,=links,=follow-links]
+                           Display DWARF info in the file
+  -t, --syms               Display the contents of the symbol table(s)
+  -T, --dynamic-syms       Display the contents of the dynamic symbol table
+  -r, --reloc              Display the relocation entries in the file
+  -R, --dynamic-reloc      Display the dynamic relocation entries in the file
+  @<file>                  Read options from <file>
+  -v, --version            Display this program's version number
+  -i, --info               List object formats and architectures supported
+  -H, --help               Display this information
+</pre>
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            In our case, we want -x (all headers), -D (disassemble all), -S (display source code with assembly), -s (full contents of all sections), -g (debug info), and finally, -t (display contents of the symbol tables).  We also include the -Mintel option so that the object file's disassembly code is shown in Intel format.
+                        </p>
+
+                        <p>
+                            We will now disassemble this program on the 64-bit AMD platform and step through the assembly instructions.
+                        </p>
+
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                
+                </div> <!-- .current_project_2 -->
+            
+            </section> <!-- section -->
+            <!-- ************************************************************************************* Section End ************* -->
+            
+            
+            <!-- *********************************************************************************** Section Start ************ -->
+            <section class="section">
+                
+                <div class="current_project_3">
+                
+                    <hgroup>
+                        <h2>
+                            Disassembling <i>add_int_Fortran_AMD64_ggdb3</i> in GDB + GEF
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            The debug process is started by entering:
+                            <blockquote>
+                                $gdb add_int_Fortran_AMD64_ggdb3
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            We then want to disassemble main.  Looking at main's disassembly, we notice a call at main+49 to a function at address 0x000000000000073b called <i>add_int</i>.  We then do a disassembly on this function as well.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="../../../images/Disassembling_binaries/Fortran/AMD64/running_add_int_Fortran_AMD64_in_GEF_showing_main.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Disassembly of function <i>main</i>
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="../../../images/Disassembling_binaries/Fortran/AMD64/running_add_Fortran_aarch64_in_GEF_showing_add_int.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Disassembly of function <i>add</i>
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            Referring to the function main, we notice that the function prologue consists of first a section that sets up internal Fortran arguments.  This occupies main+0 until main+25, where a branch occurs to the function _gfortran_set_args.  Subsequently, further configuration occurs from main+32 until main+44, where a branch to the function _gfortran_set_options occurs.  Finally, once that is complete, a branch to the function <i>add_int</i> occurs.  After that branch is finished, a clean up of the stack and a return value of 0 is setup in main+54 until main+60.  At main+60, a return to main's calling function is executed.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                
+                </div> <!-- .current_project_2 -->
+            
+            </section> <!-- section -->
+            <!-- ************************************************************************************* Section End ************* -->
+        
+            <!-- ************************************************************************************* Section Start *********** -->
+            <section class="section">
+                
+                <div class="current_project_4">
+                
+                    <hgroup>
+                        <h2>
+                            Running <i>add_int_Fortran_aarch32_ggdb3</i> in GDB + GEF
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                    
+                        <p>
+                            When we look at the executable's objdump, we notice that there are two functions of interest, one is main, and the other is MAIN__.  The Fortran compiler sets up the program arguments and options in main, while the actual program is contained within MAIN__ (that is capital MAIN followed by two underscores).
+                        </p>
+                        
+                        <p>
+                            The following text from the executable's objdump illustrates this:
+                            <blockquote>
+<pre>
+00010560 (MAIN__):
+program add
+   10560:	e52db004 	push	{fp}		; (str fp, [sp, #-4]!)
+   10564:	e28db000 	add	fp, sp, #0
+   10568:	e24dd014 	sub	sp, sp, #20
+
+	implicit none
+
+	integer		:: a, b, c
+
+	a = 1
+   1056c:	e3a03001 	mov	r3, #1
+   10570:	e50b3008 	str	r3, [fp, #-8]
+	b = 9
+   10574:	e3a03009 	mov	r3, #9
+   10578:	e50b300c 	str	r3, [fp, #-12]
+
+	c = a + b
+   1057c:	e51b2008 	ldr	r2, [fp, #-8]
+   10580:	e51b300c 	ldr	r3, [fp, #-12]
+   10584:	e0823003 	add	r3, r2, r3
+   10588:	e50b3010 	str	r3, [fp, #-16]
+
+end program add
+   1058c:	e1a00000 	nop			; (mov r0, r0)
+   10590:	e28bd000 	add	sp, fp, #0
+   10594:	e49db004 	pop	{fp}		; (ldr fp, [sp], #4)
+   10598:	e12fff1e 	bx	lr
+
+0001059c (main):
+   1059c:	e92d4800 	push	{fp, lr}
+   105a0:	e28db004 	add	fp, sp, #4
+   105a4:	e24dd008 	sub	sp, sp, #8
+   105a8:	e50b0008 	str	r0, [fp, #-8]
+   105ac:	e50b100c 	str	r1, [fp, #-12]
+   105b0:	e51b100c 	ldr	r1, [fp, #-12]
+   105b4:	e51b0008 	ldr	r0, [fp, #-8]
+   105b8:	ebffff9b 	bl	1042c (_gfortran_set_args@plt)
+   105bc:	e59f1018 	ldr	r1, [pc, #24]	; 105dc (main+0x40)
+   105c0:	e3a00009 	mov	r0, #9
+   105c4:	ebffff95 	bl	10420 (_gfortran_set_options@plt)
+   105c8:	ebffffe4 	bl	10560 (MAIN__)
+   105cc:	e3a03000 	mov	r3, #0
+   105d0:	e1a00003 	mov	r0, r3
+   105d4:	e24bd004 	sub	sp, fp, #4
+   105d8:	e8bd8800 	pop	{fp, pc}
+   105dc:	00010650 	andeq	r0, r1, r0, asr r6
+
+
+</pre>
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            We therefore want to set a breakpoint at *MAIN__.  We use the * to get at MAIN__ + 0.
+                        </p>
+                        
+                        <p>
+                            <blockquote>
+<pre>
+gef➤  break *MAIN__
+Breakpoint 3 at 0xaaaaaaaaa7c4: file add.f08, line 1.
+</pre>
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            For easier viewing on this website, we will display the output of GEF using two screenshots.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+
+                    <figure>
+                            <div class="img">
+                                <img 
+                                src="../../../images/Disassembling_binaries/Fortran/ARM32/running_add_int_Fortran_ARM32_in_GEF_showing_MAIN__1.jpg"
+                                width="1250"
+                                height="900"
+                                title=""
+                                >
+                            </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                MAIN__ in GDB+GEF Part 1
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                    <figure>
+                            <div class="img">
+                                <img 
+                                src="../../../images/Disassembling_binaries/Fortran/ARM32/running_add_int_Fortran_ARM32_in_GEF_showing_MAIN__2.jpg"
+                                width="1250"
+                                height="900"
+                                title=""
+                                >
+                            </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                MAIN__ in GDB+GEF Part 2
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                     <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            Rather than taking screenshots of the state of GEF after exectuting every instruction, we will place comments on the assembly instructions in MAIN__ from the executable's objdump output.
+                        </p>
+                
+                        <p>
+                            <blockquote>
+<pre>
+00010560 (MAIN__):
+program add
+   10560:	e52db004 	push	{fp}		; (str fp, [sp, #-4]!)
+    // Pushes the frame pointer (R11) onto the stack.  This can also be understood as fetch SP-4, store into FP (R11) and then 
+    // perform SP-4.  The ! performs [sp, #-4] in the pre-indexing mode.
+   
+   10564:	e28db000 	add	fp, sp, #0
+    // Adds a zero to SP (R13) and stores the results into FP (R11)
+   
+    // These two instructions can be understood as saving the old frame pointer onto the stack and copying the stack pointer (R13)
+    // into the frame pointer (R11).  This sets up a stack from for the function MAIN__, 
+    // and local variables can now be accessed via the frame pointer.
+   
+   10568:	e24dd014 	sub	sp, sp, #20
+    // Subtracts 20 bytes from the stack pointer.  Each variable takes up 4 bytes, and therefore, 12 bytes for the variables a, b, and c.  
+    // The state of the stack before the first instruction in MAIN__ is executed is:
+    
+────────────────────────────────────────────────────────────────────────────────────────────────────── registers ────
+$r0  : 0x0       
+$r1  : 0x7effeeb8  →  0x00000000
+$r2  : 0x0       
+$r3  : 0x0       
+$r4  : 0x000105e0  →  (__libc_csu_init+0) push {r4,  r5,  r6,  r7,  r8,  r9,  r10,  lr}
+$r5  : 0x0       
+$r6  : 0x00010438  →  (_start+0) mov r11,  #0
+$r7  : 0x0       
+$r8  : 0x0       
+$r9  : 0x0       
+$r10 : 0x76fff000  →  0x00030f44  →  0x00000000
+$r11 : 0x7effeffc  →  0x76d15678  →  (__libc_start_main+276) bl 0x76d2ce1c (__GI_exit)
+$r12 : 0x20      
+$sp  : 0x7effeff0  →  0x7efff154  →  0x7efff2d4  →  "/home/pi/Engineering/GITHUB/Disassembling-Binaries[...]"
+$lr  : 0x000105cc  →  (main+48) mov r3,  #0
+$pc  : 0x00010560  →  (MAIN__+0) push {r11}		; (str r11,  [sp,  #-4]!)
+$cpsr: [thumb fast interrupt overflow CARRY ZERO negative]
+───────────────────────────────────────────────────────────────────────────────────────────────────── stack ────
+0x7effeff0│+0x0000: 0x7efff154  →  0x7efff2d4  →  "/home/pi/Engineering/GITHUB/Disassembling-Binaries[...]"	 ← $sp
+0x7effeff4│+0x0004: 0x00000001
+0x7effeff8│+0x0008: 0x00000000
+0x7effeffc│+0x000c: 0x76d15678  →  (__libc_start_main+276) bl 0x76d2ce1c (__GI_exit)	 ← $r11
+0x7efff000│+0x0010: 0x76e3a000  →  0x0013af20
+0x7efff004│+0x0014: 0x7efff154  →  0x7efff2d4  →  "/home/pi/Engineering/GITHUB/Disassembling-Binaries[...]"
+0x7efff008│+0x0018: 0x00000001
+0x7efff00c│+0x001c: 0x0001059c  →  (main+0) push {r11,  lr}
+────────────────────────────────────────────────────────────────────────────────────────────── code:arm:ARM ────
+      0x10554 (frame_dummy+44) b      0x104c8 (register_tm_clones)
+      0x10558 (frame_dummy+48) strdeq r0,  [r2],  -r12
+      0x1055c (frame_dummy+52) andeq  r0,  r0,  r0
+ →    0x10560 (MAIN__+0)       push   {r11}		; (str r11,  [sp,  #-4]!)
+      0x10564 (MAIN__+4)       add    r11,  sp,  #0
+      0x10568 (MAIN__+8)       sub    sp,  sp,  #20
+      0x1056c (MAIN__+12)      mov    r3,  #1
+      0x10570 (MAIN__+16)      str    r3,  [r11,  #-8]
+      0x10574 (MAIN__+20)      mov    r3,  #9
+
+    
+    // R11 is dereferenced and the contents at memory location 0x76d15678 is pushed onto the stack.
+    // The state of the stack right before execution of the instruction sub   sp, sp, #20 is:
+    
+────────────────────────────────────────────────────────────────────────────────────────────────── registers ────
+$r0  : 0x0       
+$r1  : 0x7effeeb8  →  0x00000000
+$r2  : 0x0       
+$r3  : 0x0       
+$r4  : 0x000105e0  →  (__libc_csu_init+0) push {r4,  r5,  r6,  r7,  r8,  r9,  r10,  lr}
+$r5  : 0x0       
+$r6  : 0x00010438  →  (_start+0) mov r11,  #0
+$r7  : 0x0       
+$r8  : 0x0       
+$r9  : 0x0       
+$r10 : 0x76fff000  →  0x00030f44  →  0x00000000
+$r11 : 0x7effefec  →  0x7effeffc  →  0x76d15678  →  (__libc_start_main+276) bl 0x76d2ce1c (__GI_exit)
+$r12 : 0x20      
+$sp  : 0x7effefec  →  0x7effeffc  →  0x76d15678  →  (__libc_start_main+276) bl 0x76d2ce1c (__GI_exit)
+$lr  : 0x000105cc  →  (main+48) mov r3,  #0
+$pc  : 0x00010568  →  (MAIN__+8) sub sp,  sp,  #20
+$cpsr: [thumb fast interrupt overflow CARRY ZERO negative]
+─────────────────────────────────────────────────────────────────────────────────────────────────────── stack ────
+0x7effefec│+0x0000: 0x7effeffc  →  0x76d15678  →  (__libc_start_main+276) bl 0x76d2ce1c (__GI_exit)	 ← $r11, $sp
+0x7effeff0│+0x0004: 0x7efff154  →  0x7efff2d4  →  "/home/pi/Engineering/GITHUB/Disassembling-Binaries[...]"
+0x7effeff4│+0x0008: 0x00000001
+0x7effeff8│+0x000c: 0x00000000
+0x7effeffc│+0x0010: 0x76d15678  →  (__libc_start_main+276) bl 0x76d2ce1c (__GI_exit)
+0x7efff000│+0x0014: 0x76e3a000  →  0x0013af20
+0x7efff004│+0x0018: 0x7efff154  →  0x7efff2d4  →  "/home/pi/Engineering/GITHUB/Disassembling-Binaries[...]"
+0x7efff008│+0x001c: 0x00000001
+───────────────────────────────────────────────────────────────────────────────────────────────── code:arm:ARM ────
+      0x1055c (frame_dummy+52) andeq  r0,  r0,  r0
+      0x10560 (MAIN__+0)       push   {r11}		; (str r11,  [sp,  #-4]!)
+      0x10564 (MAIN__+4)       add    r11,  sp,  #0
+ →    0x10568 (MAIN__+8)       sub    sp,  sp,  #20
+      0x1056c (MAIN__+12)      mov    r3,  #1
+      0x10570 (MAIN__+16)      str    r3,  [r11,  #-8]
+      0x10574 (MAIN__+20)      mov    r3,  #9
+      0x10578 (MAIN__+24)      str    r3,  [r11,  #-12]
+      0x1057c (MAIN__+28)      ldr    r2,  [r11,  #-8]
+
+    // We can see that SP and FP (R12) point to the same stack address.  Now we look at the state of the stack after the 
+    // the instruction sub   sp, sp, #20 is executed:
+    
+───────────────────────────────────────────────────────────────────────────────────────────────────── registers ────
+$r0  : 0x0       
+$r1  : 0x7effeeb8  →  0x00000000
+$r2  : 0x0       
+$r3  : 0x0       
+$r4  : 0x000105e0  →  (__libc_csu_init+0) push {r4,  r5,  r6,  r7,  r8,  r9,  r10,  lr}
+$r5  : 0x0       
+$r6  : 0x00010438  →  (_start+0) mov r11,  #0
+$r7  : 0x0       
+$r8  : 0x0       
+$r9  : 0x0       
+$r10 : 0x76fff000  →  0x00030f44  →  0x00000000
+$r11 : 0x7effefec  →  0x7effeffc  →  0x76d15678  →  (__libc_start_main+276) bl 0x76d2ce1c (__GI_exit)
+$r12 : 0x20      
+$sp  : 0x7effefd8  →  0x76ffecf0  →  0x00000000
+$lr  : 0x000105cc  →  (main+48) mov r3,  #0
+$pc  : 0x0001056c  →  (MAIN__+12) mov r3,  #1
+$cpsr: [thumb fast interrupt overflow CARRY ZERO negative]
+─────────────────────────────────────────────────────────────────────────────────────────────────────────── stack ────
+0x7effefd8│+0x0000: 0x76ffecf0  →  0x00000000	 ← $sp
+0x7effefdc│+0x0004: 0x00000018
+0x7effefe0│+0x0008: 0x00000000
+0x7effefe4│+0x000c: 0x00000000
+0x7effefe8│+0x0010: 0x000105e0  →  (__libc_csu_init+0) push {r4,  r5,  r6,  r7,  r8,  r9,  r10,  lr}
+0x7effefec│+0x0014: 0x7effeffc  →  0x76d15678  →  (__libc_start_main+276) bl 0x76d2ce1c (__GI_exit)	 ← $r11
+0x7effeff0│+0x0018: 0x7efff154  →  0x7efff2d4  →  "/home/pi/Engineering/GITHUB/Disassembling-Binaries[...]"
+0x7effeff4│+0x001c: 0x00000001
+───────────────────────────────────────────────────────────────────────────────────────────────────── code:arm:ARM ────
+      0x10560 (MAIN__+0)       push   {r11}		; (str r11,  [sp,  #-4]!)
+      0x10564 (MAIN__+4)       add    r11,  sp,  #0
+      0x10568 (MAIN__+8)       sub    sp,  sp,  #20
+ →    0x1056c (MAIN__+12)      mov    r3,  #1
+      0x10570 (MAIN__+16)      str    r3,  [r11,  #-8]
+      0x10574 (MAIN__+20)      mov    r3,  #9
+      0x10578 (MAIN__+24)      str    r3,  [r11,  #-12]
+      0x1057c (MAIN__+28)      ldr    r2,  [r11,  #-8]
+      0x10580 (MAIN__+32)      ldr    r3,  [r11,  #-12]
+
+    // After the instruction sub    sp, sp, #20 was executed, the stack pointer moved down by 20 bytes in memory.  
+    // R11 was pushed onto the stack and resides at SP+20 (0x14 hex).  At SP+16 (0x10 hex) we have main's  
+    // stack frame.  This is why the compiler allocted 20 bytes of memory.  From SP+0 to SP+12 are allocated 
+    // for the three local variables within MAIN__.  These variables are a, b, and c.
+
+    
+    implicit none
+
+	integer		:: a, b, c
+
+	a = 1
+   1056c:	e3a03001 	mov	r3, #1
+   10570:	e50b3008 	str	r3, [fp, #-8]
+    // Move a 1 into R3.  Store the contents of R3 into FP-8 (R11-8).  Since local variables are referenced relative
+    // to the frame pointer, and since the frame pointer points to the address 0x7effefec, FP-8 equals 0x7effefe4
+    
+	b = 9
+   10574:	e3a03009 	mov	r3, #9
+   10578:	e50b300c 	str	r3, [fp, #-12]
+    // Move a 9 into R3.  Store the contents of R2 into FP-12 (R11-12).  Since local variables are referenced relative
+    // to the frame pointer, and since the frame pointer points to the address 0x7effefec, FP-12 equals 0x7effefe0
+    
+	c = a + b
+   1057c:	e51b2008 	ldr	r2, [fp, #-8]
+   10580:	e51b300c 	ldr	r3, [fp, #-12]
+   10584:	e0823003 	add	r3, r2, r3
+   10588:	e50b3010 	str	r3, [fp, #-16]
+    // Load the contents of FP-8 (local variable a) into R2.  Load the contents of FP-12 (local variable b) into R3.
+    // Add R3 to R2 and store the result into R3.  Store the contents of R3 (the sum result) into FP-16.
+    // Since local variables are referenced relative to the frame pointer, and since the frame pointer points to the 
+    // address 0x7effefec, FP-16 equals 0x7effefdc.
+   
+end program add
+   1058c:	e1a00000 	nop			; (mov r0, r0)
+   10590:	e28bd000 	add	sp, fp, #0
+   10594:	e49db004 	pop	{fp}		; (ldr fp, [sp], #4)
+   10598:	e12fff1e 	bx	lr
+    // Perform a No Operation (NOP).  It actually copies R0 into R0.  Add 0 to the FP and store it into SP.
+    // This effectively copies the FP into SP, restoring the calling function's (main's) stack frame.
+    // Pop the saved frame pointer off of the stack and branch back to the address stored in the link register,
+    // which is the return address back to the calling function.  In this case the calling function is main.
+    
+   
+   
+</pre>
+                            </blockquote>
+                            
+                        </p>
+                        
+                        <p>
+                            When stepping through the program, we can see the variables stored on the stack.  For example, in the text below, we can see at SP+4 we have 0xa (10 in decimal), which is the result of 1 + 9, or a + b.  Variable a is stored at SP + 12 and vriable b is stored at SP + 8.
+                        </p>
+                        
+                        <p>
+                            <blockquote>
+                            
+<pre>
+─────────────────────────────────────────────────────────────────────────────────────────── registers ────
+$r0  : 0x0       
+$r1  : 0x7effeeb8  →  0x00000000
+$r2  : 0x1       
+$r3  : 0xa       
+$r4  : 0x000105e0  →  (__libc_csu_init+0) push {r4,  r5,  r6,  r7,  r8,  r9,  r10,  lr}
+$r5  : 0x0       
+$r6  : 0x00010438  →  (_start+0) mov r11,  #0
+$r7  : 0x0       
+$r8  : 0x0       
+$r9  : 0x0       
+$r10 : 0x76fff000  →  0x00030f44  →  0x00000000
+$r11 : 0x7effefec  →  0x7effeffc  →  0x76d15678  →  (__libc_start_main+276) bl 0x76d2ce1c (__GI_exit)
+$r12 : 0x20      
+$sp  : 0x7effefd8  →  0x76ffecf0  →  0x00000000
+$lr  : 0x000105cc  →  (main+48) mov r3,  #0
+$pc  : 0x0001058c  →  (MAIN__+44) nop ; (mov r0,  r0)
+$cpsr: [thumb fast interrupt overflow CARRY ZERO negative]
+─────────────────────────────────────────────────────────────────────────────────────────────── stack ────
+0x7effefd8│+0x0000: 0x76ffecf0  →  0x00000000	 ← $sp
+0x7effefdc│+0x0004: 0x0000000a
+0x7effefe0│+0x0008: 0x00000009
+0x7effefe4│+0x000c: 0x00000001
+0x7effefe8│+0x0010: 0x000105e0  →  (__libc_csu_init+0) push {r4,  r5,  r6,  r7,  r8,  r9,  r10,  lr}
+0x7effefec│+0x0014: 0x7effeffc  →  0x76d15678  →  (__libc_start_main+276) bl 0x76d2ce1c (__GI_exit)	 ← $r11
+0x7effeff0│+0x0018: 0x7efff154  →  0x7efff2d4  →  "/home/pi/Engineering/GITHUB/Disassembling-Binaries[...]"
+0x7effeff4│+0x001c: 0x00000001
+───────────────────────────────────────────────────────────────────────────────────────── code:arm:ARM ────
+      0x10580 (MAIN__+32)      ldr    r3,  [r11,  #-12]
+      0x10584 (MAIN__+36)      add    r3,  r2,  r3
+      0x10588 (MAIN__+40)      str    r3,  [r11,  #-16]
+ →    0x1058c (MAIN__+44)      nop    ; (mov r0,  r0)
+      0x10590 (MAIN__+48)      add    sp,  r11,  #0
+      0x10594 (MAIN__+52)      pop    {r11}		; (ldr r11,  [sp],  #4)
+      0x10598 (MAIN__+56)      bx     lr
+      0x1059c (main+0)         push   {r11,  lr}
+      0x105a0 (main+4)         add    r11,  sp,  #4
+
+   
+</pre>
+                            </blockquote>
+                            
+                        </p>
+
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                </div> <!-- .current_project_4 -->
+
+            </section> <!-- section -->
+            <!-- ************************************************************************************* Section End ************ -->
+
+        </section>	<!-- .content -->
+    
+    <div> <!-- .wrapper -->
+
+  </body>
+
+</html>

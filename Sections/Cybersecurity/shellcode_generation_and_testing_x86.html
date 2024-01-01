@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-58919029-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<html>
+
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type">
+  <meta name="robots" content="follow" />
+  
+  <title>
+    MK Dynamics - Computer Security - Shellcode Generation and Testing - x86
+  </title>
+  
+  <link href="../../css/styles.css" type = "text/css" rel = "stylesheet" />
+  
+  <style>
+    .content {
+	overflow: auto;
+	height: 80%; 
+	background: url("../../images/saturn.jpg") no-repeat center center fixed;
+	background-size: cover;
+	background-position: center;
+	padding: 10px;
+	margin: 10px;
+	border: 5px solid black;
+      }
+      
+    h1, h2, h3, h4 {
+      color: white;
+      display: block;     
+    }
+    
+    .current_project_1 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 900px;
+      height		: 200px;
+      top		: 0px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_2 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 900px;
+      height		: 1850px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_3 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 900px;
+      height		: 3100px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_4 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 900px;
+      height		: 2900px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_5 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 900px;
+      height		: 3800px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_6 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 900px;
+      height		: 3300px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    div .img {
+      margin		: 0px;
+      padding		: 10px;
+      height		: auto;
+      width		: auto;
+      float		: left;
+    }
+    
+    div .img img {
+      display		: inline;
+      margin		: 0px;
+      padding		: 0px;
+    }
+    
+    div .desc {
+      color		: white;
+      width		: 600px;
+      margin		: 5px;
+      padding		: 10px;
+    }
+  </style>
+</head>
+
+<body>
+    <div class="wrapper">
+    
+        <header>
+    
+            <hgroup>
+                <h1> 
+                    <big> <big> MK Dynamics </big> </big>
+                </h1>
+
+
+                <h2>
+                    Computer Security - Shellcode Generation and Testing - x86
+                </h2>
+            </hgroup>
+    
+
+            <nav>
+                <ul>
+                    <li> <a href="../../index.php">Home</a> </li>
+                    <li> <a href="shellcode_generation_and_testing.html">Back</a> </li>
+                </ul>
+            </nav>
+    
+        </header>
+    
+        <section class="content">
+            
+            <!-- ************************************************************************************** First Section Start ************ -->
+            <section class="first_section">
+        
+                <div class="current_project_1">
+                    
+                    <hgroup>
+                        <h3>
+                            Introduction
+                        </h3>
+                    </hgroup>
+                    
+
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            This section will borrow heavily from Gray Hat Hacking, The Ethical Hacker's Handbook, by Regaldo, et. al, McGraw Hill, 4th. Edition.
+                        </p>
+                        
+                        <p>
+                            In this section, we will discuss developing and testing shellcode, as well as analyzing its execution with Gnu DeBugger (GDB).
+                        </p>
+                    
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+
+                </div> <!-- .current_project_1 -->
+        
+            </section> <!-- first_section -->
+            <!-- ************************************************************************************** First Section End ************ -->
+            
+            <!-- *********************************************************************************** Second Section Start ************ -->
+            <section class="second_section">
+                
+                <div class="current_project_2">
+                
+                    <hgroup>
+                        <h3>
+                            Shellcode Generation
+                        </h3>
+                    </hgroup>
+                    
+                    <hgroup>
+                        <h4>
+                            Developing Basic Shellcode in Assembly
+                        </h4>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                    
+                        <p>
+                            The following assembly instructions use kernel system calls to invoke the change the setreuid signature level to the highest privilege level possible, which is that of root, or user (0).  This is accomplished by invoking the setreuid(0,0) system call.  After escalating the privilege level, assembly instructions then invoke the execve system call to spawn a shell, by executing the command /bin/sh at the root priviliege level.
+                        </p>
+                        
+                        <p>
+                            System calls in Linux are invoked by first setting the appropriate values into appropriate CPU registers, and then sending a call to the kernel by executing the int 0x80 instruction.  In the case of setreuid, the least significant bits of EAX, which are alternatively called AL, are set to the hex value 0x46.  To ensure that the most significant bits of EAX do not have any information in them that will invalidate the system call, the entire EAX register is first cleared by xor'ing EAX with itself.
+                        </p>
+                        
+                        <p>
+                            Subesquently, the regsters EBX and ECX contain the real user ID (ruid), and the effective user id (euid), respectfully.  Since we want ruid and euid to both be 0, or the privilege level of root, we clear them both by xor'ing them with themselves.  It is important to use the xor reg, reg instruction to clear, rather than mov 0, reg, because we want to avoid any nulls in the shellcode.  Any nulls in the shellcode will prevent vulnerable string manipulation C commands from working with the entire shellcode, since a null indicates the end of a string.
+                        </p>
+                        
+                        <p>
+                            A similar process is followed to spawn a shell.  The system call that executes commands is execve.  In order to use execve, the following format is required: evecve("/bin/sh", ["/bin/sh", NULL], NULL).  The first argument is the command to be executed, the second argument is a pointer to a string array (i.e. the name of the string itself, which is in essence an address), and lastly, a pointer to the environment string to accompany the command.  For our purposes an environment is not needed; therefore, we simply set this last argument to null.
+                        </p>
+                        
+                        <p>
+                            To set up the execve invocation properly, we need AL to contain the system call number for execve, which is 0xb.  EBX needs to contain the memory address of /bin/sh.  ECX needs to contain a pointer to the argument array (argv[]).  EDX needs to contain a pointer to the environment array, which on our case can be a NULL, since we do not need any environment for the spawned shell.
+                        </p>
+                        
+                        <p>
+                            Obviously, there is a bit of complexity here because we are dealing with strings and their memory addresses, but we also want out shellcode to be compact.  We can make use of the stack and the fact that it is simply a data structure in memory.  First, we build up the argvp[] array.  Since the last argument is a null, we clear eax to produce a NULL and push it onto the stack.  The we then push the command string /bin//sh onto the stack in little endian format.  The extra / in the command is byte padding to line up the command in memory properly, and does not change the command.  After pushing the strings onto the stack, the stack pointer, ESP, contains the address of what is effectively the command string, which is what we require in EBX.  Therefore, we copy the stack pointer contents into EBX.  
+                        </p>
+                        
+                        <p>
+                            Now we work on a pointer to argv [].  argv[] is an array of strings, where the first string is the command /bin//sh, and the second string is a NULL.  The strings are memory addresses.  If we can get the address of the command, and the address of the NULL, we effectively have argv[].  Since the command is already on the stack and stored in EBX, to get the NULL we first push the cleared EAX and then push EBX.  The stack pointer ESP now contains the address of argv[].  We load this address into ECX as required.  the environment string is NULL, which we can simply obtain by clearing EDX.  Finally, the system call number 0xb is loaded into AL and the kernel is called with the int 0x80 instruction.  Follow the comments in the code for a instruction by instruction explanation.
+                        </p>
+                            
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <iframe
+                        src="code/sc2.asm.html" 
+                        height="450" 
+                        width="800">
+                    </iframe>
+                    
+                    <div class="desc">
+                            Listing of the shellcode assembly file, named sc2.asm
+                    </div> <!-- .desc -->
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            <a href="code/sc2.asm">Click here to download sc2.asm</a>
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                
+                </div> <!-- .current_project_2 -->
+            
+            </section> <!-- second_section -->
+            <!-- ************************************************************************************* Second Section End ************ -->
+        
+            <!-- ************************************************************************************* Third Section Start *********** -->
+            <section class="third_section">
+        
+                <div class="current_project_3">
+            
+                    <hgroup>
+                        <h3>
+                            Assembling, Executing and Testing the Shellcode
+                        </h3>
+                        
+                        <h4>
+                            Assembling and Linking sc2.asm and Viewing Hex Opcodes
+                        </h4>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            sc2.asm is assembled with NASM.  The format of the object file is 32 bit Executable and Linkable Format (ELF).  The contents of the produced object file are then viewed with objdump -D.  The object file is then linked to produce an executable.
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="images/Shellcode_generation/assembling_of_sc2.jpg"
+                            width="800"
+                            height="650"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            sc2.asm is assembled and linked.  The hex opcodes are visible via an objdump.
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            <a href="code/objdump_of_dot_o.txt">Click here to download objdump of sc2.o</a>
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            The object file's contents are saved into a text file for future viewing.  Notice the produced hex opcodes in the left columns.  These opcodes are what we are really after, as they need to be isolated and saved into a format that can be inserted into a C program for testing.
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <hgroup>
+                        <h4>
+                           Running the Executable
+                        </h4>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            Once we have the executable, we can run it to see that it works correctly.  Our main goal is to obtain a shell with root permissions.  If the executable has permissions of a normal user, then the kernel will not allow the privilege escalation.  At this stage, we want to see that the shellcode indeed drops a root shell upon execution.  For this to happen, the owner of the executable needs to be root, and it needs to have sudo capabiility, to allow a regular user to escalate to root privileges.
+                        </p>
+                        
+                        <p>
+                            To make this happen, we change the owner of the executable to root, and give it sudo user permissions (SUID).  We then run it as shown below:
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="images/Shellcode_generation/running_sc2_to_get_root_shell.jpg"
+                            width="800"
+                            height="600"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            Root shell obtained by running sc2
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                           We can see that upon execution, we obtain a root shell.  Executing the command whoami returns the result root.  What is important to note is that a regular user was able to execute a program that gave the user a root shell.  This is because the shellcode changes the users real and effective UIDs to that of root, and then spawns a shell.
+                        </p>
+                        <p>
+                            What we will do with this shellcode is to eventually inject it into a vulerable program to obtain a root shell.  Vulnerable programs can be affected by an exploit, which we will develop in further sections.
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <hgroup>
+                        <h4>
+                           Viewing Hex Opcodes of ELF Executable
+                        </h4>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            Once we have the executable, we can then again use objdump -d to view the hex opcodes.
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="images/Shellcode_generation/assembling_of_sc2_2.jpg"
+                            width="800"
+                            height="700"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            The contents of the executable is shown via an objdump.
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            Since we are really after the hex opcodes, we need a method of extracting them from the executable.  This is where the objcopy utility comes in, and is discussed in the next section.
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                </div> <!-- .current_project_3 -->
+
+            </section> <!-- third_section -->
+            <!-- ************************************************************************************* Third Section End *********** -->
+            
+            <!-- ************************************************************************************* Fourth Section Start ******** -->
+            <section class="fourth_section">
+            
+                <div class="current_project_4">
+                    <hgroup>
+                        <h3>
+                            Extracting the Hex Opcodes from the Executable
+                        </h3>
+                        
+                        <h4>
+                            Using the objcopy Utility to Obtain the Hex Opcodes
+                        </h4>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            The GCC toolchain contains a utility called objcopy that can copy the hex opcodes from an executable.  The format of invoking the utility is:<br>
+                            objcopy -O binary sc2 sc2.bin<br>
+                            We then look at the binary file with the more utility.  It is as you can expect, garbled characters, because they are not displayable ASCII characters, but rather binary values.  The binary values correspond to the hex opcodes described earlier.
+                        </p>
+                        
+                        <p>
+                            There is another utility called hexdump, which dumps the binary values into their hexadecimal representations onto the screen as displayable values.  The format of invoking the hexdump utility is as follows:<br>
+                            hexdump -v -e '"\\""x" 1/1 "%02x" ""' execve3.bin<br>
+                            Notice that the formatting needs to be supplied by the user.
+                        </p>
+                        
+                        <p>
+                            Now we can finally see the hex opcodes, but they are still not usable in the sense that they are not easily inserted into a C program to test the shellcode.  For this reason, I wrote a Python script that parses the binary file and prints out the hex opcodes in a format the is easily inserted into a C test program.
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+
+                    <figure>
+                        <div class="img">
+                            <img 
+                                src="images/Shellcode_generation/objcopy_of_sc2.jpg"
+                                width="800"
+                                height="700"
+                                title=""
+                            >
+                        </div> <!-- .img -->
+                        
+                        <div class="desc">
+                            Extraction of Opcodes from sc2.bin and Displaying them in Hex
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                    <hgroup>
+                        <h4>
+                            Python Utility to Obtain the Hex Opcodes and Format to be C Program Ready
+                        </h4>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            The following Python script was written to parse the binary file and print out the hex opcodes, 10 to a line, with the appropriate quotation marks, so that they can be easily inserted into a C test program.
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <iframe
+                        src="code/hex_encode_w_formatting.py.html" 
+                        height="450" 
+                        width="800">
+                    </iframe>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            The heart of the Python script is this construction:<br>
+                            print ("\\x" + "".join("{:02x}".format(byte)), end="")<br>
+                            The \ is escaped to print out a slash followed by an x, which signifies a hex value to the C compiler.  The join function separates the hex values into pieces of 2 hex numbers, for a total of one bytes.  So each value represents a single byte, which is what we are after.  The format function formats the binary value on a per byte basis.
+                        </p>
+                        
+                        <p>
+                            A counter is set up to count to 10, and then a new line is created.  Quotation marks are inserted before and after the hex opcodes for easy insertion into a C test program.  Running the Python script against sc2.bin produces the following output:
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <hgroup>
+                        <h4>
+                            Running the Hex Encode with Formatting Python Script on sc2.bin
+                        </h4>
+                    </hgroup>
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                                src="images/Shellcode_generation/hex_extract_python_script.jpg"
+                                width="800"
+                                height="350"
+                                title=""
+                            >
+                        </div> <!-- .img -->
+                        
+                        <div class="desc">
+                            Output of Hex Encode with Formatting Python Script on sc2.bin
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            As can be seen from the Python script output, the opcodes are formatted, 10 to a line, with quotation markes added.  These quotation marks are needed because the opcodes will actually be part of string within the C test program.  This is also why it is important that the shellcode does not contain any nulls, as this will prematurely terminate the shellcode.
+                        </p>
+                        
+                        <p>
+                            In the next section, we will use the formatted, extracted opcodes within a C test program to verify that we indeed get a root shell upon execution.
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                </div> <!-- .current_project_4 -->
+                
+            </section> <!-- fourth_section -->
+            <!-- ************************************************************************************* Fourth Section End ******** -->
+            
+            <!-- ************************************************************************************* Fifth Section Start ******* -->
+            <section class="fifth_section">
+        
+                <div class="current_project_5">
+                    
+                    <hgroup>
+                        <h3>
+                            Inserting Extracted Hex Opcodes into C Test Program and Compiling C Test Program
+                        </h3>
+                        
+                        <h4>
+                            C Test Program for Shellcode
+                        </h4>
+                    </hgroup>
+                    
+
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            Now that we have the extracted hex opcodes with proper formatting that includes quotation marks and 10 opcodes per line, we can insert these opcodes into a C test program.  It is important to not forget the trailing semicolon to terminate the string that is composed of the hex opcodes.  The C test program is shown below:
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                        
+                        <iframe
+                            src="code/shellcode2.c.html" 
+                            height="275" 
+                            width="800">
+                        </iframe>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            Referring to the C test program, we can see that a string called shellcode is setup.  It is assigned the hex opcodes we obtained earlier.  I have seperated out the opcodes that pertain to the setreuid as well as the opcodes that pertain to spawing a shell. 
+                        </p>
+                        
+                        <p>
+                            In the main function, we set up a function pointer to a void.  This pointer will then be cast into the type we need, which is a pointer to a string.  The pointer is assigned the address of shellcode, which is recast into a void pointer.  Finally, the function is called, which begins executing at the address of the pointer, in other words, it will start to execute our shellcode.
+                        </p>
+                        
+                        <p>
+                            To complile the C test program, I like to go through the extra steps of producing allot of debugging information, the preprocessed file, static compilation, generating the generic assembly code, compiling the generic assembly code into an object file, and finally linking the object file with gcc to produce an executable.  All compilation will be done in 32 bit mode, and objdumps of both the object file and executable files will be produced and saved.
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <hgroup>
+                        <h4>
+                            Compiling shellcode.c Into 32 Bit Mode, Statically, with Debugging Information, and Preprocessor Additions
+                        </h4>
+                    </hgroup>
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                                src="images/Shellcode_generation/shellcode_processed_dot_c.jpg"
+                                width="800"
+                                height="350"
+                                title=""
+                            >
+                        </div> <!-- .img -->
+                        
+                        <div class="desc">
+                            shellcode.c is compiled with preprocessor additions.  Only the last 15 lines are shown for brevity.
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            I then generate a generic assembly code file of shellcode.c, mainly out of curiosity.  In order to make a readable file for this example, I use shellcode.c as input, and do not include debugging information.  I will then redo this step, but use processed.c as input and include the debug information.  I will not show the results of the second step, as it is very verbose and little can be gleaned from it.
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <hgroup>
+                        <h4>
+                            Compiling shellcode.c Into 32 Bit Mode Generic Assembly Instructions, with No Debugging Information for Clarity
+                        </h4>
+                    </hgroup>
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                                src="images/Shellcode_generation/generic_assembly_of_shellcode_c.jpg"
+                                width="800"
+                                height="700"
+                                title=""
+                            >
+                        </div> <!-- .img -->
+                        
+                        <div class="desc">
+                            shellcode.c is compiled into generic assembly instructions
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            We can see from the generic assemply above that there is a function prefix to set up the variables on the stack, and to load the address of the shellcode into EAX.  The shellcode is then called by the instruction:<br><br>
+                            call  *%eax<br><br>
+                            Finally, there is the function suffix to which ends in the ret instruction to return control back to the shell.<br>
+                            It is now time to generate the object file.
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+
+                    <figure>
+                        <div class="img">
+                            <img 
+                                src="images/Shellcode_generation/objdump_of_shellcode2_dot_o.jpg"
+                                width="800"
+                                height="500"
+                                title=""
+                            >
+                        </div> <!-- .img -->
+                        
+                        <div class="desc">
+                            Objdump of shellcode2.o
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            As before, we see the function prefix and suffix, as well as the call to *EAX, which is the address of our shellcode.  It is now time to produce an executable, and move on to using the Gnu Debugger (GDB) to step through the assembly instructions, as well as the shellcode.
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                                src="images/Shellcode_generation/compiling_shellcode2_dot_o_into_executable.jpg"
+                                width="800"
+                                height="500"
+                                title=""
+                            >
+                        </div> <!-- .img -->
+                        
+                        <div class="desc">
+                            Compiling shellcode2.o into and executable and saving objdump into a text file
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                    
+                </div> <!-- .current_project_5 -->
+        
+            </section> <!-- fifth_section -->
+            <!-- ************************************************************************************** Fifth Section End ************ -->
+        
+
+            <!-- ************************************************************************************** Sixth Section Start ********** -->
+            <section class="sixth_section">
+        
+                <div class="current_project_6">
+                    
+                    <hgroup>
+                        <h3>
+                            Running, Recompiling and Rerunning C Test Program
+                        </h3>
+                        
+                        <h4>
+                            Running C Test Program
+                        </h4>
+                    </hgroup>
+                    
+
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            Now that we have compiled the C test program, we are ready to run it.  However, as soon as we run it, we get a segmentation fault.  This is because we have instructed the CPU to run code that is stored in the data section of the executable.  Recall that we set up a function pointer, and pointed the address of the function pointer to the address of the shellcode.  When the function is called, the instruction pointer is pointed to the shellcode, which is actually data.  In modern kernels such as the Linux kernel, execution of code in the data segment is not allowed.  There is an overide that can be used during compilation.  First, we show the results of running the executable as is.
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                        
+                    <hgroup>
+                        <h4>
+                            Running the Executable As-Is
+                        </h4>
+                    </hgroup>
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                                src="images/Shellcode_generation/running_shellcode2_getting_seg_fault.jpg"
+                                width="800"
+                                height="350"
+                                title=""
+                            >
+                        </div> <!-- .img -->
+                        
+                        <div class="desc">
+                            shellcode2 is executed.  A segmentation fault develops.  An strace is performed to glean more information about the segmentation fault.
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            We can see that a segmentation fault develops.  An strace is performed to see what is causing the segmentation fault, but little information produced is of immediate value.  Running the exeutable in GDB will produce a thourough understanding of what is cause the segmentation fault.
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <hgroup>
+                        <h4>
+                            Running shellcode2 in GDB + PEDA.
+                        </h4>
+                    </hgroup>
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                                src="images/Shellcode_generation/gdb_peda_shellcode2.jpg"
+                                width="800"
+                                height="600"
+                                title=""
+                            >
+                        </div> <!-- .img -->
+                        
+                        <div class="desc">
+                            Running shellcode2 in GDB + PEDA.  PEDA is Python Exploit Development Assistance for GDB.  You can find a link in the online resources page.
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            We can see that as soon as the instruction pointer, EIP, points to the shellcode in the data segment, we get a segmentation fault.
+                        </p>
+                        
+                        <p>
+                            Notice that EAX contains an address, which is 0x80c3040, and at this memory address is 0x46b0c031, the first four bytes of our shellcode!<br>
+                            EAX: 0x80c3040 --> 0x46b0c031
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <hgroup>
+                        <h4>
+                            Recompiling shellcode.c as before but with executable stack and no stack protections
+                        </h4>
+                    </hgroup>
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                                src="images/Shellcode_generation/recompiling_shellcode2_with_nx_disabled.jpg"
+                                width="800"
+                                height="700"
+                                title=""
+                            >
+                        </div> <!-- .img -->
+                        
+                        <div class="desc">
+                            shellcode.c is recompiled with executable stack and no stack protections
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            We recompiled shellcode2.c so that the stack is executable, and there are no protections on the stack.  Recall that the shellcode, which is data, is placed onto the stack when the function fp() is called in shellcode2.c.  By enabling execution of data on the stack, we prevent a segmentation fault, as can be seen in the next section.
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+
+                    <figure>
+                        <div class="img">
+                            <img 
+                                src="images/Shellcode_generation/running_shellcode2_getting_root_shell.jpg"
+                                width="800"
+                                height="300"
+                                title=""
+                            >
+                        </div> <!-- .img -->
+                        
+                        <div class="desc">
+                            Rerunning shellcode2 and getting a root shell
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            We can see that once we run the shellcode, we get a root shell.  Success!  We can now use this shellcode to exploit vulnerabilities in vulnerable programs.
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                </div> <!-- .current_project_6 -->
+        
+            </section> <!-- fifth_section -->
+            <!-- ************************************************************************************** Sixth Section End ************ -->
+            
+        </section>	<!-- .content -->
+    
+    <div> <!-- .wrapper -->
+
+  </body>
+
+</html>

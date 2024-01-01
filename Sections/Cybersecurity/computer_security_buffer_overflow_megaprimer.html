@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-58919029-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<html>
+
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type">
+  <meta name="robots" content="follow" />
+  
+  <title>
+    MK Dynamics - Buffer Overflow Megaprimer from The Security Tube
+  </title>
+  
+  <link href="../../css/styles.css" type = "text/css" rel = "stylesheet" />
+  
+  <style>
+    .content {
+	overflow: auto;
+	height: 80%; 
+	background: url("../../images/saturn.jpg") no-repeat center center fixed;
+	background-size: cover;
+	background-position: center;
+	padding: 10px;
+	margin: 10px;
+	border: 5px solid black;
+      }
+      
+    h1, h2, h3, h4 {
+      color: white;
+      display: block;     
+    }
+    
+    .current_project_1 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 250px;
+      top		: 0px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_2 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 1100px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_3 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 900px;
+      height		: 500px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_4 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 900px;
+      height		: 500px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_5 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 900px;
+      height		: 500px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    div .img {
+      margin		: 0px;
+      padding		: 10px;
+      height		: auto;
+      width		: auto;
+      float		: left;
+    }
+    
+    div .img img {
+      display		: inline;
+      margin		: 0px;
+      padding		: 0px;
+    }
+    
+    div .desc {
+      color		: white;
+      width		: 600px;
+      margin		: 5px;
+      padding		: 10px;
+    }
+  </style>
+</head>
+
+<body>
+    <div class="wrapper">
+    
+        <header>
+    
+            <hgroup>
+                <h1> 
+                    <big> <big> MK Dynamics </big> </big>
+                </h1>
+
+
+                <h2>
+                    Computer Security - Buffer Overflow Megaprimer from The Security Tube
+                </h2>
+            </hgroup>
+    
+
+            <nav>
+                <ul>
+                    <li> <a href="../../index.php">Home</a> </li>
+                    <li> <a href="computer_security.html">Back</a> </li> 
+                </ul>
+            </nav>
+  
+            <hr />
+    
+        </header>
+    
+        <section class="content">
+    
+            <section class="first_section">
+        
+                <div class="current_project_1">
+                    
+                    <hgroup>
+                        <h3>
+                            Introduction
+                        </h3>
+                    </hgroup>
+                    
+
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            A buffer overflow exploit focuses on hijacking program execution flow by overflowing a memory buffer.  Typically, malicious code called "shellcode" is loaded into memory and the CPU's program counter register is manipulated to point to the shellcode, resulting in a command shell being spawned.  The command shell can then be further used to control and modify the victim system, and even gain root access.  By escalating privileges in the command shell to root access, complete control of the victim system is achieved. 
+                        </p>
+                        
+                        <p>
+                            In this section, we will going through the Buffer Overflow Megaprimer course, offered by The Security Tube.  I will be presenting my course notes, as well as my attempts of implenting the course material on my own personal computer.
+                        </p>
+                    
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+
+                </div> <!-- .current_project_1 -->
+        
+            </section> <!-- first_section -->
+        
+            <section class="second_section">
+                        
+                <div class="current_project_2">
+                    
+                    <hgroup>
+                        <h3>
+                            My Notes
+                        </h3>
+                    </hgroup>
+                            
+                    <a href="images\buffer_overflow_megaprimer\Buffer_overflow_primer_pages1_10.pdf">Download pdf of first 10 pages of my notes</a>
+                            
+                    <embed 
+                        src="images\buffer_overflow_megaprimer\Buffer_overflow_primer_pages1_10.pdf" width="1200px" height="1000px" 
+                    />
+                        
+                    
+                    
+
+                </div> <!-- .current_project_2 -->
+            
+            </section> <!-- second_section -->
+        
+
+    </section>	<!-- .content -->
+    
+    <div> <!-- .wrapper -->
+
+  </body>
+
+</html>

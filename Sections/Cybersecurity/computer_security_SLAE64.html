@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type">
+  <meta name="robots" content="follow" />
+  
+  <title>
+    MK Dynamics - Computer Security - SLAE64 - SecurityTube Linux Assembly Language and Shellcoding Expert 64-Bit
+  </title>
+  
+  <link href="../../css/styles.css" type = "text/css" rel = "stylesheet" />
+  
+  <style>
+    .content {
+	overflow: auto;
+	height: 80%; 
+	background: url("../../images/saturn.jpg") no-repeat center center fixed;
+	background-size: cover;
+	background-position: center;
+	padding: 10px;
+	margin: 10px;
+	border: 5px solid black;
+      }
+      
+    h1, h2, h3, h4 {
+      color: white;
+      display: block;     
+    }
+    
+    .current_project_1 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width			: 900px;
+      height		: 200px;
+      top			: 0px;
+      left			: 0px;
+      float			: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_2 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width			: 900px;
+      height		: 750px;
+      top			: 0px;
+      left			: 0px;
+      float			: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_210 {
+		border		: 5px solid black;
+		background	: gray;
+		position		: relative;
+		width			: 900px;
+		height		: 750px;
+		top			: 0px;
+		left			: 0px;
+		float			: left;
+		margin		: 10px;
+		padding-left	: 10px;
+	}
+    
+    .current_project_300 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width			: 900px;
+      height		: 750px;
+      top			: 0px;
+      left			: 0px;
+      float			: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_310 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width			: 900px;
+      height		: 750px;
+      top			: 0px;
+      left			: 0px;
+      float			: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_320 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width			: 900px;
+      height		: 750px;
+      top			: 0px;
+      left			: 0px;
+      float			: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_330 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width			: 900px;
+      height		: 750px;
+      top			: 000px;
+      left			: 0px;
+      float			: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_340 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width			: 900px;
+      height		: 750px;
+      top			: 0px;
+      left			: 0px;
+      float			: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_350 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width			: 900px;
+      height		: 750px;
+      top			: 000px;
+      left			: 0px;
+      float			: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_360 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width			: 900px;
+      height		: 750px;
+      top			: 0px;
+      left			: 0px;
+      float			: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_400 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width			: 900px;
+      height		: 750px;
+      top			: 0px;
+      left			: 0px;
+      float			: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_410 {
+		border		: 5px solid black;
+		background	: gray;
+		position		: relative;
+		width			: 900px;
+		height		: 750px;
+		top			: 0px;
+		left			: 0px;
+		float			: left;
+		margin		: 10px;
+		padding-left	: 10px;
+	}
+    
+    .current_project_4 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width			: 900px;
+      height		: 2700px;
+      top			: 0px;
+      left			: 0px;
+      float			: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_5 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width			: 900px;
+      height		: 3600px;
+      top			: 0px;
+      left			: 0px;
+      float			: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_6 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width			: 900px;
+      height		: 3100px;
+      top			: 0px;
+      left			: 0px;
+      float			: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    div .img {
+      margin		: 0px;
+      padding		: 10px;
+      height		: auto;
+      width			: auto;
+      float			: left;
+    }
+    
+    div .img img {
+      display		: inline;
+      margin		: 0px;
+      padding		: 0px;
+    }
+    
+    div .desc {
+      color			: white;
+      width			: 600px;
+      margin		: 5px;
+      padding		: 10px;
+    }
+  </style>
+</head>
+
+<body>
+    <div class="wrapper">
+    
+        <header>
+    
+            <hgroup>
+                <h1> 
+                    <big> <big> MK Dynamics </big> </big>
+                </h1>
+
+
+                <h2>
+                    Computer Security - SLAE64 - SecurityTube Linux Assembly Language and Shellcoding Expert 64-Bit
+                </h2>
+            </hgroup>
+    
+
+            <nav>
+                <ul>
+                    <li> <a href="../../index.php">Home</a> </li>
+                    <li> <a href="computer_security.html">Back</a> </li>
+                </ul>
+            </nav>
+    
+        </header>
+    
+        <section class="content">
+            
+            <!-- ************************************************************************************** First Section Start ************ -->
+            <section class="first_section">
+        
+                <div class="current_project_1">
+                    
+                    <hgroup>
+                        <h3>
+                            Introduction
+                        </h3>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            This section will follow along with and record the completion of exercises from the Pentester Academy's SecurityTube Linux Assembly Language and shellcoding Expert 64-Bit course (SLAE64).<br>
+                            <a href="https://www.pentesteracademy.com/course?id=7">x86_64 Assembly Language and Shellcoding on Linux</a>
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+
+                </div> <!-- .current_project_1 -->
+        
+            </section> <!-- first_section -->
+            <!-- ************************************************************************************** First Section End ************ -->
+            
+            <!-- *********************************************************************************** Second Section Start ************ -->
+            <section class="second_section">
+                
+                <div class="current_project_2">
+                
+                    <hgroup>
+                        <h3>
+                            SLAE64 - SecurityTube Linux Assembly Language and Shellcoding Expert 64-Bit
+                        </h3>
+                    </hgroup>
+                    
+                    <hgroup>
+                        <h4>
+                            Module 1 Section 3 - GDB Test<br>
+                            Cracking a Password Checking Program with GDB
+                        </h4>
+                    </hgroup>
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="images/SLAE64/Module_1/003_GDB_Test/running_gdb_test_in_GEF.png"
+                            width="720"
+                            height="500"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Module 1 Section 3 - GDB Test<br>
+                                <a href="SLAE64/003_computer_security_SLAE64_Mod1_GDB_test.html">Cracking a Password Checking Program with GDB</a>
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                
+                </div> <!-- .current_project_2 -->
+            
+            </section> <!-- second_section -->
+            <!-- ************************************************************************************* Second Section End ************ -->
+
+
+  <!-- *********************************************************************************** Second Section Start ************ -->
+            <section class="section">
+                
+                <div class="current_project_210">
+                
+                    <hgroup>
+                        <h3>
+                            SLAE64 - SecurityTube Linux Assembly Language and Shellcoding Expert 64-Bit
+                        </h3>
+                    </hgroup>
+                    
+                    <hgroup>
+                        <h4>
+                            Module 1 Section 4 - CPU Registers<br>
+                            A Quick Look at the 64-Bit CPU Registers
+                        </h4>
+                    </hgroup>
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="images/SLAE64/Module_1/004_CPU_registers/CPU_registers.png"
+                            width="720"
+                            height="500"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Module 1 Section 4 - CPU Registers<br>
+                                <a href="SLAE64/003_computer_security_SLAE64_Mod1_GDB_test.html">A Quick Look at the 64-Bit Registers</a>
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                
+                </div> <!-- .current_project_2 -->
+            
+            </section> <!-- second_section -->
+            <!-- ************************************************************************************* Second Section End ************ -->
+ 
+            
+            <!-- *********************************************************************************** Third Section Start ************* -->
+            <section class="section">
+                
+                <div class="current_project_300">
+                
+                    <hgroup>
+                        <h3>
+                            SLAE64 - SecurityTube Linux Assembly Language and Shellcoding Expert 64-Bit
+                        </h3>
+                    </hgroup>
+                    
+                    <hgroup>
+                        <h4>
+                            Module 1 Section 5 - Hello World in 64 Bit Assembly<br>
+                            Coding, Assembling, Linking and Running in GDB and Radare2
+                        </h4>
+                    </hgroup>
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="images/SLAE64/Module_1/005_Hello_world/64bit_hello_world_asm_code.jpg"
+                            width="720"
+                            height="500"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Module 1 Section 5 - Hello World in 64 Bit Assembly<br>
+                                <a href="SLAE64/005_hello_world_assembly.html">Hello World in 64 Bit Assembly</a>
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                
+                </div> <!-- .current_project_3 -->
+            
+            </section> <!-- section -->
+            <!-- ************************************************************************************* Third Section End ************ -->
+            
+            <!-- *********************************************************************************** Third Section Start ************* -->
+            <section class="section">
+                
+                <div class="current_project_310">
+                
+                    <hgroup>
+                        <h3>
+                            SLAE64 - SecurityTube Linux Assembly Language and Shellcoding Expert 64-Bit
+                        </h3>
+                    </hgroup>
+                    
+                    <hgroup>
+                        <h4>
+                            Module 1 Section 7 - Reducing Instruction Size and Removing Nulls from Hello World in 64 Bit Assembly<br>
+                            Coding, Assembling, Linking and Running in GDB and Radare2
+                        </h4>
+                    </hgroup>
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="images/SLAE64/Module_1/007_Reducing_Instruction_Sizes_and_Removing_Nulls/Reducing_Instruction_Size_and_Removing_Nulls_splash.jpg"
+                            width="720"
+                            height="500"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Module 1 Section 7 - Reducing Instruction Size and Removing Nulls from Hello World in 64 Bit Assembly<br>
+                                <a href="SLAE64/007_reducing_instruction_size_and_removing_nulls.html">Reducing Instruction Size and Removing Nulls</a>
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                
+                </div> <!-- .current_project_3 -->
+            
+            </section> <!-- section -->
+            <!-- ************************************************************************************* Third Section End ************ -->
+            
+            <!-- *********************************************************************************** Third Section Start ************* -->
+            <section class="section">
+                
+                <div class="current_project_320">
+                
+                    <hgroup>
+                        <h3>
+                            SLAE64 - SecurityTube Linux Assembly Language and Shellcoding Expert 64-Bit
+                        </h3>
+                    </hgroup>
+                    
+                    <hgroup>
+                        <h4>
+                            Module 1 Section 8 - Data Types in 64 Bit Assembly<br>
+                            Coding, Assembling, Linking and Running in GDB and Radare2
+                        </h4>
+                    </hgroup>
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="images/SLAE64/Module_1/008_Data_types/008_data_types_splash.jpg"
+                            width="720"
+                            height="500"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Module 1 Section 8 - Data Types in 64 Bit Assembly<br>
+                                <a href="SLAE64/008_data_types.html">Data Types in 64 Bit Assembly</a>
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                
+                </div> <!-- .current_project_3 -->
+            
+            </section> <!-- section -->
+            <!-- ************************************************************************************* Third Section End ************ -->
+            
+            <!-- *********************************************************************************** Third Section Start ************* -->
+            <section class="section">
+                
+                <div class="current_project_330">
+                
+                    <hgroup>
+                        <h3>
+                            SLAE64 - SecurityTube Linux Assembly Language and Shellcoding Expert 64-Bit
+                        </h3>
+                    </hgroup>
+                    
+                    <hgroup>
+                        <h4>
+                            Module 1 Section 11 - Moving Data in 64 Bit Assembly<br>
+                            Coding, Assembling, Linking and Running in GDB and Radare2
+                        </h4>
+                    </hgroup>
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="images/SLAE64/Module_1/011_Moving_data/radare_view_and_assembly_code.jpg"
+                            width="720"
+                            height="500"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Module 1 Section 11 - Moving data in 64 Bit Assembly<br>
+                                <a href="SLAE64/011_moving_data.html">Moving data in 64 Bit Assembly</a>
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                
+                </div> <!-- .current_project_310 -->
+            
+            </section> <!-- section -->
+            <!-- ************************************************************************************* Third Section End ************ -->
+            
+            <!-- *********************************************************************************** Third Section Start ************* -->
+            <section class="section">
+                
+                <div class="current_project_340">
+                
+                    <hgroup>
+                        <h3>
+                            SLAE64 - SecurityTube Linux Assembly Language and Shellcoding Expert 64-Bit
+                        </h3>
+                    </hgroup>
+                    
+                    <hgroup>
+                        <h4>
+                            Module 1 Section 14 - The Stack<br>
+                            Coding, Assembling, Linking and Running in GDB and Radare2
+                        </h4>
+                    </hgroup>
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="images/SLAE64/Module_1/012_The_stack/stack_nasm_radare_and_gef.jpg"
+                            width="720"
+                            height="500"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Module 1 Section 14 - The Stack<br>
+                                <a href="SLAE64/012_the_stack.html">The Stack in 64 Bit Assembly</a>
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                
+                </div> <!-- .current_project_310 -->
+            
+            </section> <!-- section -->
+            <!-- ************************************************************************************* Third Section End ************ -->
+            
+            <!-- *********************************************************************************** Third Section Start ************* -->
+            <section class="section">
+                
+                <div class="current_project_350">
+                
+                    <hgroup>
+                        <h3>
+                            SLAE64 - SecurityTube Linux Assembly Language and Shellcoding Expert 64-Bit
+                        </h3>
+                    </hgroup>
+                    
+                    <hgroup>
+                        <h4>
+                            Module 1 Section 13 - Arithmetic Operations<br>
+                            Coding, Assembling, Linking and Running in GDB and Radare2
+                        </h4>
+                    </hgroup>
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="images/SLAE64/Module_1/013_Arithmetic_operations/Arithmetic_operations_splash.jpg"
+                            width="720"
+                            height="500"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Module 1 Section 13 - Arithmetic Operations<br>
+                                <a href="SLAE64/013_computer_security_SLAE64bit_arithmetic_operations.html">Arithmetic Operations in 64 Bit Assembly</a>
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                
+                </div> <!-- .current_project_310 -->
+            
+            </section> <!-- section -->
+            <!-- ************************************************************************************* Third Section End ************ -->
+            
+            
+            <!-- *********************************************************************************** Section Start ************* -->
+            <section class="section">
+                
+                <div class="current_project_400">
+                
+                    <hgroup>
+                        <h3>
+                            SLAE64 - SecurityTube Linux Assembly Language and Shellcoding Expert 64-Bit
+                        </h3>
+                    </hgroup>
+                    
+                    <hgroup>
+                        <h4>
+                            Module 1 Section 19 - Loops in 64 Bit Assembly<br>
+                            Coding, Assembling, Linking and Running in GDB and Radare2
+                        </h4>
+                    </hgroup>
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                                src="images/SLAE64/Module_1/017_Loops/Loops64_radare2.jpg"
+                                width="720"
+                                height="500"
+                                title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Module 1 Section 17 - Loops in 64 Bit Assembly<br>
+                                <a href="SLAE64/017_loops.html">Loops in 64 Bit Assembly</a>
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                
+                </div> <!-- .current_project_400 -->
+            
+            </section> <!-- section -->
+            <!-- ************************************************************************************* Third Section End ************ -->
+            
+            <!-- *********************************************************************************** Section Start ************* -->
+            <section class="section">
+                
+                <div class="current_project_400">
+                
+                    <hgroup>
+                        <h3>
+                            SLAE64 - SecurityTube Linux Assembly Language and Shellcoding Expert 64-Bit
+                        </h3>
+                    </hgroup>
+                    
+                    <hgroup>
+                        <h4>
+                            Module 1 Section 17 - Loops in 64 Bit Assembly<br>
+                            Coding, Assembling, Linking and Running in GDB and Radare2
+                        </h4>
+                    </hgroup>
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                                src="images/SLAE64/Module_1/017_Loops/Loops64_radare2.jpg"
+                                width="720"
+                                height="500"
+                                title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Module 1 Section 17 - Loops in 64 Bit Assembly<br>
+                                <a href="SLAE64/017_loops.html">Loops in 64 Bit Assembly</a>
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                
+                </div> <!-- .current_project_400 -->
+            
+            </section> <!-- section -->
+            <!-- ************************************************************************************* Third Section End ************ -->
+            
+        
+        <!-- *********************************************************************************** Section Start ************* -->
+        <section class="section">
+        
+        	<div class="current_project_410">
+        
+        		<hgroup>
+        			<h3>
+        				SLAE64 - SecurityTube Linux Assembly Language and Shellcoding Expert 64-Bit
+        			</h3>
+        		</hgroup>
+        
+        		<hgroup>
+        			<h4>
+        				Module 1 Section 18 - Load, Store and Move Strings in 64 Bit Assembly<br>
+        				Coding, Assembling, Linking and Running in GDB
+        			</h4>
+        		</hgroup>
+        
+        		<figure>
+        			<div class="img">
+        				<img 
+        				src="images/SLAE64/Module_1/018_Load_Store_and_Move_Strings/load_store_and_move_strings.png"
+							width="720"
+							height="500"
+							title=""
+						>
+					</div> <!-- .img -->
+					<div class="desc">
+						<p>
+							Module 1 Section 18 - Load, Store and Move Strings in 64 Bit Assembly<br>
+							<a href="SLAE64/018_load_store_move_strings.html">Load, Store and Move Strings in 64 Bit Assembly</a>
+						<p>
+					</div> <!-- .desc -->
+				</figure>
+
+			</div> <!-- .current_project_400 -->
+		
+		</section> <!-- section -->
+		<!-- ************************************************************************************* Third Section End ************ -->
+
+		
+		
+		
+		</section>	<!-- .content -->
+    
+    <div> <!-- .wrapper -->
+
+  </body>
+
+</html>

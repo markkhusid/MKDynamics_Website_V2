@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-58919029-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<html>
+
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type">
+  <meta name="robots" content="follow" />
+  
+  <title>
+    MK Dynamics - Computer Security - SLAE64 - SecurityTube Linux Assembly Language and Shellcoding Expert 64-Bit
+  </title>
+  
+  <link href="../../../css/styles.css" type = "text/css" rel = "stylesheet" />
+  
+  <style>
+    .content {
+	overflow: auto;
+	height: 80%; 
+	background: url("../../../images/saturn.jpg") no-repeat center center fixed;
+	background-size: cover;
+	background-position: center;
+	padding: 10px;
+	margin: 10px;
+	border: 5px solid black;
+      }
+      
+    h1, h2, h3, h4 {
+      color: white;
+      display: block;     
+    }
+    
+    .current_project_1 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1370px;
+      height		: 300px;
+      top		: 0px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_2 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1370px;
+      height		: 4700px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_3 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1370px;
+      height		: 1500px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_4 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1370px;
+      height		: 3000px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_5 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1370px;
+      height		: 2500px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_6 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1370px;
+      height		: 2800px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_7 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1370px;
+      height		: 4000px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_8 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1370px;
+      height		: 2500px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_9 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1370px;
+      height		: 3500px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_10 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1370px;
+      height		: 2800px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_11 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1370px;
+      height		: 4200px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_12 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1370px;
+      height		: 1000px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    div .img {
+      margin		: 0px;
+      padding		: 10px;
+      height		: auto;
+      width		: auto;
+      float		: left;
+    }
+    
+    div .img img {
+      display		: inline;
+      margin		: 0px;
+      padding		: 0px;
+    }
+    
+    div .desc {
+      color		: white;
+      width		: 600px;
+      margin		: 5px;
+      padding		: 10px;
+    }
+  </style>
+</head>
+
+<body>
+    <div class="wrapper">
+    
+        <header>
+    
+            <hgroup>
+                <h1> 
+                    <big> <big> MK Dynamics </big> </big>
+                </h1>
+
+
+                <h2>
+                    Computer Security - SLAE64 - Module 1 Section 8 - Hello World - Reducing Instruction Sizes and Removing Nulls
+                </h2>
+            </hgroup>
+    
+
+            <nav>
+                <ul>
+                    <li> <a href="../../../index.php">Home</a> </li>
+                    <li> <a href="../computer_security_SLAE64.html">Back</a> </li>
+                </ul>
+            </nav>
+    
+        </header>
+    
+        <section class="content">
+            
+            <!-- ************************************************************************************** First Section Start ************ -->
+            <section class="section">
+        
+                <div class="current_project_1">
+                    
+                    <hgroup>
+                        <h2>
+                            Introduction
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            In this section we will be following along with and completing course material from the Pentester Academy's SecurityTube Linux Assembly language Expert 64 Bit course.  The third assignment is attempting to reduce the instruction size and remove nulls from the Hello World program written in the previous section.  We will show some techniques that can be used to accomplish making the code more compact and to remove nulls within the opcodes.
+                        </p>
+                        
+                        <p>
+                            Compact code without nulls is desireable for shellcode, since often the memory buffers that are available within vulnerabilities are limited.  In this section, we will code, assemble, link and run the enhanced version of helloworld.nasm, while making references to the original version.  We will run the enhanced version of the  shellcode to verify that it still works as before.  Execution is to be monitored via GDB.  We will use the GEF or PEDA add-ons for GDB to enhance the visual presentation from GDB.
+                        </p>
+                        
+                        <p>
+                            Project code is contained in my <a href="https://github.com/markkhusid/SLAE64">github</a>.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+
+                </div> <!-- .current_project_1 -->
+        
+            </section> <!-- first_section -->
+            <!-- *********************************************************************************** Section End ************** -->
+            
+            <!-- *********************************************************************************** Section Start ************ -->
+            <section class="section">
+                
+                <div class="current_project_2">
+                
+                    <hgroup>
+                        <h2>
+                            The program <i>helloworld-small1_mod.nasm</i> versus the program <i>helloword.nasm</i>
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            The screenshot below displays the contents of the program <i>helloworld-small1_mod.nasm</i> as well as <i>helloworld.nasm</i> side by side.
+                        </p>
+                        
+                        <p>
+                            Note that in the course material, the instructor only modifies the first instruction to make it more compact and to remove nulls.  That version of <i>helloworld.nasm</i> is in the file name <i>helloworld-small1.nasm</i>.  What we did is to go ahead to apply changes to the rest of <i>helloworld-small1.nasm</i> so the generated opcodes are more comapct and nulls are removed to the extent possible.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="../images/SLAE64/Module_1/009_Reducing_Instruction_Sizes_and_Removing_Nulls/helloworld_and_helloword_small_side_by_side.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                The program <i>helloworld-small1.nasm</i> and <i>helloworld.nasm</i>
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                    
+                        <p>
+                            In the above screenshot, <i>helloworld.nasm</i> is shown for comparison to <i>helloworld-small1_mod.nasm</i>.  What we have done to <i>helloworld.nasm</i> to make it <i>helloworld-small1_mod.nasm</i> is to modify the instructions so that <i>helloworld-small1_mod.nasm</i> has a reduced size and removed nulls from an opcodes perspective.  The screenshot below displays the objdump output of both assembled programs to elucidate this further.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="../images/SLAE64/Module_1/009_Reducing_Instruction_Sizes_and_Removing_Nulls/helloworld_and_helloword_small_side_by_side_with_objdump.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                The program <i>helloworld.asm</i> and <i>helloworld-small1_mod.nasm</i> with their opcodes.
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            In the screenshot above, we show both programs as well as their generated opcodes.  We can see from the opcodes of <i>helloworld-small1_mod.nasm</i>, that the first few opcodes are:
+                            <blockquote>
+                                <pre>
+        <i>0:	b0 01                	mov    $0x1,%al</i>
+                                </pre>
+                            </blockquote>
+                            
+                            rather than the much longer and null ridden:
+                            
+                            <blockquote>
+                                <pre>
+        <i>0:	48 b8 01 00 00 00 00 	movabs $0x1,%rax</i>
+        <i>7:	00 00 00</i> 
+                                </pre>
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            In both cases, the same action effectively occurs, the immediate 1 is moved into the register RAX; however, in the <i>helloworld-small1_mod.nasm</i> version, what was done is to move the 8 bit version of the immediate 1 into the 8 bit portion of RAX.  Therefore, both the opcode and the immediate are more compact.  Actually, the compact version uses only 2 bytes, while the non-compact version uses 10 bytes, for a savings of 8 bytes.
+                        </p>
+                        
+                        <p>
+                            In the next line, we have implemented the instruction:
+                            <blockquote>
+                                <pre>
+        <i> mov rdi, 1</i>
+                                </pre>
+                            </blockquote>
+                            
+                            as:
+                            
+                            <blockquote>
+                                <pre>
+        <i> mov di, ax</i>
+                                </pre>
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            What this instruction has done is to copy the contents of the 16-bit register ax into the 16-bit register di.  Since ax already contains the immediate value 1, this instruction effectively moves the immediate value 1 into the 16-bit register di as well.
+                        </p>
+                        
+                        <p>
+                            Looking at the opcodes from both files, the opcodes generated from <i>helloworld.nasm</i> for this instruction were:
+                            
+                            <blockquote>
+                                <pre>
+        <i>a:	48 bf 01 00 00 00 00 	movabs $0x1,%rdi
+        11:	00 00 00</i>
+                                </pre>
+                            </blockquote>
+                            
+                            while the opcodes generated from <i>helloworld-small1_mods.nasm</i> were:
+                            <blockquote>
+                                <pre>
+        <i>2:	66 89 c7 mov    %ax,%di</i>
+                                </pre>
+                            </blockquote>
+                            
+                            for a savings of 7 bytes.
+                        </p>
+                        
+                        <p>
+                            Such copying and reusing immediates from one register to another, or from the stack as we will see later, is a frequent "trick" used by shellcode composers to remove nulls and compactify code.
+                        </p>
+                        
+                        <p>
+                        
+                        <p>
+                            Note that we could have moved the immediate 1 into the 8-bit register DIL directly.  In this case, the instruction would be:
+                            
+                            <blockquote>
+                                <pre>
+        <i>mov dil, 1</i>
+                                </pre>
+                            </blockquote>
+                            
+                            and the generated opcodes would be:
+                            
+                            <blockquote>
+                                <pre>
+        <i>2: 40 b7 01 mov    $0x1,%dil</i>
+                                </pre>
+                            </blockquote>
+                            
+                            for a savings of 7 bytes again.  Or we could have moved the contents of the 8-bit register AL into the the 8-bit register DIL.  In this case the instruction would be:
+                            
+                            <blockquote>
+                                <pre>
+        <i>mov dil, al</i>
+                                </pre>
+                            </blockquote>
+                            
+                            and the generated opcodes would be:
+                            
+                            <blockquote>
+                                <pre>
+        <i>2:	40 88 c7 mov    %al,%dil</i>
+                                </pre>
+                            </blockquote>
+                            
+                            for a savings of 7 bytes in both cases.
+                        </p>
+                        
+                        <p>
+                            This brings up an obvious point.  There are many ways to accomplish the same thing.  The idea is to compactify the generated opcodes as much as possible and remove all of the nulls.
+                        </p>
+                        
+                        <p>
+                            The astute observer will notice something else.  We have not been able to remove the nulls when it comes to operations that involve memory addresses.  Namely, the operation:
+                            <blockquote>
+                                <pre>
+        <i>mov rsi, hello_world</i>
+                                </pre>
+                            </blockquote>
+                            
+                            produces the opcodes:
+                            
+                            <blockquote>
+                                <pre>
+                                    <i>
+        5:	48 be 00 00 00 00 00 	movabs $0x0,%rsi
+        c:	00 00 00 
+                                    </i>
+                                </pre>
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            for an operation that takes up 10 bytes.  Also notice that at this point in the compilation process, the assembler moved the immediate 0 into the register RSI, rather than the memory address of the string <i>hello_world</i>.  This is because the assembler left a placeholder for the linker to fill in the actual address when the executable is produced.  So if we look at the objdump of the executable, we get the following:
+                            
+                            <blockquote>
+                                <pre>
+$objdump -d helloworld
+
+helloworld:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000401000 <_start>:
+  401000:	48 b8 01 00 00 00 00 	movabs $0x1,%rax
+  401007:	00 00 00 
+  40100a:	48 bf 01 00 00 00 00 	movabs $0x1,%rdi
+  401011:	00 00 00 
+  <big><b>401014:	48 be 00 20 40 00 00 	movabs $0x402000,%rsi</b></big>
+  40101b:	00 00 00 
+  40101e:	48 ba 22 00 00 00 00 	movabs $0x22,%rdx
+  401025:	00 00 00 
+  401028:	0f 05                	syscall 
+  40102a:	48 b8 3c 00 00 00 00 	movabs $0x3c,%rax
+  401031:	00 00 00 
+  401034:	48 bf 0b 00 00 00 00 	movabs $0xb,%rdi
+  40103b:	00 00 00 
+  40103e:	0f 05                	syscall 
+
+                                </pre>
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            We can see from the above objdump that the linker has filled in the proper address for the string <i>hello_world</i>.  Notice also that the memory address of the string <i>hello_world</i> contains nulls, making these opcodes not shellcode friendly.
+                        </p>
+                        
+                        <p>
+                            There are techniques for removing nulls in memory address calls.  One such technique is the JMP-CALL-POP technique, which we will see in later sections.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                   
+                </div> <!-- .current_project_2 -->
+            
+            </section> <!-- section -->
+            <!-- ************************************************************************************* Section End ************* -->
+            
+        </section>	<!-- .content -->
+    
+    <div> <!-- .wrapper -->
+
+  </body>
+
+</html>

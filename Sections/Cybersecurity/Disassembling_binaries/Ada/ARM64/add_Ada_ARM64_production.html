@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-58919029-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<html>
+
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type">
+  <meta name="robots" content="follow" />
+  
+  <title>
+    MK Dynamics - Computer Security - Disassembling Binaries - Ada - ARM 64-Bit Platform
+  </title>
+  
+  <link href="../../../../../css/styles.css" type = "text/css" rel = "stylesheet" />
+  
+  <style>
+    .content {
+	overflow: auto;
+	height: 80%; 
+	background: url("../../../../../images/saturn.jpg") no-repeat center center fixed;
+	background-size: cover;
+	background-position: center;
+	padding: 10px;
+	margin: 10px;
+	border: 5px solid black;
+      }
+      
+    h1, h2, h3, h4 {
+      color: white;
+      display: block;     
+    }
+    
+    .current_project_1 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1360px;
+      height		: 200px;
+      top		: 0px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_2 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1360px;
+      height		: 2800px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_3 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1360px;
+      height		: 2600px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_4 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1360px;
+      height		: 4200px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_5 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1360px;
+      height		: 1500px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_6 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1360px;
+      height		: 1500px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_7 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1360px;
+      height		: 1500px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_8 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1360px;
+      height		: 1500px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_9 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1360px;
+      height		: 1500px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_10 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1360px;
+      height		: 1500px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_11 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1360px;
+      height		: 1500px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    div .img {
+      margin		: 0px;
+      padding		: 10px;
+      height		: auto;
+      width		: auto;
+      float		: left;
+    }
+    
+    div .img img {
+      display		: inline;
+      margin		: 0px;
+      padding		: 0px;
+    }
+    
+    div .desc {
+      color		: white;
+      width		: 600px;
+      margin		: 5px;
+      padding		: 10px;
+    }
+  </style>
+</head>
+
+<body>
+    <div class="wrapper">
+    
+        <header>
+    
+            <hgroup>
+                <h1> 
+                    <big> <big> MK Dynamics </big> </big>
+                </h1>
+
+
+                <h2>
+                    Computer Security - Disassembling Binaries - Ada - ARM 64-Bit Platform
+                </h2>
+            </hgroup>
+    
+
+            <nav>
+                <ul>
+                    <li> <a href="../../../../../index.php">Home</a> </li>
+                    <li> <a href="../disassembling_binaries_Ada.html">Back</a> </li>
+                </ul>
+            </nav>
+    
+        </header>
+    
+        <section class="content">
+            
+            <!-- ************************************************************************************** First Section Start ************ -->
+            <section class="section">
+        
+                <div class="current_project_1">
+                    
+                    <hgroup>
+                        <h2>
+                            Introduction
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            In this section we will be disassembling simple binaries generated by the Ada high-level language compiled for the 64-bit ARM platform.  We will disassemble the binaries using GDB+GEF as well Radare2.
+                        </p>
+                        <p>
+                            Project code for this section is contained in my <a href="https://github.com/markkhusid/Disassembling-Binaries/tree/master/Ada/ARM_Architecture/ARM64">github</a> repository.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+
+                </div> <!-- .current_project_1 -->
+        
+            </section> <!-- first_section -->
+            <!-- *********************************************************************************** Section End ************** -->
+            
+            <!-- *********************************************************************************** Section Start ************ -->
+            <section class="section">
+                
+                <div class="current_project_2">
+                
+                    <hgroup>
+                        <h2>
+                            The program <i>add_int.adb</i>
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            The screenshot below displays the contents of the program <i>add_int.adb</i>.  The program creates three integers: a, b, and c.  a is assigned the value of 3, b is assigned the value of 5, and c is assigned the result of the operation a + b.
+                        </p>
+                        
+                        <figure>
+                            <div class="img">
+                                <img 
+                                src="../../../images/Disassembling_binaries/Ada/ARM64/add_int_adb.jpg"
+                                width="1250"
+                                height="900"
+                                title=""
+                                >
+                            </div> <!-- .img -->
+                            <div class="desc">
+                                <p>
+                                    The program <i>add_int.adb</i>
+                                <p>
+                            </div> <!-- .desc -->
+                        </figure>
+                        
+                        <p>
+                            The program is obviously very simple, with no inputs and outputs.  The idea is to generate the binary and look at the disassembly to learn about the workings of the 64-bit ARM processor platform.
+                        </p>
+                        
+                        <p>
+                            The chosen test system is a Graviton instance on Amazon Web Services.  This is a new service that is powered by a 64-bit ARMv8 processor.  It fits very well for this application due to its availability to be accessed from multiple systems via SSH.
+                        </p>
+                        
+                        <p>
+                            The program is compiled with:
+                            <blockquote>
+                                $ gnatmake add_int.adb
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            For general edification, we also have produce a generic assembly file with the -S option.  Gnatmake produces the object file, as well as the ali file, which contains linker information.  It also makes the actual executable file.
+                        </p>
+                        
+                        <p>
+                            The generic assembly is generated with (ggdb3 option added to generate debugger information):
+                            <blockquote>
+                                $ gcc -S -ggdb3 add_int.adb -o add_int.s
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            The object file is generated with (ggdb3 option added to generate debugger information):
+                            <blockquote>
+                                $ gcc -c -ggdb3 add_int.s -o add_int.o
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            The executable, object file and ali (linker information) file are generated with (g option added to generate debugger information):
+                            <blockquote>
+                                $ gnatmake -g add_int.adb
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            I then change the executable's file name to convey more information
+                            <blockquote>
+                                $ mv add_int add_int_Ada_aarch64
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            The objdump files are generated with:
+                            <blockquote>
+                                $ objdump -x -D -S -s -g -t add_int.o > objdump_of_dot_o.txt
+                                $ objdump -x -D -S -s -g -t add_int_Ada_aarch64_g > objdump_of_dot_exe.txt
+                            </blockquote>
+                        </p>
+                        
+                                                <p>
+                            A rundown of the objdump options is shown here:
+                            <blockquote>
+<pre>
+$objdump 
+Usage: objdump (option(s)) (file(s))
+Display information from object (file(s)).
+ At least one of the following switches must be given:
+  -a, --archive-headers    Display archive header information
+  -f, --file-headers       Display the contents of the overall file header
+  -p, --private-headers    Display object format specific file header contents
+  -P, --private=OPT,OPT... Display object format specific contents
+  -h, --[section-]headers  Display the contents of the section headers
+  -x, --all-headers        Display the contents of all headers
+  -d, --disassemble        Display assembler contents of executable sections
+  -D, --disassemble-all    Display assembler contents of all sections
+  -S, --source             Intermix source code with disassembly
+  -s, --full-contents      Display the full contents of all sections requested
+  -g, --debugging          Display debug information in object file
+  -e, --debugging-tags     Display debug information using ctags style
+  -G, --stabs              Display (in raw form) any STABS info in the file
+  -W[lLiaprmfFsoRtUuTgAckK] or
+  --dwarf[=rawline,=decodedline,=info,=abbrev,=pubnames,=aranges,=macro,=frames,
+          =frames-interp,=str,=loc,=Ranges,=pubtypes,
+          =gdb_index,=trace_info,=trace_abbrev,=trace_aranges,
+          =addr,=cu_index,=links,=follow-links]
+                           Display DWARF info in the file
+  -t, --syms               Display the contents of the symbol table(s)
+  -T, --dynamic-syms       Display the contents of the dynamic symbol table
+  -r, --reloc              Display the relocation entries in the file
+  -R, --dynamic-reloc      Display the dynamic relocation entries in the file
+  @<file>                  Read options from <file>
+  -v, --version            Display this program's version number
+  -i, --info               List object formats and architectures supported
+  -H, --help               Display this information
+</pre>
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            In our case, we want -x (all headers), -D (disassemble all), -S (display source code with assembly), -s (full contents of all sections), -g (debug info), and finally, -t (display contents of the symbol tables).
+                        </p>
+
+                        <p>
+                            We will now disassemble this program on the 64-bit ARM platform and step through the assembly instructions.
+                        </p>
+                        
+                
+                </div> <!-- .current_project_2 -->
+            
+            </section> <!-- section -->
+            <!-- ************************************************************************************* Section End ************* -->
+            
+            
+            <!-- *********************************************************************************** Section Start ************ -->
+            <section class="section">
+                
+                <div class="current_project_3">
+                
+                    <hgroup>
+                        <h2>
+                            Disassembling <i>add_int_Ada_aarch64_g</i> in GDB + GEF
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            The debug process is started by entering:
+                            <blockquote>
+                                $gdb add_int_Ada_aarch64_g
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            We then want to disassemble main.  Looking at main's disassembly, we notice a call at main+92 to a function at address 0x1450 called <i>_ada_add_int</i>.  We then do a disassembly on this function as well.
+                        </p>
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="../../../images/Disassembling_binaries/Ada/ARM64/running_add_int_Ada_aarch64_in_GEF_showing_main.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Disassembly of function <i>main</i>
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            We can see that after some intial housekeeping, there is a branch within main to the function _ada_add_int.  This function contains the actual opcodes that make up our program.  We will now disassemble this function to see its contents.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="../../../images/Disassembling_binaries/Ada/ARM64/running_add_int_Ada_aarch64_in_GEF_showing_add_int.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Disassembly of function <i>_ada_add_int</i>
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            From the disassembly of _ada_add_int, we can see something perhaps unexpected.  It appears that there is no add operation.  Rather, the compiler simply put thre result into SP+4.  The result of 3 + 5 = 8; therefore, 8 was put into SP+4.  SP+4 is space on the stack reserved for the integer variable c.  We will go into more detail in the next section.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                
+                </div> <!-- .current_project_2 -->
+            
+            </section> <!-- section -->
+            <!-- ************************************************************************************* Section End ************* -->
+        
+            <!-- ************************************************************************************* Section Start *********** -->
+            <section class="section">
+                
+                <div class="current_project_4">
+                
+                    <hgroup>
+                        <h2>
+                            Running <i>add_int_Ada_aarch64_g</i> in GDB + GEF
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            When we look at the executable's objdump, we notice that there are two functions of interest, one is main, and the other is MAIN__.  The Fortran compiler sets up the program arguments and options in main, while the actual program is contained within MAIN__ (that is capital MAIN followed by two underscores).
+                        </p>
+                        
+                        <p>
+                            The following text from the executable's objdump illustrates this:
+                            <blockquote>
+<pre>
+0000000000001508 (main):
+
+   procedure Ada_Main_Program;
+   pragma Import (Ada, Ada_Main_Program, "_ada_add_int");
+
+   function main
+    1508:	a9bc7bfd 	stp	x29, x30, [sp, #-64]!
+    150c:	910003fd 	mov	x29, sp
+    1510:	b9002fa0 	str	w0, [x29, #44]
+    1514:	f90013a1 	str	x1, [x29, #32]
+    1518:	f9000fa2 	str	x2, [x29, #24]
+
+      procedure Finalize;
+      pragma Import (C, Finalize, "__gnat_finalize");
+      SEH : aliased array (1 .. 2) of Integer;
+
+      Ensure_Reference : aliased System.Address := Ada_Main_Program_Name'Address;
+    151c:	90000000 	adrp	x0, 1000 (_init-0xb8)
+    1520:	9119a000 	add	x0, x0, #0x668
+    1524:	f9001ba0 	str	x0, [x29, #48]
+      pragma Volatile (Ensure_Reference);
+
+   begin
+      gnat_argc := argc;
+    1528:	90000080 	adrp	x0, 11000 (__FRAME_END__+0xf7e0)
+    152c:	f947ec00 	ldr	x0, [x0, #4056]
+    1530:	b9402fa1 	ldr	w1, [x29, #44]
+    1534:	b9000001 	str	w1, [x0]
+      gnat_argv := argv;
+    1538:	90000080 	adrp	x0, 11000 (__FRAME_END__+0xf7e0)
+    153c:	f947d000 	ldr	x0, [x0, #4000]
+    1540:	f94013a1 	ldr	x1, [x29, #32]
+    1544:	f9000001 	str	x1, [x0]
+      gnat_envp := envp;
+    1548:	90000080 	adrp	x0, 11000 (__FRAME_END__+0xf7e0)
+    154c:	f9479800 	ldr	x0, [x0, #3888]
+    1550:	f9400fa1 	ldr	x1, [x29, #24]
+    1554:	f9000001 	str	x1, [x0]
+
+      Initialize (SEH'Address);
+    1558:	9100e3a0 	add	x0, x29, #0x38
+    155c:	97ffff0d 	bl	1190 (__gnat_initialize@plt)
+      adainit;
+    1560:	97ffff72 	bl	1328 (adainit)
+      Ada_Main_Program;
+    1564:	94000009 	bl	1588 (_ada_add_int)
+      adafinal;
+    1568:	97ffff5c 	bl	12d8 (adafinal)
+      Finalize;
+    156c:	97fffee5 	bl	1100 (__gnat_finalize@plt)
+      return (gnat_exit_status);
+    1570:	90000080 	adrp	x0, 11000 (__FRAME_END__+0xf7e0)
+    1574:	f947c000 	ldr	x0, [x0, #3968]
+    1578:	b9400000 	ldr	w0, [x0]
+   end;
+    157c:	a8c47bfd 	ldp	x29, x30, [sp], #64
+    1580:	d65f03c0 	ret
+    1584:	00000000 	.inst	0x00000000 ; undefined
+
+0000000000001588 (_ada_add_int):
+--
+-- Some numbers to come and go.
+--
+with Gnat.Io; use Gnat.Io;
+procedure Add_Int is
+    1588:	d10043ff 	sub	sp, sp, #0x10
+   a, b, c: Integer;
+
+begin
+
+   a := 3;
+    158c:	52800060 	mov	w0, #0x3                   	// #3
+    1590:	b9000fe0 	str	w0, [sp, #12]
+   b := 5;
+    1594:	528000a0 	mov	w0, #0x5                   	// #5
+    1598:	b9000be0 	str	w0, [sp, #8]
+
+   c := a + b;
+    159c:	52800100 	mov	w0, #0x8                   	// #8
+    15a0:	b90007e0 	str	w0, [sp, #4]
+
+end Add_Int;
+    15a4:	d503201f 	nop
+    15a8:	910043ff 	add	sp, sp, #0x10
+    15ac:	d65f03c0 	ret
+
+</pre>
+                            </blockquote>
+                            
+                        </p>
+                        
+                        <p>
+                            We therefore want to set a breakpoint at _ada_add_int.  We use the * to get at _ada_add_int + 0.
+                        </p>
+                        
+                        <p>
+                            <blockquote>
+<pre>
+gef➤  break *_ada_add_int
+Breakpoint 1 at 0xaaaaaaaab588: file add_int.adb, line 5.
+gef➤
+</pre>
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            The aarch64 has allot of registers (36 registers visible in GEF), and it becomes necessary to zoom out the screen to see the entire output of GEF.  For easier viewing on this website, we will display the output of GEF using two screenshots.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="../../../images/Disassembling_binaries/Ada/ARM64/running_add_int_Ada_aarch64_g_in_GEF_showing_ada_add_int_1.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                _ada_add_int</i> in GDB+GEF Part 1
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+
+
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="../../../images/Disassembling_binaries/Ada/ARM64/running_add_int_Ada_aarch64_g_in_GEF_showing_ada_add_int_2.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                _ada_add_int</i> in GDB+GEF Part 2
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+
+                </div> <!-- .current_project_4 -->
+            
+            </section> <!-- section -->
+            <!-- ************************************************************************************* Section End ************ -->
+            
+            <!-- ************************************************************************************* Section Start *********** -->
+            <section class="section">
+                
+                <div class="current_project_5">
+                
+                    <hgroup>
+                        <h2>
+                            
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    
+                
+                </div> <!-- .current_project_4 -->
+            
+            </section> <!-- third_section -->
+            <!-- ************************************************************************************* Section End ************ -->
+            
+            <!-- ************************************************************************************* Section Start *********** -->
+            <section class="section">
+                
+                <div class="current_project_6">
+                
+                    <hgroup>
+                        <h2>
+                            
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    
+                
+                </div> <!-- .current_project_5 -->
+            
+            </section> <!-- third_section -->
+            <!-- ************************************************************************************* Section End ************ -->
+            
+            <!-- ************************************************************************************* Section Start *********** -->
+            <section class="section">
+                
+                <div class="current_project_7">
+                
+                    <hgroup>
+                        <h2>
+                            
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    
+                
+                </div> <!-- .current_project_6 -->
+            
+            </section> <!-- third_section -->
+            <!-- ************************************************************************************* Section End ************ -->
+            
+            <!-- ************************************************************************************* Section Start *********** -->
+            <section class="section">
+                
+                <div class="current_project_8">
+                
+                    <hgroup>
+                        <h2>
+                            
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    
+                
+                </div> <!-- .current_project_7 -->
+            
+            </section> <!-- third_section -->
+            <!-- ************************************************************************************* Section End ************ -->
+            
+            <!-- ************************************************************************************* Section Start *********** -->
+            <section class="section">
+                
+                <div class="current_project_9">
+                
+                    <hgroup>
+                        <h2>
+                            
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    
+                
+                </div> <!-- .current_project_8 -->
+            
+            </section> <!-- third_section -->
+            <!-- ************************************************************************************* Section End ************ -->
+            
+            <!-- ************************************************************************************* Section Start *********** -->
+            <section class="section">
+                
+                <div class="current_project_10">
+                
+                    <hgroup>
+                        <h2>
+                            
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    
+                
+                </div> <!-- .current_project_9 -->
+            
+            </section> <!-- third_section -->
+            <!-- ************************************************************************************* Section End ************ -->
+            
+            <!-- ************************************************************************************* Section Start *********** -->
+            <section class="section">
+                
+                <div class="current_project_11">
+                
+                    <hgroup>
+                        <h2>
+                            
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    
+                
+                </div> <!-- .current_project_10 -->
+            
+            </section> <!-- third_section -->
+            <!-- ************************************************************************************* Section End ************ -->
+            
+        </section>	<!-- .content -->
+    
+    <div> <!-- .wrapper -->
+
+  </body>
+
+</html>
