@@ -26,8 +26,7 @@ Cybersecurity
 :gutter: 3
 
 :::{grid-item-card}
-:link: markdown
-:link-type: doc
+:link: Sections/Computer_Programming/Fortran/intro.html
 :class-header: bg-dark
 
 FORTRAN Programming
