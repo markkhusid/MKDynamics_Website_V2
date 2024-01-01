@@ -37,8 +37,7 @@ FORTRAN Programming
 :::
 
 :::{grid-item-card}
-:link: markdown
-:link-type: doc
+:link: Sections/Computer_Programming/CPP/intro.html
 :class-header: bg-dark
 
 C++ Programming
@@ -49,8 +48,7 @@ C++ Programming
 :::
 
 :::{grid-item-card}
-:link: markdown
-:link-type: doc
+:link: Sections/Computer_Programming/Python/intro.html
 :class-header: bg-dark
 
 Python Programming 
