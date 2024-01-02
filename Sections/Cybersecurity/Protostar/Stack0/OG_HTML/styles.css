@@ -1,0 +1,133 @@
+/* Mark Khusid 2014-2023 */
+/* Free and open source */
+/* Main CSS style for entire website */
+/* CSS code styles that pertain to individual sheets located in those sheets */
+
+      header, section, footer, aside, nav, figure, figcaption, title {
+	display: block;
+      }
+            
+      body {
+	background: url("../images/ggradient.png") no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-position: center;
+	width: 1400px;
+	margin: 10px, auto;
+	
+	font-family: Arial, Veranda, sans-serif;
+      }
+      
+      .wrapper{
+	width: 1400px;
+      }
+      
+      .content {
+	/*overflow: auto;*/
+        overflow                    : none;
+	/*height: 80%;*/
+        height                      : 4200px;
+        width                       : 1400px;
+	background: url("../images/hubble.jpg") no-repeat center center fixed;
+	background-size: cover;
+	background-position: center;
+	padding: 10px;
+	margin: 10px;
+	border: 5px solid black;
+      }
+      
+      section {
+          padding-top               : 0px;
+          padding-bottom            : 0px;
+          margin-top                : 0px;
+          margin-bottom             : 0px;
+    }
+      
+      header {
+	height: 275px;
+	color: white;
+	background-image: url(../images/blurbackground.jpg);
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-position: center;
+	width: 1380px;
+	margin: 10px;
+	padding: 20px;
+	border: 5px solid black;
+      }
+      
+      nav {
+	color: black;
+	background-color: #aeaca8;
+	padding: 50px;
+	margin: 5px, 5px;
+	height: 30px;
+	border: 5px solid black;
+      }
+      
+      nav ul {
+	margin: 5px;
+	padding: 5px, 5px, 5px, 5px;
+      }
+      
+      nav li {
+	display: inline;
+	margin-left: 5px;
+	margin-right: 40px;
+      }
+      
+      nav li a {
+	color: black;
+	font-size: 150%
+      }
+            
+      img {
+	border: 5px solid blue;
+        display: block;
+	margin: auto;
+	padding: auto;
+      }
+      
+      img.align-center {
+	display: block;
+	margin: auto;
+	padding: auto;
+      }
+      
+      img.medium {
+	width: 1225px;
+	height: 300px;
+	border: 5px solid black
+      }
+      
+      figcaption {
+	font-family:           Arial, Veranda, sans-serif;
+        font-size:             1.5em;
+        color: #ffffff;
+      }
+      
+      p {
+	font-family: Arial;
+	color: white;
+      }
+      
+      h3, h4 {
+	font-family: Arial;
+	color: blue;
+      }
+      
+      footer {
+	font-family: Arial, Veranda, sans-serif;
+      }
+      
+    div .loose_text {
+            font-family         : sans-serif;
+            font-size           : 120%;
+            color               : white;
+            display             : block;
+            margin              : 10px;
+    }

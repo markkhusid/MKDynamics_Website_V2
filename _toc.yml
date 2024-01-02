@@ -9,5 +9,8 @@ parts:
   - file: Sections/Cybersecurity/cybersecurity
     sections:
     - file: Sections/Cybersecurity/Protostar/protostar
+      sections:
+      - file: Sections/Cybersecurity/Protostar/Stack0/stack0
+
     - file: Sections/Cybersecurity/LiveOverflow/liveoverflow
 
