@@ -344,95 +344,22 @@ If one were to enter more than 64 bytes into stdin, then since the gets function
 
 The table below illustrates the layout of the stack once _mov DWORD PTR \[esp\], eax_ is executed.
 
-Stack Address - High Memory
+| Stack Address - High Memory | Stack Entry Name | Value| Size [bytes] |
+|:---|:---|:---|:---|
+| 0xffffd174 | ARGV (Address of array of strings.  The first string is the executable fullpath, the second, third, etc. are the arguments) | 0xffffd204 | 4 |
+| 0xffffd170 | ARGC (number of command line arguments including executable name) | 0x00000001 | 4 |
+| 0xffffd16c | RET (MAIN's return address back to libc) | 0xf7ddc9a1 | 4 |
+| 0xffffd168 | Main's saved **EBP** | 0x00000000 | 4 |
+| 0xffffd164 | Unknown |0xf7f99000 | 4 |
+| 0xffffd160 | Unknown |0xf7f99000 | 4 |
+| 0xffffd15c | Local variable _modified_ = 0 | 0x00000000 | 4 |
+| 0xffffd11c | Local variable buffer\[64\] | unknown | 64 |
+|0xffffd104 --- 0xffffd118 | Stack Data | unknown | 20 |
+| **Low Memory**...Stack Pointer ESP -> | Address of buffer\[64\] | 0xffffd11c | 4 |
 
-Stack entry name
+We can see that the location on the stack at stack pointer ESP+92 (ESP+0x5C) was set to 0. This is the _modified_ local variable. This is the variable that we need to change in order to complete the challenge. The next few assembly instructions will allocate stack memory for the 64 byte buffer. We now advance another step and examine the effects on the stack.
 
-Value
-
-Size \[bytes\]
-
-0xffffd174
-
-ARGV (Address of array of strings. The first string is the executable's full path, the second, third, etc. are the arguments)
-
-0xffffd204
-
-4
-
-0xffffd170
-
-ARGC (number of command line arguments including executable name)
-
-0x00000001
-
-4
-
-0xffffd16c
-
-RET (MAIN's return address back to libc)
-
-0xf7ddc9a1
-
-4
-
-0xffffd168
-
-Main's saved EBP
-
-0x00000000
-
-4
-
-0xffffd164
-
-unknown
-
-0xf7f99000
-
-4
-
-0xffffd160
-
-unknown
-
-0xf7f99000
-
-4
-
-0xffffd15c
-
-Local variable _modified_ = 0
-
-0x00000000
-
-4
-
-0xffffd11c
-
-Local Variable _buffer\[64\]_
-
-0x00000000
-
-64
-
-0xffffd104 ---- 0xfffd118
-
-Stack Data
-
-unknown
-
-20
-
-0xffffd100 ... **STACK POINTER ESP ->**
-
-Address of _buffer\[64\]_
-
-0xffffd11c
-
-4
-
-We can see from the table above which depicts the state of the stack, that if we enter an amount of bytes into _buffer\[64\]_ that exceeds its size, i.e. greater than 64 bytes, then we can overflow the _buffer\[64\]_ and overwrite _modified_.
+In other words, the table above depicts the state of the stack, and that if we enter an amount of bytes into _buffer\[64\]_ that exceeds its size, i.e. greater than 64 bytes, then we can overflow the _buffer\[64\]_ and overwrite _modified_.
 
 ### Disassembling and Executing The Vulnerable C Program _stack0.c_ with GDB+GEF
 
@@ -442,21 +369,26 @@ In this section, we advance a single assembly instruction, describe what happene
 
 Execution was advanced a single step in GDB+GEF by using the si instruction. EIP now points to (main+29).
 
-![](images/x86/gef_step_8_call_0x804830c_gets@plt.jpg)
+```{figure} images/x86/gef_step_8_call_0x804830c_gets@plt.jpg
+:name: gef_step_8_call_0x804830c_gets@plt.jpg
+:alt: images/x86/gef_step_8_call_0x804830c_gets@plt.jpg
+:align: center
 
 State of execution after _call 0x804830c (gets@plt)_
+```
 
 We can see from the image above that since we started the debugging session with the command:  
 
-> run AAAA
-
-  
+```bash
+run AAAA
+```
 the _gets_ function was given the string "AAAA". As expected, this string was put into the local variable _buffer\[64\]_, and the address of this string was also returned into EAX.
 
 We can confirm that the string "AAAA" was entered onto the stack by looking at the stack memory address 0xffffd11c in the image above. It contains four "A"'s directly. This same stack address was also entered into EAX.
 
 Obviously, four "A"'s is less than 64 bytes, where each "A" uses up one byte. Therefore, we can conclude that the local variable _modified_ has not been altered. We can confirm this with the examine memory command in GDB as shown below:
 
+```gdb
 >     gef➤  x/17x $esp+0x1c
 >     0xffffd11c:	**0x41414141**	0xf7f99000	0x08049620	0xffffd138
 >     0xffffd12c:	0x080482e8	0xf7f993fc	0x08049620	0xffffd168
@@ -464,15 +396,21 @@ Obviously, four "A"'s is less than 64 bytes, where each "A" uses up one byte. Th
 >     0xffffd14c:	0xf7df3f05	0xf7fe4f60	0x00000000	0x0804845b
 >     0xffffd15c:	**0x00000000**
 >     gef➤
->                                 
+>
+```                                 
 
 From the output of the x/17x $esp+0x1c command shown above, we can see the four "A"'s at stack memory location 0xffffd11c. Then, if we count 64 bytes over, i.e. each hex number is 4 bytes, and each row 16 bytes, therefore, 4 rows is 64 bytes. At the first position in the 5th row, i.e. stack address 0xffffd15c, we can see the value 0x00000000. This is the local variable _modified_. Our goal in the challenge is to input sufficient data into the buffer to overwrite the stack memory at location 0xffffd15c.
 
 Below, we show an image of the result when executing the command x/17x $esp+0x1c.
 
-![](images/x86/gef_step_8_5_x_17_x_esp+0x1c.jpg)
+
+```{figure} images/x86/gef_step_8_5_x_17_x_esp+0x1c.jpg
+:name: gef_step_8_5_x_17_x_esp+0x1c.jpg
+:alt: images/x86/gef_step_8_5_x_17_x_esp+0x1c.jpg
+:align: center
 
 State of stack when viewed by the command x/17x $esp+0x1c
+```
 
 In the image above, we have highlighted the contents of stack memory location 0xffffd15c. This is the local variable _modified_, and its contents is 0x00000000.
 
@@ -480,15 +418,23 @@ In the image above, we have highlighted the contents of stack memory location 0x
 
 We will create a python script to build a payload. This payload will contain 64+4 characters, which is the 68 bytes necessary to completely overwrite the variable _modified_.
 
-![](images/x86/exploit_py.jpg)
+```{figure} images/x86/exploit_py.jpg
+:name: exploit_py.jpg
+:alt: images/x86/exploit_py.jpg
+:align: center
 
 Python program to generate payload to input into _stack0.c_
+```
 
 The goal of this program is to generate 66 bytes. The reason it is not 68 bytes is because we need to account for the carriage return (CR) character that Python's print statement appends to the end. Below we show the output of _exploit.py_ and a view of the xxd's output of the payload file.
 
-![](images/x86/exploit_py_output_and_xxd.jpg)
+```{figure} images/x86/exploit_py_output_and_xxd.jpg
+:name: exploit_py_output_and_xxd.jpg
+:alt: images/x86/exploit_py_output_and_xxd.jpg
+:align: center
 
 Python program to generate payload to input into _stack0.c_
+```
 
 As can be seen from the above output, the _exploit.py_ Python script produced 66 A's. These are saved into a file called _payload_. We then pass _payload_ into the hex viewer xxd. We can see the 66 A's as hex 41, and the final byte is 0a. 0a is the hex ASCII code for a carriage return (CR).
 
