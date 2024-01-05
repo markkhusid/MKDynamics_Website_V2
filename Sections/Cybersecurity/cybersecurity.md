@@ -31,13 +31,13 @@ LiveOverflow - Stack0
 :::
 
 :::{grid-item-card}
-:link: Basic_Linux_exploits/Basic_Linux_exploits
+:link: Basic_Linux_Exploits/basic_linux_exploits
 :link-type: doc
 :class-header: bg-dark
 
-LiveOverflow - Stack0
+Basic Linux Exploits
 ^^^
-```{image} images/LiveOverflow/LiveOverflow_main2.jpg
+```{image} images/Basic_Linux_Exploits/basic_linux_exploits_splash.jpeg
 :height: 200
 ```
 :::

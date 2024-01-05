@@ -1,6 +1,5 @@
 # MK Dynamics
 
-
 ## Computer Security - Protostar Exploit Exercises - Stack0 - First Stack Buffer Overflow to modify Variable
 
 ### Introduction

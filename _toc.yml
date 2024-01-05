@@ -11,6 +11,16 @@ parts:
     - file: Sections/Cybersecurity/Protostar/protostar
       sections:
       - file: Sections/Cybersecurity/Protostar/Stack0/stack0
+        sections:
+        - file: Sections/Cybersecurity/Protostar/Stack0/stack0_x86
 
     - file: Sections/Cybersecurity/LiveOverflow/liveoverflow
+    
+    - file: Sections/Cybersecurity/Basic_Linux_Exploits/basic_linux_exploits
+
+- caption: Misc
+  chapters:
+  - file: markdown-notebooks
+  - file: notebooks
+  - file: README
 
