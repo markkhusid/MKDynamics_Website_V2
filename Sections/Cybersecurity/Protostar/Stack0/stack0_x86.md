@@ -1,8 +1,6 @@
-# MK Dynamics
+# Protostar Exploit Exercises - Stack0 - First Stack Buffer Overflow to modify Variable
 
-## Computer Security - Protostar Exploit Exercises - Stack0 - First Stack Buffer Overflow to modify Variable
-
-### Introduction
+## Introduction  
 
 In this section we will complete the set of exploit exercises known as Protostar. The first challenge is called Stack0. The idea is to change an internal variable in a running program from the command line. The technique involves overflowing a buffer to overwrite contents of the internal variable. The link is shown below.  
   

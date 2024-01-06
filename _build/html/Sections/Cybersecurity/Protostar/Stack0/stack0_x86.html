@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>MK Dynamics &#8212; MK Dynamics</title>
+    <title>Protostar Exploit Exercises - Stack0 - First Stack Buffer Overflow to modify Variable &#8212; MK Dynamics</title>
   
   
   
@@ -19,15 +19,15 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../../../../_static/styles/theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
 
   
-  <link href="../../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
     <link rel="stylesheet" href="../../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../../../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
+  <script src="../../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
 
     <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
     <script src="../../../../_static/jquery.js"></script>
@@ -76,7 +76,7 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
 
@@ -119,12 +119,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <header>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <div class="bd-header navbar navbar-expand-lg bd-navbar">
+    </div>
   
+  </header>
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -173,13 +181,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../../cybersecurity.html">Cybersecurity</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="../protostar.html">Protostar Exploit Exercises</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l3 current active has-children"><a class="reference internal" href="stack0.html">Stack 0</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l4 current active"><a class="current reference internal" href="#">MK Dynamics</a></li>
+<li class="toctree-l4 current active"><a class="current reference internal" href="#">Protostar Exploit Exercises - Stack0 - First Stack Buffer Overflow to modify Variable</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../LiveOverflow/liveoverflow.html">LiveOverflow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Basic_Linux_Exploits/basic_linux_exploits.html">MK Dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Basic_Linux_Exploits/basic_linux_exploits.html">Basic Linux Exploits</a></li>
 </ul>
 </li>
 </ul>
@@ -373,7 +381,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>MK Dynamics</h1>
+    <h1>Protostar Exploit Exercises - Stack0 - First Stack Buffer Overflow to modify Variable</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -383,8 +391,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computer-security-protostar-exploit-exercises-stack0-first-stack-buffer-overflow-to-modify-variable">Computer Security - Protostar Exploit Exercises - Stack0 - First Stack Buffer Overflow to modify Variable</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-vulnerable-c-program-stack0-c">The Vulnerable C Program <em>stack0.c</em></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-vulnerable-c-program-stack0-c-through-gdb-gef">Running the Vulnerable C Program <em>stack0.c</em> Through GDB+GEF</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disassembling-the-vulnerable-c-program-stack0-c-with-gdb-gef">Disassembling The Vulnerable C Program <em>stack0.c</em> with GDB+GEF</a><ul class="nav section-nav flex-column">
@@ -458,17 +465,14 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="mk-dynamics">
-<h1>MK Dynamics<a class="headerlink" href="#mk-dynamics" title="Permalink to this heading">#</a></h1>
-<section id="computer-security-protostar-exploit-exercises-stack0-first-stack-buffer-overflow-to-modify-variable">
-<h2>Computer Security - Protostar Exploit Exercises - Stack0 - First Stack Buffer Overflow to modify Variable<a class="headerlink" href="#computer-security-protostar-exploit-exercises-stack0-first-stack-buffer-overflow-to-modify-variable" title="Permalink to this heading">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="protostar-exploit-exercises-stack0-first-stack-buffer-overflow-to-modify-variable">
+<h1>Protostar Exploit Exercises - Stack0 - First Stack Buffer Overflow to modify Variable<a class="headerlink" href="#protostar-exploit-exercises-stack0-first-stack-buffer-overflow-to-modify-variable" title="Permalink to this heading">#</a></h1>
 <section id="introduction">
-<h3>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h3>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
 <p>In this section we will complete the set of exploit exercises known as Protostar. The first challenge is called Stack0. The idea is to change an internal variable in a running program from the command line. The technique involves overflowing a buffer to overwrite contents of the internal variable. The link is shown below.</p>
 <p><a class="reference external" href="https://www.vulnhub.com/entry/exploit-exercises-protostar-v2,32/">Exploit-Exercises: Protostar (v2) on Vulnhub.</a></p>
-</section>
 <section id="the-vulnerable-c-program-stack0-c">
 <h3>The Vulnerable C Program <em>stack0.c</em><a class="headerlink" href="#the-vulnerable-c-program-stack0-c" title="Permalink to this heading">#</a></h3>
 <p>We start with the vulnerable C Program <em>stack0.c</em>. The reason this program is vulnerable is because the <em>gets</em> function does not have any bounds checking. In other words, it will take whatever amount of data is given to it and put this data into the <em>buffer</em> argument. It will do so even if the amount of data exceeds the storage space allocated for <em>buffer</em>. In this case <em>buffer</em> is allocated 64 bytes.</p>
@@ -1086,14 +1090,14 @@ function will even return.
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computer-security-protostar-exploit-exercises-stack0-first-stack-buffer-overflow-to-modify-variable">Computer Security - Protostar Exploit Exercises - Stack0 - First Stack Buffer Overflow to modify Variable</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-vulnerable-c-program-stack0-c">The Vulnerable C Program <em>stack0.c</em></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-vulnerable-c-program-stack0-c-through-gdb-gef">Running the Vulnerable C Program <em>stack0.c</em> Through GDB+GEF</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disassembling-the-vulnerable-c-program-stack0-c-with-gdb-gef">Disassembling The Vulnerable C Program <em>stack0.c</em> with GDB+GEF</a><ul class="nav section-nav flex-column">
@@ -1199,8 +1203,8 @@ By Mark Khusid
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../../../../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509"></script>
 
   <footer class="bd-footer">
   </footer>
