@@ -19,6 +19,9 @@ latex:
 #bibtex_bibfiles:
 #  - references.bib
 
+# References
+#  Shellcode_Generation_and_Testing: Sections/Cybersecurity/Shellcode_Generation_and_Testing.md
+
 # Information about where the book exists on the web
 repository:
   url: https://github.com/markkhusid/MKDynamics_Website_V2  # Online location of your book
