@@ -18,6 +18,10 @@ parts:
     
     - file: Sections/Cybersecurity/Basic_Linux_Exploits/basic_linux_exploits
 
+- caption: Electronics
+  chapters:
+  - file: Sections/Electronics/electronics
+    
 - caption: Misc
   chapters:
   - file: markdown-notebooks
