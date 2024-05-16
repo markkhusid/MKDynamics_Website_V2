@@ -7,13 +7,13 @@ In this section, we will discussing and experimenting with various electronics p
 :gutter: 3
 
 :::{grid-item-card}
-:link: Analog_Digital_Designs_and_Projects/analog_digital_designs_and_projects
+:link: Analog_and_Digital/analog_and_digital
 :link-type: doc
 :class-header: bg-dark
 
 Analog/Digital Designs and Projects
 ^^^
-```{image} images/Analog_Digital_Designs/AD9850_DDS.jpg
+```{image} images/Analog_Digital_Designs/howland.jpg
 :height: 200
 ```
 :::
