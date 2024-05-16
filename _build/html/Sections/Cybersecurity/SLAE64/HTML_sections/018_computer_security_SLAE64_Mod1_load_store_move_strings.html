@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Module 1 Section 18 - Load, Store and Move Strings &#8212; MK Dynamics</title>
   
@@ -19,49 +18,45 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../../_static/styles/theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
-<link href="../../../../_static/styles/bootstrap.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
-<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link href="../../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link href="../../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
-<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
-  <script src="../../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
-    <script src="../../../../_static/jquery.js"></script>
-    <script src="../../../../_static/underscore.js"></script>
-    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../../_static/doctools.js"></script>
-    <script src="../../../../_static/clipboard.min.js"></script>
-    <script src="../../../../_static/copybutton.js"></script>
-    <script src="../../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../../../_static/togglebutton.js"></script>
+    <script src="../../../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../../../_static/sphinx-thebe.js"></script>
+    <script src="../../../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Sections/Cybersecurity/SLAE64/HTML_sections/018_computer_security_SLAE64_Mod1_load_store_move_strings';</script>
@@ -79,7 +74,6 @@ const thebe_selector_output = ".output, .cell_output"
   <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -119,13 +113,10 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
-
-  <header>
   
-    <div class="bd-header navbar navbar-expand-lg bd-navbar">
-    </div>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
-  </header>
 
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
@@ -166,13 +157,24 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../../../intro.html">
-                    Main Page
+                    MK Dynamics
                 </a>
             </li>
         </ul>
@@ -190,6 +192,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../../Basic_Linux_Exploits/basic_linux_exploits.html">Basic Linux Exploits</a></li>
 </ul>
 </li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Electronics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../Electronics/electronics.html">Electronics</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Misc</span></p>
 <ul class="nav bd-sidenav">
@@ -391,16 +397,16 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-font-family-papyrus-font-size-1em-moving-data-in-64-bit-assembly-language-on-linux-span"><span style="font-family:Papyrus; font-size:1em;">Moving Data in 64-bit Assembly Language on Linux</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-font-family-papyrus-font-size-2em-introduction-span"><span style="font-family:Papyrus; font-size:2em;">Introduction</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-font-family-papyrus-font-size-1-75em-the-program-i-strings-64-nasm-i-span"><span style="font-family:Papyrus; font-size:1.75em;">The Program <i>Strings-64.nasm</i></span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-font-family-papyrus-font-size-1-75em-running-i-gdbtest-i-in-gdb-gef-span"><span style="font-family:Papyrus; font-size:1.75em;">Running <i>gdbtest</i> in GDB + GEF</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-font-family-papyrus-font-size-1-75em-examining-the-disassembly-of-main-in-detail-span"><span style="font-family:Papyrus; font-size:1.75em;">Examining the Disassembly of Main in Detail</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-font-family-papyrus-font-size-1-75em-examining-the-disassembly-of-main-in-detail-in-the-att-format-span"><span style="font-family:Papyrus; font-size:1.75em;">Examining the Disassembly of Main in Detail in the ATT Format</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-font-family-papyrus-font-size-1-75em-highlighting-the-i-strcmp-i-instruction-for-clarity-span"><span style="font-family:Papyrus; font-size:1.75em;">Highlighting the <i>strcmp</i> Instruction for Clarity</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-font-family-papyrus-font-size-1-75em-disassembly-of-the-function-i-main-i-in-radare2-span"><span style="font-family:Papyrus; font-size:1.75em;">Disassembly of the Function <i>main</i> in Radare2</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-font-family-papyrus-font-size-1-75em-setting-up-a-break-point-at-the-instruction-i-test-eax-eax-i-span"><span style="font-family:Papyrus; font-size:1.75em;">Setting Up a Break Point at the Instruction <i>test eax, eax</i></span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-font-family-papyrus-font-size-1-75em-setting-the-register-i-rdi-i-equal-to-the-register-i-rsi-i-using-gdb-span"><span style="font-family:Papyrus; font-size:1.75em;">Setting the Register <i>rdi</i> Equal to the Register <i>rsi</i> Using GDB</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#moving-data-in-64-bit-assembly-language-on-linux"><span style="font-family:Papyrus; font-size:1em;">Moving Data in 64-bit Assembly Language on Linux</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction"><span style="font-family:Papyrus; font-size:2em;">Introduction</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-program-strings-64-nasm"><span style="font-family:Papyrus; font-size:1.75em;">The Program <i>Strings-64.nasm</i></span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-gdbtest-in-gdb-gef"><span style="font-family:Papyrus; font-size:1.75em;">Running <i>gdbtest</i> in GDB + GEF</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examining-the-disassembly-of-main-in-detail"><span style="font-family:Papyrus; font-size:1.75em;">Examining the Disassembly of Main in Detail</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examining-the-disassembly-of-main-in-detail-in-the-att-format"><span style="font-family:Papyrus; font-size:1.75em;">Examining the Disassembly of Main in Detail in the ATT Format</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#highlighting-the-strcmp-instruction-for-clarity"><span style="font-family:Papyrus; font-size:1.75em;">Highlighting the <i>strcmp</i> Instruction for Clarity</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disassembly-of-the-function-main-in-radare2"><span style="font-family:Papyrus; font-size:1.75em;">Disassembly of the Function <i>main</i> in Radare2</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-a-break-point-at-the-instruction-test-eax-eax"><span style="font-family:Papyrus; font-size:1.75em;">Setting Up a Break Point at the Instruction <i>test eax, eax</i></span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-the-register-rdi-equal-to-the-register-rsi-using-gdb"><span style="font-family:Papyrus; font-size:1.75em;">Setting the Register <i>rdi</i> Equal to the Register <i>rsi</i> Using GDB</span></a></li>
 </ul>
             </nav>
         </div>
@@ -412,83 +418,83 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="span-style-font-family-papyrus-font-size-2em-module-1-section-18-load-store-and-move-strings-span">
-<h1><span style="font-family:Papyrus; font-size:2em;">Module 1 Section 18 - Load, Store and Move Strings</span><a class="headerlink" href="#span-style-font-family-papyrus-font-size-2em-module-1-section-18-load-store-and-move-strings-span" title="Permalink to this heading">#</a></h1>
-<section id="span-style-font-family-papyrus-font-size-1em-moving-data-in-64-bit-assembly-language-on-linux-span">
-<h2><span style="font-family:Papyrus; font-size:1em;">Moving Data in 64-bit Assembly Language on Linux</span><a class="headerlink" href="#span-style-font-family-papyrus-font-size-1em-moving-data-in-64-bit-assembly-language-on-linux-span" title="Permalink to this heading">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="module-1-section-18-load-store-and-move-strings">
+<h1><span style="font-family:Papyrus; font-size:2em;">Module 1 Section 18 - Load, Store and Move Strings</span><a class="headerlink" href="#module-1-section-18-load-store-and-move-strings" title="Link to this heading">#</a></h1>
+<section id="moving-data-in-64-bit-assembly-language-on-linux">
+<h2><span style="font-family:Papyrus; font-size:1em;">Moving Data in 64-bit Assembly Language on Linux</span><a class="headerlink" href="#moving-data-in-64-bit-assembly-language-on-linux" title="Link to this heading">#</a></h2>
 </section>
-<section id="span-style-font-family-papyrus-font-size-2em-introduction-span">
-<h2><span style="font-family:Papyrus; font-size:2em;">Introduction</span><a class="headerlink" href="#span-style-font-family-papyrus-font-size-2em-introduction-span" title="Permalink to this heading">#</a></h2>
+<section id="introduction">
+<h2><span style="font-family:Papyrus; font-size:2em;">Introduction</span><a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
 <p><span style="font-family:Papyrus; font-size:1.25em;">In this section we will be following along with and completing course material from the Pentester Academy’s SecurityTube Linux Assembly language Expert 64 Bit course.</span></p>
 <p><span style="font-family:Papyrus; font-size:1.25em;">In this section we will be focusing on moving data using 64-Bit Assembly Language on Linux.  Specifically, we will be loading, storing and moving data using the lodsx, stosx, and movsx instructions.  The x stands for either b for byte, w for word, d for double-word, q for quad-word.</span></p>
 <p><span style="font-family:Papyrus; font-size:1.25em;">Project code is contained in my <a href="https://github.com/markkhusid/SLAE64">github</a>.</span></p>
 </section>
-<section id="span-style-font-family-papyrus-font-size-1-75em-the-program-i-strings-64-nasm-i-span">
-<h2><span style="font-family:Papyrus; font-size:1.75em;">The Program <i>Strings-64.nasm</i></span><a class="headerlink" href="#span-style-font-family-papyrus-font-size-1-75em-the-program-i-strings-64-nasm-i-span" title="Permalink to this heading">#</a></h2>
+<section id="the-program-strings-64-nasm">
+<h2><span style="font-family:Papyrus; font-size:1.75em;">The Program <i>Strings-64.nasm</i></span><a class="headerlink" href="#the-program-strings-64-nasm" title="Link to this heading">#</a></h2>
 <p><span style="font-family:Papyrus; font-size:1.25em;">The code below displays the contents of the program <i>Strings-64.nasm</i></span></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>; Filename: Strings-64.nasm
-; Author:  Vivek Ramachandran
-; Website:  http://securitytube.net
-; Training: http://securitytube-training.com 
-;
-;
-; Purpose: String Operations in 64-bit CPU
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">;</span> <span class="n">Filename</span><span class="p">:</span> <span class="n">Strings</span><span class="o">-</span><span class="mf">64.</span><span class="n">nasm</span>
+<span class="p">;</span> <span class="n">Author</span><span class="p">:</span>  <span class="n">Vivek</span> <span class="n">Ramachandran</span>
+<span class="p">;</span> <span class="n">Website</span><span class="p">:</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">securitytube</span><span class="o">.</span><span class="n">net</span>
+<span class="p">;</span> <span class="n">Training</span><span class="p">:</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">securitytube</span><span class="o">-</span><span class="n">training</span><span class="o">.</span><span class="n">com</span> 
+<span class="p">;</span>
+<span class="p">;</span>
+<span class="p">;</span> <span class="n">Purpose</span><span class="p">:</span> <span class="n">String</span> <span class="n">Operations</span> <span class="ow">in</span> <span class="mi">64</span><span class="o">-</span><span class="n">bit</span> <span class="n">CPU</span>
 
-; Added line below to satisfy Vim error checking.  MK.
-BITS 64
+<span class="p">;</span> <span class="n">Added</span> <span class="n">line</span> <span class="n">below</span> <span class="n">to</span> <span class="n">satisfy</span> <span class="n">Vim</span> <span class="n">error</span> <span class="n">checking</span><span class="o">.</span>  <span class="n">MK</span><span class="o">.</span>
+<span class="n">BITS</span> <span class="mi">64</span>
 
-global _start			
+<span class="k">global</span> <span class="n">_start</span>			
 
-section .text
-_start:
+<span class="n">section</span> <span class="o">.</span><span class="n">text</span>
+<span class="n">_start</span><span class="p">:</span>
 
-	; Movsb/w/d/q
-	; Memory to Memory 
-	cld
-	lea rsi, [HelloWorld]
-	lea rdi, [Copy]
-	movsq
+	<span class="p">;</span> <span class="n">Movsb</span><span class="o">/</span><span class="n">w</span><span class="o">/</span><span class="n">d</span><span class="o">/</span><span class="n">q</span>
+	<span class="p">;</span> <span class="n">Memory</span> <span class="n">to</span> <span class="n">Memory</span> 
+	<span class="n">cld</span>
+	<span class="n">lea</span> <span class="n">rsi</span><span class="p">,</span> <span class="p">[</span><span class="n">HelloWorld</span><span class="p">]</span>
+	<span class="n">lea</span> <span class="n">rdi</span><span class="p">,</span> <span class="p">[</span><span class="n">Copy</span><span class="p">]</span>
+	<span class="n">movsq</span>
 
-	cld
-	lea rsi, [HelloWorld]
-	xor rax, rax
-	mov qword [Copy], rax
-	lea rdi, [Copy]
-	mov rcx, len
-	rep movsb
+	<span class="n">cld</span>
+	<span class="n">lea</span> <span class="n">rsi</span><span class="p">,</span> <span class="p">[</span><span class="n">HelloWorld</span><span class="p">]</span>
+	<span class="n">xor</span> <span class="n">rax</span><span class="p">,</span> <span class="n">rax</span>
+	<span class="n">mov</span> <span class="n">qword</span> <span class="p">[</span><span class="n">Copy</span><span class="p">],</span> <span class="n">rax</span>
+	<span class="n">lea</span> <span class="n">rdi</span><span class="p">,</span> <span class="p">[</span><span class="n">Copy</span><span class="p">]</span>
+	<span class="n">mov</span> <span class="n">rcx</span><span class="p">,</span> <span class="nb">len</span>
+	<span class="n">rep</span> <span class="n">movsb</span>
 
 
-	; stosb/w/d/q
-	; Register to Memory 
+	<span class="p">;</span> <span class="n">stosb</span><span class="o">/</span><span class="n">w</span><span class="o">/</span><span class="n">d</span><span class="o">/</span><span class="n">q</span>
+	<span class="p">;</span> <span class="n">Register</span> <span class="n">to</span> <span class="n">Memory</span> 
 
-	mov rax, 0x0123456789abcdef
-	lea rdi, [var1]
-	stosq
+	<span class="n">mov</span> <span class="n">rax</span><span class="p">,</span> <span class="mh">0x0123456789abcdef</span>
+	<span class="n">lea</span> <span class="n">rdi</span><span class="p">,</span> <span class="p">[</span><span class="n">var1</span><span class="p">]</span>
+	<span class="n">stosq</span>
 
-	; lodsb/w/d/q 
-	; Memory to Register 
+	<span class="p">;</span> <span class="n">lodsb</span><span class="o">/</span><span class="n">w</span><span class="o">/</span><span class="n">d</span><span class="o">/</span><span class="n">q</span> 
+	<span class="p">;</span> <span class="n">Memory</span> <span class="n">to</span> <span class="n">Register</span> 
 
-	xor rax, rax 
-	lea rsi, [var1]
-	lodsq
+	<span class="n">xor</span> <span class="n">rax</span><span class="p">,</span> <span class="n">rax</span> 
+	<span class="n">lea</span> <span class="n">rsi</span><span class="p">,</span> <span class="p">[</span><span class="n">var1</span><span class="p">]</span>
+	<span class="n">lodsq</span>
 
 		
-	; exit the program gracefully  
+	<span class="p">;</span> <span class="n">exit</span> <span class="n">the</span> <span class="n">program</span> <span class="n">gracefully</span>  
 
-	mov rax, 0x3c
-	mov rdi, 0		
-	syscall
+	<span class="n">mov</span> <span class="n">rax</span><span class="p">,</span> <span class="mh">0x3c</span>
+	<span class="n">mov</span> <span class="n">rdi</span><span class="p">,</span> <span class="mi">0</span>		
+	<span class="n">syscall</span>
 
 
-section .data
+<span class="n">section</span> <span class="o">.</span><span class="n">data</span>
 
-	HelloWorld:	db	&quot;Hello World&quot;
-	len:	equ	$-HelloWorld
+	<span class="n">HelloWorld</span><span class="p">:</span>	<span class="n">db</span>	<span class="s2">&quot;Hello World&quot;</span>
+	<span class="nb">len</span><span class="p">:</span>	<span class="n">equ</span>	<span class="err">$</span><span class="o">-</span><span class="n">HelloWorld</span>
 
-section .bss
+<span class="n">section</span> <span class="o">.</span><span class="n">bss</span>
 
-	Copy:	resb	len
-	var1:	resb	8
+	<span class="n">Copy</span><span class="p">:</span>	<span class="n">resb</span>	<span class="nb">len</span>
+	<span class="n">var1</span><span class="p">:</span>	<span class="n">resb</span>	<span class="mi">8</span>
 </pre></div>
 </div>
 <p><span style="font-family:Papyrus; font-size:1.25em;">The program contains a string variable called <i>p</i> that holds the password “PentesterAcademyPass”. It then does a string compare of the variable <i>p</i> with the first argument passed to the executable from the command line. If the first argument is the same string as <i>p</i>, the strcmp function returns a zero. The enveloping if statement checks for this condition and if true, executes the statement:</span></p>
@@ -504,8 +510,8 @@ section .bss
 <p><span style="font-family:Papyrus; font-size:1.25em;">This produces an executable called <i>gdb_test</i>.</span></p>
 <p><span style="font-family:Papyrus; font-size:1.25em;">In the next section, we run the executable <i>gdbtest</i> in GDB + GEF.</span></p>
 </section>
-<section id="span-style-font-family-papyrus-font-size-1-75em-running-i-gdbtest-i-in-gdb-gef-span">
-<h2><span style="font-family:Papyrus; font-size:1.75em;">Running <i>gdbtest</i> in GDB + GEF</span><a class="headerlink" href="#span-style-font-family-papyrus-font-size-1-75em-running-i-gdbtest-i-in-gdb-gef-span" title="Permalink to this heading">#</a></h2>
+<section id="running-gdbtest-in-gdb-gef">
+<h2><span style="font-family:Papyrus; font-size:1.75em;">Running <i>gdbtest</i> in GDB + GEF</span><a class="headerlink" href="#running-gdbtest-in-gdb-gef" title="Link to this heading">#</a></h2>
 <p><span style="font-family:Papyrus; font-size:1.25em;">The screenshot below shows the executable <i>gdbtest</i> being run in GDB + GEF.</span></p>
 <figure>
     <div class="img">
@@ -522,8 +528,8 @@ section .bss
         <p>
     </div> <!-- .desc -->
 </figure></section>
-<section id="span-style-font-family-papyrus-font-size-1-75em-examining-the-disassembly-of-main-in-detail-span">
-<h2><span style="font-family:Papyrus; font-size:1.75em;">Examining the Disassembly of Main in Detail</span><a class="headerlink" href="#span-style-font-family-papyrus-font-size-1-75em-examining-the-disassembly-of-main-in-detail-span" title="Permalink to this heading">#</a></h2>
+<section id="examining-the-disassembly-of-main-in-detail">
+<h2><span style="font-family:Papyrus; font-size:1.75em;">Examining the Disassembly of Main in Detail</span><a class="headerlink" href="#examining-the-disassembly-of-main-in-detail" title="Link to this heading">#</a></h2>
 <p><span style="font-family:Papyrus; font-size:1.25em;">In this section, we will examine the disassembly of the function <i>main</i> in more detail.  We will use the ATT format to become accustomed to it, but generally, the Intel format seems to be more prevalent.  In the screenshot below, we show the disassembly of the function <i>main</i> in both formats.</span></p>
 <p><span style="font-family:Papyrus; font-size:1.25em;">First we start with the ATT format…</span></p>
 <figure>
@@ -557,8 +563,8 @@ section .bss
     </div> <!-- .desc -->
 </figure><p><span style="font-family:Papyrus; font-size:1.25em;">In the next section, we will zoom in to the function <i>main</i> shown in ATT format for clarity.</span></p>
 </section>
-<section id="span-style-font-family-papyrus-font-size-1-75em-examining-the-disassembly-of-main-in-detail-in-the-att-format-span">
-<h2><span style="font-family:Papyrus; font-size:1.75em;">Examining the Disassembly of Main in Detail in the ATT Format</span><a class="headerlink" href="#span-style-font-family-papyrus-font-size-1-75em-examining-the-disassembly-of-main-in-detail-in-the-att-format-span" title="Permalink to this heading">#</a></h2>
+<section id="examining-the-disassembly-of-main-in-detail-in-the-att-format">
+<h2><span style="font-family:Papyrus; font-size:1.75em;">Examining the Disassembly of Main in Detail in the ATT Format</span><a class="headerlink" href="#examining-the-disassembly-of-main-in-detail-in-the-att-format" title="Link to this heading">#</a></h2>
 <p><span style="font-family:Papyrus; font-size:1.25em;">In the screenshot below, we can see the disassembly of the function <i>main</i> in ATT format and zoomed in for better viewing.  When viewing the assembly instructions, one instruction stands out as particularly interesting.  It is the string compare instruction, at <i>main</i> + 47.  If we could alter the return value of this function to satisfy the test that indeed a correct password was entered, then we can crack this password checking program.</span></p>
 <figure>
     <div class="img">
@@ -576,8 +582,8 @@ section .bss
     </div> <!-- .desc -->
 </figure><p><span style="font-family:Papyrus; font-size:1.25em;">In the next section, we will highlight the <i>strcmp</i> (string compare) instruction for clarity.</span></p>
 </section>
-<section id="span-style-font-family-papyrus-font-size-1-75em-highlighting-the-i-strcmp-i-instruction-for-clarity-span">
-<h2><span style="font-family:Papyrus; font-size:1.75em;">Highlighting the <i>strcmp</i> Instruction for Clarity</span><a class="headerlink" href="#span-style-font-family-papyrus-font-size-1-75em-highlighting-the-i-strcmp-i-instruction-for-clarity-span" title="Permalink to this heading">#</a></h2>
+<section id="highlighting-the-strcmp-instruction-for-clarity">
+<h2><span style="font-family:Papyrus; font-size:1.75em;">Highlighting the <i>strcmp</i> Instruction for Clarity</span><a class="headerlink" href="#highlighting-the-strcmp-instruction-for-clarity" title="Link to this heading">#</a></h2>
 <p><span style="font-family:Papyrus; font-size:1.25em;">In the screenshot below, we can see the disassembly of the function <i>main</i> and the strcmp (string compare) highlighted.</span></p>
 <figure>
     <div class="img">
@@ -598,8 +604,8 @@ section .bss
 <p><span style="font-family:Papyrus; font-size:1.25em;">After the <i>test eax, eax</i> instruction, we see a <i>jne</i> or a Jump if Not Equal instruction, and then a series of <i>puts</i> function calls.  If the zero flag is not set, the program jumps to main+70, prints a string and then exits.  If they are equal, the <i>puts</i> function call at main+63 executes and then jumps to main + 82 near the end of the program.</span></p>
 <p><span style="font-family:Papyrus; font-size:1.25em;">We can see a graphical visualization of this with the help of Radare2.</span></p>
 </section>
-<section id="span-style-font-family-papyrus-font-size-1-75em-disassembly-of-the-function-i-main-i-in-radare2-span">
-<h2><span style="font-family:Papyrus; font-size:1.75em;">Disassembly of the Function <i>main</i> in Radare2</span><a class="headerlink" href="#span-style-font-family-papyrus-font-size-1-75em-disassembly-of-the-function-i-main-i-in-radare2-span" title="Permalink to this heading">#</a></h2>
+<section id="disassembly-of-the-function-main-in-radare2">
+<h2><span style="font-family:Papyrus; font-size:1.75em;">Disassembly of the Function <i>main</i> in Radare2</span><a class="headerlink" href="#disassembly-of-the-function-main-in-radare2" title="Link to this heading">#</a></h2>
 <p><span style="font-family:Papyrus; font-size:1.25em;">In the screenshot below, we disassemble the function <i>main</i> in Radare2</p>
 <figure>
     <div class="img">
@@ -619,8 +625,8 @@ section .bss
 <p><span style="font-family:Papyrus; font-size:1.25em;">In Radare2, we can clearly see the flow graph of the branching after the test for zero in eax is performed.  If we could modify eax to be a zero after this test, no matter what the command line argument was, then we can effectively always force the program to print the string that we want.</span></p>
 <p><span style="font-family:Papyrus; font-size:1.25em;">In the next section, we will setup a breakpoint just before the <i>test eax, eax</i>.  Before executing this instruction, we will mov a zero into eax, effectively negating the results of the string compare.  The program will then continue as if the correct password was entered, effectively being cracked.</span></p>
 </section>
-<section id="span-style-font-family-papyrus-font-size-1-75em-setting-up-a-break-point-at-the-instruction-i-test-eax-eax-i-span">
-<h2><span style="font-family:Papyrus; font-size:1.75em;">Setting Up a Break Point at the Instruction <i>test eax, eax</i></span><a class="headerlink" href="#span-style-font-family-papyrus-font-size-1-75em-setting-up-a-break-point-at-the-instruction-i-test-eax-eax-i-span" title="Permalink to this heading">#</a></h2>
+<section id="setting-up-a-break-point-at-the-instruction-test-eax-eax">
+<h2><span style="font-family:Papyrus; font-size:1.75em;">Setting Up a Break Point at the Instruction <i>test eax, eax</i></span><a class="headerlink" href="#setting-up-a-break-point-at-the-instruction-test-eax-eax" title="Link to this heading">#</a></h2>
 <p><span style="font-family:Papyrus; font-size:1.25em;">In this section we will setup a breakpoint at just before the instruction <i>test eax, eax</i>.  But first we must run the program with an arbitrary argument.  We will use the string “AAAA” for its ease of recognition in either ASCII format or its hex equivalent, 0x41414141.</span></p>
 <figure>
     <div class="img">
@@ -693,8 +699,8 @@ section .bss
 <p><span style="font-family:Papyrus; font-size:1.25em;">We choose to set the register <i>rdi</i> and <i>rsi</i> equal to each other using GDB.  With this change, the output of the <i>strcmp</i> function call will return a zero into the register <i>rax</i>.  This will effectively crack the password checking program.</span></p>
 <p><span style="font-family:Papyrus; font-size:1.25em;">In the next section, we will set the register <i>rdi</i> equal to <i>rsi</i>.</span></p>
 </section>
-<section id="span-style-font-family-papyrus-font-size-1-75em-setting-the-register-i-rdi-i-equal-to-the-register-i-rsi-i-using-gdb-span">
-<h2><span style="font-family:Papyrus; font-size:1.75em;">Setting the Register <i>rdi</i> Equal to the Register <i>rsi</i> Using GDB</span><a class="headerlink" href="#span-style-font-family-papyrus-font-size-1-75em-setting-the-register-i-rdi-i-equal-to-the-register-i-rsi-i-using-gdb-span" title="Permalink to this heading">#</a></h2>
+<section id="setting-the-register-rdi-equal-to-the-register-rsi-using-gdb">
+<h2><span style="font-family:Papyrus; font-size:1.75em;">Setting the Register <i>rdi</i> Equal to the Register <i>rsi</i> Using GDB</span><a class="headerlink" href="#setting-the-register-rdi-equal-to-the-register-rsi-using-gdb" title="Link to this heading">#</a></h2>
 <p><span style="font-family:Papyrus; font-size:1.25em;">In the screenshot below, we use the GDB command:</span></p>
 <blockquote>
 <div><p><span style="font-family:Papyrus; font-size:1.25em;"><span class="math notranslate nohighlight">\(\large set\; rdi=rsi\)</span></span></p>
@@ -799,16 +805,16 @@ section .bss
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-font-family-papyrus-font-size-1em-moving-data-in-64-bit-assembly-language-on-linux-span"><span style="font-family:Papyrus; font-size:1em;">Moving Data in 64-bit Assembly Language on Linux</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-font-family-papyrus-font-size-2em-introduction-span"><span style="font-family:Papyrus; font-size:2em;">Introduction</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-font-family-papyrus-font-size-1-75em-the-program-i-strings-64-nasm-i-span"><span style="font-family:Papyrus; font-size:1.75em;">The Program <i>Strings-64.nasm</i></span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-font-family-papyrus-font-size-1-75em-running-i-gdbtest-i-in-gdb-gef-span"><span style="font-family:Papyrus; font-size:1.75em;">Running <i>gdbtest</i> in GDB + GEF</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-font-family-papyrus-font-size-1-75em-examining-the-disassembly-of-main-in-detail-span"><span style="font-family:Papyrus; font-size:1.75em;">Examining the Disassembly of Main in Detail</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-font-family-papyrus-font-size-1-75em-examining-the-disassembly-of-main-in-detail-in-the-att-format-span"><span style="font-family:Papyrus; font-size:1.75em;">Examining the Disassembly of Main in Detail in the ATT Format</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-font-family-papyrus-font-size-1-75em-highlighting-the-i-strcmp-i-instruction-for-clarity-span"><span style="font-family:Papyrus; font-size:1.75em;">Highlighting the <i>strcmp</i> Instruction for Clarity</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-font-family-papyrus-font-size-1-75em-disassembly-of-the-function-i-main-i-in-radare2-span"><span style="font-family:Papyrus; font-size:1.75em;">Disassembly of the Function <i>main</i> in Radare2</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-font-family-papyrus-font-size-1-75em-setting-up-a-break-point-at-the-instruction-i-test-eax-eax-i-span"><span style="font-family:Papyrus; font-size:1.75em;">Setting Up a Break Point at the Instruction <i>test eax, eax</i></span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-font-family-papyrus-font-size-1-75em-setting-the-register-i-rdi-i-equal-to-the-register-i-rsi-i-using-gdb-span"><span style="font-family:Papyrus; font-size:1.75em;">Setting the Register <i>rdi</i> Equal to the Register <i>rsi</i> Using GDB</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#moving-data-in-64-bit-assembly-language-on-linux"><span style="font-family:Papyrus; font-size:1em;">Moving Data in 64-bit Assembly Language on Linux</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction"><span style="font-family:Papyrus; font-size:2em;">Introduction</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-program-strings-64-nasm"><span style="font-family:Papyrus; font-size:1.75em;">The Program <i>Strings-64.nasm</i></span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-gdbtest-in-gdb-gef"><span style="font-family:Papyrus; font-size:1.75em;">Running <i>gdbtest</i> in GDB + GEF</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examining-the-disassembly-of-main-in-detail"><span style="font-family:Papyrus; font-size:1.75em;">Examining the Disassembly of Main in Detail</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examining-the-disassembly-of-main-in-detail-in-the-att-format"><span style="font-family:Papyrus; font-size:1.75em;">Examining the Disassembly of Main in Detail in the ATT Format</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#highlighting-the-strcmp-instruction-for-clarity"><span style="font-family:Papyrus; font-size:1.75em;">Highlighting the <i>strcmp</i> Instruction for Clarity</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disassembly-of-the-function-main-in-radare2"><span style="font-family:Papyrus; font-size:1.75em;">Disassembly of the Function <i>main</i> in Radare2</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-a-break-point-at-the-instruction-test-eax-eax"><span style="font-family:Papyrus; font-size:1.75em;">Setting Up a Break Point at the Instruction <i>test eax, eax</i></span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-the-register-rdi-equal-to-the-register-rsi-using-gdb"><span style="font-family:Papyrus; font-size:1.75em;">Setting the Register <i>rdi</i> Equal to the Register <i>rsi</i> Using GDB</span></a></li>
 </ul>
   </nav></div>
 
@@ -850,8 +856,8 @@ By Mark Khusid
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509"></script>
-<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509"></script>
+  <script src="../../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

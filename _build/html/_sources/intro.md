@@ -1,7 +1,6 @@
 # MK Dynamics
 
 ## Cybersecurity
-
 ::::{grid} 2 2 2 2
 :class-container: text-center
 :gutter: 3

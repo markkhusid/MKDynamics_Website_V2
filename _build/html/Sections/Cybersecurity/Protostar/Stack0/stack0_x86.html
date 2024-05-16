@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Protostar Exploit Exercises - Stack0 - First Stack Buffer Overflow to modify Variable &#8212; MK Dynamics</title>
   
@@ -19,49 +18,45 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../../_static/styles/theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
-<link href="../../../../_static/styles/bootstrap.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
-<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link href="../../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link href="../../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
-<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
-  <script src="../../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
-    <script src="../../../../_static/jquery.js"></script>
-    <script src="../../../../_static/underscore.js"></script>
-    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../../_static/doctools.js"></script>
-    <script src="../../../../_static/clipboard.min.js"></script>
-    <script src="../../../../_static/copybutton.js"></script>
-    <script src="../../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../../../_static/togglebutton.js"></script>
+    <script src="../../../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../../../_static/sphinx-thebe.js"></script>
+    <script src="../../../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Sections/Cybersecurity/Protostar/Stack0/stack0_x86';</script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
@@ -79,7 +74,6 @@ const thebe_selector_output = ".output, .cell_output"
   <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -119,20 +113,15 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
-
-  <header>
   
-    <div class="bd-header navbar navbar-expand-lg bd-navbar">
-    </div>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
-  </header>
 
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
       
-      
-        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -166,13 +155,24 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../../../intro.html">
-                    Main Page
+                    MK Dynamics
                 </a>
             </li>
         </ul>
@@ -190,6 +190,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../../Basic_Linux_Exploits/basic_linux_exploits.html">Basic Linux Exploits</a></li>
 </ul>
 </li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Electronics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../Electronics/electronics.html">Electronics</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Misc</span></p>
 <ul class="nav bd-sidenav">
@@ -468,52 +472,52 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="protostar-exploit-exercises-stack0-first-stack-buffer-overflow-to-modify-variable">
-<h1>Protostar Exploit Exercises - Stack0 - First Stack Buffer Overflow to modify Variable<a class="headerlink" href="#protostar-exploit-exercises-stack0-first-stack-buffer-overflow-to-modify-variable" title="Permalink to this heading">#</a></h1>
+<h1>Protostar Exploit Exercises - Stack0 - First Stack Buffer Overflow to modify Variable<a class="headerlink" href="#protostar-exploit-exercises-stack0-first-stack-buffer-overflow-to-modify-variable" title="Link to this heading">#</a></h1>
 <section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
 <p>In this section we will complete the set of exploit exercises known as Protostar. The first challenge is called Stack0. The idea is to change an internal variable in a running program from the command line. The technique involves overflowing a buffer to overwrite contents of the internal variable. The link is shown below.</p>
 <p><a class="reference external" href="https://www.vulnhub.com/entry/exploit-exercises-protostar-v2,32/">Exploit-Exercises: Protostar (v2) on Vulnhub.</a></p>
 <section id="the-vulnerable-c-program-stack0-c">
-<h3>The Vulnerable C Program <em>stack0.c</em><a class="headerlink" href="#the-vulnerable-c-program-stack0-c" title="Permalink to this heading">#</a></h3>
+<h3>The Vulnerable C Program <em>stack0.c</em><a class="headerlink" href="#the-vulnerable-c-program-stack0-c" title="Link to this heading">#</a></h3>
 <p>We start with the vulnerable C Program <em>stack0.c</em>. The reason this program is vulnerable is because the <em>gets</em> function does not have any bounds checking. In other words, it will take whatever amount of data is given to it and put this data into the <em>buffer</em> argument. It will do so even if the amount of data exceeds the storage space allocated for <em>buffer</em>. In this case <em>buffer</em> is allocated 64 bytes.</p>
 <p>If one were to input a properly coded payload into the <em>gets</em> function, one could overwrite the <em>buffer</em> variable and even overwrite other variables. In this case, the variable we wish to overwrite is called <em>modified</em>.</p>
 <figure class="align-center" id="stack0-c-3">
 <img alt="stack0_c_3" src="../../../../_images/stack0_c_3.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 1 </span><span class="caption-text">The vulnerable program <em>stack0.c</em></span><a class="headerlink" href="#stack0-c-3" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">The vulnerable program <em>stack0.c</em></span><a class="headerlink" href="#stack0-c-3" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><a class="reference download internal" download="" href="../../../../_downloads/a8cd2f298b99b450c6abdd645938ef39/stack0.c"><span class="xref download myst">Click here to download <em>stack0.c</em></span></a></p>
 </section>
 <section id="running-the-vulnerable-c-program-stack0-c-through-gdb-gef">
-<h3>Running the Vulnerable C Program <em>stack0.c</em> Through GDB+GEF<a class="headerlink" href="#running-the-vulnerable-c-program-stack0-c-through-gdb-gef" title="Permalink to this heading">#</a></h3>
+<h3>Running the Vulnerable C Program <em>stack0.c</em> Through GDB+GEF<a class="headerlink" href="#running-the-vulnerable-c-program-stack0-c-through-gdb-gef" title="Link to this heading">#</a></h3>
 <p>In this section we start the program in GDB+GEF and see what it does. As can be seen from the image below, the program waits for input on stdin. After inputting four A’s, it replies with “Try again?”.</p>
 <p>Clearly we need to disassemble the program to figure out what it does, and how we can change the <em>modified</em> variable. We enter a breakpoint at *main (Note: not main). We use *main so that we can get to the beginning of the main function with respect to the assembly code. Otherwise, entering <em>break main</em> will bring us to the beginning of the variable assignments. In this case we would have missed the very import function prefix, which sets up the stack. It is through the stack that we are able to complete the challege.</p>
 <figure class="align-center" id="parrot-gef3-redirect-payload-4-a-into-exe-jpg">
 <img alt="parrot_gef3_redirect_payload_4_A_into_exe.jpg" src="../../../../_images/parrot_gef3_redirect_payload_4_A_into_exe.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 2 </span><span class="caption-text">The vulnerable program <em>stack0.c</em></span><a class="headerlink" href="#parrot-gef3-redirect-payload-4-a-into-exe-jpg" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">The vulnerable program <em>stack0.c</em></span><a class="headerlink" href="#parrot-gef3-redirect-payload-4-a-into-exe-jpg" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>In the next section, we show the output of the run command in GDB+GEF.</p>
 </section>
 <section id="disassembling-the-vulnerable-c-program-stack0-c-with-gdb-gef">
-<h3>Disassembling The Vulnerable C Program <em>stack0.c</em> with GDB+GEF<a class="headerlink" href="#disassembling-the-vulnerable-c-program-stack0-c-with-gdb-gef" title="Permalink to this heading">#</a></h3>
+<h3>Disassembling The Vulnerable C Program <em>stack0.c</em> with GDB+GEF<a class="headerlink" href="#disassembling-the-vulnerable-c-program-stack0-c-with-gdb-gef" title="Link to this heading">#</a></h3>
 <section id="visualizing-main-s-stack-frame">
-<h4>Visualizing Main’s Stack Frame<a class="headerlink" href="#visualizing-main-s-stack-frame" title="Permalink to this heading">#</a></h4>
+<h4>Visualizing Main’s Stack Frame<a class="headerlink" href="#visualizing-main-s-stack-frame" title="Link to this heading">#</a></h4>
 <p>In this section we will visualize main’s stack frame. As seen in the previous section, the command line arguments to main are pushed onto the stack in reverse order. Then main’s return address to libc is pushed onto the stack. Once the executable is ready to run, the stack pointer <em>ESP</em> points to main’s return address. This is the top of the stack. Everything else that will be pushed onto the stack will enter into lower addresses, since the stack grows downward in memory.</p>
 <p>The image below shows main’s stack frame. It was highlighted in the image for clarity.</p>
 <figure class="align-center" id="gef-start-run-with-4-a-highlight-main-ret-argc-argv-jpg-jpg">
 <img alt="gef_start_run_with_4_A_highlight_main_ret_argc_argv.jpg.jpg" src="../../../../_images/gef_start_run_with_4_A_highlight_main_ret_argc_argv.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Main’s stack frame highlighted.</span><a class="headerlink" href="#gef-start-run-with-4-a-highlight-main-ret-argc-argv-jpg-jpg" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Main’s stack frame highlighted.</span><a class="headerlink" href="#gef-start-run-with-4-a-highlight-main-ret-argc-argv-jpg-jpg" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>We will now begin show a table that summarizes the state of the stack at this point.</p>
 </section>
 </section>
 <section id="layout-of-the-stack-in-program-stack0-c">
-<h3>Layout of the stack in program <em>stack0.c</em><a class="headerlink" href="#layout-of-the-stack-in-program-stack0-c" title="Permalink to this heading">#</a></h3>
+<h3>Layout of the stack in program <em>stack0.c</em><a class="headerlink" href="#layout-of-the-stack-in-program-stack0-c" title="Link to this heading">#</a></h3>
 <p>The table below illustrates the layout of the stack once <em>stack.c</em> is executed.</p>
 <table class="table">
 <thead>
@@ -553,17 +557,17 @@ document.write(`
 <p>What is referred to as “previous function’s stack frame data” is the parts of the executable that execute prior to main’s execution. Those parts of the executable will have their own stack frames, which will not be considered here.</p>
 </section>
 <section id="disassembling-and-executing-the-vulnerable-c-program-stack0-c-with-gdb-gef">
-<h3>Disassembling and Executing the Vulnerable C Program <em>stack0.c</em> with GDB+GEF<a class="headerlink" href="#disassembling-and-executing-the-vulnerable-c-program-stack0-c-with-gdb-gef" title="Permalink to this heading">#</a></h3>
+<h3>Disassembling and Executing the Vulnerable C Program <em>stack0.c</em> with GDB+GEF<a class="headerlink" href="#disassembling-and-executing-the-vulnerable-c-program-stack0-c-with-gdb-gef" title="Link to this heading">#</a></h3>
 <section id="stepping-from-main-0-to-main-1">
-<h4>Stepping From (main+0) to (main+1)<a class="headerlink" href="#stepping-from-main-0-to-main-1" title="Permalink to this heading">#</a></h4>
+<h4>Stepping From (main+0) to (main+1)<a class="headerlink" href="#stepping-from-main-0-to-main-1" title="Link to this heading">#</a></h4>
 <section id="x80483f4-push-ebp">
-<h5>0x80483f4 <em>push ebp</em><a class="headerlink" href="#x80483f4-push-ebp" title="Permalink to this heading">#</a></h5>
+<h5>0x80483f4 <em>push ebp</em><a class="headerlink" href="#x80483f4-push-ebp" title="Link to this heading">#</a></h5>
 <p>In this section, we advance a single assembly instruction, describe what happened, and show the state of the stack.</p>
 <p>Execution was advanced a single step in GDB+GEF by using the si instruction. EIP now points to (main+1).</p>
 <figure class="align-center" id="gef-step-1-push-ebp">
 <img alt="images/x86/gef_step_1_push_ebp.jpg" src="../../../../_images/gef_step_1_push_ebp.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 4 </span><span class="caption-text">State of execution after <em>push ebp</em></span><a class="headerlink" href="#gef-step-1-push-ebp" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">State of execution after <em>push ebp</em></span><a class="headerlink" href="#gef-step-1-push-ebp" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>As can be seen from the disassembly above, the instruction <em>push ebp</em> was executed. This saves main’s ebp so that it can be restored when main is finished executing. We will now show the state of the stack below.</p>
@@ -571,7 +575,7 @@ document.write(`
 </section>
 </section>
 <section id="layout-of-the-stack-in-program-stack0-c-after-push-ebp-instruction">
-<h3>Layout of the stack in program <em>stack0.c</em> after <em>push ebp</em> instruction.<a class="headerlink" href="#layout-of-the-stack-in-program-stack0-c-after-push-ebp-instruction" title="Permalink to this heading">#</a></h3>
+<h3>Layout of the stack in program <em>stack0.c</em> after <em>push ebp</em> instruction.<a class="headerlink" href="#layout-of-the-stack-in-program-stack0-c-after-push-ebp-instruction" title="Link to this heading">#</a></h3>
 <p>The table below illustrates the layout of the stack once <em>push ebp</em> is executed.</p>
 <table class="table">
 <thead>
@@ -610,17 +614,17 @@ document.write(`
 <p>We can see that the stack pointer ESP was advanced four bytes down into lower memory, and main’s saved ebp is now on the stack.</p>
 </section>
 <section id="id1">
-<h3>Disassembling and Executing The Vulnerable C Program <em>stack0.c</em> with GDB+GEF<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<h3>Disassembling and Executing The Vulnerable C Program <em>stack0.c</em> with GDB+GEF<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <section id="stepping-from-main-1-to-main-3">
-<h4>Stepping From (main+1) to (main+3)<a class="headerlink" href="#stepping-from-main-1-to-main-3" title="Permalink to this heading">#</a></h4>
+<h4>Stepping From (main+1) to (main+3)<a class="headerlink" href="#stepping-from-main-1-to-main-3" title="Link to this heading">#</a></h4>
 <section id="x80483f5-mov-ebp-esp">
-<h5>0x80483f5 <strong>mov ebp, esp</strong><a class="headerlink" href="#x80483f5-mov-ebp-esp" title="Permalink to this heading">#</a></h5>
+<h5>0x80483f5 <strong>mov ebp, esp</strong><a class="headerlink" href="#x80483f5-mov-ebp-esp" title="Link to this heading">#</a></h5>
 <p>In this section, we advance a single assembly instruction, describe what happened, and show the state of the stack.</p>
 <p>Execution was advanced a single step in GDB+GEF by using the si instruction. EIP now points to (main+3).</p>
 <figure class="align-center" id="gef-step-2-mov-ebp-esp-jpg">
 <img alt="images/x86/gef_step_2_mov_ebp_esp.jpg" src="../../../../_images/gef_step_2_mov_ebp_esp.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 5 </span><span class="caption-text">State of execution after <em>push ebp</em></span><a class="headerlink" href="#gef-step-2-mov-ebp-esp-jpg" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">State of execution after <em>push ebp</em></span><a class="headerlink" href="#gef-step-2-mov-ebp-esp-jpg" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>As can be seen from the disassembly above, the instruction <em>mov ebp, esp</em> was executed. This moves the current stack pointer <em>esp</em> into <em>ebp</em> so that data on the stack can be referenced with respect to the base pointer <em>ebp</em>. The state of the stack has not changed since the last instruction. We will now advance one more instruction and describe the result.</p>
@@ -628,17 +632,17 @@ document.write(`
 </section>
 </section>
 <section id="id2">
-<h3>Disassembling and Executing The Vulnerable C Program <em>stack0.c</em> with GDB+GEF<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<h3>Disassembling and Executing The Vulnerable C Program <em>stack0.c</em> with GDB+GEF<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <section id="stepping-from-main-3-to-main-6">
-<h4>Stepping From (main+3) to (main+6)<a class="headerlink" href="#stepping-from-main-3-to-main-6" title="Permalink to this heading">#</a></h4>
+<h4>Stepping From (main+3) to (main+6)<a class="headerlink" href="#stepping-from-main-3-to-main-6" title="Link to this heading">#</a></h4>
 <section id="x80483f7-and-esp-0xfffffff0">
-<h5>0x80483f7 <strong>and esp, 0xfffffff0</strong><a class="headerlink" href="#x80483f7-and-esp-0xfffffff0" title="Permalink to this heading">#</a></h5>
+<h5>0x80483f7 <strong>and esp, 0xfffffff0</strong><a class="headerlink" href="#x80483f7-and-esp-0xfffffff0" title="Link to this heading">#</a></h5>
 <p>In this section, we advance a single assembly instruction, describe what happened, and show the state of the stack.</p>
 <p>Execution was advanced a single step in GDB+GEF by using the si instruction. EIP now points to (main+6).</p>
 <figure class="align-center" id="gef-step-3-and-esp-0xfffffff0-jpg">
 <img alt="images/x86/gef_step_3_and_esp_0xfffffff0.jpg" src="../../../../_images/gef_step_3_and_esp_0xfffffff0.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 6 </span><span class="caption-text">State of execution after <em>and esp, 0xfffffff0</em></span><a class="headerlink" href="#gef-step-3-and-esp-0xfffffff0-jpg" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">State of execution after <em>and esp, 0xfffffff0</em></span><a class="headerlink" href="#gef-step-3-and-esp-0xfffffff0-jpg" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>As can be seen from the disassembly above, the instruction <em>and esp, 0xfffffff0</em> was executed. This clears out the last 4 bits of the <em>esp</em> register. The reason is that this action effectively subtracts 8 bytes from the current stack address. We will now show the current state of the stack in the table below.</p>
@@ -646,7 +650,7 @@ document.write(`
 </section>
 </section>
 <section id="layout-of-the-stack-in-program-stack0-c-after-and-esp-0xfffffff0-instruction">
-<h3>Layout of the stack in program <em>stack0.c</em> after <em>and esp, 0xfffffff0</em> instruction.<a class="headerlink" href="#layout-of-the-stack-in-program-stack0-c-after-and-esp-0xfffffff0-instruction" title="Permalink to this heading">#</a></h3>
+<h3>Layout of the stack in program <em>stack0.c</em> after <em>and esp, 0xfffffff0</em> instruction.<a class="headerlink" href="#layout-of-the-stack-in-program-stack0-c-after-and-esp-0xfffffff0-instruction" title="Link to this heading">#</a></h3>
 <p>The table below illustrates the layout of the stack once <em>and esp, 0xfffffff0</em> is executed.</p>
 <table class="table">
 <thead>
@@ -685,17 +689,17 @@ document.write(`
 <p>We can see that the stack pointer ESP was advanced eight bytes down into lower memory, and <em>esp</em> now points 8 bytes lower than previously. The data on the stack, namely 0xf7f99000 repeated twice is probably from functions that ran prior to main’s invocation. We now advance another step and examine the effect on the stack.</p>
 </section>
 <section id="id3">
-<h3>Disassembling and Executing The Vulnerable C Program <em>stack0.c</em> with GDB+GEF<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<h3>Disassembling and Executing The Vulnerable C Program <em>stack0.c</em> with GDB+GEF<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <section id="stepping-from-main-6-to-main-9">
-<h4>Stepping From (main+6) to (main+9)<a class="headerlink" href="#stepping-from-main-6-to-main-9" title="Permalink to this heading">#</a></h4>
+<h4>Stepping From (main+6) to (main+9)<a class="headerlink" href="#stepping-from-main-6-to-main-9" title="Link to this heading">#</a></h4>
 <section id="x80483fa-sub-esp-0x60">
-<h5>0x80483fa <strong>sub esp, 0x60</strong><a class="headerlink" href="#x80483fa-sub-esp-0x60" title="Permalink to this heading">#</a></h5>
+<h5>0x80483fa <strong>sub esp, 0x60</strong><a class="headerlink" href="#x80483fa-sub-esp-0x60" title="Link to this heading">#</a></h5>
 <p>In this section, we advance a single assembly instruction, describe what happened, and show the state of the stack.</p>
 <p>Execution was advanced a single step in GDB+GEF by using the si instruction. EIP now points to (main+9).</p>
 <figure class="align-center" id="gef-step-4-sub-esp-0x60-jpg">
 <img alt="images/x86/gef_step_4_sub_esp_0x60.jpg" src="../../../../_images/gef_step_4_sub_esp_0x60.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 7 </span><span class="caption-text">State of execution after <em>sub esp, 0x60</em></span><a class="headerlink" href="#gef-step-4-sub-esp-0x60-jpg" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">State of execution after <em>sub esp, 0x60</em></span><a class="headerlink" href="#gef-step-4-sub-esp-0x60-jpg" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>As can be seen from the disassembly above, the instruction <em>sub esp, 0x60</em> was executed. This moves the stack pointer <em>esp</em> further down in memory by 96 bytes. The reason this is being done is to make room for the local variables <em>modified</em> and <em>buffer</em>. Recall that <em>modified</em> requires 4 bytes and <em>buffer</em> requires 64 bytes. The total amount of stack memory required for these two local variables is 64+4 = 68 bytes. Why has the compiler decided to provide an additional 96-68=28 bytes? 28 bytes correspons to 7 groups of 4 bytes. Let’s step through the program so that we can figure out the compiler’s intentions. We will now show the current state of the stack in the table below.</p>
@@ -703,7 +707,7 @@ document.write(`
 </section>
 </section>
 <section id="layout-of-the-stack-in-program-stack0-c-after-sub-esp-0x60-instruction">
-<h3>Layout of the stack in program <em>stack0.c</em> after <em>sub esp, 0x60</em> instruction.<a class="headerlink" href="#layout-of-the-stack-in-program-stack0-c-after-sub-esp-0x60-instruction" title="Permalink to this heading">#</a></h3>
+<h3>Layout of the stack in program <em>stack0.c</em> after <em>sub esp, 0x60</em> instruction.<a class="headerlink" href="#layout-of-the-stack-in-program-stack0-c-after-sub-esp-0x60-instruction" title="Link to this heading">#</a></h3>
 <p>The table below illustrates the layout of the stack once <em>sub esp, 0x60</em> is executed.</p>
 <table class="table">
 <thead>
@@ -746,25 +750,25 @@ document.write(`
 <p>We can see that the stack pointer ESP was advanced 96 bytes down into lower memory, and <em>esp</em> now points 96 bytes lower than previously. Why has the compiler decided to allocate 96 bytes when only 68 were needed to accomodate main’s local variables? To find out, we now advance another step and examine the effect on the stack.</p>
 </section>
 <section id="id4">
-<h3>Disassembling and Executing The Vulnerable C Program <em>stack0.c</em> with GDB+GEF<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
+<h3>Disassembling and Executing The Vulnerable C Program <em>stack0.c</em> with GDB+GEF<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <section id="stepping-from-main-9-to-main-17">
-<h4>Stepping From (main+9) to (main+17)<a class="headerlink" href="#stepping-from-main-9-to-main-17" title="Permalink to this heading">#</a></h4>
+<h4>Stepping From (main+9) to (main+17)<a class="headerlink" href="#stepping-from-main-9-to-main-17" title="Link to this heading">#</a></h4>
 </section>
 <section id="x80483fd-mov-dword-ptr-esp-0x5c-0x0">
-<h4>0x80483fd <strong>mov DWORD PTR [esp+0x5c], 0x0</strong><a class="headerlink" href="#x80483fd-mov-dword-ptr-esp-0x5c-0x0" title="Permalink to this heading">#</a></h4>
+<h4>0x80483fd <strong>mov DWORD PTR [esp+0x5c], 0x0</strong><a class="headerlink" href="#x80483fd-mov-dword-ptr-esp-0x5c-0x0" title="Link to this heading">#</a></h4>
 <p>In this section, we advance a single assembly instruction, describe what happened, and show the state of the stack.</p>
 <p>Execution was advanced a single step in GDB+GEF by using the si instruction. EIP now points to (main+17).</p>
 <figure class="align-center" id="gef-step-5-mov-dword-ptr-esp-0x5c-0x0-jpg">
-<img alt="images/x86/gef_step_5_mov_DWORD_PTR_esp+0x5c_0x0.jpg" src="../../../../_images/gef_step_5_mov_DWORD_PTR_esp+0x5c_0x0.jpg" />
+<img alt="images/x86/gef_step_5_mov_DWORD_PTR_esp+0x5c_0x0.jpg" src="../../../../_images/gef_step_5_mov_DWORD_PTR_esp%2B0x5c_0x0.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 8 </span><span class="caption-text">State of execution after <em>sub esp, 0x60</em></span><a class="headerlink" href="#gef-step-5-mov-dword-ptr-esp-0x5c-0x0-jpg" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">State of execution after <em>sub esp, 0x60</em></span><a class="headerlink" href="#gef-step-5-mov-dword-ptr-esp-0x5c-0x0-jpg" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>As can be seen from the disassembly above, the instruction <em>mov DWORD PTR [esp+0x5c], 0x0</em> was executed. This moves a 0 into the stack location esp+0x5c, or esp+92. Recall that the compiler previously allocated 96 bytes for local variable storage on the stack, and now has moved a 0 into the location 92 bytes above from where it is currently pointing. This is nothing but setting the local variable <em>modified</em> to zero. So the local variable <em>modified</em> resides at esp+0x5c or esp+92 on the stack. We will now show the current state of the stack in the table below.</p>
 </section>
 </section>
 <section id="layout-of-the-stack-in-program-stack0-c-after-mov-dword-ptr-esp-0x5c-0x0-instruction">
-<h3>Layout of the stack in program <em>stack0.c</em> after <em>mov DWORD PTR [esp+0x5c], 0x0</em> instruction.<a class="headerlink" href="#layout-of-the-stack-in-program-stack0-c-after-mov-dword-ptr-esp-0x5c-0x0-instruction" title="Permalink to this heading">#</a></h3>
+<h3>Layout of the stack in program <em>stack0.c</em> after <em>mov DWORD PTR [esp+0x5c], 0x0</em> instruction.<a class="headerlink" href="#layout-of-the-stack-in-program-stack0-c-after-mov-dword-ptr-esp-0x5c-0x0-instruction" title="Link to this heading">#</a></h3>
 <p>The table below illustrates the layout of the stack once <em>mov DWORD PTR [esp+0x5c], 0x0</em> is executed.</p>
 <table class="table">
 <thead>
@@ -820,17 +824,17 @@ document.write(`
 <p>We can see that the location on the stack at stack pointer ESP+92 (ESP+0x5C) was set to 0. This is the <em>modified</em> local variable. This is the variable that we need to change in order to complete the challenge. The next few assembly instructions will allocate stack memory for the 64 byte buffer. We now advance another step and examine the effects on the stack.</p>
 </section>
 <section id="id5">
-<h3>Disassembling and Executing The Vulnerable C Program <em>stack0.c</em> with GDB+GEF<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
+<h3>Disassembling and Executing The Vulnerable C Program <em>stack0.c</em> with GDB+GEF<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <section id="stepping-from-main-17-to-main-21">
-<h4>Stepping From (main+17) to (main+21)<a class="headerlink" href="#stepping-from-main-17-to-main-21" title="Permalink to this heading">#</a></h4>
+<h4>Stepping From (main+17) to (main+21)<a class="headerlink" href="#stepping-from-main-17-to-main-21" title="Link to this heading">#</a></h4>
 <section id="x8048405-lea-eax-esp-0x1c">
-<h5>0x8048405 <strong>lea eax, [esp+0x1c]</strong><a class="headerlink" href="#x8048405-lea-eax-esp-0x1c" title="Permalink to this heading">#</a></h5>
+<h5>0x8048405 <strong>lea eax, [esp+0x1c]</strong><a class="headerlink" href="#x8048405-lea-eax-esp-0x1c" title="Link to this heading">#</a></h5>
 <p>In this section, we advance a single assembly instruction, describe what happened, and show the state of the stack.</p>
 <p>Execution was advanced a single step in GDB+GEF by using the si instruction. EIP now points to (main+21).</p>
 <figure class="align-center" id="gef-step-6-lea-eax-esp-0x1c-jpg">
-<img alt="images/x86/gef_step_6_lea_eax_[esp+0x1c].jpg" src="../../../../_images/gef_step_6_lea_eax_[esp+0x1c].jpg" />
+<img alt="images/x86/gef_step_6_lea_eax_[esp+0x1c].jpg" src="../../../../_images/gef_step_6_lea_eax_%5Besp%2B0x1c%5D.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 9 </span><span class="caption-text">State of execution after <em>lea eax, [esp+0x1c]</em></span><a class="headerlink" href="#gef-step-6-lea-eax-esp-0x1c-jpg" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text">State of execution after <em>lea eax, [esp+0x1c]</em></span><a class="headerlink" href="#gef-step-6-lea-eax-esp-0x1c-jpg" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>As can be seen from the disassembly above, the instruction <em>lea eax, [esp+0x1c]</em> was executed. This instruction loads the effective address of what the location at ESP+0x1C (ESP+28) contains. All this does is result in EAX containing the stack address ESP+0x1C (ESP+28). This can be verified by issuing the following command:</p>
@@ -853,18 +857,18 @@ gef➤</p>
 </section>
 </section>
 <section id="id6">
-<h3>Disassembling and Executing The Vulnerable C Program <em>stack0.c</em> with GDB+GEF<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
+<h3>Disassembling and Executing The Vulnerable C Program <em>stack0.c</em> with GDB+GEF<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <section id="stepping-from-main-21-to-main-24">
-<h4>Stepping From (main+21) to (main+24)<a class="headerlink" href="#stepping-from-main-21-to-main-24" title="Permalink to this heading">#</a></h4>
+<h4>Stepping From (main+21) to (main+24)<a class="headerlink" href="#stepping-from-main-21-to-main-24" title="Link to this heading">#</a></h4>
 </section>
 <section id="x8048409-mov-dword-ptr-esp-eax">
-<h4>0x8048409 mov DWORD PTR [esp], eax<a class="headerlink" href="#x8048409-mov-dword-ptr-esp-eax" title="Permalink to this heading">#</a></h4>
+<h4>0x8048409 mov DWORD PTR [esp], eax<a class="headerlink" href="#x8048409-mov-dword-ptr-esp-eax" title="Link to this heading">#</a></h4>
 <p>In this section, we advance a single assembly instruction, describe what happened, and show the state of the stack.</p>
 <p>Execution was advanced a single step in GDB+GEF by using the si instruction. EIP now points to (main+24).</p>
 <figure class="align-center" id="gef-step-7-mov-dword-ptr-esp-eax-jpg">
-<img alt="images/x86/gef_step_7_mov_DWORD_PTR_[esp]_eax.jpg" src="../../../../_images/gef_step_7_mov_DWORD_PTR_[esp]_eax.jpg" />
+<img alt="images/x86/gef_step_7_mov_DWORD_PTR_[esp]_eax.jpg" src="../../../../_images/gef_step_7_mov_DWORD_PTR_%5Besp%5D_eax.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 10 </span><span class="caption-text">State of execution after <em>mov DWORD PTR [esp], eax</em></span><a class="headerlink" href="#gef-step-7-mov-dword-ptr-esp-eax-jpg" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 10 </span><span class="caption-text">State of execution after <em>mov DWORD PTR [esp], eax</em></span><a class="headerlink" href="#gef-step-7-mov-dword-ptr-esp-eax-jpg" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>This instruction effectively “pushes” the contents of EAX onto the stack. Why has the compiler decided to use this instruction rather than a push EAX? This is a good question, and may be a function of optimization or byte alignment.</p>
@@ -905,7 +909,7 @@ function will even return.
 </section>
 </section>
 <section id="layout-of-the-stack-in-program-stack0-c-after-mov-dword-ptr-esp-eax-instruction">
-<h3>Layout of the stack in program <em>stack0.c</em> after <em>mov DWORD PTR [esp], eax</em> instruction.<a class="headerlink" href="#layout-of-the-stack-in-program-stack0-c-after-mov-dword-ptr-esp-eax-instruction" title="Permalink to this heading">#</a></h3>
+<h3>Layout of the stack in program <em>stack0.c</em> after <em>mov DWORD PTR [esp], eax</em> instruction.<a class="headerlink" href="#layout-of-the-stack-in-program-stack0-c-after-mov-dword-ptr-esp-eax-instruction" title="Link to this heading">#</a></h3>
 <p>The table below illustrates the layout of the stack once <em>mov DWORD PTR [esp], eax</em> is executed.</p>
 <table class="table">
 <thead>
@@ -972,15 +976,15 @@ function will even return.
 <p>In other words, the table above depicts the state of the stack, and that if we enter an amount of bytes into <em>buffer[64]</em> that exceeds its size, i.e. greater than 64 bytes, then we can overflow the <em>buffer[64]</em> and overwrite <em>modified</em>.</p>
 </section>
 <section id="id7">
-<h3>Disassembling and Executing The Vulnerable C Program <em>stack0.c</em> with GDB+GEF<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h3>
+<h3>Disassembling and Executing The Vulnerable C Program <em>stack0.c</em> with GDB+GEF<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
 <section id="stepping-from-main-24-to-main-29">
-<h4>Stepping From (main+24) to (main+29)<a class="headerlink" href="#stepping-from-main-24-to-main-29" title="Permalink to this heading">#</a></h4>
+<h4>Stepping From (main+24) to (main+29)<a class="headerlink" href="#stepping-from-main-24-to-main-29" title="Link to this heading">#</a></h4>
 <p>In this section, we advance a single assembly instruction, describe what happened, and show the state of the stack.</p>
 <p>Execution was advanced a single step in GDB+GEF by using the si instruction. EIP now points to (main+29).</p>
 <figure class="align-center" id="gef-step-8-call-0x804830c-gets-plt-jpg">
-<img alt="images/x86/gef_step_8_call_0x804830c_gets&#64;plt.jpg" src="../../../../_images/gef_step_8_call_0x804830c_gets&#64;plt.jpg" />
+<img alt="images/x86/gef_step_8_call_0x804830c_gets&#64;plt.jpg" src="../../../../_images/gef_step_8_call_0x804830c_gets%40plt.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 11 </span><span class="caption-text">State of execution after <em>call 0x804830c (gets&#64;plt)</em></span><a class="headerlink" href="#gef-step-8-call-0x804830c-gets-plt-jpg" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 11 </span><span class="caption-text">State of execution after <em>call 0x804830c (gets&#64;plt)</em></span><a class="headerlink" href="#gef-step-8-call-0x804830c-gets-plt-jpg" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>We can see from the image above that since we started the debugging session with the command:</p>
@@ -1003,28 +1007,28 @@ function will even return.
 <p>From the output of the x/17x $esp+0x1c command shown above, we can see the four “A“‘s at stack memory location 0xffffd11c. Then, if we count 64 bytes over, i.e. each hex number is 4 bytes, and each row 16 bytes, therefore, 4 rows is 64 bytes. At the first position in the 5th row, i.e. stack address 0xffffd15c, we can see the value 0x00000000. This is the local variable <em>modified</em>. Our goal in the challenge is to input sufficient data into the buffer to overwrite the stack memory at location 0xffffd15c.</p>
 <p>Below, we show an image of the result when executing the command x/17x $esp+0x1c.</p>
 <figure class="align-center" id="gef-step-8-5-x-17-x-esp-0x1c-jpg">
-<img alt="images/x86/gef_step_8_5_x_17_x_esp+0x1c.jpg" src="../../../../_images/gef_step_8_5_x_17_x_esp+0x1c.jpg" />
+<img alt="images/x86/gef_step_8_5_x_17_x_esp+0x1c.jpg" src="../../../../_images/gef_step_8_5_x_17_x_esp%2B0x1c.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 12 </span><span class="caption-text">State of stack when viewed by the command x/17x $esp+0x1c</span><a class="headerlink" href="#gef-step-8-5-x-17-x-esp-0x1c-jpg" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 12 </span><span class="caption-text">State of stack when viewed by the command x/17x $esp+0x1c</span><a class="headerlink" href="#gef-step-8-5-x-17-x-esp-0x1c-jpg" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>In the image above, we have highlighted the contents of stack memory location 0xffffd15c. This is the local variable <em>modified</em>, and its contents is 0x00000000.</p>
 </section>
 </section>
 <section id="creating-the-payload-to-overwrite-the-variable-modified">
-<h3>Creating the payload to overwrite the variable <em>modified</em><a class="headerlink" href="#creating-the-payload-to-overwrite-the-variable-modified" title="Permalink to this heading">#</a></h3>
+<h3>Creating the payload to overwrite the variable <em>modified</em><a class="headerlink" href="#creating-the-payload-to-overwrite-the-variable-modified" title="Link to this heading">#</a></h3>
 <p>We will create a python script to build a payload. This payload will contain 64+4 characters, which is the 68 bytes necessary to completely overwrite the variable <em>modified</em>.</p>
 <figure class="align-center" id="exploit-py-jpg">
 <img alt="images/x86/exploit_py.jpg" src="../../../../_images/exploit_py.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 13 </span><span class="caption-text">Python program to generate payload to input into <em>stack0.c</em></span><a class="headerlink" href="#exploit-py-jpg" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 13 </span><span class="caption-text">Python program to generate payload to input into <em>stack0.c</em></span><a class="headerlink" href="#exploit-py-jpg" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The goal of this program is to generate 66 bytes. The reason it is not 68 bytes is because we need to account for the carriage return (CR) character that Python’s print statement appends to the end. Below we show the output of <em><a class="reference external" href="http://exploit.py">exploit.py</a></em> and a view of the xxd’s output of the payload file.</p>
 <figure class="align-center" id="exploit-py-output-and-xxd-jpg">
 <img alt="images/x86/exploit_py_output_and_xxd.jpg" src="../../../../_images/exploit_py_output_and_xxd.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 14 </span><span class="caption-text">Python program to generate payload to input into <em>stack0.c</em></span><a class="headerlink" href="#exploit-py-output-and-xxd-jpg" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 14 </span><span class="caption-text">Python program to generate payload to input into <em>stack0.c</em></span><a class="headerlink" href="#exploit-py-output-and-xxd-jpg" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>As can be seen from the above output, the <em><a class="reference external" href="http://exploit.py">exploit.py</a></em> Python script produced 66 A’s. These are saved into a file called <em>payload</em>. We then pass <em>payload</em> into the hex viewer xxd. We can see the 66 A’s as hex 41, and the final byte is 0a. 0a is the hex ASCII code for a carriage return (CR).</p>
@@ -1203,8 +1207,8 @@ By Mark Khusid
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509"></script>
-<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509"></script>
+  <script src="../../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>
