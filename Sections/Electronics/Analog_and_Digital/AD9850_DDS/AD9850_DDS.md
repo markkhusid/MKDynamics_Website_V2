@@ -24,7 +24,7 @@ To build the variable frequency oscillator, you will need the following componen
 
 The circuit diagram for the variable frequency oscillator is shown below:
 
-```{figure} images/AD9850_DDS_circuit.png
+```{figure} images/AD9850_DDS_Circuit.png
 ```
 
 ## Building the Circuit

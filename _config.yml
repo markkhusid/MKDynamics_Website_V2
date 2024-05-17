@@ -20,7 +20,8 @@ latex:
 #  - references.bib
 
 # References
-#  Shellcode_Generation_and_Testing: Sections/Cybersecurity/Shellcode_Generation_and_Testing.md
+references:
+  MKD_Fortran_Book: https://www.mkdynamics.net/current_projects/Fortran/intro.html
 
 # Information about where the book exists on the web
 repository:
@@ -37,8 +38,6 @@ html:
 sphinx:
   config:
     html_show_copyright: false
-
-# Configuration file for Jupyter Book
 
 # Use the PyData Sphinx Theme
 html_theme: pydata_sphinx_theme

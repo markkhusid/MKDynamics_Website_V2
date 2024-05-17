@@ -2,6 +2,8 @@
 
 ## Introduction
 
+Credit for this design goes to Richard Visokey, callsign AD7C.
+
 In this project, we will build a variable frequency oscillator using the AD9850 Direct Digital Synthesis (DDS) module. The AD9850 is a highly integrated device that uses advanced DDS technology to generate a stable and accurate frequency output. The module can generate frequencies from 0 to 40 MHz with a resolution of 1 Hz. The AD9850 module is controlled via a serial interface, which allows for easy integration with microcontrollers and other digital devices.
 
 The AD9850 DDS module is an excellent choice for building a variable frequency oscillator due to its high performance, low cost, and ease of use. The module can be used in a wide range of applications, including signal generation, frequency synthesis, and waveform generation. In this project, we will demonstrate how to build a simple variable frequency oscillator using the AD9850 module and an Arduino microcontroller.
@@ -22,7 +24,7 @@ To build the variable frequency oscillator, you will need the following componen
 
 The circuit diagram for the variable frequency oscillator is shown below:
 
-```{figure} images/AD9850_DDS_circuit.png
+```{figure} images/AD9850_DDS_Circuit.png
 ```
 
 ## Building the Circuit

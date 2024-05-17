@@ -1,5 +1,13 @@
 # MK Dynamics
 
+Welcome to my website! This site is a collection of my projects and interests in the fields of engineering, computer programming, and electronics. I have a passion for learning and sharing knowledge with others. I hope you find the information here useful and informative.
+
+Additionally, I am a licensed HAM radio operator and enjoy experimenting with antennas and radio equipment. I am also interested in cybersecurity and have completed several certifications in this field.
+
+[MKD_Fortran_Book](xref:../../markdown)
+
+
+
 ## Cybersecurity
 ::::{grid} 2 2 2 2
 :class-container: text-center
@@ -100,7 +108,7 @@ Javascript Programming
 :gutter: 3
 
 :::{grid-item-card}
-:link: markdown
+:link: Sections/Electronics/electronics
 :link-type: doc
 :class-header: bg-dark
 
@@ -112,7 +120,7 @@ Dual Diode Box
 :::
 
 :::{grid-item-card}
-:link: markdown
+:link: Sections/Electronics/electronics
 :link-type: doc
 :class-header: bg-dark
 
@@ -193,3 +201,4 @@ About Me
 ```
 :::
 ::::
+
