@@ -21,7 +21,18 @@ parts:
 - caption: Computer Programming
   chapters:
   - file: Sections/Computer_Programming/computer_programming
+
     sections:
+    
+    - file: Sections/Computer_Programming/Python/python
+      sections:
+      - file: Sections/Computer_Programming/Python/Python_Playground/Python_Playground__HEAD__
+        sections:
+        - file: Sections/Computer_Programming/Python/Python_Playground/Section_Chapter_2_Draw_Circle
+        - file: Sections/Computer_Programming/Python/Python_Playground/Section_Chapter_2_Draw_Spiro
+        - file: Sections/Computer_Programming/Python/Python_Playground/Section_Chapter_3_Conway
+        - file: Sections/Computer_Programming/Python/Python_Playground/Section_Chapter_4_Karplus_Strong
+
     - file: Sections/Computer_Programming/Fortran/fortran
       sections:
       - file: Sections/Computer_Programming/Fortran/Modern_Fortran/modern_fortran
@@ -37,10 +48,10 @@ parts:
 
       - file: Sections/Computer_Programming/Fortran/Intro_to_Fortran/intro_to_fortran
         sections: 
-        - file: Introduction_to_Programming_Using_Fortran/Section_7_Period_Calculator
-        - file: Introduction_to_Programming_Using_Fortran/Section_9_3_SOS_Difference
-        - file: Introduction_to_Programming_Using_Fortran/Section_12_8_Line_Numbers
-        - file: Introduction_to_Programming_Using_Fortran/Section_14_Pi_Estimation
+        - file: Sections/Computer_Programming/Fortran/Intro_to_Fortran/Section_7_Period_Calculator
+        - file: Sections/Computer_Programming/Fortran/Intro_to_Fortran/Section_9_3_SOS_Difference
+        - file: Sections/Computer_Programming/Fortran/Intro_to_Fortran/Section_12_8_Line_Numbers
+        - file: Sections/Computer_Programming/Fortran/Intro_to_Fortran/Section_14_Pi_Estimation
       
       - file: Sections/Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/guide_to_fortran_2008_programming
         sections:
