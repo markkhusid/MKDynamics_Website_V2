@@ -18,6 +18,84 @@ parts:
     
     - file: Sections/Cybersecurity/Basic_Linux_Exploits/basic_linux_exploits
 
+- caption: Computer Programming
+  chapters:
+  - file: Sections/Computer_Programming/computer_programming
+    sections:
+    - file: Sections/Computer_Programming/Fortran/fortran
+      sections:
+      - file: Sections/Computer_Programming/Fortran/Modern_Fortran/modern_fortran
+      - file: Sections/Computer_Programming/Fortran/Intro_to_Fortran/intro_to_fortran
+      - file: Sections/Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/guide_to_fortran_2008_programming
+      - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/fortran_mooc
+
+        sections:
+        - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays
+          sections:
+          - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Allocate_from_Source
+          - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Array_Arithmetic
+          - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Array_Elements
+          - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Array_Initialization
+          - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Array_Timing
+          - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Assumed
+          - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Compute_Factorial
+          - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Elemental_Subroutine
+          - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Enlarge_Array
+          - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Identity
+          - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Linear_Transform
+          - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Matrix
+          - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Max_Array
+          - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Normalize
+          - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Normalize_Performance
+          - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Reshape
+          - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Subarrays
+          - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Submatrices
+          - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Trace
+      
+        - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Floating_Point
+          sections:
+          - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_IEEE754_16_Zero_vs_Non_Zero 
+
+        - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Call_By_Semantics
+          sections:
+          - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Call_By_Semantics_Call_By_In_Reference
+          - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Call_By_Semantics_Call_By_Reference
+          - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Call_By_Semantics_Call_By_Value
+
+        - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Computing_Pi
+          sections:
+          - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Computing_Pi_Compute_Pi
+          - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Computing_Pi_Compute_Pi_OpenMP
+    
+        - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Implicit_vs_Explicit_Loops__Head__
+          sections:
+          - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Implicit_vs_Explicit_Loops
+
+        #- file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Ball_Throw__Head__
+          #sections:
+          #- file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Ball_Throw
+
+        - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Block_Matrices__Head__
+          sections:
+          - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Block_Matrices  
+
+        - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_BLAS_LAPACK__Head__
+          sections:
+
+          - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_BLAS_LAPACK_BLAS95__Head__
+            sections:
+            - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_BLAS_LAPACK_BLAS95
+
+          - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_BLAS_LAPACK_Linear_Equations__Head__
+            sections:
+            - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_BLAS_LAPACK_Linear_Equations
+            - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_BLAS_LAPACK_Dot
+            - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_BLAS_LAPACK_Copy
+            - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_BLAS_LAPACK_DDOT_Timing
+            - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_BLAS_LAPACK_GEMV
+            - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_BLAS_LAPACK_Scal
+            - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_BLAS_LAPACK_SV
+
 - caption: Electronics
   chapters:
   - file: Sections/Electronics/electronics

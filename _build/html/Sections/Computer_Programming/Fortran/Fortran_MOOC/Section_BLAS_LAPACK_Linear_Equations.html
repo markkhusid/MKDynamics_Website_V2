@@ -1,0 +1,1844 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Section: BLAS/LAPACK - Linear Equations &#8212; MK Dynamics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_BLAS_LAPACK_Linear_Equations';</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Section: BLAS/LAPACK - Dot Product" href="Section_BLAS_LAPACK_Dot.html" />
+    <link rel="prev" title="Section: BLAS/LAPACK - Linear Equations" href="Section_BLAS_LAPACK_Linear_Equations__Head__.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/spacey.jpg" class="logo__image only-light" alt="MK Dynamics - Home"/>
+    <script>document.write(`<img src="../../../../_static/spacey.jpg" class="logo__image only-dark" alt="MK Dynamics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../../intro.html">
+                    MK Dynamics
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Cybersecurity</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Cybersecurity/cybersecurity.html">Cybersecurity</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../Cybersecurity/Protostar/protostar.html">Protostar Exploit Exercises</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../Cybersecurity/Protostar/Stack0/stack0.html">Stack 0</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../Cybersecurity/Protostar/Stack0/stack0_x86.html">Protostar Exploit Exercises - Stack0 - First Stack Buffer Overflow to modify Variable</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Cybersecurity/LiveOverflow/liveoverflow.html">LiveOverflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Cybersecurity/Basic_Linux_Exploits/basic_linux_exploits.html">Basic Linux Exploits</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Computer Programming</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../computer_programming.html">Computer Programming</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../fortran.html">Fortran Programming</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3 has-children"><a class="reference internal" href="Section_Arrays.html">Section: Arrays</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="Section_Arrays_Allocate_from_Source.html">Section Arrays: Allocate from Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Section_Arrays_Array_Arithmetic.html">Section Arrays: Array Arithmetic</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Section_Arrays_Array_Elements.html">Section Arrays: Array Elements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Section_Arrays_Array_Initialization.html">Section Arrays: Array Initialization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Section_Arrays_Array_Timing.html">Section Arrays: Array Timing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Section_Arrays_Assumed.html">Section Arrays: Assumed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Section_Arrays_Compute_Factorial.html">Section Arrays: Compute Factorial</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Section_Arrays_Elemental_Subroutine.html">Section Arrays: Elemental Subroutine</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Section_Arrays_Enlarge_Array.html">Section Arrays: Enlarge Array</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Section_Arrays_Identity.html">Section Arrays: Identity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Section_Arrays_Linear_Transform.html">Section Arrays: Linear Transform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Section_Arrays_Matrix.html">Section Arrays: Matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Section_Arrays_Max_Array.html">Section Arrays: Max Array</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Section_Arrays_Normalize.html">Section Arrays: Normalize</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Section_Arrays_Normalize_Performance.html">Section Arrays: Normalize Performance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Section_Arrays_Reshape.html">Section Arrays: Reshape</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Section_Arrays_Subarrays.html">Section Arrays: Subarrays</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Section_Arrays_Submatrices.html">Section Arrays: Submatrices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Section_Arrays_Trace.html">Section Arrays: Trace</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="Section_Floating_Point.html">Section: Floating Point</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="Section_IEEE754_16_Zero_vs_Non_Zero.html">Section IEEE754: Zero vs Non - Zero</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="Section_Call_By_Semantics.html">Section: Call By Semantics</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="Section_Call_By_Semantics_Call_By_In_Reference.html">Section Call By Semantics: Call By In Reference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Section_Call_By_Semantics_Call_By_Reference.html">Section Call By Semantics: Call By Reference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Section_Call_By_Semantics_Call_By_Value.html">Section Call By Semantics: Call By Value</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="Section_Computing_Pi.html">Section: Computing Pi</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="Section_Computing_Pi_Compute_Pi.html">Section Computing Pi: Compute Pi</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Section_Computing_Pi_Compute_Pi_OpenMP.html">Section Computing Pi: Compute Pi with OpenMP</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="Section_Implicit_vs_Explicit_Loops__Head__.html">Section: Implicit vs Explicit Loops</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="Section_Implicit_vs_Explicit_Loops.html">Section: Implicit vs. Explicit Loops</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="Section_Block_Matrices__Head__.html">Section: Block Matrices</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="Section_Block_Matrices.html">Section: Block Matrices</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="Section_BLAS_LAPACK__Head__.html">Section: BLAS/LAPACK</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="Section_BLAS_LAPACK_BLAS95__Head__.html">Section: BLAS/LAPACK - BLAS95</a></li>
+<li class="toctree-l4 current active"><a class="reference internal" href="Section_BLAS_LAPACK_Linear_Equations__Head__.html">Section: BLAS/LAPACK - Linear Equations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Electronics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Electronics/electronics.html">Electronics</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../Electronics/Analog_and_Digital/analog_and_digital.html">Analog and Digital Electronics</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../Electronics/Analog_and_Digital/AD9850_DDS/AD9850_DDS.html">Variable Frequency Oscillator Using Direct Digital Synthesis</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Misc</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks.html">Content with notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../README.html">MKDynamics_Website_V2</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/markkhusid/MKDynamics_Website_V2" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/markkhusid/MKDynamics_Website_V2/issues/new?title=Issue%20on%20page%20%2FSections/Computer_Programming/Fortran/Fortran_MOOC/Section_BLAS_LAPACK_Linear_Equations.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../../_sources/Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_BLAS_LAPACK_Linear_Equations.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Section: BLAS/LAPACK - Linear Equations</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#this-program-demonstrates-solving-linear-algebra-equations-in-fortran">This program demonstrates solving linear algebra equations in Fortran.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-equation-problem">Linear Equation Problem</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation-of-the-programs">Explanation of the Programs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explaining-generate-array-f90">Explaining <code class="docutils literal notranslate"><span class="pre">generate_array.f90</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#program-structure">Program Structure</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#subroutine-get-arguments">Subroutine: <code class="docutils literal notranslate"><span class="pre">get_arguments</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-functionalities">Key Functionalities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usage">Usage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explaining-solve-equations-f90">Explaining <code class="docutils literal notranslate"><span class="pre">solve_equations.f90</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Program Structure</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Subroutine: <code class="docutils literal notranslate"><span class="pre">get_arguments</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Key Functionalities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Usage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explaining-linalg-mod-f90">Explaining <code class="docutils literal notranslate"><span class="pre">linalg_mod.f90</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#module-structure-and-functions">Module Structure and Functions</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#subroutines-for-vector-and-matrix-handling">Subroutines for Vector and Matrix Handling</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-functionalities-and-error-handling">Key Functionalities and Error Handling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Usage</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#program-code">Program Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-file-linalg-mod-f90">In file linalg_mod.f90</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-file-generate-array-f90">In file generate_array.f90</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-solve-equations-f90">In solve_equations.f90</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-the-program-using-fpm-fortran-package-manager">Build the Program using FPM (Fortran Package Manager)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-program-using-fpm-fortran-package-manager">Run the Program using FPM (Fortran Package Manager)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-a-test-linear-system-of-two-equations">Solve a Test Linear System of Two Equations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-a-test-linear-system-of-equations-of-arbitrary-size">Solve a Test Linear System of Equations of Arbitrary Size</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="section-blas-lapack-linear-equations">
+<h1>Section: BLAS/LAPACK - Linear Equations<a class="headerlink" href="#section-blas-lapack-linear-equations" title="Link to this heading">#</a></h1>
+<p>Adapted from: <a class="github reference external" href="https://github.com/gjbex/Fortran-MOOC/tree/master/source_code/blas_lapack/linear_equations">gjbex/Fortran-MOOC</a></p>
+<section id="this-program-demonstrates-solving-linear-algebra-equations-in-fortran">
+<h2>This program demonstrates solving linear algebra equations in Fortran.<a class="headerlink" href="#this-program-demonstrates-solving-linear-algebra-equations-in-fortran" title="Link to this heading">#</a></h2>
+<section id="linear-equation-problem">
+<h3>Linear Equation Problem<a class="headerlink" href="#linear-equation-problem" title="Link to this heading">#</a></h3>
+<p>In this notebook we will use Fortran to solve a system of linear equations of the form:</p>
+<div class="math notranslate nohighlight">
+\[
+\Large A \mathbf{x} = \mathbf{b}
+\]</div>
+<p>where: <br></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\Large A =
+\left[
+\begin{array}{cccc}
+a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\
+a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\
+\vdots &amp; \vdots &amp; \vdots &amp; \vdots \\
+a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn}
+\end{array}
+\right]
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\Large \mathbf{x} =
+\left[
+\begin{array}{c}
+x_{1}  \\
+x_{2}  \\
+\vdots \\
+x_{n}
+\end{array}
+\right]
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\Large \mathbf{b} = 
+\left[
+\begin{array}{c}
+b_{1}  \\
+b_{2}  \\
+\vdots \\
+b_{n}
+\end{array}
+\right]
+\end{split}\]</div>
+<p>The approach will be to have a main program that reads in as parameters the number of equations, the matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> and the vector <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> as text files.  The main program is called <em>solve_equations.f90</em>.  It makes use of the LAPACK linear equation solver routine called <strong>DGESV</strong>.  Information on this routine can be found at <a class="reference external" href="https://netlib.org/lapack/explore-html/d7/d3b/group__double_g_esolve_ga5ee879032a8365897c3ba91e3dc8d512.html#ga5ee879032a8365897c3ba91e3dc8d512">LAPACK - DGESV</a>.</p>
+<p>The main program makes use of a module called <em>linalg_mod.f90</em>, which contains subroutines to read and write matrices and arrays to and from text files.</p>
+<p>Finally, there is a helper program called <em>generate_array.f90</em> which has a subroutine that gets arguments from the command line and generates either of vector or matrix of specified size.  Every element in the array or matrix is a random number.</p>
+</section>
+</section>
+<section id="explanation-of-the-programs">
+<h2>Explanation of the Programs<a class="headerlink" href="#explanation-of-the-programs" title="Link to this heading">#</a></h2>
+<p>The following explanation is given by “Code Copilot” within ChatGPT 4.</p>
+<section id="explaining-generate-array-f90">
+<h3>Explaining <code class="docutils literal notranslate"><span class="pre">generate_array.f90</span></code><a class="headerlink" href="#explaining-generate-array-f90" title="Link to this heading">#</a></h3>
+<p>The Fortran program <code class="docutils literal notranslate"><span class="pre">generate_array.f90</span></code> serves to generate either a vector or a matrix with random elements, depending on the command line arguments provided. It uses routines from a module named <code class="docutils literal notranslate"><span class="pre">linalg_mod</span></code> to handle array creation and output. Below is an explanation of the program structure and its key components:</p>
+<section id="program-structure">
+<h4>Program Structure<a class="headerlink" href="#program-structure" title="Link to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p><strong>Module Usage</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">iso_fortran_env</span></code>: Utilized for standard environment variables and constants, specifically <code class="docutils literal notranslate"><span class="pre">error_unit</span></code> for error messages and <code class="docutils literal notranslate"><span class="pre">DP</span></code> alias for <code class="docutils literal notranslate"><span class="pre">REAL64</span></code>, indicating double precision.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">linalg_mod</span></code>: Externally defined module used here for <code class="docutils literal notranslate"><span class="pre">write_array</span></code> and <code class="docutils literal notranslate"><span class="pre">generate_random_array</span></code>, which handle array operations.</p></li>
+</ul>
+</li>
+<li><p><strong>Variable Declarations</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dimensions</span></code>: An allocatable integer array to store dimensions provided via command-line arguments.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vector</span></code>: An allocatable vector of type <code class="docutils literal notranslate"><span class="pre">real(kind=DP)</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">matrix</span></code>: An allocatable 2D array of type <code class="docutils literal notranslate"><span class="pre">real(kind=DP)</span></code>.</p></li>
+</ul>
+</li>
+<li><p><strong>Main Execution Logic</strong></p>
+<ul class="simple">
+<li><p>It begins by fetching command-line arguments into <code class="docutils literal notranslate"><span class="pre">dimensions</span></code>.</p></li>
+<li><p>Based on the size of <code class="docutils literal notranslate"><span class="pre">dimensions</span></code>, it either generates a 1D vector or a 2D matrix:</p>
+<ul>
+<li><p>For a single dimension, a vector of random elements is created and written.</p></li>
+<li><p>For two dimensions, a matrix is created and written.</p></li>
+</ul>
+</li>
+<li><p>If neither one nor two dimensions are provided, it outputs an error indicating that only rank 1 and 2 arrays are supported.</p></li>
+</ul>
+</li>
+<li><p><strong>Error Handling</strong></p>
+<ul class="simple">
+<li><p>The program checks for proper memory allocation and command-line argument processing, with appropriate error messages and stops if any issues occur.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="subroutine-get-arguments">
+<h4>Subroutine: <code class="docutils literal notranslate"><span class="pre">get_arguments</span></code><a class="headerlink" href="#subroutine-get-arguments" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Purpose</strong>: Fetches command-line arguments to determine the size of the array to be generated.</p></li>
+<li><p><strong>Process</strong>:</p>
+<ul>
+<li><p>Determines the number of arguments (<code class="docutils literal notranslate"><span class="pre">rank</span></code>).</p></li>
+<li><p>Allocates the <code class="docutils literal notranslate"><span class="pre">dimensions</span></code> array based on <code class="docutils literal notranslate"><span class="pre">rank</span></code>.</p></li>
+<li><p>Reads each command argument into <code class="docutils literal notranslate"><span class="pre">dimensions</span></code>, converting from string to integer.</p></li>
+<li><p>Handles errors in conversion and allocation, stopping the program if necessary.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="key-functionalities">
+<h3>Key Functionalities<a class="headerlink" href="#key-functionalities" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Array Generation</strong>: Depending on the input dimensions, it generates either a vector or a matrix with random values.</p></li>
+<li><p><strong>Modular Design</strong>: Leverages external modules for specific functionalities, which simplifies the main program.</p></li>
+<li><p><strong>Flexibility</strong>: The ability to handle both vectors and matrices makes the program versatile for different kinds of numerical data generation tasks.</p></li>
+</ul>
+</section>
+<section id="usage">
+<h3>Usage<a class="headerlink" href="#usage" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>The program is executed with command-line arguments specifying the dimensions of the array to generate. For example:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">./generate_array</span> <span class="pre">10</span></code> would generate a vector of size 10.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">./generate_array</span> <span class="pre">3</span> <span class="pre">4</span></code> would generate a 3x4 matrix.</p></li>
+</ul>
+</li>
+</ul>
+<p>Now, let’s move on to read and explain the <code class="docutils literal notranslate"><span class="pre">solve_equations.f90</span></code> file.</p>
+</section>
+<section id="explaining-solve-equations-f90">
+<h3>Explaining <code class="docutils literal notranslate"><span class="pre">solve_equations.f90</span></code><a class="headerlink" href="#explaining-solve-equations-f90" title="Link to this heading">#</a></h3>
+<p>The Fortran program <code class="docutils literal notranslate"><span class="pre">solve_equations.f90</span></code> is designed to solve a system of linear equations using LAPACK’s <code class="docutils literal notranslate"><span class="pre">dgesv</span></code> subroutine, which solves systems of linear equations ( AX = B ) by performing LU decomposition with partial pivoting. Here’s a breakdown of its key components and functionalities:</p>
+<section id="id1">
+<h4>Program Structure<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p><strong>Module Usage</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">iso_fortran_env</span></code>: Standard intrinsic module providing access to the <code class="docutils literal notranslate"><span class="pre">error_unit</span></code> and <code class="docutils literal notranslate"><span class="pre">DP</span></code> (double precision kind type alias).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">linalg_mod</span></code>: Custom module providing <code class="docutils literal notranslate"><span class="pre">read_array</span></code> and <code class="docutils literal notranslate"><span class="pre">write_array</span></code> functions, used to handle input/output operations for matrices and vectors.</p></li>
+</ul>
+</li>
+<li><p><strong>Variable Declarations</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">nr_eqns</span></code>: Number of equations in the system, derived from command-line arguments.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">status</span></code>, <code class="docutils literal notranslate"><span class="pre">info</span></code>: Variables for checking statuses of operations; <code class="docutils literal notranslate"><span class="pre">info</span></code> is used specifically with <code class="docutils literal notranslate"><span class="pre">dgesv</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">matrix_file_name</span></code>, <code class="docutils literal notranslate"><span class="pre">vector_file_name</span></code>: File names for storing matrix ( A ) and vector ( B ).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">b</span></code>: Vector ( B ) in the equation ( AX = B ).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pivot</span></code>: Integer array for pivot indices from the LU decomposition.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">A</span></code>: Matrix ( A ) of the system.</p></li>
+</ul>
+</li>
+<li><p><strong>Explicit Interface for <code class="docutils literal notranslate"><span class="pre">dgesv</span></code></strong></p>
+<ul class="simple">
+<li><p>The subroutine’s interface is explicitly defined to ensure correct passing of arguments:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">n</span></code>, <code class="docutils literal notranslate"><span class="pre">nrhs</span></code>, <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">lda</span></code>, <code class="docutils literal notranslate"><span class="pre">ipiv</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, <code class="docutils literal notranslate"><span class="pre">ldb</span></code>, and <code class="docutils literal notranslate"><span class="pre">info</span></code> describe the system dimensions, matrix and vector storage details, and output for status information.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Main Execution Logic</strong></p>
+<ul class="simple">
+<li><p><strong>Argument Reading</strong>: Fetches command-line arguments to determine the number of equations and file names for matrix ( A ) and vector ( B ).</p></li>
+<li><p><strong>Array Allocation</strong>: Allocates memory for ( A ), ( B ), and pivot indices.</p></li>
+<li><p><strong>File Reading</strong>: Reads matrix ( A ) and vector ( B ) from files specified by the user.</p></li>
+<li><p><strong>System Solving</strong>: Calls <code class="docutils literal notranslate"><span class="pre">dgesv</span></code> to solve the linear system, where ( A ) is modified to store the factors from the LU decomposition, and ( B ) is overwritten with the solution ( X ).</p></li>
+<li><p><strong>Output</strong>: Writes the solution vector ( X ) back to a file.</p></li>
+</ul>
+</li>
+<li><p><strong>Error Handling</strong></p>
+<ul class="simple">
+<li><p>Checks for successful allocation and reading operations, with appropriate error messages and program termination on failures.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="id2">
+<h4>Subroutine: <code class="docutils literal notranslate"><span class="pre">get_arguments</span></code><a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Purpose</strong>: Fetches and validates command-line arguments to ensure correct program setup.</p></li>
+<li><p><strong>Parameters</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">nr_eqns</span></code>: Number of equations/system size.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">matrix_file_name</span></code>, <code class="docutils literal notranslate"><span class="pre">vector_file_name</span></code>: File paths for the matrix and vector data.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="id3">
+<h3>Key Functionalities<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Linear System Solver</strong>: Uses <code class="docutils literal notranslate"><span class="pre">dgesv</span></code> for robust and efficient solving of linear systems, leveraging LAPACK’s optimized routines.</p></li>
+<li><p><strong>Modular File Handling</strong>: Employs modular functions from <code class="docutils literal notranslate"><span class="pre">linalg_mod</span></code> for input/output operations, promoting code reuse and organization.</p></li>
+<li><p><strong>Error Management</strong>: Extensive error checking ensures the program gracefully handles common issues like invalid input or memory allocation failures.</p></li>
+</ul>
+</section>
+<section id="id4">
+<h3>Usage<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>The program is intended to be executed with three command-line arguments specifying the number of equations, matrix file name, and vector file name. For example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./solve_equations<span class="w"> </span><span class="m">3</span><span class="w"> </span>matrix.dat<span class="w"> </span>vector.dat
+</pre></div>
+</div>
+<p>This would solve a 3x3 system of equations using matrix and vector data from <code class="docutils literal notranslate"><span class="pre">matrix.dat</span></code> and <code class="docutils literal notranslate"><span class="pre">vector.dat</span></code>.</p>
+<p>Next, let’s proceed to read and explain the <code class="docutils literal notranslate"><span class="pre">linalg_mod.f90</span></code> file.</p>
+</section>
+<section id="explaining-linalg-mod-f90">
+<h3>Explaining <code class="docutils literal notranslate"><span class="pre">linalg_mod.f90</span></code><a class="headerlink" href="#explaining-linalg-mod-f90" title="Link to this heading">#</a></h3>
+<p>The Fortran module <code class="docutils literal notranslate"><span class="pre">linalg_mod.f90</span></code> provides utility functions for reading, writing, and generating arrays. This module likely supports the functionality required by the other programs you uploaded (<code class="docutils literal notranslate"><span class="pre">generate_array.f90</span></code> and <code class="docutils literal notranslate"><span class="pre">solve_equations.f90</span></code>). Here’s a breakdown of its contents and functionalities:</p>
+<section id="module-structure-and-functions">
+<h4>Module Structure and Functions<a class="headerlink" href="#module-structure-and-functions" title="Link to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p><strong>Module <code class="docutils literal notranslate"><span class="pre">linalg_mod</span></code></strong></p>
+<ul class="simple">
+<li><p>Utilizes <code class="docutils literal notranslate"><span class="pre">iso_fortran_env</span></code> for standard environment definitions, such as <code class="docutils literal notranslate"><span class="pre">output_unit</span></code>, <code class="docutils literal notranslate"><span class="pre">error_unit</span></code>, and <code class="docutils literal notranslate"><span class="pre">DP</span></code> (double precision floating-point kind).</p></li>
+</ul>
+</li>
+<li><p><strong>Functionality Exposed</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">read_array</span></code>: Reads an array from a file whose dimensions and rank are defined by the inputs.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_array</span></code>: Writes an array to a file or standard output, handling both vectors and matrices.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">generate_random_array</span></code>: Fills an allocatable array with random numbers, based on the dimensions provided.</p></li>
+</ul>
+</li>
+<li><p><strong>Detailed Function Descriptions</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">read_array</span></code></strong>:</p>
+<ul>
+<li><p>Takes a file name, an array (allocatable), and its expected dimensions.</p></li>
+<li><p>Checks if the rank of the array matches the number of dimensions provided.</p></li>
+<li><p>Depending on the rank, it calls <code class="docutils literal notranslate"><span class="pre">read_vector</span></code> or <code class="docutils literal notranslate"><span class="pre">read_matrix</span></code> to perform the read operation.</p></li>
+<li><p>Errors are managed by stopping the program if the ranks or dimensions do not match expectations.</p></li>
+</ul>
+</li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">write_array</span></code></strong>:</p>
+<ul>
+<li><p>Accepts an array and an optional file name for output.</p></li>
+<li><p>Uses rank-specific procedures (<code class="docutils literal notranslate"><span class="pre">write_vector</span></code> or <code class="docutils literal notranslate"><span class="pre">write_matrix</span></code>) to handle the output based on the array’s rank.</p></li>
+<li><p>If no file name is provided, the output is directed to the standard output (<code class="docutils literal notranslate"><span class="pre">output_unit</span></code>).</p></li>
+</ul>
+</li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">generate_random_array</span></code></strong>:</p>
+<ul>
+<li><p>Designed to allocate and populate an array (either vector or matrix) with random numbers.</p></li>
+<li><p>Checks the allocation status and initializes the array with random numbers using the intrinsic <code class="docutils literal notranslate"><span class="pre">random_number</span></code> procedure.</p></li>
+<li><p>Manages errors related to mismatched ranks or failed allocations.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="subroutines-for-vector-and-matrix-handling">
+<h4>Subroutines for Vector and Matrix Handling<a class="headerlink" href="#subroutines-for-vector-and-matrix-handling" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">read_vector</span></code> and <code class="docutils literal notranslate"><span class="pre">write_vector</span></code></strong>:</p>
+<ul>
+<li><p>Handle reading and writing operations for vectors, respectively.</p></li>
+</ul>
+</li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">read_matrix</span></code> and <code class="docutils literal notranslate"><span class="pre">write_matrix</span></code></strong>:</p>
+<ul>
+<li><p>Handle reading and writing operations for matrices, respectively.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="key-functionalities-and-error-handling">
+<h3>Key Functionalities and Error Handling<a class="headerlink" href="#key-functionalities-and-error-handling" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>The module is equipped to handle errors related to input/output operations and array manipulations, which is critical for robust numerical software.</p></li>
+<li><p>Error messages are detailed, including specific issues like mismatched array ranks or failed memory allocations, which aids in debugging and user feedback.</p></li>
+<li><p>Flexibility to output to either a file or standard output enhances the module’s usability across different computational scenarios.</p></li>
+</ul>
+</section>
+<section id="id5">
+<h3>Usage<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>This module is utilized by other programs for managing arrays, particularly in numerical computations involving linear algebra. It abstracts away the details of file I/O and array initialization, allowing other parts of the software to focus on core computational logic.</p>
+<p>Overall, <code class="docutils literal notranslate"><span class="pre">linalg_mod.f90</span></code> serves as a foundational component for array management in Fortran programs, providing essential services such as reading, writing, and generating arrays with a focus on error handling and user feedback.</p>
+</section>
+</section>
+<section id="program-code">
+<h2>Program Code<a class="headerlink" href="#program-code" title="Link to this heading">#</a></h2>
+<p>The individual program files are listed below:</p>
+<section id="in-file-linalg-mod-f90">
+<h3>In file linalg_mod.f90<a class="headerlink" href="#in-file-linalg-mod-f90" title="Link to this heading">#</a></h3>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">module </span><span class="n">linalg_mod</span>
+<span class="w">    </span><span class="k">use</span><span class="p">,</span><span class="w"> </span><span class="k">intrinsic</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">iso_fortran_env</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">output_unit</span><span class="p">,</span><span class="w"> </span><span class="n">error_unit</span><span class="p">,</span><span class="w"> </span><span class="n">DP</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">REAL64</span>
+<span class="w">    </span><span class="k">implicit none</span>
+
+<span class="k">    private</span>
+
+<span class="k">    public</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">read_array</span><span class="p">,</span><span class="w"> </span><span class="n">write_array</span><span class="p">,</span><span class="w"> </span><span class="n">generate_random_array</span>
+
+<span class="k">contains</span>
+
+<span class="k">    subroutine </span><span class="n">read_array</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span><span class="w"> </span><span class="k">array</span><span class="p">,</span><span class="w"> </span><span class="n">dimensions</span><span class="p">)</span>
+<span class="w">        </span><span class="k">implicit none</span>
+<span class="k">        </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">file_name</span>
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">DP</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(..),</span><span class="w"> </span><span class="k">allocatable</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="k">array</span>
+<span class="k">        </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">dimension</span><span class="p">(:),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">dimensions</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rank</span><span class="p">(</span><span class="k">array</span><span class="p">)</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">dimensions</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">            write</span><span class="w"> </span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="n">error_unit</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(A)&#39;</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;# error: array rank does not match dimensions&#39;</span>
+<span class="w">            </span><span class="k">stop </span><span class="mi">3</span>
+<span class="w">        </span><span class="k">end if</span>
+<span class="k">        select </span><span class="n">rank</span><span class="p">(</span><span class="k">array</span><span class="p">)</span>
+<span class="w">            </span><span class="n">rank</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">                </span><span class="k">call </span><span class="n">read_vector</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span><span class="w"> </span><span class="n">dimensions</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="k">array</span><span class="p">)</span>
+<span class="w">            </span><span class="n">rank</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">                </span><span class="k">call </span><span class="n">read_matrix</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span><span class="w"> </span><span class="n">dimensions</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">dimensions</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="k">array</span><span class="p">)</span>
+<span class="w">            </span><span class="n">rank</span><span class="w"> </span><span class="n">default</span>
+<span class="w">                </span><span class="k">write</span><span class="w"> </span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="n">error_unit</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(A, I0, A)&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                    </span><span class="s1">&#39;# error: rank &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">rank</span><span class="p">(</span><span class="k">array</span><span class="p">),</span><span class="w"> </span><span class="s1">&#39; not supported&#39;</span>
+<span class="w">                </span><span class="k">stop </span><span class="mi">4</span>
+<span class="w">        </span><span class="k">end select</span>
+<span class="k">    end subroutine </span><span class="n">read_array</span>
+
+<span class="w">    </span><span class="k">subroutine </span><span class="n">write_array</span><span class="p">(</span><span class="k">array</span><span class="p">,</span><span class="w"> </span><span class="n">file_name</span><span class="p">)</span>
+<span class="w">        </span><span class="k">implicit none</span>
+<span class="k">        </span><span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">DP</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(..),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="k">array</span>
+<span class="k">        </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span><span class="w"> </span><span class="k">optional</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">file_name</span>
+
+<span class="w">        </span><span class="k">select </span><span class="n">rank</span><span class="p">(</span><span class="k">array</span><span class="p">)</span>
+<span class="w">            </span><span class="n">rank</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">                </span><span class="k">call </span><span class="n">write_vector</span><span class="p">(</span><span class="k">array</span><span class="p">,</span><span class="w"> </span><span class="n">file_name</span><span class="p">)</span>
+<span class="w">            </span><span class="n">rank</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">                </span><span class="k">call </span><span class="n">write_matrix</span><span class="p">(</span><span class="k">array</span><span class="p">,</span><span class="w"> </span><span class="n">file_name</span><span class="p">)</span>
+<span class="w">            </span><span class="n">rank</span><span class="w"> </span><span class="n">default</span>
+<span class="w">                </span><span class="k">write</span><span class="w"> </span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="n">error_unit</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(A, I0, A)&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                    </span><span class="s1">&#39;# error: rank &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">rank</span><span class="p">(</span><span class="k">array</span><span class="p">),</span><span class="w"> </span><span class="s1">&#39; not supported&#39;</span>
+<span class="w">                </span><span class="k">stop </span><span class="mi">4</span>
+<span class="w">        </span><span class="k">end select</span>
+<span class="k">    end subroutine </span><span class="n">write_array</span>
+
+<span class="w">    </span><span class="k">subroutine </span><span class="n">read_vector</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="p">)</span>
+<span class="w">        </span><span class="k">implicit none</span>
+<span class="k">        </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">file_name</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">value</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">n</span>
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">DP</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(:),</span><span class="w"> </span><span class="k">allocatable</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">vector</span>
+<span class="w">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">unit_nr</span>
+<span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">1024</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">msg</span>
+
+<span class="w">        </span><span class="k">open</span><span class="w"> </span><span class="p">(</span><span class="n">newunit</span><span class="o">=</span><span class="n">unit_nr</span><span class="p">,</span><span class="w"> </span><span class="k">file</span><span class="o">=</span><span class="nb">trim</span><span class="p">(</span><span class="n">file_name</span><span class="p">),</span><span class="w"> </span><span class="nb">access</span><span class="o">=</span><span class="s1">&#39;sequential&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">            </span><span class="n">action</span><span class="o">=</span><span class="s1">&#39;read&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="o">=</span><span class="s1">&#39;old&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">iostat</span><span class="o">=</span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">iomsg</span><span class="o">=</span><span class="n">msg</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">status</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">            write</span><span class="w"> </span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="n">error_unit</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(2A)&#39;</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;# error: &#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="w">            </span><span class="k">stop </span><span class="mi">1</span>
+<span class="w">        </span><span class="k">end if</span>
+
+<span class="k">        if</span><span class="w"> </span><span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="w"> </span><span class="nb">allocated</span><span class="p">(</span><span class="n">vector</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">            allocate</span><span class="w"> </span><span class="p">(</span><span class="n">vector</span><span class="p">(</span><span class="n">n</span><span class="p">),</span><span class="w"> </span><span class="nb">stat</span><span class="o">=</span><span class="n">status</span><span class="p">)</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">status</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                write</span><span class="w"> </span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="n">error_unit</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(2A)&#39;</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;# error: &#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="w">                </span><span class="k">stop </span><span class="mi">3</span>
+<span class="w">            </span><span class="k">end if</span>
+<span class="k">        end if</span>
+
+<span class="k">        do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">n</span>
+<span class="w">            </span><span class="k">read</span><span class="w"> </span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="n">unit_nr</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=*</span><span class="p">,</span><span class="w"> </span><span class="n">iostat</span><span class="o">=</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">iomsg</span><span class="o">=</span><span class="n">msg</span><span class="p">)</span><span class="w"> </span><span class="n">vector</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">status</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                write</span><span class="w"> </span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="n">error_unit</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(2A)&#39;</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;# error: &#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="w">                </span><span class="k">stop </span><span class="mi">2</span>
+<span class="w">            </span><span class="k">end if</span>
+<span class="k">        end do</span>
+
+<span class="k">        close</span><span class="w"> </span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="n">unit_nr</span><span class="p">)</span>
+
+<span class="w">    </span><span class="k">end subroutine </span><span class="n">read_vector</span>
+
+<span class="w">    </span><span class="k">subroutine </span><span class="n">read_matrix</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span><span class="w"> </span><span class="n">nr_rows</span><span class="p">,</span><span class="w"> </span><span class="n">nr_cols</span><span class="p">,</span><span class="w"> </span><span class="n">matrix</span><span class="p">)</span>
+<span class="w">        </span><span class="k">implicit none</span>
+<span class="k">        </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">file_name</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">value</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">nr_rows</span><span class="p">,</span><span class="w"> </span><span class="n">nr_cols</span>
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">DP</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(:,</span><span class="w"> </span><span class="p">:),</span><span class="w"> </span><span class="k">allocatable</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">matrix</span>
+<span class="w">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">unit_nr</span>
+<span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">1024</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">msg</span>
+
+<span class="w">        </span><span class="k">open</span><span class="w"> </span><span class="p">(</span><span class="n">newunit</span><span class="o">=</span><span class="n">unit_nr</span><span class="p">,</span><span class="w"> </span><span class="k">file</span><span class="o">=</span><span class="nb">trim</span><span class="p">(</span><span class="n">file_name</span><span class="p">),</span><span class="w"> </span><span class="nb">access</span><span class="o">=</span><span class="s1">&#39;sequential&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">            </span><span class="n">action</span><span class="o">=</span><span class="s1">&#39;read&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="o">=</span><span class="s1">&#39;old&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">iostat</span><span class="o">=</span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">iomsg</span><span class="o">=</span><span class="n">msg</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">status</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">            write</span><span class="w"> </span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="n">error_unit</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(2A)&#39;</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;# error: &#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="w">            </span><span class="k">stop </span><span class="mi">1</span>
+<span class="w">        </span><span class="k">end if</span>
+
+<span class="k">        if</span><span class="w"> </span><span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="w"> </span><span class="nb">allocated</span><span class="p">(</span><span class="n">matrix</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">            allocate</span><span class="w"> </span><span class="p">(</span><span class="n">matrix</span><span class="p">(</span><span class="n">nr_rows</span><span class="p">,</span><span class="w"> </span><span class="n">nr_cols</span><span class="p">),</span><span class="w"> </span><span class="nb">stat</span><span class="o">=</span><span class="n">status</span><span class="p">)</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">status</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                write</span><span class="w"> </span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="n">error_unit</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(2A)&#39;</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;# error: &#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="w">                </span><span class="k">stop </span><span class="mi">3</span>
+<span class="w">            </span><span class="k">end if</span>
+<span class="k">        end if</span>
+
+<span class="k">        do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">nr_rows</span>
+<span class="w">            </span><span class="k">read</span><span class="w"> </span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="n">unit_nr</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=*</span><span class="p">,</span><span class="w"> </span><span class="n">iostat</span><span class="o">=</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">iomsg</span><span class="o">=</span><span class="n">msg</span><span class="p">)</span><span class="w"> </span><span class="n">matrix</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="p">:)</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">status</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                write</span><span class="w"> </span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="n">error_unit</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(2A)&#39;</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;# error: &#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="w">                </span><span class="k">stop </span><span class="mi">2</span>
+<span class="w">            </span><span class="k">end if</span>
+<span class="k">        end do</span>
+
+<span class="k">        close</span><span class="w"> </span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="n">unit_nr</span><span class="p">)</span>
+
+<span class="w">    </span><span class="k">end subroutine </span><span class="n">read_matrix</span>
+
+<span class="w">    </span><span class="k">subroutine </span><span class="n">write_vector</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span><span class="w"> </span><span class="n">file_name</span><span class="p">)</span>
+<span class="w">        </span><span class="k">implicit none</span>
+<span class="k">        </span><span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">DP</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(:),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">vector</span>
+<span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span><span class="w"> </span><span class="k">optional</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">file_name</span>
+<span class="w">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">unit_nr</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">status</span>
+<span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">1024</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">msg</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">file_name</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">            open</span><span class="w"> </span><span class="p">(</span><span class="n">newunit</span><span class="o">=</span><span class="n">unit_nr</span><span class="p">,</span><span class="w"> </span><span class="k">file</span><span class="o">=</span><span class="nb">trim</span><span class="p">(</span><span class="n">file_name</span><span class="p">),</span><span class="w"> </span><span class="nb">access</span><span class="o">=</span><span class="s1">&#39;sequential&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                </span><span class="n">action</span><span class="o">=</span><span class="s1">&#39;write&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="o">=</span><span class="s1">&#39;replace&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">iostat</span><span class="o">=</span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">iomsg</span><span class="o">=</span><span class="n">msg</span><span class="p">)</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">status</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                write</span><span class="w"> </span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="n">error_unit</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(2A)&#39;</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;# error: &#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="w">                </span><span class="k">stop </span><span class="mi">1</span>
+<span class="w">            </span><span class="k">end if</span>
+<span class="k">        else</span>
+<span class="k">            </span><span class="n">unit_nr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">output_unit</span>
+<span class="w">        </span><span class="k">end if</span>
+
+<span class="k">        do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">vector</span><span class="p">)</span>
+<span class="w">            </span><span class="k">write</span><span class="w"> </span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="n">unit_nr</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(F27.15)&#39;</span><span class="p">)</span><span class="w"> </span><span class="n">vector</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="w">        </span><span class="k">end do</span>
+
+<span class="k">        if</span><span class="w"> </span><span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">file_name</span><span class="p">))</span><span class="w"> </span><span class="k">close</span><span class="w"> </span><span class="p">(</span><span class="n">unit_nr</span><span class="p">)</span>
+<span class="w">    </span><span class="k">end subroutine </span><span class="n">write_vector</span>
+
+<span class="w">    </span><span class="k">subroutine </span><span class="n">write_matrix</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span><span class="w"> </span><span class="n">file_name</span><span class="p">)</span>
+<span class="w">        </span><span class="k">implicit none</span>
+<span class="k">        </span><span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">DP</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(:,</span><span class="w"> </span><span class="p">:),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">matrix</span>
+<span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span><span class="w"> </span><span class="k">optional</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">file_name</span>
+<span class="w">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">unit_nr</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">status</span>
+<span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">1024</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">msg</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">file_name</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">            open</span><span class="w"> </span><span class="p">(</span><span class="n">newunit</span><span class="o">=</span><span class="n">unit_nr</span><span class="p">,</span><span class="w"> </span><span class="k">file</span><span class="o">=</span><span class="nb">trim</span><span class="p">(</span><span class="n">file_name</span><span class="p">),</span><span class="w"> </span><span class="nb">access</span><span class="o">=</span><span class="s1">&#39;sequential&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                </span><span class="n">action</span><span class="o">=</span><span class="s1">&#39;write&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="o">=</span><span class="s1">&#39;replace&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">iostat</span><span class="o">=</span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">iomsg</span><span class="o">=</span><span class="n">msg</span><span class="p">)</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">status</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                write</span><span class="w"> </span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="n">error_unit</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(2A)&#39;</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;# error: &#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="w">                </span><span class="k">stop </span><span class="mi">1</span>
+<span class="w">            </span><span class="k">end if</span>
+<span class="k">        else</span>
+<span class="k">            </span><span class="n">unit_nr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">output_unit</span>
+<span class="w">        </span><span class="k">end if</span>
+
+<span class="k">        do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">            </span><span class="k">write</span><span class="w"> </span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="n">unit_nr</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(*(F27.15))&#39;</span><span class="p">)</span><span class="w"> </span><span class="n">matrix</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="p">:)</span>
+<span class="w">        </span><span class="k">end do</span>
+
+<span class="k">        if</span><span class="w"> </span><span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">file_name</span><span class="p">))</span><span class="w"> </span><span class="k">close</span><span class="w"> </span><span class="p">(</span><span class="n">unit_nr</span><span class="p">)</span>
+<span class="w">    </span><span class="k">end subroutine </span><span class="n">write_matrix</span>
+
+<span class="w">    </span><span class="k">subroutine </span><span class="n">generate_random_array</span><span class="p">(</span><span class="k">array</span><span class="p">,</span><span class="w"> </span><span class="n">dimensions</span><span class="p">)</span>
+<span class="w">        </span><span class="k">implicit none</span>
+<span class="k">        </span><span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">DP</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(..),</span><span class="w"> </span><span class="k">allocatable</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="k">array</span>
+<span class="k">        </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">dimension</span><span class="p">(:),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">dimensions</span>
+<span class="w">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">status</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rank</span><span class="p">(</span><span class="k">array</span><span class="p">)</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">dimensions</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">            write</span><span class="w"> </span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="n">error_unit</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(A)&#39;</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;# error: array rank does not match dimensions&#39;</span>
+<span class="w">            </span><span class="k">stop </span><span class="mi">3</span>
+<span class="w">        </span><span class="k">end if</span>
+<span class="k">        select </span><span class="n">rank</span><span class="p">(</span><span class="k">array</span><span class="p">)</span>
+<span class="w">            </span><span class="n">rank</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="w"> </span><span class="nb">allocated</span><span class="p">(</span><span class="k">array</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                    allocate</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="n">dimensions</span><span class="p">(</span><span class="mi">1</span><span class="p">)),</span><span class="w"> </span><span class="nb">stat</span><span class="o">=</span><span class="n">status</span><span class="p">)</span>
+<span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">status</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                        write</span><span class="w"> </span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="n">error_unit</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(A, I0)&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                            </span><span class="s1">&#39;# error: can not allocate vector of size &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">dimensions</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">                        </span><span class="k">stop </span><span class="mi">6</span>
+<span class="w">                    </span><span class="k">end if</span>
+<span class="k">                end if</span>
+<span class="k">                call </span><span class="nb">random_number</span><span class="p">(</span><span class="k">array</span><span class="p">)</span>
+<span class="w">            </span><span class="n">rank</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="w"> </span><span class="nb">allocated</span><span class="p">(</span><span class="k">array</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                    allocate</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="n">dimensions</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">dimensions</span><span class="p">(</span><span class="mi">2</span><span class="p">)),</span><span class="w"> </span><span class="nb">stat</span><span class="o">=</span><span class="n">status</span><span class="p">)</span>
+<span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">status</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                        write</span><span class="w"> </span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="n">error_unit</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(A,I0, A, I0)&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                            </span><span class="s1">&#39;# error: can not allocate matrix of size &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                            </span><span class="n">dimensions</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="s1">&#39; by &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">dimensions</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">                        </span><span class="k">stop </span><span class="mi">6</span>
+<span class="w">                    </span><span class="k">end if</span>
+<span class="k">                end if</span>
+<span class="k">                call </span><span class="nb">random_number</span><span class="p">(</span><span class="k">array</span><span class="p">)</span>
+<span class="w">            </span><span class="n">rank</span><span class="w"> </span><span class="n">default</span>
+<span class="w">                </span><span class="k">write</span><span class="w"> </span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="n">error_unit</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(A, I0, A)&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                    </span><span class="s1">&#39;# error: rank &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">rank</span><span class="p">(</span><span class="k">array</span><span class="p">),</span><span class="w"> </span><span class="s1">&#39; not supported&#39;</span>
+<span class="w">                </span><span class="k">stop </span><span class="mi">4</span>
+<span class="w">        </span><span class="k">end select</span>
+<span class="k">    end subroutine </span><span class="n">generate_random_array</span>
+
+<span class="k">end module </span><span class="n">linalg_mod</span>
+</pre></div>
+</div>
+</section>
+<section id="in-file-generate-array-f90">
+<h3>In file generate_array.f90<a class="headerlink" href="#in-file-generate-array-f90" title="Link to this heading">#</a></h3>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">generate_array</span>
+<span class="w">    </span><span class="k">use</span><span class="p">,</span><span class="w"> </span><span class="k">intrinsic</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">iso_fortran_env</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">error_unit</span><span class="p">,</span><span class="w"> </span><span class="n">DP</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">REAL64</span>
+<span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">linalg_mod</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">write_array</span><span class="p">,</span><span class="w"> </span><span class="n">generate_random_array</span>
+<span class="w">    </span><span class="k">implicit none</span>
+<span class="k">    </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">dimension</span><span class="p">(:),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">dimensions</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">DP</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(:),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">vector</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="nb">Kind</span><span class="o">=</span><span class="n">DP</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(:,</span><span class="w"> </span><span class="p">:),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">matrix</span>
+
+<span class="w">    </span><span class="k">call </span><span class="n">get_arguments</span><span class="p">(</span><span class="n">dimensions</span><span class="p">)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">dimensions</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">        call </span><span class="n">generate_random_array</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span><span class="w"> </span><span class="n">dimensions</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">write_array</span><span class="p">(</span><span class="n">vector</span><span class="p">)</span>
+<span class="w">        </span><span class="k">deallocate</span><span class="w"> </span><span class="p">(</span><span class="n">vector</span><span class="p">)</span>
+<span class="w">    </span><span class="k">else if</span><span class="w"> </span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">dimensions</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">        call </span><span class="n">generate_random_array</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span><span class="w"> </span><span class="n">dimensions</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">write_array</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
+<span class="w">        </span><span class="k">deallocate</span><span class="w"> </span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="k">        write</span><span class="w"> </span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="n">error_unit</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(A)&#39;</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;# error: only rank 1 and 2 are supported&#39;</span>
+<span class="w">    </span><span class="k">end if</span>
+
+<span class="k">contains</span>
+
+<span class="k">   subroutine </span><span class="n">get_arguments</span><span class="p">(</span><span class="n">dimensions</span><span class="p">)</span>
+<span class="w">        </span><span class="k">implicit none</span>
+<span class="k">        </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">dimension</span><span class="p">(:),</span><span class="w"> </span><span class="k">allocatable</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">dimensions</span>
+<span class="w">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">rank</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">i</span>
+<span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">1024</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span>
+<span class="w">        </span>
+<span class="w">        </span><span class="n">rank</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">command_argument_count</span><span class="p">()</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rank</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">            write</span><span class="w"> </span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="n">error_unit</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(A)&#39;</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;# error: rank should be at least 1&#39;</span>
+<span class="w">            </span><span class="k">stop </span><span class="mi">10</span>
+<span class="w">        </span><span class="k">end if</span>
+<span class="k">        allocate</span><span class="w"> </span><span class="p">(</span><span class="n">dimensions</span><span class="p">(</span><span class="n">rank</span><span class="p">),</span><span class="w"> </span><span class="nb">stat</span><span class="o">=</span><span class="n">status</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">status</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">            write</span><span class="w"> </span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="n">error_unit</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(A)&#39;</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;# error: can not allocate dimensions&#39;</span>
+<span class="w">            </span><span class="k">stop </span><span class="mi">11</span>
+<span class="w">        </span><span class="k">end if</span>
+
+<span class="k">        do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">rank</span>
+<span class="w">            </span><span class="k">call </span><span class="nb">get_command_argument</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">buffer</span><span class="p">)</span>
+<span class="w">            </span><span class="k">read</span><span class="w"> </span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=*</span><span class="p">,</span><span class="w"> </span><span class="n">iostat</span><span class="o">=</span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">iomsg</span><span class="o">=</span><span class="n">msg</span><span class="p">)</span><span class="w"> </span><span class="n">dimensions</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">status</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                write</span><span class="w"> </span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="n">error_unit</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(2A)&#39;</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;# error: &#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="w">                </span><span class="k">stop </span><span class="mi">11</span>
+<span class="w">            </span><span class="k">end if</span>
+<span class="k">        end do</span>
+<span class="k">    end subroutine </span><span class="n">get_arguments</span>
+
+<span class="k">end program </span><span class="n">generate_array</span>
+</pre></div>
+</div>
+</section>
+<section id="in-solve-equations-f90">
+<h3>In solve_equations.f90<a class="headerlink" href="#in-solve-equations-f90" title="Link to this heading">#</a></h3>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">main</span>
+<span class="w">    </span><span class="k">use</span><span class="p">,</span><span class="w"> </span><span class="k">intrinsic</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">iso_fortran_env</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">error_unit</span><span class="p">,</span><span class="w"> </span><span class="n">DP</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">REAL64</span>
+<span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">linalg_mod</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">read_array</span><span class="p">,</span><span class="w"> </span><span class="n">write_array</span>
+<span class="w">    </span><span class="k">implicit none</span>
+<span class="w">    </span><span class="c">! Made info an integer because the LAPACK routine DGESV uses an explicit</span>
+<span class="w">    </span><span class="c">! interface.  In the explicit interface, the argument info is an integer.</span>
+<span class="w">    </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">nr_eqns</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">info</span>
+<span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">1024</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">matrix_file_name</span><span class="p">,</span><span class="w"> </span><span class="n">vector_file_name</span>
+<span class="w">    </span><span class="c">! The following line no longer works because the LAPACK routine DGESV uses</span>
+<span class="w">    </span><span class="c">! an explicit interface.  In the explicit interface, the argument info</span>
+<span class="w">    </span><span class="c">! is an integer, but in the implicit interface, it is a character(len=1024).</span>
+<span class="w">    </span><span class="c">!character(len=1024) :: matrix_file_name, vector_file_name, info</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">DP</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(:),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">b</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">dimension</span><span class="p">(:),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">pivot</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">DP</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(:,</span><span class="w"> </span><span class="p">:),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">A</span>
+<span class="w">    </span><span class="c">!external :: dgesv ! not needed in gfortran and throws an error</span>
+
+<span class="w">    </span><span class="c">! Explicit interface for the LAPACK routine DGESV</span>
+<span class="w">    </span><span class="k">interface</span>
+<span class="k">        subroutine </span><span class="n">dgesv</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">nrhs</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">lda</span><span class="p">,</span><span class="w"> </span><span class="n">ipiv</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">ldb</span><span class="p">,</span><span class="w"> </span><span class="n">info</span><span class="p">)</span>
+<span class="w">            </span><span class="k">import</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">DP</span>
+<span class="w">            </span><span class="k">implicit none</span>
+<span class="w">            </span><span class="c">! .. Scalar Arguments ..</span>
+<span class="w">            </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="w"> </span><span class="p">(</span><span class="n">Out</span><span class="p">)</span><span class="w">             </span><span class="kd">::</span><span class="w"> </span><span class="n">info</span>
+<span class="w">            </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="w"> </span><span class="p">(</span><span class="n">In</span><span class="p">)</span><span class="w">              </span><span class="kd">::</span><span class="w"> </span><span class="n">lda</span><span class="p">,</span><span class="w"> </span><span class="n">ldb</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">nrhs</span>
+<span class="w">            </span><span class="c">! .. Array Arguments ..</span>
+<span class="w">            </span><span class="kt">real</span><span class="w"> </span><span class="p">(</span><span class="nb">Kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="w"> </span><span class="p">(</span><span class="n">Inout</span><span class="p">)</span><span class="w">    </span><span class="kd">::</span><span class="w"> </span><span class="n">a</span><span class="p">(</span><span class="n">lda</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="n">b</span><span class="p">(</span><span class="n">ldb</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span>
+<span class="w">            </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">Intent</span><span class="w"> </span><span class="p">(</span><span class="n">Out</span><span class="p">)</span><span class="w">             </span><span class="kd">::</span><span class="w"> </span><span class="n">ipiv</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="w">        </span><span class="k">end subroutine </span><span class="n">dgesv</span>
+<span class="w">    </span><span class="k">end interface</span>
+
+<span class="k">    call </span><span class="n">get_arguments</span><span class="p">(</span><span class="n">nr_eqns</span><span class="p">,</span><span class="w"> </span><span class="n">matrix_file_name</span><span class="p">,</span><span class="w"> </span><span class="n">vector_file_name</span><span class="p">)</span>
+
+<span class="w">    </span><span class="k">allocate</span><span class="w"> </span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">nr_eqns</span><span class="p">,</span><span class="w"> </span><span class="n">nr_eqns</span><span class="p">),</span><span class="w"> </span><span class="nb">stat</span><span class="o">=</span><span class="n">status</span><span class="p">)</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">status</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">        write</span><span class="w"> </span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="n">error_unit</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(A)&#39;</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;#error: can not allocate A&#39;</span>
+<span class="w">        </span><span class="k">stop </span><span class="mi">15</span>
+<span class="w">    </span><span class="k">end if</span>
+
+<span class="k">    call </span><span class="n">read_array</span><span class="p">(</span><span class="n">matrix_file_name</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="n">nr_eqns</span><span class="p">,</span><span class="w"> </span><span class="n">nr_eqns</span><span class="w"> </span><span class="p">])</span>
+
+<span class="w">    </span><span class="k">allocate</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="p">(</span><span class="n">nr_eqns</span><span class="p">),</span><span class="w"> </span><span class="nb">stat</span><span class="o">=</span><span class="n">status</span><span class="p">)</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">status</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">        write</span><span class="w"> </span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="n">error_unit</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(A)&#39;</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;#error: can not allocate b&#39;</span>
+<span class="w">        </span><span class="k">stop </span><span class="mi">15</span>
+<span class="w">    </span><span class="k">end if</span>
+
+<span class="k">    call </span><span class="n">read_array</span><span class="p">(</span><span class="n">vector_file_name</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="n">nr_eqns</span><span class="w"> </span><span class="p">])</span>
+
+<span class="w">    </span><span class="k">allocate</span><span class="w"> </span><span class="p">(</span><span class="n">pivot</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">b</span><span class="p">)),</span><span class="w"> </span><span class="nb">stat</span><span class="o">=</span><span class="n">status</span><span class="p">)</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">status</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">        write</span><span class="w"> </span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="n">error_unit</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(A, I0)&#39;</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;# error: can not allocate pivot of size &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="w">        </span><span class="k">stop </span><span class="mi">12</span>
+<span class="w">    </span><span class="k">end if</span>
+
+<span class="k">    call </span><span class="n">dgesv</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">pivot</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">b</span><span class="p">),</span><span class="w"> </span><span class="n">info</span><span class="p">)</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="k">call </span><span class="n">write_array</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+
+<span class="w">    </span><span class="k">deallocate</span><span class="w"> </span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">pivot</span><span class="p">)</span>
+
+<span class="k">contains</span>
+
+<span class="k">   subroutine </span><span class="n">get_arguments</span><span class="p">(</span><span class="n">nr_eqns</span><span class="p">,</span><span class="w"> </span><span class="n">matrix_file_name</span><span class="p">,</span><span class="w"> </span><span class="n">vector_file_name</span><span class="p">)</span>
+<span class="w">        </span><span class="k">implicit none</span>
+<span class="k">        </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">nr_eqns</span>
+<span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">matrix_file_name</span><span class="p">,</span><span class="w"> </span><span class="n">vector_file_name</span>
+<span class="w">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">status</span>
+<span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">1024</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span>
+<span class="w">        </span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">command_argument_count</span><span class="p">()</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">            write</span><span class="w"> </span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="n">error_unit</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(A)&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                </span><span class="s1">&#39;# error: argument nr_eqns, matrix_file_name, vector_file_name&#39;</span>
+<span class="w">            </span><span class="k">stop </span><span class="mi">10</span>
+<span class="w">        </span><span class="k">end if</span>
+
+<span class="k">        call </span><span class="nb">get_command_argument</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">buffer</span><span class="p">)</span>
+<span class="w">        </span><span class="k">read</span><span class="w"> </span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=*</span><span class="p">,</span><span class="w"> </span><span class="n">iostat</span><span class="o">=</span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">iomsg</span><span class="o">=</span><span class="n">msg</span><span class="p">)</span><span class="w"> </span><span class="n">nr_eqns</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">status</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">            write</span><span class="w"> </span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="n">error_unit</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(2A)&#39;</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;# error: &#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="w">            </span><span class="k">stop </span><span class="mi">11</span>
+<span class="w">        </span><span class="k">end if</span>
+
+<span class="k">        call </span><span class="nb">get_command_argument</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">matrix_file_name</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="nb">get_command_argument</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">vector_file_name</span><span class="p">)</span>
+<span class="w">    </span><span class="k">end subroutine </span><span class="n">get_arguments</span>
+
+<span class="k">end program </span><span class="n">main</span>
+</pre></div>
+</div>
+<p>The above programs are compiled and run using Fortran Package Manager (fpm):</p>
+</section>
+</section>
+<section id="build-the-program-using-fpm-fortran-package-manager">
+<h2>Build the Program using FPM (Fortran Package Manager)<a class="headerlink" href="#build-the-program-using-fpm-fortran-package-manager" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">root_dir</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">root_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since the code makes use of the LAPACK library, the following FPM configuration file (fpm.toml) was used:</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Section_BLAS_LAPACK_Linear_Equations&quot;</span>
+
+<span class="k">[build]</span>
+<span class="n">auto-executables</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="n">auto-tests</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="n">auto-examples</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="n">link</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;blas&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;lapack&quot;</span><span class="p">]</span>
+
+<span class="k">[install]</span>
+<span class="n">library</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
+
+<span class="k">[[executable]]</span>
+<span class="n">name</span><span class="o">=</span><span class="s2">&quot;solve_equations&quot;</span>
+<span class="n">source-dir</span><span class="o">=</span><span class="s2">&quot;app&quot;</span>
+<span class="n">main</span><span class="o">=</span><span class="s2">&quot;solve_equations.f90&quot;</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">code_dir</span> <span class="o">=</span> <span class="n">root_dir</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="s2">&quot;Fortran_Code/Section_BLAS_LAPACK_Linear_Equations&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">code_dir</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The files <em>solve_equations.f90</em> and <em>generate_array.f90</em> were placed into the “app” folder, while the file <em>linalg_mod.f90</em> was placed into the “src” folder.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">build_status</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;fpm build 2&gt;/dev/null&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="run-the-program-using-fpm-fortran-package-manager">
+<h2>Run the Program using FPM (Fortran Package Manager)<a class="headerlink" href="#run-the-program-using-fpm-fortran-package-manager" title="Link to this heading">#</a></h2>
+<section id="solve-a-test-linear-system-of-two-equations">
+<h3>Solve a Test Linear System of Two Equations<a class="headerlink" href="#solve-a-test-linear-system-of-two-equations" title="Link to this heading">#</a></h3>
+<p>As our first run, we wish to solve the following set of linear equations:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+2x+8y &amp; = 20 \\
+x+2y  &amp; = 4
+\end{align*}
+\end{split}\]</div>
+<p>The variables in the equations are converted into components of the <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> vector as shown below:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+2x_1+8x_2 &amp; = 20 \\
+x_1+2x_2  &amp; = 4
+\end{align*}
+\end{split}\]</div>
+<p>These equations are converted into matrix form as shown below:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation*}
+\left[
+\begin{array}{cc}
+2 &amp; 8 \\
+1 &amp; 2 \\
+\end{array}
+\right]
+\left[
+\begin{array}{c}
+x_1 \\
+x_2 \\
+\end{array}
+\right]
+=
+\left[
+\begin{array}{c}
+20 \\
+4 \\
+\end{array}
+\right]
+\end{equation*}
+\end{split}\]</div>
+<p>Therefore we have the following:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{A} = 
+\left[
+\begin{array}{cc}
+2 &amp; 8 \\
+1 &amp; 2 
+\end{array}
+\right]
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{x} = 
+\left[
+\begin{array}{c}
+x_1 \\
+x_2  
+\end{array}
+\right]
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{b} = 
+\left[
+\begin{array}{c}
+20 \\
+4  
+\end{array}
+\right]
+\end{split}\]</div>
+<p>The matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> and the vector <span class="math notranslate nohighlight">\(\mathbf{b}\)</span> are written into text files as shown below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%writefile</span> A_test1.txt
+<span class="mi">2</span> <span class="mi">8</span>
+<span class="mi">1</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overwriting A_test1.txt
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%writefile</span> b_test1.txt
+<span class="mi">20</span>
+<span class="mi">4</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overwriting b_test1.txt
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <em>solve_equations</em> program can now be run with the number of equations command line argument set to 2, and the files <em>A_test1.txt</em> and <em>b_test1.txt</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exec_status</span> <span class="o">=</span> \
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;fpm run solve_equations 2&gt;/dev/null -- 2 A_test1.txt b_test1.txt&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>         -2.000000000000000
+          3.000000000000000
+</pre></div>
+</div>
+</div>
+</div>
+<p>The results are printed in scientfic notation and in the order of <span class="math notranslate nohighlight">\(x_1\)</span>, <span class="math notranslate nohighlight">\(x_2\)</span>.</p>
+<p>We now wish to use Python’s Numpy library to test these results:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">genfromtxt</span><span class="p">(</span><span class="s2">&quot;A_test1.txt&quot;</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">genfromtxt</span><span class="p">(</span><span class="s2">&quot;b_test1.txt&quot;</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x1 = </span><span class="si">{0:2.1f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x2 = </span><span class="si">{0:2.1f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x1 = -2.0
+x2 = 3.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see that the Fortran code and Numpy produce the same results.</p>
+</section>
+<section id="solve-a-test-linear-system-of-equations-of-arbitrary-size">
+<h3>Solve a Test Linear System of Equations of Arbitrary Size<a class="headerlink" href="#solve-a-test-linear-system-of-equations-of-arbitrary-size" title="Link to this heading">#</a></h3>
+<p>The Fortran code can be used to solve an arbitrarily large system of equations.  To test this functionality, we make use of the <em>generate_array.f90</em> program to generate arrays or matrices of arbitrary size filled with random numbers.</p>
+<p>As a start, we will use the <em>generate_array.f90</em> to generate a matrix file A_test2.txt that contains a 10x10 matrix.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exec_status</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;fpm run generate_array 2&gt;/dev/null -- 10 10 &gt; A_test2.txt&quot;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> matrix is shown below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s2">&quot;A_test2.txt&quot;</span><span class="p">,</span> 
+    <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+    <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;\s+&#39;</span><span class="p">)</span>
+<span class="n">A</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.461598</td>
+      <td>0.118797</td>
+      <td>0.467748</td>
+      <td>0.071977</td>
+      <td>0.471883</td>
+      <td>0.104339</td>
+      <td>0.252850</td>
+      <td>0.516080</td>
+      <td>0.009365</td>
+      <td>0.883430</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.248124</td>
+      <td>0.527493</td>
+      <td>0.254405</td>
+      <td>0.821417</td>
+      <td>0.297028</td>
+      <td>0.697380</td>
+      <td>0.949148</td>
+      <td>0.048311</td>
+      <td>0.805059</td>
+      <td>0.296925</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.230365</td>
+      <td>0.734856</td>
+      <td>0.313628</td>
+      <td>0.939376</td>
+      <td>0.668891</td>
+      <td>0.991881</td>
+      <td>0.553140</td>
+      <td>0.601016</td>
+      <td>0.884292</td>
+      <td>0.828552</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.711187</td>
+      <td>0.717791</td>
+      <td>0.023281</td>
+      <td>0.949497</td>
+      <td>0.239928</td>
+      <td>0.980394</td>
+      <td>0.324768</td>
+      <td>0.720121</td>
+      <td>0.327567</td>
+      <td>0.287049</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.340240</td>
+      <td>0.410946</td>
+      <td>0.420942</td>
+      <td>0.248483</td>
+      <td>0.709057</td>
+      <td>0.037011</td>
+      <td>0.642534</td>
+      <td>0.049924</td>
+      <td>0.965199</td>
+      <td>0.044384</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.430976</td>
+      <td>0.770597</td>
+      <td>0.216899</td>
+      <td>0.057872</td>
+      <td>0.554532</td>
+      <td>0.584588</td>
+      <td>0.619305</td>
+      <td>0.688717</td>
+      <td>0.091826</td>
+      <td>0.270422</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0.878743</td>
+      <td>0.937731</td>
+      <td>0.445643</td>
+      <td>0.421286</td>
+      <td>0.647815</td>
+      <td>0.160354</td>
+      <td>0.278564</td>
+      <td>0.156043</td>
+      <td>0.150777</td>
+      <td>0.497020</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0.362234</td>
+      <td>0.259378</td>
+      <td>0.291990</td>
+      <td>0.792455</td>
+      <td>0.786635</td>
+      <td>0.673158</td>
+      <td>0.827374</td>
+      <td>0.845554</td>
+      <td>0.398464</td>
+      <td>0.246188</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>0.560502</td>
+      <td>0.026846</td>
+      <td>0.377345</td>
+      <td>0.511123</td>
+      <td>0.344127</td>
+      <td>0.665735</td>
+      <td>0.802649</td>
+      <td>0.694986</td>
+      <td>0.702162</td>
+      <td>0.950923</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>0.996172</td>
+      <td>0.395641</td>
+      <td>0.520276</td>
+      <td>0.974835</td>
+      <td>0.886689</td>
+      <td>0.349176</td>
+      <td>0.363996</td>
+      <td>0.872807</td>
+      <td>0.177104</td>
+      <td>0.971961</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>And now we generate the <span class="math notranslate nohighlight">\(\mathbf{b}\)</span> vector:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exec_status</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;fpm run generate_array 2&gt;/dev/null -- 10 &gt; b_test2.txt&quot;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <span class="math notranslate nohighlight">\(\mathbf{b}\)</span> vector is shown below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s2">&quot;b_test2.txt&quot;</span><span class="p">,</span> 
+    <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+    <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;\s+&#39;</span><span class="p">)</span>
+<span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.403451</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.895243</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.588997</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.958119</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.458580</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.659325</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0.527066</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0.584896</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>0.021204</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>0.045259</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We now use the <em>solve_equation</em> Fortran code to solve this linear system of equations:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exec_status</span> <span class="o">=</span> \
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;fpm run solve_equations 2&gt;/dev/null -- 10 A_test2.txt b_test2.txt&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>         -2.007294436360096
+          1.944946165265286
+          9.890242227769839
+          1.208920797151628
+         -4.958429930016875
+         -0.124102970470848
+         -0.883633275936916
+          2.830293636883858
+         -0.050726784136468
+         -2.827840901325059
+</pre></div>
+</div>
+</div>
+</div>
+<p>And the results are compared to the output of Numpy:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">genfromtxt</span><span class="p">(</span><span class="s2">&quot;A_test2.txt&quot;</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">genfromtxt</span><span class="p">(</span><span class="s2">&quot;b_test2.txt&quot;</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;x</span><span class="si">{0:d}</span><span class="s2"> = </span><span class="si">{1:2.6f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x1 = -2.007294
+x2 = 1.944946
+x3 = 9.890242
+x4 = 1.208921
+x5 = -4.958430
+x6 = -0.124103
+x7 = -0.883633
+x8 = 2.830294
+x9 = -0.050727
+x10 = -2.827841
+</pre></div>
+</div>
+</div>
+</div>
+<p>Again, we see that the results are the same.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Sections/Computer_Programming/Fortran/Fortran_MOOC"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Section_BLAS_LAPACK_Linear_Equations__Head__.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Section: BLAS/LAPACK - Linear Equations</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Section_BLAS_LAPACK_Dot.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Section: BLAS/LAPACK - Dot Product</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#this-program-demonstrates-solving-linear-algebra-equations-in-fortran">This program demonstrates solving linear algebra equations in Fortran.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-equation-problem">Linear Equation Problem</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation-of-the-programs">Explanation of the Programs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explaining-generate-array-f90">Explaining <code class="docutils literal notranslate"><span class="pre">generate_array.f90</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#program-structure">Program Structure</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#subroutine-get-arguments">Subroutine: <code class="docutils literal notranslate"><span class="pre">get_arguments</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-functionalities">Key Functionalities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usage">Usage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explaining-solve-equations-f90">Explaining <code class="docutils literal notranslate"><span class="pre">solve_equations.f90</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Program Structure</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Subroutine: <code class="docutils literal notranslate"><span class="pre">get_arguments</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Key Functionalities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Usage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explaining-linalg-mod-f90">Explaining <code class="docutils literal notranslate"><span class="pre">linalg_mod.f90</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#module-structure-and-functions">Module Structure and Functions</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#subroutines-for-vector-and-matrix-handling">Subroutines for Vector and Matrix Handling</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-functionalities-and-error-handling">Key Functionalities and Error Handling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Usage</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#program-code">Program Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-file-linalg-mod-f90">In file linalg_mod.f90</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-file-generate-array-f90">In file generate_array.f90</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-solve-equations-f90">In solve_equations.f90</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-the-program-using-fpm-fortran-package-manager">Build the Program using FPM (Fortran Package Manager)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-program-using-fpm-fortran-package-manager">Run the Program using FPM (Fortran Package Manager)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-a-test-linear-system-of-two-equations">Solve a Test Linear System of Two Equations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-a-test-linear-system-of-equations-of-arbitrary-size">Solve a Test Linear System of Equations of Arbitrary Size</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mark Khusid
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

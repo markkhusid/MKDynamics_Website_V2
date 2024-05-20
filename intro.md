@@ -4,10 +4,6 @@ Welcome to my website! This site is a collection of my projects and interests in
 
 Additionally, I am a licensed HAM radio operator and enjoy experimenting with antennas and radio equipment. I am also interested in cybersecurity and have completed several certifications in this field.
 
-[MKD_Fortran_Book](xref:../../markdown)
-
-
-
 ## Cybersecurity
 ::::{grid} 2 2 2 2
 :class-container: text-center
@@ -33,76 +29,19 @@ Cybersecurity
 :gutter: 3
 
 :::{grid-item-card}
-:link: Sections/Computer_Programming/Fortran/intro.html
+:link: Sections/Computer_Programming/computer_programming
 :class-header: bg-dark
 
-FORTRAN Programming
+Computer Programming
 ^^^
-```{image} home_page_images/fortran.png
-:height: 200
-```
-:::
-
-:::{grid-item-card}
-:link: Sections/Computer_Programming/CPP/intro.html
-:class-header: bg-dark
-
-C++ Programming
-^^^
-```{image} home_page_images/CPP.jpeg
-:height: 200
-```
-:::
-
-:::{grid-item-card}
-:link: Sections/Computer_Programming/Python/intro.html
-:class-header: bg-dark
-
-Python Programming 
-^^^
-```{image} home_page_images/python.png
-:height: 200
-```
-:::
-
-:::{grid-item-card}
-:link: markdown
-:link-type: doc
-:class-header: bg-dark
-
-Assembly Language Programming
-^^^
-```{image} home_page_images/c64_assembly.jpg
-:height: 200
-```
-:::
-
-:::{grid-item-card}
-:link: markdown
-:link-type: doc
-:class-header: bg-dark
-
-PHP Programming
-^^^
-```{image} home_page_images/php-development.jpg
-:height: 200
-```
-:::
-
-:::{grid-item-card}
-:link: markdown
-:link-type: doc
-:class-header: bg-dark
-
-Javascript Programming
-^^^
-```{image} home_page_images/php-development.jpg
+```{image} home_page_images/computer_programming.jpeg
 :height: 200
 ```
 :::
 ::::
 
 ## Electronics
+
 ::::{grid} 2 2 2 2
 :class-container: text-center
 :gutter: 3

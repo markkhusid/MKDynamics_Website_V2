@@ -20,8 +20,8 @@ latex:
 #  - references.bib
 
 # References
-references:
-  MKD_Fortran_Book: https://www.mkdynamics.net/current_projects/Fortran/intro.html
+#references:
+#  MKD_Fortran_Book: https://www.mkdynamics.net/current_projects/Fortran/intro.html
 
 # Information about where the book exists on the web
 repository:
@@ -36,8 +36,29 @@ html:
   use_repository_button: true
 
 sphinx:
+  extra_extensions:
+    - sphinx.ext.intersphinx
+
   config:
+    # Enable all intersphinx references
+    intersphinx_disabled_reftypes: [None]
+
     html_show_copyright: false
+    intersphinx_mapping: {
+      'MKD_Fortran_Book': 
+        ../markkhusid-MKDWWW_Fortran_Jupyter_Book/_build/html/objects.inv,
+
+      }
+
+    
+
+    
+# Enable InterSphinx reference types
+
+# Enable InterSphinx for cross-referencing between books
+intersphinx:
+  MKD_Fortran_Book: https://www.mkdynamics.net/current_projects/Fortran/intro.html
+
 
 # Use the PyData Sphinx Theme
 html_theme: pydata_sphinx_theme
