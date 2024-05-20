@@ -1,0 +1,795 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Section 14: Pi Estimation &#8212; MK Dynamics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Sections/Computer_Programming/Fortran/Intro_to_Fortran/Section_14_Pi_Estimation';</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/spacey.jpg" class="logo__image only-light" alt="MK Dynamics - Home"/>
+    <script>document.write(`<img src="../../../../_static/spacey.jpg" class="logo__image only-dark" alt="MK Dynamics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../../intro.html">
+                    MK Dynamics
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Cybersecurity</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Cybersecurity/cybersecurity.html">Cybersecurity</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../Cybersecurity/Protostar/protostar.html">Protostar Exploit Exercises</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../Cybersecurity/Protostar/Stack0/stack0.html">Stack 0</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../Cybersecurity/Protostar/Stack0/stack0_x86.html">Protostar Exploit Exercises - Stack0 - First Stack Buffer Overflow to modify Variable</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Cybersecurity/LiveOverflow/liveoverflow.html">LiveOverflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Cybersecurity/Basic_Linux_Exploits/basic_linux_exploits.html">Basic Linux Exploits</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Computer Programming</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../computer_programming.html">Computer Programming</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../fortran.html">Fortran Programming</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../Modern_Fortran/modern_fortran.html">Modern Fortran</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Modern_Fortran/Cold_Front_Calculator.html">Cold Front Calculator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Modern_Fortran/Cold_Front_Calculator_with_Loop.html">Cold Front Calculator With Loop</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Modern_Fortran/Tsunami_Simulator.html">Tsunami Simulator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Modern_Fortran/Tsunami_Simulator_Plotter.html">Tsunami Simulator Plotter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Modern_Fortran/Tsunami_Simulator_with_Modules.html">Tsunami Simulator with Modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Modern_Fortran/Tsunami_Simulator_with_Modules_Plotter.html">Tsunami Simulator with Modules Plotter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Modern_Fortran/Print_Compiler_Version.html">Print Compiler Version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Modern_Fortran/Analyzing_Time_Series_Data_with_Arrays.html">Analyzing Time Series Data with Arrays</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="intro_to_fortran.html">Introduction to Programming Using Fortran</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../Guide_to_Fortran_2008_Programming/guide_to_fortran_2008_programming.html">Guide to Fortran 2008 Programming</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Guide_to_Fortran_2008_Programming/Section_1_8_Ex_2_Quadratic_Formula.html">Section 1.8 Example 2: Quadratic Equation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Guide_to_Fortran_2008_Programming/Section_1_16_Factorial_Recursion.html">Section 1.16: Factorial Recursion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Guide_to_Fortran_2008_Programming/Section_2_1_Associate_Construct.html">Section 2.1: Statement Blocks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Guide_to_Fortran_2008_Programming/Section_2_1_Statement_Blocks.html">Section 2.1: Associate Construct</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Guide_to_Fortran_2008_Programming/Section_3_4_Putting_Procedures_in_a_Module.html">Section 3.4: Putting Procedures in a Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Guide_to_Fortran_2008_Programming/Section_3_6_Ex_1_Median_of_Three.html">Section 3.6: Median of Three</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Guide_to_Fortran_2008_Programming/Section_3_8_Argument_Passing.html">Section 3.8: Argument Passing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Guide_to_Fortran_2008_Programming/Section_3_17_Case_Study__Adaptive_Numberical_Integration.html">Section 3.17: Case Study: Adaptive Numerical Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Guide_to_Fortran_2008_Programming/Section_4_1_Elsewhere_Example.html">Section 4.1: Elsewhere Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Guide_to_Fortran_2008_Programming/Section_8_1_Submodules.html">Section 8.1: Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Guide_to_Fortran_2008_Programming/Section_8_2_Time_Matrix_Multiply.html">Section 8.2: Time Matrix Multiply</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Guide_to_Fortran_2008_Programming/Section_8_7_Generic_Elemental_Procedures.html">Section 8.7: Generic Elemental Procedures</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Guide_to_Fortran_2008_Programming/Section_8_8_Findloc_Function.html">Section 8.8: Findloc Function</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../Fortran_MOOC/fortran_mooc.html">Fortran MOOC</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Fortran_MOOC/Section_Arrays.html">Section: Arrays</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Fortran_MOOC/Section_Floating_Point.html">Section: Floating Point</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Fortran_MOOC/Section_Call_By_Semantics.html">Section: Call By Semantics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Fortran_MOOC/Section_Computing_Pi.html">Section: Computing Pi</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Fortran_MOOC/Section_Implicit_vs_Explicit_Loops__Head__.html">Section: Implicit vs Explicit Loops</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Fortran_MOOC/Section_Block_Matrices__Head__.html">Section: Block Matrices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Fortran_MOOC/Section_BLAS_LAPACK__Head__.html">Section: BLAS/LAPACK</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Electronics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Electronics/electronics.html">Electronics</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../Electronics/Analog_and_Digital/analog_and_digital.html">Analog and Digital Electronics</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../Electronics/Analog_and_Digital/AD9850_DDS/AD9850_DDS.html">Variable Frequency Oscillator Using Direct Digital Synthesis</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Misc</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks.html">Content with notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../README.html">MKDynamics_Website_V2</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/markkhusid/MKDynamics_Website_V2" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/markkhusid/MKDynamics_Website_V2/issues/new?title=Issue%20on%20page%20%2FSections/Computer_Programming/Fortran/Intro_to_Fortran/Section_14_Pi_Estimation.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../../_sources/Sections/Computer_Programming/Fortran/Intro_to_Fortran/Section_14_Pi_Estimation.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Section 14: Pi Estimation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#program-to-estimate-the-value-of-pi">Program to Estimate the Value of Pi</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-declaration">Variable Declaration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#user-interaction">User Interaction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-parameters">Setting Parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#memory-allocation">Memory Allocation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-point-generation">Random Point Generation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#monte-carlo-estimation">Monte Carlo Estimation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#display-results">Display Results</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#program-compilation-and-execution">Program Compilation and Execution</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="section-14-pi-estimation">
+<h1>Section 14: Pi Estimation<a class="headerlink" href="#section-14-pi-estimation" title="Link to this heading">#</a></h1>
+<p>Adapted from: “<a class="reference external" href="https://open.umn.edu/opentextbooks/textbooks/introduction-to-programming-using-fortran-95-2003-2008">Introduction to Programming Using Fortran 95/2003/2008</a>” by Ed Jorgensen (March 2018 / Version 3.0.51).</p>
+<section id="program-to-estimate-the-value-of-pi">
+<h2>Program to Estimate the Value of Pi<a class="headerlink" href="#program-to-estimate-the-value-of-pi" title="Link to this heading">#</a></h2>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">piestimation</span>
+
+<span class="c">! declare variabes</span>
+
+<span class="k">implicit none</span>
+
+<span class="kt">integer</span><span class="w">                             </span><span class="kd">::</span><span class="w"> </span><span class="nb">count</span><span class="p">,</span><span class="w"> </span><span class="n">alstat</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">incount</span>
+<span class="kt">real</span><span class="w">                                </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">pi_est</span><span class="p">,</span><span class="w"> </span><span class="n">pt</span>
+<span class="kt">real</span><span class="p">,</span><span class="w"> </span><span class="k">allocatable</span><span class="p">,</span><span class="w"> </span><span class="k">dimension</span><span class="w"> </span><span class="p">(:,:)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">points</span>
+
+<span class="c">! display inital header</span>
+<span class="w">    </span><span class="k">write</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;(/a/)&#39;</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot;Program Example - Pi estimation&quot;</span>
+
+<span class="c">! prompt for and obtain count value</span>
+<span class="w">    </span><span class="c">! This section will be skipped for the Jupyter Notebook</span>
+<span class="w">    </span><span class="c">!do</span>
+<span class="w">        </span><span class="c">! prompt for count value</span>
+<span class="w">        </span><span class="c">! write (*, &#39;(a)&#39;, advance=&quot;no&quot;) &quot;Enter Count (100 - 1,000,000): &quot;</span>
+
+<span class="w">        </span><span class="c">! read count value</span>
+<span class="w">        </span><span class="c">! read (*,*) count</span>
+
+<span class="w">        </span><span class="c">! if count is correct, exit loop</span>
+<span class="w">        </span><span class="c">!if ( count &gt;= 100 .and. count &lt;= 1000000 ) exit</span>
+
+<span class="w">        </span><span class="c">! Otherwise, display error message</span>
+<span class="w">        </span><span class="c">!write (*, &#39;(a,a,/a)&#39;) &quot;Error, count must be &quot;, &amp;</span>
+<span class="w">        </span><span class="c">!    &quot;between 100 and 1,000,000.&quot;,              &amp;</span>
+<span class="w">        </span><span class="c">!    &quot;Please re-enter.&quot;</span>
+
+<span class="w">    </span><span class="c">!end do</span>
+
+<span class="c">! Set number of estimation points (i.e. count) = 1 million</span>
+<span class="nb">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000000</span>
+
+<span class="c">! allocate two dimensional array</span>
+<span class="w">    </span><span class="k">allocate</span><span class="w"> </span><span class="p">(</span><span class="n">points</span><span class="p">(</span><span class="nb">count</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="nb">stat</span><span class="o">=</span><span class="n">alstat</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c">! Check for allocation errors</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">alstat</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">        write</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;(a,a/a)&#39;</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot;Error, unable to&quot;</span><span class="p">,</span><span class="w">        </span><span class="p">&amp;</span>
+<span class="w">            </span><span class="s2">&quot; allocate memory.&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Program terminated.&quot;</span>
+<span class="w">        </span><span class="k">stop</span>
+<span class="k">    end if</span>
+
+
+<span class="c">! generate points</span>
+<span class="w">    </span><span class="k">call </span><span class="nb">random_seed</span><span class="p">()</span>
+
+<span class="w">    </span><span class="c">! loop count times</span>
+<span class="w">    </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nb">count</span>
+
+<span class="w">        </span><span class="c">! generate x and y values</span>
+<span class="w">        </span><span class="k">call </span><span class="nb">random_number</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="nb">random_number</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c">! place (x,y) values in array</span>
+<span class="w">        </span><span class="n">points</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span>
+<span class="w">        </span>
+<span class="w">        </span><span class="n">points</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span>
+<span class="w">    </span><span class="k">end do</span>
+
+<span class="c">! perform monte carlo estimation</span>
+
+<span class="w">    </span><span class="c">! set count of samples inside circle = 0</span>
+<span class="w">    </span><span class="n">incount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+
+<span class="w">    </span><span class="c">! loop count times</span>
+<span class="w">    </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nb">count</span>
+
+<span class="w">    </span><span class="c">! if [ sqrt (x(i)^2 + y(i)^2) &lt; 1.0 ]</span>
+<span class="w">    </span><span class="c">! increment count of samples inside circle</span>
+
+<span class="w">        </span><span class="n">pt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">points</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">points</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">sqrt</span><span class="p">(</span><span class="n">pt</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">1.0</span><span class="p">)</span><span class="w"> </span><span class="n">incount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">incount</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+
+<span class="w">    </span><span class="k">end do</span>
+
+<span class="k">    </span><span class="n">pi_est</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">4.0</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kt">real</span><span class="w"> </span><span class="p">(</span><span class="n">incount</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="kt">real</span><span class="w"> </span><span class="p">(</span><span class="nb">count</span><span class="p">)</span>
+
+<span class="c">! display results</span>
+<span class="w">    </span><span class="k">write</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;(a, i10)&#39;</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot;The number of points to process is -&gt; &quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">count</span>
+<span class="nb">    </span><span class="k">print</span><span class="w"> </span><span class="o">*</span>
+<span class="w">    </span><span class="k">write</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;(a, i10)&#39;</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot;The number of points inside the circle were -&gt; &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">incount</span>
+<span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="o">*</span>
+<span class="w">    </span><span class="k">write</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;(a, f16.8)&#39;</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot;Estimated Pi Value: &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">pi_est</span>
+<span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="o">*</span>
+<span class="k">end program </span><span class="n">piestimation</span>
+
+<span class="w">            </span>
+</pre></div>
+</div>
+<p>The following explanation is given by “Code Copilot” within ChatGPT 4.</p>
+<p>The Fortran program <code class="docutils literal notranslate"><span class="pre">piestimation</span></code> is designed to estimate the value of <span class="math notranslate nohighlight">\(\pi\)</span> using a Monte Carlo method. This method is a statistical technique that uses random sampling to approximate mathematical constants or solve mathematical problems. Here’s a breakdown of the program’s structure and functionality:</p>
+<section id="variable-declaration">
+<h3>Variable Declaration<a class="headerlink" href="#variable-declaration" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">count</span></code>: The number of random points to be generated for the estimation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">alstat</span></code>: Status variable for array allocation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">i</span></code>: Loop control variable.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">incount</span></code>: Counter for the number of points that fall inside the unit circle.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>: Coordinates of a randomly generated point.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pi_est</span></code>: The estimated value of <span class="math notranslate nohighlight">\(\pi\)</span>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pt</span></code>: Temporary variable to store the sum of squares of <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">points</span></code>: A 2-dimensional allocatable array to store the <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> coordinates of each point.</p></li>
+</ul>
+</section>
+<section id="user-interaction">
+<h3>User Interaction<a class="headerlink" href="#user-interaction" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>The program begins by printing a header message to indicate its function.</p></li>
+<li><p>It initially contains commented-out code that prompts the user to enter a value for <code class="docutils literal notranslate"><span class="pre">count</span></code> with validations to ensure the input is within a specified range (100 to 1,000,000). This interactive portion is omitted in this version, likely to accommodate automated execution environments like Jupyter Notebooks.</p></li>
+</ul>
+</section>
+<section id="setting-parameters">
+<h3>Setting Parameters<a class="headerlink" href="#setting-parameters" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Directly sets <code class="docutils literal notranslate"><span class="pre">count</span></code> to 1,000,000 for simplicity, meaning one million points will be used for the estimation.</p></li>
+</ul>
+</section>
+<section id="memory-allocation">
+<h3>Memory Allocation<a class="headerlink" href="#memory-allocation" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Allocates space for the <code class="docutils literal notranslate"><span class="pre">points</span></code> array, which will hold the <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> coordinates of the randomly generated points. It checks for successful allocation and terminates the program if memory allocation fails.</p></li>
+</ul>
+</section>
+<section id="random-point-generation">
+<h3>Random Point Generation<a class="headerlink" href="#random-point-generation" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Initializes the random number generator.</p></li>
+<li><p>Loops <code class="docutils literal notranslate"><span class="pre">count</span></code> times to generate random <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> coordinates for each point. These coordinates are stored in the <code class="docutils literal notranslate"><span class="pre">points</span></code> array.</p></li>
+</ul>
+</section>
+<section id="monte-carlo-estimation">
+<h3>Monte Carlo Estimation<a class="headerlink" href="#monte-carlo-estimation" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Resets the <code class="docutils literal notranslate"><span class="pre">incount</span></code> (inside count) to zero.</p></li>
+<li><p>Loops through each point, calculating the distance from the origin using the Euclidean distance formula (i.e., checking if <span class="math notranslate nohighlight">\(x^2 + y^2 &lt; 1\)</span>). If the condition is true, the point is inside the unit circle, and <code class="docutils literal notranslate"><span class="pre">incount</span></code> is incremented.</p></li>
+<li><p>Calculates the estimated value of <span class="math notranslate nohighlight">\(\pi\)</span> using the formula:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\Large \pi_{\text{est}} = 4 \times \frac{\text{incount}}{\text{count}}
+\]</div>
+<p>This formula derives from the ratio of the area of the unit circle to the area of the bounding square (since the radius of the circle is 1, the area of the circle is <span class="math notranslate nohighlight">\(\pi\)</span>, and the area of the square is <span class="math notranslate nohighlight">\(2^2 = 4\)</span>).</p>
+</section>
+<section id="display-results">
+<h3>Display Results<a class="headerlink" href="#display-results" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Prints the total number of points processed.</p></li>
+<li><p>Displays the number of points that fell inside the unit circle.</p></li>
+<li><p>Outputs the estimated value of <span class="math notranslate nohighlight">\(\pi\)</span>.</p></li>
+</ul>
+<p>This program is an excellent example of using random sampling methods for numerical approximation and demonstrates fundamental concepts of probabilistic simulation in Fortran.</p>
+</section>
+</section>
+<section id="program-compilation-and-execution">
+<h2>Program Compilation and Execution<a class="headerlink" href="#program-compilation-and-execution" title="Link to this heading">#</a></h2>
+<p>The above program is compiled and run using Fortran Package Manager (fpm):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">root_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">code_dir</span> <span class="o">=</span> <span class="n">root_dir</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="s2">&quot;Fortran_Code/Section_14_Pi_Estimation&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">code_dir</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">build_status</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;fpm build 2&gt;/dev/null&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exec_status</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;fpm run 2&gt;/dev/null&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Program Example - Pi estimation
+
+The number of points to process is -&gt;    1000000
+
+The number of points inside the circle were -&gt;     786547
+
+Estimated Pi Value:       3.14618802
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Sections/Computer_Programming/Fortran/Intro_to_Fortran"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#program-to-estimate-the-value-of-pi">Program to Estimate the Value of Pi</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-declaration">Variable Declaration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#user-interaction">User Interaction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-parameters">Setting Parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#memory-allocation">Memory Allocation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-point-generation">Random Point Generation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#monte-carlo-estimation">Monte Carlo Estimation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#display-results">Display Results</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#program-compilation-and-execution">Program Compilation and Execution</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mark Khusid
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

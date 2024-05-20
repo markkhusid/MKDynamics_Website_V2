@@ -25,8 +25,40 @@ parts:
     - file: Sections/Computer_Programming/Fortran/fortran
       sections:
       - file: Sections/Computer_Programming/Fortran/Modern_Fortran/modern_fortran
+        sections:
+        - file: Sections/Computer_Programming/Fortran/Modern_Fortran/Cold_Front_Calculator
+        - file: Sections/Computer_Programming/Fortran/Modern_Fortran/Cold_Front_Calculator_with_Loop
+        - file: Sections/Computer_Programming/Fortran/Modern_Fortran/Tsunami_Simulator
+        - file: Sections/Computer_Programming/Fortran/Modern_Fortran/Tsunami_Simulator_Plotter
+        - file: Sections/Computer_Programming/Fortran/Modern_Fortran/Tsunami_Simulator_with_Modules
+        - file: Sections/Computer_Programming/Fortran/Modern_Fortran/Tsunami_Simulator_with_Modules_Plotter
+        - file: Sections/Computer_Programming/Fortran/Modern_Fortran/Print_Compiler_Version
+        - file: Sections/Computer_Programming/Fortran/Modern_Fortran/Analyzing_Time_Series_Data_with_Arrays
+
       - file: Sections/Computer_Programming/Fortran/Intro_to_Fortran/intro_to_fortran
+        sections: 
+        - file: Introduction_to_Programming_Using_Fortran/Section_7_Period_Calculator
+        - file: Introduction_to_Programming_Using_Fortran/Section_9_3_SOS_Difference
+        - file: Introduction_to_Programming_Using_Fortran/Section_12_8_Line_Numbers
+        - file: Introduction_to_Programming_Using_Fortran/Section_14_Pi_Estimation
+      
       - file: Sections/Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/guide_to_fortran_2008_programming
+        sections:
+        - file: Sections/Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_1_8_Ex_2_Quadratic_Formula
+        - file: Sections/Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_1_16_Factorial_Recursion
+        - file: Sections/Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_2_1_Associate_Construct
+        - file: Sections/Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_2_1_Statement_Blocks
+        - file: Sections/Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_3_4_Putting_Procedures_in_a_Module
+        - file: Sections/Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_3_6_Ex_1_Median_of_Three
+        - file: Sections/Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_3_8_Argument_Passing
+        - file: Sections/Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_3_17_Case_Study__Adaptive_Numberical_Integration
+        - file: Sections/Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_4_1_Elsewhere_Example
+        - file: Sections/Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_8_1_Submodules
+        - file: Sections/Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_8_2_Time_Matrix_Multiply
+        - file: Sections/Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_8_7_Generic_Elemental_Procedures
+        - file: Sections/Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_8_8_Findloc_Function
+
+
       - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/fortran_mooc
 
         sections:

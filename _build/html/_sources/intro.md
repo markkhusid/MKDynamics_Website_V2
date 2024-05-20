@@ -29,7 +29,7 @@ Cybersecurity
 :gutter: 3
 
 :::{grid-item-card}
-:link: Sections/Computer_Programming/computer_programming
+:link: Sections/Computer_Programming/computer_programming.html
 :class-header: bg-dark
 
 Computer Programming
