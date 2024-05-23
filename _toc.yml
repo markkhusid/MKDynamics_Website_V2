@@ -23,7 +23,72 @@ parts:
   - file: Sections/Computer_Programming/computer_programming
 
     sections:
-    
+    - file: Sections/Computer_Programming/CPP/cpp
+      sections:
+      - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp__HEAD__
+        sections:  
+        - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp_Ch_1
+          sections:
+          - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Hello_Cpp
+          - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_1_5_Overloading
+          - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_1_7_The_Standard_Template_Library
+
+        - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp_Ch_2
+          sections:
+          - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_2_3_Program_Structure
+          - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_2_5_The_Traditional_Conversions
+
+        - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp_Ch_3
+          sections:
+          - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_3_1_1_Function_Invocation
+          - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_3_2_Function_Definition
+          - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_3_3_The_Return_Statement
+          - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_3_4_Function_Prototypes
+          - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_3_6_Overloading_Functions
+          - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_3_10_Pointer_Types
+          - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_3_12_Arrays_and_Pointers
+          - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_3_16_Assertions_and_Program_Correctness
+          - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_3_19_Free_Store_Operators_new_and_delete
+
+        - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp_Ch_4
+          sections:
+          - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_4_3_An_Example_Stack
+          - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_4_7_Bit_Fields
+          - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_4_8_Two_Dimensional_Dynamic_Arrays
+
+        - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp_Ch_5
+          sections:
+          - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_5_2_Access_Private_and_Public
+          - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_5_7_The_This_Pointer
+          - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_5_8_Static_and_Const_Member_Functions
+          - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_5_9_Containers_and_Item_Access
+
+        - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp_Ch_6
+          sections:
+          - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_6_1_0_Classes_with_Constructors
+          - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_6_1_3_Constructors_as_Conversions
+          - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_6_2_1_The_Copy_Constructor
+          - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_6_3_Classes_with_Destructors
+          - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_6_4_An_Example__Dynamically_Allocated_Strings
+          - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_6_5_A_Class_Vect
+          - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_6_6_Members_that_Are_Class_Types
+          - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_6_7_An_Example__A_Singly_Linked_List
+          - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_6_8_Two_Dimensional_Arrays
+          - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_6_9_Polynomials_as_a_Linked_List
+          - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_6_10_Strings_Using_Reference_Semantics
+          - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_6_11_No_Constructor_Copy_Constructor_and_Other_Mysteries
+
+        - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp_Ch_7
+          sections:
+          - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_7_1_ADT_Conversions
+          - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_7_2_Overloading_and_Function_Selection
+          - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_7_3_Friend_Functions
+          - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_7_6_Binary_Operator_Overloading
+          - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_7_7_Overloading_Assignment_and_Subscripting_Operators
+          - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_7_10_Overloading_Operator_Parenthesis_for_Indexing
+          - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_7_11_Pointer_Operators
+          - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_7_11_1_Pointer_to_Class_Member
+
     - file: Sections/Computer_Programming/Python/python
       sections:
       - file: Sections/Computer_Programming/Python/Python_Playground/Python_Playground__HEAD__
