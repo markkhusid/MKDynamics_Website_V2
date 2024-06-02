@@ -8,20 +8,32 @@
 :link: certificates_coursera.html
 :class-header: bg-dark
 
-FORTRAN Programming
+Coursera Certificates
 ^^^
-```{image} images/fortran.png
+```{image} Images/certificates_coursera.png
 :height: 200
 ```
 :::
 
 :::{grid-item-card}
-:link: CPP/cpp.html
+:link: certificates_kaggle.html
 :class-header: bg-dark
 
-C++ Programming
+Kaggle Certificates
 ^^^
-```{image} images/CPP.jpeg
+```{image} Images/certificates_kaggle.png
 :height: 200
 ```
 :::
+
+:::{grid-item-card}
+:link: certificates_tryhackme.html
+:class-header: bg-dark
+
+Try Hack Me Certificates
+^^^
+```{image} Images/certificates_tryhackme.png
+:height: 200
+```
+:::
+::::

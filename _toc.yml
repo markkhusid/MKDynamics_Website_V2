@@ -215,6 +215,13 @@ parts:
 - caption: About Me
   chapters:
   - file: Sections/About_Me/aboutme
+    sections:
+    - file: Sections/About_Me/Resume/resume
+    - file: Sections/About_Me/Certificates/certificates
+      sections:
+      - file: Sections/About_Me/Certificates/certificates_coursera
+      - file: Sections/About_Me/Certificates/certificates_kaggle
+      - file: Sections/About_Me/Certificates/certificates_tryhackme
     
 - caption: Misc
   chapters:
