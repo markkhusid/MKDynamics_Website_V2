@@ -211,6 +211,10 @@ parts:
     - file: Sections/Electronics/Analog_and_Digital/analog_and_digital
       sections:
       - file: Sections/Electronics/Analog_and_Digital/AD9850_DDS/AD9850_DDS.md
+
+- caption: About Me
+  chapters:
+  - file: Sections/About_Me/aboutme
     
 - caption: Misc
   chapters:

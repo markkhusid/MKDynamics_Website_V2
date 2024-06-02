@@ -14,19 +14,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="../../../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
   
-  <link href="../../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="../../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
@@ -37,9 +37,9 @@
     <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="../../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
     <script src="../../../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
@@ -71,27 +71,23 @@
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -113,8 +109,13 @@
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
   
 
@@ -178,24 +179,47 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Cybersecurity</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Cybersecurity/cybersecurity.html">Cybersecurity</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../../Cybersecurity/Protostar/protostar.html">Protostar Exploit Exercises</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../Cybersecurity/Protostar/Stack0/stack0.html">Stack 0</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Cybersecurity/cybersecurity.html">Cybersecurity</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../Cybersecurity/Protostar/protostar.html">Protostar Exploit Exercises</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../Cybersecurity/Protostar/Stack0/stack0.html">Stack 0</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../Cybersecurity/Protostar/Stack0/stack0_x86.html">Protostar Exploit Exercises - Stack0 - First Stack Buffer Overflow to modify Variable</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../Cybersecurity/LiveOverflow/liveoverflow.html">LiveOverflow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../Cybersecurity/Basic_Linux_Exploits/basic_linux_exploits.html">Basic Linux Exploits</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Computer Programming</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../computer_programming.html">Computer Programming</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active has-children"><a class="reference internal" href="../fortran.html">Fortran Programming</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l3 has-children"><a class="reference internal" href="../Modern_Fortran/modern_fortran.html">Modern Fortran</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../computer_programming.html">Computer Programming</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../CPP/cpp.html">C++ Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp__HEAD__.html">Object Oriented Programming Using C++</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp_Ch_1.html">Chapter 1: Why Object-Oriented Programming in C++?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp_Ch_2.html">Chapter 2: Native Types and Statements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp_Ch_3.html">Chapter 3: Functions and Pointers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp_Ch_4.html">Chapter 4: Implementing ADTs in the Base Language</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp_Ch_5.html">Chapter 5: Data Hiding and Member Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp_Ch_6.html">Chapter 6: Object Creation and Destruction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp_Ch_7.html">Chapter 7: Ad Hoc Polymorphism</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Python/python.html">Python Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../Python/Python_Playground/Python_Playground__HEAD__.html">Python Playground: Geeky Projects for the Curious Programmer</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../Python/Python_Playground/Section_Chapter_2_Draw_Circle.html">Chapter 2: Draw Circle using Turtle Graphics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../Python/Python_Playground/Section_Chapter_2_Draw_Spiro.html">Chapter 2: Draw Spiro using Turtle Graphics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../Python/Python_Playground/Section_Chapter_3_Conway.html">Chapter 3: Conway’s Game of Life</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../Python/Python_Playground/Section_Chapter_4_Karplus_Strong.html">Chapter 4: Karplus Strong Algorithm</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../fortran.html">Fortran Programming</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 has-children"><a class="reference internal" href="../Modern_Fortran/modern_fortran.html">Modern Fortran</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../Modern_Fortran/Cold_Front_Calculator.html">Cold Front Calculator</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../Modern_Fortran/Cold_Front_Calculator_with_Loop.html">Cold Front Calculator With Loop</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../Modern_Fortran/Tsunami_Simulator.html">Tsunami Simulator</a></li>
@@ -205,9 +229,15 @@
 <li class="toctree-l4"><a class="reference internal" href="../Modern_Fortran/Print_Compiler_Version.html">Print Compiler Version</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../Modern_Fortran/Analyzing_Time_Series_Data_with_Arrays.html">Analyzing Time Series Data with Arrays</a></li>
 </ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../Intro_to_Fortran/intro_to_fortran.html">Introduction to Programming using Fortran 95/2003/2008</a></li>
-<li class="toctree-l3 current active has-children"><a class="reference internal" href="guide_to_fortran_2008_programming.html">Guide to Fortran 2008 Programming</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../Intro_to_Fortran/intro_to_fortran.html">Introduction to Programming Using Fortran</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Intro_to_Fortran/Section_7_Period_Calculator.html">Section 7: Pendulum Period Calculator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Intro_to_Fortran/Section_9_3_SOS_Difference.html">Section 9.3: Difference Between Sum of Squares and Square of Sums</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Intro_to_Fortran/Section_12_8_Line_Numbers.html">Section 12.8: Line Numbers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Intro_to_Fortran/Section_14_Pi_Estimation.html">Section 14: Pi Estimation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="guide_to_fortran_2008_programming.html">Guide to Fortran 2008 Programming</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="Section_1_8_Ex_2_Quadratic_Formula.html">Section 1.8 Example 2: Quadratic Equation</a></li>
 <li class="toctree-l4"><a class="reference internal" href="Section_1_16_Factorial_Recursion.html">Section 1.16: Factorial Recursion</a></li>
 <li class="toctree-l4"><a class="reference internal" href="Section_2_1_Associate_Construct.html">Section 2.1: Statement Blocks</a></li>
@@ -222,8 +252,8 @@
 <li class="toctree-l4"><a class="reference internal" href="Section_8_7_Generic_Elemental_Procedures.html">Section 8.7: Generic Elemental Procedures</a></li>
 <li class="toctree-l4"><a class="reference internal" href="Section_8_8_Findloc_Function.html">Section 8.8: Findloc Function</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../Fortran_MOOC/fortran_mooc.html">Fortran MOOC</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../Fortran_MOOC/fortran_mooc.html">Fortran MOOC</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../Fortran_MOOC/Section_Arrays.html">Section: Arrays</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../Fortran_MOOC/Section_Floating_Point.html">Section: Floating Point</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../Fortran_MOOC/Section_Call_By_Semantics.html">Section: Call By Semantics</a></li>
@@ -232,21 +262,25 @@
 <li class="toctree-l4"><a class="reference internal" href="../Fortran_MOOC/Section_Block_Matrices__Head__.html">Section: Block Matrices</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../Fortran_MOOC/Section_BLAS_LAPACK__Head__.html">Section: BLAS/LAPACK</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
-</li>
+</details></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Electronics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Electronics/electronics.html">Electronics</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../../Electronics/Analog_and_Digital/analog_and_digital.html">Analog and Digital Electronics</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Electronics/electronics.html">Electronics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../Electronics/Analog_and_Digital/analog_and_digital.html">Analog and Digital Electronics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../Electronics/Analog_and_Digital/AD9850_DDS/AD9850_DDS.html">Variable Frequency Oscillator Using Direct Digital Synthesis</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
-</li>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">About Me</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../About_Me/aboutme.html">About Me</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Misc</span></p>
 <ul class="nav bd-sidenav">
@@ -268,7 +302,7 @@
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -277,7 +311,7 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -585,61 +619,61 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Timing report dated: 2024-05-20
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Timing report dated: 2024-06-01
 Matrix A
-     0.786     0.594     0.054     0.293     0.902     0.629     0.089     0.615     0.940     0.456
-     0.620     0.982     0.630     0.728     0.896     0.708     0.639     0.578     0.380     0.809
-     0.500     0.027     0.194     0.514     0.581     0.066     0.717     0.243     0.072     0.470
-     0.391     0.516     0.142     0.482     0.144     0.227     0.336     0.495     0.405     0.976
-     0.039     0.061     0.425     0.400     0.221     0.740     0.941     0.597     0.971     0.475
-     0.816     0.264     0.799     0.312     0.920     0.599     0.497     0.504     0.839     0.810
-     0.831     0.503     0.802     0.544     0.656     0.988     0.595     0.600     0.060     0.279
-     0.807     0.988     0.494     0.544     0.957     0.579     0.724     0.485     0.017     0.626
-     0.537     0.293     0.738     0.453     0.711     0.631     0.317     0.853     0.588     0.137
-     0.221     0.399     0.999     0.733     0.021     0.364     0.421     0.577     0.971     0.497
+     0.095     0.728     0.235     0.275     0.257     0.970     0.987     0.816     0.530     0.996
+     0.109     0.846     0.831     0.394     0.208     0.912     0.196     0.273     0.018     0.064
+     0.637     0.325     0.000     0.517     0.019     0.508     0.945     0.635     0.953     0.677
+     0.563     0.123     0.924     0.795     0.129     0.137     0.483     0.203     0.679     0.681
+     0.172     0.753     0.421     0.840     0.333     0.002     0.049     0.217     0.197     0.999
+     0.682     0.561     0.433     0.807     0.470     0.535     0.025     0.341     0.138     0.133
+     0.237     0.143     0.486     0.741     0.617     0.407     0.183     0.537     0.637     0.610
+     0.862     0.167     0.762     0.622     0.541     0.983     0.118     0.315     0.050     0.995
+     0.029     0.567     0.452     0.348     0.287     0.127     0.959     0.819     0.970     0.311
+     0.176     0.670     0.684     0.799     0.581     0.061     0.734     0.508     0.605     0.797
 
 Matrix B
-     0.060     0.194     0.944     0.546     0.556     0.466     0.620     0.145     0.309     0.235
-     0.961     0.889     0.986     0.648     0.560     0.670     0.166     0.285     0.678     0.951
-     0.424     0.333     0.307     0.130     0.644     0.332     0.681     0.615     0.547     0.004
-     0.007     0.722     0.029     0.089     0.498     0.742     0.614     0.898     0.200     0.330
-     0.090     0.081     0.454     0.568     0.910     0.169     0.629     0.377     0.428     0.279
-     0.372     0.183     0.683     0.803     0.596     0.639     0.736     0.325     0.363     0.686
-     0.006     0.466     0.929     0.728     0.979     0.392     0.222     0.467     0.072     0.406
-     0.276     0.156     0.074     0.595     0.991     0.560     0.588     0.630     0.221     0.006
-     0.318     0.610     0.419     0.677     0.845     0.479     0.397     0.367     0.005     0.323
-     0.471     0.686     0.638     0.386     0.561     0.890     0.024     0.280     0.300     0.848
+     0.275     0.799     0.126     0.478     0.252     0.759     0.478     0.384     0.888     0.208
+     0.888     0.860     0.385     0.336     0.537     0.266     0.439     0.694     0.996     0.797
+     0.195     0.743     0.463     0.998     0.747     0.457     0.877     0.544     0.667     0.376
+     0.759     0.839     0.567     0.562     0.352     0.538     0.660     0.496     0.161     0.905
+     0.539     0.824     0.970     0.614     0.326     0.170     0.891     0.906     0.374     0.000
+     0.604     0.750     0.883     0.834     0.421     0.890     0.370     0.984     0.434     0.972
+     0.900     0.022     0.860     0.366     0.890     0.485     0.118     0.131     0.665     0.205
+     0.693     0.458     0.721     0.625     0.425     0.367     0.599     0.684     0.117     0.862
+     0.477     0.998     0.916     0.534     0.851     0.422     0.618     0.266     0.193     0.832
+     0.418     0.284     0.659     0.484     0.052     0.137     0.309     0.029     0.986     0.111
 
 Matrix C1 is AxB using loops.
-     1.642     2.120     3.004     3.107     3.893     2.789     2.599     2.025     1.632     2.260
-     2.262     3.105     3.969     3.577     4.874     3.776     3.160     3.008     2.407     3.129
-     0.535     1.354     1.896     1.641     2.509     1.707     1.518     1.547     0.901     1.235
-     1.408     2.133     2.298     2.064     2.815     2.574     1.529     1.743     1.218     2.036
-     1.242     2.094     2.473     2.752     3.771     2.598     2.210     2.272     1.077     1.872
-     1.740     2.445     3.478     3.293     4.614     3.191     3.063     2.590     1.936     2.379
-     1.624     2.101     3.316     3.038     4.103     2.984     3.135     2.571     2.045     2.218
-     1.951     2.628     3.848     3.270     4.362     3.258     2.830     2.564     2.266     2.808
-     1.418     1.843     2.480     2.720     3.916     2.557     2.883     2.434     1.648     1.628
-     1.667     2.546     2.346     2.378     3.675     2.877     2.445     2.600     1.486     1.842
+     3.774     3.254     4.241     3.283     2.908     2.565     2.582     2.851     3.363     3.338
+     2.306     2.784     2.377     2.559     2.002     1.958     2.153     2.582     2.260     2.550
+     3.201     3.075     3.556     2.721     2.696     2.489     2.285     2.075     2.755     2.963
+     2.383     3.093     2.875     2.869     2.407     2.142     2.633     1.853     2.622     2.331
+     2.321     2.658     2.344     2.176     1.523     1.357     2.200     1.774     2.524     2.028
+     2.339     3.147     2.369     2.495     1.751     2.068     2.435     2.517     2.205     2.431
+     2.522     3.168     3.217     2.819     2.098     1.943     2.717     2.360     2.112     2.511
+     2.655     3.583     3.299     3.479     2.019     2.678     2.951     2.900     3.275     2.566
+     3.117     2.923     3.527     2.665     2.962     1.945     2.491     2.161     2.337     2.811
+     3.367     3.498     3.744     3.144     2.837     2.114     3.057     2.516     3.102     2.791
 
 Matrix C2 is AxB using matmul.
-     1.642     2.120     3.004     3.107     3.893     2.789     2.599     2.025     1.632     2.260
-     2.262     3.105     3.969     3.577     4.874     3.776     3.160     3.008     2.407     3.129
-     0.535     1.354     1.896     1.641     2.509     1.707     1.518     1.547     0.901     1.235
-     1.408     2.133     2.298     2.064     2.815     2.574     1.529     1.743     1.218     2.036
-     1.242     2.094     2.473     2.752     3.771     2.598     2.210     2.272     1.077     1.872
-     1.740     2.445     3.478     3.293     4.614     3.191     3.063     2.590     1.936     2.379
-     1.624     2.101     3.316     3.038     4.103     2.984     3.135     2.571     2.045     2.218
-     1.951     2.628     3.848     3.270     4.362     3.258     2.830     2.564     2.266     2.808
-     1.418     1.843     2.480     2.720     3.916     2.557     2.883     2.434     1.648     1.628
-     1.667     2.546     2.346     2.378     3.675     2.877     2.445     2.600     1.486     1.842
+     3.774     3.254     4.241     3.283     2.908     2.565     2.582     2.851     3.363     3.338
+     2.306     2.784     2.377     2.559     2.002     1.958     2.153     2.582     2.260     2.550
+     3.201     3.075     3.556     2.721     2.696     2.489     2.285     2.075     2.755     2.963
+     2.383     3.093     2.875     2.869     2.407     2.142     2.633     1.853     2.622     2.331
+     2.321     2.658     2.344     2.176     1.523     1.357     2.200     1.774     2.524     2.028
+     2.339     3.147     2.369     2.495     1.751     2.068     2.435     2.517     2.205     2.431
+     2.522     3.168     3.217     2.819     2.098     1.943     2.717     2.360     2.112     2.511
+     2.655     3.583     3.299     3.479     2.019     2.678     2.951     2.900     3.275     2.566
+     3.117     2.923     3.527     2.665     2.962     1.945     2.491     2.161     2.337     2.811
+     3.367     3.498     3.744     3.144     2.837     2.114     3.057     2.516     3.102     2.791
 
- Time of Do loop version is: .0000819999 seconds.
- Time of matmul version is: .0000080001 seconds.
+ Time of Do loop version is: .0002130000 seconds.
+ Time of matmul version is: .0000280000 seconds.
 
 The results are approximately the same.
 
-The speedup ratio is:     10.250x
+The speedup ratio is:      7.607x
 </pre></div>
 </div>
 </div>
@@ -674,7 +708,7 @@ The speedup ratio is:     10.250x
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -753,8 +787,8 @@ By Mark Khusid
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script src="../../../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
 
   <footer class="bd-footer">
   </footer>

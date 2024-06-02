@@ -129,7 +129,7 @@ HAM Radio Projects
 ## About Me
 ::::{grid} 2 2 2 2
 :::{grid-item-card}
-:link: markdown
+:link: Sections/About_Me/aboutme
 :link-type: doc
 :class-header: bg-dark
 
