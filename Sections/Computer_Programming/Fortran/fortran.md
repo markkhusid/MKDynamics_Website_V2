@@ -17,7 +17,7 @@ Worked examples and exercises will be provided from the following textbooks and 
 
 :::{grid-item-card}
 :link: Modern_Fortran/modern_fortran.html
-:class-header: bg-dark
+:class-header: bg-auto
 
 Modern Fortran
 ^^^
@@ -28,7 +28,7 @@ Modern Fortran
 
 :::{grid-item-card}
 :link: Intro_to_Fortran/intro_to_fortran.html
-:class-header: bg-dark
+:class-header: bg-auto
 
 Introduction to Programming Using Fortran
 ^^^
@@ -39,7 +39,7 @@ Introduction to Programming Using Fortran
 
 :::{grid-item-card}
 :link: Guide_to_Fortran_2008_Programming/guide_to_fortran_2008_programming.html
-:class-header: bg-dark
+:class-header: bg-auto
 
 Guide to Fortran 2008 Programming
 ^^^
@@ -50,7 +50,7 @@ Guide to Fortran 2008 Programming
 
 :::{grid-item-card}
 :link: Fortran_MOOC/fortran_mooc.html
-:class-header: bg-dark
+:class-header: bg-auto
 
 PRACE MOOC on "Fortran for Scientific Programming"
 ^^^
@@ -59,8 +59,18 @@ PRACE MOOC on "Fortran for Scientific Programming"
 ```
 :::
 
-::::
+:::{grid-item-card}
+:link: DFFT/DFFT.html
+:class-header: bg-auto
 
+Discretized Fourier Transform of Arbitrary Signal Using FFTW3 Algorithm
+^^^
+```{image} images/DFFT_mag_sine_wave2_10Hz.jpeg
+:height: 300
+```
+:::
+
+::::
 
 ## Resources and Textbooks Used
 

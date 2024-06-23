@@ -204,6 +204,10 @@ parts:
             - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_BLAS_LAPACK_Scal
             - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_BLAS_LAPACK_SV
 
+      - file: Sections/Computer_Programming/Fortran/DFFT/DFFT
+        sections:
+        - file: Sections/Computer_Programming/Fortran/DFFT/Sine_Wave_10_Hz/sine_wave_10_hz
+
 - caption: Electronics
   chapters:
   - file: Sections/Electronics/electronics

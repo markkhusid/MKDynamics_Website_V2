@@ -8,7 +8,7 @@ In this section, we will discuss and experiment with various computer programmin
 
 :::{grid-item-card}
 :link: Fortran/fortran.html
-:class-header: bg-dark
+:class-header: bg-auto
 
 FORTRAN Programming
 ^^^
@@ -19,7 +19,7 @@ FORTRAN Programming
 
 :::{grid-item-card}
 :link: CPP/cpp.html
-:class-header: bg-dark
+:class-header: bg-auto
 
 C++ Programming
 ^^^
@@ -30,7 +30,7 @@ C++ Programming
 
 :::{grid-item-card}
 :link: Python/python.html
-:class-header: bg-dark
+:class-header: bg-auto
 
 Python Programming 
 ^^^
@@ -42,7 +42,7 @@ Python Programming
 :::{grid-item-card}
 :link: markdown
 :link-type: doc
-:class-header: bg-dark
+:class-header: bg-auto
 
 Assembly Language Programming
 ^^^
@@ -54,7 +54,7 @@ Assembly Language Programming
 :::{grid-item-card}
 :link: markdown
 :link-type: doc
-:class-header: bg-dark
+:class-header: bg-auto
 
 PHP Programming
 ^^^
@@ -66,7 +66,7 @@ PHP Programming
 :::{grid-item-card}
 :link: markdown
 :link-type: doc
-:class-header: bg-dark
+:class-header: bg-auto
 
 Javascript Programming
 ^^^

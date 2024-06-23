@@ -12,7 +12,7 @@ Additionally, I am a licensed HAM radio operator and enjoy experimenting with an
 :::{grid-item-card}
 :link: Sections/Cybersecurity/cybersecurity
 :link-type: doc
-:class-header: bg-dark
+:class-header: bg-auto
 
 Cybersecurity
 ^^^
@@ -30,7 +30,7 @@ Cybersecurity
 
 :::{grid-item-card}
 :link: Sections/Computer_Programming/computer_programming.html
-:class-header: bg-dark
+:class-header: bg-auto
 
 Computer Programming
 ^^^
@@ -49,7 +49,7 @@ Computer Programming
 :::{grid-item-card}
 :link: Sections/Electronics/electronics
 :link-type: doc
-:class-header: bg-dark
+:class-header: bg-auto
 
 Dual Diode Box
 ^^^
@@ -61,7 +61,7 @@ Dual Diode Box
 :::{grid-item-card}
 :link: Sections/Electronics/electronics
 :link-type: doc
-:class-header: bg-dark
+:class-header: bg-auto
 
 Electronic Circuits
 ^^^
@@ -73,7 +73,7 @@ Electronic Circuits
 :::{grid-item-card}
 :link: markdown
 :link-type: doc
-:class-header: bg-dark
+:class-header: bg-auto
 
 Raspberry Pi 3 Supercomputer
 ^^^
@@ -88,7 +88,7 @@ Raspberry Pi 3 Supercomputer
 :::{grid-item-card}
 :link: markdown
 :link-type: doc
-:class-header: bg-dark
+:class-header: bg-auto
 
 Exploring CAELinux for Thermal Analysis
 ^^^
@@ -103,7 +103,7 @@ Exploring CAELinux for Thermal Analysis
 :::{grid-item-card}
 :link: markdown
 :link-type: doc
-:class-header: bg-dark
+:class-header: bg-auto
 
 Antenna Simulation using 4NEC2
 ^^^
@@ -116,7 +116,7 @@ Antenna Simulation using 4NEC2
 :::{grid-item-card}
 :link: markdown
 :link-type: doc
-:class-header: bg-dark
+:class-header: bg-auto
 
 HAM Radio Projects
 ^^^
@@ -131,7 +131,7 @@ HAM Radio Projects
 :::{grid-item-card}
 :link: Sections/About_Me/aboutme
 :link-type: doc
-:class-header: bg-dark
+:class-header: bg-auto
 
 About Me
 ^^^
