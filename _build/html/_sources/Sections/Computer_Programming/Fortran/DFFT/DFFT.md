@@ -100,7 +100,7 @@ Sine Wave at 10 Hz
 :::
 
 :::{grid-item-card}
-:link: Fortran/DFFT/sq_wv_1Hz_50pct.html
+:link: Square_Wave_1_Hz_50_pct/square_wave_1_hz_50_pct.html
 :class-header: bg-auto
 
 Square Wave at 1 Hz with 50% Duty Cycle
