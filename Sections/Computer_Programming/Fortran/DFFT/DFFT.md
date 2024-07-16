@@ -119,13 +119,13 @@ Square Wave at 1 Hz with 50% Duty Cycle
 :link: 2_Sine_Waves/2sineXHz.html
 :class-header: bg-auto
 
-Two Sine Waves at 5 Hz and 10 Hz
+Two Sine Waves at 50 Hz and 100 Hz
 ^^^
-```{image} images/2_sine_waves_10_Hz_5_Hz.png
+```{image} images/2_sine_waves_100_Hz_50_Hz.png
 
 :height: 200
 ```
-```{image} images/DFFT_2_sine_waves_10_Hz_5_Hz.png
+```{image} images/DFFT_2_sine_waves_100_Hz_50_Hz.png
 
 :height: 200
 ```

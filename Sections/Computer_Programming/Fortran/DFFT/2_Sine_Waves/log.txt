@@ -1,0 +1,71 @@
+ MKDyanmics_FFT Program Version 6.
+ The first argument is (input file name) ->
+ 2sineXHz.dat                                                                    
+ The second argument is (output magnitude file name) ->
+ DFFT_mag_file.dat                                                               
+ The third argument is (output phase file name) ->
+ DFFT_phase_file.dat                                                             
+ The fourth argument is (sample rate) as string ->
+ 20000                                                                           
+ The fourth argument is (sample rate) as integer ->
+       20000
+ The fifth argument is (number of periods) as string ->
+ 10                                                                              
+ The fifth argument is (number of periods) as integer ->
+          10
+ Input file opened successfully...
+ Output magnitude file created successfully...
+ Output phase file created successfully...
+ The status of EOF_marker is
+           0
+ The first element read was
+   0.0000000000000000     
+ Entering get_num_data_elements procedure
+
+The counter is ->   1
+The first data element was ->        0.00000000000000000000
+The EOF marker is ->   0
+ EOF reached
+The number of lines in the input file is ->    199647
+ Exiting get_num_data_elements procedure
+
+ Entering allocate_memory procedure
+
+The closest log base 2 bins is (as real)->             17.6071
+The closest number of power of 2 bins is (as integer)->  262144
+
+Was memory allocated successfully for input array? ->T
+Input Array allocated with size ->    262144
+
+Was memory allocated successfully for output array? ->T
+Output Array allocated with size ->    262144
+
+Was memory allocated successfully for scratchpad array? ->T
+Scratchpad Array allocated with size ->    262144
+ Exiting allocate_memory procedure
+
+ ***** Subroutine read_from_file_into_array ******
+ Padding remainder of array with zeros to fill up to size of next power of 2....
+ Exiting read_from_file_into_array procedure
+
+ Entering compute_DFFT procedure
+
+ num_bins_int_pow2 ->      262144
+
+
+ Executing DFFT on input array...
+ DFFT execution successfull
+ The contents of the output array is ->
+ Exiting compute_DFFT procedure
+
+ Entering write_DFFT_to_file procedure
+
+The number of total number of samples is ->   200000
+ Output magnitude file written successfully....
+ Output phase file written successfully....
+ Plan destroyed successfully....
+ Exiting write_DFFT_to_file procedure
+
+ Files closed and memory deallocated
+ Program completed successfully
+ Exiting.....
