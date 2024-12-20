@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>&lt;no title&gt; &#8212; MK Dynamics</title>
+    <title>Two Sine Waves with Different Frequencies &#8212; MK Dynamics</title>
   
   
   
@@ -16,17 +16,19 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="../../../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../../../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
@@ -36,10 +38,11 @@
     <link rel="stylesheet" type="text/css" href="../../../../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../../../../_static/sphinx-design.min.css?v=87e54e7c" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../../../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../../../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../../../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
     <script src="../../../../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../../../../_static/doctools.js?v=9a2dae69"></script>
@@ -62,6 +65,7 @@
     <link rel="search" title="Search" href="../../../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -77,19 +81,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../../../../search.html"
       method="get">
@@ -97,7 +90,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -105,8 +97,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -124,7 +116,8 @@
       
         
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -154,21 +147,17 @@
     
     
     <img src="../../../../../_static/spacey.jpg" class="logo__image only-light" alt="MK Dynamics - Home"/>
-    <script>document.write(`<img src="../../../../../_static/spacey.jpg" class="logo__image only-dark" alt="MK Dynamics - Home"/>`);</script>
+    <img src="../../../../../_static/spacey.jpg" class="logo__image only-dark pst-js-only" alt="MK Dynamics - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -457,24 +446,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -488,7 +469,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><no title></h1>
+    <h1>Two Sine Waves with Different Frequencies</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -497,9 +478,18 @@ document.write(`
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="simple visible nav section-nav flex-column">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-required-libraries">Import Required Libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define-the-parameters-such-as-the-sampling-frequency-the-duration-of-the-signal-and-the-frequencies-of-the-sine-waves">Define the Parameters such as the Sampling Frequency, the Duration of the Signal, and the Frequencies of the Sine Waves</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-plotting-helper-function">Create Plotting Helper Function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-the-x-axis-for-the-time-domain-signal">Generate the X-Axis for the Time Domain Signal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-the-sine-waves">Generate the Sine Waves</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-the-two-sine-wave-signals-together">Add the Two Sine Wave Signals Together</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-time-domain-signals">Plot the Time Domain Signals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-the-fourier-transform-of-the-combined-signal">Calculate the Fourier Transform of the Combined Signal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-output-files">Generate Output Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#execute-dfft-fortran-program">Execute DFFT Fortran Program</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -510,7 +500,12 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <div class="cell docutils container">
+  <section class="tex2jax_ignore mathjax_ignore" id="two-sine-waves-with-different-frequencies">
+<h1>Two Sine Waves with Different Frequencies<a class="headerlink" href="#two-sine-waves-with-different-frequencies" title="Link to this heading">#</a></h1>
+<p>In this example, we will generate two sine waves with different frequencies and add them together. We will then plot the resulting signal in the time domain and in the frequency domain.</p>
+<section id="import-required-libraries">
+<h2>Import Required Libraries<a class="headerlink" href="#import-required-libraries" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">import</span> <span class="nn">matplotlib</span>
@@ -522,20 +517,26 @@ document.write(`
 </div>
 </div>
 </div>
+</section>
+<section id="define-the-parameters-such-as-the-sampling-frequency-the-duration-of-the-signal-and-the-frequencies-of-the-sine-waves">
+<h2>Define the Parameters such as the Sampling Frequency, the Duration of the Signal, and the Frequencies of the Sine Waves<a class="headerlink" href="#define-the-parameters-such-as-the-sampling-frequency-the-duration-of-the-signal-and-the-frequencies-of-the-sine-waves" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Variables</span>
-<span class="n">sRate</span> <span class="o">=</span> <span class="mi">10000</span> <span class="c1"># sample rate in Hertz</span>
+<span class="n">sRate</span> <span class="o">=</span> <span class="mi">20000</span> <span class="c1"># sample rate in Hertz</span>
 <span class="n">freq1</span> <span class="o">=</span> <span class="mf">50.0</span> <span class="c1"># frequency of first sine wave</span>
 <span class="n">freq2</span> <span class="o">=</span> <span class="mf">100.0</span> <span class="c1"># frequency of second sine wave</span>
 <span class="n">amplitude1</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># amplitude of first wave</span>
 <span class="n">amplitude2</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1"># amplitude of second wave</span>
-<span class="n">numPeriods</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1"># number of periods of the sine waves</span>
+<span class="n">numPeriods</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># number of periods of the sine waves</span>
 <span class="n">numSamples</span> <span class="o">=</span> <span class="n">sRate</span> <span class="o">*</span> <span class="n">numPeriods</span> <span class="c1"># total number of samples</span>
 </pre></div>
 </div>
 </div>
 </div>
+</section>
+<section id="create-plotting-helper-function">
+<h2>Create Plotting Helper Function<a class="headerlink" href="#create-plotting-helper-function" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Graphing helper function</span>
@@ -551,6 +552,12 @@ document.write(`
 </div>
 </div>
 </div>
+</section>
+<section id="generate-the-x-axis-for-the-time-domain-signal">
+<h2>Generate the X-Axis for the Time Domain Signal<a class="headerlink" href="#generate-the-x-axis-for-the-time-domain-signal" title="Link to this heading">#</a></h2>
+<p>The X-axis for the time domain signal will be generated using the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> library.</p>
+<p>To generate the X-axis for the time domain signal, we will use the <code class="docutils literal notranslate"><span class="pre">numpy.linspace</span></code> function. This function generates an array of evenly spaced numbers over a specified interval.</p>
+<p>The function takes three arguments: <code class="docutils literal notranslate"><span class="pre">start</span></code>, <code class="docutils literal notranslate"><span class="pre">stop</span></code>, and <code class="docutils literal notranslate"><span class="pre">num</span></code>. The <code class="docutils literal notranslate"><span class="pre">start</span></code> argument specifies the starting value of the sequence, the <code class="docutils literal notranslate"><span class="pre">stop</span></code> argument specifies the end value of the sequence, and the <code class="docutils literal notranslate"><span class="pre">num</span></code> argument specifies the number of samples to generate.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the x axis from 0 to numPeriods, divided into numSamples samples.</span>
@@ -559,19 +566,22 @@ document.write(`
 </div>
 </div>
 </div>
+<p>Display the first 10 values of the X-axis for the time domain signal.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.00000000e+00, 1.00005000e-04, 2.00010001e-04, ...,
-       1.99979999e+00, 1.99989999e+00, 2.00000000e+00])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.0000000e+00, 5.0000250e-05, 1.0000050e-04, 1.5000075e-04,
+       2.0000100e-04, 2.5000125e-04, 3.0000150e-04, 3.5000175e-04,
+       4.0000200e-04, 4.5000225e-04])
 </pre></div>
 </div>
 </div>
 </div>
+<p>Print out the length of x to make sure it is numSamples long.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -579,11 +589,15 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20000
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>200000
 </pre></div>
 </div>
 </div>
 </div>
+</section>
+<section id="generate-the-sine-waves">
+<h2>Generate the Sine Waves<a class="headerlink" href="#generate-the-sine-waves" title="Link to this heading">#</a></h2>
+<p>f1 and f2 are the first and second sine waves, respectively, that will be generated.  We use a lambda function to generate the sine waves.  The lambda function takes the time axis and returns the sine wave.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f1</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">amplitude1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">freq1</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
@@ -598,6 +612,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p>Use list comprehension to generate the first sine wave.  The first sine wave is generated by applying the lambda function to each value in the time axis.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sampled_f1</span> <span class="o">=</span> <span class="p">[</span><span class="n">f1</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
@@ -605,6 +620,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p>Check the length of the first sine wave to make sure it is numSamples long.a</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">sampled_f1</span><span class="p">)</span>
@@ -612,11 +628,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20000
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>200000
 </pre></div>
 </div>
 </div>
 </div>
+<p>Likewise, we can create the second sine wave by applying the lambda function f2 to each value in the time axis.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sampled_f2</span> <span class="o">=</span> <span class="p">[</span><span class="n">f2</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
@@ -624,6 +641,10 @@ document.write(`
 </div>
 </div>
 </div>
+</section>
+<section id="add-the-two-sine-wave-signals-together">
+<h2>Add the Two Sine Wave Signals Together<a class="headerlink" href="#add-the-two-sine-wave-signals-together" title="Link to this heading">#</a></h2>
+<p>To generate the combined signal, we simply add the two sine wave signals together.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sampled_fcomb</span> <span class="o">=</span> <span class="p">[(</span><span class="n">f1</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="n">f2</span><span class="p">(</span><span class="n">i</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
@@ -631,6 +652,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p>Check the length of the combined signal to make sure it is numSamples long.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">sampled_fcomb</span><span class="p">)</span>
@@ -638,11 +660,15 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20000
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>200000
 </pre></div>
 </div>
 </div>
 </div>
+</section>
+<section id="plot-the-time-domain-signals">
+<h2>Plot the Time Domain Signals<a class="headerlink" href="#plot-the-time-domain-signals" title="Link to this heading">#</a></h2>
+<p>Now we plot the time domain signals.  We will plot the first sine wave, the second sine wave, and the combined signal.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
@@ -651,7 +677,7 @@ document.write(`
 
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">311</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">sampled_f1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Sine wave 5Hz&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Sine wave 50Hz&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time [sec]&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude [arbitrary]&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
@@ -659,7 +685,7 @@ document.write(`
 
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">312</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">sampled_f2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Sine wave 10Hz&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Sine wave 100Hz&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time [sec]&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude [arbitrary]&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
@@ -667,24 +693,41 @@ document.write(`
 
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">313</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">sampled_fcomb</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Sine wave 5Hz + Sine wave 10Hz&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Sine wave 50Hz + Sine wave 100Hz&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time [sec]&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude [arbitrary]&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;../images/2_sine_waves_10_Hz_5_Hz.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;../images/2_sine_waves_100_Hz_50_Hz.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../../../_images/6901f6c7206a2206dbb22c23d9e37f851797bf6c970fb60c7893d75e3343de3c.png" src="../../../../../_images/6901f6c7206a2206dbb22c23d9e37f851797bf6c970fb60c7893d75e3343de3c.png" />
+<img alt="../../../../../_images/d3be73ab7115f483d63c3a7d8872748da62407d82782c1cd756467cf96549756.png" src="../../../../../_images/d3be73ab7115f483d63c3a7d8872748da62407d82782c1cd756467cf96549756.png" />
 </div>
 </div>
+</section>
+<section id="calculate-the-fourier-transform-of-the-combined-signal">
+<h2>Calculate the Fourier Transform of the Combined Signal<a class="headerlink" href="#calculate-the-fourier-transform-of-the-combined-signal" title="Link to this heading">#</a></h2>
+<p>To calculate the Fourier transform of the combined signal, we use the <code class="docutils literal notranslate"><span class="pre">numpy.fft.fft</span></code> function. This function computes the one-dimensional discrete Fourier Transform.</p>
+<p>The function takes the combined signal as an argument and returns the Fourier transform of the signal.</p>
+<p>To obtain the magnitude of the Fourier transform, we square the real parts and the imaginary parts of the Fourier transform and take the square root of the sum of the squares.  The is done for everly element in the Fourier transform.</p>
+<p>To generate the X-axis for the frequency domain signal, we create a list of frequencies that correspond to the Fourier transform of the combined signal.  The frequencies are generated using the <code class="docutils literal notranslate"><span class="pre">numpy.fft.fftfreq</span></code> function.  This function generates the frequencies for the Fourier transform of the signal.</p>
+<p>The function takes the number of samples and the sampling frequency as arguments and returns an array of frequencies.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fft_output</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfft</span><span class="p">(</span><span class="n">sampled_fcomb</span><span class="p">)</span>
 <span class="n">magnitude</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">real</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">i</span><span class="o">.</span><span class="n">imag</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">fft_output</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">fft_output</span><span class="p">]</span>
-<span class="n">frequencies</span> <span class="o">=</span> <span class="p">[(</span><span class="n">i</span><span class="o">*</span><span class="mf">1.0</span><span class="o">/</span><span class="n">numSamples</span><span class="p">)</span><span class="o">*</span><span class="n">sRate</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">numSamples</span><span class="o">//</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+
+<span class="n">frequencies</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftfreq</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">fft_output</span><span class="p">),</span> <span class="mi">2</span><span class="o">/</span><span class="n">sRate</span><span class="p">)</span><span class="n">dd</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">15</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
+    <span class="n">frequencies</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftfreq</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">fft_output</span><span class="p">),</span> <span class="mi">2</span><span class="o">/</span><span class="n">sRate</span><span class="p">)</span><span class="n">dd</span>
+                                                          <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
 </pre></div>
 </div>
 </div>
@@ -699,24 +742,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fe838a57eb0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fd78cd6e250&gt;]
 </pre></div>
 </div>
-<img alt="../../../../../_images/eff98fbaec1c03c8ace2f814e4adf365706e0d188b44188ad8b166508a8b9468.png" src="../../../../../_images/eff98fbaec1c03c8ace2f814e4adf365706e0d188b44188ad8b166508a8b9468.png" />
+<img alt="../../../../../_images/c4f751d316e1830eb9d00fe709c56d7282a2d6c646799e8469e0c132a9b53e88.png" src="../../../../../_images/c4f751d316e1830eb9d00fe709c56d7282a2d6c646799e8469e0c132a9b53e88.png" />
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">sampled_fcomb</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20000
-</pre></div>
-</div>
-</div>
-</div>
+<p>Check the length of the magnitude and the frequencies to make sure they are the same length.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">magnitude</span><span class="p">)</span>
@@ -724,7 +756,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10001
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100001
 </pre></div>
 </div>
 </div>
@@ -736,11 +768,15 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10001
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100001
 </pre></div>
 </div>
 </div>
 </div>
+</section>
+<section id="generate-output-files">
+<h2>Generate Output Files<a class="headerlink" href="#generate-output-files" title="Link to this heading">#</a></h2>
+<p>Save the magnitude and the frequencies to files.  These files will be processed through the DFFT Fortran program.  The output of the program will be compared to the magnitude and frequencies generated by the Python program.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Opening data files...&#39;</span><span class="p">)</span>
@@ -762,6 +798,20 @@ Writing data files...
 </div>
 </div>
 </div>
+</section>
+<section id="execute-dfft-fortran-program">
+<h2>Execute DFFT Fortran Program<a class="headerlink" href="#execute-dfft-fortran-program" title="Link to this heading">#</a></h2>
+<p>The DFFT Fortran program will be executed on the data file that contains the time domain data of the combined signal.  The program will output the magnitude and phase of the Fourier transform of the signal into two separate files: DFFT_mag_file.dat and DFFT_phase_file.dat.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">exec_status</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;./dfft 2sineXHz.dat DFFT_mag_file.dat DFFT_phase_file.dat 20000 10 &gt; log.txt&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -800,7 +850,8 @@ Writing data files...
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -808,9 +859,18 @@ Writing data files...
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
-    <ul class="simple visible nav section-nav flex-column">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-required-libraries">Import Required Libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define-the-parameters-such-as-the-sampling-frequency-the-duration-of-the-signal-and-the-frequencies-of-the-sine-waves">Define the Parameters such as the Sampling Frequency, the Duration of the Signal, and the Frequencies of the Sine Waves</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-plotting-helper-function">Create Plotting Helper Function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-the-x-axis-for-the-time-domain-signal">Generate the X-Axis for the Time Domain Signal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-the-sine-waves">Generate the Sine Waves</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-the-two-sine-wave-signals-together">Add the Two Sine Wave Signals Together</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-time-domain-signals">Plot the Time Domain Signals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-the-fourier-transform-of-the-combined-signal">Calculate the Fourier Transform of the Combined Signal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-output-files">Generate Output Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#execute-dfft-fortran-program">Execute DFFT Fortran Program</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>
@@ -851,8 +911,8 @@ By Mark Khusid
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../../../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
   </footer>

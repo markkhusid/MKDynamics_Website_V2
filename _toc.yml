@@ -147,6 +147,7 @@ parts:
           - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Array_Timing
           - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Assumed
           - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Compute_Factorial
+          - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Double_Deallocate
           - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Elemental_Subroutine
           - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Enlarge_Array
           - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Identity
@@ -159,6 +160,10 @@ parts:
           - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Subarrays
           - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Submatrices
           - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Trace
+        
+        - file: Section/Computer_Programming/Fortran/Fortran_MOOC/Ball_Throw__Head__
+          sections:
+          - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Ball_Throw
       
         - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Floating_Point
           sections:
