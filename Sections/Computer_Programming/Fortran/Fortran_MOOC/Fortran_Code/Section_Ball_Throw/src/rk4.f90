@@ -120,7 +120,7 @@ contains
   !*******************************************************************************
 
   !*******************************************************************************
-  subroutine rk4vec ( t0, m, u0, dt, u )
+  subroutine rk4vec ( t0, m, u0, dt, f, u )
   !*****************************************************************************80
   !
   !! RK4VEC takes one Runge-Kutta step for a vector ODE.
@@ -164,6 +164,16 @@ contains
   !    estimate at time T0+DT.
   !
     implicit none
+
+    interface
+      subroutine f ( t, m, u, uprime )
+        use, intrinsic :: iso_fortran_env, only : DP => real64, int32
+        real ( kind = DP ), intent(in) :: t
+        integer ( kind = int32 ), intent(in) :: m
+        real ( kind = DP ), dimension(m), intent(in) :: u
+        real ( kind = DP ), dimension(m), intent(out) :: uprime
+      end subroutine f
+    end interface
     
     ! Input arguments
     ! Current time

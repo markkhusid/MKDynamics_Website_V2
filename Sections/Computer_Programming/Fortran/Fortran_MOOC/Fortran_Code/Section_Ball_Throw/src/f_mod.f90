@@ -1,7 +1,9 @@
 module f_mod
     use, intrinsic :: iso_fortran_env, only : DP => real64, int32
+    use :: vector_indices_mod, only : X_IDX, Y_IDX, VX_IDX, VY_IDX
     implicit none
 
+    private
     public :: f
 
     contains
@@ -18,16 +20,16 @@ module f_mod
             real(kind=DP) :: X, Y, VX, VY
 
             ! Extract state vector components
-            X = u(1)   ! Position in the x-direction
-            Y = u(2)   ! Position in the y-direction
-            VX = u(3)  ! Velocity in the x-direction
-            VY = u(4)  ! Velocity in the y-direction
+            X  = u(X_IDX)   ! Position in the x-direction
+            Y  = u(Y_IDX)   ! Position in the y-direction
+            VX = u(VX_IDX)  ! Velocity in the x-direction
+            VY = u(VY_IDX)  ! Velocity in the y-direction
 
             ! Compute the derivatives (primes)
-            uprime(1) = VX        ! Derivative of position in x is velocity in x
-            uprime(2) = VY        ! Derivative of position in y is velocity in y
-            uprime(3) = 0.0_DP    ! No acceleration in x (ignoring air resistance)
-            uprime(4) = -9.81_DP  ! Acceleration in y due to gravity
+            uprime(X_IDX)  = VX        ! Derivative of position in x is velocity in x
+            uprime(Y_IDX)  = VY        ! Derivative of position in y is velocity in y
+            uprime(VX_IDX) = 0.0_DP    ! No acceleration in x (ignoring air resistance)
+            uprime(VY_IDX) = -9.81_DP  ! Acceleration in y due to gravity
 
         end subroutine f
         !*******************************************************************************
