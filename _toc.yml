@@ -161,7 +161,7 @@ parts:
           - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Submatrices
           - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Trace
         
-        - file: Section/Computer_Programming/Fortran/Fortran_MOOC/Ball_Throw__Head__
+        - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Ball_Throw__Head__
           sections:
           - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Ball_Throw
       

@@ -65,6 +65,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Ball_Throw';</script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Section: Floating Point" href="Section_Floating_Point.html" />
+    <link rel="prev" title="Section: Ball Throw" href="Section_Ball_Throw__Head__.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -115,8 +117,6 @@
     <div class="bd-container__inner bd-page-width">
       
       
-      
-        
       
       <dialog id="pst-primary-sidebar-modal"></dialog>
       <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
@@ -186,8 +186,8 @@
 </details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Computer Programming</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../computer_programming.html">Computer Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../computer_programming.html">Computer Programming</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../CPP/cpp.html">C++ Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp__HEAD__.html">Object Oriented Programming Using C++</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp_Ch_1.html">Chapter 1: Why Object-Oriented Programming in C++?</a></li>
@@ -211,7 +211,7 @@
 </details></li>
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../fortran.html">Fortran Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../fortran.html">Fortran Programming</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l3 has-children"><a class="reference internal" href="../Modern_Fortran/modern_fortran.html">Modern Fortran</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../Modern_Fortran/Cold_Front_Calculator.html">Cold Front Calculator</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../Modern_Fortran/Cold_Front_Calculator_with_Loop.html">Cold Front Calculator With Loop</a></li>
@@ -246,8 +246,9 @@
 <li class="toctree-l4"><a class="reference internal" href="../Guide_to_Fortran_2008_Programming/Section_8_8_Findloc_Function.html">Section 8.8: Findloc Function</a></li>
 </ul>
 </details></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="fortran_mooc.html">Fortran MOOC</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="fortran_mooc.html">Fortran MOOC</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="Section_Arrays.html">Section: Arrays</a></li>
+<li class="toctree-l4 current active"><a class="reference internal" href="Section_Ball_Throw__Head__.html">Section: Ball Throw</a></li>
 <li class="toctree-l4"><a class="reference internal" href="Section_Floating_Point.html">Section: Floating Point</a></li>
 <li class="toctree-l4"><a class="reference internal" href="Section_Call_By_Semantics.html">Section: Call By Semantics</a></li>
 <li class="toctree-l4"><a class="reference internal" href="Section_Computing_Pi.html">Section: Computing Pi</a></li>
@@ -968,6 +969,45 @@ u_{t+dt} = u_0 + \frac{dt}{6} \left( f_0 + 2f_1 + 2f_2 + f_3 \right)
 </section>
 <section id="f-mod-f90">
 <h3>f_mod.f90<a class="headerlink" href="#f-mod-f90" title="Link to this heading">#</a></h3>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">module </span><span class="n">f_mod</span>
+<span class="w">    </span><span class="k">use</span><span class="p">,</span><span class="w"> </span><span class="k">intrinsic</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">iso_fortran_env</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">DP</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">real64</span><span class="p">,</span><span class="w"> </span><span class="n">int32</span>
+<span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">vector_indices_mod</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">X_IDX</span><span class="p">,</span><span class="w"> </span><span class="n">Y_IDX</span><span class="p">,</span><span class="w"> </span><span class="n">VX_IDX</span><span class="p">,</span><span class="w"> </span><span class="n">VY_IDX</span>
+<span class="w">    </span><span class="k">implicit none</span>
+
+<span class="k">    private</span>
+<span class="k">    public</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">f</span>
+
+<span class="w">    </span><span class="k">contains</span>
+
+<span class="w">        </span><span class="c">!*******************************************************************************</span>
+<span class="w">        </span><span class="k">subroutine </span><span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="n">uprime</span><span class="p">)</span>
+<span class="w">            </span><span class="k">implicit none</span>
+<span class="k">            </span><span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">DP</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="c">! Time</span>
+<span class="w">            </span><span class="kt">integer</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">int32</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="c">! Number of equations</span>
+<span class="w">            </span><span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">DP</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="n">m</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="c">! State vector</span>
+<span class="w">            </span><span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">DP</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="n">m</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">uprime</span><span class="w"> </span><span class="c">! Derivative of the state vector</span>
+
+<span class="w">            </span><span class="c">! Declare local variables for the components of the state vector</span>
+<span class="w">            </span><span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">DP</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="p">,</span><span class="w"> </span><span class="n">VX</span><span class="p">,</span><span class="w"> </span><span class="n">VY</span>
+
+<span class="w">            </span><span class="c">! Extract state vector components</span>
+<span class="w">            </span><span class="n">X</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">u</span><span class="p">(</span><span class="n">X_IDX</span><span class="p">)</span><span class="w">   </span><span class="c">! Position in the x-direction</span>
+<span class="w">            </span><span class="n">Y</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">u</span><span class="p">(</span><span class="n">Y_IDX</span><span class="p">)</span><span class="w">   </span><span class="c">! Position in the y-direction</span>
+<span class="w">            </span><span class="n">VX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">u</span><span class="p">(</span><span class="n">VX_IDX</span><span class="p">)</span><span class="w">  </span><span class="c">! Velocity in the x-direction</span>
+<span class="w">            </span><span class="n">VY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">u</span><span class="p">(</span><span class="n">VY_IDX</span><span class="p">)</span><span class="w">  </span><span class="c">! Velocity in the y-direction</span>
+
+<span class="w">            </span><span class="c">! Compute the derivatives (primes)</span>
+<span class="w">            </span><span class="n">uprime</span><span class="p">(</span><span class="n">X_IDX</span><span class="p">)</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">VX</span><span class="w">        </span><span class="c">! Derivative of position in x is velocity in x</span>
+<span class="w">            </span><span class="n">uprime</span><span class="p">(</span><span class="n">Y_IDX</span><span class="p">)</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">VY</span><span class="w">        </span><span class="c">! Derivative of position in y is velocity in y</span>
+<span class="w">            </span><span class="n">uprime</span><span class="p">(</span><span class="n">VX_IDX</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0_DP</span><span class="w">    </span><span class="c">! No acceleration in x (ignoring air resistance)</span>
+<span class="w">            </span><span class="n">uprime</span><span class="p">(</span><span class="n">VY_IDX</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mf">9.81_DP</span><span class="w">  </span><span class="c">! Acceleration in y due to gravity</span>
+
+<span class="w">        </span><span class="k">end subroutine </span><span class="n">f</span>
+<span class="w">        </span><span class="c">!*******************************************************************************</span>
+<span class="w">        </span>
+<span class="k">end module </span><span class="n">f_mod</span>
+</pre></div>
+</div>
 </section>
 <section id="rk4-f90">
 <h3>rk4.f90<a class="headerlink" href="#rk4-f90" title="Link to this heading">#</a></h3>
@@ -1361,6 +1401,24 @@ u_{t+dt} = u_0 + \frac{dt}{6} \left( f_0 + 2f_1 + 2f_2 + f_3 \right)
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="Section_Ball_Throw__Head__.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Section: Ball Throw</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Section_Floating_Point.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Section: Floating Point</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
