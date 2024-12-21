@@ -184,10 +184,6 @@ parts:
           sections:
           - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Implicit_vs_Explicit_Loops
 
-        #- file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Ball_Throw__Head__
-          #sections:
-          #- file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Ball_Throw
-
         - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Block_Matrices__Head__
           sections:
           - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Block_Matrices  
@@ -213,6 +209,7 @@ parts:
         sections:
         - file: Sections/Computer_Programming/Fortran/DFFT/Sine_Wave_10_Hz/sine_wave_10_hz
         - file: Sections/Computer_Programming/Fortran/DFFT/Square_Wave_1_Hz_50_pct/square_wave_1_hz_50_pct
+        - file: Sections/Computer_Programming/Fortran/DFFT/2_Sine_Waves/2sineXHz
 
 - caption: Electronics
   chapters:
