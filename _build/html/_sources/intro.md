@@ -85,19 +85,6 @@ Exploring CAELinux for Thermal Analysis
 :link-type: doc
 :class-header: bg-auto
 
-Antenna Simulation using 4NEC2
-^^^
-```{image} images/ham_radio_antenna_simulation.jpg
-:height: 200
-:align: center
-```
-:::
-
-:::{grid-item-card}
-:link: markdown
-:link-type: doc
-:class-header: bg-auto
-
 HAM Radio Projects
 ^^^
 ```{image} images/ham_radio_projects.jpg

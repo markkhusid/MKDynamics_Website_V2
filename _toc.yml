@@ -230,6 +230,14 @@ parts:
     - file: Sections/Electronics/Dual_Diode_Box/dual_diode_box.md
     - file: Sections/Electronics/Single_Board_Computers_Running_Linux/single_board_computers_running_linux.md
 
+- caption: Finite Element Analysis
+  chapters:
+  - file: Sections/Finite_Element_Analysis/finite_element_analysis
+
+- caption: Ham Radio
+  chapters:
+  - file: Sections/Ham_Radio/ham_radio
+
 - caption: About Me
   chapters:
   - file: Sections/About_Me/aboutme
