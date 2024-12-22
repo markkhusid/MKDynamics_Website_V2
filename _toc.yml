@@ -218,6 +218,7 @@ parts:
         - file: Sections/Computer_Programming/Fortran/DFFT/Sine_Wave_10_Hz/sine_wave_10_hz
         - file: Sections/Computer_Programming/Fortran/DFFT/Square_Wave_1_Hz_50_pct/square_wave_1_hz_50_pct
         - file: Sections/Computer_Programming/Fortran/DFFT/2_Sine_Waves/2sineXHz
+        - file: Sections/Computer_Programming/Fortran/DFFT/Switched_Sine_Wave_1_kHz/switched_sine_wave_1_kHz
 
 - caption: Electronics
   chapters:

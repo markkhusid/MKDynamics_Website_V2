@@ -18,6 +18,7 @@ Cybersecurity
 ^^^
 ```{image} home_page_images/hacker.jpg
 :height: 200
+:align: center
 ```
 :::
 ::::
@@ -36,6 +37,7 @@ Computer Programming
 ^^^
 ```{image} home_page_images/computer_programming.jpeg
 :height: 200
+:align: center
 ```
 :::
 ::::
@@ -55,6 +57,7 @@ Dual Diode Box
 ^^^
 ```{image} home_page_images/dual_diode_box.jpg
 :height: 200
+:align: center
 ```
 :::
 
@@ -67,6 +70,7 @@ Electronic Circuits
 ^^^
 ```{image} home_page_images/LTC3891.jpeg
 :height: 200
+:align: center
 ```
 :::
 
@@ -75,10 +79,11 @@ Electronic Circuits
 :link-type: doc
 :class-header: bg-auto
 
-Raspberry Pi 3 Supercomputer
+Single Board Computers Running Linux
 ^^^
-```{image} home_page_images/cray.jpg
+```{image} home_page_images/cubietruck1.jpg
 :height: 200
+:align: center
 ```
 :::
 ::::
@@ -92,8 +97,9 @@ Raspberry Pi 3 Supercomputer
 
 Exploring CAELinux for Thermal Analysis
 ^^^
-```{image} home_page_images/cray.jpg
+```{image} home_page_images/thermal_study.jpg
 :height: 200
+:align: center
 ```
 :::
 ::::
@@ -107,11 +113,11 @@ Exploring CAELinux for Thermal Analysis
 
 Antenna Simulation using 4NEC2
 ^^^
-```{image} home_page_images/cray.jpg
+```{image} home_page_images/ham_radio_antenna_simulation.jpg
 :height: 200
+:align: center
 ```
 :::
-
 
 :::{grid-item-card}
 :link: markdown
@@ -120,8 +126,9 @@ Antenna Simulation using 4NEC2
 
 HAM Radio Projects
 ^^^
-```{image} home_page_images/cray.jpg
+```{image} home_page_images/ham_radio_projects.jpg
 :height: 200
+:align: center
 ```
 :::
 ::::
@@ -135,8 +142,9 @@ HAM Radio Projects
 
 About Me
 ^^^
-```{image} home_page_images/cray.jpg
+```{image} home_page_images/about_me.jpg
 :height: 200
+:align: center
 ```
 :::
 ::::

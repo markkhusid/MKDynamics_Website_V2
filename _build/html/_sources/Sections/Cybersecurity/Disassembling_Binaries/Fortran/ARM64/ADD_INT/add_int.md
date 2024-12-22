@@ -179,12 +179,10 @@ The AArch64 has a lot of registers (36 registers visible in GEF), and it becomes
 
 ```{image} images/running_add_Fortran_aarch64_in_GEF_showing_MAIN__2.jpg
 :alt: MAIN__ in GDB+GEF Part 2
-:target: images/running_add_Fortran_aarch64_in_GEF_showing_MAIN__2.jpg
 ```
 
 ```{image} images/running_add_Fortran_aarch64_in_GEF_showing_MAIN__1.jpg
 :alt: MAIN__ in GDB+GEF Part 1
-:target: images/running_add_Fortran_aarch64_in_GEF_showing_MAIN__1.jpg
 ```
 
 Rather than taking screenshots of the state of GEF after executing every instruction, we will place comments on the assembly instructions in `MAIN__` from the executable's objdump output.
@@ -199,29 +197,29 @@ program add
     integer    :: a, b, c
 
     a = 1
- 7c8: 52800020 mov w0, #0x1                // #1 - Moves a 1 into register w0
- 7cc: b9000fe0 str w0, [sp, #12]           //  - Stores the contents of register w0 into the stack pointer + 12.
-                                                        //  Recall that even though the machine is 64 bit, when defining a
-                                                        //  variable as an integer, it is 32 bits in size.  In Fortran there are
-                                                        //  ways of changing the size of the integer as stored in memory.
-                                                        //  The compiler set aside 4x3 = 12 bytes to store these integers.
-                                                        //  The integer variable a is at sp + 12.
+ 7c8: 52800020 mov w0, #0x1                 // #1 - Moves a 1 into register w0
+ 7cc: b9000fe0 str w0, [sp, #12]            //  - Stores the contents of register w0 into the stack pointer + 12.
+                                            //  Recall that even though the machine is 64 bit, when defining a
+                                            //  variable as an integer, it is 32 bits in size.  In Fortran there are
+                                            //  ways of changing the size of the integer as stored in memory.
+                                            //  The compiler set aside 4x3 = 12 bytes to store these integers.
+                                            //  The integer variable a is at sp + 12.
 
     b = 9
- 7d0: 52800120 mov w0, #0x9                // #9 - Moves a 1 into register w0
- 7d4: b9000be0 str w0, [sp, #8]            //  - Stores the contents of register w0 into stack pointer + 8.
+ 7d0: 52800120 mov w0, #0x9                 // #9 - Moves a 1 into register w0
+ 7d4: b9000be0 str w0, [sp, #8]             //  - Stores the contents of register w0 into stack pointer + 8.
 
-    c = a + b                                           //  Now that the stack contains the addends, the machine can perform the operation.
- 7d8: b9400fe1 ldr w1, [sp, #12]           //  The variable a is loaded into register w1.
- 7dc: b9400be0 ldr w0, [sp, #8]            //  The variable b is loaded into register w0.
- 7e0: 0b000020 add w0, w1, w0              //  w0 + w1 and store result into w0
- 7e4: b90007e0 str w0, [sp, #4]            //  Store the value in w0 into stack pointer + 4.
-                                                        //  Stack pointer + 4 is reserved for the integer variable c.
+    c = a + b                               //  Now that the stack contains the addends, the machine can perform the operation.
+ 7d8: b9400fe1 ldr w1, [sp, #12]            //  The variable a is loaded into register w1.
+ 7dc: b9400be0 ldr w0, [sp, #8]             //  The variable b is loaded into register w0.
+ 7e0: 0b000020 add w0, w1, w0               //  w0 + w1 and store result into w0
+ 7e4: b90007e0 str w0, [sp, #4]             //  Store the value in w0 into stack pointer + 4.
+                                            //  Stack pointer + 4 is reserved for the integer variable c.
 
 end program add
- 7e8: d503201f nop                             //  No Operation.  Used for 64-bit boundary alignment.
- 7ec: 910043ff add sp, sp, #0x10           //  Clean up the stack.  Subtract 16 from the stack pointer.
- 7f0: d65f03c0 ret                             //  Return to main by popping the return address off of
+ 7e8: d503201f nop                          //  No Operation.  Used for 64-bit boundary alignment.
+ 7ec: 910043ff add sp, sp, #0x10            //  Clean up the stack.  Subtract 16 from the stack pointer.
+ 7f0: d65f03c0 ret                          //  Return to main by popping the return address off of
 ```
 
 

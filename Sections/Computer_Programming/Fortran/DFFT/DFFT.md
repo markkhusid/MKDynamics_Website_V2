@@ -131,10 +131,23 @@ Two Sine Waves at 50 Hz and 100 Hz
 ```
 :::
 
+:::{grid-item-card}
+:link: Switched_Sine_Wave_1_kHz/switched_sine_wave_1_kHz.html
+:class-header: bg-auto
+
+Switched Sine Wave at 1 kHz
+^^^
+```{image} images/switched_sine_wave_1_kHz.png
+
+:height: 200
+```
+```{image} images/DFFT_switched_sine_wave_1_kHz.png
+
+:height: 200
+```
+:::
+
 ::::
 
 ## Conclusion
 In this tutorial, we have demonstrated how to compute the Discrete Fourier Transform (DFT) of an arbitrary signal using the FFTW3 library in Fortran. The FFTW3 library provides a fast and efficient way to compute the DFT of a signal and is widely used in scientific computing applications. By following the steps outlined in this tutorial, you can compute the DFT of a signal and visualize its frequency spectrum using the FFTW3 library.
-
-
-

@@ -1,7 +1,0 @@
-set term wxt 0
-set xrange [-1000:10000]
-set yrange [0:0.5]
-set title "DFFT Magnitude"
-set xlabel "Frequency [Hz]"
-set ylabel "Arbitrary Units [Arb]"
-plot "DFFT_mag_file.dat" using 2:1 with lines
