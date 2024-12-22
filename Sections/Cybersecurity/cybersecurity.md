@@ -42,4 +42,16 @@ Basic Linux Exploits
 ```
 :::
 
+:::{grid-item-card}
+:link: Disassembling_Binaries/disassembling_binaries
+:link-type: doc
+:class-header: bg-dark
+
+Disassembling Binaries
+^^^
+```{image} images/Disassembling_Binaries/disassembling_binaries_splash.jpg
+:height: 200
+```
+:::
+
 ::::

@@ -1,0 +1,823 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Fortran - ARM 64-Bit Platform &#8212; MK Dynamics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../../../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../../../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Sections/Cybersecurity/Disassembling_Binaries/Fortran/ARM64/ADD_INT/add_int';</script>
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" />
+    <link rel="next" title="Computer Programming" href="../../../../../Computer_Programming/computer_programming.html" />
+    <link rel="prev" title="ARM 64 Bit" href="../arm64.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../../../_static/spacey.jpg" class="logo__image only-light" alt="MK Dynamics - Home"/>
+    <img src="../../../../../../_static/spacey.jpg" class="logo__image only-dark pst-js-only" alt="MK Dynamics - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../../../../intro.html">
+                    MK Dynamics
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Cybersecurity</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../../../cybersecurity.html">Cybersecurity</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../Protostar/protostar.html">Protostar Exploit Exercises</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../Protostar/Stack0/stack0.html">Stack 0</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../Protostar/Stack0/stack0_x86.html">Protostar Exploit Exercises - Stack0 - First Stack Buffer Overflow to modify Variable</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../LiveOverflow/liveoverflow.html">LiveOverflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../Basic_Linux_Exploits/basic_linux_exploits.html">Basic Linux Exploits</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../../../disassembling_binaries.html">Disassembling Binaries</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="../../fortran.html">Fortran</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l4 current active"><a class="reference internal" href="../arm64.html">ARM 64 Bit</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Computer Programming</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../Computer_Programming/computer_programming.html">Computer Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../Computer_Programming/CPP/cpp.html">C++ Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../../Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp__HEAD__.html">Object Oriented Programming Using C++</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp_Ch_1.html">Chapter 1: Why Object-Oriented Programming in C++?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp_Ch_2.html">Chapter 2: Native Types and Statements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp_Ch_3.html">Chapter 3: Functions and Pointers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp_Ch_4.html">Chapter 4: Implementing ADTs in the Base Language</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp_Ch_5.html">Chapter 5: Data Hiding and Member Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp_Ch_6.html">Chapter 6: Object Creation and Destruction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp_Ch_7.html">Chapter 7: Ad Hoc Polymorphism</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../Computer_Programming/Python/python.html">Python Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../../Computer_Programming/Python/Python_Playground/Python_Playground__HEAD__.html">Python Playground: Geeky Projects for the Curious Programmer</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Python/Python_Playground/Section_Chapter_2_Draw_Circle.html">Chapter 2: Draw Circle using Turtle Graphics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Python/Python_Playground/Section_Chapter_2_Draw_Spiro.html">Chapter 2: Draw Spiro using Turtle Graphics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Python/Python_Playground/Section_Chapter_3_Conway.html">Chapter 3: Conway’s Game of Life</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Python/Python_Playground/Section_Chapter_4_Karplus_Strong.html">Chapter 4: Karplus Strong Algorithm</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/fortran.html">Fortran Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Modern_Fortran/modern_fortran.html">Modern Fortran</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Modern_Fortran/Cold_Front_Calculator.html">Cold Front Calculator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Modern_Fortran/Cold_Front_Calculator_with_Loop.html">Cold Front Calculator With Loop</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Modern_Fortran/Tsunami_Simulator.html">Tsunami Simulator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Modern_Fortran/Tsunami_Simulator_Plotter.html">Tsunami Simulator Plotter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Modern_Fortran/Tsunami_Simulator_with_Modules.html">Tsunami Simulator with Modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Modern_Fortran/Tsunami_Simulator_with_Modules_Plotter.html">Tsunami Simulator with Modules Plotter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Modern_Fortran/Print_Compiler_Version.html">Print Compiler Version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Modern_Fortran/Analyzing_Time_Series_Data_with_Arrays.html">Analyzing Time Series Data with Arrays</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Intro_to_Fortran/intro_to_fortran.html">Introduction to Programming Using Fortran</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Intro_to_Fortran/Section_7_Period_Calculator.html">Section 7: Pendulum Period Calculator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Intro_to_Fortran/Section_9_3_SOS_Difference.html">Section 9.3: Difference Between Sum of Squares and Square of Sums</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Intro_to_Fortran/Section_12_8_Line_Numbers.html">Section 12.8: Line Numbers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Intro_to_Fortran/Section_14_Pi_Estimation.html">Section 14: Pi Estimation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/guide_to_fortran_2008_programming.html">Guide to Fortran 2008 Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_1_8_Ex_2_Quadratic_Formula.html">Section 1.8 Example 2: Quadratic Equation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_1_16_Factorial_Recursion.html">Section 1.16: Factorial Recursion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_2_1_Associate_Construct.html">Section 2.1: Statement Blocks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_2_1_Statement_Blocks.html">Section 2.1: Associate Construct</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_3_4_Putting_Procedures_in_a_Module.html">Section 3.4: Putting Procedures in a Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_3_6_Ex_1_Median_of_Three.html">Section 3.6: Median of Three</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_3_8_Argument_Passing.html">Section 3.8: Argument Passing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_3_17_Case_Study__Adaptive_Numberical_Integration.html">Section 3.17: Case Study: Adaptive Numerical Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_4_1_Elsewhere_Example.html">Section 4.1: Elsewhere Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_8_1_Submodules.html">Section 8.1: Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_8_2_Time_Matrix_Multiply.html">Section 8.2: Time Matrix Multiply</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_8_7_Generic_Elemental_Procedures.html">Section 8.7: Generic Elemental Procedures</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_8_8_Findloc_Function.html">Section 8.8: Findloc Function</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Fortran_MOOC/fortran_mooc.html">Fortran MOOC</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays.html">Section: Arrays</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Fortran_MOOC/Section_Ball_Throw__Head__.html">Section: Ball Throw</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Fortran_MOOC/Section_Floating_Point.html">Section: Floating Point</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Fortran_MOOC/Section_Call_By_Semantics.html">Section: Call By Semantics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Fortran_MOOC/Section_Computing_Pi.html">Section: Computing Pi</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Fortran_MOOC/Section_Implicit_vs_Explicit_Loops__Head__.html">Section: Implicit vs Explicit Loops</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Fortran_MOOC/Section_Block_Matrices__Head__.html">Section: Block Matrices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Fortran_MOOC/Section_BLAS_LAPACK__Head__.html">Section: BLAS/LAPACK</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/DFFT/DFFT.html">Discretized Fourier Transform of Arbitrary Signal Using FFTW3 in Fortran</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/DFFT/Sine_Wave_10_Hz/sine_wave_10_hz.html">Sine Wave at 10Hz</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/DFFT/Square_Wave_1_Hz_50_pct/square_wave_1_hz_50_pct.html">Square Wave at 1Hz</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/DFFT/2_Sine_Waves/2sineXHz.html">Two Sine Waves with Different Frequencies</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Electronics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../Electronics/electronics.html">Electronics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../Electronics/Analog_and_Digital/analog_and_digital.html">Analog and Digital Electronics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../Electronics/Analog_and_Digital/AD9850_DDS/AD9850_DDS.html">Variable Frequency Oscillator Using Direct Digital Synthesis</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">About Me</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../About_Me/aboutme.html">About Me</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../About_Me/Resume/resume.html">My Resume</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../About_Me/Certificates/certificates.html">My Certificates</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../About_Me/Certificates/certificates_coursera.html">Coursera Certificates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../About_Me/Certificates/certificates_kaggle.html">Kaggle Certificates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../About_Me/Certificates/certificates_tryhackme.html">Try Hack Me Certificates</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Misc</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../notebooks.html">Content with notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../README.html">MKDynamics_Website_V2</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/markkhusid/MKDynamics_Website_V2" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/markkhusid/MKDynamics_Website_V2/issues/new?title=Issue%20on%20page%20%2FSections/Cybersecurity/Disassembling_Binaries/Fortran/ARM64/ADD_INT/add_int.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../../../../_sources/Sections/Cybersecurity/Disassembling_Binaries/Fortran/ARM64/ADD_INT/add_int.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Fortran - ARM 64-Bit Platform</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-program-add-f08">The program <em>add.f08</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disassembling-add-int-fortran-aarch64-ggdb3-in-gdb-gef">Disassembling <em>add_int_Fortran_aarch64_ggdb3</em> in GDB + GEF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-add-int-fortran-aarch64-ggdb3-in-gdb-gef">Running <em>add_int_Fortran_aarch64_ggdb3</em> in GDB + GEF</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="fortran-arm-64-bit-platform">
+<h1>Fortran - ARM 64-Bit Platform<a class="headerlink" href="#fortran-arm-64-bit-platform" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>In this section we will be disassembling simple binaries generated by the Fortran high-level language compiled for the 64-bit ARM platform. We will disassemble the binaries using GDB+GEF as well Radare2.</p>
+<p>Project code for this section is contained in my <a class="github reference external" href="https://github.com/markkhusid/Disassembling-Binaries/tree/master/Fortran/ARM_architecture/ARM64">markkhusid/Disassembling-Binaries</a>.</p>
+</section>
+<hr class="docutils" />
+<section id="the-program-add-f08">
+<h2>The program <em>add.f08</em><a class="headerlink" href="#the-program-add-f08" title="Link to this heading">#</a></h2>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">add_int</span>
+
+<span class="w">    </span><span class="k">implicit none</span>
+
+<span class="k">    </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span>
+
+<span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">9</span>
+
+<span class="w">    </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span>
+<span class="w">    </span>
+<span class="k">end program </span><span class="n">add_int</span>
+</pre></div>
+</div>
+<p>The program displays the contents of the program <em>add_int.f08</em>. The program creates three integers: a, b, and c. <code class="docutils literal notranslate"><span class="pre">a</span></code> is assigned the value of 1, <code class="docutils literal notranslate"><span class="pre">b</span></code> is assigned the value of 9, and <code class="docutils literal notranslate"><span class="pre">c</span></code> is assigned the result of the operation <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code>.</p>
+<p>The program is obviously very simple, with no inputs and outputs. The idea is to generate the binary and look at the disassembly to learn about the workings of the 64-bit ARM processor platform.</p>
+<p>The chosen test system is an instance on Amazon Web Services. This is a new service that is powered by a 64-bit ARMv8 processor. It fits very well for this application due to its availability and ease of access from multiple remote systems via SSH.</p>
+<p>The program is compiled with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>gfortran<span class="w"> </span>-ggdb3<span class="w"> </span>add.f08<span class="w"> </span>-o<span class="w"> </span>add_int_Fortran_aarch64_ggdb3
+</pre></div>
+</div>
+<p>For general edification, we also have <code class="docutils literal notranslate"><span class="pre">gfortran</span></code> produce generic assembly with the <code class="docutils literal notranslate"><span class="pre">-S</span></code> option, an object file with the <code class="docutils literal notranslate"><span class="pre">-o</span></code> option, and object dumps of the object and executable files.</p>
+<p>The generic assembly is generated by using the <code class="docutils literal notranslate"><span class="pre">-S</span></code> (assembly) option:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>gfortran<span class="w"> </span>-S<span class="w"> </span>-ggdb3<span class="w"> </span>add.f08<span class="w"> </span>-o<span class="w"> </span>add.s
+</pre></div>
+</div>
+<p>The object file is generated by using the <code class="docutils literal notranslate"><span class="pre">-c</span></code> (compile) option:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>gfortran<span class="w"> </span>-c<span class="w"> </span>-ggdb3<span class="w"> </span>add.s<span class="w"> </span>-o<span class="w"> </span>add.o
+</pre></div>
+</div>
+<p>The objdump files are generated by using the following command and options:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>objdump<span class="w"> </span>-x<span class="w"> </span>-D<span class="w"> </span>-S<span class="w"> </span>-s<span class="w"> </span>-g<span class="w"> </span>-t<span class="w"> </span>add.o<span class="w"> </span>&gt;<span class="w"> </span>objdump_of_dot_o.txt
+$<span class="w"> </span>objdump<span class="w"> </span>-x<span class="w"> </span>-D<span class="w"> </span>-S<span class="w"> </span>-s<span class="w"> </span>-g<span class="w"> </span>-t<span class="w"> </span>add_int_Fortran_aarch64_ggdb3<span class="w"> </span>&gt;<span class="w"> </span>objdump_of_dot_exe.txt
+</pre></div>
+</div>
+<p>A rundown of the objdump options is shown here:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">$objdump</span><span class="w"> </span>
+Usage:<span class="w"> </span>objdump<span class="w"> </span>&lt;option<span class="o">(</span>s<span class="o">)</span>&gt;<span class="w"> </span>&lt;file<span class="o">(</span>s<span class="o">)</span>&gt;
+<span class="w"> </span>Display<span class="w"> </span>information<span class="w"> </span>from<span class="w"> </span>object<span class="w"> </span>&lt;file<span class="o">(</span>s<span class="o">)</span>&gt;.
+<span class="w"> </span>At<span class="w"> </span>least<span class="w"> </span>one<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>following<span class="w"> </span>switches<span class="w"> </span>must<span class="w"> </span>be<span class="w"> </span>given:
+<span class="w">  </span>-a,<span class="w"> </span>--archive-headers<span class="w">    </span>Display<span class="w"> </span>archive<span class="w"> </span>header<span class="w"> </span>information
+<span class="w">  </span>-f,<span class="w"> </span>--file-headers<span class="w">       </span>Display<span class="w"> </span>the<span class="w"> </span>contents<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>overall<span class="w"> </span>file<span class="w"> </span>header
+<span class="w">  </span>-p,<span class="w"> </span>--private-headers<span class="w">    </span>Display<span class="w"> </span>object<span class="w"> </span>format<span class="w"> </span>specific<span class="w"> </span>file<span class="w"> </span>header<span class="w"> </span>contents
+<span class="w">  </span>-P,<span class="w"> </span>--private<span class="o">=</span>OPT,OPT...<span class="w"> </span>Display<span class="w"> </span>object<span class="w"> </span>format<span class="w"> </span>specific<span class="w"> </span>contents
+<span class="w">  </span>-h,<span class="w"> </span>--<span class="o">[</span>section-<span class="o">]</span>headers<span class="w">  </span>Display<span class="w"> </span>the<span class="w"> </span>contents<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>section<span class="w"> </span>headers
+<span class="w">  </span>-x,<span class="w"> </span>--all-headers<span class="w">        </span>Display<span class="w"> </span>the<span class="w"> </span>contents<span class="w"> </span>of<span class="w"> </span>all<span class="w"> </span>headers
+<span class="w">  </span>-d,<span class="w"> </span>--disassemble<span class="w">        </span>Display<span class="w"> </span>assembler<span class="w"> </span>contents<span class="w"> </span>of<span class="w"> </span>executable<span class="w"> </span>sections
+<span class="w">  </span>-D,<span class="w"> </span>--disassemble-all<span class="w">    </span>Display<span class="w"> </span>assembler<span class="w"> </span>contents<span class="w"> </span>of<span class="w"> </span>all<span class="w"> </span>sections
+<span class="w">      </span>--disassemble<span class="o">=</span>&lt;sym&gt;<span class="w">  </span>Display<span class="w"> </span>assembler<span class="w"> </span>contents<span class="w"> </span>from<span class="w"> </span>&lt;sym&gt;
+<span class="w">  </span>-S,<span class="w"> </span>--source<span class="w">             </span>Intermix<span class="w"> </span><span class="nb">source</span><span class="w"> </span>code<span class="w"> </span>with<span class="w"> </span>disassembly
+<span class="w">      </span>--source-comment<span class="o">[=</span>&lt;txt&gt;<span class="o">]</span><span class="w"> </span>Prefix<span class="w"> </span>lines<span class="w"> </span>of<span class="w"> </span><span class="nb">source</span><span class="w"> </span>code<span class="w"> </span>with<span class="w"> </span>&lt;txt&gt;
+<span class="w">  </span>-s,<span class="w"> </span>--full-contents<span class="w">      </span>Display<span class="w"> </span>the<span class="w"> </span>full<span class="w"> </span>contents<span class="w"> </span>of<span class="w"> </span>all<span class="w"> </span>sections<span class="w"> </span>requested
+<span class="w">  </span>-g,<span class="w"> </span>--debugging<span class="w">          </span>Display<span class="w"> </span>debug<span class="w"> </span>information<span class="w"> </span><span class="k">in</span><span class="w"> </span>object<span class="w"> </span>file
+<span class="w">  </span>-e,<span class="w"> </span>--debugging-tags<span class="w">     </span>Display<span class="w"> </span>debug<span class="w"> </span>information<span class="w"> </span>using<span class="w"> </span>ctags<span class="w"> </span>style
+<span class="w">  </span>-G,<span class="w"> </span>--stabs<span class="w">              </span>Display<span class="w"> </span><span class="o">(</span><span class="k">in</span><span class="w"> </span>raw<span class="w"> </span>form<span class="o">)</span><span class="w"> </span>any<span class="w"> </span>STABS<span class="w"> </span>info<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span>file
+<span class="w">  </span>-W,<span class="w"> </span>--dwarf<span class="o">[</span>a/<span class="o">=</span>abbrev,<span class="w"> </span>A/<span class="o">=</span>addr,<span class="w"> </span>r/<span class="o">=</span>aranges,<span class="w"> </span>c/<span class="o">=</span>cu_index,<span class="w"> </span>L/<span class="o">=</span>decodedline,
+<span class="w">              </span>f/<span class="o">=</span>frames,<span class="w"> </span>F/<span class="o">=</span>frames-interp,<span class="w"> </span>g/<span class="o">=</span>gdb_index,<span class="w"> </span>i/<span class="o">=</span>info,<span class="w"> </span>o/<span class="o">=</span>loc,
+<span class="w">              </span>m/<span class="o">=</span>macro,<span class="w"> </span>p/<span class="o">=</span>pubnames,<span class="w"> </span>t/<span class="o">=</span>pubtypes,<span class="w"> </span>R/<span class="o">=</span>Ranges,<span class="w"> </span>l/<span class="o">=</span>rawline,
+<span class="w">              </span>s/<span class="o">=</span>str,<span class="w"> </span>O/<span class="o">=</span>str-offsets,<span class="w"> </span>u/<span class="o">=</span>trace_abbrev,<span class="w"> </span>T/<span class="o">=</span>trace_aranges,
+<span class="w">              </span>U/<span class="o">=</span>trace_info<span class="o">]</span>
+<span class="w">                           </span>Display<span class="w"> </span>the<span class="w"> </span>contents<span class="w"> </span>of<span class="w"> </span>DWARF<span class="w"> </span>debug<span class="w"> </span>sections
+<span class="w">  </span>-Wk,--dwarf<span class="o">=</span>links<span class="w">        </span>Display<span class="w"> </span>the<span class="w"> </span>contents<span class="w"> </span>of<span class="w"> </span>sections<span class="w"> </span>that<span class="w"> </span>link<span class="w"> </span>to
+<span class="w">                            </span>separate<span class="w"> </span>debuginfo<span class="w"> </span>files
+<span class="w">  </span>-WK,--dwarf<span class="o">=</span>follow-links
+<span class="w">                           </span>Follow<span class="w"> </span>links<span class="w"> </span>to<span class="w"> </span>separate<span class="w"> </span>debug<span class="w"> </span>info<span class="w"> </span>files<span class="w"> </span><span class="o">(</span>default<span class="o">)</span>
+<span class="w">  </span>-WN,--dwarf<span class="o">=</span>no-follow-links
+<span class="w">                           </span>Do<span class="w"> </span>not<span class="w"> </span>follow<span class="w"> </span>links<span class="w"> </span>to<span class="w"> </span>separate<span class="w"> </span>debug<span class="w"> </span>info<span class="w"> </span>files
+<span class="w">  </span>-L,<span class="w"> </span>--process-links<span class="w">      </span>Display<span class="w"> </span>the<span class="w"> </span>contents<span class="w"> </span>of<span class="w"> </span>non-debug<span class="w"> </span>sections<span class="w"> </span><span class="k">in</span>
+<span class="w">                            </span>separate<span class="w"> </span>debuginfo<span class="w"> </span>files.<span class="w">  </span><span class="o">(</span>Implies<span class="w"> </span>-WK<span class="o">)</span>
+<span class="w">      </span>--ctf<span class="o">[=</span>SECTION<span class="o">]</span><span class="w">      </span>Display<span class="w"> </span>CTF<span class="w"> </span>info<span class="w"> </span>from<span class="w"> </span>SECTION,<span class="w"> </span><span class="o">(</span>default<span class="w"> </span><span class="sb">`</span>.ctf<span class="s1">&#39;)</span>
+<span class="s1">      --sframe[=SECTION]   Display SFrame info from SECTION, (default &#39;</span>.sframe<span class="s1">&#39;)</span>
+<span class="s1">  -t, --syms               Display the contents of the symbol table(s)</span>
+<span class="s1">  -T, --dynamic-syms       Display the contents of the dynamic symbol table</span>
+<span class="s1">  -r, --reloc              Display the relocation entries in the file</span>
+<span class="s1">  -R, --dynamic-reloc      Display the dynamic relocation entries in the file</span>
+<span class="s1">  @&lt;file&gt;                  Read options from &lt;file&gt;</span>
+<span class="s1">  -v, --version            Display this program&#39;</span>s<span class="w"> </span>version<span class="w"> </span>number
+<span class="w">  </span>-i,<span class="w"> </span>--info<span class="w">               </span>List<span class="w"> </span>object<span class="w"> </span>formats<span class="w"> </span>and<span class="w"> </span>architectures<span class="w"> </span>supported
+<span class="w">  </span>-H,<span class="w"> </span>--help<span class="w">               </span>Display<span class="w"> </span>this<span class="w"> </span>information
+</pre></div>
+</div>
+<p>In our case, we want <code class="docutils literal notranslate"><span class="pre">-x</span></code> (all headers), <code class="docutils literal notranslate"><span class="pre">-D</span></code> (disassemble all), <code class="docutils literal notranslate"><span class="pre">-S</span></code> (display source code with assembly), <code class="docutils literal notranslate"><span class="pre">-s</span></code> (full contents of all sections), <code class="docutils literal notranslate"><span class="pre">-g</span></code> (debug info), and finally, <code class="docutils literal notranslate"><span class="pre">-t</span></code> (display contents of the symbol tables).</p>
+<p>We will now disassemble this program on the 64-bit ARM platform and step through the assembly instructions.</p>
+</section>
+<hr class="docutils" />
+<section id="disassembling-add-int-fortran-aarch64-ggdb3-in-gdb-gef">
+<h2>Disassembling <em>add_int_Fortran_aarch64_ggdb3</em> in GDB + GEF<a class="headerlink" href="#disassembling-add-int-fortran-aarch64-ggdb3-in-gdb-gef" title="Link to this heading">#</a></h2>
+<p>The debug process is started by entering:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>gdb<span class="w"> </span>add_int_Fortran_aarch64_ggdb3
+</pre></div>
+</div>
+<p>We then want to disassemble <code class="docutils literal notranslate"><span class="pre">main</span></code>. Looking at main’s disassembly, we notice a call at <code class="docutils literal notranslate"><span class="pre">main+44</span></code> to a function at address <code class="docutils literal notranslate"><span class="pre">0x870</span></code> called <em>add</em>. We then do a disassembly on this function as well.</p>
+<p><img alt="Disassembly of function main" src="../../../../../../_images/running_add_Fortran_aarch64_in_GEF_showing_main.jpg" /></p>
+</section>
+<hr class="docutils" />
+<section id="running-add-int-fortran-aarch64-ggdb3-in-gdb-gef">
+<h2>Running <em>add_int_Fortran_aarch64_ggdb3</em> in GDB + GEF<a class="headerlink" href="#running-add-int-fortran-aarch64-ggdb3-in-gdb-gef" title="Link to this heading">#</a></h2>
+<p>When we look at the executable’s objdump, we notice that there are two functions of interest, one is <code class="docutils literal notranslate"><span class="pre">main</span></code>, and the other is <code class="docutils literal notranslate"><span class="pre">MAIN__</span></code>. The Fortran compiler sets up the program arguments and options in <code class="docutils literal notranslate"><span class="pre">main</span></code>, while the actual program is contained within <code class="docutils literal notranslate"><span class="pre">MAIN__</span></code> (that is capital MAIN followed by two underscores).</p>
+<p>The following text from the executable’s objdump illustrates this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>00000000000007c4<span class="w"> </span><span class="o">(</span>MAIN__<span class="o">)</span>:
+program<span class="w"> </span>add
+<span class="w"> </span>7c4:<span class="w"> </span>d10043ff<span class="w"> </span>sub<span class="w"> </span>sp,<span class="w"> </span>sp,<span class="w"> </span><span class="c1">#0x10</span>
+
+<span class="w">    </span>implicit<span class="w"> </span>none
+
+<span class="w">    </span>integer<span class="w">    </span>::<span class="w"> </span>a,<span class="w"> </span>b,<span class="w"> </span>c
+
+<span class="w">    </span><span class="nv">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+<span class="w"> </span>7c8:<span class="w"> </span><span class="m">52800020</span><span class="w"> </span>mov<span class="w"> </span>w0,<span class="w"> </span><span class="c1">#0x1                    // #1</span>
+<span class="w"> </span>7cc:<span class="w"> </span>b9000fe0<span class="w"> </span>str<span class="w"> </span>w0,<span class="w"> </span><span class="o">[</span>sp,<span class="w"> </span><span class="c1">#12]</span>
+<span class="w">    </span><span class="nv">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">9</span>
+<span class="w"> </span>7d0:<span class="w"> </span><span class="m">52800120</span><span class="w"> </span>mov<span class="w"> </span>w0,<span class="w"> </span><span class="c1">#0x9                    // #9</span>
+<span class="w"> </span>7d4:<span class="w"> </span>b9000be0<span class="w"> </span>str<span class="w"> </span>w0,<span class="w"> </span><span class="o">[</span>sp,<span class="w"> </span><span class="c1">#8]</span>
+
+<span class="w">    </span><span class="nv">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>a<span class="w"> </span>+<span class="w"> </span>b
+<span class="w"> </span>7d8:<span class="w"> </span>b9400fe1<span class="w"> </span>ldr<span class="w"> </span>w1,<span class="w"> </span><span class="o">[</span>sp,<span class="w"> </span><span class="c1">#12]</span>
+<span class="w"> </span>7dc:<span class="w"> </span>b9400be0<span class="w"> </span>ldr<span class="w"> </span>w0,<span class="w"> </span><span class="o">[</span>sp,<span class="w"> </span><span class="c1">#8]</span>
+<span class="w"> </span>7e0:<span class="w"> </span>0b000020<span class="w"> </span>add<span class="w"> </span>w0,<span class="w"> </span>w1,<span class="w"> </span>w0
+<span class="w"> </span>7e4:<span class="w"> </span>b90007e0<span class="w"> </span>str<span class="w"> </span>w0,<span class="w"> </span><span class="o">[</span>sp,<span class="w"> </span><span class="c1">#4]</span>
+
+end<span class="w"> </span>program<span class="w"> </span>add
+<span class="w"> </span>7e8:<span class="w"> </span>d503201f<span class="w"> </span>nop
+<span class="w"> </span>7ec:<span class="w"> </span>910043ff<span class="w"> </span>add<span class="w"> </span>sp,<span class="w"> </span>sp,<span class="w"> </span><span class="c1">#0x10</span>
+<span class="w"> </span>7f0:<span class="w"> </span>d65f03c0<span class="w"> </span>ret
+
+00000000000007f4<span class="w"> </span><span class="o">(</span>main<span class="o">)</span>:
+<span class="w"> </span>7f4:<span class="w"> </span>a9be7bfd<span class="w"> </span>stp<span class="w"> </span>x29,<span class="w"> </span>x30,<span class="w"> </span><span class="o">[</span>sp,<span class="w"> </span><span class="c1">#-32]!</span>
+<span class="w"> </span>7f8:<span class="w"> </span>910003fd<span class="w"> </span>mov<span class="w"> </span>x29,<span class="w"> </span>sp
+<span class="w"> </span>7fc:<span class="w"> </span>b9001fa0<span class="w"> </span>str<span class="w"> </span>w0,<span class="w"> </span><span class="o">[</span>x29,<span class="w"> </span><span class="c1">#28]</span>
+<span class="w"> </span><span class="m">800</span>:<span class="w"> </span>f9000ba1<span class="w"> </span>str<span class="w"> </span>x1,<span class="w"> </span><span class="o">[</span>x29,<span class="w"> </span><span class="c1">#16]</span>
+<span class="w"> </span><span class="m">804</span>:<span class="w"> </span>f9400ba1<span class="w"> </span>ldr<span class="w"> </span>x1,<span class="w"> </span><span class="o">[</span>x29,<span class="w"> </span><span class="c1">#16]</span>
+<span class="w"> </span><span class="m">808</span>:<span class="w"> </span>b9401fa0<span class="w"> </span>ldr<span class="w"> </span>w0,<span class="w"> </span><span class="o">[</span>x29,<span class="w"> </span><span class="c1">#28]</span>
+<span class="w"> </span>80c:<span class="w"> </span>97ffff95<span class="w"> </span>bl<span class="w"> </span><span class="m">660</span><span class="w"> </span>&lt;_gfortran_set_args@plt&gt;
+<span class="w"> </span><span class="m">810</span>:<span class="w"> </span><span class="m">90000000</span><span class="w"> </span>adrp<span class="w"> </span>x0,<span class="w"> </span><span class="m">0</span><span class="w"> </span>&lt;_init-0x628&gt;
+<span class="w"> </span><span class="m">814</span>:<span class="w"> </span><span class="m">91236000</span><span class="w"> </span>add<span class="w"> </span>x0,<span class="w"> </span>x0,<span class="w"> </span><span class="c1">#0x8d8</span>
+<span class="w"> </span><span class="m">818</span>:<span class="w"> </span>aa0003e1<span class="w"> </span>mov<span class="w"> </span>x1,<span class="w"> </span>x0
+<span class="w"> </span>81c:<span class="w"> </span>528000e0<span class="w"> </span>mov<span class="w"> </span>w0,<span class="w"> </span><span class="c1">#0x7</span>
+<span class="w"> </span><span class="m">820</span>:<span class="w"> </span>97ffffa4<span class="w"> </span>bl<span class="w"> </span>6b0<span class="w"> </span>&lt;_gfortran_set_options@plt&gt;
+<span class="w"> </span><span class="m">824</span>:<span class="w"> </span>97ffffe8<span class="w"> </span>bl<span class="w"> </span>7c4<span class="w"> </span>&lt;MAIN__&gt;
+<span class="w"> </span><span class="m">828</span>:<span class="w"> </span><span class="m">52800000</span><span class="w"> </span>mov<span class="w"> </span>w0,<span class="w"> </span><span class="c1">#0x0</span>
+<span class="w"> </span>82c:<span class="w"> </span>a8c27bfd<span class="w"> </span>ldp<span class="w"> </span>x29,<span class="w"> </span>x30,<span class="w"> </span><span class="o">[</span>sp<span class="o">]</span>,<span class="w"> </span><span class="c1">#32</span>
+<span class="w"> </span><span class="m">830</span>:<span class="w"> </span>d65f03c0<span class="w"> </span>ret
+<span class="w"> </span><span class="m">834</span>:<span class="w"> </span><span class="m">00000000</span><span class="w"> </span>.inst<span class="w"> </span>0x00000000<span class="w"> </span><span class="p">;</span><span class="w"> </span>undefined
+</pre></div>
+</div>
+<p>We therefore want to set a breakpoint at <code class="docutils literal notranslate"><span class="pre">*MAIN__</span></code>. We use the <code class="docutils literal notranslate"><span class="pre">*</span></code> to get at <code class="docutils literal notranslate"><span class="pre">MAIN__</span> <span class="pre">+</span> <span class="pre">0</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gef➤<span class="w">  </span><span class="k">break</span><span class="w"> </span>*MAIN__
+Breakpoint<span class="w"> </span><span class="m">3</span><span class="w"> </span>at<span class="w"> </span>0xaaaaaaaaa7c4:<span class="w"> </span>file<span class="w"> </span>add.f08,<span class="w"> </span>line<span class="w"> </span><span class="m">1</span>.
+</pre></div>
+</div>
+<p>The AArch64 has a lot of registers (36 registers visible in GEF), and it becomes necessary to zoom out the screen to see the entire output of GEF. For easier viewing on this website, we will display the output of GEF using two screenshots.</p>
+<a class="reference external image-reference" href="images/running_add_Fortran_aarch64_in_GEF_showing_MAIN__2.jpg"><img alt="MAIN__ in GDB+GEF Part 2" src="../../../../../../_images/running_add_Fortran_aarch64_in_GEF_showing_MAIN__2.jpg" /></a>
+<a class="reference external image-reference" href="images/running_add_Fortran_aarch64_in_GEF_showing_MAIN__1.jpg"><img alt="MAIN__ in GDB+GEF Part 1" src="../../../../../../_images/running_add_Fortran_aarch64_in_GEF_showing_MAIN__1.jpg" /></a>
+<p>Rather than taking screenshots of the state of GEF after executing every instruction, we will place comments on the assembly instructions in <code class="docutils literal notranslate"><span class="pre">MAIN__</span></code> from the executable’s objdump output.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>00000000000007c4<span class="w"> </span><span class="o">(</span>MAIN__<span class="o">)</span>:
+program<span class="w"> </span>add
+<span class="w"> </span>7c4:<span class="w"> </span>d10043ff<span class="w"> </span>sub<span class="w"> </span>sp,<span class="w"> </span>sp,<span class="w"> </span><span class="c1">#0x10</span>
+
+<span class="w">    </span>implicit<span class="w"> </span>none
+
+<span class="w">    </span>integer<span class="w">    </span>::<span class="w"> </span>a,<span class="w"> </span>b,<span class="w"> </span>c
+
+<span class="w">    </span><span class="nv">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+<span class="w"> </span>7c8:<span class="w"> </span><span class="m">52800020</span><span class="w"> </span>mov<span class="w"> </span>w0,<span class="w"> </span><span class="c1">#0x1                // #1 - Moves a 1 into register w0</span>
+<span class="w"> </span>7cc:<span class="w"> </span>b9000fe0<span class="w"> </span>str<span class="w"> </span>w0,<span class="w"> </span><span class="o">[</span>sp,<span class="w"> </span><span class="c1">#12]           //  - Stores the contents of register w0 into the stack pointer + 12.</span>
+<span class="w">                                                        </span>//<span class="w">  </span>Recall<span class="w"> </span>that<span class="w"> </span>even<span class="w"> </span>though<span class="w"> </span>the<span class="w"> </span>machine<span class="w"> </span>is<span class="w"> </span><span class="m">64</span><span class="w"> </span>bit,<span class="w"> </span>when<span class="w"> </span>defining<span class="w"> </span>a
+<span class="w">                                                        </span>//<span class="w">  </span>variable<span class="w"> </span>as<span class="w"> </span>an<span class="w"> </span>integer,<span class="w"> </span>it<span class="w"> </span>is<span class="w"> </span><span class="m">32</span><span class="w"> </span>bits<span class="w"> </span><span class="k">in</span><span class="w"> </span>size.<span class="w">  </span>In<span class="w"> </span>Fortran<span class="w"> </span>there<span class="w"> </span>are
+<span class="w">                                                        </span>//<span class="w">  </span>ways<span class="w"> </span>of<span class="w"> </span>changing<span class="w"> </span>the<span class="w"> </span>size<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>integer<span class="w"> </span>as<span class="w"> </span>stored<span class="w"> </span><span class="k">in</span><span class="w"> </span>memory.
+<span class="w">                                                        </span>//<span class="w">  </span>The<span class="w"> </span>compiler<span class="w"> </span><span class="nb">set</span><span class="w"> </span>aside<span class="w"> </span><span class="nv">4x3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">12</span><span class="w"> </span>bytes<span class="w"> </span>to<span class="w"> </span>store<span class="w"> </span>these<span class="w"> </span>integers.
+<span class="w">                                                        </span>//<span class="w">  </span>The<span class="w"> </span>integer<span class="w"> </span>variable<span class="w"> </span>a<span class="w"> </span>is<span class="w"> </span>at<span class="w"> </span>sp<span class="w"> </span>+<span class="w"> </span><span class="m">12</span>.
+
+<span class="w">    </span><span class="nv">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">9</span>
+<span class="w"> </span>7d0:<span class="w"> </span><span class="m">52800120</span><span class="w"> </span>mov<span class="w"> </span>w0,<span class="w"> </span><span class="c1">#0x9                // #9 - Moves a 1 into register w0</span>
+<span class="w"> </span>7d4:<span class="w"> </span>b9000be0<span class="w"> </span>str<span class="w"> </span>w0,<span class="w"> </span><span class="o">[</span>sp,<span class="w"> </span><span class="c1">#8]            //  - Stores the contents of register w0 into stack pointer + 8.</span>
+
+<span class="w">    </span><span class="nv">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>a<span class="w"> </span>+<span class="w"> </span>b<span class="w">                                           </span>//<span class="w">  </span>Now<span class="w"> </span>that<span class="w"> </span>the<span class="w"> </span>stack<span class="w"> </span>contains<span class="w"> </span>the<span class="w"> </span>addends,<span class="w"> </span>the<span class="w"> </span>machine<span class="w"> </span>can<span class="w"> </span>perform<span class="w"> </span>the<span class="w"> </span>operation.
+<span class="w"> </span>7d8:<span class="w"> </span>b9400fe1<span class="w"> </span>ldr<span class="w"> </span>w1,<span class="w"> </span><span class="o">[</span>sp,<span class="w"> </span><span class="c1">#12]           //  The variable a is loaded into register w1.</span>
+<span class="w"> </span>7dc:<span class="w"> </span>b9400be0<span class="w"> </span>ldr<span class="w"> </span>w0,<span class="w"> </span><span class="o">[</span>sp,<span class="w"> </span><span class="c1">#8]            //  The variable b is loaded into register w0.</span>
+<span class="w"> </span>7e0:<span class="w"> </span>0b000020<span class="w"> </span>add<span class="w"> </span>w0,<span class="w"> </span>w1,<span class="w"> </span>w0<span class="w">              </span>//<span class="w">  </span>w0<span class="w"> </span>+<span class="w"> </span>w1<span class="w"> </span>and<span class="w"> </span>store<span class="w"> </span>result<span class="w"> </span>into<span class="w"> </span>w0
+<span class="w"> </span>7e4:<span class="w"> </span>b90007e0<span class="w"> </span>str<span class="w"> </span>w0,<span class="w"> </span><span class="o">[</span>sp,<span class="w"> </span><span class="c1">#4]            //  Store the value in w0 into stack pointer + 4.</span>
+<span class="w">                                                        </span>//<span class="w">  </span>Stack<span class="w"> </span>pointer<span class="w"> </span>+<span class="w"> </span><span class="m">4</span><span class="w"> </span>is<span class="w"> </span>reserved<span class="w"> </span><span class="k">for</span><span class="w"> </span>the<span class="w"> </span>integer<span class="w"> </span>variable<span class="w"> </span>c.
+
+end<span class="w"> </span>program<span class="w"> </span>add
+<span class="w"> </span>7e8:<span class="w"> </span>d503201f<span class="w"> </span>nop<span class="w">                             </span>//<span class="w">  </span>No<span class="w"> </span>Operation.<span class="w">  </span>Used<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="m">64</span>-bit<span class="w"> </span>boundary<span class="w"> </span>alignment.
+<span class="w"> </span>7ec:<span class="w"> </span>910043ff<span class="w"> </span>add<span class="w"> </span>sp,<span class="w"> </span>sp,<span class="w"> </span><span class="c1">#0x10           //  Clean up the stack.  Subtract 16 from the stack pointer.</span>
+<span class="w"> </span>7f0:<span class="w"> </span>d65f03c0<span class="w"> </span>ret<span class="w">                             </span>//<span class="w">  </span>Return<span class="w"> </span>to<span class="w"> </span>main<span class="w"> </span>by<span class="w"> </span>popping<span class="w"> </span>the<span class="w"> </span><span class="k">return</span><span class="w"> </span>address<span class="w"> </span>off<span class="w"> </span>of
+</pre></div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Sections/Cybersecurity/Disassembling_Binaries/Fortran/ARM64/ADD_INT"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../arm64.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">ARM 64 Bit</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../../../../Computer_Programming/computer_programming.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Computer Programming</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-program-add-f08">The program <em>add.f08</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disassembling-add-int-fortran-aarch64-ggdb3-in-gdb-gef">Disassembling <em>add_int_Fortran_aarch64_ggdb3</em> in GDB + GEF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-add-int-fortran-aarch64-ggdb3-in-gdb-gef">Running <em>add_int_Fortran_aarch64_ggdb3</em> in GDB + GEF</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mark Khusid
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

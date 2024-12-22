@@ -18,6 +18,14 @@ parts:
     
     - file: Sections/Cybersecurity/Basic_Linux_Exploits/basic_linux_exploits
 
+    - file: Sections/Cybersecurity/Disassembling_Binaries/disassembling_binaries
+      sections:
+      - file: Sections/Cybersecurity/Disassembling_Binaries/Fortran/fortran
+        sections:
+        - file: Sections/Cybersecurity/Disassembling_Binaries/Fortran/ARM64/arm64
+          sections:
+          - file: Sections/Cybersecurity/Disassembling_Binaries/Fortran/ARM64/ADD_INT/add_int
+
 - caption: Computer Programming
   chapters:
   - file: Sections/Computer_Programming/computer_programming
