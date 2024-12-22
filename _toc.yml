@@ -227,6 +227,8 @@ parts:
     - file: Sections/Electronics/Analog_and_Digital/analog_and_digital
       sections:
       - file: Sections/Electronics/Analog_and_Digital/AD9850_DDS/AD9850_DDS.md
+    - file: Sections/Electronics/Dual_Diode_Box/dual_diode_box.md
+    - file: Sections/Electronics/Single_Board_Computers_Running_Linux/single_board_computers_running_linux.md
 
 - caption: About Me
   chapters:
@@ -241,7 +243,5 @@ parts:
     
 - caption: Misc
   chapters:
-  - file: markdown-notebooks
-  - file: notebooks
-  - file: README
+  - file: website_updates
 

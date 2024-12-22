@@ -40,7 +40,7 @@ Python Programming
 :::
 
 :::{grid-item-card}
-:link: markdown
+:link: Assembly/markdown
 :link-type: doc
 :class-header: bg-auto
 
@@ -52,7 +52,7 @@ Assembly Language Programming
 :::
 
 :::{grid-item-card}
-:link: markdown
+:link: PHP/markdown
 :link-type: doc
 :class-header: bg-auto
 
@@ -64,13 +64,13 @@ PHP Programming
 :::
 
 :::{grid-item-card}
-:link: markdown
+:link: Javascript/markdown
 :link-type: doc
 :class-header: bg-auto
 
 Javascript Programming
 ^^^
-```{image} images/php-development.jpg
+```{image} images/Javascript.png
 :height: 200
 ```
 :::

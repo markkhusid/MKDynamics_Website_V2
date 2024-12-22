@@ -18,4 +18,28 @@ Analog/Digital Designs and Projects
 ```
 :::
 
+:::{grid-item-card}
+:link: Dual_Diode_Box/markdown
+:class-header: bg-dark
+
+Dual Diode Box
+^^^
+```{image} images/Dual_Diode_Box/dual_diode_box.jpg
+:height: 200
+:align: center
+```
+:::
+
+:::{grid-item-card}
+:link: Single Board Computers Running Linux/markdown
+:class-header: bg-dark
+
+Single Board Computers Running Linux
+^^^
+```{image} images/Single_Board_Computers_Running_Linux/cubietruck1.jpg
+:height: 200
+:align: center
+```
+:::
+
 ::::

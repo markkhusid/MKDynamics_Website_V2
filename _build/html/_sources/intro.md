@@ -16,7 +16,7 @@ Additionally, I am a licensed HAM radio operator and enjoy experimenting with an
 
 Cybersecurity
 ^^^
-```{image} home_page_images/hacker.jpg
+```{image} images/hacker.jpg
 :height: 200
 :align: center
 ```
@@ -35,7 +35,7 @@ Cybersecurity
 
 Computer Programming
 ^^^
-```{image} home_page_images/computer_programming.jpeg
+```{image} images/computer_programming.jpeg
 :height: 200
 :align: center
 ```
@@ -55,33 +55,7 @@ Computer Programming
 
 Dual Diode Box
 ^^^
-```{image} home_page_images/dual_diode_box.jpg
-:height: 200
-:align: center
-```
-:::
-
-:::{grid-item-card}
-:link: Sections/Electronics/electronics
-:link-type: doc
-:class-header: bg-auto
-
-Electronic Circuits
-^^^
-```{image} home_page_images/LTC3891.jpeg
-:height: 200
-:align: center
-```
-:::
-
-:::{grid-item-card}
-:link: markdown
-:link-type: doc
-:class-header: bg-auto
-
-Single Board Computers Running Linux
-^^^
-```{image} home_page_images/cubietruck1.jpg
+```{image} images/LTC3891.jpg
 :height: 200
 :align: center
 ```
@@ -97,7 +71,7 @@ Single Board Computers Running Linux
 
 Exploring CAELinux for Thermal Analysis
 ^^^
-```{image} home_page_images/thermal_study.jpg
+```{image} images/thermal_study.jpg
 :height: 200
 :align: center
 ```
@@ -113,7 +87,7 @@ Exploring CAELinux for Thermal Analysis
 
 Antenna Simulation using 4NEC2
 ^^^
-```{image} home_page_images/ham_radio_antenna_simulation.jpg
+```{image} images/ham_radio_antenna_simulation.jpg
 :height: 200
 :align: center
 ```
@@ -126,7 +100,7 @@ Antenna Simulation using 4NEC2
 
 HAM Radio Projects
 ^^^
-```{image} home_page_images/ham_radio_projects.jpg
+```{image} images/ham_radio_projects.jpg
 :height: 200
 :align: center
 ```
@@ -142,7 +116,7 @@ HAM Radio Projects
 
 About Me
 ^^^
-```{image} home_page_images/about_me.jpg
+```{image} images/about_me.jpg
 :height: 200
 :align: center
 ```
