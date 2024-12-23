@@ -34,19 +34,6 @@ ARM 32 - Bit
 :::
 
 :::{grid-item-card}
-:link: ARM32/arm32
-:link-type: doc
-:class-header: bg-dark
-
-ARM 32 - Bit
-^^^
-```{image} images/ARM32/add_Fortran_ARM32_splash.jpg
-:height: 600
-:width: 800
-```
-:::
-
-:::{grid-item-card}
 :link: AMD64/amd64
 :link-type: doc
 :class-header: bg-dark

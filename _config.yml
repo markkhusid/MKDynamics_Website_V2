@@ -3,7 +3,7 @@
 
 title: MK Dynamics
 author: Mark Khusid
-logo: Images/spacey.jpg
+logo: images/spacey.jpg
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
@@ -35,20 +35,27 @@ html:
   use_issues_button: true
   use_repository_button: true
 
+  launch_buttons:
+    notebook_interface: jupyterlab
+    binderhub_url: "https://mybinder.org"
+    thebe: true
+
 sphinx:
-  extra_extensions:
-    - sphinx.ext.intersphinx
+  #extra_extensions:
+  #  - sphinx.ext.intersphinx
 
   config:
     # Enable all intersphinx references
-    intersphinx_disabled_reftypes: [None]
+    #intersphinx_disabled_reftypes: [None]
 
     html_show_copyright: false
-    intersphinx_mapping: {
-      'MKD_Fortran_Book': 
-        ../markkhusid-MKDWWW_Fortran_Jupyter_Book/_build/html/objects.inv,
+    
+    intersphinx_mapping: 
+      MKD_Fortran_Book: 
+      - "../markkhusid-MKDWWW_Fortran_Jupyter_Book/_build/html/"
+      - null
 
-      }
+      
 
     
 

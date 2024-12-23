@@ -12,7 +12,10 @@ parts:
       sections:
       - file: Sections/Cybersecurity/Protostar/Stack0/stack0
         sections:
-        - file: Sections/Cybersecurity/Protostar/Stack0/stack0_x86
+        - file: Sections/Cybersecurity/Protostar/Stack0/Stack0_x86/stack0_x86
+        - file: Sections/Cybersecurity/Protostar/Stack0/Stack0_AMD64/stack0_AMD64
+        - file: Sections/Cybersecurity/Protostar/Stack0/Stack0_ARM32/stack0_ARM32
+        - file: Sections/Cybersecurity/Protostar/Stack0/Stack0_ARM64/stack0_ARM64
 
     - file: Sections/Cybersecurity/LiveOverflow/liveoverflow
     
@@ -25,12 +28,17 @@ parts:
         - file: Sections/Cybersecurity/Disassembling_Binaries/Fortran/ARM64/arm64
           sections:
           - file: Sections/Cybersecurity/Disassembling_Binaries/Fortran/ARM64/ADD_INT/add_int
+        - file: Sections/Cybersecurity/Disassembling_Binaries/Fortran/ARM32/arm32
+        - file: Sections/Cybersecurity/Disassembling_Binaries/Fortran/AMD64/amd64
+        - file: Sections/Cybersecurity/Disassembling_Binaries/Fortran/i386/i386
 
 - caption: Computer Programming
   chapters:
   - file: Sections/Computer_Programming/computer_programming
 
     sections:
+    - file: Sections/Computer_Programming/Assembly/assembly
+
     - file: Sections/Computer_Programming/CPP/cpp
       sections:
       - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp__HEAD__
@@ -97,6 +105,10 @@ parts:
           - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_7_11_Pointer_Operators
           - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_7_11_1_Pointer_to_Class_Member
 
+    - file: Sections/Computer_Programming/Javascript/javascript
+
+    - file: Sections/Computer_Programming/PHP/php
+
     - file: Sections/Computer_Programming/Python/python
       sections:
       - file: Sections/Computer_Programming/Python/Python_Playground/Python_Playground__HEAD__
@@ -141,7 +153,6 @@ parts:
         - file: Sections/Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_8_2_Time_Matrix_Multiply
         - file: Sections/Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_8_7_Generic_Elemental_Procedures
         - file: Sections/Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_8_8_Findloc_Function
-
 
       - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/fortran_mooc
 

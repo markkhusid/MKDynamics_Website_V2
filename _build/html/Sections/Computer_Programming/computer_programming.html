@@ -16,8 +16,8 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
+  <!--
+    this give us a css class that will be invisible only if js is disabled
   -->
   <noscript>
     <style>
@@ -27,8 +27,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
@@ -39,10 +39,10 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script src="../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -65,8 +65,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Sections/Computer_Programming/computer_programming';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="C++ Programming" href="CPP/cpp.html" />
-    <link rel="prev" title="Fortran - ARM 64-Bit Platform" href="../Cybersecurity/Disassembling_Binaries/Fortran/ARM64/ADD_INT/add_int.html" />
+    <link rel="next" title="Assembly Language Programming" href="Assembly/assembly.html" />
+    <link rel="prev" title="Intel 32 - Bit" href="../Cybersecurity/Disassembling_Binaries/Fortran/i386/i386.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -143,8 +143,14 @@
   
   
   
+    
+    
+      
+    
+    
+    <img src="../../_static/spacey.jpg" class="logo__image only-light" alt="MK Dynamics - Home"/>
+    <img src="../../_static/spacey.jpg" class="logo__image only-dark pst-js-only" alt="MK Dynamics - Home"/>
   
-    <p class="title logo__title">MK Dynamics</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -169,7 +175,10 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Cybersecurity/cybersecurity.html">Cybersecurity</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../Cybersecurity/Protostar/protostar.html">Protostar Exploit Exercises</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../Cybersecurity/Protostar/Stack0/stack0.html">Stack 0</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="../Cybersecurity/Protostar/Stack0/stack0_x86.html">Protostar Exploit Exercises - Stack0 - First Stack Buffer Overflow to modify Variable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Cybersecurity/Protostar/Stack0/Stack0_x86/stack0_x86.html">x86 32-Bit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Cybersecurity/Protostar/Stack0/Stack0_AMD64/stack0_AMD64.html">AMD64</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Cybersecurity/Protostar/Stack0/Stack0_ARM32/stack0_ARM32.html">ARM32</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Cybersecurity/Protostar/Stack0/Stack0_ARM64/stack0_ARM64.html">ARM64</a></li>
 </ul>
 </details></li>
 </ul>
@@ -179,6 +188,9 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="../Cybersecurity/Disassembling_Binaries/disassembling_binaries.html">Disassembling Binaries</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../Cybersecurity/Disassembling_Binaries/Fortran/fortran.html">Fortran</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../Cybersecurity/Disassembling_Binaries/Fortran/ARM64/arm64.html">ARM 64 Bit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Cybersecurity/Disassembling_Binaries/Fortran/ARM32/arm32.html">ARM32</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Cybersecurity/Disassembling_Binaries/Fortran/AMD64/amd64.html">AMD64</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Cybersecurity/Disassembling_Binaries/Fortran/i386/i386.html">Intel 32 - Bit</a></li>
 </ul>
 </details></li>
 </ul>
@@ -189,6 +201,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Computer Programming</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Computer Programming</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Assembly/assembly.html">Assembly Language Programming</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="CPP/cpp.html">C++ Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3 has-children"><a class="reference internal" href="CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp__HEAD__.html">Object Oriented Programming Using C++</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp_Ch_1.html">Chapter 1: Why Object-Oriented Programming in C++?</a></li>
@@ -202,6 +215,8 @@
 </details></li>
 </ul>
 </details></li>
+<li class="toctree-l2"><a class="reference internal" href="Javascript/javascript.html">Javascript Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PHP/php.html">PHP Programming</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="Python/python.html">Python Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3 has-children"><a class="reference internal" href="Python/Python_Playground/Python_Playground__HEAD__.html">Python Playground: Geeky Projects for the Curious Programmer</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="Python/Python_Playground/Section_Chapter_2_Draw_Circle.html">Chapter 2: Draw Circle using Turtle Graphics</a></li>
@@ -277,8 +292,18 @@
 <li class="toctree-l3"><a class="reference internal" href="../Electronics/Analog_and_Digital/AD9850_DDS/AD9850_DDS.html">Variable Frequency Oscillator Using Direct Digital Synthesis</a></li>
 </ul>
 </details></li>
+<li class="toctree-l2"><a class="reference internal" href="../Electronics/Dual_Diode_Box/dual_diode_box.html">Dual Diode Box</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Electronics/Single_Board_Computers_Running_Linux/single_board_computers_running_linux.html">Single Board Computers Running Linux</a></li>
 </ul>
 </details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Finite Element Analysis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Finite_Element_Analysis/finite_element_analysis.html">Finite Element Analysis</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Ham Radio</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Ham_Radio/ham_radio.html">Ham Radio</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">About Me</span></p>
 <ul class="nav bd-sidenav">
@@ -295,9 +320,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Misc</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../notebooks.html">Content with notebooks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../README.html">MKDynamics_Website_V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../website_updates.html">Website Updates</a></li>
 </ul>
 
     </div>
@@ -306,9 +329,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -530,7 +558,7 @@
 <div class="sd-card-body docutils">
 <a class="reference internal image-reference" href="../../_images/c64_assembly.jpg"><img alt="../../_images/c64_assembly.jpg" src="../../_images/c64_assembly.jpg" style="height: 200px;" /></a>
 </div>
-<a class="sd-stretched-link sd-hide-link-text reference internal" href="Assembly/markdown.html"><span class="doc">Markdown Files</span></a></div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="Assembly/assembly.html"><span class="doc">Assembly Language Programming</span></a></div>
 </div>
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
@@ -540,7 +568,7 @@
 <div class="sd-card-body docutils">
 <a class="reference internal image-reference" href="../../_images/php-development.jpg"><img alt="../../_images/php-development.jpg" src="../../_images/php-development.jpg" style="height: 200px;" /></a>
 </div>
-<a class="sd-stretched-link sd-hide-link-text reference internal" href="PHP/markdown.html"><span class="doc">Markdown Files</span></a></div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="PHP/php.html"><span class="doc">PHP Programming</span></a></div>
 </div>
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
@@ -550,7 +578,7 @@
 <div class="sd-card-body docutils">
 <a class="reference internal image-reference" href="../../_images/Javascript.png"><img alt="../../_images/Javascript.png" src="../../_images/Javascript.png" style="height: 200px;" /></a>
 </div>
-<a class="sd-stretched-link sd-hide-link-text reference internal" href="Javascript/markdown.html"><span class="doc">Markdown Files</span></a></div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="Javascript/javascript.html"><span class="doc">Javascript Programming</span></a></div>
 </div>
 </div>
 </div>
@@ -589,20 +617,20 @@
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../Cybersecurity/Disassembling_Binaries/Fortran/ARM64/ADD_INT/add_int.html"
+       href="../Cybersecurity/Disassembling_Binaries/Fortran/i386/i386.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Fortran - ARM 64-Bit Platform</p>
+        <p class="prev-next-title">Intel 32 - Bit</p>
       </div>
     </a>
     <a class="right-next"
-       href="CPP/cpp.html"
+       href="Assembly/assembly.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">C++ Programming</p>
+        <p class="prev-next-title">Assembly Language Programming</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -649,8 +677,8 @@ By Mark Khusid
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>
