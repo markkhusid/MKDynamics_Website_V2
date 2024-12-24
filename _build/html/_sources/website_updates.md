@@ -1,5 +1,8 @@
 # Website Updates
 
+## 12/24/2024
+- Merry Christmas Eve! Changed over AWS webserver to point to Version 2 of the website.  The new website is now live!  It is built using the Jupyter Book format.  I have allot of work to do to port all of the old html content into Myst-NB markdown format.  ChatGPT makes this much easier!  I will be working on this over the next few weeks.  Code for the old website is still available on my Github repository.
+
 ## 12/22/2024
 - Working on converting entire website to Jupyter Book format (i.e. version 2).
 
