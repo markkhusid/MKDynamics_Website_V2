@@ -1,8 +1,24 @@
 # My Resume
 
-<iframe src="Mark_Khusid_EE_Resume_2024_06_01.pdf"
-        height="1200" 
-        width="1000"
-></iframe>
-
 [Download the PDF](EE_Resume/2024_06_01/Mark_Khusid_EE_Resume_2024_06_01.pdf) 
+
+```{figure} EE_Resume/2024_06_01/Mark_Khusid_EE_Resume_2024_06_01-1.png
+:alt: Mark Khusid's Resume
+:height: 1000
+:width: 800
+:align: center
+```
+
+```{figure} EE_Resume/2024_06_01/Mark_Khusid_EE_Resume_2024_06_01-2.png
+:alt: Mark Khusid's Resume
+:height: 1000
+:width: 800
+:align: center
+```
+
+```{figure} EE_Resume/2024_06_01/Mark_Khusid_EE_Resume_2024_06_01-3.png
+:alt: Mark Khusid's Resume
+:height: 1000
+:width: 800
+:align: center
+```
