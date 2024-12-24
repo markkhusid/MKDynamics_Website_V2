@@ -670,23 +670,31 @@ k_4 = \Delta t \, \mathbf{f}(t_0 + \Delta t, \mathbf{u}_0 + k_3)
 \mathbf{f}(t, \mathbf{u}) = \begin{bmatrix} V_X \\ V_Y \\ 0 \\ -g \end{bmatrix}
 \end{split}\]</div>
 <p>We need to calculate the four approximations ( <span class="math notranslate nohighlight">\( k_1 \)</span>, <span class="math notranslate nohighlight">\( k_2 \)</span>, <span class="math notranslate nohighlight">\( k_3 \)</span>, and <span class="math notranslate nohighlight">\( k_4 \)</span> ) for each of the state variables:</p>
-<ol class="arabic simple">
-<li><p><strong>At the current state <span class="math notranslate nohighlight">\( t_0 \)</span>, <span class="math notranslate nohighlight">\( \mathbf{u}_0 \)</span></strong>:
-$<span class="math notranslate nohighlight">\(
-k_1 = \Delta t \, \begin{bmatrix} V_X \\ V_Y \\ 0 \\ -g \end{bmatrix}
-\)</span>$</p></li>
-<li><p><strong>At the midpoint <span class="math notranslate nohighlight">\( t_0 + \frac{\Delta t}{2} \)</span>, using <span class="math notranslate nohighlight">\( k_1 \)</span> to update <span class="math notranslate nohighlight">\( \mathbf{u}_0 \)</span></strong>:
-$<span class="math notranslate nohighlight">\(
-k_2 = \Delta t \, \begin{bmatrix} V_X + \frac{k_1(3)}{2} \\ V_Y + \frac{k_1(4)}{2} \\ 0 \\ -g \end{bmatrix}
-\)</span>$</p></li>
-<li><p><strong>At the midpoint again, <span class="math notranslate nohighlight">\( t_0 + \frac{\Delta t}{2} \)</span>, using <span class="math notranslate nohighlight">\( k_2 \)</span> to update <span class="math notranslate nohighlight">\( \mathbf{u}_0 \)</span></strong>:
-$<span class="math notranslate nohighlight">\(
-k_3 = \Delta t \, \begin{bmatrix} V_X + \frac{k_2(3)}{2} \\ V_Y + \frac{k_2(4)}{2} \\ 0 \\ -g \end{bmatrix}
-\)</span>$</p></li>
-<li><p><strong>At the end of the step <span class="math notranslate nohighlight">\( t_0 + \Delta t \)</span>, using <span class="math notranslate nohighlight">\( k_3 \)</span> to update <span class="math notranslate nohighlight">\( \mathbf{u}_0 \)</span></strong>:
-$<span class="math notranslate nohighlight">\(
-k_4 = \Delta t \, \begin{bmatrix} V_X + k_3(3) \\ V_Y + k_3(4) \\ 0 \\ -g \end{bmatrix}
-\)</span>$</p></li>
+<ol class="arabic">
+<li><p><strong>At the current state <span class="math notranslate nohighlight">\( t_0 \)</span>, <span class="math notranslate nohighlight">\( \mathbf{u}_0 \)</span></strong>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+   k_1 = \Delta t \, \begin{bmatrix} V_X \\ V_Y \\ 0 \\ -g \end{bmatrix}
+   \end{split}\]</div>
+</li>
+<li><p><strong>At the midpoint <span class="math notranslate nohighlight">\( t_0 + \frac{\Delta t}{2} \)</span>, using <span class="math notranslate nohighlight">\( k_1 \)</span> to update <span class="math notranslate nohighlight">\( \mathbf{u}_0 \)</span></strong>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+   k_2 = \Delta t \, \begin{bmatrix} V_X + \frac{k_1(3)}{2} \\ V_Y + \frac{k_1(4)}{2} \\ 0 \\ -g \end{bmatrix}
+   \end{split}\]</div>
+</li>
+<li><p><strong>At the midpoint again, <span class="math notranslate nohighlight">\( t_0 + \frac{\Delta t}{2} \)</span>, using <span class="math notranslate nohighlight">\( k_2 \)</span> to update <span class="math notranslate nohighlight">\( \mathbf{u}_0 \)</span></strong>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+   k_3 = \Delta t \, \begin{bmatrix} V_X + \frac{k_2(3)}{2} \\ V_Y + \frac{k_2(4)}{2} \\ 0 \\ -g \end{bmatrix}
+   \end{split}\]</div>
+</li>
+<li><p><strong>At the end of the step <span class="math notranslate nohighlight">\( t_0 + \Delta t \)</span>, using <span class="math notranslate nohighlight">\( k_3 \)</span> to update <span class="math notranslate nohighlight">\( \mathbf{u}_0 \)</span></strong>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+   k_4 = \Delta t \, \begin{bmatrix} V_X + k_3(3) \\ V_Y + k_3(4) \\ 0 \\ -g \end{bmatrix}
+   \end{split}\]</div>
+</li>
 </ol>
 </section>
 <section id="final-update">
@@ -712,22 +720,26 @@ k_4 = \Delta t \, \begin{bmatrix} V_X + k_3(3) \\ V_Y + k_3(4) \\ 0 \\ -g \end{b
 </section>
 <section id="v-x-velocity-in-x-direction">
 <h4><span class="math notranslate nohighlight">\( V_X \)</span> (Velocity in x-direction):<a class="headerlink" href="#v-x-velocity-in-x-direction" title="Link to this heading">#</a></h4>
-<ul class="simple">
-<li><p>The velocity in the x-direction <span class="math notranslate nohighlight">\( V_X \)</span> remains constant (no acceleration in the x-direction):
-$<span class="math notranslate nohighlight">\(
-\frac{dV_X}{dt} = 0
-\)</span><span class="math notranslate nohighlight">\(
-This means that \)</span> V_X $ doesn’t change during the simulation.</p></li>
+<ul>
+<li><p>The velocity in the x-direction <span class="math notranslate nohighlight">\( V_X \)</span> remains constant (no acceleration in the x-direction):</p>
+<div class="math notranslate nohighlight">
+\[
+  \frac{dV_X}{dt} = 0
+  \]</div>
+<p>This means that <span class="math notranslate nohighlight">\( V_X \)</span> doesn’t change during the simulation.</p>
+</li>
 </ul>
 </section>
 <section id="v-y-velocity-in-y-direction">
 <h4><span class="math notranslate nohighlight">\( V_Y \)</span> (Velocity in y-direction):<a class="headerlink" href="#v-y-velocity-in-y-direction" title="Link to this heading">#</a></h4>
-<ul class="simple">
-<li><p>The velocity in the y-direction is affected by gravity:
-$<span class="math notranslate nohighlight">\(
-\frac{dV_Y}{dt} = -g
-\)</span><span class="math notranslate nohighlight">\(
-The velocity \)</span> V_Y $ decreases over time due to the downward acceleration caused by gravity.</p></li>
+<ul>
+<li><p>The velocity in the y-direction is affected by gravity:</p>
+<div class="math notranslate nohighlight">
+\[
+  \frac{dV_Y}{dt} = -g
+  \]</div>
+<p>The velocity <span class="math notranslate nohighlight">\( V_Y \)</span> decreases over time due to the downward acceleration caused by gravity.</p>
+</li>
 </ul>
 </section>
 </section>
