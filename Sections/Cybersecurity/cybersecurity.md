@@ -54,4 +54,29 @@ Disassembling Binaries
 ```
 :::
 
+:::{grid-item-card}
+:link: Shellcode_Generation_and_Testing/shellcode_generation_and_testing
+:link-type: doc
+:class-header: bg-dark
+
+Shellcode Generation and Testing
+^^^
+```{image} images/Shellcode_Generation/shellcode_generation.jpg
+:height: 200
+```
+:::
+
+:::{grid-item-card}
+:link: SLAE64/SLAE64
+:link-type: doc
+:class-header: bg-dark
+
+Pentester Academy: 
+SLAE64 - SecurityTube Linux Assembly Language and Shellcoding Expert 64-Bit
+^^^
+```{image} images/SLAE64/SHELLCODING64.png
+:height: 200
+```
+:::
+
 ::::

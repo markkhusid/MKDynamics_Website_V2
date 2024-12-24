@@ -12,23 +12,64 @@ In this section we will disassemble binaries generated from the C, C++, Fortran,
 :link-type: doc
 :class-header: bg-dark
 
-Fortran
+Fortran Binaries
 ^^^
 ```{image} images/Fortran/fortran_splash.jpg
-:height: 600
+:height: 500
 :width: 800
 ```
 :::
+
+:::{grid-item-card}
+:link: C/c
+:link-type: doc
+:class-header: bg-dark
+
+C Binaries
+^^^
+```{image} images/C/c_splash.jpg
+:height: 500
+:width: 800
+```
+:::
+
+:::{grid-item-card}
+:link: CPP/cpp
+:link-type: doc
+:class-header: bg-dark
+
+C++ Binaries
+^^^
+```{image} images/CPP/cpp_splash.jpg
+:height: 500
+:width: 800
+```
+:::
+
+:::{grid-item-card}
+:link: Ada/ada
+:link-type: doc
+:class-header: bg-dark
+
+Ada Binaries
+^^^
+```{image} images/Ada/ada_splash.jpg
+:height: 500
+:width: 800
+```
+:::
+
+:::{grid-item-card}
+:link: Pascal/pascal
+:link-type: doc
+:class-header: bg-dark
+
+Pascal Binaries
+^^^
+```{image} images/Pascal/pascal_splash.jpg
+:height: 500
+:width: 800
+```
+:::
+
 ::::
-
-## C
-Under Construction
-
-## C++
-Under Construction
-
-## Ada
-Under Construction
-
-## Pascal
-Under Construction

@@ -8,16 +8,6 @@ parts:
   chapters:
   - file: Sections/Cybersecurity/cybersecurity
     sections:
-    - file: Sections/Cybersecurity/Protostar/protostar
-      sections:
-      - file: Sections/Cybersecurity/Protostar/Stack0/stack0
-        sections:
-        - file: Sections/Cybersecurity/Protostar/Stack0/Stack0_x86/stack0_x86
-        - file: Sections/Cybersecurity/Protostar/Stack0/Stack0_AMD64/stack0_AMD64
-        - file: Sections/Cybersecurity/Protostar/Stack0/Stack0_ARM32/stack0_ARM32
-        - file: Sections/Cybersecurity/Protostar/Stack0/Stack0_ARM64/stack0_ARM64
-
-    - file: Sections/Cybersecurity/LiveOverflow/liveoverflow
     
     - file: Sections/Cybersecurity/Basic_Linux_Exploits/basic_linux_exploits
 
@@ -31,6 +21,30 @@ parts:
         - file: Sections/Cybersecurity/Disassembling_Binaries/Fortran/ARM32/arm32
         - file: Sections/Cybersecurity/Disassembling_Binaries/Fortran/AMD64/amd64
         - file: Sections/Cybersecurity/Disassembling_Binaries/Fortran/i386/i386
+
+      - file: Sections/Cybersecurity/Disassembling_Binaries/C/c
+      - file: Sections/Cybersecurity/Disassembling_Binaries/CPP/cpp
+      - file: Sections/Cybersecurity/Disassembling_Binaries/Ada/ada
+      - file: Sections/Cybersecurity/Disassembling_Binaries/Pascal/pascal
+      
+
+    - file: Sections/Cybersecurity/LiveOverflow/liveoverflow
+
+    - file: Sections/Cybersecurity/Protostar/protostar
+      sections:
+      - file: Sections/Cybersecurity/Protostar/Stack0/stack0
+        sections:
+        - file: Sections/Cybersecurity/Protostar/Stack0/Stack0_x86/stack0_x86
+        - file: Sections/Cybersecurity/Protostar/Stack0/Stack0_AMD64/stack0_AMD64
+        - file: Sections/Cybersecurity/Protostar/Stack0/Stack0_ARM32/stack0_ARM32
+        - file: Sections/Cybersecurity/Protostar/Stack0/Stack0_ARM64/stack0_ARM64
+
+    - file: Sections/Cybersecurity/SLAE64/SLAE64
+
+    - file: Sections/Cybersecurity/Shellcode_Generation_and_Testing/shellcode_generation_and_testing
+
+    - file: Sections/Cybersecurity/Misc/misc__head__
+
 
 - caption: Computer Programming
   chapters:

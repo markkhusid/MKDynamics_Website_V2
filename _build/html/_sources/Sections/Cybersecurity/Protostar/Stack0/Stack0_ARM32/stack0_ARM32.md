@@ -4,7 +4,7 @@
 
 ---
 
-### **Introduction**
+## **Introduction**
 
 In this section, we will complete the set of exploit exercises known as Protostar. The first challenge is called Stack0. The idea is to change an internal variable in a running program from the command line. The technique involves overflowing a buffer to overwrite the contents of the internal variable. The link is shown below.
 
@@ -14,7 +14,7 @@ We will perform this exercise using the ARM32 platform instead of the original i
 
 ---
 
-### **The Vulnerable C Program `stack0.c`**
+## **The Vulnerable C Program `stack0.c`**
 
 We start with the vulnerable C Program `stack0.c`. The program is vulnerable because the `gets` function does not have any bounds checking. In other words, it will take whatever amount of data is given to it and put this data into the `buffer` argument, even if the amount of data exceeds the storage space allocated for `buffer`. In this case, `buffer` is allocated 64 bytes.
 
@@ -32,7 +32,7 @@ The vulnerable program *stack0.c*
 
 ---
 
-### **Running the Vulnerable C Program `stack0.c` Through GDB+GEF**
+## **Running the Vulnerable C Program `stack0.c` Through GDB+GEF**
 
 In this section, we start the program in GDB+GEF and observe its behavior. As shown in the image below, the program waits for input on stdin. After inputting four *A's*, it replies with "Try again?"
 
@@ -56,9 +56,9 @@ Program execution in GDB+GEF
 
 ---
 
-### **Disassembling The Vulnerable C Program `stack0.c` with GDB+GEF**
+## **Disassembling The Vulnerable C Program `stack0.c` with GDB+GEF**
 
-#### **Visualizing Main's Stack Frame**
+### **Visualizing Main's Stack Frame**
 
 The command line arguments to `main` are pushed onto the stack in reverse order. Then `main`'s return address to `libc` is pushed onto the stack. Once the executable is ready to run, the stack pointer `ESP` points to `main`'s return address at the top of the stack. Everything else pushed onto the stack will go into lower addresses since the stack grows downward in memory.
 
@@ -83,9 +83,9 @@ We now summarize the state of the stack in the following table:
 
 ** Under Construction **
 
-### **Disassembling and Executing the Vulnerable C Program `stack0.c`**
+## **Disassembling and Executing the Vulnerable C Program `stack0.c`**
 
-#### **Stepping From `main+0` to `main+1`**
+### **Stepping From `main+0` to `main+1`**
 
 The instruction `push ebp` saves `main`'s `ebp` so that it can be restored after execution. The state of the stack changes as follows:
 
@@ -101,7 +101,7 @@ The instruction `push ebp` saves `main`'s `ebp` so that it can be restored after
 
 ---
 
-#### **Stepping From `main+1` to `main+3`**
+### **Stepping From `main+1` to `main+3`**
 
 The instruction `mov ebp, esp` moves the current stack pointer `esp` into `ebp`, allowing stack data to be referenced with respect to the base pointer `ebp`. The state of the stack does not change.
 
@@ -109,7 +109,7 @@ The instruction `mov ebp, esp` moves the current stack pointer `esp` into `ebp`,
 
 ---
 
-#### **Stepping From `main+3` to `main+6`**
+### **Stepping From `main+3` to `main+6`**
 
 The instruction `and esp, 0xfffffff0` clears out the last 4 bits of the `esp` register, effectively subtracting 8 bytes from the current stack address. The updated stack layout is:
 
@@ -122,8 +122,6 @@ The instruction `and esp, 0xfffffff0` clears out the last 4 bits of the `esp` re
 | **`ESP ->`**      | `0xf7f99000`                     | 4            |
 
 ![State of execution after `and esp, 0xfffffff0`](../images/Protostar/Stack0/gef_step_3_and_esp_0xfffffff0.jpg)
-
----
 
 ---
 
@@ -142,9 +140,9 @@ The table below illustrates the layout of the stack once `and esp, 0xfffffff0` i
 
 ---
 
-### **Disassembling and Executing The Vulnerable C Program `stack0.c` with GDB+GEF**
+## **Disassembling and Executing The Vulnerable C Program `stack0.c` with GDB+GEF**
 
-#### **Stepping From `main+6` to `main+9`**
+### **Stepping From `main+6` to `main+9`**
 
 In this section, we advance a single assembly instruction, describe what happened, and show the state of the stack.
 
@@ -169,9 +167,9 @@ The table below illustrates the layout of the stack once `sub esp, 0x60` is exec
 
 ---
 
-### **Disassembling and Executing The Vulnerable C Program `stack0.c` with GDB+GEF**
+## **Disassembling and Executing The Vulnerable C Program `stack0.c` with GDB+GEF**
 
-#### **Stepping From `main+9` to `main+17`**
+### **Stepping From `main+9` to `main+17`**
 
 In this section, we advance a single assembly instruction, describe what happened, and show the state of the stack.
 
@@ -196,9 +194,9 @@ The table below illustrates the layout of the stack once `mov DWORD PTR [esp+0x5
 
 ---
 
-### **Disassembling and Executing The Vulnerable C Program `stack0.c` with GDB+GEF**
+## **Disassembling and Executing The Vulnerable C Program `stack0.c` with GDB+GEF**
 
-#### **Stepping From `main+17` to `main+21`**
+### **Stepping From `main+17` to `main+21`**
 
 In this section, we advance a single assembly instruction, describe what happened, and show the state of the stack.
 
@@ -221,9 +219,9 @@ The table below illustrates the layout of the stack once `lea eax, [esp+0x1c]` i
 
 ---
 
-### **Disassembling and Executing The Vulnerable C Program `stack0.c` with GDB+GEF**
+## **Disassembling and Executing The Vulnerable C Program `stack0.c` with GDB+GEF**
 
-#### **Stepping From `main+21` to `main+24`**
+### **Stepping From `main+21` to `main+24`**
 
 In this section, we advance a single assembly instruction, describe what happened, and show the state of the stack.
 

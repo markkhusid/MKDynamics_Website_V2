@@ -171,6 +171,22 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Cybersecurity</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../../../cybersecurity.html">Cybersecurity</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../Basic_Linux_Exploits/basic_linux_exploits.html">Basic Linux Exploits</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../Disassembling_Binaries/disassembling_binaries.html">Disassembling Binaries</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../Disassembling_Binaries/Fortran/fortran.html">Fortran</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../Disassembling_Binaries/Fortran/ARM64/arm64.html">ARM 64 Bit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../Disassembling_Binaries/Fortran/ARM32/arm32.html">ARM32</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../Disassembling_Binaries/Fortran/AMD64/amd64.html">AMD64</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../Disassembling_Binaries/Fortran/i386/i386.html">Intel 32 - Bit</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Disassembling_Binaries/C/c.html">C</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Disassembling_Binaries/CPP/cpp.html">C++</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Disassembling_Binaries/Ada/ada.html">Ada</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Disassembling_Binaries/Pascal/pascal.html">Pascal</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../LiveOverflow/liveoverflow.html">LiveOverflow</a></li>
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="../../protostar.html">Protostar Exploit Exercises</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l3 current active has-children"><a class="reference internal" href="../stack0.html">Stack 0</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="../Stack0_x86/stack0_x86.html">x86 32-Bit</a></li>
@@ -181,18 +197,9 @@
 </details></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../LiveOverflow/liveoverflow.html">LiveOverflow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../Basic_Linux_Exploits/basic_linux_exploits.html">Basic Linux Exploits</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../../Disassembling_Binaries/disassembling_binaries.html">Disassembling Binaries</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../Disassembling_Binaries/Fortran/fortran.html">Fortran</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../Disassembling_Binaries/Fortran/ARM64/arm64.html">ARM 64 Bit</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../Disassembling_Binaries/Fortran/ARM32/arm32.html">ARM32</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../Disassembling_Binaries/Fortran/AMD64/amd64.html">AMD64</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../Disassembling_Binaries/Fortran/i386/i386.html">Intel 32 - Bit</a></li>
-</ul>
-</details></li>
-</ul>
-</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../SLAE64/SLAE64.html">SLAE64</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Shellcode_Generation_and_Testing/shellcode_generation_and_testing.html">Shellcode Generation and Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Misc/misc__head__.html">Miscellanous</a></li>
 </ul>
 </details></li>
 </ul>
@@ -522,32 +529,32 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stepping-from-main-0-to-main-1"><strong>Stepping From <code class="docutils literal notranslate"><span class="pre">main+0</span></code> to <code class="docutils literal notranslate"><span class="pre">main+1</span></code></strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stepping-from-main-1-to-main-3"><strong>Stepping From <code class="docutils literal notranslate"><span class="pre">main+1</span></code> to <code class="docutils literal notranslate"><span class="pre">main+3</span></code></strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stepping-from-main-3-to-main-6"><strong>Stepping From <code class="docutils literal notranslate"><span class="pre">main+3</span></code> to <code class="docutils literal notranslate"><span class="pre">main+6</span></code></strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#layout-of-the-stack-in-program-stack0-c-after-and-esp-0xfffffff0-instruction"><strong>Layout of the Stack in Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> After <code class="docutils literal notranslate"><span class="pre">and</span> <span class="pre">esp,</span> <span class="pre">0xfffffff0</span></code> Instruction</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#layout-of-the-stack-in-program-stack0-c-after-and-esp-0xfffffff0-instruction"><strong>Layout of the Stack in Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> After <code class="docutils literal notranslate"><span class="pre">and</span> <span class="pre">esp,</span> <span class="pre">0xfffffff0</span></code> Instruction</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disassembling-and-executing-the-vulnerable-c-program-stack0-c-with-gdb-gef"><strong>Disassembling and Executing The Vulnerable C Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> with GDB+GEF</strong></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stepping-from-main-6-to-main-9"><strong>Stepping From <code class="docutils literal notranslate"><span class="pre">main+6</span></code> to <code class="docutils literal notranslate"><span class="pre">main+9</span></code></strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#layout-of-the-stack-in-program-stack0-c-after-sub-esp-0x60-instruction"><strong>Layout of the Stack in Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> After <code class="docutils literal notranslate"><span class="pre">sub</span> <span class="pre">esp,</span> <span class="pre">0x60</span></code> Instruction</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#layout-of-the-stack-in-program-stack0-c-after-sub-esp-0x60-instruction"><strong>Layout of the Stack in Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> After <code class="docutils literal notranslate"><span class="pre">sub</span> <span class="pre">esp,</span> <span class="pre">0x60</span></code> Instruction</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>Disassembling and Executing The Vulnerable C Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> with GDB+GEF</strong></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stepping-from-main-9-to-main-17"><strong>Stepping From <code class="docutils literal notranslate"><span class="pre">main+9</span></code> to <code class="docutils literal notranslate"><span class="pre">main+17</span></code></strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#layout-of-the-stack-in-program-stack0-c-after-mov-dword-ptr-esp-0x5c-0x0-instruction"><strong>Layout of the Stack in Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> After <code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">DWORD</span> <span class="pre">PTR</span> <span class="pre">[esp+0x5c],</span> <span class="pre">0x0</span></code> Instruction</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#layout-of-the-stack-in-program-stack0-c-after-mov-dword-ptr-esp-0x5c-0x0-instruction"><strong>Layout of the Stack in Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> After <code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">DWORD</span> <span class="pre">PTR</span> <span class="pre">[esp+0x5c],</span> <span class="pre">0x0</span></code> Instruction</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>Disassembling and Executing The Vulnerable C Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> with GDB+GEF</strong></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stepping-from-main-17-to-main-21"><strong>Stepping From <code class="docutils literal notranslate"><span class="pre">main+17</span></code> to <code class="docutils literal notranslate"><span class="pre">main+21</span></code></strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#layout-of-the-stack-in-program-stack0-c-after-lea-eax-esp-0x1c-instruction"><strong>Layout of the Stack in Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> After <code class="docutils literal notranslate"><span class="pre">lea</span> <span class="pre">eax,</span> <span class="pre">[esp+0x1c]</span></code> Instruction</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#layout-of-the-stack-in-program-stack0-c-after-lea-eax-esp-0x1c-instruction"><strong>Layout of the Stack in Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> After <code class="docutils literal notranslate"><span class="pre">lea</span> <span class="pre">eax,</span> <span class="pre">[esp+0x1c]</span></code> Instruction</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><strong>Disassembling and Executing The Vulnerable C Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> with GDB+GEF</strong></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stepping-from-main-21-to-main-24"><strong>Stepping From <code class="docutils literal notranslate"><span class="pre">main+21</span></code> to <code class="docutils literal notranslate"><span class="pre">main+24</span></code></strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#layout-of-the-stack-in-program-stack0-c-after-mov-dword-ptr-esp-eax-instruction"><strong>Layout of the Stack in Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> After <code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">DWORD</span> <span class="pre">PTR</span> <span class="pre">[esp],</span> <span class="pre">eax</span></code> Instruction</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-the-payload-to-overwrite-the-variable-modified"><strong>Creating the Payload to Overwrite the Variable <code class="docutils literal notranslate"><span class="pre">modified</span></code></strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><strong>Layout of the Stack in Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> After <code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">DWORD</span> <span class="pre">PTR</span> <span class="pre">[esp],</span> <span class="pre">eax</span></code> Instruction</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion"><strong>Conclusion</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#layout-of-the-stack-in-program-stack0-c-after-mov-dword-ptr-esp-eax-instruction"><strong>Layout of the Stack in Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> After <code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">DWORD</span> <span class="pre">PTR</span> <span class="pre">[esp],</span> <span class="pre">eax</span></code> Instruction</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-the-payload-to-overwrite-the-variable-modified"><strong>Creating the Payload to Overwrite the Variable <code class="docutils literal notranslate"><span class="pre">modified</span></code></strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><strong>Layout of the Stack in Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> After <code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">DWORD</span> <span class="pre">PTR</span> <span class="pre">[esp],</span> <span class="pre">eax</span></code> Instruction</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion"><strong>Conclusion</strong></a></li>
 </ul>
             </nav>
         </div>
@@ -568,8 +575,8 @@
 <p>In this section, we will complete the set of exploit exercises known as Protostar. The first challenge is called Stack0. The idea is to change an internal variable in a running program from the command line. The technique involves overflowing a buffer to overwrite the contents of the internal variable. The link is shown below.</p>
 <p><a class="reference external" href="https://www.vulnhub.com/entry/exploit-exercises-protostar-v2,32/">Exploit-Exercises: Protostar (v2) on Vulnhub</a></p>
 <p>We will perform this exercise using the ARM32 platform instead of the original i386 platform. The C code should run the same way, while the underlying assembly code is very different. We will explore the similarities as well as the differences between the two platforms.</p>
-<hr class="docutils" />
 </section>
+<hr class="docutils" />
 <section id="the-vulnerable-c-program-stack0-c">
 <h2><strong>The Vulnerable C Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code></strong><a class="headerlink" href="#the-vulnerable-c-program-stack0-c" title="Link to this heading">#</a></h2>
 <p>We start with the vulnerable C Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code>. The program is vulnerable because the <code class="docutils literal notranslate"><span class="pre">gets</span></code> function does not have any bounds checking. In other words, it will take whatever amount of data is given to it and put this data into the <code class="docutils literal notranslate"><span class="pre">buffer</span></code> argument, even if the amount of data exceeds the storage space allocated for <code class="docutils literal notranslate"><span class="pre">buffer</span></code>. In this case, <code class="docutils literal notranslate"><span class="pre">buffer</span></code> is allocated 64 bytes.</p>
@@ -577,30 +584,30 @@
 <figure class="align-center" id="stack0-c-3">
 <img alt="stack0_c_3" src="../../../../../_images/stack0_c_31.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 15 </span><span class="caption-text">The vulnerable program <em>stack0.c</em></span><a class="headerlink" href="#stack0-c-3" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 42 </span><span class="caption-text">The vulnerable program <em>stack0.c</em></span><a class="headerlink" href="#stack0-c-3" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><a class="reference download internal" download="" href="../../../../../_downloads/28ebefb07dea6577fca0cc5650e2e2ae/stack0.c"><span class="xref download myst">Click here to download <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code></span></a></p>
-<hr class="docutils" />
 </section>
+<hr class="docutils" />
 <section id="running-the-vulnerable-c-program-stack0-c-through-gdb-gef">
 <h2><strong>Running the Vulnerable C Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> Through GDB+GEF</strong><a class="headerlink" href="#running-the-vulnerable-c-program-stack0-c-through-gdb-gef" title="Link to this heading">#</a></h2>
 <p>In this section, we start the program in GDB+GEF and observe its behavior. As shown in the image below, the program waits for input on stdin. After inputting four <em>A’s</em>, it replies with “Try again?”</p>
 <figure class="align-center" id="executing-stack0-in-cmd-line">
 <img alt="executing_stack0_in_cmd_line" src="../../../../../_images/executing_stack0_in_cmd_line.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 16 </span><span class="caption-text">Program execution in the command line</span><a class="headerlink" href="#executing-stack0-in-cmd-line" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 43 </span><span class="caption-text">Program execution in the command line</span><a class="headerlink" href="#executing-stack0-in-cmd-line" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Clearly, we need to disassemble the program to understand its behavior and figure out how we can change the <code class="docutils literal notranslate"><span class="pre">modified</span></code> variable. We enter a breakpoint at <code class="docutils literal notranslate"><span class="pre">*main</span></code> (note: not <code class="docutils literal notranslate"><span class="pre">main</span></code>). Using <code class="docutils literal notranslate"><span class="pre">*main</span></code> allows us to get to the beginning of the main function’s assembly code. Otherwise, breaking at <code class="docutils literal notranslate"><span class="pre">main</span></code> would only reach the beginning of the variable assignments, missing the important stack setup.</p>
 <figure class="align-center" id="parrot-gef3-redirect-payload-4-a-into-exe">
 <img alt="parrot_gef3_redirect_payload_4_A_into_exe" src="../../../../../_images/parrot_gef3_redirect_payload_4_A_into_exe.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 17 </span><span class="caption-text">Program execution in GDB+GEF</span><a class="headerlink" href="#parrot-gef3-redirect-payload-4-a-into-exe" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 44 </span><span class="caption-text">Program execution in GDB+GEF</span><a class="headerlink" href="#parrot-gef3-redirect-payload-4-a-into-exe" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<hr class="docutils" />
 </section>
+<hr class="docutils" />
 <section id="disassembling-the-vulnerable-c-program-stack0-c-with-gdb-gef">
 <h2><strong>Disassembling The Vulnerable C Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> with GDB+GEF</strong><a class="headerlink" href="#disassembling-the-vulnerable-c-program-stack0-c-with-gdb-gef" title="Link to this heading">#</a></h2>
 <section id="visualizing-main-s-stack-frame">
@@ -609,7 +616,7 @@
 <figure class="align-center" id="gef-start-run-with-4-a-highlight-main-ret-argc-argv">
 <img alt="gef_start_run_with_4_A_highlight_main_ret_argc_argv" src="../../../../../_images/gef_start_run_with_4_A_highlight_main_ret_argc_argv.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 18 </span><span class="caption-text">Main’s stack frame highlighted</span><a class="headerlink" href="#gef-start-run-with-4-a-highlight-main-ret-argc-argv" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 45 </span><span class="caption-text">Main’s stack frame highlighted</span><a class="headerlink" href="#gef-start-run-with-4-a-highlight-main-ret-argc-argv" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>We now summarize the state of the stack in the following table:</p>
@@ -728,12 +735,10 @@
 </table>
 </div>
 <p><img alt="State of execution after " src="Sections/Cybersecurity/Protostar/Stack0/images/Protostar/Stack0/gef_step_3_and_esp_0xfffffff0.jpg" /></p>
-<hr class="docutils" />
-<hr class="docutils" />
 </section>
-</section>
+<hr class="docutils" />
 <section id="layout-of-the-stack-in-program-stack0-c-after-and-esp-0xfffffff0-instruction">
-<h2><strong>Layout of the Stack in Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> After <code class="docutils literal notranslate"><span class="pre">and</span> <span class="pre">esp,</span> <span class="pre">0xfffffff0</span></code> Instruction</strong><a class="headerlink" href="#layout-of-the-stack-in-program-stack0-c-after-and-esp-0xfffffff0-instruction" title="Link to this heading">#</a></h2>
+<h3><strong>Layout of the Stack in Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> After <code class="docutils literal notranslate"><span class="pre">and</span> <span class="pre">esp,</span> <span class="pre">0xfffffff0</span></code> Instruction</strong><a class="headerlink" href="#layout-of-the-stack-in-program-stack0-c-after-and-esp-0xfffffff0-instruction" title="Link to this heading">#</a></h3>
 <p>The table below illustrates the layout of the stack once <code class="docutils literal notranslate"><span class="pre">and</span> <span class="pre">esp,</span> <span class="pre">0xfffffff0</span></code> is executed:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -770,8 +775,9 @@
 </tbody>
 </table>
 </div>
-<hr class="docutils" />
 </section>
+</section>
+<hr class="docutils" />
 <section id="disassembling-and-executing-the-vulnerable-c-program-stack0-c-with-gdb-gef">
 <h2><strong>Disassembling and Executing The Vulnerable C Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> with GDB+GEF</strong><a class="headerlink" href="#disassembling-and-executing-the-vulnerable-c-program-stack0-c-with-gdb-gef" title="Link to this heading">#</a></h2>
 <section id="stepping-from-main-6-to-main-9">
@@ -779,11 +785,10 @@
 <p>In this section, we advance a single assembly instruction, describe what happened, and show the state of the stack.</p>
 <p>Execution was advanced a single step in GDB+GEF by using the <code class="docutils literal notranslate"><span class="pre">si</span></code> instruction. <code class="docutils literal notranslate"><span class="pre">EIP</span></code> now points to <code class="docutils literal notranslate"><span class="pre">main+9</span></code>.</p>
 <p><img alt="State of execution after " src="Sections/Cybersecurity/Protostar/Stack0/images/Protostar/Stack0/gef_step_4_sub_esp_0x60.jpg" /></p>
+</section>
 <hr class="docutils" />
-</section>
-</section>
 <section id="layout-of-the-stack-in-program-stack0-c-after-sub-esp-0x60-instruction">
-<h2><strong>Layout of the Stack in Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> After <code class="docutils literal notranslate"><span class="pre">sub</span> <span class="pre">esp,</span> <span class="pre">0x60</span></code> Instruction</strong><a class="headerlink" href="#layout-of-the-stack-in-program-stack0-c-after-sub-esp-0x60-instruction" title="Link to this heading">#</a></h2>
+<h3><strong>Layout of the Stack in Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> After <code class="docutils literal notranslate"><span class="pre">sub</span> <span class="pre">esp,</span> <span class="pre">0x60</span></code> Instruction</strong><a class="headerlink" href="#layout-of-the-stack-in-program-stack0-c-after-sub-esp-0x60-instruction" title="Link to this heading">#</a></h3>
 <p>The table below illustrates the layout of the stack once <code class="docutils literal notranslate"><span class="pre">sub</span> <span class="pre">esp,</span> <span class="pre">0x60</span></code> is executed:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -820,8 +825,9 @@
 </tbody>
 </table>
 </div>
-<hr class="docutils" />
 </section>
+</section>
+<hr class="docutils" />
 <section id="id1">
 <h2><strong>Disassembling and Executing The Vulnerable C Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> with GDB+GEF</strong><a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <section id="stepping-from-main-9-to-main-17">
@@ -829,11 +835,10 @@
 <p>In this section, we advance a single assembly instruction, describe what happened, and show the state of the stack.</p>
 <p>Execution was advanced a single step in GDB+GEF by using the <code class="docutils literal notranslate"><span class="pre">si</span></code> instruction. <code class="docutils literal notranslate"><span class="pre">EIP</span></code> now points to <code class="docutils literal notranslate"><span class="pre">main+17</span></code>.</p>
 <p><img alt="State of execution after " src="Sections/Cybersecurity/Protostar/Stack0/images/Protostar/Stack0/gef_step_5_mov_DWORD_PTR_esp+0x5c_0x0.jpg" /></p>
+</section>
 <hr class="docutils" />
-</section>
-</section>
 <section id="layout-of-the-stack-in-program-stack0-c-after-mov-dword-ptr-esp-0x5c-0x0-instruction">
-<h2><strong>Layout of the Stack in Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> After <code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">DWORD</span> <span class="pre">PTR</span> <span class="pre">[esp+0x5c],</span> <span class="pre">0x0</span></code> Instruction</strong><a class="headerlink" href="#layout-of-the-stack-in-program-stack0-c-after-mov-dword-ptr-esp-0x5c-0x0-instruction" title="Link to this heading">#</a></h2>
+<h3><strong>Layout of the Stack in Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> After <code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">DWORD</span> <span class="pre">PTR</span> <span class="pre">[esp+0x5c],</span> <span class="pre">0x0</span></code> Instruction</strong><a class="headerlink" href="#layout-of-the-stack-in-program-stack0-c-after-mov-dword-ptr-esp-0x5c-0x0-instruction" title="Link to this heading">#</a></h3>
 <p>The table below illustrates the layout of the stack once <code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">DWORD</span> <span class="pre">PTR</span> <span class="pre">[esp+0x5c],</span> <span class="pre">0x0</span></code> is executed:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -870,8 +875,9 @@
 </tbody>
 </table>
 </div>
-<hr class="docutils" />
 </section>
+</section>
+<hr class="docutils" />
 <section id="id2">
 <h2><strong>Disassembling and Executing The Vulnerable C Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> with GDB+GEF</strong><a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <section id="stepping-from-main-17-to-main-21">
@@ -879,11 +885,10 @@
 <p>In this section, we advance a single assembly instruction, describe what happened, and show the state of the stack.</p>
 <p>Execution was advanced a single step in GDB+GEF by using the <code class="docutils literal notranslate"><span class="pre">si</span></code> instruction. <code class="docutils literal notranslate"><span class="pre">EIP</span></code> now points to <code class="docutils literal notranslate"><span class="pre">main+21</span></code>.</p>
 <p><img alt="State of execution after " src="Sections/Cybersecurity/Protostar/Stack0/images/Protostar/Stack0/gef_step_6_lea_eax_%5Besp+0x1c%5D.jpg" /></p>
+</section>
 <hr class="docutils" />
-</section>
-</section>
 <section id="layout-of-the-stack-in-program-stack0-c-after-lea-eax-esp-0x1c-instruction">
-<h2><strong>Layout of the Stack in Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> After <code class="docutils literal notranslate"><span class="pre">lea</span> <span class="pre">eax,</span> <span class="pre">[esp+0x1c]</span></code> Instruction</strong><a class="headerlink" href="#layout-of-the-stack-in-program-stack0-c-after-lea-eax-esp-0x1c-instruction" title="Link to this heading">#</a></h2>
+<h3><strong>Layout of the Stack in Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> After <code class="docutils literal notranslate"><span class="pre">lea</span> <span class="pre">eax,</span> <span class="pre">[esp+0x1c]</span></code> Instruction</strong><a class="headerlink" href="#layout-of-the-stack-in-program-stack0-c-after-lea-eax-esp-0x1c-instruction" title="Link to this heading">#</a></h3>
 <p>The table below illustrates the layout of the stack once <code class="docutils literal notranslate"><span class="pre">lea</span> <span class="pre">eax,</span> <span class="pre">[esp+0x1c]</span></code> is executed:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -912,8 +917,9 @@
 </tbody>
 </table>
 </div>
-<hr class="docutils" />
 </section>
+</section>
+<hr class="docutils" />
 <section id="id3">
 <h2><strong>Disassembling and Executing The Vulnerable C Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> with GDB+GEF</strong><a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
 <section id="stepping-from-main-21-to-main-24">
@@ -921,11 +927,10 @@
 <p>In this section, we advance a single assembly instruction, describe what happened, and show the state of the stack.</p>
 <p>Execution was advanced a single step in GDB+GEF by using the <code class="docutils literal notranslate"><span class="pre">si</span></code> instruction. <code class="docutils literal notranslate"><span class="pre">EIP</span></code> now points to <code class="docutils literal notranslate"><span class="pre">main+24</span></code>.</p>
 <p><img alt="State of execution after " src="Sections/Cybersecurity/Protostar/Stack0/images/Protostar/Stack0/gef_step_7_mov_DWORD_PTR_%5Besp%5D_eax.jpg" /></p>
+</section>
 <hr class="docutils" />
-</section>
-</section>
 <section id="layout-of-the-stack-in-program-stack0-c-after-mov-dword-ptr-esp-eax-instruction">
-<h2><strong>Layout of the Stack in Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> After <code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">DWORD</span> <span class="pre">PTR</span> <span class="pre">[esp],</span> <span class="pre">eax</span></code> Instruction</strong><a class="headerlink" href="#layout-of-the-stack-in-program-stack0-c-after-mov-dword-ptr-esp-eax-instruction" title="Link to this heading">#</a></h2>
+<h3><strong>Layout of the Stack in Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> After <code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">DWORD</span> <span class="pre">PTR</span> <span class="pre">[esp],</span> <span class="pre">eax</span></code> Instruction</strong><a class="headerlink" href="#layout-of-the-stack-in-program-stack0-c-after-mov-dword-ptr-esp-eax-instruction" title="Link to this heading">#</a></h3>
 <p>The table below illustrates the layout of the stack once <code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">DWORD</span> <span class="pre">PTR</span> <span class="pre">[esp],</span> <span class="pre">eax</span></code> is executed:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -954,18 +959,18 @@
 </tbody>
 </table>
 </div>
-<hr class="docutils" />
 </section>
+<hr class="docutils" />
 <section id="creating-the-payload-to-overwrite-the-variable-modified">
-<h2><strong>Creating the Payload to Overwrite the Variable <code class="docutils literal notranslate"><span class="pre">modified</span></code></strong><a class="headerlink" href="#creating-the-payload-to-overwrite-the-variable-modified" title="Link to this heading">#</a></h2>
+<h3><strong>Creating the Payload to Overwrite the Variable <code class="docutils literal notranslate"><span class="pre">modified</span></code></strong><a class="headerlink" href="#creating-the-payload-to-overwrite-the-variable-modified" title="Link to this heading">#</a></h3>
 <p>We will create a Python script to build a payload. This payload will contain 64+4 characters, which is the 68 bytes necessary to completely overwrite the variable <code class="docutils literal notranslate"><span class="pre">modified</span></code>.</p>
 <p><img alt="Python program to generate payload to input into " src="Sections/Cybersecurity/Protostar/Stack0/images/Protostar/Stack0/exploit_py.jpg" /></p>
 <p>The goal of this program is to generate 66 bytes. The reason it is not 68 bytes is because we need to account for the carriage return (CR) character that Python’s <code class="docutils literal notranslate"><span class="pre">print</span></code> statement appends to the end. Below is the output of <code class="docutils literal notranslate"><span class="pre">exploit.py</span></code> and a view of the <code class="docutils literal notranslate"><span class="pre">xxd</span></code> output of the payload file.</p>
 <p><img alt="Python program to generate payload to input into " src="Sections/Cybersecurity/Protostar/Stack0/images/Protostar/Stack0/exploit_py_output_and_xxd.jpg" /></p>
-<hr class="docutils" />
 </section>
+<hr class="docutils" />
 <section id="id4">
-<h2><strong>Layout of the Stack in Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> After <code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">DWORD</span> <span class="pre">PTR</span> <span class="pre">[esp],</span> <span class="pre">eax</span></code> Instruction</strong><a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<h3><strong>Layout of the Stack in Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> After <code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">DWORD</span> <span class="pre">PTR</span> <span class="pre">[esp],</span> <span class="pre">eax</span></code> Instruction</strong><a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <p>The table below illustrates the layout of the stack once <code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">DWORD</span> <span class="pre">PTR</span> <span class="pre">[esp],</span> <span class="pre">eax</span></code> is executed:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -1019,11 +1024,12 @@
 </tbody>
 </table>
 </div>
-<hr class="docutils" />
 </section>
+<hr class="docutils" />
 <section id="conclusion">
-<h2><strong>Conclusion</strong><a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
+<h3><strong>Conclusion</strong><a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h3>
 <p>We have now successfully created a payload and executed the vulnerable program. By carefully stepping through the disassembly and manipulating the stack, we have been able to overwrite the <code class="docutils literal notranslate"><span class="pre">modified</span></code> variable and achieve the intended outcome. The process demonstrates how buffer overflows can be used to manipulate the behavior of a program by controlling stack</p>
+</section>
 </section>
 </section>
 
@@ -1103,32 +1109,32 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stepping-from-main-0-to-main-1"><strong>Stepping From <code class="docutils literal notranslate"><span class="pre">main+0</span></code> to <code class="docutils literal notranslate"><span class="pre">main+1</span></code></strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stepping-from-main-1-to-main-3"><strong>Stepping From <code class="docutils literal notranslate"><span class="pre">main+1</span></code> to <code class="docutils literal notranslate"><span class="pre">main+3</span></code></strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stepping-from-main-3-to-main-6"><strong>Stepping From <code class="docutils literal notranslate"><span class="pre">main+3</span></code> to <code class="docutils literal notranslate"><span class="pre">main+6</span></code></strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#layout-of-the-stack-in-program-stack0-c-after-and-esp-0xfffffff0-instruction"><strong>Layout of the Stack in Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> After <code class="docutils literal notranslate"><span class="pre">and</span> <span class="pre">esp,</span> <span class="pre">0xfffffff0</span></code> Instruction</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#layout-of-the-stack-in-program-stack0-c-after-and-esp-0xfffffff0-instruction"><strong>Layout of the Stack in Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> After <code class="docutils literal notranslate"><span class="pre">and</span> <span class="pre">esp,</span> <span class="pre">0xfffffff0</span></code> Instruction</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disassembling-and-executing-the-vulnerable-c-program-stack0-c-with-gdb-gef"><strong>Disassembling and Executing The Vulnerable C Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> with GDB+GEF</strong></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stepping-from-main-6-to-main-9"><strong>Stepping From <code class="docutils literal notranslate"><span class="pre">main+6</span></code> to <code class="docutils literal notranslate"><span class="pre">main+9</span></code></strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#layout-of-the-stack-in-program-stack0-c-after-sub-esp-0x60-instruction"><strong>Layout of the Stack in Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> After <code class="docutils literal notranslate"><span class="pre">sub</span> <span class="pre">esp,</span> <span class="pre">0x60</span></code> Instruction</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#layout-of-the-stack-in-program-stack0-c-after-sub-esp-0x60-instruction"><strong>Layout of the Stack in Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> After <code class="docutils literal notranslate"><span class="pre">sub</span> <span class="pre">esp,</span> <span class="pre">0x60</span></code> Instruction</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>Disassembling and Executing The Vulnerable C Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> with GDB+GEF</strong></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stepping-from-main-9-to-main-17"><strong>Stepping From <code class="docutils literal notranslate"><span class="pre">main+9</span></code> to <code class="docutils literal notranslate"><span class="pre">main+17</span></code></strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#layout-of-the-stack-in-program-stack0-c-after-mov-dword-ptr-esp-0x5c-0x0-instruction"><strong>Layout of the Stack in Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> After <code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">DWORD</span> <span class="pre">PTR</span> <span class="pre">[esp+0x5c],</span> <span class="pre">0x0</span></code> Instruction</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#layout-of-the-stack-in-program-stack0-c-after-mov-dword-ptr-esp-0x5c-0x0-instruction"><strong>Layout of the Stack in Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> After <code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">DWORD</span> <span class="pre">PTR</span> <span class="pre">[esp+0x5c],</span> <span class="pre">0x0</span></code> Instruction</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>Disassembling and Executing The Vulnerable C Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> with GDB+GEF</strong></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stepping-from-main-17-to-main-21"><strong>Stepping From <code class="docutils literal notranslate"><span class="pre">main+17</span></code> to <code class="docutils literal notranslate"><span class="pre">main+21</span></code></strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#layout-of-the-stack-in-program-stack0-c-after-lea-eax-esp-0x1c-instruction"><strong>Layout of the Stack in Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> After <code class="docutils literal notranslate"><span class="pre">lea</span> <span class="pre">eax,</span> <span class="pre">[esp+0x1c]</span></code> Instruction</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#layout-of-the-stack-in-program-stack0-c-after-lea-eax-esp-0x1c-instruction"><strong>Layout of the Stack in Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> After <code class="docutils literal notranslate"><span class="pre">lea</span> <span class="pre">eax,</span> <span class="pre">[esp+0x1c]</span></code> Instruction</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><strong>Disassembling and Executing The Vulnerable C Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> with GDB+GEF</strong></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stepping-from-main-21-to-main-24"><strong>Stepping From <code class="docutils literal notranslate"><span class="pre">main+21</span></code> to <code class="docutils literal notranslate"><span class="pre">main+24</span></code></strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#layout-of-the-stack-in-program-stack0-c-after-mov-dword-ptr-esp-eax-instruction"><strong>Layout of the Stack in Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> After <code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">DWORD</span> <span class="pre">PTR</span> <span class="pre">[esp],</span> <span class="pre">eax</span></code> Instruction</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-the-payload-to-overwrite-the-variable-modified"><strong>Creating the Payload to Overwrite the Variable <code class="docutils literal notranslate"><span class="pre">modified</span></code></strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><strong>Layout of the Stack in Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> After <code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">DWORD</span> <span class="pre">PTR</span> <span class="pre">[esp],</span> <span class="pre">eax</span></code> Instruction</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion"><strong>Conclusion</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#layout-of-the-stack-in-program-stack0-c-after-mov-dword-ptr-esp-eax-instruction"><strong>Layout of the Stack in Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> After <code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">DWORD</span> <span class="pre">PTR</span> <span class="pre">[esp],</span> <span class="pre">eax</span></code> Instruction</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-the-payload-to-overwrite-the-variable-modified"><strong>Creating the Payload to Overwrite the Variable <code class="docutils literal notranslate"><span class="pre">modified</span></code></strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><strong>Layout of the Stack in Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> After <code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">DWORD</span> <span class="pre">PTR</span> <span class="pre">[esp],</span> <span class="pre">eax</span></code> Instruction</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion"><strong>Conclusion</strong></a></li>
 </ul>
   </nav></div>
 

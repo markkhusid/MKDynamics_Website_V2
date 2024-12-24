@@ -171,17 +171,6 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Cybersecurity</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../../../cybersecurity.html">Cybersecurity</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active has-children"><a class="reference internal" href="../../protostar.html">Protostar Exploit Exercises</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l3 current active has-children"><a class="reference internal" href="../stack0.html">Stack 0</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l4 current active"><a class="current reference internal" href="#">x86 32-Bit</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../Stack0_AMD64/stack0_AMD64.html">AMD64</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../Stack0_ARM32/stack0_ARM32.html">ARM 32 - Bit</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../Stack0_ARM64/stack0_ARM64.html">ARM 64 - Bit</a></li>
-</ul>
-</details></li>
-</ul>
-</details></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../LiveOverflow/liveoverflow.html">LiveOverflow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../Basic_Linux_Exploits/basic_linux_exploits.html">Basic Linux Exploits</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../Disassembling_Binaries/disassembling_binaries.html">Disassembling Binaries</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../../Disassembling_Binaries/Fortran/fortran.html">Fortran</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -193,6 +182,20 @@
 </details></li>
 </ul>
 </details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../LiveOverflow/liveoverflow.html">LiveOverflow</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../../protostar.html">Protostar Exploit Exercises</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="../stack0.html">Stack 0</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l4 current active"><a class="current reference internal" href="#">x86 32-Bit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Stack0_AMD64/stack0_AMD64.html">AMD64</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Stack0_ARM32/stack0_ARM32.html">ARM 32 - Bit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Stack0_ARM64/stack0_ARM64.html">ARM 64 - Bit</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../SLAE64/SLAE64.html">SLAE64</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Shellcode_Generation_and_Testing/shellcode_generation_and_testing.html">Shellcode Generation and Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Misc/misc__head__.html">Miscellanous</a></li>
 </ul>
 </details></li>
 </ul>
@@ -600,7 +603,7 @@
 <figure class="align-center" id="stack0-c-3">
 <img alt="stack0_c_3" src="../../../../../_images/stack0_c_3.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 1 </span><span class="caption-text">The vulnerable program <em>stack0.c</em></span><a class="headerlink" href="#stack0-c-3" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 28 </span><span class="caption-text">The vulnerable program <em>stack0.c</em></span><a class="headerlink" href="#stack0-c-3" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><a class="reference internal" href="#code/Stack0/stack0.c"><span class="xref myst">Click here to download <em>stack0.c</em></span></a></p>
@@ -612,7 +615,7 @@
 <figure class="align-center" id="parrot-gef3-redirect-payload-4-a-into-exe-jpg">
 <img alt="parrot_gef3_redirect_payload_4_A_into_exe.jpg" src="../../../../../_images/parrot_gef3_redirect_payload_4_A_into_exe.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 2 </span><span class="caption-text">The vulnerable program <em>stack0.c</em></span><a class="headerlink" href="#parrot-gef3-redirect-payload-4-a-into-exe-jpg" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 29 </span><span class="caption-text">The vulnerable program <em>stack0.c</em></span><a class="headerlink" href="#parrot-gef3-redirect-payload-4-a-into-exe-jpg" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>In the next section, we show the output of the run command in GDB+GEF.</p>
@@ -626,7 +629,7 @@
 <figure class="align-center" id="gef-start-run-with-4-a-highlight-main-ret-argc-argv-jpg-jpg">
 <img alt="gef_start_run_with_4_A_highlight_main_ret_argc_argv.jpg.jpg" src="../../../../../_images/gef_start_run_with_4_A_highlight_main_ret_argc_argv.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Main’s stack frame highlighted.</span><a class="headerlink" href="#gef-start-run-with-4-a-highlight-main-ret-argc-argv-jpg-jpg" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 30 </span><span class="caption-text">Main’s stack frame highlighted.</span><a class="headerlink" href="#gef-start-run-with-4-a-highlight-main-ret-argc-argv-jpg-jpg" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>We will now begin show a table that summarizes the state of the stack at this point.</p>
@@ -684,7 +687,7 @@
 <figure class="align-center" id="gef-step-1-push-ebp">
 <img alt="gef_step_1_push_ebp.jpg" src="../../../../../_images/gef_step_1_push_ebp.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 4 </span><span class="caption-text">State of execution after <em>push ebp</em></span><a class="headerlink" href="#gef-step-1-push-ebp" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 31 </span><span class="caption-text">State of execution after <em>push ebp</em></span><a class="headerlink" href="#gef-step-1-push-ebp" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>As can be seen from the disassembly above, the instruction <em>push ebp</em> was executed. This saves main’s ebp so that it can be restored when main is finished executing. We will now show the state of the stack below.</p>
@@ -742,7 +745,7 @@
 <figure class="align-center" id="gef-step-2-mov-ebp-esp-jpg">
 <img alt="gef_step_2_mov_ebp_esp.jpg" src="../../../../../_images/gef_step_2_mov_ebp_esp.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 5 </span><span class="caption-text">State of execution after <em>push ebp</em></span><a class="headerlink" href="#gef-step-2-mov-ebp-esp-jpg" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 32 </span><span class="caption-text">State of execution after <em>push ebp</em></span><a class="headerlink" href="#gef-step-2-mov-ebp-esp-jpg" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>As can be seen from the disassembly above, the instruction <em>mov ebp, esp</em> was executed. This moves the current stack pointer <em>esp</em> into <em>ebp</em> so that data on the stack can be referenced with respect to the base pointer <em>ebp</em>. The state of the stack has not changed since the last instruction. We will now advance one more instruction and describe the result.</p>
@@ -760,7 +763,7 @@
 <figure class="align-center" id="gef-step-3-and-esp-0xfffffff0-jpg">
 <img alt="gef_step_3_and_esp_0xfffffff0.jpg" src="../../../../../_images/gef_step_3_and_esp_0xfffffff0.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 6 </span><span class="caption-text">State of execution after <em>and esp, 0xfffffff0</em></span><a class="headerlink" href="#gef-step-3-and-esp-0xfffffff0-jpg" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 33 </span><span class="caption-text">State of execution after <em>and esp, 0xfffffff0</em></span><a class="headerlink" href="#gef-step-3-and-esp-0xfffffff0-jpg" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>As can be seen from the disassembly above, the instruction <em>and esp, 0xfffffff0</em> was executed. This clears out the last 4 bits of the <em>esp</em> register. The reason is that this action effectively subtracts 8 bytes from the current stack address. We will now show the current state of the stack in the table below.</p>
@@ -818,7 +821,7 @@
 <figure class="align-center" id="gef-step-4-sub-esp-0x60-jpg">
 <img alt="gef_step_4_sub_esp_0x60.jpg" src="../../../../../_images/gef_step_4_sub_esp_0x60.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 7 </span><span class="caption-text">State of execution after <em>sub esp, 0x60</em></span><a class="headerlink" href="#gef-step-4-sub-esp-0x60-jpg" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 34 </span><span class="caption-text">State of execution after <em>sub esp, 0x60</em></span><a class="headerlink" href="#gef-step-4-sub-esp-0x60-jpg" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>As can be seen from the disassembly above, the instruction <em>sub esp, 0x60</em> was executed. This moves the stack pointer <em>esp</em> further down in memory by 96 bytes. The reason this is being done is to make room for the local variables <em>modified</em> and <em>buffer</em>. Recall that <em>modified</em> requires 4 bytes and <em>buffer</em> requires 64 bytes. The total amount of stack memory required for these two local variables is 64+4 = 68 bytes. Why has the compiler decided to provide an additional 96-68=28 bytes? 28 bytes correspons to 7 groups of 4 bytes. Let’s step through the program so that we can figure out the compiler’s intentions. We will now show the current state of the stack in the table below.</p>
@@ -881,7 +884,7 @@
 <figure class="align-center" id="gef-step-5-mov-dword-ptr-esp-0x5c-0x0-jpg">
 <img alt="gef_step_5_mov_DWORD_PTR_esp+0x5c_0x0.jpg" src="../../../../../_images/gef_step_5_mov_DWORD_PTR_esp%2B0x5c_0x0.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 8 </span><span class="caption-text">State of execution after <em>sub esp, 0x60</em></span><a class="headerlink" href="#gef-step-5-mov-dword-ptr-esp-0x5c-0x0-jpg" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 35 </span><span class="caption-text">State of execution after <em>sub esp, 0x60</em></span><a class="headerlink" href="#gef-step-5-mov-dword-ptr-esp-0x5c-0x0-jpg" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>As can be seen from the disassembly above, the instruction <em>mov DWORD PTR [esp+0x5c], 0x0</em> was executed. This moves a 0 into the stack location esp+0x5c, or esp+92. Recall that the compiler previously allocated 96 bytes for local variable storage on the stack, and now has moved a 0 into the location 92 bytes above from where it is currently pointing. This is nothing but setting the local variable <em>modified</em> to zero. So the local variable <em>modified</em> resides at esp+0x5c or esp+92 on the stack. We will now show the current state of the stack in the table below.</p>
@@ -955,7 +958,7 @@
 <figure class="align-center" id="gef-step-6-lea-eax-esp-0x1c-jpg">
 <img alt="gef_step_6_lea_eax_[esp+0x1c].jpg" src="../../../../../_images/gef_step_6_lea_eax_%5Besp%2B0x1c%5D.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 9 </span><span class="caption-text">State of execution after <em>lea eax, [esp+0x1c]</em></span><a class="headerlink" href="#gef-step-6-lea-eax-esp-0x1c-jpg" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 36 </span><span class="caption-text">State of execution after <em>lea eax, [esp+0x1c]</em></span><a class="headerlink" href="#gef-step-6-lea-eax-esp-0x1c-jpg" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>As can be seen from the disassembly above, the instruction <em>lea eax, [esp+0x1c]</em> was executed. This instruction loads the effective address of what the location at ESP+0x1C (ESP+28) contains. All this does is result in EAX containing the stack address ESP+0x1C (ESP+28). This can be verified by issuing the following command:</p>
@@ -989,7 +992,7 @@ gef➤</p>
 <figure class="align-center" id="gef-step-7-mov-dword-ptr-esp-eax-jpg">
 <img alt="gef_step_7_mov_DWORD_PTR_[esp]_eax.jpg" src="../../../../../_images/gef_step_7_mov_DWORD_PTR_%5Besp%5D_eax.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 10 </span><span class="caption-text">State of execution after <em>mov DWORD PTR [esp], eax</em></span><a class="headerlink" href="#gef-step-7-mov-dword-ptr-esp-eax-jpg" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 37 </span><span class="caption-text">State of execution after <em>mov DWORD PTR [esp], eax</em></span><a class="headerlink" href="#gef-step-7-mov-dword-ptr-esp-eax-jpg" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>This instruction effectively “pushes” the contents of EAX onto the stack. Why has the compiler decided to use this instruction rather than a push EAX? This is a good question, and may be a function of optimization or byte alignment.</p>
@@ -1106,7 +1109,7 @@ function will even return.
 <figure class="align-center" id="gef-step-8-call-0x804830c-gets-plt-jpg">
 <img alt="gef_step_8_call_0x804830c_gets&#64;plt.jpg" src="../../../../../_images/gef_step_8_call_0x804830c_gets%40plt.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 11 </span><span class="caption-text">State of execution after <em>call 0x804830c (gets&#64;plt)</em></span><a class="headerlink" href="#gef-step-8-call-0x804830c-gets-plt-jpg" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 38 </span><span class="caption-text">State of execution after <em>call 0x804830c (gets&#64;plt)</em></span><a class="headerlink" href="#gef-step-8-call-0x804830c-gets-plt-jpg" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>We can see from the image above that since we started the debugging session with the command:</p>
@@ -1131,7 +1134,7 @@ function will even return.
 <figure class="align-center" id="gef-step-8-5-x-17-x-esp-0x1c-jpg">
 <img alt="gef_step_8_5_x_17_x_esp+0x1c.jpg" src="../../../../../_images/gef_step_8_5_x_17_x_esp%2B0x1c.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 12 </span><span class="caption-text">State of stack when viewed by the command x/17x $esp+0x1c</span><a class="headerlink" href="#gef-step-8-5-x-17-x-esp-0x1c-jpg" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 39 </span><span class="caption-text">State of stack when viewed by the command x/17x $esp+0x1c</span><a class="headerlink" href="#gef-step-8-5-x-17-x-esp-0x1c-jpg" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>In the image above, we have highlighted the contents of stack memory location 0xffffd15c. This is the local variable <em>modified</em>, and its contents is 0x00000000.</p>
@@ -1143,14 +1146,14 @@ function will even return.
 <figure class="align-center" id="exploit-py-jpg">
 <img alt="exploit_py.jpg" src="../../../../../_images/exploit_py.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 13 </span><span class="caption-text">Python program to generate payload to input into <em>stack0.c</em></span><a class="headerlink" href="#exploit-py-jpg" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 40 </span><span class="caption-text">Python program to generate payload to input into <em>stack0.c</em></span><a class="headerlink" href="#exploit-py-jpg" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The goal of this program is to generate 66 bytes. The reason it is not 68 bytes is because we need to account for the carriage return (CR) character that Python’s print statement appends to the end. Below we show the output of <em><a class="reference external" href="http://exploit.py">exploit.py</a></em> and a view of the xxd’s output of the payload file.</p>
 <figure class="align-center" id="exploit-py-output-and-xxd-jpg">
 <img alt="exploit_py_output_and_xxd.jpg" src="../../../../../_images/exploit_py_output_and_xxd.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 14 </span><span class="caption-text">Python program to generate payload to input into <em>stack0.c</em></span><a class="headerlink" href="#exploit-py-output-and-xxd-jpg" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 41 </span><span class="caption-text">Python program to generate payload to input into <em>stack0.c</em></span><a class="headerlink" href="#exploit-py-output-and-xxd-jpg" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>As can be seen from the above output, the <em><a class="reference external" href="http://exploit.py">exploit.py</a></em> Python script produced 66 A’s. These are saved into a file called <em>payload</em>. We then pass <em>payload</em> into the hex viewer xxd. We can see the 66 A’s as hex 41, and the final byte is 0a. 0a is the hex ASCII code for a carriage return (CR).</p>
