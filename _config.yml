@@ -54,11 +54,9 @@ sphinx:
       MKD_Fortran_Book: 
       - "../markkhusid-MKDWWW_Fortran_Jupyter_Book/_build/html/"
       - null
-
-      
-
     
-
+files:
+  - "Sections/About_Me/Resume/EE_Resume/2024_06_01/Mark_Khusid_EE_Resume_2024_06_01.pdf"
     
 # Enable InterSphinx reference types
 
