@@ -36,7 +36,7 @@ html:
   use_repository_button: true
 
   launch_buttons:
-    notebook_interface: jupyterlab
+    notebook_interface: "jupyterlab"
     binderhub_url: "https://mybinder.org"
     thebe: true
 
@@ -50,19 +50,17 @@ sphinx:
 
     html_show_copyright: false
     
-    intersphinx_mapping: 
-      MKD_Fortran_Book: 
-      - "../markkhusid-MKDWWW_Fortran_Jupyter_Book/_build/html/"
-      - null
+    #intersphinx_mapping: 
+    #  MKD_Fortran_Book: 
+    #  - "../markkhusid-MKDWWW_Fortran_Jupyter_Book/_build/html/"
+    #  - null
     
-files:
-  - "Sections/About_Me/Resume/EE_Resume/2024_06_01/Mark_Khusid_EE_Resume_2024_06_01.pdf"
     
 # Enable InterSphinx reference types
 
 # Enable InterSphinx for cross-referencing between books
-intersphinx:
-  MKD_Fortran_Book: https://www.mkdynamics.net/current_projects/Fortran/intro.html
+#intersphinx:
+#  MKD_Fortran_Book: https://www.mkdynamics.net/current_projects/Fortran/intro.html
 
 
 # Use the PyData Sphinx Theme
