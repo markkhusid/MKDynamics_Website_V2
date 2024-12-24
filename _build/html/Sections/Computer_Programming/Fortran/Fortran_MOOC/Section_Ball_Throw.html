@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -215,18 +215,6 @@
 </details></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Javascript/javascript.html">Javascript Programming</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../PHP/php.html">PHP Programming</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../Python/python.html">Python Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../Python/Python_Playground/Python_Playground__HEAD__.html">Python Playground: Geeky Projects for the Curious Programmer</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../Python/Python_Playground/Section_Chapter_2_Draw_Circle.html">Chapter 2: Draw Circle using Turtle Graphics</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../Python/Python_Playground/Section_Chapter_2_Draw_Spiro.html">Chapter 2: Draw Spiro using Turtle Graphics</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../Python/Python_Playground/Section_Chapter_3_Conway.html">Chapter 3: Conway’s Game of Life</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../Python/Python_Playground/Section_Chapter_4_Karplus_Strong.html">Chapter 4: Karplus Strong Algorithm</a></li>
-</ul>
-</details></li>
-</ul>
-</details></li>
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="../fortran.html">Fortran Programming</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l3 has-children"><a class="reference internal" href="../Modern_Fortran/modern_fortran.html">Modern Fortran</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../Modern_Fortran/Cold_Front_Calculator.html">Cold Front Calculator</a></li>
@@ -278,6 +266,18 @@
 <li class="toctree-l4"><a class="reference internal" href="../DFFT/Square_Wave_1_Hz_50_pct/square_wave_1_hz_50_pct.html">Square Wave at 1Hz</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../DFFT/2_Sine_Waves/2sineXHz.html">Two Sine Waves with Different Frequencies</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../DFFT/Switched_Sine_Wave_1_kHz/switched_sine_wave_1_kHz.html">Switched 1 kHz Sine Wave</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Javascript/javascript.html">Javascript Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../PHP/php.html">PHP Programming</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Python/python.html">Python Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../Python/Python_Playground/Python_Playground__HEAD__.html">Python Playground: Geeky Projects for the Curious Programmer</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../Python/Python_Playground/Section_Chapter_2_Draw_Circle.html">Chapter 2: Draw Circle using Turtle Graphics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../Python/Python_Playground/Section_Chapter_2_Draw_Spiro.html">Chapter 2: Draw Spiro using Turtle Graphics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../Python/Python_Playground/Section_Chapter_3_Conway.html">Chapter 3: Conway’s Game of Life</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../Python/Python_Playground/Section_Chapter_4_Karplus_Strong.html">Chapter 4: Karplus Strong Algorithm</a></li>
 </ul>
 </details></li>
 </ul>
@@ -659,14 +659,16 @@ k_4 = \Delta t \, \mathbf{f}(t_0 + \Delta t, \mathbf{u}_0 + k_3)
 <section id="step-2-applying-the-rk4-method-to-your-system">
 <h4>Step 2: Applying the RK4 Method to Your System<a class="headerlink" href="#step-2-applying-the-rk4-method-to-your-system" title="Link to this heading">#</a></h4>
 <p>Now, let’s apply the RK4 method to your system of equations.</p>
-<p>The state vector is:
-$<span class="math notranslate nohighlight">\(
+<p>The state vector is:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \mathbf{u} = \begin{bmatrix} X \\ Y \\ V_X \\ V_Y \end{bmatrix}
-\)</span>$</p>
-<p>The RHS function is:
-$<span class="math notranslate nohighlight">\(
+\end{split}\]</div>
+<p>The RHS function is:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \mathbf{f}(t, \mathbf{u}) = \begin{bmatrix} V_X \\ V_Y \\ 0 \\ -g \end{bmatrix}
-\)</span>$</p>
+\end{split}\]</div>
 <p>We need to calculate the four approximations ( <span class="math notranslate nohighlight">\( k_1 \)</span>, <span class="math notranslate nohighlight">\( k_2 \)</span>, <span class="math notranslate nohighlight">\( k_3 \)</span>, and <span class="math notranslate nohighlight">\( k_4 \)</span> ) for each of the state variables:</p>
 <ol class="arabic simple">
 <li><p><strong>At the current state <span class="math notranslate nohighlight">\( t_0 \)</span>, <span class="math notranslate nohighlight">\( \mathbf{u}_0 \)</span></strong>:
