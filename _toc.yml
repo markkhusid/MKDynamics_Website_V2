@@ -23,10 +23,10 @@ parts:
         - file: Sections/Cybersecurity/Disassembling_Binaries/Fortran/i386/i386
 
       - file: Sections/Cybersecurity/Disassembling_Binaries/C/c
-      - file: Sections/Cybersecurity/Disassembling_Binaries/CPP/cpp
+      - file: Sections/Cybersecurity/Disassembling_Binaries/C++/c++
       - file: Sections/Cybersecurity/Disassembling_Binaries/Ada/ada
       - file: Sections/Cybersecurity/Disassembling_Binaries/Pascal/pascal
-      
+
 
     - file: Sections/Cybersecurity/LiveOverflow/liveoverflow
 
