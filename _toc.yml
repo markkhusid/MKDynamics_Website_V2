@@ -105,19 +105,6 @@ parts:
           - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_7_11_Pointer_Operators
           - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_7_11_1_Pointer_to_Class_Member
 
-    - file: Sections/Computer_Programming/Javascript/javascript
-
-    - file: Sections/Computer_Programming/PHP/php
-
-    - file: Sections/Computer_Programming/Python/python
-      sections:
-      - file: Sections/Computer_Programming/Python/Python_Playground/Python_Playground__HEAD__
-        sections:
-        - file: Sections/Computer_Programming/Python/Python_Playground/Section_Chapter_2_Draw_Circle
-        - file: Sections/Computer_Programming/Python/Python_Playground/Section_Chapter_2_Draw_Spiro
-        - file: Sections/Computer_Programming/Python/Python_Playground/Section_Chapter_3_Conway
-        - file: Sections/Computer_Programming/Python/Python_Playground/Section_Chapter_4_Karplus_Strong
-
     - file: Sections/Computer_Programming/Fortran/fortran
       sections:
       - file: Sections/Computer_Programming/Fortran/Modern_Fortran/modern_fortran
@@ -230,6 +217,19 @@ parts:
         - file: Sections/Computer_Programming/Fortran/DFFT/Square_Wave_1_Hz_50_pct/square_wave_1_hz_50_pct
         - file: Sections/Computer_Programming/Fortran/DFFT/2_Sine_Waves/2sineXHz
         - file: Sections/Computer_Programming/Fortran/DFFT/Switched_Sine_Wave_1_kHz/switched_sine_wave_1_kHz
+
+    - file: Sections/Computer_Programming/Javascript/javascript
+
+    - file: Sections/Computer_Programming/PHP/php
+
+    - file: Sections/Computer_Programming/Python/python
+      sections:
+      - file: Sections/Computer_Programming/Python/Python_Playground/Python_Playground__HEAD__
+        sections:
+        - file: Sections/Computer_Programming/Python/Python_Playground/Section_Chapter_2_Draw_Circle
+        - file: Sections/Computer_Programming/Python/Python_Playground/Section_Chapter_2_Draw_Spiro
+        - file: Sections/Computer_Programming/Python/Python_Playground/Section_Chapter_3_Conway
+        - file: Sections/Computer_Programming/Python/Python_Playground/Section_Chapter_4_Karplus_Strong
 
 - caption: Electronics
   chapters:
