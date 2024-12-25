@@ -82,7 +82,7 @@ This book may be purchased here: <br>
 
 ### "Modern Fortran" by Milan Curcic (Manning Publications)
 This book may be purchased from:
-[Modern Fortran: Building Efficient Parallel Applications](https://www.manning.com/books/modern-fortran)
+[Modern Fortran: Building Efficient Parallel Applications](https://www.manning.com/books/modern-fortran) <br>
 [Amazon page to purchase "Modern Fortran" by Milan Curcic (affiliate link)](https://amzn.to/3PgzWzy)
 
 
