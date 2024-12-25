@@ -113,18 +113,30 @@ by Aleph One
 ---
 
 #### GDB Dashboard (Modular, Terminal Based Color UI)
-![GDB Dashboard Screenshot](images/gdb_dashboard_screenshot.png)  
+:::{image} images/gdb_dashboard_screenshot.png
+:alt: GDB Dashboard Screenshot
+:align: center
+:::
+
 [Modular visual interface for GDB in Python](https://github.com/cyrus-and/gdb-dashboard)
 
 ---
 
 #### PEDA - Python Exploit Development Assistance for GDB
-![PEDA Screenshot](images/peda_screenshot.png)  
+:::{image} images/peda_screenshot.png
+:alt: PEDA Screenshot
+:align: center
+:::
+ 
 [Python Exploit Development Assistance](https://github.com/longld/peda)
 
 ---
 
 #### GDB Dashboard by cyrus-and
+:::{image} images/gdb_dashboard_cyrus.png
+:alt: GDB Dashboard by cyrus-and
+:align: center
+:::
 [GDB Dashboard](https://github.com/cyrus-and/gdb-dashboard)
 
 ---
