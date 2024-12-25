@@ -19,7 +19,7 @@ Useful Links
 :link: cybersecurity_links.html
 :class-header: bg-auto
 
-Useful Links
+Useful Cybersecurity Links
 ^^^
 ```{image} images/cybersec_links_splash.jpg
 :height: 300

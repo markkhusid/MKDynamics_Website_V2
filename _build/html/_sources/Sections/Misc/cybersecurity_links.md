@@ -103,7 +103,11 @@ by Aleph One
 ### Modular Visual Interfaces for GDB
 
 #### GEF - GDB Enhanced Features for exploit devs and reversers
-![GEF Screenshot](images/gef_screenshot.png)  
+:::{image} images/gef_screenshot.png
+:alt: GEF Screenshot
+:align: center
+:::
+ 
 [GEF - GDB Enhanced Features for exploit devs and reversers](https://github.com/hugsy/gef)
 
 ---

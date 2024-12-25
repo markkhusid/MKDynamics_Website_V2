@@ -77,22 +77,22 @@
 7) Add the newly created shortcut to your taskbar if desired, for quick access to your favorite calculator!
 ![HP48GX](images/hp48G_calc.jpeg)
 
-#### Links to MIT OpenCourseWare
+### Links to MIT OpenCourseWare
 [MIT 6.858 Computer Systems Security, Fall 2014](https://www.youtube.com/playlist?list=PLUl4u3cNGP62K2DjQLRxDNRi0z2IRWnNh)<br>
 [MIT 6.00SC Introduction to Computer Science and Programming](https://www.youtube.com/playlist?list=PLB2BE3D6CA77BB8F7)
 
-#### Links to Electronics Simulation and PCB Design Software
+### Links to Electronics Simulation and PCB Design Software
 [Link to KiCAD](http://www.kicad-pcb.org) <br>
 [Link to LTSpice 4](http://www.linear.com/designtools/software/)
 
-#### Links to Electrical and Mechanical CAD/CAM Software
+### Links to Electrical and Mechanical CAD/CAM Software
 [LibreCAD is open source equivalant to AutoCAD](http://librecad.org/cms/home.html)<br>
 [FreeCAD enables creation of 3D models](http://freecadweb.org)
       
-#### Links to Text Editors Suitable for Programming
+### Links to Text Editors Suitable for Programming
 [Link to KATE Advanced Text Editor](https://www.kde.org/applications/utilities/kate)
     
-#### Links to Programming and Development Environments
+### Links to Programming and Development Environments
 [Link to Code::Blocks IDE](http://www.codeblocks.org/) <br>
 [Link to NetBeans IDE](https://netbeans.apache.org//) <br>
 [Link to Eclipse Luna IDE](https://www.eclipse.org/) <br>
