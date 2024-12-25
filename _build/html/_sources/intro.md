@@ -53,7 +53,7 @@ Computer Programming
 :link-type: doc
 :class-header: bg-auto
 
-Dual Diode Box
+Electronics
 ^^^
 ```{image} images/LTC3891.jpg
 :height: 200
@@ -65,7 +65,7 @@ Dual Diode Box
 ## Finite Element Analysis
 ::::{grid} 2 2 2 2
 :::{grid-item-card}
-:link: markdown
+:link: Sections/Finite_Element_Analysis/finite_element_analysis
 :link-type: doc
 :class-header: bg-auto
 
@@ -81,7 +81,7 @@ Exploring CAELinux for Thermal Analysis
 ## HAM Radio
 ::::{grid} 2 2 2 2
 :::{grid-item-card}
-:link: markdown
+:link: Sections/Ham_Radio/ham_radio
 :link-type: doc
 :class-header: bg-auto
 

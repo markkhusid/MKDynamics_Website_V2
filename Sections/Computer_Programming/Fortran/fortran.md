@@ -81,7 +81,7 @@ This book may be purchased here: <br>
 [Amazon page to purchase "Guide to Fortran 2008 Programming" by Walter S. Brainerd"](https://www.amazon.com/Guide-Fortran-Programming-Walter-brainerd/dp/1447167589/ref=sr_1_1?crid=JARCJZJ2KJZN&keywords=guide+to+fortran+2008+programming&qid=1581908665&sprefix=guide+to+fortran+2008+programming%2Caps%2C189&sr=8-1)
 
 ### "Modern Fortran" by Milan Curcic (Manning Publications)
-This book may be purchased from:
+This book may be purchased from: <br>
 [Modern Fortran: Building Efficient Parallel Applications](https://www.manning.com/books/modern-fortran) <br>
 [Amazon page to purchase "Modern Fortran" by Milan Curcic (affiliate link)](https://amzn.to/3PgzWzy)
 

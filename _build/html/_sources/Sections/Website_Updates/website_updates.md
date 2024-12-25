@@ -1,5 +1,8 @@
 # Website Updates
 
+## 12/25/2024
+- Merry Christmas! Cleaned up misc section.  Numerous fixes to site structure and content.  Added Amazon affiliate link to Fortran section.  Brought over useful links section from old website.
+
 ## 12/24/2024
 - Merry Christmas Eve! Changed over AWS webserver to point to Version 2 of the website.  The new website is now live!  It is built using the Jupyter Book format.  I have allot of work to do to port all of the old html content into Myst-NB markdown format.  ChatGPT makes this much easier!  I will be working on this over the next few weeks.  Code for the old website is still available on my Github repository.
 

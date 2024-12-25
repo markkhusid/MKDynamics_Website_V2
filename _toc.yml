@@ -43,9 +43,6 @@ parts:
 
     - file: Sections/Cybersecurity/Shellcode_Generation_and_Testing/shellcode_generation_and_testing
 
-    - file: Sections/Cybersecurity/Misc/misc__head__
-
-
 - caption: Computer Programming
   chapters:
   - file: Sections/Computer_Programming/computer_programming
@@ -258,11 +255,16 @@ parts:
 - caption: Finite Element Analysis
   chapters:
   - file: Sections/Finite_Element_Analysis/finite_element_analysis
+    sections:
+    - file: Sections/Finite_Element_Analysis/CAELinux_for_Thermal_Analysis/caelinux_for_thermal_analysis
 
 - caption: Ham Radio
   chapters:
   - file: Sections/Ham_Radio/ham_radio
-
+    sections:
+    - file: Sections/Ham_Radio/Ham_Radio_Projects/ham_radio_projects
+    - file: Sections/Ham_Radio/Antenna_Simulation_using_4NEC2/antenna_simulation_using_4NEC2
+      
 - caption: About Me
   chapters:
   - file: Sections/About_Me/aboutme
@@ -274,7 +276,15 @@ parts:
       - file: Sections/About_Me/Certificates/certificates_kaggle
       - file: Sections/About_Me/Certificates/certificates_tryhackme
     
-- caption: Misc
+- caption: Website Updates
   chapters:
-  - file: website_updates
+  - file: Sections/Website_Updates/website_updates
+
+- caption: Miscellaneous
+  chapters:
+  - file: Sections/Misc/misc__head__
+    sections:
+    - file: Sections/Misc/useful_links
+    - file: Sections/Misc/cybersecurity_links
+
 
