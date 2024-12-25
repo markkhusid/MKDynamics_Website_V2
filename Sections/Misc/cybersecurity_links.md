@@ -173,5 +173,3 @@ GDB QUICK REFERENCE GDB Version 4 Essential Commands
 GDB Cheat Sheet  
 [GDB Cheat Sheet](https://darkdust.net/files/GDB%20Cheat%20Sheet.pdf)
 ```
-
-This Markdown format replicates the structure and content of your HTML while converting it to Markdown syntax. If you need to adjust any parts or add more details, let me know!
