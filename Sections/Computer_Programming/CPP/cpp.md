@@ -33,7 +33,7 @@ In this section we will be programming in C++ using examples and techniques foun
 
 ### "Object-Oriented Programming Using C++" by Ira Pohl
 This book may be purchased here: <br>
-[Amazon page to purchase "Object-Oriented Programming Using C++ by Ira Pohl"](https://www.amazon.com/Object-Oriented-Programming-Using-C-2nd/dp/0201895501/ref=sr_1_4?crid=3F67JR9WX9E2K&keywords=object+oriented+programming+using+c%2B%2B&qid=1667165033&qu=eyJxc2MiOiIwLjAwIiwicXNhIjoiMC4wMCIsInFzcCI6IjAuMDAifQ%3D%3D&sprefix=object+oriented+programming+using+c%2B%2Caps%2C420&sr=8-4)
+[Amazon page to purchase "Object-Oriented Programming Using C++ by Ira Pohl"](https://amzn.to/40awJrP)
 
 ### "Learn Modern C++" br Richard Spencer (Online Course)
 The course maye be found here: <br>
