@@ -1,5 +1,7 @@
 # Lesson 3 - GDB Test
 
+![gdb_test_c](images/gdb_test_c.png)
+
 **Cracking a Password Checking Program with GDB**
 
 ## Introduction
