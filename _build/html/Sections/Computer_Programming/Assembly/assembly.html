@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -197,7 +197,7 @@
 </details></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Cybersecurity/SLAE64/SLAE64.html">SLAE64</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Cybersecurity/SLAE64/SLAE64.html">SLAE64 - x86_64 Assembly Language and Shellcoding on Linux</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Cybersecurity/Shellcode_Generation_and_Testing/shellcode_generation_and_testing.html">Shellcode Generation and Testing</a></li>
 </ul>
 </details></li>
@@ -509,7 +509,9 @@
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -525,6 +527,18 @@
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#x86-assembly-language-programming">x86 Assembly Language Programming</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#commodore-64-assembly-language-programming">Commodore 64 Assembly Language Programming</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -536,7 +550,29 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="assembly-language-programming">
 <h1>Assembly Language Programming<a class="headerlink" href="#assembly-language-programming" title="Link to this heading">#</a></h1>
-<p>Under construction.</p>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>The purpose of this section is to demonstrate assembly language programming on a variety of platforms. Attention is given to the i386 platform, but also as homage I demonstrate an assembly language program on an emulator of my first computer, the venerable Commodore 64. The Commodore 64 is emulated using VICE.</p>
+<section id="x86-assembly-language-programming">
+<h3>x86 Assembly Language Programming<a class="headerlink" href="#x86-assembly-language-programming" title="Link to this heading">#</a></h3>
+<p>Comments are provided on each line of this program. The program is the assembled using NASM as an ELF (Executable and Linkable Format) file. The object file is then linked using ld and an executable file is produced.</p>
+<a class="reference internal image-reference" href="../../../_images/assembly1.jpg"><img alt="x86 Assembly Language Programming" class="align-center" src="../../../_images/assembly1.jpg" style="height: 700px;" /></a>
+</section>
+<section id="commodore-64-assembly-language-programming">
+<h3>Commodore 64 Assembly Language Programming<a class="headerlink" href="#commodore-64-assembly-language-programming" title="Link to this heading">#</a></h3>
+<p>This assembly language program is very similar to the i386 version except it is written for the Commodore 64. Essentialy, a loop is setup that loads each character of the message into screen memory. Execution of the program leads to the message being displayed on the screen.</p>
+<a class="reference internal image-reference" href="../../../_images/c64_turbo_assembler_run.jpg"><img alt="Commodore 64 Assembly Language Programming" class="align-center" src="../../../_images/c64_turbo_assembler_run.jpg" style="height: 700px;" /></a>
+<hr class="docutils" />
+<p>The program is checked for errors and saved to disk.</p>
+<a class="reference internal image-reference" href="../../../_images/c64_turbo_assembler_assembled.jpg"><img alt="Commodore 64 Assembly Language Programming" class="align-center" src="../../../_images/c64_turbo_assembler_assembled.jpg" style="height: 700px;" /></a>
+<hr class="docutils" />
+<p>The directory of the virtual disk is loaded by load “$”,8 and listed. The program HELLO1.ASM is loaded into memory.</p>
+<a class="reference internal image-reference" href="../../../_images/c64_hello_world.jpg"><img alt="Commodore 64 Assembly Language Programming" class="align-center" src="../../../_images/c64_hello_world.jpg" style="height: 700px;" /></a>
+<hr class="docutils" />
+<p>The program is now in memory and when listing, it shows that it is actually a system call to the memory location of the start of the machine code. Upon entering RUN, the system call executes the machine code that loads “Hello World!” into screen memory, where it is faithfully displayed in the upper left hand corner of the screen.</p>
+<a class="reference internal image-reference" href="../../../_images/c64_hello_world_run.jpg"><img alt="Commodore 64 Assembly Language Programming" class="align-center" src="../../../_images/c64_hello_world_run.jpg" style="height: 700px;" /></a>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -593,6 +629,26 @@
             </div>
             
             
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#x86-assembly-language-programming">x86 Assembly Language Programming</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#commodore-64-assembly-language-programming">Commodore 64 Assembly Language Programming</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
