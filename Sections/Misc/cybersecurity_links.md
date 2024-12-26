@@ -103,40 +103,40 @@ by Aleph One
 ### Modular Visual Interfaces for GDB
 
 #### GEF - GDB Enhanced Features for exploit devs and reversers
-:::{image} images/gef_screenshot.png
+```{image} images/gef_screenshot.png
 :alt: GEF Screenshot
 :align: center
-:::
+```
  
 [GEF - GDB Enhanced Features for exploit devs and reversers](https://github.com/hugsy/gef)
 
 ---
 
 #### GDB Dashboard (Modular, Terminal Based Color UI)
-:::{image} images/gdb_dashboard_screenshot.png
+```{image} images/gdb_dashboard_screenshot.png
 :alt: GDB Dashboard Screenshot
 :align: center
-:::
+```
 
 [Modular visual interface for GDB in Python](https://github.com/cyrus-and/gdb-dashboard)
 
 ---
 
 #### PEDA - Python Exploit Development Assistance for GDB
-:::{image} images/peda_screenshot.png
+```{image} images/peda_screenshot.png
 :alt: PEDA Screenshot
 :align: center
-:::
+```
  
 [Python Exploit Development Assistance](https://github.com/longld/peda)
 
 ---
 
 #### GDB Dashboard by cyrus-and
-:::{image} images/gdb_dashboard_cyrus.png
+```{image} images/gdb_dashboard_cyrus.png
 :alt: GDB Dashboard by cyrus-and
 :align: center
-:::
+```
 [GDB Dashboard](https://github.com/cyrus-and/gdb-dashboard)
 
 ---
@@ -172,4 +172,3 @@ GDB QUICK REFERENCE GDB Version 4 Essential Commands
 
 GDB Cheat Sheet  
 [GDB Cheat Sheet](https://darkdust.net/files/GDB%20Cheat%20Sheet.pdf)
-```
