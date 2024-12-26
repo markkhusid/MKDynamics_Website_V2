@@ -78,7 +78,7 @@ In this section we will be programming in Fortran using examples and techniques 
 
 ### "Guide to Fortran 2008 Programming" by Walter S.Brainerd
 This book may be purchased here: <br>
-[Amazon page to purchase "Guide to Fortran 2008 Programming" by Walter S. Brainerd"](https://www.amazon.com/Guide-Fortran-Programming-Walter-brainerd/dp/1447167589/ref=sr_1_1?crid=JARCJZJ2KJZN&keywords=guide+to+fortran+2008+programming&qid=1581908665&sprefix=guide+to+fortran+2008+programming%2Caps%2C189&sr=8-1)
+[Amazon page to purchase "Guide to Fortran 2008 Programming" by Walter S. Brainerd](https://amzn.to/3BOhTOd)
 
 ### "Modern Fortran" by Milan Curcic (Manning Publications)
 This book may be purchased from: <br>

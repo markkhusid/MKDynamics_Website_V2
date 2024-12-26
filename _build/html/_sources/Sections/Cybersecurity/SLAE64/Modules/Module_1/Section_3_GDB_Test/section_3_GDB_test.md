@@ -52,14 +52,11 @@ The program contains a string variable called p that holds the password "Pentest
 printf("\nWelcome to the SLAE 64-bit course! Please proceed to the next video!\n");
 ```
 
-
-
 One way to crack this simple password checking routine is to run this program in GDB and trick the program into thinking that any randomly entered command line argument is the password. This is done by setting the register that contains the randomly entered password to the hardcoded password "PentesterAcademyPass" from within GDB. The executable then continues running thinking that the correct password was entered.
 
 We will now demonstrate the entire process.
 
 To do this, we need to first compile the program into an executable. The program is compiled with:
-
 
 ```bash
 $ gcc -m32 -ggdb3 -zexecstack -mpreferred-stack-boundary=2 gdb_test.c -o gdb_test
@@ -70,7 +67,7 @@ In the next section, we run the executable gdbtest in GDB + GEF.
 
 ---
 
-## Running *gdbtest* in GDB + GEF
+## Running *gdb_test* in GDB + GEF
 The screenshot below shows the executable gdbtest being run in GDB + GEF.
 
 ```{figure} images/running_gdb_test_in_GEF.png
