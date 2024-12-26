@@ -19,7 +19,7 @@ Analog/Digital Designs and Projects
 :::
 
 :::{grid-item-card}
-:link: Dual_Diode_Box/markdown
+:link: Dual_Diode_Box/dual_diode_box.html
 :class-header: bg-dark
 
 Dual Diode Box
@@ -31,7 +31,7 @@ Dual Diode Box
 :::
 
 :::{grid-item-card}
-:link: Single Board Computers Running Linux/markdown
+:link: Single_Board_Computers_Running_Linux/single_board_computers_running_linux.html
 :class-header: bg-dark
 
 Single Board Computers Running Linux
