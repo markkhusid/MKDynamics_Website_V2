@@ -19,13 +19,31 @@ Project code is contained in my [GitHub repository](https://github.com/markkhusi
 
 ## The program *gdb_test.c*
 
-The screenshot below displays the contents of the program `gdb_test.c`. 
+The contents of the program `gdb_test.c` are shown below:
 
-```{figure} images/gdb_test_c.png
-:alt: The test program *gdb_test.c*
-:align: center
+```c
+#include<stdio.h>
+#include<string.h>
 
-The test program *gdb_test.c*
+
+main(int argc, char **argv)
+{
+	char *p ="PentesterAcademyPass";
+
+
+	if (strcmp(argv[1], p) == 0)
+	{
+		printf("\nWelcome to the SLAE 64-bit course! Please proceed to the next video!\n");
+
+	}
+	else 
+	{
+		printf("\nIt's time to review those GDB videos again!\n");
+	}
+
+	return 0;
+
+}
 ```
 
 The program contains a string variable called p that holds the password "PentesterAcademyPass". It then does a string compare of the variable p with the first argument passed to the executable from the command line. If the first argument is the same string as p, the strcmp function returns a zero. The enveloping if statement checks for this condition and if true, executes the statement:
