@@ -40,6 +40,9 @@ parts:
         - file: Sections/Cybersecurity/Protostar/Stack0/Stack0_ARM64/stack0_ARM64
 
     - file: Sections/Cybersecurity/SLAE64/SLAE64
+      sections:
+      - file: Sections/Cybersecurity/SLAE64/Modules/Module_1/Section_3_GDB_Test/section_3_GDB_test
+      - file: Sections/Cybersecurity/SLAE64/Modules/Module_1/Section_5_Hello_World/section_5_hello_world
 
     - file: Sections/Cybersecurity/Shellcode_Generation_and_Testing/shellcode_generation_and_testing
 

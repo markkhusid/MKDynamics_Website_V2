@@ -1,0 +1,1096 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Section 5 - Hello World &#8212; MK Dynamics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Sections/Cybersecurity/SLAE64/Modules/Module_1/Section_5_Hello_World/section_5_hello_world';</script>
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" />
+    <link rel="next" title="Shellcode Generation and Testing" href="../../../../Shellcode_Generation_and_Testing/shellcode_generation_and_testing.html" />
+    <link rel="prev" title="Lesson 3 - GDB Test" href="../Section_3_GDB_Test/section_3_GDB_test.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../../../_static/spacey.jpg" class="logo__image only-light" alt="MK Dynamics - Home"/>
+    <img src="../../../../../../_static/spacey.jpg" class="logo__image only-dark pst-js-only" alt="MK Dynamics - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../../../../intro.html">
+                    MK Dynamics
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Cybersecurity</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../../../cybersecurity.html">Cybersecurity</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../Basic_Linux_Exploits/basic_linux_exploits.html">Basic Linux Exploits</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../Disassembling_Binaries/disassembling_binaries.html">Disassembling Binaries</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../Disassembling_Binaries/Fortran/fortran.html">Fortran</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../Disassembling_Binaries/Fortran/ARM64/arm64.html">ARM 64 Bit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../Disassembling_Binaries/Fortran/ARM32/arm32.html">ARM32</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../Disassembling_Binaries/Fortran/AMD64/amd64.html">AMD64</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../Disassembling_Binaries/Fortran/i386/i386.html">Intel 32 - Bit</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../Disassembling_Binaries/C/c.html">C</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../Disassembling_Binaries/C%2B%2B/c%2B%2B.html">C++</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../Disassembling_Binaries/Ada/ada.html">Ada</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../Disassembling_Binaries/Pascal/pascal.html">Pascal</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../LiveOverflow/liveoverflow.html">LiveOverflow</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../Protostar/protostar.html">Protostar Exploit Exercises</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../Protostar/Stack0/stack0.html">Stack 0</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../Protostar/Stack0/Stack0_x86/stack0_x86.html">x86 32-Bit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../Protostar/Stack0/Stack0_AMD64/stack0_AMD64.html">AMD64</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../Protostar/Stack0/Stack0_ARM32/stack0_ARM32.html">ARM 32 - Bit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../Protostar/Stack0/Stack0_ARM64/stack0_ARM64.html">ARM 64 - Bit</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../../../SLAE64.html">SLAE64 - x86_64 Assembly Language and Shellcoding on Linux</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Section_3_GDB_Test/section_3_GDB_test.html">Lesson 3 - GDB Test</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Section 5 - Hello World</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../Shellcode_Generation_and_Testing/shellcode_generation_and_testing.html">Shellcode Generation and Testing</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Computer Programming</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../Computer_Programming/computer_programming.html">Computer Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../Computer_Programming/Assembly/assembly.html">Assembly Language Programming</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../Computer_Programming/CPP/cpp.html">C++ Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../../Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp__HEAD__.html">Object Oriented Programming Using C++</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp_Ch_1.html">Chapter 1: Why Object-Oriented Programming in C++?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp_Ch_2.html">Chapter 2: Native Types and Statements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp_Ch_3.html">Chapter 3: Functions and Pointers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp_Ch_4.html">Chapter 4: Implementing ADTs in the Base Language</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp_Ch_5.html">Chapter 5: Data Hiding and Member Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp_Ch_6.html">Chapter 6: Object Creation and Destruction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp_Ch_7.html">Chapter 7: Ad Hoc Polymorphism</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/fortran.html">Fortran Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Modern_Fortran/modern_fortran.html">Modern Fortran</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Modern_Fortran/Cold_Front_Calculator.html">Cold Front Calculator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Modern_Fortran/Cold_Front_Calculator_with_Loop.html">Cold Front Calculator With Loop</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Modern_Fortran/Tsunami_Simulator.html">Tsunami Simulator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Modern_Fortran/Tsunami_Simulator_Plotter.html">Tsunami Simulator Plotter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Modern_Fortran/Tsunami_Simulator_with_Modules.html">Tsunami Simulator with Modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Modern_Fortran/Tsunami_Simulator_with_Modules_Plotter.html">Tsunami Simulator with Modules Plotter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Modern_Fortran/Print_Compiler_Version.html">Print Compiler Version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Modern_Fortran/Analyzing_Time_Series_Data_with_Arrays.html">Analyzing Time Series Data with Arrays</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Intro_to_Fortran/intro_to_fortran.html">Introduction to Programming Using Fortran</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Intro_to_Fortran/Section_7_Period_Calculator.html">Section 7: Pendulum Period Calculator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Intro_to_Fortran/Section_9_3_SOS_Difference.html">Section 9.3: Difference Between Sum of Squares and Square of Sums</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Intro_to_Fortran/Section_12_8_Line_Numbers.html">Section 12.8: Line Numbers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Intro_to_Fortran/Section_14_Pi_Estimation.html">Section 14: Pi Estimation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/guide_to_fortran_2008_programming.html">Guide to Fortran 2008 Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_1_8_Ex_2_Quadratic_Formula.html">Section 1.8 Example 2: Quadratic Equation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_1_16_Factorial_Recursion.html">Section 1.16: Factorial Recursion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_2_1_Associate_Construct.html">Section 2.1: Statement Blocks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_2_1_Statement_Blocks.html">Section 2.1: Associate Construct</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_3_4_Putting_Procedures_in_a_Module.html">Section 3.4: Putting Procedures in a Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_3_6_Ex_1_Median_of_Three.html">Section 3.6: Median of Three</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_3_8_Argument_Passing.html">Section 3.8: Argument Passing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_3_17_Case_Study__Adaptive_Numberical_Integration.html">Section 3.17: Case Study: Adaptive Numerical Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_4_1_Elsewhere_Example.html">Section 4.1: Elsewhere Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_8_1_Submodules.html">Section 8.1: Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_8_2_Time_Matrix_Multiply.html">Section 8.2: Time Matrix Multiply</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_8_7_Generic_Elemental_Procedures.html">Section 8.7: Generic Elemental Procedures</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_8_8_Findloc_Function.html">Section 8.8: Findloc Function</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Fortran_MOOC/fortran_mooc.html">Fortran MOOC</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays.html">Section: Arrays</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Fortran_MOOC/Section_Ball_Throw__Head__.html">Section: Ball Throw</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Fortran_MOOC/Section_Floating_Point.html">Section: Floating Point</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Fortran_MOOC/Section_Call_By_Semantics.html">Section: Call By Semantics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Fortran_MOOC/Section_Computing_Pi.html">Section: Computing Pi</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Fortran_MOOC/Section_Implicit_vs_Explicit_Loops__Head__.html">Section: Implicit vs Explicit Loops</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Fortran_MOOC/Section_Block_Matrices__Head__.html">Section: Block Matrices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Fortran_MOOC/Section_BLAS_LAPACK__Head__.html">Section: BLAS/LAPACK</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/DFFT/DFFT.html">Discretized Fourier Transform of Arbitrary Signal Using FFTW3 in Fortran</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/DFFT/Sine_Wave_10_Hz/sine_wave_10_hz.html">Sine Wave at 10Hz</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/DFFT/Square_Wave_1_Hz_50_pct/square_wave_1_hz_50_pct.html">Square Wave at 1Hz</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/DFFT/2_Sine_Waves/2sineXHz.html">Two Sine Waves with Different Frequencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/DFFT/Switched_Sine_Wave_1_kHz/switched_sine_wave_1_kHz.html">Switched 1 kHz Sine Wave</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../Computer_Programming/Javascript/javascript.html">Javascript Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../Computer_Programming/PHP/php.html">PHP Programming</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../Computer_Programming/Python/python.html">Python Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../../Computer_Programming/Python/Python_Playground/Python_Playground__HEAD__.html">Python Playground: Geeky Projects for the Curious Programmer</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Python/Python_Playground/Section_Chapter_2_Draw_Circle.html">Chapter 2: Draw Circle using Turtle Graphics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Python/Python_Playground/Section_Chapter_2_Draw_Spiro.html">Chapter 2: Draw Spiro using Turtle Graphics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Python/Python_Playground/Section_Chapter_3_Conway.html">Chapter 3: Conway’s Game of Life</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Python/Python_Playground/Section_Chapter_4_Karplus_Strong.html">Chapter 4: Karplus Strong Algorithm</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Electronics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../Electronics/electronics.html">Electronics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../Electronics/Analog_and_Digital/analog_and_digital.html">Analog and Digital Electronics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../Electronics/Analog_and_Digital/AD9850_DDS/AD9850_DDS.html">Variable Frequency Oscillator Using Direct Digital Synthesis</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../Electronics/Dual_Diode_Box/dual_diode_box.html">Dual Diode Box</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../Electronics/Single_Board_Computers_Running_Linux/single_board_computers_running_linux.html">Single Board Computers Running Linux</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Finite Element Analysis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../Finite_Element_Analysis/finite_element_analysis.html">Finite Element Analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../Finite_Element_Analysis/CAELinux_for_Thermal_Analysis/caelinux_for_thermal_analysis.html">CAELinux for Thermal Analysis</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Ham Radio</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../Ham_Radio/ham_radio.html">Ham Radio</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../Ham_Radio/Ham_Radio_Projects/ham_radio_projects.html">Ham Radio Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../Ham_Radio/Antenna_Simulation_using_4NEC2/antenna_simulation_using_4NEC2.html">Antenna Simulation using 4NEC2</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">About Me</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../About_Me/aboutme.html">About Me</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../About_Me/Resume/resume.html">My Resume</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../About_Me/Certificates/certificates.html">My Certificates</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../About_Me/Certificates/certificates_coursera.html">Coursera Certificates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../About_Me/Certificates/certificates_kaggle.html">Kaggle Certificates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../About_Me/Certificates/certificates_tryhackme.html">Try Hack Me Certificates</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Website Updates</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../Website_Updates/website_updates.html">Website Updates</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Miscellaneous</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../Misc/misc__head__.html">Miscellaneous Home</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../Misc/useful_links.html">Useful Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../Misc/cybersecurity_links.html">Cybersecurity Online Resources</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/markkhusid/MKDynamics_Website_V2" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/markkhusid/MKDynamics_Website_V2/issues/new?title=Issue%20on%20page%20%2FSections/Cybersecurity/SLAE64/Modules/Module_1/Section_5_Hello_World/section_5_hello_world.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../../../../_sources/Sections/Cybersecurity/SLAE64/Modules/Module_1/Section_5_Hello_World/section_5_hello_world.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Section 5 - Hello World</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-content">Lesson Content</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-program-helloworld-asm">The Program <em>helloworld.asm</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assembling-linking-and-running-the-program-helloworld-asm">Assembling, Linking and Running the Program <em>helloworld.asm</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-helloworld-in-gdb-peda">Running <em>helloworld</em> in GDB + PEDA</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-and-before-run">Setup and before run:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#running-step-0x401000-start-mov-eax-0x1">Running step <em>0x401000 &lt;_start&gt;: mov eax,0x1</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#executing-step-0x401005-start-5-mov-edi-0x1">Executing step <code class="docutils literal notranslate"><span class="pre">0x401005</span> <span class="pre">&lt;_start+5&gt;:</span> <span class="pre">mov</span> <span class="pre">edi,0x1</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#executing-step-0x40100a-start-10-movabs-rsi-0x402000">Executing step <code class="docutils literal notranslate"><span class="pre">0x40100a</span> <span class="pre">&lt;_start+10&gt;:</span> <span class="pre">movabs</span> <span class="pre">rsi,0x402000</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#executing-step-0x401014-start-20-mov-edx-0x22">Executing step <code class="docutils literal notranslate"><span class="pre">0x401014</span> <span class="pre">&lt;_start+20&gt;</span> <span class="pre">mov</span> <span class="pre">edx,</span> <span class="pre">0x22</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#executing-the-instruction-0x401019-start-25-syscall">Executing the instruction <code class="docutils literal notranslate"><span class="pre">0x401019</span> <span class="pre">&lt;_start+25&gt;:</span> <span class="pre">syscall</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#executing-the-instruction-0x40101b-start-27-mov-eax-0x3c">Executing the instruction <code class="docutils literal notranslate"><span class="pre">0x40101b</span> <span class="pre">_start+27&gt;:</span> <span class="pre">mov</span> <span class="pre">eax,0x3c</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#executing-the-instruction-0x401020-start-32-mov-edi-0xb">Executing the instruction <code class="docutils literal notranslate"><span class="pre">0x401020</span> <span class="pre">&lt;_start+32&gt;:</span> <span class="pre">mov</span> <span class="pre">edi,0xb</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#executing-the-instruction-0x401025-start-37-syscall">Executing the instruction <code class="docutils literal notranslate"><span class="pre">0x401025</span> <span class="pre">&lt;_start+37&gt;:</span> <span class="pre">syscall</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusions-on-examining-helloworld-in-gdb">Conclusions on examining <em>helloworld</em> in GDB.</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="section-5-hello-world">
+<h1>Section 5 - Hello World<a class="headerlink" href="#section-5-hello-world" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>In this section we will be following along with and completing course material from the Pentester Academy’s SecurityTube Linux Assembly language Expert 64 Bit course. The second assignment is writing a Hello World program in 64 Bit assembly language. It is to be coded, assembled, linked and run. Execution is then to be monitored via GDB. We will use the GEF add-on for GDB to enhance the visual presentation from GDB.</p>
+<p>Project code is contained in my <a class="reference external" href="https://github.com/markkhusid/SLAE64">github</a>.</p>
+</section>
+<section id="lesson-content">
+<h2>Lesson Content<a class="headerlink" href="#lesson-content" title="Link to this heading">#</a></h2>
+<section id="the-program-helloworld-asm">
+<h3>The Program <em>helloworld.asm</em><a class="headerlink" href="#the-program-helloworld-asm" title="Link to this heading">#</a></h3>
+<p>The screenshot below displays the contents of the program <em>helloworld.asm</em>. The program contains a string called <code class="docutils literal notranslate"><span class="pre">hello_world</span></code> that holds the string Hello World to the SLAE-64 Course. A new line is added by appending the 0x0a ASCII character. We need to assemble, link, run and instruction step this program in GDB.</p>
+<figure class="align-center" id="bit-hello-world-asm-code">
+<img alt="The program *helloworld.asm*" src="../../../../../../_images/64bit_hello_world_asm_code.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 59 </span><span class="caption-text">The program <em>helloworld.asm</em></span><a class="headerlink" href="#bit-hello-world-asm-code" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="assembling-linking-and-running-the-program-helloworld-asm">
+<h3>Assembling, Linking and Running the Program <em>helloworld.asm</em><a class="headerlink" href="#assembling-linking-and-running-the-program-helloworld-asm" title="Link to this heading">#</a></h3>
+<p>The program is assembled with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>nasm<span class="w"> </span>-felf64<span class="w"> </span>helloworld.asm<span class="w"> </span>-o<span class="w"> </span>helloworld.o
+</pre></div>
+</div>
+<p>And linked with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ld<span class="w"> </span>helloworld.o<span class="w"> </span>-o<span class="w"> </span>helloworld
+</pre></div>
+</div>
+<p>We then run the executable and look at it’s objdump. The results of these operations is shown below:</p>
+<figure class="align-center" id="bit-hello-world-assembling-and-linking">
+<img alt="Assembling, Linking and Executing the Program *helloworld" src="../../../../../../_images/64bit_hello_world_assembling_and_linking.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 60 </span><span class="caption-text">Assembling, Linking and Executing the Program <em>helloworld.asm</em></span><a class="headerlink" href="#bit-hello-world-assembling-and-linking" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>In the above screenshot, we assemble and link the program. We then use the objdump tool to look at the opcodes within the .text section by using the <code class="docutils literal notranslate"><span class="pre">-d</span></code> switch. Finally the program is run using:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./helloworld
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">./</span></code> is needed because the executable is not in a directory listed in the PATH environment variable.</p>
+<p>In the objdump of the executable, we notice large amounts of null bytes (i.e. 00). These are not good for shellcode, since in many cases, a victim process encountering a null byte as input understands the null byte as an end of the input. This would prematurely end the victim program from receiving all of the shellcodes contents.</p>
+<p>In further videos in this course, the instructor shows how to remove these null bytes, while still maintaining the same functionality in the executable.</p>
+</section>
+<section id="running-helloworld-in-gdb-peda">
+<h3>Running <em>helloworld</em> in GDB + PEDA<a class="headerlink" href="#running-helloworld-in-gdb-peda" title="Link to this heading">#</a></h3>
+<section id="setup-and-before-run">
+<h4>Setup and before run:<a class="headerlink" href="#setup-and-before-run" title="Link to this heading">#</a></h4>
+<p>The screenshot below shows the setup of the GDB debugger with the PEDA add-on. The program <em>helloworld</em> is loaded into GDB. The program is then run and the state of the registers and stack are shown.</p>
+<figure class="align-center" id="bit-hello-world-in-gdb-before-run">
+<img alt="helloworld in GDB before run" src="../../../../../../_images/64bit_hello_world_in_GDB_before_run.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 61 </span><span class="caption-text"><em>helloworld</em> in GDB before run</span><a class="headerlink" href="#bit-hello-world-in-gdb-before-run" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>From the disassembly of the <code class="docutils literal notranslate"><span class="pre">_start</span></code> function above, we can notice a difference between our written code and the disassembly of the <code class="docutils literal notranslate"><span class="pre">_start</span></code> function. Namely, rather than involving the 64-bit versions of the registers, the assembler optimized away usage of those in favor of the 32-bit versions. For example, the register <code class="docutils literal notranslate"><span class="pre">RAX</span></code> was replaced with <code class="docutils literal notranslate"><span class="pre">EAX</span></code>.</p>
+<p>From a functionality point of view, this is a moot point. However, from a shellcoding perspective, it is desireable to have complete control over how the actual opcodes are produced.</p>
+<p>In the next sections, we will step through the code and describe what occurs.</p>
+</section>
+<section id="running-step-0x401000-start-mov-eax-0x1">
+<h4>Running step <em>0x401000 &lt;_start&gt;: mov eax,0x1</em><a class="headerlink" href="#running-step-0x401000-start-mov-eax-0x1" title="Link to this heading">#</a></h4>
+<p>Prior to running <code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">eax,</span> <span class="pre">0x1</span></code>, the state of the registers and stack is shown below:</p>
+<figure class="align-default" id="id1">
+<img alt="../../../../../../_images/64bit_hello_world_in_GDB_before_running_step1.jpg" src="../../../../../../_images/64bit_hello_world_in_GDB_before_running_step1.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 62 </span><span class="caption-text">Before running step <code class="docutils literal notranslate"><span class="pre">0x401000</span> <span class="pre">&lt;_start&gt;:</span> <span class="pre">mov</span> <span class="pre">eax,0x1</span></code></span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The <code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">eax,</span> <span class="pre">0x1</span></code> instruction simply moves the immediate value 1 into the 32-bit register <code class="docutils literal notranslate"><span class="pre">eax</span></code>.</p>
+<figure class="align-default" id="id2">
+<img alt="../../../../../../_images/64bit_hello_world_in_GDB_after_running_step1.jpg" src="../../../../../../_images/64bit_hello_world_in_GDB_after_running_step1.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 63 </span><span class="caption-text">After running step <code class="docutils literal notranslate"><span class="pre">0x401000</span> <span class="pre">&lt;_start&gt;:</span> <span class="pre">mov</span> <span class="pre">eax,0x1</span></code></span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The <code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">eax,</span> <span class="pre">0x1</span></code> instruction moved the immediate value 1 into the 64-bit register rax, as can be seen in the screen shot above. The purpose of moving the immediate 1 into eax is to set up the write system call. If you recall, the system calls are enumerated in:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/usr/include/asm/unistd_64.h
+</pre></div>
+</div>
+<p>A portion of this file is shown below:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>more<span class="w"> </span>/usr/include/asm/unistd_64.h<span class="w"> </span>
+<span class="c1">#ifndef _ASM_X86_UNISTD_64_H</span>
+<span class="c1">#define _ASM_X86_UNISTD_64_H 1</span>
+
+<span class="c1">#define __NR_read 0</span>
+<span class="c1">#define __NR_write 1</span>
+<span class="c1">#define __NR_open 2</span>
+<span class="c1">#define __NR_close 3</span>
+<span class="c1">#define __NR_stat 4</span>
+<span class="c1">#define __NR_fstat 5</span>
+<span class="c1">#define __NR_lstat 6</span>
+<span class="c1">#define __NR_poll 7</span>
+<span class="c1">#define __NR_lseek 8</span>
+<span class="c1">#define __NR_mmap 9</span>
+<span class="c1">#define __NR_mprotect 10</span>
+<span class="c1">#define __NR_munmap 11</span>
+<span class="c1">#define __NR_brk 12</span>
+<span class="c1">#define __NR_rt_sigaction 13</span>
+</pre></div>
+</div>
+<p>As can be seen from the file contents above, the number 1 is associated with the <code class="docutils literal notranslate"><span class="pre">WRITE</span></code> system call. Note that I have looked at the 64-bit version of the file. There also exists a 32-bit version, which we will not be using since this is 64-bit code.</p>
+</section>
+<section id="executing-step-0x401005-start-5-mov-edi-0x1">
+<h4>Executing step <code class="docutils literal notranslate"><span class="pre">0x401005</span> <span class="pre">&lt;_start+5&gt;:</span> <span class="pre">mov</span> <span class="pre">edi,0x1</span></code><a class="headerlink" href="#executing-step-0x401005-start-5-mov-edi-0x1" title="Link to this heading">#</a></h4>
+<p>Prior to executing the instruction <code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">edi,0x1</span></code>, the state of the registers and stack are as shown below:</p>
+<figure class="align-default" id="id3">
+<img alt="../../../../../../_images/64bit_hello_world_in_GDB_before_running_step2.jpg" src="../../../../../../_images/64bit_hello_world_in_GDB_before_running_step2.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 64 </span><span class="caption-text">Before running step <code class="docutils literal notranslate"><span class="pre">0x401005</span> <span class="pre">&lt;_start+5&gt;:</span> <span class="pre">mov</span> <span class="pre">edi,0x1</span></code></span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The instruction <code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">edi,0x1</span></code> simply moves the immediate value 1 into the 32-bit register <code class="docutils literal notranslate"><span class="pre">edi</span></code>.</p>
+<figure class="align-default" id="id4">
+<img alt="../../../../../../_images/64bit_hello_world_in_GDB_after_running_step2.jpg" src="../../../../../../_images/64bit_hello_world_in_GDB_after_running_step2.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 65 </span><span class="caption-text">After running step <code class="docutils literal notranslate"><span class="pre">0x401005</span> <span class="pre">&lt;_start+5&gt;:</span> <span class="pre">mov</span> <span class="pre">edi,0x1</span></code></span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The <code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">edi,</span> <span class="pre">0x1</span></code> instruction simply moved the immediate value 1 into the 32-bit register <code class="docutils literal notranslate"><span class="pre">edi</span></code>, as can be seen in the screen shot above. The purpose of moving the 1 into <code class="docutils literal notranslate"><span class="pre">edi</span></code> is as a parameter to the <code class="docutils literal notranslate"><span class="pre">WRITE</span></code> system call. The 1 represents standard output, or <code class="docutils literal notranslate"><span class="pre">STDOUT</span></code>. This refers to the screen. Therefore, the <code class="docutils literal notranslate"><span class="pre">WRITE</span></code> system call will be writing to the screen, as opposed to writing to a network socket, or to a file on disk.</p>
+</section>
+<section id="executing-step-0x40100a-start-10-movabs-rsi-0x402000">
+<h4>Executing step <code class="docutils literal notranslate"><span class="pre">0x40100a</span> <span class="pre">&lt;_start+10&gt;:</span> <span class="pre">movabs</span> <span class="pre">rsi,0x402000</span></code><a class="headerlink" href="#executing-step-0x40100a-start-10-movabs-rsi-0x402000" title="Link to this heading">#</a></h4>
+<p>Prior to executing the instruction <code class="docutils literal notranslate"><span class="pre">0x40100a</span> <span class="pre">&lt;_start+10&gt;:</span> <span class="pre">movabs</span> <span class="pre">rsi,0x402000</span></code>, the state of the registers and stack are as shown below:</p>
+<figure class="align-default" id="id5">
+<img alt="../../../../../../_images/64bit_hello_world_in_GDB_before_running_step3.jpg" src="../../../../../../_images/64bit_hello_world_in_GDB_before_running_step3.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 66 </span><span class="caption-text">Before running step <code class="docutils literal notranslate"><span class="pre">0x40100a</span> <span class="pre">&lt;_start+10&gt;:</span> <span class="pre">movabs</span> <span class="pre">rsi,0x402000</span></code></span><a class="headerlink" href="#id5" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The instruction <code class="docutils literal notranslate"><span class="pre">0x40100a</span> <span class="pre">&lt;_start+10&gt;:</span> <span class="pre">movabs</span> <span class="pre">rsi,0x402000</span></code> simply moves the immediate value <code class="docutils literal notranslate"><span class="pre">0x402000</span></code> into the 64-bit register <code class="docutils literal notranslate"><span class="pre">rsi</span></code>.</p>
+<figure class="align-default" id="id6">
+<img alt="../../../../../../_images/64bit_hello_world_in_GDB_after_running_step3.jpg" src="../../../../../../_images/64bit_hello_world_in_GDB_after_running_step3.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 67 </span><span class="caption-text">After running step <code class="docutils literal notranslate"><span class="pre">0x40100a</span> <span class="pre">&lt;_start+10&gt;:</span> <span class="pre">movabs</span> <span class="pre">rsi,0x402000</span></code></span><a class="headerlink" href="#id6" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>What is the significance of the value <code class="docutils literal notranslate"><span class="pre">0x402000</span></code>? It is actually a memory address. We will examine the data at this memory address to see what it is, using the command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gdb-peda$<span class="w"> </span>x/s<span class="w"> </span>0x402000<span class="w">  </span>
+0x402000:<span class="w"> </span><span class="s2">&quot;Hello World to the SLAE-64 Course\\n&quot;</span><span class="w">  </span>
+gdb-peda$
+</pre></div>
+</div>
+<p>So basically the contents of the array of addresses starting at <code class="docutils literal notranslate"><span class="pre">0x402000</span></code> contains the string <code class="docutils literal notranslate"><span class="pre">&quot;Hello</span> <span class="pre">World</span> <span class="pre">to</span> <span class="pre">the</span> <span class="pre">SLAE-64</span> <span class="pre">Course\\n&quot;</span></code>. We can see this more clearly by issuing the command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gdb-peda$<span class="w"> </span>x/34xb<span class="w"> </span>0x402000
+0x402000:<span class="w">	</span>0x48<span class="w">	</span>0x65<span class="w">	</span>0x6c<span class="w">	</span>0x6c<span class="w">	</span>0x6f<span class="w">	</span>0x20<span class="w">	</span>0x57<span class="w">	</span>0x6f
+0x402008:<span class="w">	</span>0x72<span class="w">	</span>0x6c<span class="w">	</span>0x64<span class="w">	</span>0x20<span class="w">	</span>0x74<span class="w">	</span>0x6f<span class="w">	</span>0x20<span class="w">	</span>0x74
+0x402010:<span class="w">	</span>0x68<span class="w">	</span>0x65<span class="w">	</span>0x20<span class="w">	</span>0x53<span class="w">	</span>0x4c<span class="w">	</span>0x41<span class="w">	</span>0x45<span class="w">	</span>0x2d
+0x402018:<span class="w">	</span>0x36<span class="w">	</span>0x34<span class="w">	</span>0x20<span class="w">	</span>0x43<span class="w">	</span>0x6f<span class="w">	</span>0x75<span class="w">	</span>0x72<span class="w">	</span>0x73
+0x402020:<span class="w">	</span>0x65<span class="w">	</span>0x0a
+gdb-peda$<span class="w"> </span>
+</pre></div>
+</div>
+<p>These are nothing but the hexadecimal representations of the bytes that make up the letters of the string <code class="docutils literal notranslate"><span class="pre">&quot;Hello</span> <span class="pre">World</span> <span class="pre">to</span> <span class="pre">the</span> <span class="pre">SLAE-64</span> <span class="pre">Course\\n&quot;</span></code>. Notice the <code class="docutils literal notranslate"><span class="pre">0x0a</span></code> at the end, which is the newline character. This is another bit of setup before the <code class="docutils literal notranslate"><span class="pre">WRITE</span></code> system call is invoked. The <code class="docutils literal notranslate"><span class="pre">WRITE</span></code> system call will output the string located at <code class="docutils literal notranslate"><span class="pre">0x402000</span></code> to the screen.</p>
+</section>
+<section id="executing-step-0x401014-start-20-mov-edx-0x22">
+<h4>Executing step <code class="docutils literal notranslate"><span class="pre">0x401014</span> <span class="pre">&lt;_start+20&gt;</span> <span class="pre">mov</span> <span class="pre">edx,</span> <span class="pre">0x22</span></code><a class="headerlink" href="#executing-step-0x401014-start-20-mov-edx-0x22" title="Link to this heading">#</a></h4>
+<p>Prior to executing the instruction <code class="docutils literal notranslate"><span class="pre">0x401014</span> <span class="pre">&lt;_start+20&gt;</span> <span class="pre">mov</span> <span class="pre">edx,</span> <span class="pre">0x22</span></code>, the state of the registers and stack are as shown below:</p>
+<figure class="align-center" id="bit-hello-world-in-gdb-before-running-step4">
+<img alt="Before running step 0x401014 &lt;_start+20&gt; mov edx, 0x22" src="../../../../../../_images/64bit_hello_world_in_GDB_before_running_step4.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 68 </span><span class="caption-text">Before running step <code class="docutils literal notranslate"><span class="pre">0x401014</span> <span class="pre">&lt;_start+20&gt;</span> <span class="pre">mov</span> <span class="pre">edx,</span> <span class="pre">0x22</span></code></span><a class="headerlink" href="#bit-hello-world-in-gdb-before-running-step4" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The instruction <code class="docutils literal notranslate"><span class="pre">0x401014</span> <span class="pre">&lt;_start+20&gt;</span> <span class="pre">mov</span> <span class="pre">edx,</span> <span class="pre">0x22</span></code> simply moves the immediate value <code class="docutils literal notranslate"><span class="pre">0x22</span></code> into the 32-bit register <code class="docutils literal notranslate"><span class="pre">edx</span></code>.</p>
+<figure class="align-center" id="bit-hello-world-in-gdb-after-running-step4">
+<img alt="After running step 0x401014 &lt;_start+20&gt; mov edx, 0x22" src="../../../../../../_images/64bit_hello_world_in_GDB_after_running_step4.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 69 </span><span class="caption-text">After running step <code class="docutils literal notranslate"><span class="pre">0x401014</span> <span class="pre">&lt;_start+20&gt;</span> <span class="pre">mov</span> <span class="pre">edx,</span> <span class="pre">0x22</span></code></span><a class="headerlink" href="#bit-hello-world-in-gdb-after-running-step4" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The instruction <code class="docutils literal notranslate"><span class="pre">0x401014</span> <span class="pre">&lt;_start+20&gt;</span> <span class="pre">mov</span> <span class="pre">edx,</span> <span class="pre">0x22</span></code> moved the immediate value <code class="docutils literal notranslate"><span class="pre">0x22</span></code> into the 32-bit register <code class="docutils literal notranslate"><span class="pre">edx</span></code>. The hex value <code class="docutils literal notranslate"><span class="pre">0x22</span></code> is <code class="docutils literal notranslate"><span class="pre">34</span></code> in decimal. We will confirm this by using IPython for conversion and to get comfortable with incorporating more Python use for computing activities.</p>
+<figure class="align-center" id="using-ipython-to-convert-0x22-to-decimal">
+<img alt="Using IPython to convert hex 0x22 into decimal" src="../../../../../../_images/using_ipython_to_convert_0x22_to_decimal.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 70 </span><span class="caption-text">Using IPython to convert hex <code class="docutils literal notranslate"><span class="pre">0x22</span></code> into decimal</span><a class="headerlink" href="#using-ipython-to-convert-0x22-to-decimal" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p><code class="docutils literal notranslate"><span class="pre">0x22</span></code> hex or <code class="docutils literal notranslate"><span class="pre">34</span></code> decimal is the length of the string <code class="docutils literal notranslate"><span class="pre">&quot;Hello</span> <span class="pre">World</span> <span class="pre">to</span> <span class="pre">the</span> <span class="pre">SLAE-64</span> <span class="pre">Course\\n&quot;</span></code>, including the newline character <code class="docutils literal notranslate"><span class="pre">\\n</span></code>. This was actually computed by the assembler and placed into the hardcoded opcodes. If you recall, the original assembly code was:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>global _start
+
+section .text
+ 
+_start:
+ 
+ 	; print on screen
+ 	mov rax, 1
+ 	mov rdi, 1
+ 	mov rsi, hello_world
+ 	mov rdx, length
+ 	syscall
+ 
+ 	; exit gracefully
+ 	mov rax, 60
+ 	mov rdi, 11
+ 	syscall
+ 
+section .data
+ 	hello_world: db &#39;Hello World to the SLAE-64 Course&#39;,0x0a
+ 	length: equ $-hello_world
+</pre></div>
+</div>
+<p>There was actually a trick used to obviate the need to manually count the number of characters in the string <code class="docutils literal notranslate"><span class="pre">&quot;Hello</span> <span class="pre">World</span> <span class="pre">to</span> <span class="pre">the</span> <span class="pre">SLAE-64</span> <span class="pre">Course&quot;</span></code>. This trick was to create a constant called <code class="docutils literal notranslate"><span class="pre">length</span></code>, and to equate it to the memory location just after the string <code class="docutils literal notranslate"><span class="pre">&quot;Hello</span> <span class="pre">World</span> <span class="pre">to</span> <span class="pre">the</span> <span class="pre">SLAE-64</span> <span class="pre">Course&quot;</span></code>, subtracted from its memory location. This memory location math gives exactly the length of the string <code class="docutils literal notranslate"><span class="pre">&quot;Hello</span> <span class="pre">World</span> <span class="pre">to</span> <span class="pre">the</span> <span class="pre">SLAE-64</span> <span class="pre">Course&quot;</span></code>. The way to obtain the memory location of the constant is to use the <code class="docutils literal notranslate"><span class="pre">$</span></code> directive in the assembly code, as can be seen from the code snippet:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>length:<span class="w"> </span>equ<span class="w"> </span><span class="nv">$-</span>hello_world
+</pre></div>
+</div>
+<p>This is the last bit of setup needed before invoking the <code class="docutils literal notranslate"><span class="pre">WRITE</span></code> system call. The instruction <code class="docutils literal notranslate"><span class="pre">0x401014</span> <span class="pre">&lt;_start+20&gt;</span> <span class="pre">mov</span> <span class="pre">edx,</span> <span class="pre">0x22</span></code>, will let the <code class="docutils literal notranslate"><span class="pre">WRITE</span></code> system call know that the length of the string to output to the screen is <code class="docutils literal notranslate"><span class="pre">0x22</span></code> hex bytes long. We are now ready to invoke the system call. This will occur in the next instruction as shown in the next section.</p>
+</section>
+<section id="executing-the-instruction-0x401019-start-25-syscall">
+<h4>Executing the instruction <code class="docutils literal notranslate"><span class="pre">0x401019</span> <span class="pre">&lt;_start+25&gt;:</span> <span class="pre">syscall</span></code><a class="headerlink" href="#executing-the-instruction-0x401019-start-25-syscall" title="Link to this heading">#</a></h4>
+<p>Prior to executing the instruction <code class="docutils literal notranslate"><span class="pre">0x401019</span> <span class="pre">&lt;_start+25&gt;:</span> <span class="pre">syscall</span></code>, the state of the registers and stack are as shown below:</p>
+<figure class="align-default" id="id7">
+<img alt="../../../../../../_images/64bit_hello_world_in_GDB_before_running_step5.jpg" src="../../../../../../_images/64bit_hello_world_in_GDB_before_running_step5.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 71 </span><span class="caption-text">Before running step <code class="docutils literal notranslate"><span class="pre">0x401019</span> <span class="pre">&lt;_start+25&gt;:</span> <span class="pre">syscall</span></code></span><a class="headerlink" href="#id7" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The <code class="docutils literal notranslate"><span class="pre">syscall</span></code> instruction invokes the Linux kernel to execute a system call. In this case, we are invoking the <code class="docutils literal notranslate"><span class="pre">WRITE</span></code> system call, which will print the string <code class="docutils literal notranslate"><span class="pre">&quot;Hello</span> <span class="pre">World</span> <span class="pre">to</span> <span class="pre">the</span> <span class="pre">SLAE-64</span> <span class="pre">Course&quot;</span></code> to the screen. The results of this call are shown below.</p>
+<figure class="align-default" id="id8">
+<img alt="../../../../../../_images/64bit_hello_world_in_GDB_after_running_step5.jpg" src="../../../../../../_images/64bit_hello_world_in_GDB_after_running_step5.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 72 </span><span class="caption-text">After running step <code class="docutils literal notranslate"><span class="pre">0x401019</span> <span class="pre">&lt;_start+25&gt;:</span> <span class="pre">syscall</span></code></span><a class="headerlink" href="#id8" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>It can be seen from the above screenshot that the <code class="docutils literal notranslate"><span class="pre">WRITE</span></code> system call was invoked properly as the string <code class="docutils literal notranslate"><span class="pre">&quot;Hello</span> <span class="pre">World</span> <span class="pre">to</span> <span class="pre">the</span> <span class="pre">SLAE-64</span> <span class="pre">Course&quot;</span></code> was printed to the screen, and execution of the program is continuing normally. The next step is to invoke the <code class="docutils literal notranslate"><span class="pre">EXIT</span></code> system call. It is important to properly exit a program as the program counter may be pointing to an invalid instruction after the <code class="docutils literal notranslate"><span class="pre">WRITE</span></code> system call instructions. In this case the program will crash. Exiting properly will virtually guarantee that the program will exit gracefully back to the shell. We will look at exiting gracefully in the next section.</p>
+</section>
+<section id="executing-the-instruction-0x40101b-start-27-mov-eax-0x3c">
+<h4>Executing the instruction <code class="docutils literal notranslate"><span class="pre">0x40101b</span> <span class="pre">_start+27&gt;:</span> <span class="pre">mov</span> <span class="pre">eax,0x3c</span></code><a class="headerlink" href="#executing-the-instruction-0x40101b-start-27-mov-eax-0x3c" title="Link to this heading">#</a></h4>
+<p>As stated in the previous section, we must now have the program exit gracefully. In order to do this, we setup an invocation to the <code class="docutils literal notranslate"><span class="pre">EXIT</span></code> system call. This is done by loading eax with the system call number for the <code class="docutils literal notranslate"><span class="pre">EXIT</span></code> system call. In this case, it is <code class="docutils literal notranslate"><span class="pre">0x3c</span></code> hex, or <code class="docutils literal notranslate"><span class="pre">60</span></code> in decimal. To find the correct system call number, we again look at the <code class="docutils literal notranslate"><span class="pre">/usr/include/asm/unistd_64</span></code> and search for the <code class="docutils literal notranslate"><span class="pre">EXIT</span></code> system call.</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#define __NR_alarm 37</span>
+<span class="cp">#define __NR_setitimer 38</span>
+<span class="cp">#define __NR_getpid 39</span>
+<span class="cp">#define __NR_sendfile 40</span>
+<span class="cp">#define __NR_socket 41</span>
+<span class="cp">#define __NR_connect 42</span>
+<span class="cp">#define __NR_accept 43</span>
+<span class="cp">#define __NR_sendto 44</span>
+<span class="cp">#define __NR_recvfrom 45</span>
+<span class="cp">#define __NR_sendmsg 46</span>
+<span class="cp">#define __NR_recvmsg 47</span>
+<span class="cp">#define __NR_shutdown 48</span>
+<span class="cp">#define __NR_bind 49</span>
+<span class="cp">#define __NR_listen 50</span>
+<span class="cp">#define __NR_getsockname 51</span>
+<span class="cp">#define __NR_getpeername 52</span>
+<span class="cp">#define __NR_socketpair 53</span>
+<span class="cp">#define __NR_setsockopt 54</span>
+<span class="cp">#define __NR_getsockopt 55</span>
+<span class="cp">#define __NR_clone 56</span>
+<span class="cp">#define __NR_fork 57</span>
+<span class="cp">#define __NR_vfork 58</span>
+<span class="cp">#define __NR_execve 59</span>
+</pre></div>
+</div>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#define __NR_exit 60</span>
+</pre></div>
+</div>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#define __NR_wait4 61</span>
+<span class="cp">#define __NR_kill 62</span>
+<span class="cp">#define __NR_uname 63</span>
+<span class="cp">#define __NR_semget 64</span>
+<span class="cp">#define __NR_semop 65</span>
+<span class="cp">#define __NR_semctl 66</span>
+<span class="cp">#define __NR_shmdt 67</span>
+<span class="cp">#define __NR_msgget 68</span>
+<span class="cp">#define __NR_msgsnd 69</span>
+<span class="cp">#define __NR_msgrcv 70</span>
+<span class="cp">#define __NR_msgctl 71</span>
+<span class="cp">#define __NR_fcntl 72</span>
+<span class="cp">#define __NR_flock 73</span>
+<span class="cp">#define __NR_fsync 74</span>
+<span class="cp">#define __NR_fdatasync 75</span>
+<span class="cp">#define __NR_truncate 76</span>
+</pre></div>
+</div>
+<p>From the above listing of the <code class="docutils literal notranslate"><span class="pre">/usr/include/asm/unistd_64</span></code> file, we can see that indeed the <code class="docutils literal notranslate"><span class="pre">EXIT</span></code> system call number is <code class="docutils literal notranslate"><span class="pre">60</span></code>, and this is the reason to load <code class="docutils literal notranslate"><span class="pre">60</span></code>, or <code class="docutils literal notranslate"><span class="pre">0x3c</span></code> hex into the register <code class="docutils literal notranslate"><span class="pre">eax</span></code>.</p>
+<p>Prior to executing the instruction <code class="docutils literal notranslate"><span class="pre">0x40101b</span> <span class="pre">&lt;_start+27&gt;:</span> <span class="pre">mov</span> <span class="pre">eax,0x3c</span></code>, the state of the stack and registers are as shown in the following screenshot.</p>
+<figure class="align-default" id="id9">
+<img alt="../../../../../../_images/64bit_hello_world_in_GDB_before_running_step6.jpg" src="../../../../../../_images/64bit_hello_world_in_GDB_before_running_step6.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 73 </span><span class="caption-text">Before running step <code class="docutils literal notranslate"><span class="pre">0x40101b</span> <span class="pre">&lt;_start+27&gt;:</span> <span class="pre">mov</span> <span class="pre">eax,0x3c</span></code></span><a class="headerlink" href="#id9" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The instruction <code class="docutils literal notranslate"><span class="pre">0x40101b</span> <span class="pre">&lt;_start+27&gt;:</span> <span class="pre">mov</span> <span class="pre">eax,0x3c</span></code> simply moves the immediate value <code class="docutils literal notranslate"><span class="pre">0x3c</span></code> hex or <code class="docutils literal notranslate"><span class="pre">60</span></code> decimal into the 32-bit register <code class="docutils literal notranslate"><span class="pre">eax</span></code>.</p>
+<figure class="align-default" id="id10">
+<img alt="../../../../../../_images/64bit_hello_world_in_GDB_after_running_step6.jpg" src="../../../../../../_images/64bit_hello_world_in_GDB_after_running_step6.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 74 </span><span class="caption-text">After running step <code class="docutils literal notranslate"><span class="pre">0x40101b</span> <span class="pre">&lt;_start+27&gt;:</span> <span class="pre">mov</span> <span class="pre">eax,0x3c</span></code></span><a class="headerlink" href="#id10" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>It can be seen from the above screenshot that the the <code class="docutils literal notranslate"><span class="pre">0x3c</span></code> hex or <code class="docutils literal notranslate"><span class="pre">60</span></code> decimal was loaded into <code class="docutils literal notranslate"><span class="pre">eax</span></code>. This is the first part of setting up the <code class="docutils literal notranslate"><span class="pre">EXIT</span></code> system call. The last part is to tell the <code class="docutils literal notranslate"><span class="pre">EXIT</span></code> system call which return value to give back to the shell. It is really an exit status, and is arbitrary. Usually, when there are no errors, a zero is returned back to the shell. In our case, we wish to return <code class="docutils literal notranslate"><span class="pre">0xb</span></code> hex or <code class="docutils literal notranslate"><span class="pre">11</span></code> decimal as a learning tool. We can then check the return exit status with an appropriate command.</p>
+</section>
+<section id="executing-the-instruction-0x401020-start-32-mov-edi-0xb">
+<h4>Executing the instruction <code class="docutils literal notranslate"><span class="pre">0x401020</span> <span class="pre">&lt;_start+32&gt;:</span> <span class="pre">mov</span> <span class="pre">edi,0xb</span></code><a class="headerlink" href="#executing-the-instruction-0x401020-start-32-mov-edi-0xb" title="Link to this heading">#</a></h4>
+<p>Prior to executing the instruction <code class="docutils literal notranslate"><span class="pre">0x401020</span> <span class="pre">&lt;_start+32&gt;:</span> <span class="pre">mov</span> <span class="pre">edi,0xb</span></code>, the state of the stack and registers are as shown in the following screenshot.</p>
+<figure class="align-default" id="id11">
+<img alt="../../../../../../_images/64bit_hello_world_in_GDB_before_running_step7.jpg" src="../../../../../../_images/64bit_hello_world_in_GDB_before_running_step7.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 75 </span><span class="caption-text">Before running step <code class="docutils literal notranslate"><span class="pre">0x401020</span> <span class="pre">&lt;_start+32&gt;:</span> <span class="pre">mov</span> <span class="pre">edi,0xb</span></code></span><a class="headerlink" href="#id11" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The instruction:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>0x401020<span class="w"> </span>&lt;_start+32&gt;:<span class="w"> </span>mov<span class="w"> </span>edi,0xb
+</pre></div>
+</div>
+<p>simply moves the immediate value <code class="docutils literal notranslate"><span class="pre">0xb</span></code> hex or <code class="docutils literal notranslate"><span class="pre">11</span></code> decimal into the 32-bit register <code class="docutils literal notranslate"><span class="pre">edi</span></code>. This value is the return value of our executable to the calling shell.</p>
+<figure class="align-default" id="id12">
+<img alt="../../../../../../_images/64bit_hello_world_in_GDB_after_running_step7.jpg" src="../../../../../../_images/64bit_hello_world_in_GDB_after_running_step7.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 76 </span><span class="caption-text">After running step <code class="docutils literal notranslate"><span class="pre">0x401020</span> <span class="pre">&lt;_start+32&gt;:</span> <span class="pre">mov</span> <span class="pre">edi,0xb</span></code></span><a class="headerlink" href="#id12" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>After executing the instruction:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>0x401020<span class="w"> </span>&lt;_start+32&gt;:<span class="w"> </span>mov<span class="w"> </span>edi,0xb
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">0xb</span></code> hex or <code class="docutils literal notranslate"><span class="pre">11</span></code> decimal was loaded into the 32-bit register <code class="docutils literal notranslate"><span class="pre">edi</span></code>. We are now ready to call the kernal to invoke the <code class="docutils literal notranslate"><span class="pre">EXIT</span></code> system call. This is shown in the next section.</p>
+</section>
+<section id="executing-the-instruction-0x401025-start-37-syscall">
+<h4>Executing the instruction <code class="docutils literal notranslate"><span class="pre">0x401025</span> <span class="pre">&lt;_start+37&gt;:</span> <span class="pre">syscall</span></code><a class="headerlink" href="#executing-the-instruction-0x401025-start-37-syscall" title="Link to this heading">#</a></h4>
+<p>Prior to executing the instruction <code class="docutils literal notranslate"><span class="pre">0x401025</span> <span class="pre">&lt;_start+37&gt;:</span> <span class="pre">syscall</span></code>, the state of the stack and registers are as shown in the following screenshot.</p>
+<figure class="align-default" id="id13">
+<img alt="../../../../../../_images/64bit_hello_world_in_GDB_before_running_step8.jpg" src="../../../../../../_images/64bit_hello_world_in_GDB_before_running_step8.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 77 </span><span class="caption-text">Before running step <code class="docutils literal notranslate"><span class="pre">0x401025</span> <span class="pre">&lt;_start+37&gt;:</span> <span class="pre">syscall</span></code></span><a class="headerlink" href="#id13" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>After executing the instruction <code class="docutils literal notranslate"><span class="pre">0x401025</span> <span class="pre">&lt;_start+37&gt;:</span> <span class="pre">syscall</span></code>, the process is terminated and the exit status is returned to the shell. The exit status is <code class="docutils literal notranslate"><span class="pre">0xb</span></code> hex or <code class="docutils literal notranslate"><span class="pre">11</span></code> decimal. This is shown in the following screenshot.</p>
+<figure class="align-default" id="id14">
+<img alt="../../../../../../_images/64bit_hello_world_in_GDB_after_running_step8.jpg" src="../../../../../../_images/64bit_hello_world_in_GDB_after_running_step8.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 78 </span><span class="caption-text">After running step <code class="docutils literal notranslate"><span class="pre">0x401025</span> <span class="pre">&lt;_start+37&gt;:</span> <span class="pre">syscall</span></code></span><a class="headerlink" href="#id14" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>We can see from the above screenshot that the process terminated with an exit code of <code class="docutils literal notranslate"><span class="pre">013</span></code>. Why is it not <code class="docutils literal notranslate"><span class="pre">0xb</span></code> hex or <code class="docutils literal notranslate"><span class="pre">11</span></code> decimal? Because apparently, GDB displays the exit code in octal. As before, we will use Python to convert <code class="docutils literal notranslate"><span class="pre">013</span></code> octal into decimal. This is shown in the following screenshot:</p>
+<figure class="align-center" id="using-ipython-to-convert-013-octal-to-decimal">
+<img alt="Using Python to convert 013 octal to decimal" src="../../../../../../_images/using_ipython_to_convert_013_octal_to_decimal.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 79 </span><span class="caption-text">Using Python to convert <code class="docutils literal notranslate"><span class="pre">013</span></code> octal to decimal</span><a class="headerlink" href="#using-ipython-to-convert-013-octal-to-decimal" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>We can also verify the exit status of the process by using the command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="nv">$?</span>
+</pre></div>
+</div>
+<p>This can be seen from the following screenshot:</p>
+<figure class="align-center" id="cmd-line-exit-status">
+<img alt="Using the Linux command line to obtain the exit status of a process" src="../../../../../../_images/cmd_line_exit_status.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 80 </span><span class="caption-text">Using the Linux command line to obtain the exit status of a process</span><a class="headerlink" href="#cmd-line-exit-status" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>We can see from the above screenshot that the exit status of the terminated process is indeed <code class="docutils literal notranslate"><span class="pre">11</span></code>.</p>
+</section>
+</section>
+<section id="conclusions-on-examining-helloworld-in-gdb">
+<h3>Conclusions on examining <em>helloworld</em> in GDB.<a class="headerlink" href="#conclusions-on-examining-helloworld-in-gdb" title="Link to this heading">#</a></h3>
+<p>In this section we looked at examining the execution of a simple 64 bit binary in GDB. We looked at how system calls are setup and how they are invoked. We also looked at how to obtain the exit status of a terminated process. In the next section, we will examine why the <code class="docutils literal notranslate"><span class="pre">helloworld</span></code> executable is not suitable for being used as shellcode. The reasons are that:</p>
+<ul class="simple">
+<li><p>The object code for the executable contains many nulls. This is evident by examining the object file’s dump:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">$objdump</span><span class="w"> </span>-d<span class="w"> </span>helloworld.o
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>helloworld.o:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000000000 &lt;_start&gt;:
+0:	48 b8 01 00 00 00 00 	movabs $0x1,%rax
+7:	00 00 00 
+a:	48 bf 01 00 00 00 00 	movabs $0x1,%rdi
+11:	00 00 00 
+14:	48 be 00 00 00 00 00 	movabs $0x0,%rsi
+1b:	00 00 00 
+1e:	48 ba 22 00 00 00 00 	movabs $0x22,%rdx
+25:	00 00 00 
+28:	0f 05                	syscall 
+2a:	48 b8 3c 00 00 00 00 	movabs $0x3c,%rax
+31:	00 00 00 
+34:	48 bf 0b 00 00 00 00 	movabs $0xb,%rdi
+3b:	00 00 00 
+3e:	0f 05                	syscall 
+
+$
+</pre></div>
+</div>
+<p>We can see from the objdump above that the code indeed includes many nulls. These nulls make the code above unsuitable for shellcode.</p>
+<ul class="simple">
+<li><p>The code makes use of the full 64-bit registers, which can hold very large numbers; however, the immediate numbers that we have used are relatively very small, less than then integer 100. This is an inefficient use of resources. In shellcoding, we want to make the shellcode as efficient and compact as possible.</p></li>
+</ul>
+<p>In the next section, we will look at how to remove these nulls and optimize the code so that it can be suitable to be used as shellcode.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Sections/Cybersecurity/SLAE64/Modules/Module_1/Section_5_Hello_World"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Section_3_GDB_Test/section_3_GDB_test.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lesson 3 - GDB Test</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../../../Shellcode_Generation_and_Testing/shellcode_generation_and_testing.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Shellcode Generation and Testing</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-content">Lesson Content</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-program-helloworld-asm">The Program <em>helloworld.asm</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assembling-linking-and-running-the-program-helloworld-asm">Assembling, Linking and Running the Program <em>helloworld.asm</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-helloworld-in-gdb-peda">Running <em>helloworld</em> in GDB + PEDA</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-and-before-run">Setup and before run:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#running-step-0x401000-start-mov-eax-0x1">Running step <em>0x401000 &lt;_start&gt;: mov eax,0x1</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#executing-step-0x401005-start-5-mov-edi-0x1">Executing step <code class="docutils literal notranslate"><span class="pre">0x401005</span> <span class="pre">&lt;_start+5&gt;:</span> <span class="pre">mov</span> <span class="pre">edi,0x1</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#executing-step-0x40100a-start-10-movabs-rsi-0x402000">Executing step <code class="docutils literal notranslate"><span class="pre">0x40100a</span> <span class="pre">&lt;_start+10&gt;:</span> <span class="pre">movabs</span> <span class="pre">rsi,0x402000</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#executing-step-0x401014-start-20-mov-edx-0x22">Executing step <code class="docutils literal notranslate"><span class="pre">0x401014</span> <span class="pre">&lt;_start+20&gt;</span> <span class="pre">mov</span> <span class="pre">edx,</span> <span class="pre">0x22</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#executing-the-instruction-0x401019-start-25-syscall">Executing the instruction <code class="docutils literal notranslate"><span class="pre">0x401019</span> <span class="pre">&lt;_start+25&gt;:</span> <span class="pre">syscall</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#executing-the-instruction-0x40101b-start-27-mov-eax-0x3c">Executing the instruction <code class="docutils literal notranslate"><span class="pre">0x40101b</span> <span class="pre">_start+27&gt;:</span> <span class="pre">mov</span> <span class="pre">eax,0x3c</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#executing-the-instruction-0x401020-start-32-mov-edi-0xb">Executing the instruction <code class="docutils literal notranslate"><span class="pre">0x401020</span> <span class="pre">&lt;_start+32&gt;:</span> <span class="pre">mov</span> <span class="pre">edi,0xb</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#executing-the-instruction-0x401025-start-37-syscall">Executing the instruction <code class="docutils literal notranslate"><span class="pre">0x401025</span> <span class="pre">&lt;_start+37&gt;:</span> <span class="pre">syscall</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusions-on-examining-helloworld-in-gdb">Conclusions on examining <em>helloworld</em> in GDB.</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mark Khusid
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

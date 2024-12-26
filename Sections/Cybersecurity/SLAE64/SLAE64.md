@@ -21,4 +21,17 @@ Module 1 - Section 3 - GDB Test
 ```
 :::
 
+:::{grid-item-card}
+:link: Modules/Module_1/Section_5_Hello_World/section_5_hello_world
+:link-type: doc
+:class-header: bg-dark
+
+Module 1 - Section 5 - Hello World
+^^^
+```{image} images/64bit_hello_world_asm_code.jpg
+:alt: Hello World in AMD 64 bit Assembly Code
+:align: center
+```
+:::
+
 ::::

@@ -248,7 +248,7 @@ Result of Setting *rdi* to *rsi*
 
 As we can see in the screenshot above, the register *rdi* has the same contents as the register *rsi*. When the *strcmp* function is executed, the result this comparison will result in a zero being returned into the register *rax*. Since there is a zero in *rax*, the *test eax, eax* instruction will cause the zero flag to be set. Following the *test eax, eax* instruction, we have the instruction:
 
-```assembly
+```bash
 jne    0x55555555518b <main+70>
 ```
 
