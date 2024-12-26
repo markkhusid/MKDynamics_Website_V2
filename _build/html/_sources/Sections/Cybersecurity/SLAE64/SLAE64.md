@@ -1,9 +1,8 @@
-# SLAE64
+# SLAE64 - x86_64 Assembly Language and Shellcoding on Linux
 
 ## Overview
-This section will follow along with and record the completion of exercises from the Pentester Academy's SecurityTube Linux Assembly Language and shellcoding Expert 64-Bit course (SLAE64).
-[https://www.pentesteracademy.com/course?id=7](x86_64 Assembly Language and Shellcoding on Linux)
-
+This section will follow along with and record the completion of exercises from the Pentester Academy's SecurityTube Linux Assembly Language and shellcoding Expert 64-Bit course (SLAE64). <br>
+[x86_64 Assembly Language and Shellcoding on Linux](https://www.pentesteracademy.com/course?id=7)
 
 ::::{grid} 2 2 2 2
 :class-container: text-center
