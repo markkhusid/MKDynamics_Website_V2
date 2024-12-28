@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Fortran MOOC &#8212; MK Dynamics</title>
+    <title>Section: Bit Manipulations &#8212; MK Dynamics</title>
   
   
   
@@ -62,11 +62,11 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Sections/Computer_Programming/Fortran/Fortran_MOOC/fortran_mooc';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Bit_Manipulations__Head__';</script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="Section: Arrays" href="Section_Arrays.html" />
-    <link rel="prev" title="Section 8.8: Findloc Function" href="../Guide_to_Fortran_2008_Programming/Section_8_8_Findloc_Function.html" />
+    <link rel="next" title="Section: Bit Manipulations - Create Lookup Table" href="Section_Bit_Manipulations_Create_Lookup_Table.html" />
+    <link rel="prev" title="Section: Ball Throw" href="Section_Ball_Throw.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -260,10 +260,10 @@
 <li class="toctree-l4"><a class="reference internal" href="../Guide_to_Fortran_2008_Programming/Section_8_8_Findloc_Function.html">Section 8.8: Findloc Function</a></li>
 </ul>
 </details></li>
-<li class="toctree-l3 current active has-children"><a class="current reference internal" href="#">Fortran MOOC</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="fortran_mooc.html">Fortran MOOC</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="Section_Arrays.html">Section: Arrays</a></li>
 <li class="toctree-l4"><a class="reference internal" href="Section_Ball_Throw__Head__.html">Section: Ball Throw</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Section_Bit_Manipulations__Head__.html">Section: Bit Manipulations</a></li>
+<li class="toctree-l4 current active"><a class="current reference internal" href="#">Section: Bit Manipulations</a></li>
 <li class="toctree-l4"><a class="reference internal" href="Section_Floating_Point.html">Section: Floating Point</a></li>
 <li class="toctree-l4"><a class="reference internal" href="Section_Call_By_Semantics.html">Section: Call By Semantics</a></li>
 <li class="toctree-l4"><a class="reference internal" href="Section_Computing_Pi.html">Section: Computing Pi</a></li>
@@ -423,7 +423,7 @@
       
       
       
-      <li><a href="https://github.com/markkhusid/MKDynamics_Website_V2/issues/new?title=Issue%20on%20page%20%2FSections/Computer_Programming/Fortran/Fortran_MOOC/fortran_mooc.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/markkhusid/MKDynamics_Website_V2/issues/new?title=Issue%20on%20page%20%2FSections/Computer_Programming/Fortran/Fortran_MOOC/Section_Bit_Manipulations__Head__.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -453,7 +453,7 @@
       
       
       
-      <li><a href="../../../../_sources/Sections/Computer_Programming/Fortran/Fortran_MOOC/fortran_mooc.ipynb" target="_blank"
+      <li><a href="../../../../_sources/Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Bit_Manipulations__Head__.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -527,7 +527,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Fortran MOOC</h1>
+    <h1>Section: Bit Manipulations</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -541,82 +541,12 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="fortran-mooc">
-<h1>Fortran MOOC<a class="headerlink" href="#fortran-mooc" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="section-bit-manipulations">
+<h1>Section: Bit Manipulations<a class="headerlink" href="#section-bit-manipulations" title="Link to this heading">#</a></h1>
 <p>In this section we will be following along with the examples from “Fortran for scientific programming”, a <a class="reference external" href="https://www.futurelearn.com/courses/fortran-for-scientific-computing">MOOC that is hosted by FutureLearn</a>.  Course material can be found on Github <a class="reference external" href="https://github.com/gjbex/Fortran-MOOC">here</a> . We will use Jupyter Lab with the Fortran Package Manager (fpm) to facilitate creation of this Jupyter Book.</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Section_Arrays.html">Section: Arrays</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Section_Arrays_Allocate_from_Source.html">Section Arrays: Allocate from Source</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Section_Arrays_Array_Arithmetic.html">Section Arrays: Array Arithmetic</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Section_Arrays_Array_Elements.html">Section Arrays: Array Elements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Section_Arrays_Array_Initialization.html">Section Arrays: Array Initialization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Section_Arrays_Array_Timing.html">Section Arrays: Array Timing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Section_Arrays_Assumed.html">Section Arrays: Assumed</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Section_Arrays_Compute_Factorial.html">Section Arrays: Compute Factorial</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Section_Arrays_Double_Deallocate.html">Section Arrays: Double Deallocate</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Section_Arrays_Elemental_Subroutine.html">Section Arrays: Elemental Subroutine</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Section_Arrays_Enlarge_Array.html">Section Arrays: Enlarge Array</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Section_Arrays_Identity.html">Section Arrays: Identity</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Section_Arrays_Linear_Transform.html">Section Arrays: Linear Transform</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Section_Arrays_Matrix.html">Section Arrays: Matrix</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Section_Arrays_Max_Array.html">Section Arrays: Max Array</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Section_Arrays_Normalize.html">Section Arrays: Normalize</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Section_Arrays_Normalize_Performance.html">Section Arrays: Normalize Performance</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Section_Arrays_Reshape.html">Section Arrays: Reshape</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Section_Arrays_Subarrays.html">Section Arrays: Subarrays</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Section_Arrays_Submatrices.html">Section Arrays: Submatrices</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Section_Arrays_Trace.html">Section Arrays: Trace</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Section_Ball_Throw__Head__.html">Section: Ball Throw</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Section_Ball_Throw.html">Section: Ball Throw</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Section_Bit_Manipulations__Head__.html">Section: Bit Manipulations</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Section_Bit_Manipulations_Create_Lookup_Table.html">Section: Bit Manipulations - Create Lookup Table</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Section_Floating_Point.html">Section: Floating Point</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Section_IEEE754_16_Zero_vs_Non_Zero.html">Section IEEE754: Zero vs Non - Zero</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Section_Call_By_Semantics.html">Section: Call By Semantics</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Section_Call_By_Semantics_Call_By_In_Reference.html">Section Call By Semantics: Call By In Reference</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Section_Call_By_Semantics_Call_By_Reference.html">Section Call By Semantics: Call By Reference</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Section_Call_By_Semantics_Call_By_Value.html">Section Call By Semantics: Call By Value</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Section_Computing_Pi.html">Section: Computing Pi</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Section_Computing_Pi_Compute_Pi.html">Section Computing Pi: Compute Pi</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Section_Computing_Pi_Compute_Pi_OpenMP.html">Section Computing Pi: Compute Pi with OpenMP</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Section_Implicit_vs_Explicit_Loops__Head__.html">Section: Implicit vs Explicit Loops</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Section_Implicit_vs_Explicit_Loops.html">Section: Implicit vs. Explicit Loops</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Section_Block_Matrices__Head__.html">Section: Block Matrices</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Section_Block_Matrices.html">Section: Block Matrices</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Section_BLAS_LAPACK__Head__.html">Section: BLAS/LAPACK</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Section_BLAS_LAPACK_BLAS95__Head__.html">Section: BLAS/LAPACK - BLAS95</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="Section_BLAS_LAPACK_BLAS95.html">Section: BLAS/LAPACK - BLAS95</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="Section_BLAS_LAPACK_Linear_Equations__Head__.html">Section: BLAS/LAPACK - Linear Equations</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="Section_BLAS_LAPACK_Linear_Equations.html">Section: BLAS/LAPACK - Linear Equations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Section_BLAS_LAPACK_Dot.html">Section: BLAS/LAPACK - Dot Product</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Section_BLAS_LAPACK_Copy.html">Section: BLAS/LAPACK - Vector Copy</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Section_BLAS_LAPACK_DDOT_Timing.html">Section: BLAS/LAPACK - DDOT Timing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Section_BLAS_LAPACK_GEMV.html">Section: BLAS/LAPACK - GEMV</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Section_BLAS_LAPACK_Scal.html">Section: BLAS/LAPACK - SCAL</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Section_BLAS_LAPACK_SV.html">Section: BLAS/LAPACK - SV</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="Section_Bit_Manipulations_Create_Lookup_Table.html">Section: Bit Manipulations - Create Lookup Table</a></li>
 </ul>
 </div>
 </section>
@@ -652,20 +582,20 @@
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../Guide_to_Fortran_2008_Programming/Section_8_8_Findloc_Function.html"
+       href="Section_Ball_Throw.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Section 8.8: Findloc Function</p>
+        <p class="prev-next-title">Section: Ball Throw</p>
       </div>
     </a>
     <a class="right-next"
-       href="Section_Arrays.html"
+       href="Section_Bit_Manipulations_Create_Lookup_Table.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Section: Arrays</p>
+        <p class="prev-next-title">Section: Bit Manipulations - Create Lookup Table</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

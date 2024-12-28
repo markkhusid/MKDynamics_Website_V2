@@ -1,5 +1,8 @@
 # Website Updates
 
+## 12/26/2024
+- Continuing to import SLAE64 from legacy HTML.  Added GDB Test and Hello World sections.  Added Amazon affiliate links.  Rebuilt book to clean up dangling links.
+
 ## 12/25/2024
 - Merry Christmas! Cleaned up misc section.  Numerous fixes to site structure and content.  Added Amazon affiliate link to Fortran section.  Brought over useful links section from old website.
 

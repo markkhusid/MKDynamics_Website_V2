@@ -184,6 +184,10 @@ parts:
         - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Ball_Throw__Head__
           sections:
           - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Ball_Throw
+
+        - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Bit_Manipulations__Head__
+          sections:
+          - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Bit_Manipulations_Create_Lookup_Table
       
         - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Floating_Point
           sections:
