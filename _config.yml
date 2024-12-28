@@ -5,10 +5,14 @@ title: MK Dynamics
 author: Mark Khusid
 logo: images/spacey.jpg
 
+exclude_patterns: [build, "FORD.md", "README.md"]
+
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 execute:
   execute_notebooks: cache
+  exclude_patterns: [build, "FORD.md", "README.md"]
+    
 
 # Define the name of the latex output file for PDF builds
 latex:

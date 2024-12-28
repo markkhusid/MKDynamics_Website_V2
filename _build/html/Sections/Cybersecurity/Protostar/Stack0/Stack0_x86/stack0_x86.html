@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../../../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../../../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../../../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../../../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -261,6 +261,7 @@
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../../../Computer_Programming/Fortran/Fortran_MOOC/fortran_mooc.html">Fortran MOOC</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays.html">Section: Arrays</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../Computer_Programming/Fortran/Fortran_MOOC/Section_Ball_Throw__Head__.html">Section: Ball Throw</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../Computer_Programming/Fortran/Fortran_MOOC/Section_Bit_Manipulations__Head__.html">Section: Bit Manipulations</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../Computer_Programming/Fortran/Fortran_MOOC/Section_Floating_Point.html">Section: Floating Point</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../Computer_Programming/Fortran/Fortran_MOOC/Section_Call_By_Semantics.html">Section: Call By Semantics</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../Computer_Programming/Fortran/Fortran_MOOC/Section_Computing_Pi.html">Section: Computing Pi</a></li>
@@ -274,6 +275,9 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../Computer_Programming/Fortran/DFFT/Square_Wave_1_Hz_50_pct/square_wave_1_hz_50_pct.html">Square Wave at 1Hz</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../Computer_Programming/Fortran/DFFT/2_Sine_Waves/2sineXHz.html">Two Sine Waves with Different Frequencies</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../Computer_Programming/Fortran/DFFT/Switched_Sine_Wave_1_kHz/switched_sine_wave_1_kHz.html">Switched 1 kHz Sine Wave</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../Computer_Programming/Fortran/CSV_Fortran/CSV_Fortran__HEAD__.html">CSV Fortran Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
 </ul>
@@ -623,7 +627,7 @@
 <p>We start with the vulnerable C Program <em>stack0.c</em>. The reason this program is vulnerable is because the <em>gets</em> function does not have any bounds checking. In other words, it will take whatever amount of data is given to it and put this data into the <em>buffer</em> argument. It will do so even if the amount of data exceeds the storage space allocated for <em>buffer</em>. In this case <em>buffer</em> is allocated 64 bytes.</p>
 <p>If one were to input a properly coded payload into the <em>gets</em> function, one could overwrite the <em>buffer</em> variable and even overwrite other variables. In this case, the variable we wish to overwrite is called <em>modified</em>.</p>
 <figure class="align-center" id="stack0-c-3">
-<img alt="stack0_c_3" src="../../../../../_images/stack0_c_3.jpg" />
+<img alt="stack0_c_3" src="../../../../../_images/stack0_c_31.jpg" />
 <figcaption>
 <p><span class="caption-number">Fig. 28 </span><span class="caption-text">The vulnerable program <em>stack0.c</em></span><a class="headerlink" href="#stack0-c-3" title="Link to this image">#</a></p>
 </figcaption>

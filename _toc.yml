@@ -236,6 +236,11 @@ parts:
         - file: Sections/Computer_Programming/Fortran/DFFT/2_Sine_Waves/2sineXHz
         - file: Sections/Computer_Programming/Fortran/DFFT/Switched_Sine_Wave_1_kHz/switched_sine_wave_1_kHz
 
+      - file: Sections/Computer_Programming/Fortran/CSV_Fortran/CSV_Fortran__HEAD__
+        sections:
+        - file: Sections/Computer_Programming/Fortran/CSV_Fortran/csv_fortran_read_csv
+        - file: Sections/Computer_Programming/Fortran/CSV_Fortran/csv_fortran_write_csv
+
     - file: Sections/Computer_Programming/Javascript/javascript
 
     - file: Sections/Computer_Programming/PHP/php

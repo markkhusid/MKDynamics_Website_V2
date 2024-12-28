@@ -70,6 +70,18 @@ Discretized Fourier Transform of Arbitrary Signal Using FFTW3 Algorithm
 ```
 :::
 
+:::{grid-item-card}
+:link: CSV_Fortran/CSV_Fortran__HEAD__.html
+:class-header: bg-auto
+
+Using the CSV Fortran Module to Read and Write CSV Files
+^^^
+```{image} images/csv_fortran.png
+:align: center
+:height: 150
+```
+:::
+
 ::::
 
 ## Resources and Textbooks Used
@@ -85,13 +97,23 @@ This book may be purchased from: <br>
 [Modern Fortran: Building Efficient Parallel Applications](https://www.manning.com/books/modern-fortran) <br>
 [Amazon page to purchase "Modern Fortran" by Milan Curcic (affiliate link)](https://amzn.to/3PgzWzy)
 
-
 ### "Introduction to Programming Using Fortran" from the Open Textbook Library
 This online resource may be obtained here: <br>
 [Introduction to Programming using Fortran](https://open.umn.edu/opentextbooks/textbooks/introduction-to-programming-using-fortran-95-2003-2008)
 
 ### PRACE MOOC on "Fortran for Scientific Programming" by FutureLearn
 This online resource may be obtained from Github  [PRACE MOOC on "Fortran for Scientific Programming"](https://www.futurelearn.com/courses/fortran-for-scientific-computing)
+
+### Discretized Fourier Transform of Arbitrary Signal Using FFTW3 Algorithm
+This project is available at the following Github repository: <br>
+[Discretized Fourier Transform of Arbitrary Signal Using FFTW3 Algorithm](https://github.com/markkhusid/MKDynamics_website/tree/master/html/current_projects/code_FFTW3)
+
+### Using the CSV Fortran Module to Read and Write CSV Files
+This project is available at the following Github repository: <br>
+[Using the CSV Fortran Module to Read and Write CSV Files](https://github.com/jacobwilliams/csv-fortran)
+
+Documentation for the CSV Fortran Module is available at the following link: <br>
+[CSV Fortran Module Documentation](https://jacobwilliams.github.io/csv-fortran/)
 
 ### Project Code on Github
 
