@@ -1,0 +1,20 @@
+name = "Section_CSV_Fortran_Read_CSV"
+
+[build]
+auto-executables = true
+auto-tests = true
+auto-examples = true
+
+[install]
+library = false
+
+[dependencies]
+csv-fortran = { git="https://github.com/jacobwilliams/csv-fortran.git" }
+
+[[executable]]
+name="Section_CSV_Fortran_Read_CSV"
+source-dir="app"
+main="section_csv_fortran_read_csv.f90"
+
+
+
