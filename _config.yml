@@ -49,7 +49,7 @@ launch_buttons:
   thebe: true
   
   analytics:
-    google_analytics_id: G-G0DPEVV9KG
+    google_analytics_id: G-BZ3C1QVH0B
 
 sphinx:
   #extra_extensions:
