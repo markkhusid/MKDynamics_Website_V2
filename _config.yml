@@ -38,11 +38,18 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
+  favicon: "images/spacey.jpg"
+  use_multitoc_numbering: false
 
-  launch_buttons:
-    notebook_interface: "jupyterlab"
-    binderhub_url: "https://mybinder.org"
-    thebe: true
+launch_buttons:
+  notebook_interface: "jupyterlab"
+  binderhub_url: "https://mybinder.org"
+  jupyterhub_url: "https://datahub.berkeley.edu"
+  colab_url: "https://colab.research.google.com"
+  thebe: true
+  
+  analytics:
+    google_analytics_id: G-G0DPEVV9KG
 
 sphinx:
   #extra_extensions:
