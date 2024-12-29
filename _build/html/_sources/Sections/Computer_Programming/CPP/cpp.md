@@ -1,7 +1,5 @@
 # C++ Programming
 
-[Home](https://www.mkdynamics.net)
-
 ![CPP_code](images/CPP_Logo.png)
 
 ## Introduction
