@@ -40,6 +40,8 @@ html:
   use_repository_button: true
   favicon: "images/spacey.jpg"
   use_multitoc_numbering: false
+  analytics:
+    google_analytics_id: G-BZ3C1QVH0B
 
 launch_buttons:
   notebook_interface: "jupyterlab"
@@ -48,8 +50,7 @@ launch_buttons:
   colab_url: "https://colab.research.google.com"
   thebe: true
   
-  analytics:
-    google_analytics_id: G-BZ3C1QVH0B
+  
 
 sphinx:
   #extra_extensions:
