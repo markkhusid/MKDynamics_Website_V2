@@ -53,6 +53,10 @@ parts:
     sections:
     - file: Sections/Computer_Programming/Assembly/assembly
 
+    - file: Sections/Computer_Programming/C/c__HEAD__
+      sections:
+      - file: Sections/Computer_Programming/C/Backdoored_Webserver/backdoored_webserver
+
     - file: Sections/Computer_Programming/CPP/cpp
       sections:
       - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp__HEAD__

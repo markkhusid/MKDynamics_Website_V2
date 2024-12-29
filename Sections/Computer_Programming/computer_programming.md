@@ -29,6 +29,17 @@ C++ Programming
 :::
 
 :::{grid-item-card}
+:link: C/c__HEAD__.html
+:class-header: bg-auto
+
+C Programming
+^^^
+```{image} images/C_programming.jpg
+:height: 200
+```
+:::
+
+:::{grid-item-card}
 :link: Python/python.html
 :class-header: bg-auto
 
