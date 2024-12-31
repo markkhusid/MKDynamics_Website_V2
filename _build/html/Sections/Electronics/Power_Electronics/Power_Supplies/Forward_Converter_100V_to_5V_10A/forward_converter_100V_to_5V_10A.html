@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Forward Converter 100V to 5V 10A &#8212; MK Dynamics</title>
+    <title>Forward Converter 100V to 5V at 10A &#8212; MK Dynamics</title>
   
   
   
@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../../../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../../../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../../../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../../../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -326,7 +326,7 @@
 </details></li>
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="../../power_electronics__HEAD__.html">Power Electronics</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l3 current active has-children"><a class="reference internal" href="../power_supplies__HEAD__.html">Power Supplies</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l4 current active"><a class="current reference internal" href="#">Forward Converter 100V to 5V 10A</a></li>
+<li class="toctree-l4 current active"><a class="current reference internal" href="#">Forward Converter 100V to 5V at 10A</a></li>
 </ul>
 </details></li>
 </ul>
@@ -546,7 +546,9 @@
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -557,11 +559,42 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Forward Converter 100V to 5V 10A</h1>
+    <h1>Forward Converter 100V to 5V at 10A</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specifications">Specifications</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ciruit-design-discussion">Ciruit Design Discussion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#circuit-simulation-schematic">Circuit Simulation Schematic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#circuit-description-and-simulation-results">Circuit Description and Simulation Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pwm-and-gate-drive">PWM and Gate Drive</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#main-power-switch-snubber">Main Power Switch Snubber</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformer-rectifier-and-output-filter">Transformer, Rectifier, and Output Filter</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optoisolator-and-type-2-error-amplifier-feedback">Optoisolator and Type 2 Error Amplifier Feedback</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#current-limiting-control-and-soft-start">Current Limiting Control and Soft Start</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#buffered-voltage-reference">Buffered Voltage Reference</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-voltage-feedforward-control">Input Voltage Feedforward Control</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-results">Simulation Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#soft-start-load-step-and-input-bus-voltage-step">Soft Start, Load Step and Input Bus Voltage Step</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformer-and-filter-inductor-currents">Transformer and Filter Inductor Currents</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-step-from-2a-to-10a">Load Step from 2A to 10A</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zoomed-in-view-of-load-step">Zoomed in View of Load Step</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overcurrent-protection">Overcurrent Protection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overcurrent-protection-load-step-and-input-bus-voltage-step">Overcurrent Protection, Load Step and Input Bus Voltage Step</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-under-load">Performance Under Load</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -571,9 +604,164 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="forward-converter-100v-to-5v-10a">
-<h1>Forward Converter 100V to 5V 10A<a class="headerlink" href="#forward-converter-100v-to-5v-10a" title="Link to this heading">#</a></h1>
-<p>Under construction</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="forward-converter-100v-to-5v-at-10a">
+<h1>Forward Converter 100V to 5V at 10A<a class="headerlink" href="#forward-converter-100v-to-5v-at-10a" title="Link to this heading">#</a></h1>
+<a class="reference internal image-reference" href="../../../../../_images/100V_to_5V_10A_Forward_Converter_Eagle_Sch1.jpg"><img alt="../../../../../_images/100V_to_5V_10A_Forward_Converter_Eagle_Sch1.jpg" src="../../../../../_images/100V_to_5V_10A_Forward_Converter_Eagle_Sch1.jpg" style="height: 400px;" /></a>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>In this project, we will design and build a forward converter that will convert 100V to 5V at 10A. The forward converter is a type of switching power supply that is used to convert one voltage to another. The forward converter is a step-down converter that uses a transformer to step down the input voltage to the desired output voltage. The forward converter is a popular choice for power supplies because it is efficient, reliable, and cost-effective.</p>
+</section>
+<section id="specifications">
+<h2>Specifications<a class="headerlink" href="#specifications" title="Link to this heading">#</a></h2>
+<p>The item is a forward converter power supply that is fed with 100VDC and converts this input into 5VDC. The maximum load current is 10A. The item is intended mainly for household use, but can see operation outdoors. Specific requirements are shown below:
+Requirements:</p>
+<ul class="simple">
+<li><p>Voltage input</p>
+<ul>
+<li><p>100V nominal</p></li>
+<li><p>130V maximum</p></li>
+<li><p>70V minimum</p></li>
+</ul>
+</li>
+<li><p>Current available</p>
+<ul>
+<li><p>10A maximum</p></li>
+</ul>
+</li>
+<li><p>Voltage Output</p>
+<ul>
+<li><p>Nominal output voltage: 5V</p></li>
+<li><p>Allowable ripple voltage: 50mV peak to peak</p></li>
+</ul>
+</li>
+<li><p>Current Output</p>
+<ul>
+<li><p>Minimum load: 0 Amps</p></li>
+<li><p>Maximum load: 10A</p></li>
+</ul>
+</li>
+<li><p>Environment</p>
+<ul>
+<li><p>Interfaces to household wiring</p></li>
+<li><p>Will see outdoor use in protected environment</p></li>
+<li><p>Exposed to lightning</p></li>
+</ul>
+</li>
+<li><p>Components</p>
+<ul>
+<li><p>Must use the TL494 PWM IC for parts commonality</p></li>
+</ul>
+</li>
+<li><p>Efficiency</p>
+<ul>
+<li><p>Must be greater than 70%</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="ciruit-design-discussion">
+<h2>Ciruit Design Discussion<a class="headerlink" href="#ciruit-design-discussion" title="Link to this heading">#</a></h2>
+<p>The item is an isolated power supply circuit that accepts a nominal solar panel voltage of 100V and outputs a regulated 5V at 10A. Additionally, the item counters the effects of a varying input voltage, by varying its output voltage accordingly. So for example, if the input voltage varies from 100V to 101V, the output varies from 5V to 4V, and vice versa. If the input voltage varies from 100V to 99V, then the output voltage varies from 5V to 6V.</p>
+<p>This relationship is implemented as a means of stabilizing the Local Grid voltage in a microgrid community power situation. The item is to be placed between far flung loads, to compensate for voltage drops due to long transmission distances between solar panel source and load in a microgrid commnity power sitauation.</p>
+<p>Since the amount of output current is 10A, we wanted to avoid high peak rectifier currents associated with a flyback converter. Therefore, a forward converter topology was chosen. The magnetics were chosen to be custom wound toroids.</p>
+<p>The circuit was designed using a pick and simulate approach to save time intensive analysis time. Best / educated guesses were made for proper inductor values, a simulation was run, and the circuit performance was evaluated. This was also done for the frequency compensation.</p>
+<p>The main PWM IC was required to be the TL494. This chip does not implement pulse-by-pulse current limiting control. This function was impleneted with additional circuitry to reduce the required loop compensation from a Type 3 amplifier to a Type 2 amplifier. This greatly improves transient response and simplifies the compenation circuit from three poles to two poles.</p>
+<p>Another issue with the TL494 IC is that there is no official LTSpice 4 model available for it, although I was able to find a usable unofficial model. It required some modifications, which are described here:
+Hacking the TL494 LTSpice Model</p>
+<p>The entire simulation schematic is shown in the image below. Further dicussion on each of its parts will be made in subsequent sections.</p>
+</section>
+<section id="circuit-simulation-schematic">
+<h2>Circuit Simulation Schematic<a class="headerlink" href="#circuit-simulation-schematic" title="Link to this heading">#</a></h2>
+<a class="reference internal image-reference" href="../../../../../_images/100V_to_5V_10A_forward_converter_sim_sch.jpg"><img alt="../../../../../_images/100V_to_5V_10A_forward_converter_sim_sch.jpg" src="../../../../../_images/100V_to_5V_10A_forward_converter_sim_sch.jpg" style="height: 400px;" /></a>
+</section>
+<section id="circuit-description-and-simulation-results">
+<h2>Circuit Description and Simulation Results<a class="headerlink" href="#circuit-description-and-simulation-results" title="Link to this heading">#</a></h2>
+<section id="pwm-and-gate-drive">
+<h3>PWM and Gate Drive<a class="headerlink" href="#pwm-and-gate-drive" title="Link to this heading">#</a></h3>
+<img alt="../../../../../_images/PWM_and_Gate_Drive.png" src="../../../../../_images/PWM_and_Gate_Drive.png" />
+<p>The TL494 is used at the PWM IC.  Both of its outputs are tied together to drive the base of Q1.  Q1 provides the current boost necessary to drive the MOSFET M1.  Turn - off of the MOSFET M1 is performed by Q2.</p>
+</section>
+<section id="main-power-switch-snubber">
+<h3>Main Power Switch Snubber<a class="headerlink" href="#main-power-switch-snubber" title="Link to this heading">#</a></h3>
+<img alt="../../../../../_images/Main_Power_Switch_Snubber.png" src="../../../../../_images/Main_Power_Switch_Snubber.png" />
+<p>R4, C4 and D7 form a snubber for the main power switch M1.  The snubber is necessary to prevent the voltage across the MOSFET from exceeding its maximum rating.  The snubber also reduces the turn-off time of the MOSFET, which reduces the power dissipation in the MOSFET.</p>
+</section>
+<section id="transformer-rectifier-and-output-filter">
+<h3>Transformer, Rectifier, and Output Filter<a class="headerlink" href="#transformer-rectifier-and-output-filter" title="Link to this heading">#</a></h3>
+<img alt="../../../../../_images/Transformer_Rectifier_Output_Filter.png" src="../../../../../_images/Transformer_Rectifier_Output_Filter.png" />
+<p>D5 + D4 are a snubber and clipper to limit drain voltage to 180V.  R5 and C1 are a snubber for rectifiers D2 and D3.  L_filt and C_filt make the current and ripple filter, respectively. NOTE: must use output capacitors that have a combined ESR of about 0.3 ohms for stability.  I1 is a stepped load for simulation purposes.</p>
+</section>
+<section id="optoisolator-and-type-2-error-amplifier-feedback">
+<h3>Optoisolator and Type 2 Error Amplifier Feedback<a class="headerlink" href="#optoisolator-and-type-2-error-amplifier-feedback" title="Link to this heading">#</a></h3>
+<img alt="../../../../../_images/Optoisolator_and_Type_2_Error_Amplifier_Feedback.png" src="../../../../../_images/Optoisolator_and_Type_2_Error_Amplifier_Feedback.png" />
+<p>R12 provides a bias current to the opto LED. VOUT can not fall below about 4 V, or the
+TL431 starts to shutdown.  This is a problem for feedforward control, since if solar panel voltage goes up by 2V, then the output voltage needs to drop to 3V. We might need an auxiliary supply on the secondary side. Perhaps a small 5V to 12V prepackaged boost converter?</p>
+<p>R11, R16, and the opto gain set the output voltage. Need a pot in place of R11 to dial
+it in to account for opto current transfer ratio variation.  U5 provides buffering of the opto output. U3 is the EA. It is a type 2 error amplifier with dialed in frequency compensation. It also has a feedforward term injected via R49 (BUS_VOLTAGE).</p>
+</section>
+<section id="current-limiting-control-and-soft-start">
+<h3>Current Limiting Control and Soft Start<a class="headerlink" href="#current-limiting-control-and-soft-start" title="Link to this heading">#</a></h3>
+<img alt="../../../../../_images/Current_Limiting_Control_and_Soft_Start.png" src="../../../../../_images/Current_Limiting_Control_and_Soft_Start.png" />
+<p>V_CS is the raw voltage across the current sense resistor. It is gained up and filtered slightly by
+U6. The current loop needs to be fast, hence the slight amount of filtering.  U7 provides a final gain of 3V/V. In order to adjust the current limit, the gain is adjusted on U7, not U6, so as to maintain the RC time constant in the feedback of U6.</p>
+<p>The current limit threshold is soft-started by an RC formed by R26 and C2 (2k and 1uF). This voltage forms the threshold for the current limit comparator U8. Upon converter power up, the load wants to draw a huge current from the primary, potentially blowing things up. Having the current limit gradually come up prevents huge startup currents.</p>
+<p>Upon converter power up, the main softstart holds off PWMs until VCC has reached 13V and the TL494 has sufficient voltage to operate. When the TL494 has sufficient voltage to operate, it activates it 5V reference output. This reference is input into R33 and R27. R27 and R28 divide down the reference voltage slightly, to about 4.5V. The reference at R33 is applied to the RC time constant R33 and C11. This allows soft-start time to be active, and once the Vref is good for sufficient time (3 ms), soft-start is locked out from manipulating the Dead Time Control pin on the TL494 by U9 and Q4.</p>
+<p>If the primary current has reached the limit, U8 connects DTC to VREF, cutting the PWM pulse at that moment. This is pulse-by-pulse current limiting.</p>
+</section>
+<section id="buffered-voltage-reference">
+<h3>Buffered Voltage Reference<a class="headerlink" href="#buffered-voltage-reference" title="Link to this heading">#</a></h3>
+<img alt="../../../../../_images/Buffered_Voltage_Reference.png" src="../../../../../_images/Buffered_Voltage_Reference.png" />
+<p>U10 forms a buffer for the 5V reference from the TL494. The stability of the converter is strongly dependent on a stable reference. My current limit circuit is always banging DTC to VREF, causing perterbations, due to insufficient drive. About 50mA is necessary momentarily to charge/discharge caps. This requires a good current booster Q5 and Q6. Stability compensation is provided by C21, C20, R45, and C10. R46 and R47 are for current limit, but of limited benefit.</p>
+</section>
+<section id="input-voltage-feedforward-control">
+<h3>Input Voltage Feedforward Control<a class="headerlink" href="#input-voltage-feedforward-control" title="Link to this heading">#</a></h3>
+<img alt="../../../../../_images/Input_Voltage_Feedforward_Control.png" src="../../../../../_images/Input_Voltage_Feedforward_Control.png" />
+<p>V1 is the solar panel voltage (100V). V2 simulates a drop in panel voltage by substracting 2V
+at 5ms.
+U11 is a high-voltage difference amplifier. The gains are written in blue. It is non-inverting. It outputs 5V for 100V solar panel voltage. U12 applies gain to variations off of 5V and subtracts 10V (2xVREF) leaving a signal that swings 1:1 with solar panel voltage swings. So if the solar panel voltage goes from 100V to 101V, the output of U12 will be 4V (it is inverting). If the solar panel voltage from from 100V to 99V, the output of U12 will be 6V.</p>
+<p>U13 simply inverts the output of U11, while maintaining the 5V offset (VREF derived). This signal is applied to the EA as a feedforward term. Since I don’t know the bus voltage a priori, I assume it is 100V, knowing how much offset to apply and subtract is critical. All of these offsets are necessary due to single supply op amp operation :(.</p>
+<p>To accommodate variation in the solar panel bus voltage, another term will have to be generated that involves the difference between the actual bus voltage and 100V.</p>
+</section>
+</section>
+<section id="simulation-results">
+<h2>Simulation Results<a class="headerlink" href="#simulation-results" title="Link to this heading">#</a></h2>
+<section id="soft-start-load-step-and-input-bus-voltage-step">
+<h3>Soft Start, Load Step and Input Bus Voltage Step<a class="headerlink" href="#soft-start-load-step-and-input-bus-voltage-step" title="Link to this heading">#</a></h3>
+<img alt="../../../../../_images/Simulation_Results_1.png" src="../../../../../_images/Simulation_Results_1.png" />
+<p>V(PWM) is the PWM gate voltage. The soft start period runs from 1ms to 2ms. After that the
+gradually increasing current limit takes over.  The load current is 2A until 12ms.  The solar panel bus voltage shifts from 100V to 98V at 5ms. The output voltage rises from 5V to 7V (V(vout)).</p>
+</section>
+<section id="transformer-and-filter-inductor-currents">
+<h3>Transformer and Filter Inductor Currents<a class="headerlink" href="#transformer-and-filter-inductor-currents" title="Link to this heading">#</a></h3>
+<img alt="../../../../../_images/Simulation_Results_2.png" src="../../../../../_images/Simulation_Results_2.png" />
+<p>I(Lpri), I(L_sec) and I(L_filt) are the primary, secondary and filter inductor currents, respectively.  V(vref) is the buffered reference voltage. Notice it is very stable.  V(V_opamp) is the EA output voltage. It never saturates to either 13V or 0V; therefore, voltage loop control is maintained.</p>
+</section>
+<section id="load-step-from-2a-to-10a">
+<h3>Load Step from 2A to 10A<a class="headerlink" href="#load-step-from-2a-to-10a" title="Link to this heading">#</a></h3>
+<img alt="../../../../../_images/Simulation_Results_3.png" src="../../../../../_images/Simulation_Results_3.png" />
+<p>At 12ms, the load abruptly changes from 2A to 10A. Transformer currents correspondingly increase, but voltage loop control is maintained. There is a slight dip in the output voltage, which is unavoidable, as no voltage control loop has infinite bandwidth. This response comes from the frequency compensation components around the EA.</p>
+</section>
+<section id="zoomed-in-view-of-load-step">
+<h3>Zoomed in View of Load Step<a class="headerlink" href="#zoomed-in-view-of-load-step" title="Link to this heading">#</a></h3>
+<img alt="../../../../../_images/Simulation_Results_4.png" src="../../../../../_images/Simulation_Results_4.png" />
+<p>Zoomed in view around 12ms, when load step occurs. Notice that the EA output saturates at ground, but recovers. To correct this, it will require lots of calculations to get the optimal frequency compensation values. I got these results by trial and error.</p>
+</section>
+<section id="overcurrent-protection">
+<h3>Overcurrent Protection<a class="headerlink" href="#overcurrent-protection" title="Link to this heading">#</a></h3>
+<img alt="../../../../../_images/Simulation_Results_5.png" src="../../../../../_images/Simulation_Results_5.png" />
+<p>This shows the transformer and filter inductor currents. Some of them are negative to show relative amplitudes, but the currents are actually all positive.  Bus voltage drops from 100V to 98V at 5ms.Output voltage rises to 7V from 5V. Load step from 2A to 10A occurs at 12ms.</p>
+</section>
+<section id="overcurrent-protection-load-step-and-input-bus-voltage-step">
+<h3>Overcurrent Protection, Load Step and Input Bus Voltage Step<a class="headerlink" href="#overcurrent-protection-load-step-and-input-bus-voltage-step" title="Link to this heading">#</a></h3>
+<img alt="../../../../../_images/Simulation_Results_6.png" src="../../../../../_images/Simulation_Results_6.png" />
+<p>The bottom pane shows the overcurrent comparator slamming DTC to VREF when too much current flows in the primary. This limits the primary current until things stabalize.  Also the current blip during the load step is kept under control, as can be seen by the DTC trace at 12 ms.</p>
+</section>
+<section id="performance-under-load">
+<h3>Performance Under Load<a class="headerlink" href="#performance-under-load" title="Link to this heading">#</a></h3>
+<img alt="../../../../../_images/Simulation_Results_7.png" src="../../../../../_images/Simulation_Results_7.png" />
+<p>Here I show the overcurrent threshold RC waveform in the top pane, and the conditioned primary current sense signal (in red).  Notice that even under 10A of load to the 5V output, the primary current stays just under the threshold. NOTE: All of these are adjustable.</p>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -630,6 +818,45 @@
             </div>
             
             
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specifications">Specifications</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ciruit-design-discussion">Ciruit Design Discussion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#circuit-simulation-schematic">Circuit Simulation Schematic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#circuit-description-and-simulation-results">Circuit Description and Simulation Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pwm-and-gate-drive">PWM and Gate Drive</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#main-power-switch-snubber">Main Power Switch Snubber</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformer-rectifier-and-output-filter">Transformer, Rectifier, and Output Filter</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optoisolator-and-type-2-error-amplifier-feedback">Optoisolator and Type 2 Error Amplifier Feedback</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#current-limiting-control-and-soft-start">Current Limiting Control and Soft Start</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#buffered-voltage-reference">Buffered Voltage Reference</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-voltage-feedforward-control">Input Voltage Feedforward Control</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-results">Simulation Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#soft-start-load-step-and-input-bus-voltage-step">Soft Start, Load Step and Input Bus Voltage Step</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformer-and-filter-inductor-currents">Transformer and Filter Inductor Currents</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-step-from-2a-to-10a">Load Step from 2A to 10A</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zoomed-in-view-of-load-step">Zoomed in View of Load Step</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overcurrent-protection">Overcurrent Protection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overcurrent-protection-load-step-and-input-bus-voltage-step">Overcurrent Protection, Load Step and Input Bus Voltage Step</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-under-load">Performance Under Load</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
