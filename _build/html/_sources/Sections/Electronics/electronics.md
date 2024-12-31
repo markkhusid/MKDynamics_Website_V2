@@ -19,12 +19,24 @@ Analog/Digital Designs and Projects
 :::
 
 :::{grid-item-card}
-:link: Dual_Diode_Box/dual_diode_box.html
+:link: Power_Electronics/power_electronics__HEAD__.html
 :class-header: bg-dark
 
-Dual Diode Box
+Power Electronics Projects
 ^^^
-```{image} images/Dual_Diode_Box/dual_diode_box.jpg
+```{image} images/Power_Electronics/LTC3891_sim.jpeg
+:height: 200
+:align: center
+```
+:::
+
+:::{grid-item-card}
+:link: Solar_Power_Projects/solar_power_projects__HEAD__.html
+:class-header: bg-dark
+
+Solar Power Projects
+^^^
+```{image} images/Solar_Power_Projects/dual_diode_box2.jpg
 :height: 200
 :align: center
 ```
