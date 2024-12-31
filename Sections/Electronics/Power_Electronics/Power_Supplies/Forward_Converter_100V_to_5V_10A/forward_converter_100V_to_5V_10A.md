@@ -177,6 +177,44 @@ The bottom pane shows the overcurrent comparator slamming DTC to VREF when too m
 
 Here I show the overcurrent threshold RC waveform in the top pane, and the conditioned primary current sense signal (in red).  Notice that even under 10A of load to the 5V output, the primary current stays just under the threshold. NOTE: All of these are adjustable.
 
+## Schematic and PCB Design in Eagle CAD
+
+### Schematic
+
+The schematic and PCB design were done in Eagle CAD. The schematic is shown below:
+
+```{image} images/100V_to_5V_10A_Forward_Converter_Eagle_Sch.jpg
+```
+### PCB Layout
+
+#### Top Layer
+
+The top layer of the PCB is shown below:
+
+```{image} images/100V_to_5V_10A_Forward_Converter_Eagle_Brd_Layer_Top.jpg
+```
+
+#### Layer 2
+
+The second layer of the PCB is shown below:
+
+```{image} images/100V_to_5V_10A_Forward_Converter_Eagle_Brd_Layer_2.jpg
+```
+
+#### Layer 3
+
+The third layer of the PCB is shown below:
+
+```{image} images/100V_to_5V_10A_Forward_Converter_Eagle_Brd_Layer_3.jpg
+```
+
+#### Bottom Layer
+
+The bottom layer of the PCB is shown below:
+
+```{image} images/100V_to_5V_10A_Forward_Converter_Eagle_Brd_Layer_Bottom.jpg
+```
+
 
 
 
