@@ -287,6 +287,8 @@ parts:
   - file: Sections/Ham_Radio/ham_radio
     sections:
     - file: Sections/Ham_Radio/Ham_Radio_Projects/ham_radio_projects
+      sections:
+      - file: Sections/Ham_Radio/Ham_Radio_Projects/Packet_Radio/packet_radio
     - file: Sections/Ham_Radio/Antenna_Simulation_using_4NEC2/antenna_simulation_using_4NEC2
       
 - caption: About Me

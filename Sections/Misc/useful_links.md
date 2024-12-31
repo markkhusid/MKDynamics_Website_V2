@@ -9,6 +9,71 @@
       
 #### My QRZ.com profile
 [QRZ.COM/AC2LH](http://www.qrz.com/db/AC2LH)
+
+#### Packet Radio Websites
+
+This is a list of websites that provide information on packet radio and related topics:
+
+[The Digital Domain of Amateur Radio - Wireless TCP/IP - Amateur Radio Digital Communications (NET-AMPRNET) AMPRNET 44.0.0.0](https://www.qsl.net/kb9mwr/wapr/tcpip/amprnet.html)
+
+[Using Part 15 Wireless Ethernet Devices For Amateur Radio Broadband Highspeed Amateur Multimedia Networking](https://www.qsl.net/kb9mwr/projects/wireless/plan.html)
+
+[The WAPR TCP/IP Page](https://www.qsl.net/kb9mwr/wapr/tcpip/)
+
+[https://xastir.org/index.php/HowTo:AX.25_-_Ubuntu/Debian](https://xastir.org/index.php/HowTo:AX.25_-_Ubuntu/Debian)
+
+[http://www.trinityos.com/HAM/getting-started-with-packet-radio.txt](http://www.trinityos.com/HAM/getting-started-with-packet-radio.txt)
+
+[http://ve3bux.com/?p=825](http://ve3bux.com/?p=825)
+
+[https://www.george-smart.co.uk/wiki/AX25_Soundmodem](https://www.george-smart.co.uk/wiki/AX25_Soundmodem)
+
+[http://www.trinityos.com/HAM/CentosDigitalModes/hampacketizing-centos.html#3a.ax25code](http://www.trinityos.com/HAM/CentosDigitalModes/hampacketizing-centos.html#3a.ax25code)
+
+[http://http://k4gbb.no-ip.org/docs/StartingAX25.html](http://k4gbb.no-ip.org/docs/StartingAX25.html)
+
+[http://www.qsl.net/kb9mwr/wapr/sound-card-packet.html](http://www.qsl.net/kb9mwr/wapr/sound-card-packet.html)
+
+[https://github.com/wb2osz/direwolf/blob/master/doc/User-Guide.pdf](https://github.com/wb2osz/direwolf/blob/master/doc/User-Guide.pdf)
+
+[http://www.trinityos.com/HAM/CentosDigitalModes/etc/ax25/direwolf.conf](http://www.trinityos.com/HAM/CentosDigitalModes/etc/ax25/direwolf.conf)
+
+[https://andrewmemory.wordpress.com/category/packet/](https://andrewmemory.wordpress.com/category/packet/)
+
+[https://jjmcd.fedorapeople.org/Download/Amateur-Radio/Fedora-19-Amateur_Radio_Guide-en-US.pdf](https://jjmcd.fedorapeople.org/Download/Amateur-Radio/Fedora-19-Amateur_Radio_Guide-en-US.pdf)
+
+[http://www.tigertronics.com/pricing.htm#Extra Radio Cable for the following Yaesu HTs:](http://www.tigertronics.com/pricing.htm#Extra%20Radio%20Cable%20for%20the%20following%20Yaesu%20HTs:)
+
+[https://learn.adafruit.com/adafruit-raspberry-pi-lesson-7-remote-control-with-vnc/running-vncserver-at-startup](https://learn.adafruit.com/adafruit-raspberry-pi-lesson-7-remote-control-with-vnc/running-vncserver-at-startup)
+
+[http://www.hamuniverse.com/hfbandplan.html](http://www.hamuniverse.com/hfbandplan.html)
+
+[http://www.tldp.org/HOWTO/AX25-HOWTO/index.html](http://www.tldp.org/HOWTO/AX25-HOWTO/index.html)
+
+[http://f6bvp.org/AX25_BBS_Node_RaspBerry_Pi_install.html](http://f6bvp.org/AX25_BBS_Node_RaspBerry_Pi_install.html)
+
+[http://f6cte.free.fr/index_anglais.htm](http://f6cte.free.fr/index_anglais.htm)
+
+[http://www.qbjnet.com/packet.html#soundmodem](http://www.qbjnet.com/packet.html#soundmodem)
+
+[https://www.sans.org/security-resources/sec560/netcat_cheat_sheet_v1.pdf](https://www.sans.org/security-resources/sec560/netcat_cheat_sheet_v1.pdf)
+
+[http://dcj21.net/how-tos/install-rms-express-linux](http://dcj21.net/how-tos/install-rms-express-linux)
+
+[http://www.tldp.org/HOWTO/AX25-HOWTO/x1449.html](http://www.tldp.org/HOWTO/AX25-HOWTO/x1449.html)
+
+[http://www.n4zkf.com/files/fadca/FPACUSER-Manual.html](http://www.n4zkf.com/files/fadca/FPACUSER-Manual.html)
+
+[http://www.tldp.org/HOWTO/AX25-HOWTO/x495.html](http://www.tldp.org/HOWTO/AX25-HOWTO/x495.html)
+
+[http://manpages.ubuntu.com/manpages/trusty/man1/axcall.1.html](http://manpages.ubuntu.com/manpages/trusty/man1/axcall.1.html)
+
+[https://xastir.org/index.php/HowTo:SoundModem](https://xastir.org/index.php/HowTo:SoundModem)
+
+[https://linux.die.net/man/1/slsnif](https://linux.die.net/man/1/slsnif)
+
+[https://stackoverflow.com/questions/52187/virtual-serial-port-for-linux](https://stackoverflow.com/questions/52187/virtual-serial-port-for-linux)
+
  
 ### Electronics
 
@@ -97,3 +162,4 @@
 [Link to NetBeans IDE](https://netbeans.apache.org//) <br>
 [Link to Eclipse Luna IDE](https://www.eclipse.org/) <br>
 [Link to Arduino IDE](https://www.arduino.cc/en/software)
+
