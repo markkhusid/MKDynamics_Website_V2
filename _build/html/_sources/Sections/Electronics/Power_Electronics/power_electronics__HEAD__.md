@@ -1,3 +1,3 @@
-# Power Electonics
+# Power Electronics
 
 Under construction
