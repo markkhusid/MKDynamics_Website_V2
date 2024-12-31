@@ -268,6 +268,8 @@ parts:
     - file: Sections/Electronics/Power_Electronics/power_electronics__HEAD__
       sections:
       - file: Sections/Electronics/Power_Electronics/Power_Supplies/power_supplies__HEAD__
+        sections:
+        - file: Sections/Electronics/Power_Electronics/Power_Supplies/Forward_Converter_100V_to_5V_10A/forward_converter_100V_to_5V_10A
     - file: Sections/Electronics/Solar_Power_Projects/solar_power_projects__HEAD__
       sections:
       - file: Sections/Electronics/Dual_Diode_Box/dual_diode_box.md
