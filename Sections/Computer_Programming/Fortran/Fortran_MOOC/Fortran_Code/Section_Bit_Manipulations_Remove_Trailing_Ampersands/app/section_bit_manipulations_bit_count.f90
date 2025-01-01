@@ -6,24 +6,13 @@ program bitcount
     integer(kind=I4), dimension(:), allocatable :: vals
     integer(kind=I4) :: result
     integer :: i, istat
-    integer :: naive_count_bits_result, early_stopping_count_bits_result, &
-        lookup_table_count_bits_result, kernighan_count_bits_result
     real :: r, start_time, end_time
 
     print '(A)', 'sanity check: naive, early stopping, lookup table Kernighan'
     do i = -16, 16
-        naive_count_bits_result = naive_count_bits(i)
-        early_stopping_count_bits_result = early_stopping_count_bits(i)
-        lookup_table_count_bits_result = lookup_table_count_bits(i)
-        kernighan_count_bits_result = kernighan_count_bits(i)
-
-        !print '(I14, 3A, 4I3)', i, ': ', bit_repr(i), ': ', &
-        !    naive_count_bits(i), early_stopping_count_bits(i), &
-        !    lookup_table_count_bits(i), kernighan_count_bits(i)
-
         print '(I14, 3A, 4I3)', i, ': ', bit_repr(i), ': ', &
-            naive_count_bits_result, early_stopping_count_bits_result, &
-            lookup_table_count_bits_result, kernighan_count_bits_result
+            naive_count_bits(i), early_stopping_count_bits(i), &
+            lookup_table_count_bits(i), kernighan_count_bits(i)
     end do
 
     ! create values upfront for benchmarking
@@ -85,7 +74,6 @@ contains
 
         if (command_argument_count() /= 1) then
             write (unit=error_unit, fmt='(A)') 'error: expecting number of values'
-            write (unit=*, fmt='(A)') 'error: expecting number of values'
             stop 1
         end if
         call get_command_argument(1, buffer)

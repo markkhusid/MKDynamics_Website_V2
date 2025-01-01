@@ -35,7 +35,7 @@ contains
         lookup_table = 0
 
         ! Call parse_csv_file to fill the local array
-        call parse_csv_file("lookup_table.dat", lookup_table, ios)
+        call parse_csv_file("../lookup_table.dat", lookup_table, ios)
 
         if (ios == 0) then
             initialized = .true.
