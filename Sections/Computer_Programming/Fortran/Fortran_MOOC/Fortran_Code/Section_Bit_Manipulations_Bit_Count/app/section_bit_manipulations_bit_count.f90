@@ -45,7 +45,7 @@ program bitcount
         result = xor(result, naive_count_bits(vals(i)))
     end do
     call cpu_time(end_time)
-    print '(A, I0, A, F15.6)', 'naive implementation ', size(vals), &
+    print '(A, I0, A, F35.15)', 'naive implementation ', size(vals), &
         ' iterations: ', end_time - start_time
 
     ! time early stopping implmentation
@@ -54,7 +54,7 @@ program bitcount
         result = xor(result, early_stopping_count_bits(vals(i)))
     end do
     call cpu_time(end_time)
-    print '(A, I0, A, F15.6)', 'early stopping implementation ', size(vals), &
+    print '(A, I0, A, F35.15)', 'early stopping implementation ', size(vals), &
         ' iterations: ', end_time - start_time
 
     ! time lookup table implmentation
@@ -63,7 +63,7 @@ program bitcount
         result = xor(result, lookup_table_count_bits(vals(i)))
     end do
     call cpu_time(end_time)
-    print '(A, I0, A, F15.6)', 'lookup table implementation ', size(vals), &
+    print '(A, I0, A, F35.15)', 'lookup table implementation ', size(vals), &
         ' iterations: ', end_time - start_time
 
     ! time Kernighan's algorithm
@@ -72,7 +72,7 @@ program bitcount
         result = xor(result, kernighan_count_bits(vals(i)))
     end do
     call cpu_time(end_time)
-    print '(A, I0, A, F15.6)', 'Kernighan implementation ', size(vals), &
+    print '(A, I0, A, F35.15)', 'Kernighan implementation ', size(vals), &
         ' iterations: ', end_time - start_time
 contains
 
