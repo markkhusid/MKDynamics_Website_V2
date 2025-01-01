@@ -248,6 +248,13 @@ parts:
 
     - file: Sections/Computer_Programming/Javascript/javascript
 
+    - file: Sections/Computer_Programming/Kaggle/kaggle__HEAD__
+      sections:
+      - file: Sections/Computer_Programming/Kaggle/Python/python__HEAD__
+        sections:
+        - file: Sections/Computer_Programming/Kaggle/Python/Python_Tutorial/python_tutorial
+        - file: Sections/Computer_Programming/Kaggle/Python/Python_Exercise/python_exercise
+
     - file: Sections/Computer_Programming/PHP/php
 
     - file: Sections/Computer_Programming/Python/python

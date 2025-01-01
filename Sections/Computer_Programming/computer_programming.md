@@ -63,6 +63,18 @@ Assembly Language Programming
 :::
 
 :::{grid-item-card}
+:link: Kaggle/kaggle__HEAD__
+:link-type: doc
+:class-header: bg-auto
+
+Kaggle Data Science Platform
+^^^
+```{image} images/Kaggle_Site_Logo.svg
+:height: 200
+```
+:::
+
+:::{grid-item-card}
 :link: PHP/php
 :link-type: doc
 :class-header: bg-auto
