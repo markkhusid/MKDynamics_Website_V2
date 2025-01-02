@@ -233,6 +233,8 @@ parts:
             - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_BLAS_LAPACK_GEMV
             - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_BLAS_LAPACK_Scal
             - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_BLAS_LAPACK_SV
+      
+      - file: Sections/Computer_Programming/Fortran/Neural_Fortran/neural_fortran__HEAD__
 
       - file: Sections/Computer_Programming/Fortran/DFFT/DFFT
         sections:

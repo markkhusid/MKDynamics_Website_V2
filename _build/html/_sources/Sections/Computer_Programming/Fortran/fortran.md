@@ -27,6 +27,17 @@ Modern Fortran
 :::
 
 :::{grid-item-card}
+:link: Neural_Fortran/neural_fortran__HEAD__.html
+:class-header: bg-auto
+
+Neural Fortran
+^^^
+```{image} images/neural_network.jpg
+:height: 300
+```
+:::
+
+:::{grid-item-card}
 :link: Intro_to_Fortran/intro_to_fortran.html
 :class-header: bg-auto
 
@@ -96,6 +107,10 @@ This book may be purchased here: <br>
 This book may be purchased from: <br>
 [Modern Fortran: Building Efficient Parallel Applications](https://www.manning.com/books/modern-fortran) <br>
 [Amazon page to purchase "Modern Fortran" by Milan Curcic (affiliate link)](https://amzn.to/3PgzWzy)
+
+### Neural Fortran - "A parallel framework for deep learning"
+This online resource may be obtained here: https://github.com/modern-fortran/neural-fortran
+
 
 ### "Introduction to Programming Using Fortran" from the Open Textbook Library
 This online resource may be obtained here: <br>
