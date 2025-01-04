@@ -1250,7 +1250,7 @@ where \)</span>\eta$ is the learning rate. Repeated over many iterations (epochs
 
 <span class="w">    </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">test_size</span>
 <span class="w">      </span><span class="c">! Save the iteration number, testing, training, prediction and mean squared error data to the CSV file</span>
-<span class="w">      </span><span class="c">! For each interation there will be 30 rows of data of testing, training, prediction and mean squared error</span>
+<span class="w">      </span><span class="c">! For each interation there will be test_size rows of data of testing, training, prediction and mean squared error</span>
 <span class="w">      </span><span class="k">call </span><span class="n">sine_NN_data_file</span><span class="p">%</span><span class="n">add</span><span class="p">([</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">int_fmt</span><span class="o">=</span><span class="s1">&#39;(i6)&#39;</span><span class="p">)</span>
 <span class="w">      </span><span class="k">call </span><span class="n">sine_NN_data_file</span><span class="p">%</span><span class="n">add</span><span class="p">([</span><span class="w"> </span><span class="p">&amp;</span>
 <span class="w">        </span><span class="n">x_test</span><span class="p">(</span><span class="n">j</span><span class="p">),</span><span class="w"> </span><span class="p">&amp;</span><span class="w"> </span>
@@ -1339,6 +1339,15 @@ where \)</span>\eta$ is the learning rate. Repeated over many iterations (epochs
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[  0%] section_examples_sine_wave.f90
+[ 50%] section_examples_sine_wave.f90  done.
+[ 50%]     Section_Examples_Sine_Wave
+[100%]     Section_Examples_Sine_Wave  done.
+[100%] Project compiled successfully.
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="run-the-program-using-fpm-fortran-package-manager">
@@ -1388,16 +1397,13 @@ Activation: sigmoid
 ============================================================
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration:  10000 | MSE:  0.007425
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration:  10000 | MSE:  0.007432
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration:  20000 | MSE:  0.006811
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration:  20000 | MSE:  0.007401
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration:  30000 | MSE:  0.006684
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration:  40000 | MSE:  0.000561
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration:  30000 | MSE:  0.006782
 </pre></div>
 </div>
 </div>
@@ -1467,7 +1473,7 @@ memory usage: 267.0 MB
 <h3>Plot the Neural Network Predictions vs True Sine Wave<a class="headerlink" href="#plot-the-neural-network-predictions-vs-true-sine-wave" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iteration_step</span> <span class="o">=</span> <span class="mi">5000</span> <span class="c1"># Plot every 1000th iteration</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iteration_step</span> <span class="o">=</span> <span class="mi">5000</span> <span class="c1"># Plot every iteration_step iteration</span>
 <span class="n">iteration_list</span> <span class="o">=</span> <span class="n">mse_by_iter</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
 <span class="n">iterations_to_plot</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">iteration_step</span><span class="p">,</span> <span class="n">iteration_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">iteration_step</span><span class="p">))</span>
 </pre></div>

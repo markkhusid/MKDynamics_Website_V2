@@ -109,7 +109,7 @@ program sine
 
     do j = 1, test_size
       ! Save the iteration number, testing, training, prediction and mean squared error data to the CSV file
-      ! For each interation there will be 30 rows of data of testing, training, prediction and mean squared error
+      ! For each interation there will be test_size rows of data of testing, training, prediction and mean squared error
       call sine_NN_data_file%add([i], int_fmt='(i6)')
       call sine_NN_data_file%add([ &
         x_test(j), & 
