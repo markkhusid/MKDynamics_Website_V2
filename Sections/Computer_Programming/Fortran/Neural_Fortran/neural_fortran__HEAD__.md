@@ -12,4 +12,18 @@ Of particular interest is the capability to use data - based parallelism to spee
 ```{tableofcontents}
 ```
 
-Coming Soon!
+::::{grid} 2 2 2 2
+:class-container: text-center
+:gutter: 3
+
+:::{grid-item-card}
+:link: Section_Examples_Sine_Wave.html
+:class-header: bg-auto
+
+Training a Neural Network to Fit a Sine Wave
+^^^
+```{image} images/sine_wave_NN.png
+:height: 200
+```
+:::
+::::

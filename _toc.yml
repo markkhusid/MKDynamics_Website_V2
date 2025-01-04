@@ -235,6 +235,8 @@ parts:
             - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_BLAS_LAPACK_SV
       
       - file: Sections/Computer_Programming/Fortran/Neural_Fortran/neural_fortran__HEAD__
+        sections:
+        - file: Sections/Computer_Programming/Fortran/Neural_Fortran/Section_Examples_Sine_Wave
 
       - file: Sections/Computer_Programming/Fortran/DFFT/DFFT
         sections:
