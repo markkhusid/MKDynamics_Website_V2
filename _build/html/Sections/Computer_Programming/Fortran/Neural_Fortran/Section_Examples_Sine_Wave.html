@@ -728,6 +728,7 @@
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
 <p>In this example, we will train a neural network to approximate the sine function. We will use a simple feedforward neural network with two hidden layers. The network will be trained using the backpropagation algorithm.  The data will be written to a CSV file using the CSV Fortran library <a class="github reference external" href="https://github.com/jacobwilliams/csv-fortran">jacobwilliams/csv-fortran</a>. The neural network will be implemented in Fortran using the Neural Fortran library <a class="github reference external" href="https://github.com/modern-fortran/neural-fortran">modern-fortran/neural-fortran</a>.</p>
+<p>Once the data is collected and saved to a CSV file, Pandas and Matplotlib will be used to plot the learned sine wave and mean squared error versus the learning iteration number.</p>
 </section>
 <section id="neural-network-theory-by-chatgpt-o1">
 <h2>Neural Network Theory by ChatGPT o1<a class="headerlink" href="#neural-network-theory-by-chatgpt-o1" title="Link to this heading">#</a></h2>
@@ -835,7 +836,7 @@ where \)</span>\eta$ is the learning rate. Repeated over many iterations (epochs
 </li>
 <li><p><strong><code class="docutils literal notranslate"><span class="pre">iso_fortran_env,</span> <span class="pre">only:</span> <span class="pre">real32</span></code></strong>: Imports the <code class="docutils literal notranslate"><span class="pre">real32</span></code> kind for single-precision floats (32-bit).</p></li>
 <li><p><strong><code class="docutils literal notranslate"><span class="pre">implicit</span> <span class="pre">none</span></code></strong>: Requires explicit declarations for all variables.</p></li>
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">pi</span></code></strong>: Defined via <code class="docutils literal notranslate"><span class="pre">4</span> <span class="pre">*</span> <span class="pre">atan(1.)</span></code>, which yields (\pi \approx 3.14159265…).</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">pi</span></code></strong>: Defined via <code class="docutils literal notranslate"><span class="pre">4</span> <span class="pre">*</span> <span class="pre">atan(1.)</span></code>, which yields <span class="math notranslate nohighlight">\(\pi \approx 3.14159265...\)</span>.</p></li>
 </ol>
 </section>
 <hr class="docutils" />
@@ -851,8 +852,8 @@ where \)</span>\eta$ is the learning rate. Repeated over many iterations (epochs
 <li><p><strong><code class="docutils literal notranslate"><span class="pre">sine_NN_data_file</span></code></strong>: A <code class="docutils literal notranslate"><span class="pre">csv_file</span></code> object that will handle CSV writing.</p></li>
 <li><p><strong><code class="docutils literal notranslate"><span class="pre">net</span></code></strong>: A neural network object.</p></li>
 </ul>
-<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">num_iterations</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10000</span>
-<span class="w">  </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">test_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">num_iterations</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100000</span>
+<span class="w">  </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">test_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">50</span>
 <span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">real32</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">learning_rate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.1</span>
 </pre></div>
 </div>
@@ -920,7 +921,7 @@ where \)</span>\eta$ is the learning rate. Repeated over many iterations (epochs
 </pre></div>
 </div>
 <ol class="arabic simple">
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">initialize</span></code></strong>: Prepares the CSV object, possibly setting internal states.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">initialize</span></code></strong>: Prepares the CSV object.</p></li>
 <li><p><strong><code class="docutils literal notranslate"><span class="pre">open</span></code></strong>: Opens a file named <code class="docutils literal notranslate"><span class="pre">sine_NN_data.csv</span></code>. The code also specifies <code class="docutils literal notranslate"><span class="pre">n_cols=7</span></code>, meaning each row will eventually have up to 7 columns.</p></li>
 <li><p><strong>Header</strong>: <code class="docutils literal notranslate"><span class="pre">add([...])</span></code> writes a header row with column labels, then <code class="docutils literal notranslate"><span class="pre">next_row()</span></code> finalizes that line.</p></li>
 </ol>
@@ -934,7 +935,7 @@ where \)</span>\eta$ is the learning rate. Repeated over many iterations (epochs
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>For each <code class="docutils literal notranslate"><span class="pre">j</span></code> in <code class="docutils literal notranslate"><span class="pre">[1..test_size]</span></code>, compute (\displaystyle x_test(j) = \frac{(j - 1)\times 2\pi}{\text{test_size}}).</p>
+<li><p>For each <code class="docutils literal notranslate"><span class="pre">j</span></code> in <code class="docutils literal notranslate"><span class="pre">[1..test_size]</span></code>, compute <span class="math notranslate nohighlight">\(\displaystyle x\_test(j) = \frac{(j - 1)\times 2\pi}{\text{test\_size}}\)</span>.</p>
 <ul>
 <li><p>This distributes 30 points evenly between <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">2π</span></code>.</p></li>
 </ul>
@@ -976,7 +977,7 @@ where \)</span>\eta$ is the learning rate. Repeated over many iterations (epochs
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">num_iterations</span>
 </pre></div>
 </div>
-<p>A loop over the total epochs (<code class="docutils literal notranslate"><span class="pre">num_iterations</span></code> = 10,000). Each iteration does:</p>
+<p>A loop over the total epochs (<code class="docutils literal notranslate"><span class="pre">num_iterations</span></code> = 100,000). Each iteration does:</p>
 <section id="mini-batch-data-generation">
 <h3>6.1 <strong>Mini-Batch Data Generation</strong><a class="headerlink" href="#mini-batch-data-generation" title="Link to this heading">#</a></h3>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">test_size</span>
@@ -1060,7 +1061,7 @@ where \)</span>\eta$ is the learning rate. Repeated over many iterations (epochs
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>We output <strong>30 rows</strong> per iteration. Each row records:</p>
+<li><p>We output <strong>50 rows</strong> per iteration. Each row records:</p>
 <ol class="arabic simple">
 <li><p><strong>Iteration</strong> number <code class="docutils literal notranslate"><span class="pre">i</span></code>.</p></li>
 <li><p><strong><code class="docutils literal notranslate"><span class="pre">x_test(j)</span></code></strong>: The j-th test input.</p></li>
@@ -1072,7 +1073,7 @@ where \)</span>\eta$ is the learning rate. Repeated over many iterations (epochs
 </ol>
 </li>
 </ul>
-<p>Hence, each iteration appends 30 lines to the CSV file, for a total of (30 \times \text{num_iterations}) lines.</p>
+<p>Hence, each iteration appends 50 lines to the CSV file, for a total of: <span class="math notranslate nohighlight">\(50 \times \text{num_iterations}\)</span> lines.</p>
 </section>
 <hr class="docutils" />
 <section id="occasional-print-of-mse">
@@ -1083,7 +1084,7 @@ where \)</span>\eta$ is the learning rate. Repeated over many iterations (epochs
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>Every 1/10th of <code class="docutils literal notranslate"><span class="pre">num_iterations</span></code> (in this case, every 1000 iterations if <code class="docutils literal notranslate"><span class="pre">num_iterations=10000</span></code>), print the iteration number and current MSE to the console.</p></li>
+<li><p>Every 1/10th of <code class="docutils literal notranslate"><span class="pre">num_iterations</span></code> (in this case, every 10000 iterations if <code class="docutils literal notranslate"><span class="pre">num_iterations=100000</span></code>), print the iteration number and current MSE to the console.</p></li>
 </ul>
 </section>
 </section>
@@ -1110,7 +1111,7 @@ where \)</span>\eta$ is the learning rate. Repeated over many iterations (epochs
 <h2>8. <strong>Summary of the Workflow</strong><a class="headerlink" href="#summary-of-the-workflow" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p><strong>Initialize</strong>: Creates a CSV object, sets up the neural network, and preps hyperparameters.</p></li>
-<li><p><strong>Generate</strong> a small, fixed test set (<code class="docutils literal notranslate"><span class="pre">x_test,</span> <span class="pre">y_test</span></code>) spanning 0 to (2\pi).</p></li>
+<li><p><strong>Generate</strong> a small, fixed test set (<code class="docutils literal notranslate"><span class="pre">x_test,</span> <span class="pre">y_test</span></code>) spanning 0 to <span class="math notranslate nohighlight">\(2\pi\)</span>.</p></li>
 <li><p><strong>Create</strong> the network with 1 input neuron, two hidden layers of 10 each, and 1 output.</p></li>
 <li><p><strong>Training</strong> (outer loop over <code class="docutils literal notranslate"><span class="pre">i</span></code>):</p>
 <ul class="simple">
@@ -1121,8 +1122,8 @@ where \)</span>\eta$ is the learning rate. Repeated over many iterations (epochs
 <li><p>Predict on the corresponding test sample <code class="docutils literal notranslate"><span class="pre">x_test(j)</span></code>.</p></li>
 </ul>
 </li>
-<li><p>Compute MSE over all 30 test points.</p></li>
-<li><p>Write iteration data (30 rows) into a CSV file.</p></li>
+<li><p>Compute MSE over all 50 test points.</p></li>
+<li><p>Write iteration data (50 rows) into a CSV file.</p></li>
 <li><p>Occasionally print progress.</p></li>
 </ul>
 </li>
@@ -1131,7 +1132,7 @@ where \)</span>\eta$ is the learning rate. Repeated over many iterations (epochs
 <p><strong>Key Observations</strong>:</p>
 <ul class="simple">
 <li><p>The code mixes “training data” that’s random each iteration with a fixed “test set” (<code class="docutils literal notranslate"><span class="pre">x_test</span></code>). This is somewhat unusual—often you keep a consistent training set or you randomize from a larger pool. But it works here as a demonstration of incremental training for the sine function.</p></li>
-<li><p>The network is updated on a per-sample basis, repeated 30 times per iteration. That’s effectively a “mini-batch” of size 1 repeated 30 times.</p></li>
+<li><p>The network is updated on a per-sample basis, repeated 50 times per iteration. That’s effectively a “mini-batch” of size 1 repeated 50 times.</p></li>
 <li><p>The final CSV ends up quite large: <code class="docutils literal notranslate"><span class="pre">num_iterations</span> <span class="pre">×</span> <span class="pre">test_size</span></code> lines, with 7 columns each.</p></li>
 </ul>
 <p>This design shows how to integrate data generation, single-sample training steps, and CSV logging within a single Fortran program using a custom <code class="docutils literal notranslate"><span class="pre">network</span></code> library.</p>
@@ -1344,7 +1345,7 @@ where \)</span>\eta$ is the learning rate. Repeated over many iterations (epochs
 </section>
 <section id="run-the-program-using-fpm-fortran-package-manager">
 <h2>Run the Program using FPM (Fortran Package Manager)<a class="headerlink" href="#run-the-program-using-fpm-fortran-package-manager" title="Link to this heading">#</a></h2>
-<p>The program is run and the output is saved into a file named ‘data.dat</p>
+<p>The program is run and the output is saved into a file named sine_NN_data.dat</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exec_status</span> <span class="o">=</span> \
@@ -1389,13 +1390,13 @@ Activation: sigmoid
 ============================================================
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration:  10000 | MSE:  0.007126
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration:  10000 | MSE:  0.007591
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration:  20000 | MSE:  0.000197
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration:  20000 | MSE:  0.006999
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration:  30000 | MSE:  0.000152
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration:  30000 | MSE:  0.005848
 </pre></div>
 </div>
 </div>
@@ -1455,7 +1456,7 @@ memory usage: 267.0 MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overall Mean Squared Error: 0.0011730016799999998
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overall Mean Squared Error: 0.0012876525899999996
 </pre></div>
 </div>
 </div>
@@ -1499,7 +1500,7 @@ memory usage: 267.0 MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../../_images/fcd40e13b1acdec174e9b9fc69c3fe3cddce32ef54926bd520ca0308880f2e17.png" src="../../../../_images/fcd40e13b1acdec174e9b9fc69c3fe3cddce32ef54926bd520ca0308880f2e17.png" />
+<img alt="../../../../_images/43be8a24f4223901689376847cbc018d3dca559e2af1577a777db7ef8f2db44b.png" src="../../../../_images/43be8a24f4223901689376847cbc018d3dca559e2af1577a777db7ef8f2db44b.png" />
 </div>
 </div>
 </section>
@@ -1520,7 +1521,7 @@ memory usage: 267.0 MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../../_images/0f59271e37544ee9bf1de24e959738a8d12bcb03e4d135589a775f47c307fce6.png" src="../../../../_images/0f59271e37544ee9bf1de24e959738a8d12bcb03e4d135589a775f47c307fce6.png" />
+<img alt="../../../../_images/8b65ebcfd897ec7ff59716fe5dce4e9ab32a643bb47776b8bf43751777d809b2.png" src="../../../../_images/8b65ebcfd897ec7ff59716fe5dce4e9ab32a643bb47776b8bf43751777d809b2.png" />
 </div>
 </div>
 </section>
