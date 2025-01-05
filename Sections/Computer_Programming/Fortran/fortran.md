@@ -111,7 +111,6 @@ This book may be purchased from: <br>
 ### Neural Fortran - "A parallel framework for deep learning"
 This online resource may be obtained here: https://github.com/modern-fortran/neural-fortran
 
-
 ### "Introduction to Programming Using Fortran" from the Open Textbook Library
 This online resource may be obtained here: <br>
 [Introduction to Programming using Fortran](https://open.umn.edu/opentextbooks/textbooks/introduction-to-programming-using-fortran-95-2003-2008)
@@ -122,6 +121,9 @@ This online resource may be obtained from Github  [PRACE MOOC on "Fortran for Sc
 ### Discretized Fourier Transform of Arbitrary Signal Using FFTW3 Algorithm
 This project is available at the following Github repository: <br>
 [Discretized Fourier Transform of Arbitrary Signal Using FFTW3 Algorithm](https://github.com/markkhusid/MKDynamics_website/tree/master/html/current_projects/code_FFTW3)
+
+### Fortran - Lang Website with Lots of Links to Learning Resources
+This website has a lot of links to Fortran learning resources: https://fortran-lang.org/learn/
 
 ### Using the CSV Fortran Module to Read and Write CSV Files
 This project is available at the following Github repository: <br>
