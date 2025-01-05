@@ -270,6 +270,8 @@ parts:
         - file: Sections/Computer_Programming/Python/Python_Playground/Section_Chapter_3_Conway
         - file: Sections/Computer_Programming/Python/Python_Playground/Section_Chapter_4_Karplus_Strong
 
+    - file: Sections/Computer_Programming/Jupyter_Widgets/Using_Interact
+
 - caption: Electronics
   chapters:
   - file: Sections/Electronics/electronics

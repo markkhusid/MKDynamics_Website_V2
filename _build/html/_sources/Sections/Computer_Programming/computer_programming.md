@@ -63,6 +63,18 @@ Assembly Language Programming
 :::
 
 :::{grid-item-card}
+:link: Jupyter_Widgets/Using_Interact
+:link-type: doc
+:class-header: bg-auto
+
+IPython Widgets: Using Interact
+^^^
+```{image} images/jupyter.svg
+:height: 200
+```
+:::
+
+:::{grid-item-card}
 :link: Kaggle/kaggle__HEAD__
 :link-type: doc
 :class-header: bg-auto
