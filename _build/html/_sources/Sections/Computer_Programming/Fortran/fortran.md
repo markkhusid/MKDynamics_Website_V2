@@ -103,6 +103,9 @@ In this section we will be programming in Fortran using examples and techniques 
 This book may be purchased here: <br>
 [Amazon page to purchase "Guide to Fortran 2008 Programming" by Walter S. Brainerd](https://amzn.to/3BOhTOd)
 
+### "Introduction to Programming Using Fortran" by Ian D. Chivers and Jane Sleightholme
+This book may be purchased here: https://amzn.to/3W51jk2
+
 ### "Modern Fortran" by Milan Curcic (Manning Publications)
 This book may be purchased from: <br>
 [Modern Fortran: Building Efficient Parallel Applications](https://www.manning.com/books/modern-fortran) <br>
