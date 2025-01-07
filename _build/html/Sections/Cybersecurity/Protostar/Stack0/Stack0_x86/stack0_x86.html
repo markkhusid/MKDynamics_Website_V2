@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../../../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../../../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../../../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../../../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -591,7 +591,7 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-vulnerable-c-program-stack0-c">The Vulnerable C Program <em>stack0.c</em></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-vulnerable-c-program-stack0-c-through-gdb-gef">Running the Vulnerable C Program <em>stack0.c</em> Through GDB+GEF</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disassembling-the-vulnerable-c-program-stack0-c-with-gdb-gef">Disassembling The Vulnerable C Program <em>stack0.c</em> with GDB+GEF</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-main-s-stack-frame">Visualizing Main’s Stack Frame</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-mains-stack-frame">Visualizing Main’s Stack Frame</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#layout-of-the-stack-in-program-stack0-c">Layout of the stack in program <em>stack0.c</em></a></li>
@@ -695,8 +695,8 @@
 </section>
 <section id="disassembling-the-vulnerable-c-program-stack0-c-with-gdb-gef">
 <h3>Disassembling The Vulnerable C Program <em>stack0.c</em> with GDB+GEF<a class="headerlink" href="#disassembling-the-vulnerable-c-program-stack0-c-with-gdb-gef" title="Link to this heading">#</a></h3>
-<section id="visualizing-main-s-stack-frame">
-<h4>Visualizing Main’s Stack Frame<a class="headerlink" href="#visualizing-main-s-stack-frame" title="Link to this heading">#</a></h4>
+<section id="visualizing-mains-stack-frame">
+<h4>Visualizing Main’s Stack Frame<a class="headerlink" href="#visualizing-mains-stack-frame" title="Link to this heading">#</a></h4>
 <p>In this section we will visualize main’s stack frame. As seen in the previous section, the command line arguments to main are pushed onto the stack in reverse order. Then main’s return address to libc is pushed onto the stack. Once the executable is ready to run, the stack pointer <em>ESP</em> points to main’s return address. This is the top of the stack. Everything else that will be pushed onto the stack will enter into lower addresses, since the stack grows downward in memory.</p>
 <p>The image below shows main’s stack frame. It was highlighted in the image for clarity.</p>
 <figure class="align-center" id="gef-start-run-with-4-a-highlight-main-ret-argc-argv-jpg-jpg">
@@ -1190,8 +1190,8 @@ function will even return.
 </pre></div>
 </div>
 <p>the <em>gets</em> function was given the string “AAAA”. As expected, this string was put into the local variable <em>buffer[64]</em>, and the address of this string was also returned into EAX.</p>
-<p>We can confirm that the string “AAAA” was entered onto the stack by looking at the stack memory address 0xffffd11c in the image above. It contains four “A“‘s directly. This same stack address was also entered into EAX.</p>
-<p>Obviously, four “A“‘s is less than 64 bytes, where each “A” uses up one byte. Therefore, we can conclude that the local variable <em>modified</em> has not been altered. We can confirm this with the examine memory command in GDB as shown below:</p>
+<p>We can confirm that the string “AAAA” was entered onto the stack by looking at the stack memory address 0xffffd11c in the image above. It contains four “A”’s directly. This same stack address was also entered into EAX.</p>
+<p>Obviously, four “A”’s is less than 64 bytes, where each “A” uses up one byte. Therefore, we can conclude that the local variable <em>modified</em> has not been altered. We can confirm this with the examine memory command in GDB as shown below:</p>
 <div class="highlight-gdb notranslate"><div class="highlight"><pre><span></span>&gt;     gef➤  x/17x $esp+0x1c
 &gt;     0xffffd11c:	**0x41414141**	0xf7f99000	0x08049620	0xffffd138
 &gt;     0xffffd12c:	0x080482e8	0xf7f993fc	0x08049620	0xffffd168
@@ -1202,7 +1202,7 @@ function will even return.
 &gt;
 </pre></div>
 </div>
-<p>From the output of the x/17x $esp+0x1c command shown above, we can see the four “A“‘s at stack memory location 0xffffd11c. Then, if we count 64 bytes over, i.e. each hex number is 4 bytes, and each row 16 bytes, therefore, 4 rows is 64 bytes. At the first position in the 5th row, i.e. stack address 0xffffd15c, we can see the value 0x00000000. This is the local variable <em>modified</em>. Our goal in the challenge is to input sufficient data into the buffer to overwrite the stack memory at location 0xffffd15c.</p>
+<p>From the output of the x/17x $esp+0x1c command shown above, we can see the four “A”’s at stack memory location 0xffffd11c. Then, if we count 64 bytes over, i.e. each hex number is 4 bytes, and each row 16 bytes, therefore, 4 rows is 64 bytes. At the first position in the 5th row, i.e. stack address 0xffffd15c, we can see the value 0x00000000. This is the local variable <em>modified</em>. Our goal in the challenge is to input sufficient data into the buffer to overwrite the stack memory at location 0xffffd15c.</p>
 <p>Below, we show an image of the result when executing the command x/17x $esp+0x1c.</p>
 <figure class="align-center" id="gef-step-8-5-x-17-x-esp-0x1c-jpg">
 <img alt="gef_step_8_5_x_17_x_esp+0x1c.jpg" src="../../../../../_images/gef_step_8_5_x_17_x_esp%2B0x1c.jpg" />
@@ -1239,7 +1239,7 @@ function will even return.
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
+            repo: "markkhusid/MKDynamics_Website_V2",
             ref: "master",
         },
         codeMirrorConfig: {
@@ -1304,7 +1304,7 @@ function will even return.
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-vulnerable-c-program-stack0-c">The Vulnerable C Program <em>stack0.c</em></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-vulnerable-c-program-stack0-c-through-gdb-gef">Running the Vulnerable C Program <em>stack0.c</em> Through GDB+GEF</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disassembling-the-vulnerable-c-program-stack0-c-with-gdb-gef">Disassembling The Vulnerable C Program <em>stack0.c</em> with GDB+GEF</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-main-s-stack-frame">Visualizing Main’s Stack Frame</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-mains-stack-frame">Visualizing Main’s Stack Frame</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#layout-of-the-stack-in-program-stack0-c">Layout of the stack in program <em>stack0.c</em></a></li>

@@ -591,7 +591,7 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-vulnerable-c-program-stack0-c"><strong>The Vulnerable C Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code></strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-vulnerable-c-program-stack0-c-through-gdb-gef"><strong>Running the Vulnerable C Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> Through GDB+GEF</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disassembling-the-vulnerable-c-program-stack0-c-with-gdb-gef"><strong>Disassembling The Vulnerable C Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> with GDB+GEF</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-main-s-stack-frame"><strong>Visualizing Main’s Stack Frame</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-mains-stack-frame"><strong>Visualizing Main’s Stack Frame</strong></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disassembling-and-executing-the-vulnerable-c-program-stack0-c"><strong>Disassembling and Executing the Vulnerable C Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code></strong></a><ul class="nav section-nav flex-column">
@@ -679,8 +679,8 @@
 <hr class="docutils" />
 <section id="disassembling-the-vulnerable-c-program-stack0-c-with-gdb-gef">
 <h2><strong>Disassembling The Vulnerable C Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> with GDB+GEF</strong><a class="headerlink" href="#disassembling-the-vulnerable-c-program-stack0-c-with-gdb-gef" title="Link to this heading">#</a></h2>
-<section id="visualizing-main-s-stack-frame">
-<h3><strong>Visualizing Main’s Stack Frame</strong><a class="headerlink" href="#visualizing-main-s-stack-frame" title="Link to this heading">#</a></h3>
+<section id="visualizing-mains-stack-frame">
+<h3><strong>Visualizing Main’s Stack Frame</strong><a class="headerlink" href="#visualizing-mains-stack-frame" title="Link to this heading">#</a></h3>
 <p>The command line arguments to <code class="docutils literal notranslate"><span class="pre">main</span></code> are pushed onto the stack in reverse order. Then <code class="docutils literal notranslate"><span class="pre">main</span></code>’s return address to <code class="docutils literal notranslate"><span class="pre">libc</span></code> is pushed onto the stack. Once the executable is ready to run, the stack pointer <code class="docutils literal notranslate"><span class="pre">ESP</span></code> points to <code class="docutils literal notranslate"><span class="pre">main</span></code>’s return address at the top of the stack. Everything else pushed onto the stack will go into lower addresses since the stack grows downward in memory.</p>
 <figure class="align-center" id="gef-start-run-with-4-a-highlight-main-ret-argc-argv">
 <img alt="gef_start_run_with_4_A_highlight_main_ret_argc_argv" src="../../../../../_images/gef_start_run_with_4_A_highlight_main_ret_argc_argv.png" />
@@ -1106,7 +1106,7 @@
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
+            repo: "markkhusid/MKDynamics_Website_V2",
             ref: "master",
         },
         codeMirrorConfig: {
@@ -1171,7 +1171,7 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-vulnerable-c-program-stack0-c"><strong>The Vulnerable C Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code></strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-vulnerable-c-program-stack0-c-through-gdb-gef"><strong>Running the Vulnerable C Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> Through GDB+GEF</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disassembling-the-vulnerable-c-program-stack0-c-with-gdb-gef"><strong>Disassembling The Vulnerable C Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code> with GDB+GEF</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-main-s-stack-frame"><strong>Visualizing Main’s Stack Frame</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-mains-stack-frame"><strong>Visualizing Main’s Stack Frame</strong></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disassembling-and-executing-the-vulnerable-c-program-stack0-c"><strong>Disassembling and Executing the Vulnerable C Program <code class="docutils literal notranslate"><span class="pre">stack0.c</span></code></strong></a><ul class="nav section-nav flex-column">
