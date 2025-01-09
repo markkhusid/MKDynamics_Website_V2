@@ -30,7 +30,7 @@
   <link href="../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
@@ -691,11 +691,11 @@
 <p>This program demonstrates drawing a circle using turtle graphics.  This is very similar to using the LOGO language for years gone by.</p>
 <section id="in-file-drawcircle-py">
 <h2>In file <a class="reference external" href="http://drawcircle.py">drawcircle.py</a><a class="headerlink" href="#in-file-drawcircle-py" title="Link to this heading">#</a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
-<span class="kn">import</span> <span class="nn">turtle</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">turtle</span>
 
 <span class="c1"># draw the circle using turtle</span>
-<span class="k">def</span> <span class="nf">drawCircleTurtle</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">drawCircleTurtle</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
 	<span class="c1"># move to the start of the circle</span>
 	<span class="n">turtle</span><span class="o">.</span><span class="n">up</span><span class="p">()</span>
 	<span class="n">turtle</span><span class="o">.</span><span class="n">setpos</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">r</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
@@ -716,7 +716,7 @@
 <h2>Load and Run the Program in Jupyter Lab<a class="headerlink" href="#load-and-run-the-program-in-jupyter-lab" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="n">root_dir</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
 <span class="n">root_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
 </pre></div>
@@ -740,11 +740,11 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load drawcircle.py</span>
-<span class="kn">import</span> <span class="nn">math</span>
-<span class="kn">import</span> <span class="nn">turtle</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">turtle</span>
 
 <span class="c1"># draw the circle using turtle</span>
-<span class="k">def</span> <span class="nf">drawCircleTurtle</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">drawCircleTurtle</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
 	<span class="c1"># move to the start of the circle</span>
 	<span class="n">turtle</span><span class="o">.</span><span class="n">up</span><span class="p">()</span>
 	<span class="n">turtle</span><span class="o">.</span><span class="n">setpos</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">r</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
@@ -764,8 +764,8 @@
 <p>A window opens up with the output.  The output is saved to an image file.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
-<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
 <span class="n">img_PIL</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Images/drawcircle.png&#39;</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">img_PIL</span><span class="p">)</span>
 </pre></div>

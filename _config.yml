@@ -19,6 +19,7 @@ execute:
 
 # Define the name of the latex output file for PDF builds
 latex:
+  latex_engine: xelatex
   latex_documents:
     targetname: book.tex
 
@@ -95,6 +96,9 @@ sphinx:
       sd:
         - https://sphinx-design.readthedocs.io/en/latest
         - null
+
+    #latex_elements:
+    #  sphinxsetup: "iconpackage=fontawesome"
 
     html_show_copyright: false
 

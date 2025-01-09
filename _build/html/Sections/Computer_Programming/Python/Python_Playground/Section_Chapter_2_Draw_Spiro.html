@@ -30,7 +30,7 @@
   <link href="../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
@@ -691,19 +691,19 @@
 <p>This program demonstrates drawing a spirograph using turtle graphics.  This is very similar to using the LOGO language for years gone by.</p>
 <section id="in-file-spiro-py">
 <h2>In file <a class="reference external" href="http://spiro.py">spiro.py</a><a class="headerlink" href="#in-file-spiro-py" title="Link to this heading">#</a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">random</span><span class="o">,</span> <span class="nn">argparse</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">math</span>
-<span class="kn">import</span> <span class="nn">turtle</span>
-<span class="kn">import</span> <span class="nn">random</span>
-<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span><span class="o">,</span><span class="w"> </span><span class="nn">random</span><span class="o">,</span><span class="w"> </span><span class="nn">argparse</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">turtle</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
 <span class="c1">#from fractions import gcd</span>
 
 <span class="c1"># a class that draws a Spirograph</span>
-<span class="k">class</span> <span class="nc">Spiro</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Spiro</span><span class="p">:</span>
 	<span class="c1"># constructor</span>
-	<span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xc</span><span class="p">,</span> <span class="n">yc</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">l</span><span class="p">):</span>
+	<span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xc</span><span class="p">,</span> <span class="n">yc</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">l</span><span class="p">):</span>
 
 		<span class="c1"># create the turtle object</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
@@ -721,7 +721,7 @@
 		<span class="bp">self</span><span class="o">.</span><span class="n">restart</span><span class="p">()</span>
 
 	<span class="c1"># set the parameters	</span>
-	<span class="k">def</span> <span class="nf">setparams</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xc</span><span class="p">,</span> <span class="n">yc</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">l</span><span class="p">):</span>
+	<span class="k">def</span><span class="w"> </span><span class="nf">setparams</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xc</span><span class="p">,</span> <span class="n">yc</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">l</span><span class="p">):</span>
 	
 		<span class="c1"># The spirograph parameters</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">xc</span> <span class="o">=</span> <span class="n">xc</span>
@@ -741,7 +741,7 @@
 		<span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
 
 	<span class="c1"># restart the drawing</span>
-	<span class="k">def</span> <span class="nf">restart</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+	<span class="k">def</span><span class="w"> </span><span class="nf">restart</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 		<span class="c1"># set the flag</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">drawingComplete</span> <span class="o">=</span> <span class="kc">False</span>
 		<span class="c1"># show the turtle</span>
@@ -757,7 +757,7 @@
 
 
 	<span class="c1"># draw the whole thing</span>
-	<span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+	<span class="k">def</span><span class="w"> </span><span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 		<span class="c1"># draw the rest of the points</span>
 		<span class="n">R</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">l</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">R</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">k</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">l</span>
 		<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">360</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">nRot</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">step</span><span class="p">):</span>
@@ -769,7 +769,7 @@
 		<span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">hideturtle</span><span class="p">()</span>
 
 	<span class="c1"># update by one step</span>
-	<span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+	<span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 		<span class="c1"># skip the rest of the steps if done</span>
 		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">drawingComplete</span><span class="p">:</span>
 			<span class="k">return</span>
@@ -789,9 +789,9 @@
 
 
 <span class="c1"># a class for animating Spirographs</span>
-<span class="k">class</span> <span class="nc">SpiroAnimator</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SpiroAnimator</span><span class="p">:</span>
 	<span class="c1"># constructor</span>
-	<span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+	<span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
 		<span class="c1"># set the timer value in milliseconds</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">deltaT</span> <span class="o">=</span> <span class="mi">10</span>
 		<span class="c1"># get the window dimensions</span>
@@ -809,7 +809,7 @@
 		<span class="n">turtle</span><span class="o">.</span><span class="n">ontimer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">deltaT</span><span class="p">)</span>
 
 	<span class="c1"># generate random parameters</span>
-	<span class="k">def</span> <span class="nf">genRandomParams</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+	<span class="k">def</span><span class="w"> </span><span class="nf">genRandomParams</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 		<span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span>
 		<span class="n">R</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
 		<span class="n">r</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="o">*</span><span class="n">R</span><span class="o">//</span><span class="mi">10</span><span class="p">)</span>
@@ -820,7 +820,7 @@
 		<span class="k">return</span> <span class="p">(</span><span class="n">xc</span><span class="p">,</span> <span class="n">yc</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
 
 	<span class="c1"># restart spiro drawing</span>
-	<span class="k">def</span> <span class="nf">restart</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+	<span class="k">def</span><span class="w"> </span><span class="nf">restart</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 		<span class="k">for</span> <span class="n">spiro</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">spiros</span><span class="p">:</span>
 			<span class="c1"># clear</span>
 			<span class="n">spiro</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
@@ -831,7 +831,7 @@
 			<span class="c1"># restart the drawing</span>
 			<span class="n">spiro</span><span class="o">.</span><span class="n">restart</span><span class="p">()</span>
 
-	<span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+	<span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 		<span class="c1"># update all spiros</span>
 		<span class="n">nComplete</span> <span class="o">=</span> <span class="mi">0</span>
 		<span class="k">for</span> <span class="n">spiro</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">spiros</span><span class="p">:</span>
@@ -847,7 +847,7 @@
 		<span class="n">turtle</span><span class="o">.</span><span class="n">ontimer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">deltaT</span><span class="p">)</span>
 
 	<span class="c1"># toggle turtle cursor on and off</span>
-	<span class="k">def</span> <span class="nf">toggleTurtles</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+	<span class="k">def</span><span class="w"> </span><span class="nf">toggleTurtles</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 		<span class="k">for</span> <span class="n">spiro</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">spiros</span><span class="p">:</span>
 			<span class="k">if</span> <span class="n">spiro</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">invisible</span><span class="p">():</span>
 				<span class="n">spiro</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">hideturtle</span><span class="p">()</span>
@@ -855,7 +855,7 @@
 				<span class="n">spiro</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">showturtle</span><span class="p">()</span>
 
 <span class="c1"># save drawings as PNG files</span>
-<span class="k">def</span> <span class="nf">saveDrawing</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">saveDrawing</span><span class="p">():</span>
 	<span class="c1"># hide turtle cursor</span>
 	<span class="n">turtle</span><span class="o">.</span><span class="n">hideturtle</span><span class="p">()</span>
 	<span class="c1"># generate unique filenames</span>
@@ -873,7 +873,7 @@
 	<span class="n">turtle</span><span class="o">.</span><span class="n">showturtle</span><span class="p">()</span>
 
 <span class="c1"># main() function</span>
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
 	<span class="c1"># use sys.argv if needed</span>
 	<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;generating spirograph...&#39;</span><span class="p">)</span>
 	<span class="c1"># create parser</span>
@@ -941,7 +941,7 @@
 <h2>Display the Program Output in Jupyter Lab<a class="headerlink" href="#display-the-program-output-in-jupyter-lab" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="n">root_dir</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
 <span class="n">root_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
 </pre></div>
@@ -965,8 +965,8 @@
 <p>A window opens up with the output.  The output is saved to an image file.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
-<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
 <span class="n">img_PIL</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Images/spiro.png&#39;</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">img_PIL</span><span class="p">)</span>
 </pre></div>

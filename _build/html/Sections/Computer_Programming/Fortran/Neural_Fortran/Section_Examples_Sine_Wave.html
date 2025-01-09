@@ -30,7 +30,7 @@
   <link href="../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
@@ -739,19 +739,21 @@
 <section id="dense-neural-network-structure">
 <h2>Dense Neural Network Structure<a class="headerlink" href="#dense-neural-network-structure" title="Link to this heading">#</a></h2>
 <p>A <strong>dense (fully connected) neural network</strong> consists of layers of neurons, where each neuron in one layer connects to <strong>every</strong> neuron in the next layer via a trainable weight. Suppose we have a network with <span class="math notranslate nohighlight">\(L\)</span> layers, indexed by <span class="math notranslate nohighlight">\( \ell = 1, 2, \ldots, L\)</span>. Each layer <span class="math notranslate nohighlight">\(\ell\)</span> has <span class="math notranslate nohighlight">\(n_\ell\)</span> neurons. For simplicity, let <span class="math notranslate nohighlight">\(\mathbf{x} \in \mathbb{R}^{n_0}\)</span> be the input, where <span class="math notranslate nohighlight">\(n_0\)</span> is the input dimension, and let <span class="math notranslate nohighlight">\(\mathbf{y} \in \mathbb{R}^{n_L}\)</span> be the network’s output.</p>
-<p>A typical layer <span class="math notranslate nohighlight">\(\ell\)</span> of the network (for <span class="math notranslate nohighlight">\(1 \le \ell \le L\)</span>) is described by a linear transformation followed by an elementwise non-linear activation. Specifically,
-$<span class="math notranslate nohighlight">\(
+<p>A typical layer <span class="math notranslate nohighlight">\(\ell\)</span> of the network (for <span class="math notranslate nohighlight">\(1 \le \ell \le L\)</span>) is described by a linear transformation followed by an elementwise non-linear activation. Specifically,</p>
+<div class="math notranslate nohighlight">
+\[
   \mathbf{z}^{(\ell)} 
   \;=\; W^{(\ell)}\, \mathbf{h}^{(\ell-1)} \;+\; \mathbf{b}^{(\ell)},
-\)</span>$
-where:</p>
+\]</div>
+<p>where:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(W^{(\ell)} \in \mathbb{R}^{n_\ell \times n_{\ell-1}}\)</span> is the weight matrix for layer <span class="math notranslate nohighlight">\(\ell\)</span>.</p></li>
 <li><p><span class="math notranslate nohighlight">\(\mathbf{b}^{(\ell)} \in \mathbb{R}^{n_\ell}\)</span> is the bias vector.</p></li>
 <li><p><span class="math notranslate nohighlight">\(\mathbf{h}^{(\ell-1)} \in \mathbb{R}^{n_{\ell-1}}\)</span> is the output (also called the activation) of the previous layer (<span class="math notranslate nohighlight">\(\ell-1\)</span>).</p></li>
 </ul>
-<p>Next, we apply a (usually nonlinear) activation function <span class="math notranslate nohighlight">\(\sigma(\cdot)\)</span> elementwise:
-$<span class="math notranslate nohighlight">\(
+<p>Next, we apply a (usually nonlinear) activation function <span class="math notranslate nohighlight">\(\sigma(\cdot)\)</span> elementwise:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
   \mathbf{h}^{(\ell)} 
   \;=\; \sigma\bigl(\mathbf{z}^{(\ell)}\bigr)
   \;=\; 
@@ -761,40 +763,44 @@ $<span class="math notranslate nohighlight">\(
     \vdots \\[6pt]
     \sigma(z_{n_\ell}^{(\ell)}) \\[6pt]
   \end{bmatrix}.
-\)</span><span class="math notranslate nohighlight">\(
-For instance, \)</span>\sigma<span class="math notranslate nohighlight">\( might be the ReLU function \)</span>\max(0, z)<span class="math notranslate nohighlight">\(, the sigmoid function \)</span>\tfrac{1}{1 + e^{-z}}<span class="math notranslate nohighlight">\(, or \)</span>\tanh$. The final output layer might also have a special activation (e.g., softmax for classification).</p>
+\end{split}\]</div>
+<p>For instance, <span class="math notranslate nohighlight">\(\sigma\)</span> might be the ReLU function <span class="math notranslate nohighlight">\(\max(0, z)\)</span>, the sigmoid function <span class="math notranslate nohighlight">\(\tfrac{1}{1 + e^{-z}}\)</span>, or <span class="math notranslate nohighlight">\(\tanh\)</span>. The final output layer might also have a special activation (e.g., softmax for classification).</p>
 </section>
 <hr class="docutils" />
 <section id="forward-pass-equations">
 <h2>Forward Pass Equations<a class="headerlink" href="#forward-pass-equations" title="Link to this heading">#</a></h2>
-<p>Using the above notation, we initialize the network’s input as
-$<span class="math notranslate nohighlight">\(
+<p>Using the above notation, we initialize the network’s input as</p>
+<div class="math notranslate nohighlight">
+\[
   \mathbf{h}^{(0)} \;=\; \mathbf{x}.
-\)</span><span class="math notranslate nohighlight">\(
-Then for each layer \)</span>\ell = 1, 2, \ldots, L<span class="math notranslate nohighlight">\(, we compute
-\)</span><span class="math notranslate nohighlight">\(
+\]</div>
+<p>Then for each layer <span class="math notranslate nohighlight">\(\ell = 1, 2, \ldots, L\)</span>, we compute</p>
+<div class="math notranslate nohighlight">
+\[
   \mathbf{z}^{(\ell)} = W^{(\ell)}\, \mathbf{h}^{(\ell-1)} + \mathbf{b}^{(\ell)}, 
   \quad
   \mathbf{h}^{(\ell)} = \sigma\bigl(\mathbf{z}^{(\ell)}\bigr).
-\)</span><span class="math notranslate nohighlight">\(
-At the final layer, \)</span>\mathbf{h}^{(L)}<span class="math notranslate nohighlight">\( becomes the network’s output \)</span>\mathbf{y}$. Hence, a forward pass through a dense network is just iterating these matrix-vector multiplications and elementwise activations.</p>
+\]</div>
+<p>At the final layer, <span class="math notranslate nohighlight">\(\mathbf{h}^{(L)}\)</span> becomes the network’s output <span class="math notranslate nohighlight">\(\mathbf{y}\)</span>. Hence, a forward pass through a dense network is just iterating these matrix-vector multiplications and elementwise activations.</p>
 </section>
 <hr class="docutils" />
 <section id="training-with-gradient-descent">
 <h2>Training With Gradient Descent<a class="headerlink" href="#training-with-gradient-descent" title="Link to this heading">#</a></h2>
-<p>To train the network, we typically have a dataset of inputs <span class="math notranslate nohighlight">\(\{\mathbf{x}_i\}\)</span> and corresponding targets <span class="math notranslate nohighlight">\(\{\mathbf{t}_i\}\)</span>. We define a <strong>loss function</strong> <span class="math notranslate nohighlight">\(\mathcal{L}\)</span>, such as mean squared error (for regression) or cross-entropy (for classification). For a single training example <span class="math notranslate nohighlight">\((\mathbf{x}, \mathbf{t})\)</span>, we might write
-$<span class="math notranslate nohighlight">\(
+<p>To train the network, we typically have a dataset of inputs <span class="math notranslate nohighlight">\(\{\mathbf{x}_i\}\)</span> and corresponding targets <span class="math notranslate nohighlight">\(\{\mathbf{t}_i\}\)</span>. We define a <strong>loss function</strong> <span class="math notranslate nohighlight">\(\mathcal{L}\)</span>, such as mean squared error (for regression) or cross-entropy (for classification). For a single training example <span class="math notranslate nohighlight">\((\mathbf{x}, \mathbf{t})\)</span>, we might write</p>
+<div class="math notranslate nohighlight">
+\[
   \mathcal{L}(\mathbf{t}, \mathbf{y}) 
   \;=\; \frac{1}{2} \|\mathbf{y} - \mathbf{t}\|^2
   \quad\text{(for an example squared error case).}
-\)</span><span class="math notranslate nohighlight">\(
-The **backpropagation** algorithm computes partial derivatives of \)</span>\mathcal{L}<span class="math notranslate nohighlight">\( with respect to each network parameter \)</span>{W^{(\ell)}, \mathbf{b}^{(\ell)}}<span class="math notranslate nohighlight">\(. Gradient-based optimizers (e.g., stochastic gradient descent) then update the parameters in the direction that reduces the loss:
-\)</span><span class="math notranslate nohighlight">\(
+\]</div>
+<p>The <strong>backpropagation</strong> algorithm computes partial derivatives of <span class="math notranslate nohighlight">\(\mathcal{L}\)</span> with respect to each network parameter <span class="math notranslate nohighlight">\(\{W^{(\ell)}, \mathbf{b}^{(\ell)}\}\)</span>. Gradient-based optimizers (e.g., stochastic gradient descent) then update the parameters in the direction that reduces the loss:</p>
+<div class="math notranslate nohighlight">
+\[
   W^{(\ell)} \;\leftarrow\; W^{(\ell)} \;-\; \eta \,\frac{\partial \mathcal{L}}{\partial W^{(\ell)}}
   \quad,\quad
   \mathbf{b}^{(\ell)} \;\leftarrow\; \mathbf{b}^{(\ell)} \;-\; \eta \,\frac{\partial \mathcal{L}}{\partial \mathbf{b}^{(\ell)}},
-\)</span><span class="math notranslate nohighlight">\(
-where \)</span>\eta$ is the learning rate. Repeated over many iterations (epochs), the network learns weights that (hopefully) minimize the loss on the training set and generalize to unseen data.</p>
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\eta\)</span> is the learning rate. Repeated over many iterations (epochs), the network learns weights that (hopefully) minimize the loss on the training set and generalize to unseen data.</p>
 <hr class="docutils" />
 <p>This dense architecture is the foundational design for many neural networks. While modern advances (like convolutional or transformer layers) may structure connections differently, the core linear+activation principle remains central to deep learning.</p>
 </section>
@@ -1315,7 +1321,7 @@ where \)</span>\eta$ is the learning rate. Repeated over many iterations (epochs
 <h2>Build the Program using FPM (Fortran Package Manager)<a class="headerlink" href="#build-the-program-using-fpm-fortran-package-manager" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="n">root_dir</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
 <span class="n">root_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
 </pre></div>
@@ -1433,8 +1439,8 @@ Activation: sigmoid
 <h3>Read the Data from the CSV File<a class="headerlink" href="#read-the-data-from-the-csv-file" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 </pre></div>
 </div>
 </div>
@@ -1514,7 +1520,7 @@ memory usage: 267.0 MB
 <span class="c1"># Avoid repeated legend entries for the &#39;True Sine&#39; if multiple lines are drawn</span>
 <span class="n">handles</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">get_legend_handles_labels</span><span class="p">()</span>
 <span class="c1"># Filter out duplicates by building an ordered dictionary</span>
-<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">OrderedDict</span>
 <span class="n">by_label</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">handles</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">by_label</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span> <span class="n">by_label</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;lower left&quot;</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 

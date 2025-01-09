@@ -30,7 +30,7 @@
   <link href="../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
@@ -728,10 +728,10 @@
 </section>
 <section id="in-file-conway-py">
 <h2>In file <a class="reference external" href="http://conway.py">conway.py</a><a class="headerlink" href="#in-file-conway-py" title="Link to this heading">#</a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">argparse</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">matplotlib.animation</span> <span class="k">as</span> <span class="nn">animation</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span><span class="o">,</span><span class="w"> </span><span class="nn">argparse</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.animation</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">animation</span>
 
 <span class="n">ON</span> <span class="o">=</span> <span class="mi">255</span>
 <span class="n">OFF</span> <span class="o">=</span> <span class="mi">0</span>
@@ -739,12 +739,12 @@
 <span class="n">vals</span> <span class="o">=</span> <span class="p">[</span><span class="n">ON</span><span class="p">,</span> <span class="n">OFF</span><span class="p">]</span>
 
 
-<span class="k">def</span> <span class="nf">randomGrid</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">randomGrid</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; returns a grid of N x N values &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">N</span><span class="o">*</span><span class="n">N</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">addGlider</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">grid</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">addGlider</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">grid</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; adds a glider with top-left cell at (i, j)&quot;&quot;&quot;</span>
     <span class="n">glider</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">],</span>
                        <span class="p">[</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">],</span>
@@ -752,7 +752,7 @@
     <span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">3</span><span class="p">,</span> <span class="n">j</span><span class="p">:</span><span class="n">j</span><span class="o">+</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">glider</span>
 
 
-<span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">framenum</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">grid</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="n">framenum</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">grid</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
     <span class="c1"># copy grid since we require 8 neighbors for calculation</span>
     <span class="c1"># and we go line by line</span>
     <span class="n">newGrid</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -779,7 +779,7 @@
 
 
 <span class="c1"># main function</span>
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="c1"># command line arguments are in sys.argv[1], sys.argv[2], ...</span>
     <span class="c1"># sys.argv[0] is the script name and can be ignored</span>
     <span class="c1"># parse arguments</span>
@@ -844,10 +844,10 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">matplotlib.animation</span> <span class="k">as</span> <span class="nn">animation</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.animation</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">animation</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTML</span>
 </pre></div>
 </div>
 </div>
@@ -864,7 +864,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">randomGrid</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">randomGrid</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; returns a grid of N x N values &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">N</span><span class="o">*</span><span class="n">N</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
 </pre></div>
@@ -873,7 +873,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">addGlider</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">grid</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">addGlider</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">grid</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; adds a glider with top-left cell at (i, j)&quot;&quot;&quot;</span>
     <span class="n">glider</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">],</span>
                        <span class="p">[</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">],</span>
@@ -885,7 +885,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">framenum</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">grid</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="n">framenum</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">grid</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
     <span class="c1"># copy grid since we require 8 neighbors for calculation</span>
     <span class="c1"># and we go line by line</span>
     <span class="n">newGrid</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>

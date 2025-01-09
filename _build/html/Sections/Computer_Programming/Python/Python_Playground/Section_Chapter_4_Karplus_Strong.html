@@ -30,7 +30,7 @@
   <link href="../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
@@ -734,19 +734,19 @@
 </section>
 <section id="in-file-ks-py">
 <h2>In file <a class="reference external" href="http://ks.py">ks.py</a><a class="headerlink" href="#in-file-ks-py" title="Link to this heading">#</a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">time</span><span class="o">,</span> <span class="nn">random</span>
-<span class="kn">import</span> <span class="nn">wave</span><span class="o">,</span> <span class="nn">argparse</span><span class="o">,</span> <span class="nn">pygame</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span><span class="o">,</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span><span class="o">,</span><span class="w"> </span><span class="nn">random</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">wave</span><span class="o">,</span><span class="w"> </span><span class="nn">argparse</span><span class="o">,</span><span class="w"> </span><span class="nn">pygame</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="c1"># I added the next two lines.  TkAgg uses the Tkinter rederer, which seems to work on my system.</span>
 <span class="c1"># You may need to try other renderers to get the plot drawing to work</span>
-<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span>
 <span class="n">matplotlib</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;TkAgg&#39;</span><span class="p">)</span>
 
 
-<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">deque</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 
 <span class="c1"># show plot of algorithm in action?</span>
 <span class="n">gShowPlot</span> <span class="o">=</span> <span class="kc">False</span>
@@ -755,7 +755,7 @@
 <span class="c1"># piano C4-E(b)-F-G-B(b)-C5</span>
 <span class="n">pmNotes</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;C4&#39;</span><span class="p">:</span> <span class="mi">262</span><span class="p">,</span> <span class="s1">&#39;Eb&#39;</span><span class="p">:</span> <span class="mi">311</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">:</span> <span class="mi">349</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">:</span> <span class="mi">391</span><span class="p">,</span> <span class="s1">&#39;Bb&#39;</span><span class="p">:</span> <span class="mi">466</span><span class="p">}</span>
 
-<span class="k">def</span> <span class="nf">writeWAVE</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">writeWAVE</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
     <span class="c1"># open file</span>
     <span class="n">file</span> <span class="o">=</span> <span class="n">wave</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span>
     <span class="c1"># WAV file parameters</span>
@@ -769,7 +769,7 @@
     <span class="n">file</span><span class="o">.</span><span class="n">close</span>
     
 <span class="c1"># generate note of given frequency</span>
-<span class="k">def</span> <span class="nf">generateNote</span><span class="p">(</span><span class="n">freq</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">generateNote</span><span class="p">(</span><span class="n">freq</span><span class="p">):</span>
     <span class="n">nSamples</span> <span class="o">=</span> <span class="mi">44100</span>
     <span class="n">sampleRate</span> <span class="o">=</span> <span class="mi">44100</span>
     <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sampleRate</span> <span class="o">/</span> <span class="n">freq</span><span class="p">)</span>
@@ -800,33 +800,33 @@
     <span class="k">return</span> <span class="n">samples</span><span class="o">.</span><span class="n">tostring</span><span class="p">()</span>
     
 <span class="c1"># play a WAV file</span>
-<span class="k">class</span> <span class="nc">NotePlayer</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">NotePlayer</span><span class="p">:</span>
     <span class="c1"># constructor</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">pygame</span><span class="o">.</span><span class="n">mixer</span><span class="o">.</span><span class="n">pre_init</span><span class="p">(</span><span class="mi">44100</span><span class="p">,</span> <span class="o">-</span><span class="mi">16</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2048</span><span class="p">)</span>
         <span class="n">pygame</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
         <span class="c1"># dictionary of notes</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">notes</span> <span class="o">=</span> <span class="p">{}</span>
     
     <span class="c1"># add a note</span>
-    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fileName</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fileName</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">notes</span><span class="p">[</span><span class="n">fileName</span><span class="p">]</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">mixer</span><span class="o">.</span><span class="n">Sound</span><span class="p">(</span><span class="n">fileName</span><span class="p">)</span>
     
     <span class="c1"># play a note</span>
-    <span class="k">def</span> <span class="nf">play</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fileName</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">play</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fileName</span><span class="p">):</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">notes</span><span class="p">[</span><span class="n">fileName</span><span class="p">]</span><span class="o">.</span><span class="n">play</span><span class="p">()</span>
         <span class="k">except</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="n">fileName</span> <span class="o">+</span> <span class="s1">&#39; not found!&#39;</span><span class="p">)</span>
             
-    <span class="k">def</span> <span class="nf">playRandom</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">playRandom</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; play a random note &quot;&quot;&quot;</span>
         <span class="n">index</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">notes</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
         <span class="n">note</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">notes</span><span class="o">.</span><span class="n">values</span><span class="p">())[</span><span class="n">index</span><span class="p">]</span>
         <span class="n">note</span><span class="o">.</span><span class="n">play</span><span class="p">()</span>
         
 <span class="c1"># main() function</span>
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="c1"># declare global var</span>
     <span class="k">global</span> <span class="n">gShowPlot</span>
     
@@ -840,7 +840,7 @@
     <span class="c1"># I added the next line to start the Python debugger, so that I can step through the script</span>
     <span class="c1"># and prevent the plot from flashing on and off.</span>
     <span class="c1"># By stepping through the script until just before the end, the plot stays up.</span>
-    <span class="kn">import</span> <span class="nn">pdb</span><span class="p">;</span> <span class="n">pdb</span><span class="o">.</span><span class="n">set_trace</span><span class="p">()</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">pdb</span><span class="p">;</span> <span class="n">pdb</span><span class="o">.</span><span class="n">set_trace</span><span class="p">()</span>
     
     <span class="c1"># show plot if flag set</span>
     <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">display</span><span class="p">:</span>
@@ -904,12 +904,12 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">time</span><span class="o">,</span> <span class="nn">random</span>
-<span class="kn">import</span> <span class="nn">wave</span><span class="o">,</span> <span class="nn">argparse</span><span class="o">,</span> <span class="nn">pygame</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span><span class="o">,</span><span class="w"> </span><span class="nn">random</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">wave</span><span class="o">,</span><span class="w"> </span><span class="nn">argparse</span><span class="o">,</span><span class="w"> </span><span class="nn">pygame</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">deque</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 </pre></div>
 </div>
 </div>
@@ -931,7 +931,7 @@ Hello from the pygame community. https://www.pygame.org/contribute.html
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">writeWAVE</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">writeWAVE</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
     <span class="c1"># open file</span>
     <span class="n">file</span> <span class="o">=</span> <span class="n">wave</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span>
     <span class="c1"># WAV file parameters</span>
@@ -950,7 +950,7 @@ Hello from the pygame community. https://www.pygame.org/contribute.html
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># generate note of given frequency</span>
-<span class="k">def</span> <span class="nf">generateNote</span><span class="p">(</span><span class="n">freq</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">generateNote</span><span class="p">(</span><span class="n">freq</span><span class="p">):</span>
     <span class="n">nSamples</span> <span class="o">=</span> <span class="mi">44100</span>
     <span class="n">sampleRate</span> <span class="o">=</span> <span class="mi">44100</span>
     <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sampleRate</span> <span class="o">/</span> <span class="n">freq</span><span class="p">)</span>
@@ -977,26 +977,26 @@ Hello from the pygame community. https://www.pygame.org/contribute.html
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># play a WAV file</span>
-<span class="k">class</span> <span class="nc">NotePlayer</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">NotePlayer</span><span class="p">:</span>
     <span class="c1"># constructor</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">pygame</span><span class="o">.</span><span class="n">mixer</span><span class="o">.</span><span class="n">pre_init</span><span class="p">(</span><span class="mi">44100</span><span class="p">,</span> <span class="o">-</span><span class="mi">16</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2048</span><span class="p">)</span>
         <span class="n">pygame</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
         <span class="c1"># dictionary of notes</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">notes</span> <span class="o">=</span> <span class="p">{}</span>
     
     <span class="c1"># add a note</span>
-    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fileName</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fileName</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">notes</span><span class="p">[</span><span class="n">fileName</span><span class="p">]</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">mixer</span><span class="o">.</span><span class="n">Sound</span><span class="p">(</span><span class="n">fileName</span><span class="p">)</span>
     
     <span class="c1"># play a note</span>
-    <span class="k">def</span> <span class="nf">play</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fileName</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">play</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fileName</span><span class="p">):</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">notes</span><span class="p">[</span><span class="n">fileName</span><span class="p">]</span><span class="o">.</span><span class="n">play</span><span class="p">()</span>
         <span class="k">except</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="n">fileName</span> <span class="o">+</span> <span class="s1">&#39; not found!&#39;</span><span class="p">)</span>
             
-    <span class="k">def</span> <span class="nf">playRandom</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">playRandom</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; play a random note &quot;&quot;&quot;</span>
         <span class="n">index</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">notes</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
         <span class="n">note</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">notes</span><span class="o">.</span><span class="n">values</span><span class="p">())[</span><span class="n">index</span><span class="p">]</span>
@@ -1075,8 +1075,8 @@ creating Bb.wav...
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> ipympl
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Audio</span><span class="p">,</span> <span class="n">display</span>
-<span class="kn">from</span> <span class="nn">scipy.io</span> <span class="kn">import</span> <span class="n">wavfile</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">Audio</span><span class="p">,</span> <span class="n">display</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">wavfile</span>
 
 <span class="k">for</span> <span class="n">wav_file</span> <span class="ow">in</span> <span class="n">wav_files</span><span class="p">:</span>
     <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">directory_path</span><span class="p">,</span> <span class="n">wav_file</span><span class="p">)</span>
