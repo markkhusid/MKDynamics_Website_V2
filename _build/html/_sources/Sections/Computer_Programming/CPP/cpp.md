@@ -23,7 +23,20 @@ Object-Oriented Programming Using C++
 :height: 300
 ```
 :::
+
+:::{grid-item-card}
+:link: Learn_Modern_CPP/Learn_Modern_CPP__HEAD__.html
+:class-header: bg-dark
+
+Learn Modern C++
+^^^
+```{image} images/learn_modern_CPP_splash.png
+:height: 300
+```
+:::
 ::::
+
+
 
 ## Resources and Textbooks Used
 
@@ -33,7 +46,7 @@ In this section we will be programming in C++ using examples and techniques foun
 This book may be purchased here: <br>
 [Amazon page to purchase "Object-Oriented Programming Using C++ by Ira Pohl"](https://amzn.to/40awJrP)
 
-### "Learn Modern C++" br Richard Spencer (Online Course)
+### "Learn Modern C++" br cpptutor (Online Course)
 The course maye be found here: <br>
 [Learn Modern C++](https://learnmoderncpp.com/) <br>
 Source code may be found in GitHib here: <br>

@@ -679,17 +679,17 @@
 <section id="running-step-0x401000-start-mov-eax-0x1">
 <h4>Running step <em>0x401000 &lt;_start&gt;: mov eax,0x1</em><a class="headerlink" href="#running-step-0x401000-start-mov-eax-0x1" title="Link to this heading">#</a></h4>
 <p>Prior to running <code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">eax,</span> <span class="pre">0x1</span></code>, the state of the registers and stack is shown below:</p>
-<figure class="align-default" id="id1">
-<img alt="../../../../../../_images/64bit_hello_world_in_GDB_before_running_step1.jpg" src="../../../../../../_images/64bit_hello_world_in_GDB_before_running_step1.jpg" />
+<figure class="align-center" id="bit-hello-world-in-gdb-before-running-step1">
+<img alt="Before running step 0x401000 &lt;_start&gt;: mov eax,0x1" src="../../../../../../_images/64bit_hello_world_in_GDB_before_running_step1.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 62 </span><span class="caption-text">Before running step <code class="docutils literal notranslate"><span class="pre">0x401000</span> <span class="pre">&lt;_start&gt;:</span> <span class="pre">mov</span> <span class="pre">eax,0x1</span></code></span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 62 </span><span class="caption-text">Before running step <code class="docutils literal notranslate"><span class="pre">0x401000</span> <span class="pre">&lt;_start&gt;:</span> <span class="pre">mov</span> <span class="pre">eax,0x1</span></code></span><a class="headerlink" href="#bit-hello-world-in-gdb-before-running-step1" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The <code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">eax,</span> <span class="pre">0x1</span></code> instruction simply moves the immediate value 1 into the 32-bit register <code class="docutils literal notranslate"><span class="pre">eax</span></code>.</p>
-<figure class="align-default" id="id2">
-<img alt="../../../../../../_images/64bit_hello_world_in_GDB_after_running_step1.jpg" src="../../../../../../_images/64bit_hello_world_in_GDB_after_running_step1.jpg" />
+<figure class="align-center" id="bit-hello-world-in-gdb-after-running-step1">
+<img alt="After running step 0x401000 &lt;_start&gt;: mov eax,0x1" src="../../../../../../_images/64bit_hello_world_in_GDB_after_running_step1.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 63 </span><span class="caption-text">After running step <code class="docutils literal notranslate"><span class="pre">0x401000</span> <span class="pre">&lt;_start&gt;:</span> <span class="pre">mov</span> <span class="pre">eax,0x1</span></code></span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 63 </span><span class="caption-text">After running step <code class="docutils literal notranslate"><span class="pre">0x401000</span> <span class="pre">&lt;_start&gt;:</span> <span class="pre">mov</span> <span class="pre">eax,0x1</span></code></span><a class="headerlink" href="#bit-hello-world-in-gdb-after-running-step1" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The <code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">eax,</span> <span class="pre">0x1</span></code> instruction moved the immediate value 1 into the 64-bit register rax, as can be seen in the screen shot above. The purpose of moving the immediate 1 into eax is to set up the write system call. If you recall, the system calls are enumerated in:</p>
@@ -722,17 +722,17 @@
 <section id="executing-step-0x401005-start-5-mov-edi-0x1">
 <h4>Executing step <code class="docutils literal notranslate"><span class="pre">0x401005</span> <span class="pre">&lt;_start+5&gt;:</span> <span class="pre">mov</span> <span class="pre">edi,0x1</span></code><a class="headerlink" href="#executing-step-0x401005-start-5-mov-edi-0x1" title="Link to this heading">#</a></h4>
 <p>Prior to executing the instruction <code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">edi,0x1</span></code>, the state of the registers and stack are as shown below:</p>
-<figure class="align-default" id="id3">
-<img alt="../../../../../../_images/64bit_hello_world_in_GDB_before_running_step2.jpg" src="../../../../../../_images/64bit_hello_world_in_GDB_before_running_step2.jpg" />
+<figure class="align-center" id="bit-hello-world-in-gdb-before-running-step2">
+<img alt="Before running step 0x401005 &lt;_start+5&gt;: mov edi,0x1" src="../../../../../../_images/64bit_hello_world_in_GDB_before_running_step2.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 64 </span><span class="caption-text">Before running step <code class="docutils literal notranslate"><span class="pre">0x401005</span> <span class="pre">&lt;_start+5&gt;:</span> <span class="pre">mov</span> <span class="pre">edi,0x1</span></code></span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 64 </span><span class="caption-text">Before running step <code class="docutils literal notranslate"><span class="pre">0x401005</span> <span class="pre">&lt;_start+5&gt;:</span> <span class="pre">mov</span> <span class="pre">edi,0x1</span></code></span><a class="headerlink" href="#bit-hello-world-in-gdb-before-running-step2" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The instruction <code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">edi,0x1</span></code> simply moves the immediate value 1 into the 32-bit register <code class="docutils literal notranslate"><span class="pre">edi</span></code>.</p>
-<figure class="align-default" id="id4">
-<img alt="../../../../../../_images/64bit_hello_world_in_GDB_after_running_step2.jpg" src="../../../../../../_images/64bit_hello_world_in_GDB_after_running_step2.jpg" />
+<figure class="align-center" id="bit-hello-world-in-gdb-after-running-step2">
+<img alt="After running step 0x401005 &lt;_start+5&gt;: mov edi,0x1" src="../../../../../../_images/64bit_hello_world_in_GDB_after_running_step2.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 65 </span><span class="caption-text">After running step <code class="docutils literal notranslate"><span class="pre">0x401005</span> <span class="pre">&lt;_start+5&gt;:</span> <span class="pre">mov</span> <span class="pre">edi,0x1</span></code></span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 65 </span><span class="caption-text">After running step <code class="docutils literal notranslate"><span class="pre">0x401005</span> <span class="pre">&lt;_start+5&gt;:</span> <span class="pre">mov</span> <span class="pre">edi,0x1</span></code></span><a class="headerlink" href="#bit-hello-world-in-gdb-after-running-step2" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The <code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">edi,</span> <span class="pre">0x1</span></code> instruction simply moved the immediate value 1 into the 32-bit register <code class="docutils literal notranslate"><span class="pre">edi</span></code>, as can be seen in the screen shot above. The purpose of moving the 1 into <code class="docutils literal notranslate"><span class="pre">edi</span></code> is as a parameter to the <code class="docutils literal notranslate"><span class="pre">WRITE</span></code> system call. The 1 represents standard output, or <code class="docutils literal notranslate"><span class="pre">STDOUT</span></code>. This refers to the screen. Therefore, the <code class="docutils literal notranslate"><span class="pre">WRITE</span></code> system call will be writing to the screen, as opposed to writing to a network socket, or to a file on disk.</p>
@@ -740,17 +740,17 @@
 <section id="executing-step-0x40100a-start-10-movabs-rsi-0x402000">
 <h4>Executing step <code class="docutils literal notranslate"><span class="pre">0x40100a</span> <span class="pre">&lt;_start+10&gt;:</span> <span class="pre">movabs</span> <span class="pre">rsi,0x402000</span></code><a class="headerlink" href="#executing-step-0x40100a-start-10-movabs-rsi-0x402000" title="Link to this heading">#</a></h4>
 <p>Prior to executing the instruction <code class="docutils literal notranslate"><span class="pre">0x40100a</span> <span class="pre">&lt;_start+10&gt;:</span> <span class="pre">movabs</span> <span class="pre">rsi,0x402000</span></code>, the state of the registers and stack are as shown below:</p>
-<figure class="align-default" id="id5">
-<img alt="../../../../../../_images/64bit_hello_world_in_GDB_before_running_step3.jpg" src="../../../../../../_images/64bit_hello_world_in_GDB_before_running_step3.jpg" />
+<figure class="align-center" id="bit-hello-world-in-gdb-before-running-step3">
+<img alt="Before running step 0x40100a &lt;_start+10&gt;: movabs rsi,0x402000" src="../../../../../../_images/64bit_hello_world_in_GDB_before_running_step3.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 66 </span><span class="caption-text">Before running step <code class="docutils literal notranslate"><span class="pre">0x40100a</span> <span class="pre">&lt;_start+10&gt;:</span> <span class="pre">movabs</span> <span class="pre">rsi,0x402000</span></code></span><a class="headerlink" href="#id5" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 66 </span><span class="caption-text">Before running step <code class="docutils literal notranslate"><span class="pre">0x40100a</span> <span class="pre">&lt;_start+10&gt;:</span> <span class="pre">movabs</span> <span class="pre">rsi,0x402000</span></code></span><a class="headerlink" href="#bit-hello-world-in-gdb-before-running-step3" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The instruction <code class="docutils literal notranslate"><span class="pre">0x40100a</span> <span class="pre">&lt;_start+10&gt;:</span> <span class="pre">movabs</span> <span class="pre">rsi,0x402000</span></code> simply moves the immediate value <code class="docutils literal notranslate"><span class="pre">0x402000</span></code> into the 64-bit register <code class="docutils literal notranslate"><span class="pre">rsi</span></code>.</p>
-<figure class="align-default" id="id6">
-<img alt="../../../../../../_images/64bit_hello_world_in_GDB_after_running_step3.jpg" src="../../../../../../_images/64bit_hello_world_in_GDB_after_running_step3.jpg" />
+<figure class="align-center" id="bit-hello-world-in-gdb-after-running-step3">
+<img alt="After running step 0x40100a &lt;_start+10&gt;: movabs rsi,0x402000" src="../../../../../../_images/64bit_hello_world_in_GDB_after_running_step3.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 67 </span><span class="caption-text">After running step <code class="docutils literal notranslate"><span class="pre">0x40100a</span> <span class="pre">&lt;_start+10&gt;:</span> <span class="pre">movabs</span> <span class="pre">rsi,0x402000</span></code></span><a class="headerlink" href="#id6" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 67 </span><span class="caption-text">After running step <code class="docutils literal notranslate"><span class="pre">0x40100a</span> <span class="pre">&lt;_start+10&gt;:</span> <span class="pre">movabs</span> <span class="pre">rsi,0x402000</span></code></span><a class="headerlink" href="#bit-hello-world-in-gdb-after-running-step3" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>What is the significance of the value <code class="docutils literal notranslate"><span class="pre">0x402000</span></code>? It is actually a memory address. We will examine the data at this memory address to see what it is, using the command:</p>
@@ -827,17 +827,17 @@ section .data
 <section id="executing-the-instruction-0x401019-start-25-syscall">
 <h4>Executing the instruction <code class="docutils literal notranslate"><span class="pre">0x401019</span> <span class="pre">&lt;_start+25&gt;:</span> <span class="pre">syscall</span></code><a class="headerlink" href="#executing-the-instruction-0x401019-start-25-syscall" title="Link to this heading">#</a></h4>
 <p>Prior to executing the instruction <code class="docutils literal notranslate"><span class="pre">0x401019</span> <span class="pre">&lt;_start+25&gt;:</span> <span class="pre">syscall</span></code>, the state of the registers and stack are as shown below:</p>
-<figure class="align-default" id="id7">
-<img alt="../../../../../../_images/64bit_hello_world_in_GDB_before_running_step5.jpg" src="../../../../../../_images/64bit_hello_world_in_GDB_before_running_step5.jpg" />
+<figure class="align-center" id="bit-hello-world-in-gdb-before-running-step5">
+<img alt="Before running step 0x401019 &lt;_start+25&gt;: syscall" src="../../../../../../_images/64bit_hello_world_in_GDB_before_running_step5.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 71 </span><span class="caption-text">Before running step <code class="docutils literal notranslate"><span class="pre">0x401019</span> <span class="pre">&lt;_start+25&gt;:</span> <span class="pre">syscall</span></code></span><a class="headerlink" href="#id7" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 71 </span><span class="caption-text">Before running step <code class="docutils literal notranslate"><span class="pre">0x401019</span> <span class="pre">&lt;_start+25&gt;:</span> <span class="pre">syscall</span></code></span><a class="headerlink" href="#bit-hello-world-in-gdb-before-running-step5" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The <code class="docutils literal notranslate"><span class="pre">syscall</span></code> instruction invokes the Linux kernel to execute a system call. In this case, we are invoking the <code class="docutils literal notranslate"><span class="pre">WRITE</span></code> system call, which will print the string <code class="docutils literal notranslate"><span class="pre">&quot;Hello</span> <span class="pre">World</span> <span class="pre">to</span> <span class="pre">the</span> <span class="pre">SLAE-64</span> <span class="pre">Course&quot;</span></code> to the screen. The results of this call are shown below.</p>
-<figure class="align-default" id="id8">
-<img alt="../../../../../../_images/64bit_hello_world_in_GDB_after_running_step5.jpg" src="../../../../../../_images/64bit_hello_world_in_GDB_after_running_step5.jpg" />
+<figure class="align-center" id="bit-hello-world-in-gdb-after-running-step5">
+<img alt="After running step 0x401019 &lt;_start+25&gt;: syscall" src="../../../../../../_images/64bit_hello_world_in_GDB_after_running_step5.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 72 </span><span class="caption-text">After running step <code class="docutils literal notranslate"><span class="pre">0x401019</span> <span class="pre">&lt;_start+25&gt;:</span> <span class="pre">syscall</span></code></span><a class="headerlink" href="#id8" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 72 </span><span class="caption-text">After running step <code class="docutils literal notranslate"><span class="pre">0x401019</span> <span class="pre">&lt;_start+25&gt;:</span> <span class="pre">syscall</span></code></span><a class="headerlink" href="#bit-hello-world-in-gdb-after-running-step5" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>It can be seen from the above screenshot that the <code class="docutils literal notranslate"><span class="pre">WRITE</span></code> system call was invoked properly as the string <code class="docutils literal notranslate"><span class="pre">&quot;Hello</span> <span class="pre">World</span> <span class="pre">to</span> <span class="pre">the</span> <span class="pre">SLAE-64</span> <span class="pre">Course&quot;</span></code> was printed to the screen, and execution of the program is continuing normally. The next step is to invoke the <code class="docutils literal notranslate"><span class="pre">EXIT</span></code> system call. It is important to properly exit a program as the program counter may be pointing to an invalid instruction after the <code class="docutils literal notranslate"><span class="pre">WRITE</span></code> system call instructions. In this case the program will crash. Exiting properly will virtually guarantee that the program will exit gracefully back to the shell. We will look at exiting gracefully in the next section.</p>
@@ -893,17 +893,17 @@ section .data
 </div>
 <p>From the above listing of the <code class="docutils literal notranslate"><span class="pre">/usr/include/asm/unistd_64</span></code> file, we can see that indeed the <code class="docutils literal notranslate"><span class="pre">EXIT</span></code> system call number is <code class="docutils literal notranslate"><span class="pre">60</span></code>, and this is the reason to load <code class="docutils literal notranslate"><span class="pre">60</span></code>, or <code class="docutils literal notranslate"><span class="pre">0x3c</span></code> hex into the register <code class="docutils literal notranslate"><span class="pre">eax</span></code>.</p>
 <p>Prior to executing the instruction <code class="docutils literal notranslate"><span class="pre">0x40101b</span> <span class="pre">&lt;_start+27&gt;:</span> <span class="pre">mov</span> <span class="pre">eax,0x3c</span></code>, the state of the stack and registers are as shown in the following screenshot.</p>
-<figure class="align-default" id="id9">
-<img alt="../../../../../../_images/64bit_hello_world_in_GDB_before_running_step6.jpg" src="../../../../../../_images/64bit_hello_world_in_GDB_before_running_step6.jpg" />
+<figure class="align-center" id="bit-hello-world-in-gdb-before-running-step6">
+<img alt="Before running step 0x40101b &lt;_start+27&gt;: mov eax,0x3c" src="../../../../../../_images/64bit_hello_world_in_GDB_before_running_step6.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 73 </span><span class="caption-text">Before running step <code class="docutils literal notranslate"><span class="pre">0x40101b</span> <span class="pre">&lt;_start+27&gt;:</span> <span class="pre">mov</span> <span class="pre">eax,0x3c</span></code></span><a class="headerlink" href="#id9" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 73 </span><span class="caption-text">Before running step <code class="docutils literal notranslate"><span class="pre">0x40101b</span> <span class="pre">&lt;_start+27&gt;:</span> <span class="pre">mov</span> <span class="pre">eax,0x3c</span></code></span><a class="headerlink" href="#bit-hello-world-in-gdb-before-running-step6" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The instruction <code class="docutils literal notranslate"><span class="pre">0x40101b</span> <span class="pre">&lt;_start+27&gt;:</span> <span class="pre">mov</span> <span class="pre">eax,0x3c</span></code> simply moves the immediate value <code class="docutils literal notranslate"><span class="pre">0x3c</span></code> hex or <code class="docutils literal notranslate"><span class="pre">60</span></code> decimal into the 32-bit register <code class="docutils literal notranslate"><span class="pre">eax</span></code>.</p>
-<figure class="align-default" id="id10">
-<img alt="../../../../../../_images/64bit_hello_world_in_GDB_after_running_step6.jpg" src="../../../../../../_images/64bit_hello_world_in_GDB_after_running_step6.jpg" />
+<figure class="align-center" id="bit-hello-world-in-gdb-after-running-step6">
+<img alt="After running step 0x40101b &lt;_start+27&gt;: mov eax,0x3c" src="../../../../../../_images/64bit_hello_world_in_GDB_after_running_step6.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 74 </span><span class="caption-text">After running step <code class="docutils literal notranslate"><span class="pre">0x40101b</span> <span class="pre">&lt;_start+27&gt;:</span> <span class="pre">mov</span> <span class="pre">eax,0x3c</span></code></span><a class="headerlink" href="#id10" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 74 </span><span class="caption-text">After running step <code class="docutils literal notranslate"><span class="pre">0x40101b</span> <span class="pre">&lt;_start+27&gt;:</span> <span class="pre">mov</span> <span class="pre">eax,0x3c</span></code></span><a class="headerlink" href="#bit-hello-world-in-gdb-after-running-step6" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>It can be seen from the above screenshot that the the <code class="docutils literal notranslate"><span class="pre">0x3c</span></code> hex or <code class="docutils literal notranslate"><span class="pre">60</span></code> decimal was loaded into <code class="docutils literal notranslate"><span class="pre">eax</span></code>. This is the first part of setting up the <code class="docutils literal notranslate"><span class="pre">EXIT</span></code> system call. The last part is to tell the <code class="docutils literal notranslate"><span class="pre">EXIT</span></code> system call which return value to give back to the shell. It is really an exit status, and is arbitrary. Usually, when there are no errors, a zero is returned back to the shell. In our case, we wish to return <code class="docutils literal notranslate"><span class="pre">0xb</span></code> hex or <code class="docutils literal notranslate"><span class="pre">11</span></code> decimal as a learning tool. We can then check the return exit status with an appropriate command.</p>
@@ -911,10 +911,10 @@ section .data
 <section id="executing-the-instruction-0x401020-start-32-mov-edi-0xb">
 <h4>Executing the instruction <code class="docutils literal notranslate"><span class="pre">0x401020</span> <span class="pre">&lt;_start+32&gt;:</span> <span class="pre">mov</span> <span class="pre">edi,0xb</span></code><a class="headerlink" href="#executing-the-instruction-0x401020-start-32-mov-edi-0xb" title="Link to this heading">#</a></h4>
 <p>Prior to executing the instruction <code class="docutils literal notranslate"><span class="pre">0x401020</span> <span class="pre">&lt;_start+32&gt;:</span> <span class="pre">mov</span> <span class="pre">edi,0xb</span></code>, the state of the stack and registers are as shown in the following screenshot.</p>
-<figure class="align-default" id="id11">
-<img alt="../../../../../../_images/64bit_hello_world_in_GDB_before_running_step7.jpg" src="../../../../../../_images/64bit_hello_world_in_GDB_before_running_step7.jpg" />
+<figure class="align-center" id="bit-hello-world-in-gdb-before-running-step7">
+<img alt="Before running step 0x401020 &lt;_start+32&gt;: mov edi,0xb" src="../../../../../../_images/64bit_hello_world_in_GDB_before_running_step7.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 75 </span><span class="caption-text">Before running step <code class="docutils literal notranslate"><span class="pre">0x401020</span> <span class="pre">&lt;_start+32&gt;:</span> <span class="pre">mov</span> <span class="pre">edi,0xb</span></code></span><a class="headerlink" href="#id11" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 75 </span><span class="caption-text">Before running step <code class="docutils literal notranslate"><span class="pre">0x401020</span> <span class="pre">&lt;_start+32&gt;:</span> <span class="pre">mov</span> <span class="pre">edi,0xb</span></code></span><a class="headerlink" href="#bit-hello-world-in-gdb-before-running-step7" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The instruction:</p>
@@ -922,10 +922,10 @@ section .data
 </pre></div>
 </div>
 <p>simply moves the immediate value <code class="docutils literal notranslate"><span class="pre">0xb</span></code> hex or <code class="docutils literal notranslate"><span class="pre">11</span></code> decimal into the 32-bit register <code class="docutils literal notranslate"><span class="pre">edi</span></code>. This value is the return value of our executable to the calling shell.</p>
-<figure class="align-default" id="id12">
-<img alt="../../../../../../_images/64bit_hello_world_in_GDB_after_running_step7.jpg" src="../../../../../../_images/64bit_hello_world_in_GDB_after_running_step7.jpg" />
+<figure class="align-center" id="bit-hello-world-in-gdb-after-running-step7">
+<img alt="After running step 0x401020 &lt;_start+32&gt;: mov edi,0xb" src="../../../../../../_images/64bit_hello_world_in_GDB_after_running_step7.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 76 </span><span class="caption-text">After running step <code class="docutils literal notranslate"><span class="pre">0x401020</span> <span class="pre">&lt;_start+32&gt;:</span> <span class="pre">mov</span> <span class="pre">edi,0xb</span></code></span><a class="headerlink" href="#id12" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 76 </span><span class="caption-text">After running step <code class="docutils literal notranslate"><span class="pre">0x401020</span> <span class="pre">&lt;_start+32&gt;:</span> <span class="pre">mov</span> <span class="pre">edi,0xb</span></code></span><a class="headerlink" href="#bit-hello-world-in-gdb-after-running-step7" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>After executing the instruction:</p>
@@ -937,17 +937,17 @@ section .data
 <section id="executing-the-instruction-0x401025-start-37-syscall">
 <h4>Executing the instruction <code class="docutils literal notranslate"><span class="pre">0x401025</span> <span class="pre">&lt;_start+37&gt;:</span> <span class="pre">syscall</span></code><a class="headerlink" href="#executing-the-instruction-0x401025-start-37-syscall" title="Link to this heading">#</a></h4>
 <p>Prior to executing the instruction <code class="docutils literal notranslate"><span class="pre">0x401025</span> <span class="pre">&lt;_start+37&gt;:</span> <span class="pre">syscall</span></code>, the state of the stack and registers are as shown in the following screenshot.</p>
-<figure class="align-default" id="id13">
-<img alt="../../../../../../_images/64bit_hello_world_in_GDB_before_running_step8.jpg" src="../../../../../../_images/64bit_hello_world_in_GDB_before_running_step8.jpg" />
+<figure class="align-center" id="bit-hello-world-in-gdb-before-running-step8">
+<img alt="Before running step 0x401025 &lt;_start+37&gt;: syscall" src="../../../../../../_images/64bit_hello_world_in_GDB_before_running_step8.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 77 </span><span class="caption-text">Before running step <code class="docutils literal notranslate"><span class="pre">0x401025</span> <span class="pre">&lt;_start+37&gt;:</span> <span class="pre">syscall</span></code></span><a class="headerlink" href="#id13" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 77 </span><span class="caption-text">Before running step <code class="docutils literal notranslate"><span class="pre">0x401025</span> <span class="pre">&lt;_start+37&gt;:</span> <span class="pre">syscall</span></code></span><a class="headerlink" href="#bit-hello-world-in-gdb-before-running-step8" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>After executing the instruction <code class="docutils literal notranslate"><span class="pre">0x401025</span> <span class="pre">&lt;_start+37&gt;:</span> <span class="pre">syscall</span></code>, the process is terminated and the exit status is returned to the shell. The exit status is <code class="docutils literal notranslate"><span class="pre">0xb</span></code> hex or <code class="docutils literal notranslate"><span class="pre">11</span></code> decimal. This is shown in the following screenshot.</p>
-<figure class="align-default" id="id14">
-<img alt="../../../../../../_images/64bit_hello_world_in_GDB_after_running_step8.jpg" src="../../../../../../_images/64bit_hello_world_in_GDB_after_running_step8.jpg" />
+<figure class="align-center" id="bit-hello-world-in-gdb-after-running-step8">
+<img alt="After running step 0x401025 &lt;_start+37&gt;: syscall" src="../../../../../../_images/64bit_hello_world_in_GDB_after_running_step8.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 78 </span><span class="caption-text">After running step <code class="docutils literal notranslate"><span class="pre">0x401025</span> <span class="pre">&lt;_start+37&gt;:</span> <span class="pre">syscall</span></code></span><a class="headerlink" href="#id14" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 78 </span><span class="caption-text">After running step <code class="docutils literal notranslate"><span class="pre">0x401025</span> <span class="pre">&lt;_start+37&gt;:</span> <span class="pre">syscall</span></code></span><a class="headerlink" href="#bit-hello-world-in-gdb-after-running-step8" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>We can see from the above screenshot that the process terminated with an exit code of <code class="docutils literal notranslate"><span class="pre">013</span></code>. Why is it not <code class="docutils literal notranslate"><span class="pre">0xb</span></code> hex or <code class="docutils literal notranslate"><span class="pre">11</span></code> decimal? Because apparently, GDB displays the exit code in octal. As before, we will use Python to convert <code class="docutils literal notranslate"><span class="pre">013</span></code> octal into decimal. This is shown in the following screenshot:</p>
