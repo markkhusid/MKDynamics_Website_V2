@@ -122,6 +122,11 @@ parts:
           - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_7_10_Overloading_Operator_Parenthesis_for_Indexing
           - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_7_11_Pointer_Operators
           - file: Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_7_11_1_Pointer_to_Class_Member
+      
+      - file: Sections/Computer_Programming/CPP/Learn_Modern_CPP/Learn_Modern_CPP__HEAD__
+        sections:
+        - file: Sections/Computer_Programming/CPP/Learn_Modern_CPP/01_Strings_and_Character_Literals
+        
 
     - file: Sections/Computer_Programming/Fortran/fortran
       sections:

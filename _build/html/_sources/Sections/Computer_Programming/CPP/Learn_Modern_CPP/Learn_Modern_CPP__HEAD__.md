@@ -12,6 +12,6 @@ In this section, we will discuss and experiment with C++ programming. C++ is a h
 
 ### "Learn Modern C++" br cpptutor (Online Course)
 The course maye be found here: <br>
-[Learn Modern C++](https://learnmoderncpp.com/) <br>
+[Learn Modern C++](https://learnmoderncpp.com/) <br><br>
 Source code may be found in GitHib here: <br>
 [Course source code](https://github.com/cpp-tutor/learnmoderncpp-tutorial)
