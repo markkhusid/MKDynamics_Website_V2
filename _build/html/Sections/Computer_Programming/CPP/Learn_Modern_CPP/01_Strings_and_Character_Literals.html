@@ -77,7 +77,7 @@
     <link rel="icon" href="../../../../_static/spacey.jpg"/>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="Fortran Programming" href="../../Fortran/fortran.html" />
+    <link rel="next" title="Variables, Scopes and Namespaces" href="02_Variables_Scopes_and_Namespaces__Assign.html" />
     <link rel="prev" title="Learn Modern C++" href="Learn_Modern_CPP__HEAD__.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -226,6 +226,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../../Assembly/assembly.html">Assembly Language Programming</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../C/c__HEAD__.html">C Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../C/Backdoored_Webserver/backdoored_webserver.html">Backdoored Webserver</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../C/Beej_s_Guide_to_C_Programming/Beej_s_Guide_to_C_Programming__HEAD__.html">Beej’s Guide to C Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../C/Beej_s_Guide_to_C_Programming/section_5_1_memory_and_variables.html">Section 5.1 Memory and Variables</a></li>
+</ul>
+</details></li>
 </ul>
 </details></li>
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="../cpp.html">C++ Programming</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
@@ -239,8 +243,11 @@
 <li class="toctree-l4"><a class="reference internal" href="../Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp_Ch_7.html">Chapter 7: Ad Hoc Polymorphism</a></li>
 </ul>
 </details></li>
-<li class="toctree-l3"><a class="reference internal" href="Learn_Modern_CPP__HEAD__.html">Learn Modern C++</a></li>
-
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="Learn_Modern_CPP__HEAD__.html">Learn Modern C++</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l4 current active"><a class="current reference internal" href="#">Strings and Character Literals</a></li>
+<li class="toctree-l4"><a class="reference internal" href="02_Variables_Scopes_and_Namespaces__Assign.html">Variables, Scopes and Namespaces</a></li>
+</ul>
+</details></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../Fortran/fortran.html">Fortran Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -674,7 +681,7 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#program-that-demostrates-printing-a-line-of-text-to-the-console">Program that demostrates printing a line of text to the console</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#program-that-demonstrates-printing-a-line-of-text-to-the-console">Program that Demonstrates Printing a Line of Text to the Console</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation-of-the-above-code">Explanation of the Above Code</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compile-and-run-code">Compile and Run Code</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-python-to-change-to-working-directory">Use Python to Change to Working Directory</a></li>
@@ -696,8 +703,8 @@
   <section class="tex2jax_ignore mathjax_ignore" id="strings-and-character-literals">
 <h1>Strings and Character Literals<a class="headerlink" href="#strings-and-character-literals" title="Link to this heading">#</a></h1>
 <p>Adapted from: “Learn Modern C++” by cpptutor: <a class="reference internal" href="#learnmoderncpp.com/string-and-character-literals/"><span class="xref myst">Learn Modern C++: String and Character Literals</span></a></p>
-<section id="program-that-demostrates-printing-a-line-of-text-to-the-console">
-<h2>Program that demostrates printing a line of text to the console<a class="headerlink" href="#program-that-demostrates-printing-a-line-of-text-to-the-console" title="Link to this heading">#</a></h2>
+<section id="program-that-demonstrates-printing-a-line-of-text-to-the-console">
+<h2>Program that Demonstrates Printing a Line of Text to the Console<a class="headerlink" href="#program-that-demonstrates-printing-a-line-of-text-to-the-console" title="Link to this heading">#</a></h2>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// 01-hellow.cpp : prints a line of text to the console</span>
 
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;print&gt;</span>
@@ -824,11 +831,11 @@
       </div>
     </a>
     <a class="right-next"
-       href="../../Fortran/fortran.html"
+       href="02_Variables_Scopes_and_Namespaces__Assign.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Fortran Programming</p>
+        <p class="prev-next-title">Variables, Scopes and Namespaces</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -849,7 +856,7 @@
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#program-that-demostrates-printing-a-line-of-text-to-the-console">Program that demostrates printing a line of text to the console</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#program-that-demonstrates-printing-a-line-of-text-to-the-console">Program that Demonstrates Printing a Line of Text to the Console</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation-of-the-above-code">Explanation of the Above Code</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compile-and-run-code">Compile and Run Code</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-python-to-change-to-working-directory">Use Python to Change to Working Directory</a></li>
