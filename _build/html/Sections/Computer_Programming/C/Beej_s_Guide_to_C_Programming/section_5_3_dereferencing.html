@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Beej’s Guide to C Programming &#8212; MK Dynamics</title>
+    <title>Section 5.3 Dereferencing &#8212; MK Dynamics</title>
   
   
   
@@ -73,12 +73,12 @@
                 gtag('config', 'G-BZ3C1QVH0B');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/Beej_s_Guide_to_C_Programming__HEAD__';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/section_5_3_dereferencing';</script>
     <link rel="icon" href="../../../../_static/spacey.jpg"/>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="Section 5.1 Memory and Variables" href="section_5_1_memory_and_variables.html" />
-    <link rel="prev" title="Backdoored Webserver" href="../Backdoored_Webserver/backdoored_webserver.html" />
+    <link rel="next" title="C++ Programming" href="../../CPP/cpp.html" />
+    <link rel="prev" title="Section 5.1 Memory and Variables" href="section_5_1_memory_and_variables.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -226,9 +226,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../Assembly/assembly.html">Assembly Language Programming</a></li>
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="../c__HEAD__.html">C Programming</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../Backdoored_Webserver/backdoored_webserver.html">Backdoored Webserver</a></li>
-<li class="toctree-l3 current active has-children"><a class="current reference internal" href="#">Beej’s Guide to C Programming</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="Beej_s_Guide_to_C_Programming__HEAD__.html">Beej’s Guide to C Programming</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="section_5_1_memory_and_variables.html">Section 5.1 Memory and Variables</a></li>
-<li class="toctree-l4"><a class="reference internal" href="section_5_3_dereferencing.html">Section 5.3 Dereferencing</a></li>
+<li class="toctree-l4 current active"><a class="current reference internal" href="#">Section 5.3 Dereferencing</a></li>
 </ul>
 </details></li>
 </ul>
@@ -456,6 +456,91 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/markkhusid/MKDynamics_Website_V2/master?urlpath=lab/tree/Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/section_5_3_dereferencing.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https%3A//github.com/markkhusid/MKDynamics_Website_V2&urlpath=lab/tree/MKDynamics_Website_V2/Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/section_5_3_dereferencing.ipynb&branch=master" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on JupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="JupyterHub logo" src="../../../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/markkhusid/MKDynamics_Website_V2/blob/master/Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/section_5_3_dereferencing.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -481,7 +566,7 @@
       
       
       
-      <li><a href="https://github.com/markkhusid/MKDynamics_Website_V2/issues/new?title=Issue%20on%20page%20%2FSections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/Beej_s_Guide_to_C_Programming__HEAD__.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/markkhusid/MKDynamics_Website_V2/issues/new?title=Issue%20on%20page%20%2FSections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/section_5_3_dereferencing.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -511,7 +596,7 @@
       
       
       
-      <li><a href="../../../../_sources/Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/Beej_s_Guide_to_C_Programming__HEAD__.md" target="_blank"
+      <li><a href="../../../../_sources/Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/section_5_3_dereferencing.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -521,7 +606,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -587,7 +672,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Beej’s Guide to C Programming</h1>
+    <h1>Section 5.3 Dereferencing</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -597,10 +682,10 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources-and-textbooks-used">Resources and Textbooks Used</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beejs-guide-to-c-programming-by-brian-beej-hall">“Beej’s Guide to C Programming” by Brian “Beej” Hall</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#program-that-demonstrates-dereferencing-a-pointer">Program that Demonstrates Dereferencing a Pointer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation-of-the-above-code">Explanation of the Above Code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compile-and-run-code">Compile and Run Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-python-to-change-to-working-directory">Use Python to Change to Working Directory</a></li>
 </ul>
 </li>
 </ul>
@@ -614,31 +699,110 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="beejs-guide-to-c-programming">
-<h1>Beej’s Guide to C Programming<a class="headerlink" href="#beejs-guide-to-c-programming" title="Link to this heading">#</a></h1>
-<p><img alt="Beej's Guide to C Programming" src="../../../../_images/C_programming2.jpg" /></p>
-<section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
-<p>Beej’s Guide to C Programming is a comprehensive guide to the C programming language, written by Brian “Beej” Hall. It covers a wide range of topics, from the basics of C syntax and data types to more advanced topics such as memory management, file I/O, and network programming. The guide is designed to be accessible to beginners while also providing in-depth information for more experienced programmers.</p>
-<p>The guide is available online for free, and it is widely regarded as one of the best resources for learning C programming. It includes numerous examples and exercises to help reinforce the concepts covered in each chapter. The guide also provides links to additional resources and references for further reading.</p>
-</section>
-<section id="table-of-contents">
-<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Link to this heading">#</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="section_5_1_memory_and_variables.html">Section 5.1 Memory and Variables</a></li>
-<li class="toctree-l1"><a class="reference internal" href="section_5_3_dereferencing.html">Section 5.3 Dereferencing</a></li>
-</ul>
+  <section class="tex2jax_ignore mathjax_ignore" id="section-5-3-dereferencing">
+<h1>Section 5.3 Dereferencing<a class="headerlink" href="#section-5-3-dereferencing" title="Link to this heading">#</a></h1>
+<p>Adapted from: “Beej’s Guide to C Programming” by Brian (Beej Jorgensen) Hall: <a class="reference external" href="https://beej.us/guide/bgc/html/split/pointers.html#deref">Beej’s Guide to C Programming: 5.3 Dereferencing</a></p>
+<p><a class="reference external" href="https://beej.us/">Brian (Beej Jorgensen) Hall Website</a></p>
+<section id="program-that-demonstrates-dereferencing-a-pointer">
+<h2>Program that Demonstrates Dereferencing a Pointer<a class="headerlink" href="#program-that-demonstrates-dereferencing-a-pointer" title="Link to this heading">#</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">;</span><span class="w">  </span><span class="c1">// this is NOT a dereference--this is a type &quot;int*&quot;</span>
+
+<span class="w">    </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">;</span><span class="w">  </span><span class="c1">// p now points to i, p holds address of i</span>
+
+<span class="w">    </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">  </span><span class="c1">// i is now 10</span>
+<span class="w">    </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span><span class="w"> </span><span class="c1">// the thing p points to (namely i!) is now 20!!</span>
+
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;i is %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span><span class="w">   </span><span class="c1">// prints &quot;20&quot;</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;i is %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">);</span><span class="w">  </span><span class="c1">// &quot;20&quot;! dereference-p is the same as i!</span>
+<span class="p">}</span>
+</pre></div>
 </div>
 </section>
-<section id="resources-and-textbooks-used">
-<h2>Resources and Textbooks Used<a class="headerlink" href="#resources-and-textbooks-used" title="Link to this heading">#</a></h2>
-<section id="beejs-guide-to-c-programming-by-brian-beej-hall">
-<h3>“Beej’s Guide to C Programming” by Brian “Beej” Hall<a class="headerlink" href="#beejs-guide-to-c-programming-by-brian-beej-hall" title="Link to this heading">#</a></h3>
-<p>The guide may be found here: <br>
-<a class="reference external" href="https://beej.us/guide/bgc/">Beej’s Guide to C Programming</a> <br><br>
-Source code may be found in GitHub here: <br>
-<a class="reference external" href="https://github.com/beejjorgensen/bgc">GihHub</a></p>
+<section id="explanation-of-the-above-code">
+<h2>Explanation of the Above Code<a class="headerlink" href="#explanation-of-the-above-code" title="Link to this heading">#</a></h2>
+<p>The program demonstrates the concept of dereferencing a pointer in C.</p>
+<ul class="simple">
+<li><p>The variable <code class="docutils literal notranslate"><span class="pre">i</span></code> is declared as an integer.</p></li>
+<li><p>The variable <code class="docutils literal notranslate"><span class="pre">p</span></code> is declared as a pointer to an integer (<code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">*p</span></code>).</p></li>
+<li><p>The address of <code class="docutils literal notranslate"><span class="pre">i</span></code> is assigned to <code class="docutils literal notranslate"><span class="pre">p</span></code> using the address-of operator (<code class="docutils literal notranslate"><span class="pre">&amp;</span></code>).</p></li>
+<li><p>The value of <code class="docutils literal notranslate"><span class="pre">i</span></code> is set to <code class="docutils literal notranslate"><span class="pre">10</span></code>.</p></li>
+<li><p>The value pointed to by <code class="docutils literal notranslate"><span class="pre">p</span></code> is set to <code class="docutils literal notranslate"><span class="pre">20</span></code> using the dereference operator (<code class="docutils literal notranslate"><span class="pre">*p</span></code>).</p></li>
+<li><p>Finally, the program prints the value of <code class="docutils literal notranslate"><span class="pre">i</span></code> and the value pointed to by <code class="docutils literal notranslate"><span class="pre">p</span></code>, both of which are <code class="docutils literal notranslate"><span class="pre">20</span></code>.</p></li>
+<li><p>The dereference operator (<code class="docutils literal notranslate"><span class="pre">*</span></code>) is used to access the value stored at the address pointed to by <code class="docutils literal notranslate"><span class="pre">p</span></code>.</p></li>
+<li><p>The output of the program will be:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="ow">is</span> <span class="mi">20</span>
+<span class="n">i</span> <span class="ow">is</span> <span class="mi">20</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>This shows that dereferencing <code class="docutils literal notranslate"><span class="pre">p</span></code> gives the same value as <code class="docutils literal notranslate"><span class="pre">i</span></code>, since <code class="docutils literal notranslate"><span class="pre">p</span></code> points to <code class="docutils literal notranslate"><span class="pre">i</span></code>.</p></li>
+</ul>
+</section>
+<section id="compile-and-run-code">
+<h2>Compile and Run Code<a class="headerlink" href="#compile-and-run-code" title="Link to this heading">#</a></h2>
+<section id="use-python-to-change-to-working-directory">
+<h3>Use Python to Change to Working Directory<a class="headerlink" href="#use-python-to-change-to-working-directory" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="n">root_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">code_dir</span> <span class="o">=</span> <span class="n">root_dir</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="s2">&quot;C_Code&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">code_dir</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>dir
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>section_5_1_memory_and_variables    section_5_3_dereferencing
+section_5_1_memory_and_variables.c  section_5_3_dereferencing.c
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">build_coomand</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;gcc -o section_5_3_dereferencing section_5_3_dereferencing.c&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exec_status</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;./section_5_3_dereferencing&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>i is 20
+i is 20
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 </section>
@@ -652,16 +816,16 @@ Source code may be found in GitHub here: <br>
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "py311_env"
         },
         kernelOptions: {
-            name: "python3",
+            name: "py311_env",
             path: "./Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'py311_env'</script>
 
                 </article>
               
@@ -674,20 +838,20 @@ Source code may be found in GitHub here: <br>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../Backdoored_Webserver/backdoored_webserver.html"
+       href="section_5_1_memory_and_variables.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Backdoored Webserver</p>
+        <p class="prev-next-title">Section 5.1 Memory and Variables</p>
       </div>
     </a>
     <a class="right-next"
-       href="section_5_1_memory_and_variables.html"
+       href="../../CPP/cpp.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Section 5.1 Memory and Variables</p>
+        <p class="prev-next-title">C++ Programming</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -708,10 +872,10 @@ Source code may be found in GitHub here: <br>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources-and-textbooks-used">Resources and Textbooks Used</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beejs-guide-to-c-programming-by-brian-beej-hall">“Beej’s Guide to C Programming” by Brian “Beej” Hall</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#program-that-demonstrates-dereferencing-a-pointer">Program that Demonstrates Dereferencing a Pointer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation-of-the-above-code">Explanation of the Above Code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compile-and-run-code">Compile and Run Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-python-to-change-to-working-directory">Use Python to Change to Working Directory</a></li>
 </ul>
 </li>
 </ul>
