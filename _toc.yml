@@ -131,6 +131,7 @@ parts:
         sections:
         - file: Sections/Computer_Programming/CPP/Learn_Modern_CPP/01_Strings_and_Character_Literals
         - file: Sections/Computer_Programming/CPP/Learn_Modern_CPP/02_Variables_Scopes_and_Namespaces__Assign
+        - file: Sections/Computer_Programming/CPP/Learn_Modern_CPP/02_Variables_Scopes_and_Namespaces__Swap
 
     - file: Sections/Computer_Programming/Fortran/fortran
       sections:
