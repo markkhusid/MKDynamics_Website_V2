@@ -25,7 +25,7 @@ Backdoored Web Server in C
 :::
 
 :::{grid-item-card}
-:link: Beej_s_Guide_to_C_Programming/Beej_s_Guide_to_C_Programming.html
+:link: Beej_s_Guide_to_C_Programming/Beej_s_Guide_to_C_Programming__HEAD__.html
 :class-header: bg-auto
 
 Beej's Guide to C Programming

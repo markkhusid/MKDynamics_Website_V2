@@ -56,6 +56,9 @@ parts:
     - file: Sections/Computer_Programming/C/c__HEAD__
       sections:
       - file: Sections/Computer_Programming/C/Backdoored_Webserver/backdoored_webserver
+      - file: Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/Beej_s_Guide_to_C_Programming__HEAD__
+        sections:
+        - file: Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/section_5_1_memory_and_variables
 
     - file: Sections/Computer_Programming/CPP/cpp
       sections:
