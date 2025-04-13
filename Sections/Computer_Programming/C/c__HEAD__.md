@@ -23,4 +23,16 @@ Backdoored Web Server in C
 :height: 200
 ```
 :::
+
+:::{grid-item-card}
+:link: Beej_s_Guide_to_C_Programming/Beej_s_Guide_to_C_Programming.html
+:class-header: bg-auto
+
+Beej's Guide to C Programming
+^^^
+```{image} images/beej_s_guide_to_C_programming.png
+:height: 200
+```
+:::
+
 ::::
