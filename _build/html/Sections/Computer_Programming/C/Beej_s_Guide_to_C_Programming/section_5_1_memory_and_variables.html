@@ -229,6 +229,7 @@
 <li class="toctree-l3 current active has-children"><a class="reference internal" href="Beej_s_Guide_to_C_Programming__HEAD__.html">Beej’s Guide to C Programming</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l4 current active"><a class="current reference internal" href="#">Section 5.1 Memory and Variables</a></li>
 <li class="toctree-l4"><a class="reference internal" href="section_5_3_dereferencing.html">Section 5.3 Dereferencing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="section_5_4_passing_pointers_as_arguments.html">Section 5.4 Passing Pointers as Arguments</a></li>
 </ul>
 </details></li>
 </ul>
@@ -246,7 +247,9 @@
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../CPP/Learn_Modern_CPP/Learn_Modern_CPP__HEAD__.html">Learn Modern C++</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../CPP/Learn_Modern_CPP/01_Strings_and_Character_Literals.html">Strings and Character Literals</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../CPP/Learn_Modern_CPP/02_Variables_Scopes_and_Namespaces__Assign.html">Variables, Scopes and Namespaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../CPP/Learn_Modern_CPP/02_Variables_Scopes_and_Namespaces__Assign.html">Variables, Scopes and Namespaces: Assign</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../CPP/Learn_Modern_CPP/02_Variables_Scopes_and_Namespaces__Swap.html">Variables, Scopes and Namespaces: Swap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../CPP/Learn_Modern_CPP/02_Variables_Scopes_and_Namespaces__Uniform.html">Variables, Scopes and Namespaces: Uniform</a></li>
 </ul>
 </details></li>
 </ul>
@@ -756,7 +759,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">build_coomand</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;gcc -o section_5_1_memory_and_variables section_5_1_memory_and_variables.c&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">build_command</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;gcc -o section_5_1_memory_and_variables section_5_1_memory_and_variables.c&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -769,7 +772,7 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The value of i is 10
-And its address is 0x7ffecbbce40c
+And its address is 0x7fff38781a7c
 </pre></div>
 </div>
 </div>
