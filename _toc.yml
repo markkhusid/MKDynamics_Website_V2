@@ -61,6 +61,7 @@ parts:
         - file: Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/section_5_1_memory_and_variables
         - file: Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/section_5_3_dereferencing
         - file: Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/section_5_4_passing_pointers_as_arguments
+        - file: Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/section_6_1_arrays_an_easy_example
 
     - file: Sections/Computer_Programming/CPP/cpp
       sections:
