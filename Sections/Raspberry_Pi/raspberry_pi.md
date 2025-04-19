@@ -1,7 +1,7 @@
 # Raspberry Pi
 
 ```{figure} images/raspberry_pi.jpg
-:height: 600
+:height: 400
 :align: center
 ```
 
