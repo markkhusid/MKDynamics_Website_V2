@@ -606,6 +606,7 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources-and-textbooks-used">Resources and Textbooks Used</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learn-modern-c-br-cpptutor-online-course">“Learn Modern C++” br cpptutor (Online Course)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dockerfile-used-to-setup-the-c-23-environment">Dockerfile Used to Setup the C++23 Environment</a></li>
 </ul>
 </li>
 </ul>
@@ -646,6 +647,41 @@
 <a class="reference external" href="https://learnmoderncpp.com/">Learn Modern C++</a> <br><br>
 Source code may be found in GitHib here: <br>
 <a class="reference external" href="https://github.com/cpp-tutor/learnmoderncpp-tutorial">Course source code</a></p>
+</section>
+<section id="dockerfile-used-to-setup-the-c-23-environment">
+<h3>Dockerfile Used to Setup the C++23 Environment<a class="headerlink" href="#dockerfile-used-to-setup-the-c-23-environment" title="Link to this heading">#</a></h3>
+<div class="highlight-dockerfile notranslate"><div class="highlight"><pre><span></span><span class="c"># Use Ubuntu 24.04 as the base image</span>
+<span class="k">FROM</span><span class="w"> </span><span class="s">ubuntu:24.04</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s">build</span>
+
+<span class="c"># Update package lists and install necessary tools</span>
+<span class="k">RUN</span><span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>wget<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>gnupg<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>software-properties-common<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/var/lib/apt/lists/*
+
+<span class="c"># Add the LLVM repository for Clang 18</span>
+<span class="k">RUN</span><span class="w"> </span>wget<span class="w"> </span>-O<span class="w"> </span>-<span class="w"> </span>https://apt.llvm.org/llvm-snapshot.gpg.key<span class="w"> </span><span class="p">|</span><span class="w"> </span>apt-key<span class="w"> </span>add<span class="w"> </span>-<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb http://apt.llvm.org/noble/ llvm-toolchain-noble-18 main&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/apt/sources.list<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt<span class="w"> </span>update
+
+<span class="c"># Install Clang 18</span>
+<span class="k">RUN</span><span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>clang-18<span class="w"> </span>lld-18<span class="w"> </span>libc++-18-dev<span class="w"> </span>libc++abi-18-dev
+
+<span class="c"># Set Clang 18 as the default compiler</span>
+<span class="k">RUN</span><span class="w"> </span>update-alternatives<span class="w"> </span>--install<span class="w"> </span>/usr/bin/clang<span class="w"> </span>clang<span class="w"> </span>/usr/bin/clang-18<span class="w"> </span><span class="m">100</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>update-alternatives<span class="w"> </span>--install<span class="w"> </span>/usr/bin/clang++<span class="w"> </span>clang++<span class="w"> </span>/usr/bin/clang++-18<span class="w"> </span><span class="m">100</span>
+
+<span class="c"># Set working directory</span>
+<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
+
+<span class="c"># Copy your C++ source code into the container (optional)</span>
+<span class="k">COPY</span><span class="w"> </span>.<span class="w"> </span>.
+
+<span class="c"># Start an interactive shell</span>
+<span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;bash&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
 </section>
 </section>
 </section>
@@ -719,6 +755,7 @@ Source code may be found in GitHib here: <br>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources-and-textbooks-used">Resources and Textbooks Used</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learn-modern-c-br-cpptutor-online-course">“Learn Modern C++” br cpptutor (Online Course)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dockerfile-used-to-setup-the-c-23-environment">Dockerfile Used to Setup the C++23 Environment</a></li>
 </ul>
 </li>
 </ul>

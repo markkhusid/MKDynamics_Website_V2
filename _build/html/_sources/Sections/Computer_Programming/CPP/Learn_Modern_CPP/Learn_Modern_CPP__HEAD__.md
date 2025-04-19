@@ -17,3 +17,11 @@ The course maye be found here: <br>
 [Learn Modern C++](https://learnmoderncpp.com/) <br><br>
 Source code may be found in GitHib here: <br>
 [Course source code](https://github.com/cpp-tutor/learnmoderncpp-tutorial)
+
+### Dockerfile Used to Setup the C++23 Environment
+
+```{literalinclude} DockerFile/Dockerfile
+---
+language: dockerfile
+---
+```
