@@ -42,6 +42,24 @@ Computer Programming
 :::
 ::::
 
+## Raspberry Pi
+
+::::{grid} 2 2 2 2
+:class-container: text-center
+:gutter: 3
+:::{grid-item-card}
+:link: Sections/Raspberry_Pi/raspberry_pi
+:link-type: doc
+:class-header: bg-auto
+Raspberry Pi Projects
+^^^
+```{image} images/raspberry_pi.jpg
+:height: 200
+:align: center
+```
+:::
+::::
+
 ## Electronics
 
 ::::{grid} 2 2 2 2

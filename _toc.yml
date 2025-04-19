@@ -288,6 +288,14 @@ parts:
 
     - file: Sections/Computer_Programming/Jupyter_Widgets/Using_Interact
 
+- caption: Raspberry Pi
+  chapters:
+  - file: Sections/Raspberry_Pi/raspberry_pi
+
+    sections:
+    - file: Sections/Raspberry_Pi/Exploring_Raspberry_Pi/exploring_raspberry_pi__HEAD__
+
+
 - caption: Electronics
   chapters:
   - file: Sections/Electronics/electronics
