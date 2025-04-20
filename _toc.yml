@@ -25,11 +25,16 @@ parts:
       - file: Sections/Cybersecurity/Disassembling_Binaries/C/c
         sections:
         - file: Sections/Cybersecurity/Disassembling_Binaries/C/AMD64/amd64__HEAD__
+        - file: Sections/Cybersecurity/Disassembling_Binaries/C/i386/i386__HEAD__
+          sections:
+          - file: Sections/Cybersecurity/Disassembling_Binaries/C/i386/Add_Int/add_int
+
 
       - file: Sections/Cybersecurity/Disassembling_Binaries/C++/c++
       - file: Sections/Cybersecurity/Disassembling_Binaries/Ada/ada
         sections:
         - file: Sections/Cybersecurity/Disassembling_Binaries/Ada/AMD64/amd64__HEAD__
+        - file: Sections/Cybersecurity/Disassembling_Binaries/Ada/i386/i386__HEAD__
 
       - file: Sections/Cybersecurity/Disassembling_Binaries/Pascal/pascal
 

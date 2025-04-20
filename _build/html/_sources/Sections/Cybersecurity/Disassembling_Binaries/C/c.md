@@ -10,7 +10,7 @@ C is a general-purpose programming language that was developed in the early 1970
 
 ## Table of Contents
 
-```{grid} 1 1 1 1
+::::{grid} 1 1 1 1
 :class-container: text-center
 :gutter: 3
 
@@ -22,6 +22,19 @@ C is a general-purpose programming language that was developed in the early 1970
 C Binaries in AMD64
 ^^^
 ```{image} images/add_int_C_AMD64_splash.jpg
+:height: 500
+:width: 800
+```
+:::
+
+:::{grid-item-card}
+:link: i386/i386__HEAD__
+:link-type: doc
+:class-header: bg-dark
+
+C Binaries in i386
+^^^
+```{image} images/add_int_C_i386_splash.jpg
 :height: 500
 :width: 800
 ```
