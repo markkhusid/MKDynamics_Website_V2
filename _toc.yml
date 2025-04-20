@@ -23,8 +23,14 @@ parts:
         - file: Sections/Cybersecurity/Disassembling_Binaries/Fortran/i386/i386
 
       - file: Sections/Cybersecurity/Disassembling_Binaries/C/c
+        sections:
+        - file: Sections/Cybersecurity/Disassembling_Binaries/C/AMD64/amd64__HEAD__
+
       - file: Sections/Cybersecurity/Disassembling_Binaries/C++/c++
       - file: Sections/Cybersecurity/Disassembling_Binaries/Ada/ada
+        sections:
+        - file: Sections/Cybersecurity/Disassembling_Binaries/Ada/AMD64/amd64__HEAD__
+
       - file: Sections/Cybersecurity/Disassembling_Binaries/Pascal/pascal
 
 
