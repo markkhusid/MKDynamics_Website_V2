@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Beej’s Guide to C Programming &#8212; MK Dynamics</title>
+    <title>Section 6.4 Arrays: Out of Bounds &#8212; MK Dynamics</title>
   
   
   
@@ -73,12 +73,12 @@
                 gtag('config', 'G-BZ3C1QVH0B');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/Beej_s_Guide_to_C_Programming__HEAD__';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/section_6_4_arrays_out_of_bounds';</script>
     <link rel="icon" href="../../../../_static/spacey.jpg"/>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="Section 5.1 Memory and Variables" href="section_5_1_memory_and_variables.html" />
-    <link rel="prev" title="Backdoored Webserver" href="../Backdoored_Webserver/backdoored_webserver.html" />
+    <link rel="next" title="C++ Programming" href="../../CPP/cpp.html" />
+    <link rel="prev" title="Section 6.3 Arrays: Array Initializers" href="section_6_3_arrays_array_initializers.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -234,13 +234,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../../Assembly/assembly.html">Assembly Language Programming</a></li>
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="../c__HEAD__.html">C Programming</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../Backdoored_Webserver/backdoored_webserver.html">Backdoored Webserver</a></li>
-<li class="toctree-l3 current active has-children"><a class="current reference internal" href="#">Beej’s Guide to C Programming</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="Beej_s_Guide_to_C_Programming__HEAD__.html">Beej’s Guide to C Programming</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="section_5_1_memory_and_variables.html">Section 5.1 Memory and Variables</a></li>
 <li class="toctree-l4"><a class="reference internal" href="section_5_3_dereferencing.html">Section 5.3 Dereferencing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="section_5_4_passing_pointers_as_arguments.html">Section 5.4 Passing Pointers as Arguments</a></li>
 <li class="toctree-l4"><a class="reference internal" href="section_6_1_arrays_an_easy_example.html">Section 6.1 Arrays: An Easy Example</a></li>
 <li class="toctree-l4"><a class="reference internal" href="section_6_3_arrays_array_initializers.html">Section 6.3 Arrays: Array Initializers</a></li>
-<li class="toctree-l4"><a class="reference internal" href="section_6_4_arrays_out_of_bounds.html">Section 6.4 Arrays: Out of Bounds</a></li>
+<li class="toctree-l4 current active"><a class="current reference internal" href="#">Section 6.4 Arrays: Out of Bounds</a></li>
 </ul>
 </details></li>
 </ul>
@@ -479,6 +479,91 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/markkhusid/MKDynamics_Website_V2/master?urlpath=lab/tree/Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/section_6_4_arrays_out_of_bounds.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https%3A//github.com/markkhusid/MKDynamics_Website_V2&urlpath=lab/tree/MKDynamics_Website_V2/Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/section_6_4_arrays_out_of_bounds.ipynb&branch=master" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on JupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="JupyterHub logo" src="../../../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/markkhusid/MKDynamics_Website_V2/blob/master/Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/section_6_4_arrays_out_of_bounds.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -504,7 +589,7 @@
       
       
       
-      <li><a href="https://github.com/markkhusid/MKDynamics_Website_V2/issues/new?title=Issue%20on%20page%20%2FSections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/Beej_s_Guide_to_C_Programming__HEAD__.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/markkhusid/MKDynamics_Website_V2/issues/new?title=Issue%20on%20page%20%2FSections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/section_6_4_arrays_out_of_bounds.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -534,7 +619,7 @@
       
       
       
-      <li><a href="../../../../_sources/Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/Beej_s_Guide_to_C_Programming__HEAD__.md" target="_blank"
+      <li><a href="../../../../_sources/Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/section_6_4_arrays_out_of_bounds.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -544,7 +629,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -610,7 +695,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Beej’s Guide to C Programming</h1>
+    <h1>Section 6.4 Arrays: Out of Bounds</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -620,10 +705,16 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources-and-textbooks-used">Resources and Textbooks Used</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beejs-guide-to-c-programming-by-brian-beej-hall">“Beej’s Guide to C Programming” by Brian “Beej” Hall</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#program-for-demonstrating-out-of-bounds-array-access">Program for Demonstrating Out of Bounds Array Access</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation-of-the-above-code">Explanation of the Above Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-explanation">Code Explanation:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-issue">Key Issue:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#output">Output:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson">Lesson:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compile-and-run-code">Compile and Run Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-python-to-change-to-working-directory">Use Python to Change to Working Directory</a></li>
 </ul>
 </li>
 </ul>
@@ -637,35 +728,157 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="beejs-guide-to-c-programming">
-<h1>Beej’s Guide to C Programming<a class="headerlink" href="#beejs-guide-to-c-programming" title="Link to this heading">#</a></h1>
-<p><img alt="Beej's Guide to C Programming" src="../../../../_images/C_programming2.jpg" /></p>
-<section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
-<p>Beej’s Guide to C Programming is a comprehensive guide to the C programming language, written by Brian “Beej” Hall. It covers a wide range of topics, from the basics of C syntax and data types to more advanced topics such as memory management, file I/O, and network programming. The guide is designed to be accessible to beginners while also providing in-depth information for more experienced programmers.</p>
-<p>The guide is available online for free, and it is widely regarded as one of the best resources for learning C programming. It includes numerous examples and exercises to help reinforce the concepts covered in each chapter. The guide also provides links to additional resources and references for further reading.</p>
-</section>
-<section id="table-of-contents">
-<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Link to this heading">#</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="section_5_1_memory_and_variables.html">Section 5.1 Memory and Variables</a></li>
-<li class="toctree-l1"><a class="reference internal" href="section_5_3_dereferencing.html">Section 5.3 Dereferencing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="section_5_4_passing_pointers_as_arguments.html">Section 5.4 Passing Pointers as Arguments</a></li>
-<li class="toctree-l1"><a class="reference internal" href="section_6_1_arrays_an_easy_example.html">Section 6.1 Arrays: An Easy Example</a></li>
-<li class="toctree-l1"><a class="reference internal" href="section_6_3_arrays_array_initializers.html">Section 6.3 Arrays: Array Initializers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="section_6_4_arrays_out_of_bounds.html">Section 6.4 Arrays: Out of Bounds</a></li>
-</ul>
+  <section class="tex2jax_ignore mathjax_ignore" id="section-6-4-arrays-out-of-bounds">
+<h1>Section 6.4 Arrays: Out of Bounds<a class="headerlink" href="#section-6-4-arrays-out-of-bounds" title="Link to this heading">#</a></h1>
+<p>Adapted from: “Beej’s Guide to C Programming” by Brian (Beej Jorgensen) Hall: <a class="reference external" href="https://beej.us/guide/bgc/html/split/arrays.html#out-of-bounds">Beej’s Guide to C Programming: 6.3 Array Initializers</a></p>
+<p><a class="reference external" href="https://beej.us/">Brian (Beej Jorgensen) Hall Website</a></p>
+<section id="program-for-demonstrating-out-of-bounds-array-access">
+<h2>Program for Demonstrating Out of Bounds Array Access<a class="headerlink" href="#program-for-demonstrating-out-of-bounds-array-access" title="Link to this heading">#</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">22</span><span class="p">,</span><span class="w"> </span><span class="mi">37</span><span class="p">,</span><span class="w"> </span><span class="mi">3490</span><span class="p">,</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w"> </span><span class="mi">95</span><span class="p">};</span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// BAD NEWS: printing too many elements!</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
 </div>
 </section>
-<section id="resources-and-textbooks-used">
-<h2>Resources and Textbooks Used<a class="headerlink" href="#resources-and-textbooks-used" title="Link to this heading">#</a></h2>
-<section id="beejs-guide-to-c-programming-by-brian-beej-hall">
-<h3>“Beej’s Guide to C Programming” by Brian “Beej” Hall<a class="headerlink" href="#beejs-guide-to-c-programming-by-brian-beej-hall" title="Link to this heading">#</a></h3>
-<p>The guide may be found here: <br>
-<a class="reference external" href="https://beej.us/guide/bgc/">Beej’s Guide to C Programming</a> <br><br>
-Source code may be found in GitHub here: <br>
-<a class="reference external" href="https://github.com/beejjorgensen/bgc">GihHub</a></p>
+<section id="explanation-of-the-above-code">
+<h2>Explanation of the Above Code<a class="headerlink" href="#explanation-of-the-above-code" title="Link to this heading">#</a></h2>
+<p>This C code demonstrates an example of accessing an array out of bounds, which is a common programming error. Here’s a breakdown:</p>
+<section id="code-explanation">
+<h3>Code Explanation:<a class="headerlink" href="#code-explanation" title="Link to this heading">#</a></h3>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Includes the standard input/output library, which provides the <code class="docutils literal notranslate"><span class="pre">printf</span></code> function for printing to the console.</p></li>
+</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">main</span></code> function is the entry point of the program.</p></li>
+</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">22</span><span class="p">,</span><span class="w"> </span><span class="mi">37</span><span class="p">,</span><span class="w"> </span><span class="mi">3490</span><span class="p">,</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w"> </span><span class="mi">95</span><span class="p">};</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">i;</span></code>: Declares a variable <code class="docutils literal notranslate"><span class="pre">i</span></code> to be used as a loop counter.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">a[5]</span> <span class="pre">=</span> <span class="pre">{22,</span> <span class="pre">37,</span> <span class="pre">3490,</span> <span class="pre">18,</span> <span class="pre">95};</span></code>: Declares an integer array <code class="docutils literal notranslate"><span class="pre">a</span></code> of size 5 and initializes it with the values <code class="docutils literal notranslate"><span class="pre">{22,</span> <span class="pre">37,</span> <span class="pre">3490,</span> <span class="pre">18,</span> <span class="pre">95}</span></code>.</p></li>
+</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// BAD NEWS: printing too many elements!</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>A <code class="docutils literal notranslate"><span class="pre">for</span></code> loop is used to iterate through the array <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">=</span> <span class="pre">0</span></code>: The loop starts with <code class="docutils literal notranslate"><span class="pre">i</span></code> set to 0.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">&lt;</span> <span class="pre">10</span></code>: The loop continues as long as <code class="docutils literal notranslate"><span class="pre">i</span></code> is less than 10.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">i++</span></code>: Increments <code class="docutils literal notranslate"><span class="pre">i</span></code> by 1 after each iteration.</p></li>
+</ul>
+</li>
+<li><p>Inside the loop, <code class="docutils literal notranslate"><span class="pre">printf(&quot;%d\n&quot;,</span> <span class="pre">a[i]);</span></code> prints the value of the <code class="docutils literal notranslate"><span class="pre">i</span></code>-th element of the array <code class="docutils literal notranslate"><span class="pre">a</span></code> followed by a newline (<code class="docutils literal notranslate"><span class="pre">\n</span></code>).</p></li>
+</ul>
+</section>
+<section id="key-issue">
+<h3>Key Issue:<a class="headerlink" href="#key-issue" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>The array <code class="docutils literal notranslate"><span class="pre">a</span></code> is declared with a size of 5, meaning it has valid indices from <code class="docutils literal notranslate"><span class="pre">0</span></code> to <code class="docutils literal notranslate"><span class="pre">4</span></code>.</p></li>
+<li><p>The loop iterates from <code class="docutils literal notranslate"><span class="pre">0</span></code> to <code class="docutils literal notranslate"><span class="pre">9</span></code>, attempting to access elements beyond the bounds of the array (<code class="docutils literal notranslate"><span class="pre">a[5]</span></code> to <code class="docutils literal notranslate"><span class="pre">a[9]</span></code>).</p></li>
+<li><p>Accessing out-of-bounds elements results in <strong>undefined behavior</strong> in C. This could lead to:</p>
+<ul>
+<li><p>Printing garbage values.</p></li>
+<li><p>Crashing the program.</p></li>
+<li><p>Overwriting memory, causing unpredictable behavior.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="output">
+<h3>Output:<a class="headerlink" href="#output" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>The first 5 iterations (<code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">=</span> <span class="pre">0</span></code> to <code class="docutils literal notranslate"><span class="pre">4</span></code>) will print the initialized values of the array:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">22</span>
+<span class="mi">37</span>
+<span class="mi">3490</span>
+<span class="mi">18</span>
+<span class="mi">95</span>
+</pre></div>
+</div>
+</li>
+<li><p>The remaining iterations (<code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">=</span> <span class="pre">5</span></code> to <code class="docutils literal notranslate"><span class="pre">9</span></code>) will likely print garbage values or cause a crash, depending on the memory layout.</p></li>
+</ul>
+</section>
+<section id="lesson">
+<h3>Lesson:<a class="headerlink" href="#lesson" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Always ensure that array indices are within bounds to avoid undefined behavior.</p></li>
+</ul>
+</section>
+</section>
+<section id="compile-and-run-code">
+<h2>Compile and Run Code<a class="headerlink" href="#compile-and-run-code" title="Link to this heading">#</a></h2>
+<section id="use-python-to-change-to-working-directory">
+<h3>Use Python to Change to Working Directory<a class="headerlink" href="#use-python-to-change-to-working-directory" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="n">root_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">code_dir</span> <span class="o">=</span> <span class="n">root_dir</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="s2">&quot;C_Code&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">code_dir</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">build_command</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;gcc -o section_6_4_out_of_bounds section_6_4_out_of_bounds.c&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exec_status</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;./section_6_4_out_of_bounds&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>22
+37
+3490
+18
+95
+0
+0
+7
+1
+0
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 </section>
@@ -679,16 +892,16 @@ Source code may be found in GitHub here: <br>
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "py311_env"
         },
         kernelOptions: {
-            name: "python3",
+            name: "py311_env",
             path: "./Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'py311_env'</script>
 
                 </article>
               
@@ -701,20 +914,20 @@ Source code may be found in GitHub here: <br>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../Backdoored_Webserver/backdoored_webserver.html"
+       href="section_6_3_arrays_array_initializers.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Backdoored Webserver</p>
+        <p class="prev-next-title">Section 6.3 Arrays: Array Initializers</p>
       </div>
     </a>
     <a class="right-next"
-       href="section_5_1_memory_and_variables.html"
+       href="../../CPP/cpp.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Section 5.1 Memory and Variables</p>
+        <p class="prev-next-title">C++ Programming</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -735,10 +948,16 @@ Source code may be found in GitHub here: <br>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources-and-textbooks-used">Resources and Textbooks Used</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beejs-guide-to-c-programming-by-brian-beej-hall">“Beej’s Guide to C Programming” by Brian “Beej” Hall</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#program-for-demonstrating-out-of-bounds-array-access">Program for Demonstrating Out of Bounds Array Access</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation-of-the-above-code">Explanation of the Above Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-explanation">Code Explanation:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-issue">Key Issue:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#output">Output:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson">Lesson:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compile-and-run-code">Compile and Run Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-python-to-change-to-working-directory">Use Python to Change to Working Directory</a></li>
 </ul>
 </li>
 </ul>
