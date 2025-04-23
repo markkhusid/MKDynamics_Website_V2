@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Beej’s Guide to C Programming &#8212; MK Dynamics</title>
+    <title>Section 6.5 Arrays: Multidimensional Arrays &#8212; MK Dynamics</title>
   
   
   
@@ -73,12 +73,12 @@
                 gtag('config', 'G-BZ3C1QVH0B');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/Beej_s_Guide_to_C_Programming__HEAD__';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/section_6_5_arrays_multidimensional_arrays';</script>
     <link rel="icon" href="../../../../_static/spacey.jpg"/>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="Section 5.1 Memory and Variables" href="section_5_1_memory_and_variables.html" />
-    <link rel="prev" title="Backdoored Webserver" href="../Backdoored_Webserver/backdoored_webserver.html" />
+    <link rel="next" title="C++ Programming" href="../../CPP/cpp.html" />
+    <link rel="prev" title="Section 6.4 Arrays: Out of Bounds" href="section_6_4_arrays_out_of_bounds.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -234,14 +234,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../../Assembly/assembly.html">Assembly Language Programming</a></li>
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="../c__HEAD__.html">C Programming</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../Backdoored_Webserver/backdoored_webserver.html">Backdoored Webserver</a></li>
-<li class="toctree-l3 current active has-children"><a class="current reference internal" href="#">Beej’s Guide to C Programming</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="Beej_s_Guide_to_C_Programming__HEAD__.html">Beej’s Guide to C Programming</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="section_5_1_memory_and_variables.html">Section 5.1 Memory and Variables</a></li>
 <li class="toctree-l4"><a class="reference internal" href="section_5_3_dereferencing.html">Section 5.3 Dereferencing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="section_5_4_passing_pointers_as_arguments.html">Section 5.4 Passing Pointers as Arguments</a></li>
 <li class="toctree-l4"><a class="reference internal" href="section_6_1_arrays_an_easy_example.html">Section 6.1 Arrays: An Easy Example</a></li>
 <li class="toctree-l4"><a class="reference internal" href="section_6_3_arrays_array_initializers.html">Section 6.3 Arrays: Array Initializers</a></li>
 <li class="toctree-l4"><a class="reference internal" href="section_6_4_arrays_out_of_bounds.html">Section 6.4 Arrays: Out of Bounds</a></li>
-<li class="toctree-l4"><a class="reference internal" href="section_6_5_arrays_multidimensional_arrays.html">Section 6.5 Arrays: Multidimensional Arrays</a></li>
+<li class="toctree-l4 current active"><a class="current reference internal" href="#">Section 6.5 Arrays: Multidimensional Arrays</a></li>
 </ul>
 </details></li>
 </ul>
@@ -480,6 +480,91 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/markkhusid/MKDynamics_Website_V2/master?urlpath=lab/tree/Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/section_6_5_arrays_multidimensional_arrays.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https%3A//github.com/markkhusid/MKDynamics_Website_V2&urlpath=lab/tree/MKDynamics_Website_V2/Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/section_6_5_arrays_multidimensional_arrays.ipynb&branch=master" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on JupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="JupyterHub logo" src="../../../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/markkhusid/MKDynamics_Website_V2/blob/master/Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/section_6_5_arrays_multidimensional_arrays.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -505,7 +590,7 @@
       
       
       
-      <li><a href="https://github.com/markkhusid/MKDynamics_Website_V2/issues/new?title=Issue%20on%20page%20%2FSections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/Beej_s_Guide_to_C_Programming__HEAD__.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/markkhusid/MKDynamics_Website_V2/issues/new?title=Issue%20on%20page%20%2FSections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/section_6_5_arrays_multidimensional_arrays.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -535,7 +620,7 @@
       
       
       
-      <li><a href="../../../../_sources/Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/Beej_s_Guide_to_C_Programming__HEAD__.md" target="_blank"
+      <li><a href="../../../../_sources/Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/section_6_5_arrays_multidimensional_arrays.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -545,7 +630,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -611,7 +696,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Beej’s Guide to C Programming</h1>
+    <h1>Section 6.5 Arrays: Multidimensional Arrays</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -621,10 +706,15 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources-and-textbooks-used">Resources and Textbooks Used</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beejs-guide-to-c-programming-by-brian-beej-hall">“Beej’s Guide to C Programming” by Brian “Beej” Hall</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#program-for-demonstrating-multidimensional-arrays">Program for Demonstrating Multidimensional Arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation-of-the-above-code">Explanation of the Above Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-breakdown">Code Breakdown:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-output">Example Output:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts">Key Concepts:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compile-and-run-code">Compile and Run Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-python-to-change-to-working-directory">Use Python to Change to Working Directory</a></li>
 </ul>
 </li>
 </ul>
@@ -638,36 +728,175 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="beejs-guide-to-c-programming">
-<h1>Beej’s Guide to C Programming<a class="headerlink" href="#beejs-guide-to-c-programming" title="Link to this heading">#</a></h1>
-<p><img alt="Beej's Guide to C Programming" src="../../../../_images/C_programming2.jpg" /></p>
-<section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
-<p>Beej’s Guide to C Programming is a comprehensive guide to the C programming language, written by Brian “Beej” Hall. It covers a wide range of topics, from the basics of C syntax and data types to more advanced topics such as memory management, file I/O, and network programming. The guide is designed to be accessible to beginners while also providing in-depth information for more experienced programmers.</p>
-<p>The guide is available online for free, and it is widely regarded as one of the best resources for learning C programming. It includes numerous examples and exercises to help reinforce the concepts covered in each chapter. The guide also provides links to additional resources and references for further reading.</p>
-</section>
-<section id="table-of-contents">
-<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Link to this heading">#</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="section_5_1_memory_and_variables.html">Section 5.1 Memory and Variables</a></li>
-<li class="toctree-l1"><a class="reference internal" href="section_5_3_dereferencing.html">Section 5.3 Dereferencing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="section_5_4_passing_pointers_as_arguments.html">Section 5.4 Passing Pointers as Arguments</a></li>
-<li class="toctree-l1"><a class="reference internal" href="section_6_1_arrays_an_easy_example.html">Section 6.1 Arrays: An Easy Example</a></li>
-<li class="toctree-l1"><a class="reference internal" href="section_6_3_arrays_array_initializers.html">Section 6.3 Arrays: Array Initializers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="section_6_4_arrays_out_of_bounds.html">Section 6.4 Arrays: Out of Bounds</a></li>
-<li class="toctree-l1"><a class="reference internal" href="section_6_5_arrays_multidimensional_arrays.html">Section 6.5 Arrays: Multidimensional Arrays</a></li>
-</ul>
+  <section class="tex2jax_ignore mathjax_ignore" id="section-6-5-arrays-multidimensional-arrays">
+<h1>Section 6.5 Arrays: Multidimensional Arrays<a class="headerlink" href="#section-6-5-arrays-multidimensional-arrays" title="Link to this heading">#</a></h1>
+<p>Adapted from: “Beej’s Guide to C Programming” by Brian (Beej Jorgensen) Hall: <a class="reference external" href="https://beej.us/guide/bgc/html/split/arrays.html#multidimensional-arrays">Beej’s Guide to C Programming: 6.5 Multidimensional Arrays</a></p>
+<p><a class="reference external" href="https://beej.us/">Brian (Beej Jorgensen) Hall Website</a></p>
+<section id="program-for-demonstrating-multidimensional-arrays">
+<h2>Program for Demonstrating Multidimensional Arrays<a class="headerlink" href="#program-for-demonstrating-multidimensional-arrays" title="Link to this heading">#</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">row</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">5</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w">      </span><span class="c1">// Initialize a 2D array</span>
+<span class="w">        </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">}</span>
+<span class="w">    </span><span class="p">};</span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">row</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">row</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"> </span><span class="n">col</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;(%d,%d) = %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">row</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">]);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
 </div>
 </section>
-<section id="resources-and-textbooks-used">
-<h2>Resources and Textbooks Used<a class="headerlink" href="#resources-and-textbooks-used" title="Link to this heading">#</a></h2>
-<section id="beejs-guide-to-c-programming-by-brian-beej-hall">
-<h3>“Beej’s Guide to C Programming” by Brian “Beej” Hall<a class="headerlink" href="#beejs-guide-to-c-programming-by-brian-beej-hall" title="Link to this heading">#</a></h3>
-<p>The guide may be found here: <br>
-<a class="reference external" href="https://beej.us/guide/bgc/">Beej’s Guide to C Programming</a> <br><br>
-Source code may be found in GitHub here: <br>
-<a class="reference external" href="https://github.com/beejjorgensen/bgc">GihHub</a></p>
+<section id="explanation-of-the-above-code">
+<h2>Explanation of the Above Code<a class="headerlink" href="#explanation-of-the-above-code" title="Link to this heading">#</a></h2>
+<p>This C program demonstrates the use of a <strong>multidimensional array</strong> (a 2D array) and how to iterate over it to access and print its elements.</p>
+<section id="code-breakdown">
+<h3>Code Breakdown:<a class="headerlink" href="#code-breakdown" title="Link to this heading">#</a></h3>
+<ol class="arabic">
+<li><p><strong>Header File</strong>:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Includes the standard input/output library to use functions like <code class="docutils literal notranslate"><span class="pre">printf</span></code>.</p></li>
+</ul>
+</li>
+<li><p><strong>Main Function</strong>:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The entry point of the program.</p></li>
+</ul>
+</li>
+<li><p><strong>Variable Declaration</strong>:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">row</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="p">;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Declares two integer variables, <code class="docutils literal notranslate"><span class="pre">row</span></code> and <code class="docutils literal notranslate"><span class="pre">col</span></code>, which will be used as loop counters to iterate through the rows and columns of the array.</p></li>
+</ul>
+</li>
+<li><p><strong>2D Array Initialization</strong>:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">5</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Declares and initializes a 2D array <code class="docutils literal notranslate"><span class="pre">a</span></code> with 2 rows and 5 columns.</p></li>
+<li><p>The first row contains <code class="docutils literal notranslate"><span class="pre">{0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4}</span></code>.</p></li>
+<li><p>The second row contains <code class="docutils literal notranslate"><span class="pre">{5,</span> <span class="pre">6,</span> <span class="pre">7,</span> <span class="pre">8,</span> <span class="pre">9}</span></code>.</p></li>
+</ul>
+</li>
+<li><p><strong>Nested Loops</strong>:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">row</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">row</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"> </span><span class="n">col</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;(%d,%d) = %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">row</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">]);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Outer Loop</strong>: Iterates over the rows of the array (<code class="docutils literal notranslate"><span class="pre">row</span> <span class="pre">=</span> <span class="pre">0</span></code> to <code class="docutils literal notranslate"><span class="pre">1</span></code>).</p></li>
+<li><p><strong>Inner Loop</strong>: Iterates over the columns of the array (<code class="docutils literal notranslate"><span class="pre">col</span> <span class="pre">=</span> <span class="pre">0</span></code> to <code class="docutils literal notranslate"><span class="pre">4</span></code>).</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">printf</span></code> Statement</strong>: Prints the row index, column index, and the value at that position in the array (<code class="docutils literal notranslate"><span class="pre">a[row][col]</span></code>).</p></li>
+</ul>
+</li>
+<li><p><strong>Output</strong>:</p>
+<ul class="simple">
+<li><p>The program prints each element of the 2D array along with its row and column indices in the format <code class="docutils literal notranslate"><span class="pre">(row,</span> <span class="pre">col)</span> <span class="pre">=</span> <span class="pre">value</span></code>.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="example-output">
+<h3>Example Output:<a class="headerlink" href="#example-output" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="o">=</span> <span class="mi">9</span>
+</pre></div>
+</div>
+</section>
+<section id="key-concepts">
+<h3>Key Concepts:<a class="headerlink" href="#key-concepts" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>2D Arrays</strong>: Represented as a grid of rows and columns.</p></li>
+<li><p><strong>Nested Loops</strong>: Used to traverse each element of the 2D array.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">printf</span></code></strong>: Displays the indices and values of the array elements.</p></li>
+</ul>
+<p>Similar code found with 1 license type</p>
+</section>
+</section>
+<section id="compile-and-run-code">
+<h2>Compile and Run Code<a class="headerlink" href="#compile-and-run-code" title="Link to this heading">#</a></h2>
+<section id="use-python-to-change-to-working-directory">
+<h3>Use Python to Change to Working Directory<a class="headerlink" href="#use-python-to-change-to-working-directory" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="n">root_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">code_dir</span> <span class="o">=</span> <span class="n">root_dir</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="s2">&quot;C_Code&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">code_dir</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">build_command</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;gcc -o section_6_5_multidimensional_arrays section_6_5_multidimensional_arrays.c&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exec_status</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;./section_6_5_multidimensional_arrays&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0,0) = 0
+(0,1) = 1
+(0,2) = 2
+(0,3) = 3
+(0,4) = 4
+(1,0) = 5
+(1,1) = 6
+(1,2) = 7
+(1,3) = 8
+(1,4) = 9
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 </section>
@@ -681,16 +910,16 @@ Source code may be found in GitHub here: <br>
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "py311_env"
         },
         kernelOptions: {
-            name: "python3",
+            name: "py311_env",
             path: "./Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'py311_env'</script>
 
                 </article>
               
@@ -703,20 +932,20 @@ Source code may be found in GitHub here: <br>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../Backdoored_Webserver/backdoored_webserver.html"
+       href="section_6_4_arrays_out_of_bounds.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Backdoored Webserver</p>
+        <p class="prev-next-title">Section 6.4 Arrays: Out of Bounds</p>
       </div>
     </a>
     <a class="right-next"
-       href="section_5_1_memory_and_variables.html"
+       href="../../CPP/cpp.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Section 5.1 Memory and Variables</p>
+        <p class="prev-next-title">C++ Programming</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -737,10 +966,15 @@ Source code may be found in GitHub here: <br>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources-and-textbooks-used">Resources and Textbooks Used</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beejs-guide-to-c-programming-by-brian-beej-hall">“Beej’s Guide to C Programming” by Brian “Beej” Hall</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#program-for-demonstrating-multidimensional-arrays">Program for Demonstrating Multidimensional Arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation-of-the-above-code">Explanation of the Above Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-breakdown">Code Breakdown:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-output">Example Output:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts">Key Concepts:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compile-and-run-code">Compile and Run Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-python-to-change-to-working-directory">Use Python to Change to Working Directory</a></li>
 </ul>
 </li>
 </ul>
