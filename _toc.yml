@@ -151,6 +151,7 @@ parts:
         - file: Sections/Computer_Programming/CPP/Learn_Modern_CPP/02_Variables_Scopes_and_Namespaces__Uniform
         - file: Sections/Computer_Programming/CPP/Learn_Modern_CPP/02_Variables_Scopes_and_Namespaces__Scopes
         - file: Sections/Computer_Programming/CPP/Learn_Modern_CPP/02_Variables_Scopes_and_Namespaces__Namespaces
+        - file: Sections/Computer_Programming/CPP/Learn_Modern_CPP/02_Variables_Scopes_and_Namespaces__Constants
 
     - file: Sections/Computer_Programming/Fortran/fortran
       sections:
