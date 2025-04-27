@@ -77,6 +77,7 @@ parts:
         - file: Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/section_6_4_arrays_out_of_bounds
         - file: Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/section_6_5_arrays_multidimensional_arrays
         - file: Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/section_6_6_1_arrays_getting_a_pointer_to_an_array
+        - file: Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/section_6_6_2_arrays_passing_single_dimensional_arrays_to_functions
 
     - file: Sections/Computer_Programming/CPP/cpp
       sections:
