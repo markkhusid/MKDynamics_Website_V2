@@ -156,6 +156,7 @@ parts:
         - file: Sections/Computer_Programming/CPP/Learn_Modern_CPP/02_Variables_Scopes_and_Namespaces__Constants
         - file: Sections/Computer_Programming/CPP/Learn_Modern_CPP/02_Variables_Scopes_and_Namespaces__References
         - file: Sections/Computer_Programming/CPP/Learn_Modern_CPP/02_Variables_Scopes_and_Namespaces__Constexpr
+        - file: Sections/Computer_Programming/CPP/Learn_Modern_CPP/03_Conditions_and_Operators__Conditions_and_Switch_Case
 
     - file: Sections/Computer_Programming/Fortran/fortran
       sections:
