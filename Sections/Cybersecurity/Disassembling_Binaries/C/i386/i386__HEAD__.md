@@ -13,8 +13,7 @@ C is a general-purpose programming language that was developed in the early 1970
 ```{tableofcontents}
 ```
 
-::::
-```{grid} 2 2 2 2
+::::{grid} 2 2 2 2
 :class-container: text-center
 :gutter: 3
 
@@ -30,6 +29,20 @@ Adding Integers
 :align: center
 ```
 :::
+
+:::{grid-item-card}
+:link: Mult_Int/mult_int
+:link-type: doc
+:class-header: bg-dark
+
+Multiplying Integers
+^^^
+```{image} images/mult_int_C_i386_splash.png
+:height: 200
+:align: center
+```
+:::
+
 ::::
 
 

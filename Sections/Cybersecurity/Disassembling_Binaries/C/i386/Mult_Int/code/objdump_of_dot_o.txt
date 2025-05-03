@@ -1,6 +1,6 @@
 
-add_int.o:     file format elf32-i386
-add_int.o
+mult_int.o:     file format elf32-i386
+mult_int.o
 architecture: i386, flags 0x00000011:
 HAS_RELOC, HAS_SYMS
 start address 0x00000000
@@ -9,27 +9,27 @@ Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
   0 .group        00000008  00000000  00000000  00000034  2**2
                   CONTENTS, READONLY, GROUP, LINK_ONCE_DISCARD
-  1 .text         00000030  00000000  00000000  0000003c  2**0
+  1 .text         0000002f  00000000  00000000  0000003c  2**0
                   CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
-  2 .data         00000000  00000000  00000000  0000006c  2**0
+  2 .data         00000000  00000000  00000000  0000006b  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  3 .bss          00000000  00000000  00000000  0000006c  2**0
+  3 .bss          00000000  00000000  00000000  0000006b  2**0
                   ALLOC
-  4 .text.__x86.get_pc_thunk.ax 00000004  00000000  00000000  0000006c  2**0
+  4 .text.__x86.get_pc_thunk.ax 00000004  00000000  00000000  0000006b  2**0
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  5 .comment      00000028  00000000  00000000  00000070  2**0
+  5 .comment      00000028  00000000  00000000  0000006f  2**0
                   CONTENTS, READONLY
-  6 .note.GNU-stack 00000000  00000000  00000000  00000098  2**0
+  6 .note.GNU-stack 00000000  00000000  00000000  00000097  2**0
                   CONTENTS, READONLY
   7 .note.gnu.property 00000028  00000000  00000000  00000098  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
   8 .eh_frame     0000004c  00000000  00000000  000000c0  2**2
                   CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
 SYMBOL TABLE:
-00000000 l    df *ABS*	00000000 add_int.c
+00000000 l    df *ABS*	00000000 mult_int.c
 00000000 l    d  .text	00000000 .text
 00000000 l    d  .text.__x86.get_pc_thunk.ax	00000000 .text.__x86.get_pc_thunk.ax
-00000000 g     F .text	00000030 main
+00000000 g     F .text	0000002f main
 00000000 g     F .text.__x86.get_pc_thunk.ax	00000000 .hidden __x86.get_pc_thunk.ax
 00000000         *UND*	00000000 _GLOBAL_OFFSET_TABLE_
 
@@ -38,8 +38,8 @@ Contents of section .group:
  0000 01000000 06000000                    ........        
 Contents of section .text:
  0000 5589e583 ec10e8fc ffffff05 01000000  U...............
- 0010 c745fc01 000000c7 45f80900 00008b55  .E......E......U
- 0020 fc8b45f8 01d08945 f4b80000 0000c9c3  ..E....E........
+ 0010 c745fc02 000000c7 45f80300 00008b45  .E......E......E
+ 0020 fc0faf45 f88945f4 b8000000 00c9c3    ...E..E........ 
 Contents of section .text.__x86.get_pc_thunk.ax:
  0000 8b0424c3                             ..$.            
 Contents of section .comment:
@@ -53,8 +53,8 @@ Contents of section .note.gnu.property:
 Contents of section .eh_frame:
  0000 14000000 00000000 017a5200 017c0801  .........zR..|..
  0010 1b0c0404 88010000 1c000000 1c000000  ................
- 0020 00000000 30000000 00410e08 8502420d  ....0....A....B.
- 0030 056cc50c 04040000 10000000 3c000000  .l..........<...
+ 0020 00000000 2f000000 00410e08 8502420d  ..../....A....B.
+ 0030 056bc50c 04040000 10000000 3c000000  .k..........<...
  0040 00000000 04000000 00000000           ............    
 
 Disassembly of section .group:
@@ -76,15 +76,14 @@ Disassembly of section .text:
 			7: R_386_PC32	__x86.get_pc_thunk.ax
    b:	05 01 00 00 00       	add    eax,0x1
 			c: R_386_GOTPC	_GLOBAL_OFFSET_TABLE_
-  10:	c7 45 fc 01 00 00 00 	mov    DWORD PTR [ebp-0x4],0x1
-  17:	c7 45 f8 09 00 00 00 	mov    DWORD PTR [ebp-0x8],0x9
-  1e:	8b 55 fc             	mov    edx,DWORD PTR [ebp-0x4]
-  21:	8b 45 f8             	mov    eax,DWORD PTR [ebp-0x8]
-  24:	01 d0                	add    eax,edx
-  26:	89 45 f4             	mov    DWORD PTR [ebp-0xc],eax
-  29:	b8 00 00 00 00       	mov    eax,0x0
-  2e:	c9                   	leave
-  2f:	c3                   	ret
+  10:	c7 45 fc 02 00 00 00 	mov    DWORD PTR [ebp-0x4],0x2
+  17:	c7 45 f8 03 00 00 00 	mov    DWORD PTR [ebp-0x8],0x3
+  1e:	8b 45 fc             	mov    eax,DWORD PTR [ebp-0x4]
+  21:	0f af 45 f8          	imul   eax,DWORD PTR [ebp-0x8]
+  25:	89 45 f4             	mov    DWORD PTR [ebp-0xc],eax
+  28:	b8 00 00 00 00       	mov    eax,0x0
+  2d:	c9                   	leave
+  2e:	c3                   	ret
 
 Disassembly of section .text.__x86.get_pc_thunk.ax:
 
@@ -154,16 +153,18 @@ Disassembly of section .eh_frame:
   20:	00 00                	add    BYTE PTR [eax],al
 			20: R_386_PC32	.text
   22:	00 00                	add    BYTE PTR [eax],al
-  24:	30 00                	xor    BYTE PTR [eax],al
-  26:	00 00                	add    BYTE PTR [eax],al
-  28:	00 41 0e             	add    BYTE PTR [ecx+0xe],al
+  24:	2f                   	das
+  25:	00 00                	add    BYTE PTR [eax],al
+  27:	00 00                	add    BYTE PTR [eax],al
+  29:	41                   	inc    ecx
+  2a:	0e                   	push   cs
   2b:	08 85 02 42 0d 05    	or     BYTE PTR [ebp+0x50d4202],al
-  31:	6c                   	ins    BYTE PTR es:[edi],dx
-  32:	c5 0c 04             	lds    ecx,FWORD PTR [esp+eax*1]
-  35:	04 00                	add    al,0x0
-  37:	00 10                	add    BYTE PTR [eax],dl
-  39:	00 00                	add    BYTE PTR [eax],al
-  3b:	00 3c 00             	add    BYTE PTR [eax+eax*1],bh
+  31:	6b c5 0c             	imul   eax,ebp,0xc
+  34:	04 04                	add    al,0x4
+  36:	00 00                	add    BYTE PTR [eax],al
+  38:	10 00                	adc    BYTE PTR [eax],al
+  3a:	00 00                	add    BYTE PTR [eax],al
+  3c:	3c 00                	cmp    al,0x0
   3e:	00 00                	add    BYTE PTR [eax],al
   40:	00 00                	add    BYTE PTR [eax],al
 			40: R_386_PC32	.text.__x86.get_pc_thunk.ax

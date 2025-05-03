@@ -13,11 +13,11 @@ In this section we will examine the disassembly of a simple C program that adds 
 ```
 
 ## Compilation of the C Program to Produce Assembly Code and Object Code
-The C program is compiled using the GCC compiler with the `-m32` flag to specify the i386 architecture. The `-S` flag generates assembly code, and the `-c` flag compiles the assembly code into an object file.
+The C program is compiled using the GCC compiler with the `-m32` flag to specify the i386 architecture. The `-masm=intel` flag creates assembly code in the Intel format. The `-S` flag generates assembly code, the -fverbose-asm flag includes C source code in the assembly code, and the `-c` flag compiles the assembly code into an object file.
 
 ```bash
-gcc -m32 -S add_int.c -o add_int.s
-gcc -m32 -c add_int.s -o add_int.o
+gcc --sysroot=/ -m32 -masm=intel -S -fverbose-asm add_int.c -o add_int.s
+gcc --sysroot=/ -m32 -c add_int.s -o add_int.o
 ```
 
 ## Viewing the Assembly Code
@@ -27,122 +27,82 @@ The assembly code is in Intel syntax, which is commonly used for x86 assembly la
 ```
 
 ## Explanation of the Assembly Code
-This assembly code represents the compiled output of a simple C program that adds two integers. Below is an explanation of the key sections and instructions:
+The attached file is an assembly code file (`add_int.s`) generated from a C program (`add_int.c`). It is written in Intel syntax and compiled for a 32-bit architecture (`-m32`) using GCC 14.2.0. Below is a detailed explanation of the code:
 
 ---
 
-### **Key Sections of the Assembly Code**
+### **Header Information**
+1. **File Metadata**:
+   - `.file "add_int.c"`: Indicates that this assembly file was generated from the C source file `add_int.c`.
 
-1. **File and Function Metadata**
-   ```asm
-   .file	"add_int.c"
-   .text
-   .globl	main
-   .type	main, @function
-   ```
-   - `.file "add_int.c"`: Indicates the source file name.
-   - `.text`: Marks the beginning of the code (text) section where executable instructions are stored.
-   - `.globl main`: Declares the `main` function as global, making it accessible to the linker.
-   - `.type main, @function`: Specifies that `main` is a function.
+2. **Compiler Information**:
+   - The file was compiled using GCC 14.2.0 with the `-m32` flag for 32-bit architecture.
+   - Other flags include `-masm=intel` (Intel syntax), `-mtune=generic` (generic CPU tuning), and `-march=x86-64` (targeting x86-64 architecture).
 
-2. **Function Prologue**
-   ```asm
-   main:
-   .LFB0:
-   	.cfi_startproc
-   	pushl	%ebp
-   	.cfi_def_cfa_offset 8
-   	.cfi_offset 5, -8
-   	movl	%esp, %ebp
-   	.cfi_def_cfa_register 5
-   	subl	$16, %esp
-   ```
-   - `pushl %ebp`: Saves the base pointer of the previous stack frame.
-   - `movl %esp, %ebp`: Sets the base pointer (`%ebp`) to the current stack pointer (`%esp`), establishing a new stack frame.
-   - `subl $16, %esp`: Allocates 16 bytes of space on the stack for local variables.
+3. **GCC Heuristics**:
+   - Parameters like `ggc-min-expand` and `ggc-min-heapsize` are used for garbage collection optimization during compilation.
 
-3. **Global Offset Table Setup**
-   ```asm
-   call	__x86.get_pc_thunk.ax
-   addl	$_GLOBAL_OFFSET_TABLE_, %eax
-   ```
-   - These instructions set up the Global Offset Table (GOT) for position-independent code. This is common in dynamically linked executables.
+---
 
-4. **Variable Initialization**
-   ```asm
-   movl	$1, -12(%ebp)
-   movl	$9, -8(%ebp)
-   ```
-   - `movl $1, -12(%ebp)`: Stores the value `1` in the memory location at offset `-12` from the base pointer (`%ebp`).
-   - `movl $9, -8(%ebp)`: Stores the value `9` in the memory location at offset `-8` from the base pointer.
+### **Main Function**
+The main function (`main`) is defined as a global symbol (`.globl main`) and is marked as a function (`.type main, @function`).
 
-5. **Addition Operation**
-   ```asm
-   movl	-12(%ebp), %edx
-   movl	-8(%ebp), %eax
-   addl	%edx, %eax
-   movl	%eax, -4(%ebp)
-   ```
-   - `movl -12(%ebp), %edx`: Loads the value at `-12(%ebp)` (1) into the `edx` register.
-   - `movl -8(%ebp), %eax`: Loads the value at `-8(%ebp)` (9) into the `eax` register.
-   - `addl %edx, %eax`: Adds the value in `edx` (1) to `eax` (9), resulting in `10`.
-   - `movl %eax, -4(%ebp)`: Stores the result (`10`) in the memory location at offset `-4` from the base pointer.
+#### **Prologue**
+The prologue sets up the stack frame for the function:
+1. `push ebp`: Saves the base pointer of the previous stack frame.
+2. `mov ebp, esp`: Sets the base pointer (`ebp`) to the current stack pointer (`esp`).
+3. `sub esp, 16`: Allocates 16 bytes of space on the stack for local variables.
 
-6. **Return Value Setup**
-   ```asm
-   movl	$0, %eax
-   ```
-   - Sets the return value of the `main` function to `0` (indicating successful execution).
+#### **Global Offset Table Setup**
+- `call __x86.get_pc_thunk.ax`: Calls a helper function to get the program counter (PC).
+- `add eax, OFFSET FLAT:_GLOBAL_OFFSET_TABLE_`: Adjusts the PC to point to the Global Offset Table (GOT), used for position-independent code.
 
-7. **Function Epilogue**
-   ```asm
-   leave
-   .cfi_restore 5
-   .cfi_def_cfa 4, 4
-   ret
-   ```
-   - `leave`: Restores the previous stack frame by resetting `%esp` and `%ebp`.
-   - `ret`: Returns control to the caller.
+#### **Variable Initialization**
+The C code initializes three variables (`a`, `b`, and `c`):
+1. `mov DWORD PTR -4[ebp], 1`: Assigns `1` to `a` (stored at `-4[ebp]`).
+2. `mov DWORD PTR -8[ebp], 9`: Assigns `9` to `b` (stored at `-8[ebp]`).
+
+#### **Addition Operation**
+The C code computes `c = a + b`:
+1. `mov edx, DWORD PTR -4[ebp]`: Loads the value of `a` into `edx`.
+2. `mov eax, DWORD PTR -8[ebp]`: Loads the value of `b` into `eax`.
+3. `add eax, edx`: Adds `a` and `b`, storing the result in `eax`.
+4. `mov DWORD PTR -12[ebp], eax`: Stores the result (`c`) at `-12[ebp]`.
+
+#### **Return Value**
+- `mov eax, 0`: Sets the return value of the function to `0` (standard for `int main()` in C).
+
+#### **Epilogue**
+The epilogue restores the stack frame:
+1. `leave`: Restores the previous base pointer and stack pointer.
+2. `ret`: Returns control to the caller.
 
 ---
 
 ### **Helper Function: `__x86.get_pc_thunk.ax`**
-   ```asm
-   __x86.get_pc_thunk.ax:
-   .LFB1:
-   	.cfi_startproc
-   	movl	(%esp), %eax
-   	ret
-   	.cfi_endproc
-   ```
-   - This function retrieves the program counter (PC) for position-independent code. It moves the value at the top of the stack (`%esp`) into the `eax` register and returns.
+This function is used to retrieve the program counter (PC) for position-independent code:
+1. `mov eax, DWORD PTR [esp]`: Loads the return address (PC) from the stack into `eax`.
+2. `ret`: Returns to the caller.
 
 ---
 
-### **Additional Metadata**
-   ```asm
-   .ident	"GCC: (Ubuntu 7.3.0-27ubuntu1~18.04) 7.3.0"
-   .section	.note.GNU-stack,"",@progbits
-   ```
-   - `.ident`: Compiler version information.
-   - `.section .note.GNU-stack`: Marks the stack as non-executable for security purposes.
+### **Other Sections**
+1. **`.ident` Section**:
+   - Contains metadata about the compiler version: `"GCC: (conda-forge gcc 14.2.0-2) 14.2.0"`.
+
+2. **`.note.GNU-stack` Section**:
+   - Indicates that the stack is not executable (a security feature).
 
 ---
 
 ### **Summary**
-This assembly code corresponds to a C program that:
-1. Initializes two integers (`1` and `9`).
-2. Adds them together.
-3. Stores the result (`10`) in memory.
-4. Returns `0` to indicate successful execution.
-
-The assembly code includes standard function prologue and epilogue, as well as setup for position-independent code.
+This assembly code represents a simple C program that initializes two integers (`a = 1` and `b = 9`), adds them (`c = a + b`), and returns `0`. The code includes standard prologue and epilogue for stack management and uses a helper function for position-independent code.
 
 ## Compilation to Produce Executable Code
 The object file is linked to create an executable file using the `-o` flag.
 
 ```bash
-gcc -m32 add_int.o -o add_int_C_i386
+/usr/bin/gcc -m32 add_int.o -o add_int_C_i386
 ```
 
 ## Disassembly of the Executable Code

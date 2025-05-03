@@ -1,4 +1,4 @@
-	.file	"add_int.c"
+	.file	"mult_int.c"
 	.intel_syntax noprefix
 # GNU C17 (conda-forge gcc 14.2.0-2) version 14.2.0 (x86_64-conda-linux-gnu)
 #	compiled by GNU C version 14.2.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
@@ -19,17 +19,16 @@ main:
 	sub	esp, 16	#,
 	call	__x86.get_pc_thunk.ax	#
 	add	eax, OFFSET FLAT:_GLOBAL_OFFSET_TABLE_	# tmp98,
-# add_int.c:7: 	a = 1;
-	mov	DWORD PTR -4[ebp], 1	# a,
-# add_int.c:8: 	b = 9;
-	mov	DWORD PTR -8[ebp], 9	# b,
-# add_int.c:10: 	c = a + b;
-	mov	edx, DWORD PTR -4[ebp]	# tmp105, a
-	mov	eax, DWORD PTR -8[ebp]	# tmp106, b
-	add	eax, edx	# c_3, tmp105
+# mult_int.c:7: 	a = 2;
+	mov	DWORD PTR -4[ebp], 2	# a,
+# mult_int.c:8: 	b = 3;
+	mov	DWORD PTR -8[ebp], 3	# b,
+# mult_int.c:10: 	c = a * b;
+	mov	eax, DWORD PTR -4[ebp]	# tmp102, a
+	imul	eax, DWORD PTR -8[ebp]	# c_3, b
 	mov	DWORD PTR -12[ebp], eax	# c, c_3
 	mov	eax, 0	# _4,
-# add_int.c:11: }
+# mult_int.c:11: }
 	leave	
 	.cfi_restore 5
 	.cfi_def_cfa 4, 4

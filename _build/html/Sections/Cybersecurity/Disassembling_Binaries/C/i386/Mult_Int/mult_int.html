@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Adding Integers: i386 &#8212; MK Dynamics</title>
+    <title>Multiplying Integers: i386 &#8212; MK Dynamics</title>
   
   
   
@@ -73,12 +73,12 @@
                 gtag('config', 'G-BZ3C1QVH0B');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Sections/Cybersecurity/Disassembling_Binaries/C/i386/Add_Int/add_int';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Sections/Cybersecurity/Disassembling_Binaries/C/i386/Mult_Int/mult_int';</script>
     <link rel="icon" href="../../../../../../_static/spacey.jpg"/>
     <link rel="index" title="Index" href="../../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../../search.html" />
     <link rel="next" title="C++" href="../../../C%2B%2B/c%2B%2B.html" />
-    <link rel="prev" title="C Binaries: i386" href="../i386__HEAD__.html" />
+    <link rel="prev" title="Adding Integers: i386" href="../Add_Int/add_int.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -513,7 +513,7 @@
       
       
       
-      <li><a href="https://github.com/markkhusid/MKDynamics_Website_V2/issues/new?title=Issue%20on%20page%20%2FSections/Cybersecurity/Disassembling_Binaries/C/i386/Add_Int/add_int.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/markkhusid/MKDynamics_Website_V2/issues/new?title=Issue%20on%20page%20%2FSections/Cybersecurity/Disassembling_Binaries/C/i386/Mult_Int/mult_int.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -543,7 +543,7 @@
       
       
       
-      <li><a href="../../../../../../_sources/Sections/Cybersecurity/Disassembling_Binaries/C/i386/Add_Int/add_int.md" target="_blank"
+      <li><a href="../../../../../../_sources/Sections/Cybersecurity/Disassembling_Binaries/C/i386/Mult_Int/mult_int.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -619,7 +619,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Adding Integers: i386</h1>
+    <h1>Multiplying Integers: i386</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -635,17 +635,18 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-the-assembly-code">Viewing the Assembly Code</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation-of-the-assembly-code">Explanation of the Assembly Code</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#header-information"><strong>Header Information</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#global-and-function-declarations"><strong>Global and Function Declarations</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#main-function"><strong>Main Function</strong></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#prologue"><strong>Prologue</strong></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#global-offset-table-setup"><strong>Global Offset Table Setup</strong></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-initialization"><strong>Variable Initialization</strong></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#addition-operation"><strong>Addition Operation</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplication"><strong>Multiplication</strong></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#return-value"><strong>Return Value</strong></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epilogue"><strong>Epilogue</strong></a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#helper-function-x86-get-pc-thunk-ax"><strong>Helper Function: <code class="docutils literal notranslate"><span class="pre">__x86.get_pc_thunk.ax</span></code></strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-sections"><strong>Other Sections</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#footer"><strong>Footer</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary"><strong>Summary</strong></a></li>
 </ul>
 </li>
@@ -657,12 +658,23 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-the-object-file-disassembly">Viewing the Object File Disassembly</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation-the-object-file-disassembly">Explanation the Object File Disassembly</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-metadata"><strong>File Metadata</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sections"><strong>Sections</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sections"><strong>Sections</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#group"><strong>1. <code class="docutils literal notranslate"><span class="pre">.group</span></code></strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#text"><strong>2. <code class="docutils literal notranslate"><span class="pre">.text</span></code></strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#data"><strong>3. <code class="docutils literal notranslate"><span class="pre">.data</span></code></strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bss"><strong>4. <code class="docutils literal notranslate"><span class="pre">.bss</span></code></strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#text-x86-get-pc-thunk-ax"><strong>5. <code class="docutils literal notranslate"><span class="pre">.text.__x86.get_pc_thunk.ax</span></code></strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#comment"><strong>6. <code class="docutils literal notranslate"><span class="pre">.comment</span></code></strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#note-gnu-property"><strong>7. <code class="docutils literal notranslate"><span class="pre">.note.gnu.property</span></code></strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#eh-frame"><strong>8. <code class="docutils literal notranslate"><span class="pre">.eh_frame</span></code></strong></a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#symbol-table"><strong>Symbol Table</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disassembly-of-text-section"><strong>Disassembly of <code class="docutils literal notranslate"><span class="pre">.text</span></code> Section</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disassembly-of-text-x86-get-pc-thunk-ax"><strong>Disassembly of <code class="docutils literal notranslate"><span class="pre">.text.__x86.get_pc_thunk.ax</span></code></strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disassembly-of-comment"><strong>Disassembly of <code class="docutils literal notranslate"><span class="pre">.comment</span></code></strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disassembly-of-eh-frame"><strong>Disassembly of <code class="docutils literal notranslate"><span class="pre">.eh_frame</span></code></strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disassembly"><strong>Disassembly</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#text-section"><strong>1. <code class="docutils literal notranslate"><span class="pre">.text</span></code> Section</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#text-x86-get-pc-thunk-ax-section"><strong>2. <code class="docutils literal notranslate"><span class="pre">.text.__x86.get_pc_thunk.ax</span></code> Section</strong></a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>Summary</strong></a></li>
 </ul>
 </li>
@@ -678,13 +690,13 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="adding-integers-i386">
-<h1>Adding Integers: i386<a class="headerlink" href="#adding-integers-i386" title="Link to this heading">#</a></h1>
-<a class="reference internal image-reference" href="../../../../../../_images/add_int_C_i386_splash2.jpg"><img alt="../../../../../../_images/add_int_C_i386_splash2.jpg" src="../../../../../../_images/add_int_C_i386_splash2.jpg" style="width: 800px; height: 500px;" />
+  <section class="tex2jax_ignore mathjax_ignore" id="multiplying-integers-i386">
+<h1>Multiplying Integers: i386<a class="headerlink" href="#multiplying-integers-i386" title="Link to this heading">#</a></h1>
+<a class="reference internal image-reference" href="../../../../../../_images/mult_int_C_i386_splash1.png"><img alt="../../../../../../_images/mult_int_C_i386_splash1.png" src="../../../../../../_images/mult_int_C_i386_splash1.png" style="width: 800px; height: 500px;" />
 </a>
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
-<p>In this section we will examine the disassembly of a simple C program that adds two integers. The program is compiled for the i386 architecture, which is a 32-bit architecture commonly used in older computers and embedded systems. The disassembly will help us understand how the C code translates into assembly instructions, and how these instructions are executed by the CPU.</p>
+<p>In this section we will examine the disassembly of a simple C program that multiplies two integers. The program is compiled for the i386 architecture, which is a 32-bit architecture commonly used in older computers and embedded systems. The disassembly will help us understand how the C code translates into assembly instructions, and how these instructions are executed by the CPU.</p>
 </section>
 <section id="the-c-program">
 <h2>The C Program<a class="headerlink" href="#the-c-program" title="Link to this heading">#</a></h2>
@@ -694,26 +706,26 @@
 <span class="p">{</span>
 	<span class="nb">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">;</span>
 	
-	<span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-	<span class="n">b</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
+	<span class="n">a</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+	<span class="n">b</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
 
-	<span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+	<span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </section>
 <section id="compilation-of-the-c-program-to-produce-assembly-code-and-object-code">
 <h2>Compilation of the C Program to Produce Assembly Code and Object Code<a class="headerlink" href="#compilation-of-the-c-program-to-produce-assembly-code-and-object-code" title="Link to this heading">#</a></h2>
-<p>The C program is compiled using the GCC compiler with the <code class="docutils literal notranslate"><span class="pre">-m32</span></code> flag to specify the i386 architecture. The <code class="docutils literal notranslate"><span class="pre">-masm=intel</span></code> flag creates assembly code in the Intel format. The <code class="docutils literal notranslate"><span class="pre">-S</span></code> flag generates assembly code, the -fverbose-asm flag includes C source code in the assembly code, and the <code class="docutils literal notranslate"><span class="pre">-c</span></code> flag compiles the assembly code into an object file.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gcc<span class="w"> </span>--sysroot<span class="o">=</span>/<span class="w"> </span>-m32<span class="w"> </span>-masm<span class="o">=</span>intel<span class="w"> </span>-S<span class="w"> </span>-fverbose-asm<span class="w"> </span>add_int.c<span class="w"> </span>-o<span class="w"> </span>add_int.s
-gcc<span class="w"> </span>--sysroot<span class="o">=</span>/<span class="w"> </span>-m32<span class="w"> </span>-c<span class="w"> </span>add_int.s<span class="w"> </span>-o<span class="w"> </span>add_int.o
+<p>The C program is compiled using the GCC compiler with the <code class="docutils literal notranslate"><span class="pre">-m32</span></code> flag to specify the i386 architecture. The <code class="docutils literal notranslate"><span class="pre">-masm=intel</span></code> flag creates assembly code in the Intel format. The <code class="docutils literal notranslate"><span class="pre">-S</span></code> flag generates assembly code, the <code class="docutils literal notranslate"><span class="pre">-fverbose-asm</span></code> flag includes C source code in the assembly code, and the <code class="docutils literal notranslate"><span class="pre">-c</span></code> flag compiles the assembly code into an object file.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gcc<span class="w"> </span>--sysroot<span class="o">=</span>/<span class="w"> </span>-m32<span class="w"> </span>-masm<span class="o">=</span>intel<span class="w"> </span>-S<span class="w"> </span>-fverbose-asm<span class="w"> </span>mult_int.c<span class="w"> </span>-o<span class="w"> </span>mult_int.s
+gcc<span class="w"> </span>--sysroot<span class="o">=</span>/<span class="w"> </span>-m32<span class="w"> </span>-c<span class="w"> </span>mult_int.s<span class="w"> </span>-o<span class="w"> </span>mult_int.o
 </pre></div>
 </div>
 </section>
 <section id="viewing-the-assembly-code">
 <h2>Viewing the Assembly Code<a class="headerlink" href="#viewing-the-assembly-code" title="Link to this heading">#</a></h2>
 <p>The assembly code is in Intel syntax, which is commonly used for x86 assembly language.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>	<span class="o">.</span><span class="n">file</span>	<span class="s2">&quot;add_int.c&quot;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>	<span class="o">.</span><span class="n">file</span>	<span class="s2">&quot;mult_int.c&quot;</span>
 	<span class="o">.</span><span class="n">intel_syntax</span> <span class="n">noprefix</span>
 <span class="c1"># GNU C17 (conda-forge gcc 14.2.0-2) version 14.2.0 (x86_64-conda-linux-gnu)</span>
 <span class="c1">#	compiled by GNU C version 14.2.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP</span>
@@ -734,17 +746,16 @@ gcc<span class="w"> </span>--sysroot<span class="o">=</span>/<span class="w"> </
 	<span class="n">sub</span>	<span class="n">esp</span><span class="p">,</span> <span class="mi">16</span>	<span class="c1">#,</span>
 	<span class="n">call</span>	<span class="n">__x86</span><span class="o">.</span><span class="n">get_pc_thunk</span><span class="o">.</span><span class="n">ax</span>	<span class="c1">#</span>
 	<span class="n">add</span>	<span class="n">eax</span><span class="p">,</span> <span class="n">OFFSET</span> <span class="n">FLAT</span><span class="p">:</span><span class="n">_GLOBAL_OFFSET_TABLE_</span>	<span class="c1"># tmp98,</span>
-<span class="c1"># add_int.c:7: 	a = 1;</span>
-	<span class="n">mov</span>	<span class="n">DWORD</span> <span class="n">PTR</span> <span class="o">-</span><span class="mi">4</span><span class="p">[</span><span class="n">ebp</span><span class="p">],</span> <span class="mi">1</span>	<span class="c1"># a,</span>
-<span class="c1"># add_int.c:8: 	b = 9;</span>
-	<span class="n">mov</span>	<span class="n">DWORD</span> <span class="n">PTR</span> <span class="o">-</span><span class="mi">8</span><span class="p">[</span><span class="n">ebp</span><span class="p">],</span> <span class="mi">9</span>	<span class="c1"># b,</span>
-<span class="c1"># add_int.c:10: 	c = a + b;</span>
-	<span class="n">mov</span>	<span class="n">edx</span><span class="p">,</span> <span class="n">DWORD</span> <span class="n">PTR</span> <span class="o">-</span><span class="mi">4</span><span class="p">[</span><span class="n">ebp</span><span class="p">]</span>	<span class="c1"># tmp105, a</span>
-	<span class="n">mov</span>	<span class="n">eax</span><span class="p">,</span> <span class="n">DWORD</span> <span class="n">PTR</span> <span class="o">-</span><span class="mi">8</span><span class="p">[</span><span class="n">ebp</span><span class="p">]</span>	<span class="c1"># tmp106, b</span>
-	<span class="n">add</span>	<span class="n">eax</span><span class="p">,</span> <span class="n">edx</span>	<span class="c1"># c_3, tmp105</span>
+<span class="c1"># mult_int.c:7: 	a = 2;</span>
+	<span class="n">mov</span>	<span class="n">DWORD</span> <span class="n">PTR</span> <span class="o">-</span><span class="mi">4</span><span class="p">[</span><span class="n">ebp</span><span class="p">],</span> <span class="mi">2</span>	<span class="c1"># a,</span>
+<span class="c1"># mult_int.c:8: 	b = 3;</span>
+	<span class="n">mov</span>	<span class="n">DWORD</span> <span class="n">PTR</span> <span class="o">-</span><span class="mi">8</span><span class="p">[</span><span class="n">ebp</span><span class="p">],</span> <span class="mi">3</span>	<span class="c1"># b,</span>
+<span class="c1"># mult_int.c:10: 	c = a * b;</span>
+	<span class="n">mov</span>	<span class="n">eax</span><span class="p">,</span> <span class="n">DWORD</span> <span class="n">PTR</span> <span class="o">-</span><span class="mi">4</span><span class="p">[</span><span class="n">ebp</span><span class="p">]</span>	<span class="c1"># tmp102, a</span>
+	<span class="n">imul</span>	<span class="n">eax</span><span class="p">,</span> <span class="n">DWORD</span> <span class="n">PTR</span> <span class="o">-</span><span class="mi">8</span><span class="p">[</span><span class="n">ebp</span><span class="p">]</span>	<span class="c1"># c_3, b</span>
 	<span class="n">mov</span>	<span class="n">DWORD</span> <span class="n">PTR</span> <span class="o">-</span><span class="mi">12</span><span class="p">[</span><span class="n">ebp</span><span class="p">],</span> <span class="n">eax</span>	<span class="c1"># c, c_3</span>
 	<span class="n">mov</span>	<span class="n">eax</span><span class="p">,</span> <span class="mi">0</span>	<span class="c1"># _4,</span>
-<span class="c1"># add_int.c:11: }</span>
+<span class="c1"># mult_int.c:11: }</span>
 	<span class="n">leave</span>	
 	<span class="o">.</span><span class="n">cfi_restore</span> <span class="mi">5</span>
 	<span class="o">.</span><span class="n">cfi_def_cfa</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span>
@@ -770,125 +781,179 @@ gcc<span class="w"> </span>--sysroot<span class="o">=</span>/<span class="w"> </
 </section>
 <section id="explanation-of-the-assembly-code">
 <h2>Explanation of the Assembly Code<a class="headerlink" href="#explanation-of-the-assembly-code" title="Link to this heading">#</a></h2>
-<p>The attached file is an assembly code file (<code class="docutils literal notranslate"><span class="pre">add_int.s</span></code>) generated from a C program (<code class="docutils literal notranslate"><span class="pre">add_int.c</span></code>). It is written in Intel syntax and compiled for a 32-bit architecture (<code class="docutils literal notranslate"><span class="pre">-m32</span></code>) using GCC 14.2.0. Below is a detailed explanation of the code:</p>
+<p>The attached code is an assembly file (<code class="docutils literal notranslate"><span class="pre">mult_int.s</span></code>) generated from a simple C program (<code class="docutils literal notranslate"><span class="pre">mult_int.c</span></code>) that performs integer multiplication. It is written in Intel syntax and compiled for a 32-bit architecture (<code class="docutils literal notranslate"><span class="pre">-m32</span></code>) using GCC 14.2.0. Below is a detailed explanation of the code:</p>
 <hr class="docutils" />
 <section id="header-information">
 <h3><strong>Header Information</strong><a class="headerlink" href="#header-information" title="Link to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p><strong>File Metadata</strong>:</p>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="na">.file</span><span class="w">	</span><span class="s">&quot;mult_int.c&quot;</span>
+<span class="w">	</span><span class="na">.intel_syntax</span><span class="w"> </span><span class="no">noprefix</span>
+</pre></div>
+</div>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">.file</span> <span class="pre">&quot;add_int.c&quot;</span></code>: Indicates that this assembly file was generated from the C source file <code class="docutils literal notranslate"><span class="pre">add_int.c</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.file</span> <span class="pre">&quot;mult_int.c&quot;</span></code>: Indicates that this assembly code was generated from the C source file <code class="docutils literal notranslate"><span class="pre">mult_int.c</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.intel_syntax</span> <span class="pre">noprefix</span></code>: Specifies that the assembly code uses Intel syntax (as opposed to AT&amp;T syntax).</p></li>
 </ul>
-</li>
-<li><p><strong>Compiler Information</strong>:</p>
+</section>
+<hr class="docutils" />
+<section id="global-and-function-declarations">
+<h3><strong>Global and Function Declarations</strong><a class="headerlink" href="#global-and-function-declarations" title="Link to this heading">#</a></h3>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="w">	</span><span class="na">.text</span>
+<span class="w">	</span><span class="na">.globl</span><span class="w">	</span><span class="no">main</span>
+<span class="w">	</span><span class="na">.type</span><span class="w">	</span><span class="no">main</span><span class="p">,</span><span class="w"> </span><span class="na">@function</span>
+</pre></div>
+</div>
 <ul class="simple">
-<li><p>The file was compiled using GCC 14.2.0 with the <code class="docutils literal notranslate"><span class="pre">-m32</span></code> flag for 32-bit architecture.</p></li>
-<li><p>Other flags include <code class="docutils literal notranslate"><span class="pre">-masm=intel</span></code> (Intel syntax), <code class="docutils literal notranslate"><span class="pre">-mtune=generic</span></code> (generic CPU tuning), and <code class="docutils literal notranslate"><span class="pre">-march=x86-64</span></code> (targeting x86-64 architecture).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.text</span></code>: Marks the beginning of the code (text) section where executable instructions are stored.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.globl</span> <span class="pre">main</span></code>: Declares the <code class="docutils literal notranslate"><span class="pre">main</span></code> function as global, making it accessible to the linker.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.type</span> <span class="pre">main,</span> <span class="pre">&#64;function</span></code>: Specifies that <code class="docutils literal notranslate"><span class="pre">main</span></code> is a function.</p></li>
 </ul>
-</li>
-<li><p><strong>GCC Heuristics</strong>:</p>
-<ul class="simple">
-<li><p>Parameters like <code class="docutils literal notranslate"><span class="pre">ggc-min-expand</span></code> and <code class="docutils literal notranslate"><span class="pre">ggc-min-heapsize</span></code> are used for garbage collection optimization during compilation.</p></li>
-</ul>
-</li>
-</ol>
 </section>
 <hr class="docutils" />
 <section id="main-function">
 <h3><strong>Main Function</strong><a class="headerlink" href="#main-function" title="Link to this heading">#</a></h3>
-<p>The main function (<code class="docutils literal notranslate"><span class="pre">main</span></code>) is defined as a global symbol (<code class="docutils literal notranslate"><span class="pre">.globl</span> <span class="pre">main</span></code>) and is marked as a function (<code class="docutils literal notranslate"><span class="pre">.type</span> <span class="pre">main,</span> <span class="pre">&#64;function</span></code>).</p>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nl">main:</span>
+<span class="nl">.LFB0:</span>
+<span class="w">	</span><span class="na">.cfi_startproc</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">main:</span></code>: The label for the <code class="docutils literal notranslate"><span class="pre">main</span></code> function.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.LFB0:</span></code>: A local label used internally by the assembler for debugging purposes.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.cfi_startproc</span></code>: Marks the start of the Call Frame Information (CFI) for the function, used for stack unwinding during debugging.</p></li>
+</ul>
+<hr class="docutils" />
 <section id="prologue">
 <h4><strong>Prologue</strong><a class="headerlink" href="#prologue" title="Link to this heading">#</a></h4>
-<p>The prologue sets up the stack frame for the function:</p>
-<ol class="arabic simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">push</span> <span class="pre">ebp</span></code>: Saves the base pointer of the previous stack frame.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">ebp,</span> <span class="pre">esp</span></code>: Sets the base pointer (<code class="docutils literal notranslate"><span class="pre">ebp</span></code>) to the current stack pointer (<code class="docutils literal notranslate"><span class="pre">esp</span></code>).</p></li>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="w">	</span><span class="nf">push</span><span class="w">	</span><span class="no">ebp</span><span class="w">	</span><span class="c1">#</span>
+<span class="w">	</span><span class="na">.cfi_def_cfa_offset</span><span class="w"> </span><span class="mi">8</span>
+<span class="w">	</span><span class="na">.cfi_offset</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">-8</span>
+<span class="w">	</span><span class="nf">mov</span><span class="w">	</span><span class="no">ebp</span><span class="p">,</span><span class="w"> </span><span class="no">esp</span><span class="w">	</span><span class="c1">#,</span>
+<span class="w">	</span><span class="na">.cfi_def_cfa_register</span><span class="w"> </span><span class="mi">5</span>
+<span class="w">	</span><span class="nf">sub</span><span class="w">	</span><span class="no">esp</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="w">	</span><span class="c1">#,</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">push</span> <span class="pre">ebp</span></code>: Saves the base pointer (<code class="docutils literal notranslate"><span class="pre">ebp</span></code>) of the previous stack frame onto the stack.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">ebp,</span> <span class="pre">esp</span></code>: Sets the current base pointer (<code class="docutils literal notranslate"><span class="pre">ebp</span></code>) to the value of the stack pointer (<code class="docutils literal notranslate"><span class="pre">esp</span></code>), establishing a new stack frame.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">sub</span> <span class="pre">esp,</span> <span class="pre">16</span></code>: Allocates 16 bytes of space on the stack for local variables.</p></li>
-</ol>
+</ul>
 </section>
+<hr class="docutils" />
 <section id="global-offset-table-setup">
 <h4><strong>Global Offset Table Setup</strong><a class="headerlink" href="#global-offset-table-setup" title="Link to this heading">#</a></h4>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="w">	</span><span class="nf">call</span><span class="w">	</span><span class="no">__x86.get_pc_thunk.ax</span><span class="w">	</span><span class="c1">#</span>
+<span class="w">	</span><span class="nf">add</span><span class="w">	</span><span class="no">eax</span><span class="p">,</span><span class="w"> </span><span class="no">OFFSET</span><span class="w"> </span><span class="no">FLAT</span><span class="p">:</span><span class="no">_GLOBAL_OFFSET_TABLE_</span><span class="w">	</span><span class="c1"># tmp98,</span>
+</pre></div>
+</div>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">call</span> <span class="pre">__x86.get_pc_thunk.ax</span></code>: Calls a helper function to get the program counter (PC).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">add</span> <span class="pre">eax,</span> <span class="pre">OFFSET</span> <span class="pre">FLAT:_GLOBAL_OFFSET_TABLE_</span></code>: Adjusts the PC to point to the Global Offset Table (GOT), used for position-independent code.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">call</span> <span class="pre">__x86.get_pc_thunk.ax</span></code>: Calls a helper function to get the program counter (PC) value.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">add</span> <span class="pre">eax,</span> <span class="pre">OFFSET</span> <span class="pre">FLAT:_GLOBAL_OFFSET_TABLE_</span></code>: Adjusts the PC value to point to the Global Offset Table (GOT), which is used for position-independent code.</p></li>
 </ul>
 </section>
+<hr class="docutils" />
 <section id="variable-initialization">
 <h4><strong>Variable Initialization</strong><a class="headerlink" href="#variable-initialization" title="Link to this heading">#</a></h4>
-<p>The C code initializes three variables (<code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, and <code class="docutils literal notranslate"><span class="pre">c</span></code>):</p>
-<ol class="arabic simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">DWORD</span> <span class="pre">PTR</span> <span class="pre">-4[ebp],</span> <span class="pre">1</span></code>: Assigns <code class="docutils literal notranslate"><span class="pre">1</span></code> to <code class="docutils literal notranslate"><span class="pre">a</span></code> (stored at <code class="docutils literal notranslate"><span class="pre">-4[ebp]</span></code>).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">DWORD</span> <span class="pre">PTR</span> <span class="pre">-8[ebp],</span> <span class="pre">9</span></code>: Assigns <code class="docutils literal notranslate"><span class="pre">9</span></code> to <code class="docutils literal notranslate"><span class="pre">b</span></code> (stored at <code class="docutils literal notranslate"><span class="pre">-8[ebp]</span></code>).</p></li>
-</ol>
-</section>
-<section id="addition-operation">
-<h4><strong>Addition Operation</strong><a class="headerlink" href="#addition-operation" title="Link to this heading">#</a></h4>
-<p>The C code computes <code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">=</span> <span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code>:</p>
-<ol class="arabic simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">edx,</span> <span class="pre">DWORD</span> <span class="pre">PTR</span> <span class="pre">-4[ebp]</span></code>: Loads the value of <code class="docutils literal notranslate"><span class="pre">a</span></code> into <code class="docutils literal notranslate"><span class="pre">edx</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">eax,</span> <span class="pre">DWORD</span> <span class="pre">PTR</span> <span class="pre">-8[ebp]</span></code>: Loads the value of <code class="docutils literal notranslate"><span class="pre">b</span></code> into <code class="docutils literal notranslate"><span class="pre">eax</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">add</span> <span class="pre">eax,</span> <span class="pre">edx</span></code>: Adds <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>, storing the result in <code class="docutils literal notranslate"><span class="pre">eax</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">DWORD</span> <span class="pre">PTR</span> <span class="pre">-12[ebp],</span> <span class="pre">eax</span></code>: Stores the result (<code class="docutils literal notranslate"><span class="pre">c</span></code>) at <code class="docutils literal notranslate"><span class="pre">-12[ebp]</span></code>.</p></li>
-</ol>
-</section>
-<section id="return-value">
-<h4><strong>Return Value</strong><a class="headerlink" href="#return-value" title="Link to this heading">#</a></h4>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="c1"># mult_int.c:7: 	a = 2;</span>
+<span class="w">	</span><span class="nf">mov</span><span class="w">	</span><span class="no">DWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="mi">-4</span><span class="p">[</span><span class="no">ebp</span><span class="p">],</span><span class="w"> </span><span class="mi">2</span><span class="w">	</span><span class="c1"># a,</span>
+<span class="c1"># mult_int.c:8: 	b = 3;</span>
+<span class="w">	</span><span class="nf">mov</span><span class="w">	</span><span class="no">DWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="mi">-8</span><span class="p">[</span><span class="no">ebp</span><span class="p">],</span><span class="w"> </span><span class="mi">3</span><span class="w">	</span><span class="c1"># b,</span>
+</pre></div>
+</div>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">eax,</span> <span class="pre">0</span></code>: Sets the return value of the function to <code class="docutils literal notranslate"><span class="pre">0</span></code> (standard for <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">main()</span></code> in C).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">DWORD</span> <span class="pre">PTR</span> <span class="pre">-4[ebp],</span> <span class="pre">2</span></code>: Stores the value <code class="docutils literal notranslate"><span class="pre">2</span></code> in the memory location <code class="docutils literal notranslate"><span class="pre">-4[ebp]</span></code>, which corresponds to the variable <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">DWORD</span> <span class="pre">PTR</span> <span class="pre">-8[ebp],</span> <span class="pre">3</span></code>: Stores the value <code class="docutils literal notranslate"><span class="pre">3</span></code> in the memory location <code class="docutils literal notranslate"><span class="pre">-8[ebp]</span></code>, which corresponds to the variable <code class="docutils literal notranslate"><span class="pre">b</span></code>.</p></li>
 </ul>
 </section>
+<hr class="docutils" />
+<section id="multiplication">
+<h4><strong>Multiplication</strong><a class="headerlink" href="#multiplication" title="Link to this heading">#</a></h4>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="c1"># mult_int.c:10: 	c = a * b;</span>
+<span class="w">	</span><span class="nf">mov</span><span class="w">	</span><span class="no">eax</span><span class="p">,</span><span class="w"> </span><span class="no">DWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="mi">-4</span><span class="p">[</span><span class="no">ebp</span><span class="p">]</span><span class="w">	</span><span class="c1"># tmp102, a</span>
+<span class="w">	</span><span class="nf">imul</span><span class="w">	</span><span class="no">eax</span><span class="p">,</span><span class="w"> </span><span class="no">DWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="mi">-8</span><span class="p">[</span><span class="no">ebp</span><span class="p">]</span><span class="w">	</span><span class="c1"># c_3, b</span>
+<span class="w">	</span><span class="nf">mov</span><span class="w">	</span><span class="no">DWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="mi">-12</span><span class="p">[</span><span class="no">ebp</span><span class="p">],</span><span class="w"> </span><span class="no">eax</span><span class="w">	</span><span class="c1"># c, c_3</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">eax,</span> <span class="pre">DWORD</span> <span class="pre">PTR</span> <span class="pre">-4[ebp]</span></code>: Loads the value of <code class="docutils literal notranslate"><span class="pre">a</span></code> into the <code class="docutils literal notranslate"><span class="pre">eax</span></code> register.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">imul</span> <span class="pre">eax,</span> <span class="pre">DWORD</span> <span class="pre">PTR</span> <span class="pre">-8[ebp]</span></code>: Multiplies the value in <code class="docutils literal notranslate"><span class="pre">eax</span></code> (i.e., <code class="docutils literal notranslate"><span class="pre">a</span></code>) by the value of <code class="docutils literal notranslate"><span class="pre">b</span></code> (stored at <code class="docutils literal notranslate"><span class="pre">-8[ebp]</span></code>), storing the result in <code class="docutils literal notranslate"><span class="pre">eax</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">DWORD</span> <span class="pre">PTR</span> <span class="pre">-12[ebp],</span> <span class="pre">eax</span></code>: Stores the result of the multiplication (<code class="docutils literal notranslate"><span class="pre">c</span></code>) in the memory location <code class="docutils literal notranslate"><span class="pre">-12[ebp]</span></code>.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="return-value">
+<h4><strong>Return Value</strong><a class="headerlink" href="#return-value" title="Link to this heading">#</a></h4>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="w">	</span><span class="nf">mov</span><span class="w">	</span><span class="no">eax</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w">	</span><span class="c1"># _4,</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">eax,</span> <span class="pre">0</span></code>: Sets the return value of the <code class="docutils literal notranslate"><span class="pre">main</span></code> function to <code class="docutils literal notranslate"><span class="pre">0</span></code> (standard convention for successful execution).</p></li>
+</ul>
+</section>
+<hr class="docutils" />
 <section id="epilogue">
 <h4><strong>Epilogue</strong><a class="headerlink" href="#epilogue" title="Link to this heading">#</a></h4>
-<p>The epilogue restores the stack frame:</p>
-<ol class="arabic simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">leave</span></code>: Restores the previous base pointer and stack pointer.</p></li>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="w">	</span><span class="nf">leave</span><span class="w">	</span>
+<span class="w">	</span><span class="no">.cfi_restore</span><span class="w"> </span><span class="mi">5</span>
+<span class="w">	</span><span class="na">.cfi_def_cfa</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span>
+<span class="w">	</span><span class="nf">ret</span><span class="w">	</span>
+<span class="w">	</span><span class="no">.cfi_endproc</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">leave</span></code>: Restores the previous stack frame by setting <code class="docutils literal notranslate"><span class="pre">esp</span></code> to <code class="docutils literal notranslate"><span class="pre">ebp</span></code> and popping the old <code class="docutils literal notranslate"><span class="pre">ebp</span></code> value from the stack.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ret</span></code>: Returns control to the caller.</p></li>
-</ol>
+</ul>
 </section>
 </section>
 <hr class="docutils" />
 <section id="helper-function-x86-get-pc-thunk-ax">
 <h3><strong>Helper Function: <code class="docutils literal notranslate"><span class="pre">__x86.get_pc_thunk.ax</span></code></strong><a class="headerlink" href="#helper-function-x86-get-pc-thunk-ax" title="Link to this heading">#</a></h3>
-<p>This function is used to retrieve the program counter (PC) for position-independent code:</p>
-<ol class="arabic simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">eax,</span> <span class="pre">DWORD</span> <span class="pre">PTR</span> <span class="pre">[esp]</span></code>: Loads the return address (PC) from the stack into <code class="docutils literal notranslate"><span class="pre">eax</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ret</span></code>: Returns to the caller.</p></li>
-</ol>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="w">	</span><span class="na">.section</span><span class="w">	</span><span class="no">.text.__x86.get_pc_thunk.ax</span><span class="p">,</span><span class="s">&quot;axG&quot;</span><span class="p">,</span><span class="na">@progbits</span><span class="p">,</span><span class="no">__x86.get_pc_thunk.ax</span><span class="p">,</span><span class="no">comdat</span>
+<span class="w">	</span><span class="na">.globl</span><span class="w">	</span><span class="no">__x86.get_pc_thunk.ax</span>
+<span class="w">	</span><span class="na">.hidden</span><span class="w">	</span><span class="no">__x86.get_pc_thunk.ax</span>
+<span class="w">	</span><span class="na">.type</span><span class="w">	</span><span class="no">__x86.get_pc_thunk.ax</span><span class="p">,</span><span class="w"> </span><span class="na">@function</span>
+<span class="nl">__x86.get_pc_thunk.ax:</span>
+<span class="nl">.LFB1:</span>
+<span class="w">	</span><span class="na">.cfi_startproc</span>
+<span class="w">	</span><span class="nf">mov</span><span class="w">	</span><span class="no">eax</span><span class="p">,</span><span class="w"> </span><span class="no">DWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">esp</span><span class="p">]</span><span class="w">	</span><span class="c1">#,</span>
+<span class="w">	</span><span class="nf">ret</span>
+<span class="w">	</span><span class="na">.cfi_endproc</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>This function retrieves the program counter (PC) value and stores it in the <code class="docutils literal notranslate"><span class="pre">eax</span></code> register. It is used for position-independent code to calculate addresses relative to the GOT.</p></li>
+</ul>
 </section>
 <hr class="docutils" />
-<section id="other-sections">
-<h3><strong>Other Sections</strong><a class="headerlink" href="#other-sections" title="Link to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">.ident</span></code> Section</strong>:</p>
+<section id="footer">
+<h3><strong>Footer</strong><a class="headerlink" href="#footer" title="Link to this heading">#</a></h3>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="w">	</span><span class="na">.ident</span><span class="w">	</span><span class="s">&quot;GCC: (conda-forge gcc 14.2.0-2) 14.2.0&quot;</span>
+<span class="w">	</span><span class="na">.section</span><span class="w">	</span><span class="no">.note.GNU-stack</span><span class="p">,</span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="na">@progbits</span>
+</pre></div>
+</div>
 <ul class="simple">
-<li><p>Contains metadata about the compiler version: <code class="docutils literal notranslate"><span class="pre">&quot;GCC:</span> <span class="pre">(conda-forge</span> <span class="pre">gcc</span> <span class="pre">14.2.0-2)</span> <span class="pre">14.2.0&quot;</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.ident</span></code>: Contains metadata about the compiler version used.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.section</span> <span class="pre">.note.GNU-stack</span></code>: Marks the stack as non-executable for security purposes.</p></li>
 </ul>
-</li>
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">.note.GNU-stack</span></code> Section</strong>:</p>
-<ul class="simple">
-<li><p>Indicates that the stack is not executable (a security feature).</p></li>
-</ul>
-</li>
-</ol>
 </section>
 <hr class="docutils" />
 <section id="summary">
 <h3><strong>Summary</strong><a class="headerlink" href="#summary" title="Link to this heading">#</a></h3>
-<p>This assembly code represents a simple C program that initializes two integers (<code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">9</span></code>), adds them (<code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">=</span> <span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code>), and returns <code class="docutils literal notranslate"><span class="pre">0</span></code>. The code includes standard prologue and epilogue for stack management and uses a helper function for position-independent code.</p>
+<p>This assembly code implements a simple C program that multiplies two integers (<code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">2</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">3</span></code>) and stores the result in a variable (<code class="docutils literal notranslate"><span class="pre">c</span></code>). The <code class="docutils literal notranslate"><span class="pre">main</span></code> function sets up the stack frame, performs the multiplication using the <code class="docutils literal notranslate"><span class="pre">imul</span></code> instruction, and returns <code class="docutils literal notranslate"><span class="pre">0</span></code> as the exit status. The helper function <code class="docutils literal notranslate"><span class="pre">__x86.get_pc_thunk.ax</span></code> is used for position-independent code.</p>
 </section>
 </section>
 <section id="compilation-to-produce-executable-code">
 <h2>Compilation to Produce Executable Code<a class="headerlink" href="#compilation-to-produce-executable-code" title="Link to this heading">#</a></h2>
 <p>The object file is linked to create an executable file using the <code class="docutils literal notranslate"><span class="pre">-o</span></code> flag.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/usr/bin/gcc<span class="w"> </span>-m32<span class="w"> </span>add_int.o<span class="w"> </span>-o<span class="w"> </span>add_int_C_i386
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/usr/bin/gcc<span class="w"> </span>-m32<span class="w"> </span>mult_int.o<span class="w"> </span>-o<span class="w"> </span>mult_int_C_i386
 </pre></div>
 </div>
 </section>
 <section id="disassembly-of-the-executable-code">
 <h2>Disassembly of the Executable Code<a class="headerlink" href="#disassembly-of-the-executable-code" title="Link to this heading">#</a></h2>
 <p>The executable file is disassembled using the <code class="docutils literal notranslate"><span class="pre">objdump</span></code> command with the <code class="docutils literal notranslate"><span class="pre">-d</span></code> flag to display the disassembly.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>objdump<span class="w"> </span>-x<span class="w"> </span>-D<span class="w"> </span>-s<span class="w"> </span>-t<span class="w"> </span>-Mintel<span class="w"> </span>add_int.o<span class="w"> </span>&gt;<span class="w"> </span>objdump_of_dot_o.txt
-objdump<span class="w"> </span>-x<span class="w"> </span>-D<span class="w"> </span>-s<span class="w"> </span>-t<span class="w"> </span>-Mintel<span class="w"> </span>add_int_C_i386<span class="w"> </span>&gt;<span class="w"> </span>objdump_of_dot_exe.txt
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>objdump<span class="w"> </span>-x<span class="w"> </span>-D<span class="w"> </span>-s<span class="w"> </span>-t<span class="w"> </span>-Mintel<span class="w"> </span>mult_int.o<span class="w"> </span>&gt;<span class="w"> </span>objdump_of_dot_o.txt
+objdump<span class="w"> </span>-x<span class="w"> </span>-D<span class="w"> </span>-s<span class="w"> </span>-t<span class="w"> </span>-Mintel<span class="w"> </span>mult_int_C_i386<span class="w"> </span>&gt;<span class="w"> </span>objdump_of_dot_exe.txt
 </pre></div>
 </div>
 <section id="explanation-of-the-switches-used-in-the-objdump-command">
@@ -905,8 +970,8 @@ objdump<span class="w"> </span>-x<span class="w"> </span>-D<span class="w"> </sp
 <section id="viewing-the-object-file-disassembly">
 <h2>Viewing the Object File Disassembly<a class="headerlink" href="#viewing-the-object-file-disassembly" title="Link to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-add_int.o:     file format elf32-i386
-add_int.o
+mult_int.o:     file format elf32-i386
+mult_int.o
 architecture: i386, flags 0x00000011:
 HAS_RELOC, HAS_SYMS
 start address 0x00000000
@@ -915,27 +980,27 @@ Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
   0 .group        00000008  00000000  00000000  00000034  2**2
                   CONTENTS, READONLY, GROUP, LINK_ONCE_DISCARD
-  1 .text         00000030  00000000  00000000  0000003c  2**0
+  1 .text         0000002f  00000000  00000000  0000003c  2**0
                   CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
-  2 .data         00000000  00000000  00000000  0000006c  2**0
+  2 .data         00000000  00000000  00000000  0000006b  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  3 .bss          00000000  00000000  00000000  0000006c  2**0
+  3 .bss          00000000  00000000  00000000  0000006b  2**0
                   ALLOC
-  4 .text.__x86.get_pc_thunk.ax 00000004  00000000  00000000  0000006c  2**0
+  4 .text.__x86.get_pc_thunk.ax 00000004  00000000  00000000  0000006b  2**0
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  5 .comment      00000028  00000000  00000000  00000070  2**0
+  5 .comment      00000028  00000000  00000000  0000006f  2**0
                   CONTENTS, READONLY
-  6 .note.GNU-stack 00000000  00000000  00000000  00000098  2**0
+  6 .note.GNU-stack 00000000  00000000  00000000  00000097  2**0
                   CONTENTS, READONLY
   7 .note.gnu.property 00000028  00000000  00000000  00000098  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
   8 .eh_frame     0000004c  00000000  00000000  000000c0  2**2
                   CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
 SYMBOL TABLE:
-00000000 l    df *ABS*	00000000 add_int.c
+00000000 l    df *ABS*	00000000 mult_int.c
 00000000 l    d  .text	00000000 .text
 00000000 l    d  .text.__x86.get_pc_thunk.ax	00000000 .text.__x86.get_pc_thunk.ax
-00000000 g     F .text	00000030 main
+00000000 g     F .text	0000002f main
 00000000 g     F .text.__x86.get_pc_thunk.ax	00000000 .hidden __x86.get_pc_thunk.ax
 00000000         *UND*	00000000 _GLOBAL_OFFSET_TABLE_
 
@@ -944,8 +1009,8 @@ Contents of section .group:
  0000 01000000 06000000                    ........        
 Contents of section .text:
  0000 5589e583 ec10e8fc ffffff05 01000000  U...............
- 0010 c745fc01 000000c7 45f80900 00008b55  .E......E......U
- 0020 fc8b45f8 01d08945 f4b80000 0000c9c3  ..E....E........
+ 0010 c745fc02 000000c7 45f80300 00008b45  .E......E......E
+ 0020 fc0faf45 f88945f4 b8000000 00c9c3    ...E..E........ 
 Contents of section .text.__x86.get_pc_thunk.ax:
  0000 8b0424c3                             ..$.            
 Contents of section .comment:
@@ -959,8 +1024,8 @@ Contents of section .note.gnu.property:
 Contents of section .eh_frame:
  0000 14000000 00000000 017a5200 017c0801  .........zR..|..
  0010 1b0c0404 88010000 1c000000 1c000000  ................
- 0020 00000000 30000000 00410e08 8502420d  ....0....A....B.
- 0030 056cc50c 04040000 10000000 3c000000  .l..........&lt;...
+ 0020 00000000 2f000000 00410e08 8502420d  ..../....A....B.
+ 0030 056bc50c 04040000 10000000 3c000000  .k..........&lt;...
  0040 00000000 04000000 00000000           ............    
 
 Disassembly of section .group:
@@ -982,15 +1047,14 @@ Disassembly of section .text:
 			7: R_386_PC32	__x86.get_pc_thunk.ax
    b:	05 01 00 00 00       	add    eax,0x1
 			c: R_386_GOTPC	_GLOBAL_OFFSET_TABLE_
-  10:	c7 45 fc 01 00 00 00 	mov    DWORD PTR [ebp-0x4],0x1
-  17:	c7 45 f8 09 00 00 00 	mov    DWORD PTR [ebp-0x8],0x9
-  1e:	8b 55 fc             	mov    edx,DWORD PTR [ebp-0x4]
-  21:	8b 45 f8             	mov    eax,DWORD PTR [ebp-0x8]
-  24:	01 d0                	add    eax,edx
-  26:	89 45 f4             	mov    DWORD PTR [ebp-0xc],eax
-  29:	b8 00 00 00 00       	mov    eax,0x0
-  2e:	c9                   	leave
-  2f:	c3                   	ret
+  10:	c7 45 fc 02 00 00 00 	mov    DWORD PTR [ebp-0x4],0x2
+  17:	c7 45 f8 03 00 00 00 	mov    DWORD PTR [ebp-0x8],0x3
+  1e:	8b 45 fc             	mov    eax,DWORD PTR [ebp-0x4]
+  21:	0f af 45 f8          	imul   eax,DWORD PTR [ebp-0x8]
+  25:	89 45 f4             	mov    DWORD PTR [ebp-0xc],eax
+  28:	b8 00 00 00 00       	mov    eax,0x0
+  2d:	c9                   	leave
+  2e:	c3                   	ret
 
 Disassembly of section .text.__x86.get_pc_thunk.ax:
 
@@ -1060,16 +1124,18 @@ Disassembly of section .eh_frame:
   20:	00 00                	add    BYTE PTR [eax],al
 			20: R_386_PC32	.text
   22:	00 00                	add    BYTE PTR [eax],al
-  24:	30 00                	xor    BYTE PTR [eax],al
-  26:	00 00                	add    BYTE PTR [eax],al
-  28:	00 41 0e             	add    BYTE PTR [ecx+0xe],al
+  24:	2f                   	das
+  25:	00 00                	add    BYTE PTR [eax],al
+  27:	00 00                	add    BYTE PTR [eax],al
+  29:	41                   	inc    ecx
+  2a:	0e                   	push   cs
   2b:	08 85 02 42 0d 05    	or     BYTE PTR [ebp+0x50d4202],al
-  31:	6c                   	ins    BYTE PTR es:[edi],dx
-  32:	c5 0c 04             	lds    ecx,FWORD PTR [esp+eax*1]
-  35:	04 00                	add    al,0x0
-  37:	00 10                	add    BYTE PTR [eax],dl
-  39:	00 00                	add    BYTE PTR [eax],al
-  3b:	00 3c 00             	add    BYTE PTR [eax+eax*1],bh
+  31:	6b c5 0c             	imul   eax,ebp,0xc
+  34:	04 04                	add    al,0x4
+  36:	00 00                	add    BYTE PTR [eax],al
+  38:	10 00                	adc    BYTE PTR [eax],al
+  3a:	00 00                	add    BYTE PTR [eax],al
+  3c:	3c 00                	cmp    al,0x0
   3e:	00 00                	add    BYTE PTR [eax],al
   40:	00 00                	add    BYTE PTR [eax],al
 			40: R_386_PC32	.text.__x86.get_pc_thunk.ax
@@ -1083,212 +1149,249 @@ Disassembly of section .eh_frame:
 </section>
 <section id="explanation-the-object-file-disassembly">
 <h2>Explanation the Object File Disassembly<a class="headerlink" href="#explanation-the-object-file-disassembly" title="Link to this heading">#</a></h2>
-<p>This object code disassembly represents the compiled output of a C program for the i386 architecture. Below is an explanation of the key sections and their significance:</p>
+<p>The attached file is the output of the <code class="docutils literal notranslate"><span class="pre">objdump</span></code> command applied to an object file (<code class="docutils literal notranslate"><span class="pre">mult_int.o</span></code>). It provides a detailed view of the binary structure, including sections, symbols, and disassembled machine code. Below is a detailed explanation of the key parts of the file:</p>
 <hr class="docutils" />
 <section id="file-metadata">
 <h3><strong>File Metadata</strong><a class="headerlink" href="#file-metadata" title="Link to this heading">#</a></h3>
-<div class="highlight-plaintext notranslate"><div class="highlight"><pre><span></span>add_int.o:     file format elf32-i386
-architecture: i386, flags 0x00000011:
-HAS_RELOC, HAS_SYMS
-start address 0x00000000
+<div class="highlight-objdump notranslate"><div class="highlight"><pre><span></span><span class="nl">mult_int.o</span><span class="p">:</span>     file format <span class="s">elf32-i386</span>
+<span class="x">architecture: i386, flags 0x00000011:</span>
+<span class="x">HAS_RELOC, HAS_SYMS</span>
+<span class="x">start address 0x00000000</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p><strong>File format</strong>: <code class="docutils literal notranslate"><span class="pre">elf32-i386</span></code> indicates the ELF (Executable and Linkable Format) for the 32-bit i386 architecture.</p></li>
+<li><p><strong>File format</strong>: The object file is in the ELF (Executable and Linkable Format) for a 32-bit Intel architecture (<code class="docutils literal notranslate"><span class="pre">elf32-i386</span></code>).</p></li>
+<li><p><strong>Architecture</strong>: The code is compiled for the i386 architecture (32-bit x86).</p></li>
 <li><p><strong>Flags</strong>:</p>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">HAS_RELOC</span></code>: The file contains relocation entries.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HAS_RELOC</span></code>: The file contains relocation entries, which are used to adjust addresses during linking.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">HAS_SYMS</span></code>: The file contains a symbol table.</p></li>
 </ul>
 </li>
-<li><p><strong>Start address</strong>: The starting address of the program is <code class="docutils literal notranslate"><span class="pre">0x00000000</span></code>.</p></li>
+<li><p><strong>Start address</strong>: The entry point of the object file is at address <code class="docutils literal notranslate"><span class="pre">0x00000000</span></code>.</p></li>
 </ul>
 </section>
 <hr class="docutils" />
 <section id="sections">
 <h3><strong>Sections</strong><a class="headerlink" href="#sections" title="Link to this heading">#</a></h3>
-<p>The disassembly lists various sections in the object file, each serving a specific purpose:</p>
-<ol class="arabic simple">
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">.group</span></code></strong></p>
+<p>The object file is divided into sections, each serving a specific purpose. Below are the key sections:</p>
+<section id="group">
+<h4><strong>1. <code class="docutils literal notranslate"><span class="pre">.group</span></code></strong><a class="headerlink" href="#group" title="Link to this heading">#</a></h4>
+<div class="highlight-objdump notranslate"><div class="highlight"><pre><span></span><span class="x">Idx Name          Size      VMA       LMA       File off  Algn</span>
+<span class="x">  0 .group        00000008  00000000  00000000  00000034  2**2</span>
+<span class="x">                  CONTENTS, READONLY, GROUP, LINK_ONCE_DISCARD</span>
+</pre></div>
+</div>
 <ul class="simple">
-<li><p>Contains metadata for grouping related sections.</p></li>
-<li><p>Flags: <code class="docutils literal notranslate"><span class="pre">CONTENTS,</span> <span class="pre">READONLY,</span> <span class="pre">GROUP,</span> <span class="pre">LINK_ONCE_DISCARD</span></code>.</p></li>
+<li><p><strong>Purpose</strong>: Groups related sections for optimization and linking.</p></li>
+<li><p><strong>Attributes</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">CONTENTS</span></code>: Contains data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">READONLY</span></code>: Read-only section.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GROUP</span></code>: Groups related sections.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LINK_ONCE_DISCARD</span></code>: Ensures only one copy of the section is kept during linking.</p></li>
 </ul>
 </li>
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">.text</span></code></strong></p>
+</ul>
+</section>
+<section id="text">
+<h4><strong>2. <code class="docutils literal notranslate"><span class="pre">.text</span></code></strong><a class="headerlink" href="#text" title="Link to this heading">#</a></h4>
+<div class="highlight-objdump notranslate"><div class="highlight"><pre><span></span><span class="x">  1 .text         0000002f  00000000  00000000  0000003c  2**0</span>
+<span class="x">                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE</span>
+</pre></div>
+</div>
 <ul class="simple">
-<li><p>Contains the executable code (instructions).</p></li>
-<li><p>Flags: <code class="docutils literal notranslate"><span class="pre">CONTENTS,</span> <span class="pre">ALLOC,</span> <span class="pre">LOAD,</span> <span class="pre">RELOC,</span> <span class="pre">READONLY,</span> <span class="pre">CODE</span></code>.</p></li>
+<li><p><strong>Purpose</strong>: Contains the executable code for the program.</p></li>
+<li><p><strong>Attributes</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">CODE</span></code>: Contains machine instructions.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">READONLY</span></code>: Read-only section.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RELOC</span></code>: Contains relocation entries for linking.</p></li>
 </ul>
 </li>
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">.data</span></code></strong></p>
+</ul>
+</section>
+<section id="data">
+<h4><strong>3. <code class="docutils literal notranslate"><span class="pre">.data</span></code></strong><a class="headerlink" href="#data" title="Link to this heading">#</a></h4>
+<div class="highlight-objdump notranslate"><div class="highlight"><pre><span></span><span class="x">  2 .data         00000000  00000000  00000000  0000006b  2**0</span>
+<span class="x">                  CONTENTS, ALLOC, LOAD, DATA</span>
+</pre></div>
+</div>
 <ul class="simple">
-<li><p>Contains initialized global and static variables.</p></li>
-<li><p>Flags: <code class="docutils literal notranslate"><span class="pre">CONTENTS,</span> <span class="pre">ALLOC,</span> <span class="pre">LOAD,</span> <span class="pre">DATA</span></code>.</p></li>
+<li><p><strong>Purpose</strong>: Contains initialized global and static variables.</p></li>
+<li><p><strong>Attributes</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">DATA</span></code>: Contains data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ALLOC</span></code>: Allocated in memory during execution.</p></li>
 </ul>
 </li>
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">.bss</span></code></strong></p>
+</ul>
+</section>
+<section id="bss">
+<h4><strong>4. <code class="docutils literal notranslate"><span class="pre">.bss</span></code></strong><a class="headerlink" href="#bss" title="Link to this heading">#</a></h4>
+<div class="highlight-objdump notranslate"><div class="highlight"><pre><span></span><span class="x">  3 .bss          00000000  00000000  00000000  0000006b  2**0</span>
+<span class="x">                  ALLOC</span>
+</pre></div>
+</div>
 <ul class="simple">
-<li><p>Contains uninitialized global and static variables.</p></li>
-<li><p>Flags: <code class="docutils literal notranslate"><span class="pre">ALLOC</span></code>.</p></li>
+<li><p><strong>Purpose</strong>: Contains uninitialized global and static variables.</p></li>
+<li><p><strong>Attributes</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">ALLOC</span></code>: Allocated in memory during execution but not stored in the object file.</p></li>
 </ul>
 </li>
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">.text.__x86.get_pc_thunk.ax</span></code></strong></p>
+</ul>
+</section>
+<section id="text-x86-get-pc-thunk-ax">
+<h4><strong>5. <code class="docutils literal notranslate"><span class="pre">.text.__x86.get_pc_thunk.ax</span></code></strong><a class="headerlink" href="#text-x86-get-pc-thunk-ax" title="Link to this heading">#</a></h4>
+<div class="highlight-objdump notranslate"><div class="highlight"><pre><span></span><span class="x">  4 .text.__x86.get_pc_thunk.ax 00000004  00000000  00000000  0000006b  2**0</span>
+<span class="x">                  CONTENTS, ALLOC, LOAD, READONLY, CODE</span>
+</pre></div>
+</div>
 <ul class="simple">
-<li><p>Contains helper code for position-independent code (PIC).</p></li>
-<li><p>Flags: <code class="docutils literal notranslate"><span class="pre">CONTENTS,</span> <span class="pre">ALLOC,</span> <span class="pre">LOAD,</span> <span class="pre">READONLY,</span> <span class="pre">CODE</span></code>.</p></li>
+<li><p><strong>Purpose</strong>: Contains the helper function <code class="docutils literal notranslate"><span class="pre">__x86.get_pc_thunk.ax</span></code>, used for position-independent code.</p></li>
+<li><p><strong>Attributes</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">CODE</span></code>: Contains machine instructions.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">READONLY</span></code>: Read-only section.</p></li>
 </ul>
 </li>
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">.comment</span></code></strong></p>
+</ul>
+</section>
+<section id="comment">
+<h4><strong>6. <code class="docutils literal notranslate"><span class="pre">.comment</span></code></strong><a class="headerlink" href="#comment" title="Link to this heading">#</a></h4>
+<div class="highlight-objdump notranslate"><div class="highlight"><pre><span></span><span class="x">  5 .comment      00000028  00000000  00000000  0000006f  2**0</span>
+<span class="x">                  CONTENTS, READONLY</span>
+</pre></div>
+</div>
 <ul class="simple">
-<li><p>Contains compiler version information.</p></li>
-<li><p>Flags: <code class="docutils literal notranslate"><span class="pre">CONTENTS,</span> <span class="pre">READONLY</span></code>.</p></li>
+<li><p><strong>Purpose</strong>: Contains metadata about the compiler and build environment.</p></li>
+<li><p><strong>Attributes</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">READONLY</span></code>: Read-only section.</p></li>
 </ul>
 </li>
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">.note.GNU-stack</span></code></strong></p>
+</ul>
+</section>
+<section id="note-gnu-property">
+<h4><strong>7. <code class="docutils literal notranslate"><span class="pre">.note.gnu.property</span></code></strong><a class="headerlink" href="#note-gnu-property" title="Link to this heading">#</a></h4>
+<div class="highlight-objdump notranslate"><div class="highlight"><pre><span></span><span class="x">  7 .note.gnu.property 00000028  00000000  00000000  00000098  2**2</span>
+<span class="x">                  CONTENTS, ALLOC, LOAD, READONLY, DATA</span>
+</pre></div>
+</div>
 <ul class="simple">
-<li><p>Marks the stack as non-executable for security purposes.</p></li>
-<li><p>Flags: <code class="docutils literal notranslate"><span class="pre">CONTENTS,</span> <span class="pre">READONLY</span></code>.</p></li>
+<li><p><strong>Purpose</strong>: Contains properties for GNU tools, such as security features.</p></li>
+<li><p><strong>Attributes</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">DATA</span></code>: Contains data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">READONLY</span></code>: Read-only section.</p></li>
 </ul>
 </li>
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">.eh_frame</span></code></strong></p>
+</ul>
+</section>
+<section id="eh-frame">
+<h4><strong>8. <code class="docutils literal notranslate"><span class="pre">.eh_frame</span></code></strong><a class="headerlink" href="#eh-frame" title="Link to this heading">#</a></h4>
+<div class="highlight-objdump notranslate"><div class="highlight"><pre><span></span><span class="x">  8 .eh_frame     0000004c  00000000  00000000  000000c0  2**2</span>
+<span class="x">                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA</span>
+</pre></div>
+</div>
 <ul class="simple">
-<li><p>Contains exception handling information for stack unwinding.</p></li>
-<li><p>Flags: <code class="docutils literal notranslate"><span class="pre">CONTENTS,</span> <span class="pre">ALLOC,</span> <span class="pre">LOAD,</span> <span class="pre">RELOC,</span> <span class="pre">READONLY,</span> <span class="pre">DATA</span></code>.</p></li>
+<li><p><strong>Purpose</strong>: Contains exception handling information for stack unwinding.</p></li>
+<li><p><strong>Attributes</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">DATA</span></code>: Contains data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RELOC</span></code>: Contains relocation entries for linking.</p></li>
 </ul>
 </li>
-</ol>
+</ul>
+</section>
 </section>
 <hr class="docutils" />
 <section id="symbol-table">
 <h3><strong>Symbol Table</strong><a class="headerlink" href="#symbol-table" title="Link to this heading">#</a></h3>
-<p>The symbol table lists symbols (functions, variables, and sections) in the object file:</p>
-<div class="highlight-plaintext notranslate"><div class="highlight"><pre><span></span>00000000 g     F .text	00000030 main
-00000000 g     F .text.__x86.get_pc_thunk.ax	00000000 .hidden __x86.get_pc_thunk.ax
-00000000         *UND*	00000000 _GLOBAL_OFFSET_TABLE_
+<div class="highlight-objdump notranslate"><div class="highlight"><pre><span></span><span class="x">SYMBOL TABLE:</span>
+<span class="x">00000000 l    df *ABS*	00000000 mult_int.c</span>
+<span class="x">00000000 l    d  .text	00000000 .text</span>
+<span class="x">00000000 l    d  .text.__x86.get_pc_thunk.ax	00000000 .text.__x86.get_pc_thunk.ax</span>
+<span class="x">00000000 g     F .text	0000002f main</span>
+<span class="x">00000000 g     F .text.__x86.get_pc_thunk.ax	00000000 .hidden __x86.get_pc_thunk.ax</span>
+<span class="x">00000000         *UND*	00000000 _GLOBAL_OFFSET_TABLE_</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">main</span></code>: The main function is defined in the <code class="docutils literal notranslate"><span class="pre">.text</span></code> section and has a size of <code class="docutils literal notranslate"><span class="pre">0x30</span></code> bytes.</p></li>
+<li><p><strong>Symbols</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">main</span></code>: The main function, located in the <code class="docutils literal notranslate"><span class="pre">.text</span></code> section.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">__x86.get_pc_thunk.ax</span></code>: A helper function for position-independent code.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">_GLOBAL_OFFSET_TABLE_</span></code>: An undefined symbol used for dynamic linking.</p></li>
 </ul>
-</section>
-<hr class="docutils" />
-<section id="disassembly-of-text-section">
-<h3><strong>Disassembly of <code class="docutils literal notranslate"><span class="pre">.text</span></code> Section</strong><a class="headerlink" href="#disassembly-of-text-section" title="Link to this heading">#</a></h3>
-<p>This section contains the main function’s instructions:</p>
-<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="err">00000000</span><span class="w"> </span><span class="err">&lt;</span><span class="nf">main</span><span class="err">&gt;</span><span class="p">:</span>
-<span class="w">   </span><span class="err">0:</span><span class="w">	</span><span class="err">55</span><span class="w">                   	</span><span class="nf">push</span><span class="w">   </span><span class="no">ebp</span>
-<span class="w">   </span><span class="err">1:</span><span class="w">	</span><span class="err">89</span><span class="w"> </span><span class="nf">e5</span><span class="w">                	</span><span class="no">mov</span><span class="w">    </span><span class="no">ebp</span><span class="p">,</span><span class="no">esp</span>
-<span class="w">   </span><span class="err">3:</span><span class="w">	</span><span class="err">83</span><span class="w"> </span><span class="nf">ec</span><span class="w"> </span><span class="mi">10</span><span class="w">             	</span><span class="no">sub</span><span class="w">    </span><span class="no">esp</span><span class="p">,</span><span class="mi">0x10</span>
-<span class="w">   </span><span class="err">6:</span><span class="w">	</span><span class="nf">e8</span><span class="w"> </span><span class="no">fc</span><span class="w"> </span><span class="no">ff</span><span class="w"> </span><span class="no">ff</span><span class="w"> </span><span class="no">ff</span><span class="w">       	</span><span class="no">call</span><span class="w">   </span><span class="mh">7</span> <span class="p">&lt;</span><span class="no">main</span><span class="p">+</span><span class="mi">0x7</span><span class="p">&gt;</span>
-<span class="w">			</span><span class="err">7:</span><span class="w"> </span><span class="nf">R_386_PC32</span><span class="w">	</span><span class="no">__x86.get_pc_thunk.ax</span>
-<span class="w">   </span><span class="nl">b:</span><span class="w">	</span><span class="err">05</span><span class="w"> </span><span class="err">01</span><span class="w"> </span><span class="err">00</span><span class="w"> </span><span class="err">00</span><span class="w"> </span><span class="err">00</span><span class="w">       	</span><span class="nf">add</span><span class="w">    </span><span class="no">eax</span><span class="p">,</span><span class="mi">0x1</span>
-<span class="w">			</span><span class="nl">c:</span><span class="w"> </span><span class="nf">R_386_GOTPC</span><span class="w">	</span><span class="no">_GLOBAL_OFFSET_TABLE_</span>
-<span class="w">  </span><span class="err">10:</span><span class="w">	</span><span class="nf">c7</span><span class="w"> </span><span class="mi">45</span><span class="w"> </span><span class="no">f4</span><span class="w"> </span><span class="mi">01</span><span class="w"> </span><span class="mi">00</span><span class="w"> </span><span class="mi">00</span><span class="w"> </span><span class="mi">00</span><span class="w"> 	</span><span class="no">mov</span><span class="w">    </span><span class="no">DWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">ebp-0xc</span><span class="p">],</span><span class="mi">0x1</span>
-<span class="w">  </span><span class="err">17:</span><span class="w">	</span><span class="nf">c7</span><span class="w"> </span><span class="mi">45</span><span class="w"> </span><span class="no">f8</span><span class="w"> </span><span class="mi">09</span><span class="w"> </span><span class="mi">00</span><span class="w"> </span><span class="mi">00</span><span class="w"> </span><span class="mi">00</span><span class="w"> 	</span><span class="no">mov</span><span class="w">    </span><span class="no">DWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">ebp-0x8</span><span class="p">],</span><span class="mi">0x9</span>
-<span class="w">  </span><span class="err">1</span><span class="nl">e:</span><span class="w">	</span><span class="err">8</span><span class="nf">b</span><span class="w"> </span><span class="mi">55</span><span class="w"> </span><span class="no">f4</span><span class="w">             	</span><span class="no">mov</span><span class="w">    </span><span class="no">edx</span><span class="p">,</span><span class="no">DWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">ebp-0xc</span><span class="p">]</span>
-<span class="w">  </span><span class="err">21:</span><span class="w">	</span><span class="err">8</span><span class="nf">b</span><span class="w"> </span><span class="mi">45</span><span class="w"> </span><span class="no">f8</span><span class="w">             	</span><span class="no">mov</span><span class="w">    </span><span class="no">eax</span><span class="p">,</span><span class="no">DWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">ebp-0x8</span><span class="p">]</span>
-<span class="w">  </span><span class="err">24:</span><span class="w">	</span><span class="err">01</span><span class="w"> </span><span class="nf">d0</span><span class="w">                	</span><span class="no">add</span><span class="w">    </span><span class="no">eax</span><span class="p">,</span><span class="no">edx</span>
-<span class="w">  </span><span class="err">26:</span><span class="w">	</span><span class="err">89</span><span class="w"> </span><span class="err">45</span><span class="w"> </span><span class="nf">fc</span><span class="w">             	</span><span class="no">mov</span><span class="w">    </span><span class="no">DWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">ebp-0x4</span><span class="p">],</span><span class="no">eax</span>
-<span class="w">  </span><span class="err">29:</span><span class="w">	</span><span class="nf">b8</span><span class="w"> </span><span class="mi">00</span><span class="w"> </span><span class="mi">00</span><span class="w"> </span><span class="mi">00</span><span class="w"> </span><span class="mi">00</span><span class="w">       	</span><span class="no">mov</span><span class="w">    </span><span class="no">eax</span><span class="p">,</span><span class="mi">0x0</span>
-<span class="w">  </span><span class="err">2</span><span class="nl">e:</span><span class="w">	</span><span class="nf">c9</span><span class="w">                   	</span><span class="no">leave</span><span class="w">  </span>
-<span class="w">  </span><span class="mi">2</span><span class="no">f</span><span class="p">:</span><span class="w">	</span><span class="no">c3</span><span class="w">                   	</span><span class="no">ret</span><span class="w">    </span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p><strong>Prologue</strong>:</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">push</span> <span class="pre">ebp</span></code>: Saves the base pointer of the previous stack frame.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">ebp,</span> <span class="pre">esp</span></code>: Sets up the current stack frame.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">sub</span> <span class="pre">esp,</span> <span class="pre">0x10</span></code>: Allocates 16 bytes for local variables.</p></li>
-</ul>
-</li>
-<li><p><strong>Position-Independent Code Setup</strong>:</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">call</span> <span class="pre">__x86.get_pc_thunk.ax</span></code>: Calls a helper function to get the program counter.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">add</span> <span class="pre">eax,</span> <span class="pre">_GLOBAL_OFFSET_TABLE_</span></code>: Adjusts the program counter for the Global Offset Table (GOT).</p></li>
-</ul>
-</li>
-<li><p><strong>Variable Initialization</strong>:</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">DWORD</span> <span class="pre">PTR</span> <span class="pre">[ebp-0xc],</span> <span class="pre">0x1</span></code>: Stores <code class="docutils literal notranslate"><span class="pre">1</span></code> in the local variable at <code class="docutils literal notranslate"><span class="pre">-0xc</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">DWORD</span> <span class="pre">PTR</span> <span class="pre">[ebp-0x8],</span> <span class="pre">0x9</span></code>: Stores <code class="docutils literal notranslate"><span class="pre">9</span></code> in the local variable at <code class="docutils literal notranslate"><span class="pre">-0x8</span></code>.</p></li>
-</ul>
-</li>
-<li><p><strong>Addition</strong>:</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">edx,</span> <span class="pre">DWORD</span> <span class="pre">PTR</span> <span class="pre">[ebp-0xc]</span></code>: Loads the first variable (<code class="docutils literal notranslate"><span class="pre">1</span></code>) into <code class="docutils literal notranslate"><span class="pre">edx</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">eax,</span> <span class="pre">DWORD</span> <span class="pre">PTR</span> <span class="pre">[ebp-0x8]</span></code>: Loads the second variable (<code class="docutils literal notranslate"><span class="pre">9</span></code>) into <code class="docutils literal notranslate"><span class="pre">eax</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">add</span> <span class="pre">eax,</span> <span class="pre">edx</span></code>: Adds <code class="docutils literal notranslate"><span class="pre">edx</span></code> to <code class="docutils literal notranslate"><span class="pre">eax</span></code> (result: <code class="docutils literal notranslate"><span class="pre">10</span></code>).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">DWORD</span> <span class="pre">PTR</span> <span class="pre">[ebp-0x4],</span> <span class="pre">eax</span></code>: Stores the result (<code class="docutils literal notranslate"><span class="pre">10</span></code>) in the local variable at <code class="docutils literal notranslate"><span class="pre">-0x4</span></code>.</p></li>
-</ul>
-</li>
-<li><p><strong>Return Value</strong>:</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">eax,</span> <span class="pre">0x0</span></code>: Sets the return value to <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">leave</span></code>: Restores the previous stack frame.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ret</span></code>: Returns control to the caller.</p></li>
-</ul>
 </li>
 </ul>
 </section>
 <hr class="docutils" />
-<section id="disassembly-of-text-x86-get-pc-thunk-ax">
-<h3><strong>Disassembly of <code class="docutils literal notranslate"><span class="pre">.text.__x86.get_pc_thunk.ax</span></code></strong><a class="headerlink" href="#disassembly-of-text-x86-get-pc-thunk-ax" title="Link to this heading">#</a></h3>
-<p>This helper function retrieves the program counter for position-independent code:</p>
-<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="err">00000000</span><span class="w"> </span><span class="err">&lt;</span><span class="nf">__x86.get_pc_thunk.ax</span><span class="err">&gt;</span><span class="p">:</span>
-<span class="w">   </span><span class="err">0:</span><span class="w">	</span><span class="err">8</span><span class="nf">b</span><span class="w"> </span><span class="mi">04</span><span class="w"> </span><span class="mi">24</span><span class="w">             	</span><span class="no">mov</span><span class="w">    </span><span class="no">eax</span><span class="p">,</span><span class="no">DWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">esp</span><span class="p">]</span>
-<span class="w">   </span><span class="err">3:</span><span class="w">	</span><span class="nf">c3</span><span class="w">                   	</span><span class="no">ret</span><span class="w">    </span>
+<section id="disassembly">
+<h3><strong>Disassembly</strong><a class="headerlink" href="#disassembly" title="Link to this heading">#</a></h3>
+<section id="text-section">
+<h4><strong>1. <code class="docutils literal notranslate"><span class="pre">.text</span></code> Section</strong><a class="headerlink" href="#text-section" title="Link to this heading">#</a></h4>
+<div class="highlight-objdump notranslate"><div class="highlight"><pre><span></span><span class="mh">00000000</span><span class="w"> </span><span class="p">&lt;</span><span class="nf">main</span><span class="p">&gt;:</span>
+<span class="w">   </span><span class="nl">0:</span><span class="w">	</span><span class="mh">55 </span><span class="w">                  	</span><span class="nf">push</span><span class="w">   </span><span class="no">ebp</span>
+<span class="w">   </span><span class="nl">1:</span><span class="w">	</span><span class="mh">89 e5 </span><span class="w">               	</span><span class="nf">mov</span><span class="w">    </span><span class="no">ebp</span><span class="p">,</span><span class="no">esp</span>
+<span class="w">   </span><span class="nl">3:</span><span class="w">	</span><span class="mh">83 ec 10 </span><span class="w">            	</span><span class="nf">sub</span><span class="w">    </span><span class="no">esp</span><span class="p">,</span><span class="mi">0x10</span>
+<span class="w">   </span><span class="nl">6:</span><span class="w">	</span><span class="mh">e8 fc ff ff ff </span><span class="w">      	</span><span class="nf">call</span><span class="w">   </span><span class="mh">7</span> <span class="p">&lt;</span><span class="no">main</span><span class="p">+</span><span class="mi">0x7</span><span class="p">&gt;</span>
+<span class="w">			</span><span class="nl">7:</span><span class="w"> </span><span class="py">R_386_PC32</span><span class="w">	</span><span class="no">__x86.get_pc_thunk.ax</span>
+<span class="w">   </span><span class="nl">b:</span><span class="w">	</span><span class="mh">05 01 00 00 00 </span><span class="w">      	</span><span class="nf">add</span><span class="w">    </span><span class="no">eax</span><span class="p">,</span><span class="mi">0x1</span>
+<span class="w">			</span><span class="nl">c:</span><span class="w"> </span><span class="py">R_386_GOTPC</span><span class="w">	</span><span class="no">_GLOBAL_OFFSET_TABLE_</span>
+<span class="w">  </span><span class="nl">10:</span><span class="w">	</span><span class="mh">c7 45 fc 02 00 00 00 </span><span class="w">	</span><span class="nf">mov</span><span class="w">    </span><span class="no">DWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">ebp-0x4</span><span class="p">],</span><span class="mi">0x2</span>
+<span class="w">  </span><span class="nl">17:</span><span class="w">	</span><span class="mh">c7 45 f8 03 00 00 00 </span><span class="w">	</span><span class="nf">mov</span><span class="w">    </span><span class="no">DWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">ebp-0x8</span><span class="p">],</span><span class="mi">0x3</span>
+<span class="w">  </span><span class="nl">1e:</span><span class="w">	</span><span class="mh">8b 45 fc </span><span class="w">            	</span><span class="nf">mov</span><span class="w">    </span><span class="no">eax</span><span class="p">,</span><span class="no">DWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">ebp-0x4</span><span class="p">]</span>
+<span class="w">  </span><span class="nl">21:</span><span class="w">	</span><span class="mh">0f af 45 f8 </span><span class="w">         	</span><span class="nf">imul</span><span class="w">   </span><span class="no">eax</span><span class="p">,</span><span class="no">DWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">ebp-0x8</span><span class="p">]</span>
+<span class="w">  </span><span class="nl">25:</span><span class="w">	</span><span class="mh">89 45 f4 </span><span class="w">            	</span><span class="nf">mov</span><span class="w">    </span><span class="no">DWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">ebp-0xc</span><span class="p">],</span><span class="no">eax</span>
+<span class="w">  </span><span class="nl">28:</span><span class="w">	</span><span class="mh">b8 00 00 00 00 </span><span class="w">      	</span><span class="nf">mov</span><span class="w">    </span><span class="no">eax</span><span class="p">,</span><span class="mi">0x0</span>
+<span class="w">  </span><span class="nl">2d:</span><span class="w">	</span><span class="mh">c9 </span><span class="w">                  	</span><span class="nf">leave</span>
+<span class="w">  </span><span class="nl">2e:</span><span class="w">	</span><span class="mh">c3 </span><span class="w">                  	</span><span class="nf">ret</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">eax,</span> <span class="pre">DWORD</span> <span class="pre">PTR</span> <span class="pre">[esp]</span></code>: Loads the return address (program counter) into <code class="docutils literal notranslate"><span class="pre">eax</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ret</span></code>: Returns to the caller.</p></li>
+<li><p>This is the disassembled code for the <code class="docutils literal notranslate"><span class="pre">main</span></code> function. It matches the assembly code in the previous attachment:</p>
+<ul>
+<li><p>Sets up the stack frame.</p></li>
+<li><p>Initializes variables <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>.</p></li>
+<li><p>Multiplies <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> using the <code class="docutils literal notranslate"><span class="pre">imul</span></code> instruction.</p></li>
+<li><p>Stores the result in <code class="docutils literal notranslate"><span class="pre">c</span></code>.</p></li>
+<li><p>Returns <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
+</ul>
+</li>
 </ul>
 </section>
-<hr class="docutils" />
-<section id="disassembly-of-comment">
-<h3><strong>Disassembly of <code class="docutils literal notranslate"><span class="pre">.comment</span></code></strong><a class="headerlink" href="#disassembly-of-comment" title="Link to this heading">#</a></h3>
-<p>Contains metadata about the compiler:</p>
-<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="err">00000000</span><span class="w"> </span><span class="err">&lt;</span><span class="na">.comment</span><span class="err">&gt;</span><span class="p">:</span>
-<span class="w">   </span><span class="err">0:</span><span class="w">	</span><span class="err">00</span><span class="w"> </span><span class="err">47</span><span class="w"> </span><span class="err">43</span><span class="w">             	</span><span class="nf">add</span><span class="w">    </span><span class="no">BYTE</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">edi</span><span class="err">+</span><span class="mi">0x43</span><span class="p">],</span><span class="no">al</span>
-<span class="w">   </span><span class="na">...</span>
+<section id="text-x86-get-pc-thunk-ax-section">
+<h4><strong>2. <code class="docutils literal notranslate"><span class="pre">.text.__x86.get_pc_thunk.ax</span></code> Section</strong><a class="headerlink" href="#text-x86-get-pc-thunk-ax-section" title="Link to this heading">#</a></h4>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>00000000 &lt;__x86.get_pc_thunk.ax&gt;:
+   0:	8b 04 24             	mov    eax,DWORD PTR [esp]
+   3:	c3                   	ret
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>This section is not executable and contains the string <code class="docutils literal notranslate"><span class="pre">GCC:</span> <span class="pre">(Ubuntu</span> <span class="pre">7.3.0-27ubuntu1~18.04)</span> <span class="pre">7.3.0</span></code>.</p></li>
+<li><p>This is the helper function <code class="docutils literal notranslate"><span class="pre">__x86.get_pc_thunk.ax</span></code>, which retrieves the program counter (PC) value for position-independent code.</p></li>
 </ul>
 </section>
-<hr class="docutils" />
-<section id="disassembly-of-eh-frame">
-<h3><strong>Disassembly of <code class="docutils literal notranslate"><span class="pre">.eh_frame</span></code></strong><a class="headerlink" href="#disassembly-of-eh-frame" title="Link to this heading">#</a></h3>
-<p>Contains exception handling information for stack unwinding:</p>
-<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="err">00000000</span><span class="w"> </span><span class="err">&lt;</span><span class="na">.eh_frame</span><span class="err">&gt;</span><span class="p">:</span>
-<span class="w">   </span><span class="err">0:</span><span class="w">	</span><span class="err">14</span><span class="w"> </span><span class="err">00</span><span class="w">                	</span><span class="nf">adc</span><span class="w">    </span><span class="no">al</span><span class="p">,</span><span class="mi">0x0</span>
-<span class="w">   </span><span class="na">...</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>This section is used by the runtime for exception handling and debugging.</p></li>
-</ul>
 </section>
 <hr class="docutils" />
 <section id="id1">
 <h3><strong>Summary</strong><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
-<p>This object file disassembly shows:</p>
-<ol class="arabic simple">
-<li><p><strong>Code Structure</strong>: The <code class="docutils literal notranslate"><span class="pre">.text</span></code> section contains the main function and helper code for position-independent execution.</p></li>
-<li><p><strong>Relocation</strong>: The GOT setup ensures compatibility with dynamically linked libraries.</p></li>
-<li><p><strong>Metadata</strong>: Sections like <code class="docutils literal notranslate"><span class="pre">.comment</span></code> and <code class="docutils literal notranslate"><span class="pre">.eh_frame</span></code> provide additional information for debugging and exception handling.</p></li>
-</ol>
+<p>This <code class="docutils literal notranslate"><span class="pre">objdump</span></code> output provides a detailed view of the object file <code class="docutils literal notranslate"><span class="pre">mult_int.o</span></code>. It includes:</p>
+<ul class="simple">
+<li><p>Metadata about the file format and architecture.</p></li>
+<li><p>Section details, including their purpose and attributes.</p></li>
+<li><p>A symbol table listing functions and symbols.</p></li>
+<li><p>Disassembled machine code for the <code class="docutils literal notranslate"><span class="pre">main</span></code> function and the helper function <code class="docutils literal notranslate"><span class="pre">__x86.get_pc_thunk.ax</span></code>.</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">main</span></code> function performs integer multiplication (<code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">*</span> <span class="pre">b</span></code>) and returns <code class="docutils literal notranslate"><span class="pre">0</span></code>. The helper function supports position-independent code by retrieving the program counter.</p>
 </section>
 </section>
 <section id="project-code-on-github">
 <h2>Project Code on GitHub<a class="headerlink" href="#project-code-on-github" title="Link to this heading">#</a></h2>
 <p>Project code and resources can be found on my GitHub repository: <br>
-<a class="reference external" href="https://github.com/markkhusid/Disassembling-Binaries/tree/master/C/Intel_architecture/i386/Integer_Operations/Add_Int">GitHub</a></p>
+<a class="reference external" href="https://github.com/markkhusid/Disassembling-Binaries/tree/master/C/Intel_architecture/i386/Integer_Operations/Mult_Int">GitHub</a></p>
 </section>
 </section>
 
@@ -1305,7 +1408,7 @@ start address 0x00000000
         },
         kernelOptions: {
             name: "python3",
-            path: "./Sections/Cybersecurity/Disassembling_Binaries/C/i386/Add_Int"
+            path: "./Sections/Cybersecurity/Disassembling_Binaries/C/i386/Mult_Int"
         },
         predefinedOutput: true
     }
@@ -1323,12 +1426,12 @@ start address 0x00000000
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../i386__HEAD__.html"
+       href="../Add_Int/add_int.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">C Binaries: i386</p>
+        <p class="prev-next-title">Adding Integers: i386</p>
       </div>
     </a>
     <a class="right-next"
@@ -1363,17 +1466,18 @@ start address 0x00000000
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-the-assembly-code">Viewing the Assembly Code</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation-of-the-assembly-code">Explanation of the Assembly Code</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#header-information"><strong>Header Information</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#global-and-function-declarations"><strong>Global and Function Declarations</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#main-function"><strong>Main Function</strong></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#prologue"><strong>Prologue</strong></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#global-offset-table-setup"><strong>Global Offset Table Setup</strong></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-initialization"><strong>Variable Initialization</strong></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#addition-operation"><strong>Addition Operation</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplication"><strong>Multiplication</strong></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#return-value"><strong>Return Value</strong></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epilogue"><strong>Epilogue</strong></a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#helper-function-x86-get-pc-thunk-ax"><strong>Helper Function: <code class="docutils literal notranslate"><span class="pre">__x86.get_pc_thunk.ax</span></code></strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-sections"><strong>Other Sections</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#footer"><strong>Footer</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary"><strong>Summary</strong></a></li>
 </ul>
 </li>
@@ -1385,12 +1489,23 @@ start address 0x00000000
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-the-object-file-disassembly">Viewing the Object File Disassembly</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation-the-object-file-disassembly">Explanation the Object File Disassembly</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-metadata"><strong>File Metadata</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sections"><strong>Sections</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sections"><strong>Sections</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#group"><strong>1. <code class="docutils literal notranslate"><span class="pre">.group</span></code></strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#text"><strong>2. <code class="docutils literal notranslate"><span class="pre">.text</span></code></strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#data"><strong>3. <code class="docutils literal notranslate"><span class="pre">.data</span></code></strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bss"><strong>4. <code class="docutils literal notranslate"><span class="pre">.bss</span></code></strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#text-x86-get-pc-thunk-ax"><strong>5. <code class="docutils literal notranslate"><span class="pre">.text.__x86.get_pc_thunk.ax</span></code></strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#comment"><strong>6. <code class="docutils literal notranslate"><span class="pre">.comment</span></code></strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#note-gnu-property"><strong>7. <code class="docutils literal notranslate"><span class="pre">.note.gnu.property</span></code></strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#eh-frame"><strong>8. <code class="docutils literal notranslate"><span class="pre">.eh_frame</span></code></strong></a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#symbol-table"><strong>Symbol Table</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disassembly-of-text-section"><strong>Disassembly of <code class="docutils literal notranslate"><span class="pre">.text</span></code> Section</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disassembly-of-text-x86-get-pc-thunk-ax"><strong>Disassembly of <code class="docutils literal notranslate"><span class="pre">.text.__x86.get_pc_thunk.ax</span></code></strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disassembly-of-comment"><strong>Disassembly of <code class="docutils literal notranslate"><span class="pre">.comment</span></code></strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disassembly-of-eh-frame"><strong>Disassembly of <code class="docutils literal notranslate"><span class="pre">.eh_frame</span></code></strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disassembly"><strong>Disassembly</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#text-section"><strong>1. <code class="docutils literal notranslate"><span class="pre">.text</span></code> Section</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#text-x86-get-pc-thunk-ax-section"><strong>2. <code class="docutils literal notranslate"><span class="pre">.text.__x86.get_pc_thunk.ax</span></code> Section</strong></a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>Summary</strong></a></li>
 </ul>
 </li>
