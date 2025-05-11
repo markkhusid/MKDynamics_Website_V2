@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Beej’s Guide to C Programming &#8212; MK Dynamics</title>
+    <title>Section 6.6.4 Arrays and Pointers: Passing Multidimensional Arrays to Functions &#8212; MK Dynamics</title>
   
   
   
@@ -73,12 +73,12 @@
                 gtag('config', 'G-BZ3C1QVH0B');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/Beej_s_Guide_to_C_Programming__HEAD__';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/section_6_6_4_arrays_passing_multidimensional_arrays_to_functions';</script>
     <link rel="icon" href="../../../../_static/spacey.jpg"/>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="Section 5.1 Memory and Variables" href="section_5_1_memory_and_variables.html" />
-    <link rel="prev" title="Backdoored Webserver" href="../Backdoored_Webserver/backdoored_webserver.html" />
+    <link rel="next" title="C++ Programming" href="../../CPP/cpp.html" />
+    <link rel="prev" title="Section 6.6.3 Arrays and Pointers: Changing Arrays in Functions" href="section_6_6_3_arrays_changing_arrays_in_functions.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -234,7 +234,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../Assembly/assembly.html">Assembly Language Programming</a></li>
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="../c__HEAD__.html">C Programming</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../Backdoored_Webserver/backdoored_webserver.html">Backdoored Webserver</a></li>
-<li class="toctree-l3 current active has-children"><a class="current reference internal" href="#">Beej’s Guide to C Programming</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="Beej_s_Guide_to_C_Programming__HEAD__.html">Beej’s Guide to C Programming</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="section_5_1_memory_and_variables.html">Section 5.1 Memory and Variables</a></li>
 <li class="toctree-l4"><a class="reference internal" href="section_5_3_dereferencing.html">Section 5.3 Dereferencing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="section_5_4_passing_pointers_as_arguments.html">Section 5.4 Passing Pointers as Arguments</a></li>
@@ -245,7 +245,7 @@
 <li class="toctree-l4"><a class="reference internal" href="section_6_6_1_arrays_getting_a_pointer_to_an_array.html">Section 6.6.1 Arrays and Pointers: Getting a Pointer to an Array</a></li>
 <li class="toctree-l4"><a class="reference internal" href="section_6_6_2_arrays_passing_single_dimensional_arrays_to_functions.html">Section 6.6.2 Arrays and Pointers: Passing Single-Dimensional Arrays to Functions</a></li>
 <li class="toctree-l4"><a class="reference internal" href="section_6_6_3_arrays_changing_arrays_in_functions.html">Section 6.6.3 Arrays and Pointers: Changing Arrays in Functions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="section_6_6_4_arrays_passing_multidimensional_arrays_to_functions.html">Section 6.6.4 Arrays and Pointers: Passing Multidimensional Arrays to Functions</a></li>
+<li class="toctree-l4 current active"><a class="current reference internal" href="#">Section 6.6.4 Arrays and Pointers: Passing Multidimensional Arrays to Functions</a></li>
 </ul>
 </details></li>
 </ul>
@@ -489,6 +489,91 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/markkhusid/MKDynamics_Website_V2/master?urlpath=lab/tree/Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/section_6_6_4_arrays_passing_multidimensional_arrays_to_functions.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https%3A//github.com/markkhusid/MKDynamics_Website_V2&urlpath=lab/tree/MKDynamics_Website_V2/Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/section_6_6_4_arrays_passing_multidimensional_arrays_to_functions.ipynb&branch=master" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on JupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="JupyterHub logo" src="../../../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/markkhusid/MKDynamics_Website_V2/blob/master/Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/section_6_6_4_arrays_passing_multidimensional_arrays_to_functions.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -514,7 +599,7 @@
       
       
       
-      <li><a href="https://github.com/markkhusid/MKDynamics_Website_V2/issues/new?title=Issue%20on%20page%20%2FSections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/Beej_s_Guide_to_C_Programming__HEAD__.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/markkhusid/MKDynamics_Website_V2/issues/new?title=Issue%20on%20page%20%2FSections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/section_6_6_4_arrays_passing_multidimensional_arrays_to_functions.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -544,7 +629,7 @@
       
       
       
-      <li><a href="../../../../_sources/Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/Beej_s_Guide_to_C_Programming__HEAD__.md" target="_blank"
+      <li><a href="../../../../_sources/Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/section_6_6_4_arrays_passing_multidimensional_arrays_to_functions.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -554,7 +639,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -620,7 +705,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Beej’s Guide to C Programming</h1>
+    <h1>Section 6.6.4 Arrays and Pointers: Passing Multidimensional Arrays to Functions</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -630,10 +715,31 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources-and-textbooks-used">Resources and Textbooks Used</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beejs-guide-to-c-programming-by-brian-beej-hall">“Beej’s Guide to C Programming” by Brian “Beej” Hall</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#program-for-demonstrating-passing-multidimensional-arrays-to-functions">Program for Demonstrating Passing Multidimensional Arrays to Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation-of-the-above-code">Explanation of the Above Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#include-stdio-h">1. <strong><code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&lt;stdio.h&gt;</span></code></strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#function-definition-print-2d-array">2. <strong>Function Definition: <code class="docutils literal notranslate"><span class="pre">print_2D_array</span></code></strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key Points:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-execution">Example Execution:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#main-function">3. <strong><code class="docutils literal notranslate"><span class="pre">main</span></code> Function</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Key Points:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#program-output">4. <strong>Program Output</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-demonstrated">5. <strong>Key Concepts Demonstrated</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-passing-multidimensional-arrays-to-functions">a. <strong>Passing Multidimensional Arrays to Functions</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#b-nested-loops-for-2d-arrays">b. <strong>Nested Loops for 2D Arrays</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#c-memory-layout-of-2d-arrays">c. <strong>Memory Layout of 2D Arrays</strong></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-the-code-works-step-by-step">6. <strong>How the Code Works Step-by-Step</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-the-dimensions-2-3-are-required">7. <strong>Why the Dimensions <code class="docutils literal notranslate"><span class="pre">[2][3]</span></code> Are Required</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compile-and-run-code">Compile and Run Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-python-to-change-to-working-directory">Use Python to Change to Working Directory</a></li>
 </ul>
 </li>
 </ul>
@@ -647,40 +753,274 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="beejs-guide-to-c-programming">
-<h1>Beej’s Guide to C Programming<a class="headerlink" href="#beejs-guide-to-c-programming" title="Link to this heading">#</a></h1>
-<p><img alt="Beej's Guide to C Programming" src="../../../../_images/C_programming2.jpg" /></p>
-<section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
-<p>Beej’s Guide to C Programming is a comprehensive guide to the C programming language, written by Brian “Beej” Hall. It covers a wide range of topics, from the basics of C syntax and data types to more advanced topics such as memory management, file I/O, and network programming. The guide is designed to be accessible to beginners while also providing in-depth information for more experienced programmers.</p>
-<p>The guide is available online for free, and it is widely regarded as one of the best resources for learning C programming. It includes numerous examples and exercises to help reinforce the concepts covered in each chapter. The guide also provides links to additional resources and references for further reading.</p>
-</section>
-<section id="table-of-contents">
-<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Link to this heading">#</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="section_5_1_memory_and_variables.html">Section 5.1 Memory and Variables</a></li>
-<li class="toctree-l1"><a class="reference internal" href="section_5_3_dereferencing.html">Section 5.3 Dereferencing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="section_5_4_passing_pointers_as_arguments.html">Section 5.4 Passing Pointers as Arguments</a></li>
-<li class="toctree-l1"><a class="reference internal" href="section_6_1_arrays_an_easy_example.html">Section 6.1 Arrays: An Easy Example</a></li>
-<li class="toctree-l1"><a class="reference internal" href="section_6_3_arrays_array_initializers.html">Section 6.3 Arrays: Array Initializers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="section_6_4_arrays_out_of_bounds.html">Section 6.4 Arrays: Out of Bounds</a></li>
-<li class="toctree-l1"><a class="reference internal" href="section_6_5_arrays_multidimensional_arrays.html">Section 6.5 Arrays: Multidimensional Arrays</a></li>
-<li class="toctree-l1"><a class="reference internal" href="section_6_6_1_arrays_getting_a_pointer_to_an_array.html">Section 6.6.1 Arrays and Pointers: Getting a Pointer to an Array</a></li>
-<li class="toctree-l1"><a class="reference internal" href="section_6_6_2_arrays_passing_single_dimensional_arrays_to_functions.html">Section 6.6.2 Arrays and Pointers: Passing Single-Dimensional Arrays to Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="section_6_6_3_arrays_changing_arrays_in_functions.html">Section 6.6.3 Arrays and Pointers: Changing Arrays in Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="section_6_6_4_arrays_passing_multidimensional_arrays_to_functions.html">Section 6.6.4 Arrays and Pointers: Passing Multidimensional Arrays to Functions</a></li>
-</ul>
+  <section class="tex2jax_ignore mathjax_ignore" id="section-6-6-4-arrays-and-pointers-passing-multidimensional-arrays-to-functions">
+<h1>Section 6.6.4 Arrays and Pointers: Passing Multidimensional Arrays to Functions<a class="headerlink" href="#section-6-6-4-arrays-and-pointers-passing-multidimensional-arrays-to-functions" title="Link to this heading">#</a></h1>
+<p>Adapted from: “Beej’s Guide to C Programming” by Brian (Beej Jorgensen) Hall: <a class="reference external" href="https://beej.us/guide/bgc/html/split/arrays.html#passing-multidimensional-arrays-to-functions">Beej’s Guide to C Programming: 6.6.4 Arrays and Pointers: Passing Multidimensional Arrays to Functions</a></p>
+<p><a class="reference external" href="https://beej.us/">Brian (Beej Jorgensen) Hall Website</a></p>
+<section id="program-for-demonstrating-passing-multidimensional-arrays-to-functions">
+<h2>Program for Demonstrating Passing Multidimensional Arrays to Functions<a class="headerlink" href="#program-for-demonstrating-passing-multidimensional-arrays-to-functions" title="Link to this heading">#</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">print_2D_array</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">3</span><span class="p">])</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">row</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="n">col</span><span class="o">++</span><span class="p">)</span>
+<span class="w">            </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">]);</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">}</span>
+<span class="w">    </span><span class="p">};</span>
+
+<span class="w">    </span><span class="n">print_2D_array</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
 </div>
 </section>
-<section id="resources-and-textbooks-used">
-<h2>Resources and Textbooks Used<a class="headerlink" href="#resources-and-textbooks-used" title="Link to this heading">#</a></h2>
-<section id="beejs-guide-to-c-programming-by-brian-beej-hall">
-<h3>“Beej’s Guide to C Programming” by Brian “Beej” Hall<a class="headerlink" href="#beejs-guide-to-c-programming-by-brian-beej-hall" title="Link to this heading">#</a></h3>
-<p>The guide may be found here: <br>
-<a class="reference external" href="https://beej.us/guide/bgc/">Beej’s Guide to C Programming</a> <br><br>
-Source code may be found in GitHub here: <br>
-<a class="reference external" href="https://github.com/beejjorgensen/bgc">GihHub</a></p>
+<section id="explanation-of-the-above-code">
+<h2>Explanation of the Above Code<a class="headerlink" href="#explanation-of-the-above-code" title="Link to this heading">#</a></h2>
+<p>This C program demonstrates how to pass a 2D array to a function and print its elements. Below is a detailed explanation of each part of the code:</p>
+<hr class="docutils" />
+<section id="include-stdio-h">
+<h3>1. <strong><code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&lt;stdio.h&gt;</span></code></strong><a class="headerlink" href="#include-stdio-h" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>This line includes the <strong>Standard Input/Output Library</strong> in the program.</p></li>
+<li><p>It allows the use of functions like <code class="docutils literal notranslate"><span class="pre">printf</span></code> for printing output to the console.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="function-definition-print-2d-array">
+<h3>2. <strong>Function Definition: <code class="docutils literal notranslate"><span class="pre">print_2D_array</span></code></strong><a class="headerlink" href="#function-definition-print-2d-array" title="Link to this heading">#</a></h3>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">print_2D_array</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">3</span><span class="p">])</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">row</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="n">col</span><span class="o">++</span><span class="p">)</span>
+<span class="w">            </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">]);</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Purpose:</strong> This function takes a 2D array as input and prints its elements row by row.</p></li>
+</ul>
+<section id="key-points">
+<h4>Key Points:<a class="headerlink" href="#key-points" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Parameter:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">a[2][3]</span></code></p>
+<ul>
+<li><p>The function accepts a 2D array with 2 rows and 3 columns.</p></li>
+<li><p>The dimensions <code class="docutils literal notranslate"><span class="pre">[2][3]</span></code> must be explicitly specified in the function signature to correctly access the array elements.</p></li>
+</ul>
+</li>
+<li><p><strong>Logic:</strong></p>
+<ul>
+<li><p>The function uses <strong>nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</strong> to iterate through the 2D array:</p>
+<ul>
+<li><p>The <strong>outer loop</strong> iterates over the rows (<code class="docutils literal notranslate"><span class="pre">row</span></code> index).</p></li>
+<li><p>The <strong>inner loop</strong> iterates over the columns (<code class="docutils literal notranslate"><span class="pre">col</span></code> index).</p></li>
+</ul>
+</li>
+<li><p>Each element of the array is accessed using <code class="docutils literal notranslate"><span class="pre">a[row][col]</span></code> and printed using <code class="docutils literal notranslate"><span class="pre">printf(&quot;%d</span> <span class="pre">&quot;,</span> <span class="pre">a[row][col]);</span></code>.</p></li>
+<li><p>After printing all elements in a row, a newline (<code class="docutils literal notranslate"><span class="pre">\n</span></code>) is printed to move to the next row.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="example-execution">
+<h4>Example Execution:<a class="headerlink" href="#example-execution" title="Link to this heading">#</a></h4>
+<ul>
+<li><p>For the array:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span>
+<span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span>
+</pre></div>
+</div>
+<ul>
+<li><p>The outer loop runs twice (for 2 rows).</p></li>
+<li><p>The inner loop runs three times for each row (for 3 columns).</p></li>
+<li><p>The elements are printed in the following order:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span>
+<span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="main-function">
+<h3>3. <strong><code class="docutils literal notranslate"><span class="pre">main</span></code> Function</strong><a class="headerlink" href="#main-function" title="Link to this heading">#</a></h3>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">}</span>
+<span class="w">    </span><span class="p">};</span>
+
+<span class="w">    </span><span class="n">print_2D_array</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Purpose:</strong> This is the entry point of the program. It initializes a 2D array and calls the <code class="docutils literal notranslate"><span class="pre">print_2D_array</span></code> function to print its elements.</p></li>
+</ul>
+<section id="id1">
+<h4>Key Points:<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<ul>
+<li><p><strong>Array Declaration and Initialization:</strong></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<ul>
+<li><p>A 2D array <code class="docutils literal notranslate"><span class="pre">x</span></code> with 2 rows and 3 columns is declared and initialized.</p></li>
+<li><p>The array is stored in memory as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Row</span> <span class="mi">0</span><span class="p">:</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span>
+<span class="n">Row</span> <span class="mi">1</span><span class="p">:</span> <span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p><strong>Function Call:</strong></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">print_2D_array</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The array <code class="docutils literal notranslate"><span class="pre">x</span></code> is passed to the <code class="docutils literal notranslate"><span class="pre">print_2D_array</span></code> function.</p></li>
+<li><p>In C, when an array is passed to a function, it is passed by reference (as a pointer to the first element). The function can access and process the array elements directly.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="program-output">
+<h3>4. <strong>Program Output</strong><a class="headerlink" href="#program-output" title="Link to this heading">#</a></h3>
+<p>When the program is executed, the output is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span>
+<span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">print_2D_array</span></code> function prints each row of the array on a new line.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="key-concepts-demonstrated">
+<h3>5. <strong>Key Concepts Demonstrated</strong><a class="headerlink" href="#key-concepts-demonstrated" title="Link to this heading">#</a></h3>
+<section id="a-passing-multidimensional-arrays-to-functions">
+<h4>a. <strong>Passing Multidimensional Arrays to Functions</strong><a class="headerlink" href="#a-passing-multidimensional-arrays-to-functions" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>In C, when a 2D array is passed to a function, the function receives a pointer to the first element of the array.</p></li>
+<li><p>The dimensions of the array (e.g., <code class="docutils literal notranslate"><span class="pre">[2][3]</span></code>) must be specified in the function signature to correctly access the elements.</p></li>
+</ul>
+</section>
+<section id="b-nested-loops-for-2d-arrays">
+<h4>b. <strong>Nested Loops for 2D Arrays</strong><a class="headerlink" href="#b-nested-loops-for-2d-arrays" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>The outer loop iterates over rows, and the inner loop iterates over columns to access each element of the 2D array.</p></li>
+</ul>
+</section>
+<section id="c-memory-layout-of-2d-arrays">
+<h4>c. <strong>Memory Layout of 2D Arrays</strong><a class="headerlink" href="#c-memory-layout-of-2d-arrays" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>A 2D array in C is stored in <strong>row-major order</strong> in memory:</p>
+<ul>
+<li><p>All elements of the first row are stored consecutively, followed by all elements of the second row, and so on.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="how-the-code-works-step-by-step">
+<h3>6. <strong>How the Code Works Step-by-Step</strong><a class="headerlink" href="#how-the-code-works-step-by-step" title="Link to this heading">#</a></h3>
+<ol class="arabic">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">main</span></code> function initializes a 2D array <code class="docutils literal notranslate"><span class="pre">x</span></code> with the values:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span>
+<span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span>
+</pre></div>
+</div>
+</li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">print_2D_array</span></code> function is called with <code class="docutils literal notranslate"><span class="pre">x</span></code> as an argument.</p></li>
+<li><p>Inside the <code class="docutils literal notranslate"><span class="pre">print_2D_array</span></code> function:</p>
+<ul class="simple">
+<li><p>The outer loop iterates over the rows (<code class="docutils literal notranslate"><span class="pre">row</span> <span class="pre">=</span> <span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">row</span> <span class="pre">=</span> <span class="pre">1</span></code>).</p></li>
+<li><p>For each row, the inner loop iterates over the columns (<code class="docutils literal notranslate"><span class="pre">col</span> <span class="pre">=</span> <span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">col</span> <span class="pre">=</span> <span class="pre">1</span></code>, and <code class="docutils literal notranslate"><span class="pre">col</span> <span class="pre">=</span> <span class="pre">2</span></code>).</p></li>
+<li><p>Each element is printed using <code class="docutils literal notranslate"><span class="pre">printf</span></code>.</p></li>
+<li><p>After printing all elements in a row, a newline is printed to move to the next row.</p></li>
+</ul>
+</li>
+<li><p>The program outputs the array elements in a formatted way.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="why-the-dimensions-2-3-are-required">
+<h3>7. <strong>Why the Dimensions <code class="docutils literal notranslate"><span class="pre">[2][3]</span></code> Are Required</strong><a class="headerlink" href="#why-the-dimensions-2-3-are-required" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>The compiler needs to know the number of columns in the array (e.g., <code class="docutils literal notranslate"><span class="pre">3</span></code> in this case) to correctly calculate the memory offset for each element.</p></li>
+<li><p>Without specifying the number of columns, the compiler cannot determine where the next row starts.</p></li>
+</ul>
+<hr class="docutils" />
+<p>This program is a simple and effective demonstration of how to pass and process multidimensional arrays in C.</p>
+</section>
+</section>
+<section id="compile-and-run-code">
+<h2>Compile and Run Code<a class="headerlink" href="#compile-and-run-code" title="Link to this heading">#</a></h2>
+<section id="use-python-to-change-to-working-directory">
+<h3>Use Python to Change to Working Directory<a class="headerlink" href="#use-python-to-change-to-working-directory" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="n">root_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">code_dir</span> <span class="o">=</span> <span class="n">root_dir</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="s2">&quot;C_Code&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">code_dir</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">build_command</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;gcc -o section_6_6_4_passing_multidimensional_arrays_to_functions section_6_6_4_passing_multidimensional_arrays_to_functions.c&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exec_status</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;./section_6_6_4_passing_multidimensional_arrays_to_functions&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 2 3 
+4 5 6 
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 </section>
@@ -694,16 +1034,16 @@ Source code may be found in GitHub here: <br>
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "py311_env"
         },
         kernelOptions: {
-            name: "python3",
+            name: "py311_env",
             path: "./Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'py311_env'</script>
 
                 </article>
               
@@ -716,20 +1056,20 @@ Source code may be found in GitHub here: <br>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../Backdoored_Webserver/backdoored_webserver.html"
+       href="section_6_6_3_arrays_changing_arrays_in_functions.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Backdoored Webserver</p>
+        <p class="prev-next-title">Section 6.6.3 Arrays and Pointers: Changing Arrays in Functions</p>
       </div>
     </a>
     <a class="right-next"
-       href="section_5_1_memory_and_variables.html"
+       href="../../CPP/cpp.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Section 5.1 Memory and Variables</p>
+        <p class="prev-next-title">C++ Programming</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -750,10 +1090,31 @@ Source code may be found in GitHub here: <br>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources-and-textbooks-used">Resources and Textbooks Used</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beejs-guide-to-c-programming-by-brian-beej-hall">“Beej’s Guide to C Programming” by Brian “Beej” Hall</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#program-for-demonstrating-passing-multidimensional-arrays-to-functions">Program for Demonstrating Passing Multidimensional Arrays to Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation-of-the-above-code">Explanation of the Above Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#include-stdio-h">1. <strong><code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&lt;stdio.h&gt;</span></code></strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#function-definition-print-2d-array">2. <strong>Function Definition: <code class="docutils literal notranslate"><span class="pre">print_2D_array</span></code></strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key Points:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-execution">Example Execution:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#main-function">3. <strong><code class="docutils literal notranslate"><span class="pre">main</span></code> Function</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Key Points:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#program-output">4. <strong>Program Output</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-demonstrated">5. <strong>Key Concepts Demonstrated</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-passing-multidimensional-arrays-to-functions">a. <strong>Passing Multidimensional Arrays to Functions</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#b-nested-loops-for-2d-arrays">b. <strong>Nested Loops for 2D Arrays</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#c-memory-layout-of-2d-arrays">c. <strong>Memory Layout of 2D Arrays</strong></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-the-code-works-step-by-step">6. <strong>How the Code Works Step-by-Step</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-the-dimensions-2-3-are-required">7. <strong>Why the Dimensions <code class="docutils literal notranslate"><span class="pre">[2][3]</span></code> Are Required</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compile-and-run-code">Compile and Run Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-python-to-change-to-working-directory">Use Python to Change to Working Directory</a></li>
 </ul>
 </li>
 </ul>
