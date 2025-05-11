@@ -43,6 +43,19 @@ Multiplying Integers
 ```
 :::
 
+:::{grid-item-card}
+:link: Div_Int/div_int
+:link-type: doc
+:class-header: bg-dark
+
+Dividing Integers
+^^^
+```{image} images/div_int_C_i386_splash.png
+:height: 200
+:align: center
+```
+:::
+
 ::::
 
 

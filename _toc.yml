@@ -29,6 +29,7 @@ parts:
           sections:
           - file: Sections/Cybersecurity/Disassembling_Binaries/C/i386/Add_Int/add_int
           - file: Sections/Cybersecurity/Disassembling_Binaries/C/i386/Mult_Int/mult_int
+          - file: Sections/Cybersecurity/Disassembling_Binaries/C/i386/Div_Int/div_int
 
 
       - file: Sections/Cybersecurity/Disassembling_Binaries/C++/c++
