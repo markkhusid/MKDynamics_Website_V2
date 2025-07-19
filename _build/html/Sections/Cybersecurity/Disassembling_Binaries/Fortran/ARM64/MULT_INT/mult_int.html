@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Fortran - ARM 64-Bit Platform - Add Two Integers &#8212; MK Dynamics</title>
+    <title>Fortran - ARM 64-Bit Platform - Multiply Two Integers &#8212; MK Dynamics</title>
   
   
   
@@ -73,12 +73,12 @@
                 gtag('config', 'G-BZ3C1QVH0B');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Sections/Cybersecurity/Disassembling_Binaries/Fortran/ARM64/ADD_INT/add_int';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Sections/Cybersecurity/Disassembling_Binaries/Fortran/ARM64/MULT_INT/mult_int';</script>
     <link rel="icon" href="../../../../../../_static/spacey.jpg"/>
     <link rel="index" title="Index" href="../../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../../search.html" />
-    <link rel="next" title="Fortran - ARM 64-Bit Platform - Multiply Two Integers" href="../MULT_INT/mult_int.html" />
-    <link rel="prev" title="ARM 64 Bit" href="../arm64.html" />
+    <link rel="next" title="ARM32" href="../../ARM32/arm32.html" />
+    <link rel="prev" title="Fortran - ARM 64-Bit Platform - Add Two Integers" href="../ADD_INT/add_int.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -514,7 +514,7 @@
       
       
       
-      <li><a href="https://github.com/markkhusid/MKDynamics_Website_V2/issues/new?title=Issue%20on%20page%20%2FSections/Cybersecurity/Disassembling_Binaries/Fortran/ARM64/ADD_INT/add_int.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/markkhusid/MKDynamics_Website_V2/issues/new?title=Issue%20on%20page%20%2FSections/Cybersecurity/Disassembling_Binaries/Fortran/ARM64/MULT_INT/mult_int.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -544,7 +544,7 @@
       
       
       
-      <li><a href="../../../../../../_sources/Sections/Cybersecurity/Disassembling_Binaries/Fortran/ARM64/ADD_INT/add_int.md" target="_blank"
+      <li><a href="../../../../../../_sources/Sections/Cybersecurity/Disassembling_Binaries/Fortran/ARM64/MULT_INT/mult_int.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -620,7 +620,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Fortran - ARM 64-Bit Platform - Add Two Integers</h1>
+    <h1>Fortran - ARM 64-Bit Platform - Multiply Two Integers</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -631,9 +631,37 @@
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-program-add-f08">The program <em>add.f08</em></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disassembling-add-int-fortran-aarch64-ggdb3-in-gdb-gef">Disassembling <em>add_int_Fortran_aarch64_ggdb3</em> in GDB + GEF</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-add-int-fortran-aarch64-ggdb3-in-gdb-gef">Running <em>add_int_Fortran_aarch64_ggdb3</em> in GDB + GEF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-program-mult-int-f08">The program <em>mult_int.f08</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disassembling-mult-int-fortran-aarch64-ggdb3">Disassembling <em>mult_int_Fortran_aarch64_ggdb3</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explaining-the-dissassembly-by-chatgpt-4o">Explaining the Dissassembly by ChatGPT 4o</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#function-main">Function: <code class="docutils literal notranslate"><span class="pre">MAIN__</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#prologue-stack-setup">1. <strong>Prologue: Stack setup</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-a-2">2. <strong>Initialize <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">2</span></code></strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-b-3">3. <strong>Initialize <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">3</span></code></strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-c-a-b">4. <strong>Compute <code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">=</span> <span class="pre">a</span> <span class="pre">*</span> <span class="pre">b</span></code></strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epilogue-clean-up-stack">5. <strong>Epilogue: Clean up stack</strong></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Function: <code class="docutils literal notranslate"><span class="pre">main</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#prologue">1. <strong>Prologue</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#store-argc-argv">2. <strong>Store argc, argv</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-fortran-runtime-arguments">3. <strong>Initialize Fortran runtime arguments</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#set-fortran-runtime-options">4. <strong>Set Fortran runtime options</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#call-fortran-main-program">5. <strong>Call Fortran main program</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#return-from-main">6. <strong>Return from main</strong></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stack-layout-summary-inside-main">Stack Layout Summary (inside <code class="docutils literal notranslate"><span class="pre">MAIN__</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explaining-the-disassembly-by-grok-4">Explaining the Disassembly by Grok 4</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-the-disassembly">Overview of the Disassembly</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#detailed-explanation-of-main-offset-0x0000000000000000">Detailed Explanation of <code class="docutils literal notranslate"><span class="pre">&lt;MAIN__&gt;</span></code> (Offset 0x0000000000000000)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#detailed-explanation-of-main-offset-0x0000000000000030">Detailed Explanation of <code class="docutils literal notranslate"><span class="pre">&lt;main&gt;</span></code> (Offset 0x0000000000000030)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-notes">Additional Notes</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -645,49 +673,50 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="fortran-arm-64-bit-platform-add-two-integers">
-<h1>Fortran - ARM 64-Bit Platform - Add Two Integers<a class="headerlink" href="#fortran-arm-64-bit-platform-add-two-integers" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="fortran-arm-64-bit-platform-multiply-two-integers">
+<h1>Fortran - ARM 64-Bit Platform - Multiply Two Integers<a class="headerlink" href="#fortran-arm-64-bit-platform-multiply-two-integers" title="Link to this heading">#</a></h1>
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
-<p>In this section we will be disassembling simple binaries generated by the Fortran high-level language compiled for the 64-bit ARM platform. We will disassemble the binaries using GDB+GEF as well Radare2.</p>
+<p>In this section we will be disassembling simple binaries generated by the Fortran high-level language compiled for the 64-bit ARM platform.</p>
 <p>Project code for this section is contained in my <a class="github reference external" href="https://github.com/markkhusid/Disassembling-Binaries/tree/master/Fortran/ARM_architecture/ARM64">markkhusid/Disassembling-Binaries</a>.</p>
 </section>
 <hr class="docutils" />
-<section id="the-program-add-f08">
-<h2>The program <em>add.f08</em><a class="headerlink" href="#the-program-add-f08" title="Link to this heading">#</a></h2>
-<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">add_int</span>
+<section id="the-program-mult-int-f08">
+<h2>The program <em>mult_int.f08</em><a class="headerlink" href="#the-program-mult-int-f08" title="Link to this heading">#</a></h2>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">mult</span>
 
-<span class="w">    </span><span class="k">implicit none</span>
+<span class="w">	</span><span class="k">implicit none</span>
 
-<span class="k">    </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span>
+<span class="k">	</span><span class="kt">integer</span><span class="w">		</span><span class="kd">::</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span>
 
-<span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
-<span class="w">    </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">9</span>
+<span class="w">	</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">	</span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
 
-<span class="w">    </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span>
-<span class="w">    </span>
-<span class="k">end program </span><span class="n">add_int</span>
+<span class="w">	</span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span>
+
+<span class="k">end program </span><span class="n">mult</span>
 </pre></div>
 </div>
-<p>The program displays the contents of the program <em>add_int.f08</em>. The program creates three integers: a, b, and c. <code class="docutils literal notranslate"><span class="pre">a</span></code> is assigned the value of 1, <code class="docutils literal notranslate"><span class="pre">b</span></code> is assigned the value of 9, and <code class="docutils literal notranslate"><span class="pre">c</span></code> is assigned the result of the operation <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code>.</p>
+<p>The program displays the contents of the program <em>mult_int.f08</em>. The program creates three integers: a, b, and c. <code class="docutils literal notranslate"><span class="pre">a</span></code> is assigned the value of 2, <code class="docutils literal notranslate"><span class="pre">b</span></code> is assigned the value of 3, and <code class="docutils literal notranslate"><span class="pre">c</span></code> is assigned the result of the operation <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">*</span> <span class="pre">b</span></code>.</p>
 <p>The program is obviously very simple, with no inputs and outputs. The idea is to generate the binary and look at the disassembly to learn about the workings of the 64-bit ARM processor platform.</p>
-<p>The chosen test system is an instance on Amazon Web Services. This is a new service that is powered by a 64-bit ARMv8 processor. It fits very well for this application due to its availability and ease of access from multiple remote systems via SSH.</p>
+<p>The chosen test system is my trusty Samsung Chromebook Plus V2, which has a 64-bit ARMv8 processor. This is a very convenient platform for this exercise due to its availability and ease of access from multiple remote systems via SSH.</p>
+<p>The program is compiled with the GNU Fortran compiler, <code class="docutils literal notranslate"><span class="pre">gfortran</span></code>, which is available on the ARM platform. The program is compiled with debugging information using the <code class="docutils literal notranslate"><span class="pre">-ggdb3</span></code> option, which allows us to debug the program in GDB and see the source code interspersed with the assembly instructions.</p>
 <p>The program is compiled with:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>gfortran<span class="w"> </span>-ggdb3<span class="w"> </span>add.f08<span class="w"> </span>-o<span class="w"> </span>add_int_Fortran_aarch64_ggdb3
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>gfortran<span class="w"> </span>-ggdb3<span class="w"> </span>mult_int.f08<span class="w"> </span>-o<span class="w"> </span>mult_int_Fortran_aarch64_ggdb3
 </pre></div>
 </div>
 <p>For general edification, we also have <code class="docutils literal notranslate"><span class="pre">gfortran</span></code> produce generic assembly with the <code class="docutils literal notranslate"><span class="pre">-S</span></code> option, an object file with the <code class="docutils literal notranslate"><span class="pre">-o</span></code> option, and object dumps of the object and executable files.</p>
 <p>The generic assembly is generated by using the <code class="docutils literal notranslate"><span class="pre">-S</span></code> (assembly) option:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>gfortran<span class="w"> </span>-S<span class="w"> </span>-ggdb3<span class="w"> </span>add.f08<span class="w"> </span>-o<span class="w"> </span>add.s
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>gfortran<span class="w"> </span>-S<span class="w"> </span>-ggdb3<span class="w"> </span>mult_int.f08<span class="w"> </span>-o<span class="w"> </span>mult_int.s
 </pre></div>
 </div>
 <p>The object file is generated by using the <code class="docutils literal notranslate"><span class="pre">-c</span></code> (compile) option:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>gfortran<span class="w"> </span>-c<span class="w"> </span>-ggdb3<span class="w"> </span>add.s<span class="w"> </span>-o<span class="w"> </span>add.o
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>gfortran<span class="w"> </span>-c<span class="w"> </span>-ggdb3<span class="w"> </span>mult_int.s<span class="w"> </span>-o<span class="w"> </span>mult_int.o
 </pre></div>
 </div>
 <p>The objdump files are generated by using the following command and options:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>objdump<span class="w"> </span>-x<span class="w"> </span>-D<span class="w"> </span>-S<span class="w"> </span>-s<span class="w"> </span>-g<span class="w"> </span>-t<span class="w"> </span>add.o<span class="w"> </span>&gt;<span class="w"> </span>objdump_of_dot_o.txt
-$<span class="w"> </span>objdump<span class="w"> </span>-x<span class="w"> </span>-D<span class="w"> </span>-S<span class="w"> </span>-s<span class="w"> </span>-g<span class="w"> </span>-t<span class="w"> </span>add_int_Fortran_aarch64_ggdb3<span class="w"> </span>&gt;<span class="w"> </span>objdump_of_dot_exe.txt
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>objdump<span class="w"> </span>-x<span class="w"> </span>-D<span class="w"> </span>-S<span class="w"> </span>-s<span class="w"> </span>-g<span class="w"> </span>-t<span class="w"> </span>mult_int.o<span class="w"> </span>&gt;<span class="w"> </span>objdump_of_dot_o.txt
+$<span class="w"> </span>objdump<span class="w"> </span>-x<span class="w"> </span>-D<span class="w"> </span>-S<span class="w"> </span>-s<span class="w"> </span>-g<span class="w"> </span>-t<span class="w"> </span>mult_int_Fortran_aarch64_ggdb3<span class="w"> </span>&gt;<span class="w"> </span>objdump_of_dot_exe.txt
 </pre></div>
 </div>
 <p>A rundown of the objdump options is shown here:</p>
@@ -740,109 +769,354 @@ Usage:<span class="w"> </span>objdump<span class="w"> </span>&lt;option<span cla
 <p>We will now disassemble this program on the 64-bit ARM platform and step through the assembly instructions.</p>
 </section>
 <hr class="docutils" />
-<section id="disassembling-add-int-fortran-aarch64-ggdb3-in-gdb-gef">
-<h2>Disassembling <em>add_int_Fortran_aarch64_ggdb3</em> in GDB + GEF<a class="headerlink" href="#disassembling-add-int-fortran-aarch64-ggdb3-in-gdb-gef" title="Link to this heading">#</a></h2>
-<p>The debug process is started by entering:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>gdb<span class="w"> </span>add_int_Fortran_aarch64_ggdb3
-</pre></div>
-</div>
-<p>We then want to disassemble <code class="docutils literal notranslate"><span class="pre">main</span></code>. Looking at main’s disassembly, we notice a call at <code class="docutils literal notranslate"><span class="pre">main+44</span></code> to a function at address <code class="docutils literal notranslate"><span class="pre">0x870</span></code> called <em>add</em>. We then do a disassembly on this function as well.</p>
-<p><img alt="Disassembly of function main" src="../../../../../../_images/running_add_Fortran_aarch64_in_GEF_showing_main.jpg" /></p>
-</section>
-<hr class="docutils" />
-<section id="running-add-int-fortran-aarch64-ggdb3-in-gdb-gef">
-<h2>Running <em>add_int_Fortran_aarch64_ggdb3</em> in GDB + GEF<a class="headerlink" href="#running-add-int-fortran-aarch64-ggdb3-in-gdb-gef" title="Link to this heading">#</a></h2>
+<section id="disassembling-mult-int-fortran-aarch64-ggdb3">
+<h2>Disassembling <em>mult_int_Fortran_aarch64_ggdb3</em><a class="headerlink" href="#disassembling-mult-int-fortran-aarch64-ggdb3" title="Link to this heading">#</a></h2>
 <p>When we look at the executable’s objdump, we notice that there are two functions of interest, one is <code class="docutils literal notranslate"><span class="pre">main</span></code>, and the other is <code class="docutils literal notranslate"><span class="pre">MAIN__</span></code>. The Fortran compiler sets up the program arguments and options in <code class="docutils literal notranslate"><span class="pre">main</span></code>, while the actual program is contained within <code class="docutils literal notranslate"><span class="pre">MAIN__</span></code> (that is capital MAIN followed by two underscores).</p>
 <p>The following text from the executable’s objdump illustrates this:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>00000000000007c4<span class="w"> </span><span class="o">(</span>MAIN__<span class="o">)</span>:
-program<span class="w"> </span>add
-<span class="w"> </span>7c4:<span class="w"> </span>d10043ff<span class="w"> </span>sub<span class="w"> </span>sp,<span class="w"> </span>sp,<span class="w"> </span><span class="c1">#0x10</span>
+<div class="highlight-objdump notranslate"><div class="highlight"><pre><span></span>Disassembly of section <span class="nl">.text</span><span class="p">:</span>
 
-<span class="w">    </span>implicit<span class="w"> </span>none
+<span class="mh">0000000000000000</span><span class="w"> </span><span class="p">&lt;</span><span class="nf">MAIN__</span><span class="p">&gt;:</span>
+<span class="x">program mult</span>
+<span class="w">   </span><span class="nl">0:</span><span class="w">	</span><span class="nf">d10043ff</span><span class="w"> 	</span><span class="no">sub</span><span class="w">	</span><span class="no">sp</span><span class="p">,</span><span class="w"> </span><span class="no">sp</span><span class="p">,</span><span class="w"> </span><span class="mi">#0</span><span class="no">x10</span>
 
-<span class="w">    </span>integer<span class="w">    </span>::<span class="w"> </span>a,<span class="w"> </span>b,<span class="w"> </span>c
+<span class="x">	implicit none</span>
 
-<span class="w">    </span><span class="nv">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
-<span class="w"> </span>7c8:<span class="w"> </span><span class="m">52800020</span><span class="w"> </span>mov<span class="w"> </span>w0,<span class="w"> </span><span class="c1">#0x1                    // #1</span>
-<span class="w"> </span>7cc:<span class="w"> </span>b9000fe0<span class="w"> </span>str<span class="w"> </span>w0,<span class="w"> </span><span class="o">[</span>sp,<span class="w"> </span><span class="c1">#12]</span>
-<span class="w">    </span><span class="nv">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">9</span>
-<span class="w"> </span>7d0:<span class="w"> </span><span class="m">52800120</span><span class="w"> </span>mov<span class="w"> </span>w0,<span class="w"> </span><span class="c1">#0x9                    // #9</span>
-<span class="w"> </span>7d4:<span class="w"> </span>b9000be0<span class="w"> </span>str<span class="w"> </span>w0,<span class="w"> </span><span class="o">[</span>sp,<span class="w"> </span><span class="c1">#8]</span>
+<span class="x">	integer		:: a, b, c</span>
 
-<span class="w">    </span><span class="nv">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>a<span class="w"> </span>+<span class="w"> </span>b
-<span class="w"> </span>7d8:<span class="w"> </span>b9400fe1<span class="w"> </span>ldr<span class="w"> </span>w1,<span class="w"> </span><span class="o">[</span>sp,<span class="w"> </span><span class="c1">#12]</span>
-<span class="w"> </span>7dc:<span class="w"> </span>b9400be0<span class="w"> </span>ldr<span class="w"> </span>w0,<span class="w"> </span><span class="o">[</span>sp,<span class="w"> </span><span class="c1">#8]</span>
-<span class="w"> </span>7e0:<span class="w"> </span>0b000020<span class="w"> </span>add<span class="w"> </span>w0,<span class="w"> </span>w1,<span class="w"> </span>w0
-<span class="w"> </span>7e4:<span class="w"> </span>b90007e0<span class="w"> </span>str<span class="w"> </span>w0,<span class="w"> </span><span class="o">[</span>sp,<span class="w"> </span><span class="c1">#4]</span>
+<span class="x">	a = 2</span>
+<span class="x">   4:	52800040 	mov	w0, #0x2                   	// #2</span>
+<span class="w">   </span><span class="nl">8:</span><span class="w">	</span><span class="nf">b9000fe0</span><span class="w"> 	</span><span class="no">str</span><span class="w">	</span><span class="no">w0</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="no">sp</span><span class="p">,</span><span class="w"> </span><span class="mi">#12</span><span class="p">]</span>
+<span class="x">	b = 3</span>
+<span class="x">   c:	52800060 	mov	w0, #0x3                   	// #3</span>
+<span class="w">  </span><span class="nl">10:</span><span class="w">	</span><span class="nf">b9000be0</span><span class="w"> 	</span><span class="no">str</span><span class="w">	</span><span class="no">w0</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="no">sp</span><span class="p">,</span><span class="w"> </span><span class="mi">#8</span><span class="p">]</span>
 
-end<span class="w"> </span>program<span class="w"> </span>add
-<span class="w"> </span>7e8:<span class="w"> </span>d503201f<span class="w"> </span>nop
-<span class="w"> </span>7ec:<span class="w"> </span>910043ff<span class="w"> </span>add<span class="w"> </span>sp,<span class="w"> </span>sp,<span class="w"> </span><span class="c1">#0x10</span>
-<span class="w"> </span>7f0:<span class="w"> </span>d65f03c0<span class="w"> </span>ret
+<span class="x">	c = a * b</span>
+<span class="w">  </span><span class="nl">14:</span><span class="w">	</span><span class="nf">b9400fe1</span><span class="w"> 	</span><span class="no">ldr</span><span class="w">	</span><span class="no">w1</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="no">sp</span><span class="p">,</span><span class="w"> </span><span class="mi">#12</span><span class="p">]</span>
+<span class="w">  </span><span class="nl">18:</span><span class="w">	</span><span class="nf">b9400be0</span><span class="w"> 	</span><span class="no">ldr</span><span class="w">	</span><span class="no">w0</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="no">sp</span><span class="p">,</span><span class="w"> </span><span class="mi">#8</span><span class="p">]</span>
+<span class="x">  1c:	1b007c20 	mul	w0, w1, w0</span>
+<span class="w">  </span><span class="nl">20:</span><span class="w">	</span><span class="nf">b90007e0</span><span class="w"> 	</span><span class="no">str</span><span class="w">	</span><span class="no">w0</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="no">sp</span><span class="p">,</span><span class="w"> </span><span class="mi">#4</span><span class="p">]</span>
 
-00000000000007f4<span class="w"> </span><span class="o">(</span>main<span class="o">)</span>:
-<span class="w"> </span>7f4:<span class="w"> </span>a9be7bfd<span class="w"> </span>stp<span class="w"> </span>x29,<span class="w"> </span>x30,<span class="w"> </span><span class="o">[</span>sp,<span class="w"> </span><span class="c1">#-32]!</span>
-<span class="w"> </span>7f8:<span class="w"> </span>910003fd<span class="w"> </span>mov<span class="w"> </span>x29,<span class="w"> </span>sp
-<span class="w"> </span>7fc:<span class="w"> </span>b9001fa0<span class="w"> </span>str<span class="w"> </span>w0,<span class="w"> </span><span class="o">[</span>x29,<span class="w"> </span><span class="c1">#28]</span>
-<span class="w"> </span><span class="m">800</span>:<span class="w"> </span>f9000ba1<span class="w"> </span>str<span class="w"> </span>x1,<span class="w"> </span><span class="o">[</span>x29,<span class="w"> </span><span class="c1">#16]</span>
-<span class="w"> </span><span class="m">804</span>:<span class="w"> </span>f9400ba1<span class="w"> </span>ldr<span class="w"> </span>x1,<span class="w"> </span><span class="o">[</span>x29,<span class="w"> </span><span class="c1">#16]</span>
-<span class="w"> </span><span class="m">808</span>:<span class="w"> </span>b9401fa0<span class="w"> </span>ldr<span class="w"> </span>w0,<span class="w"> </span><span class="o">[</span>x29,<span class="w"> </span><span class="c1">#28]</span>
-<span class="w"> </span>80c:<span class="w"> </span>97ffff95<span class="w"> </span>bl<span class="w"> </span><span class="m">660</span><span class="w"> </span>&lt;_gfortran_set_args@plt&gt;
-<span class="w"> </span><span class="m">810</span>:<span class="w"> </span><span class="m">90000000</span><span class="w"> </span>adrp<span class="w"> </span>x0,<span class="w"> </span><span class="m">0</span><span class="w"> </span>&lt;_init-0x628&gt;
-<span class="w"> </span><span class="m">814</span>:<span class="w"> </span><span class="m">91236000</span><span class="w"> </span>add<span class="w"> </span>x0,<span class="w"> </span>x0,<span class="w"> </span><span class="c1">#0x8d8</span>
-<span class="w"> </span><span class="m">818</span>:<span class="w"> </span>aa0003e1<span class="w"> </span>mov<span class="w"> </span>x1,<span class="w"> </span>x0
-<span class="w"> </span>81c:<span class="w"> </span>528000e0<span class="w"> </span>mov<span class="w"> </span>w0,<span class="w"> </span><span class="c1">#0x7</span>
-<span class="w"> </span><span class="m">820</span>:<span class="w"> </span>97ffffa4<span class="w"> </span>bl<span class="w"> </span>6b0<span class="w"> </span>&lt;_gfortran_set_options@plt&gt;
-<span class="w"> </span><span class="m">824</span>:<span class="w"> </span>97ffffe8<span class="w"> </span>bl<span class="w"> </span>7c4<span class="w"> </span>&lt;MAIN__&gt;
-<span class="w"> </span><span class="m">828</span>:<span class="w"> </span><span class="m">52800000</span><span class="w"> </span>mov<span class="w"> </span>w0,<span class="w"> </span><span class="c1">#0x0</span>
-<span class="w"> </span>82c:<span class="w"> </span>a8c27bfd<span class="w"> </span>ldp<span class="w"> </span>x29,<span class="w"> </span>x30,<span class="w"> </span><span class="o">[</span>sp<span class="o">]</span>,<span class="w"> </span><span class="c1">#32</span>
-<span class="w"> </span><span class="m">830</span>:<span class="w"> </span>d65f03c0<span class="w"> </span>ret
-<span class="w"> </span><span class="m">834</span>:<span class="w"> </span><span class="m">00000000</span><span class="w"> </span>.inst<span class="w"> </span>0x00000000<span class="w"> </span><span class="p">;</span><span class="w"> </span>undefined
+<span class="x">end program mult</span>
+<span class="w">  </span><span class="nl">24:</span><span class="w">	</span><span class="nf">d503201f</span><span class="w"> 	</span><span class="no">nop</span>
+<span class="x">  28:	910043ff 	add	sp, sp, #0x10</span>
+<span class="w">  </span><span class="nl">2c:</span><span class="w">	</span><span class="nf">d65f03c0</span><span class="w"> 	</span><span class="no">ret</span>
+
+<span class="x">  0000000000000030 &lt;main&gt;:</span>
+<span class="w">  </span><span class="nl">30:</span><span class="w">	</span><span class="nf">a9be7bfd</span><span class="w"> 	</span><span class="no">stp</span><span class="w">	</span><span class="no">x29</span><span class="p">,</span><span class="w"> </span><span class="no">x30</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="no">sp</span><span class="p">,</span><span class="w"> </span><span class="mi">#-32</span><span class="p">]!</span>
+<span class="x">  34:	910003fd 	mov	x29, sp</span>
+<span class="w">  </span><span class="nl">38:</span><span class="w">	</span><span class="nf">b9001fe0</span><span class="w"> 	</span><span class="no">str</span><span class="w">	</span><span class="no">w0</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="no">sp</span><span class="p">,</span><span class="w"> </span><span class="mi">#28</span><span class="p">]</span>
+<span class="w">  </span><span class="nl">3c:</span><span class="w">	</span><span class="nf">f9000be1</span><span class="w"> 	</span><span class="no">str</span><span class="w">	</span><span class="no">x1</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="no">sp</span><span class="p">,</span><span class="w"> </span><span class="mi">#16</span><span class="p">]</span>
+<span class="w">  </span><span class="nl">40:</span><span class="w">	</span><span class="nf">f9400be1</span><span class="w"> 	</span><span class="no">ldr</span><span class="w">	</span><span class="no">x1</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="no">sp</span><span class="p">,</span><span class="w"> </span><span class="mi">#16</span><span class="p">]</span>
+<span class="w">  </span><span class="nl">44:</span><span class="w">	</span><span class="nf">b9401fe0</span><span class="w"> 	</span><span class="no">ldr</span><span class="w">	</span><span class="no">w0</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="no">sp</span><span class="p">,</span><span class="w"> </span><span class="mi">#28</span><span class="p">]</span>
+<span class="x">  48:	94000000 	bl	0 &lt;_gfortran_set_args&gt;</span>
+<span class="w">			</span><span class="nl">48:</span><span class="w"> </span><span class="py">R_AARCH64_CALL26</span><span class="w">	</span><span class="no">_gfortran_set_args</span>
+<span class="x">  4c:	90000000 	adrp	x0, 0 &lt;MAIN__&gt;</span>
+<span class="w">			</span><span class="nl">4c:</span><span class="w"> </span><span class="py">R_AARCH64_ADR_PREL_PG_HI21</span><span class="w">	</span><span class="no">.rodata</span>
+<span class="x">  50:	91000001 	add	x1, x0, #0x0</span>
+<span class="w">			</span><span class="nl">50:</span><span class="w"> </span><span class="py">R_AARCH64_ADD_ABS_LO12_NC</span><span class="w">	</span><span class="no">.rodata</span>
+<span class="x">  54:	528000e0 	mov	w0, #0x7                   	// #7</span>
+<span class="x">  58:	94000000 	bl	0 &lt;_gfortran_set_options&gt;</span>
+<span class="w">			</span><span class="nl">58:</span><span class="w"> </span><span class="py">R_AARCH64_CALL26</span><span class="w">	</span><span class="no">_gfortran_set_options</span>
+<span class="x">  5c:	97ffffe9 	bl	0 &lt;MAIN__&gt;</span>
+<span class="x">  60:	52800000 	mov	w0, #0x0                   	// #0</span>
+<span class="w">  </span><span class="nl">64:</span><span class="w">	</span><span class="nf">a8c27bfd</span><span class="w"> 	</span><span class="no">ldp</span><span class="w">	</span><span class="no">x29</span><span class="p">,</span><span class="w"> </span><span class="no">x30</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="no">sp</span><span class="p">],</span><span class="w"> </span><span class="mi">#32</span>
+<span class="w">  </span><span class="nl">68:</span><span class="w">	</span><span class="nf">d65f03c0</span><span class="w"> 	</span><span class="no">ret</span>
 </pre></div>
 </div>
-<p>We therefore want to set a breakpoint at <code class="docutils literal notranslate"><span class="pre">*MAIN__</span></code>. We use the <code class="docutils literal notranslate"><span class="pre">*</span></code> to get at <code class="docutils literal notranslate"><span class="pre">MAIN__</span> <span class="pre">+</span> <span class="pre">0</span></code>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gef➤<span class="w">  </span><span class="k">break</span><span class="w"> </span>*MAIN__
-Breakpoint<span class="w"> </span><span class="m">3</span><span class="w"> </span>at<span class="w"> </span>0xaaaaaaaaa7c4:<span class="w"> </span>file<span class="w"> </span>add.f08,<span class="w"> </span>line<span class="w"> </span><span class="m">1</span>.
+</section>
+<section id="explaining-the-dissassembly-by-chatgpt-4o">
+<h2>Explaining the Dissassembly by ChatGPT 4o<a class="headerlink" href="#explaining-the-dissassembly-by-chatgpt-4o" title="Link to this heading">#</a></h2>
+<p>This is the <strong>AArch64 (ARM 64-bit)</strong> assembly output from a <strong>Fortran program</strong>, likely compiled with <code class="docutils literal notranslate"><span class="pre">gfortran</span></code>, that performs a simple multiplication:</p>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">mult</span>
+<span class="w">  </span><span class="k">implicit none</span>
+<span class="k">  </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span>
+<span class="w">  </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">  </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
+<span class="w">  </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span>
+<span class="k">end program </span><span class="n">mult</span>
 </pre></div>
 </div>
-<p>The AArch64 has a lot of registers (36 registers visible in GEF), and it becomes necessary to zoom out the screen to see the entire output of GEF. For easier viewing on this website, we will display the output of GEF using two screenshots.</p>
-<img alt="MAIN__ in GDB+GEF Part 2" src="../../../../../../_images/running_add_Fortran_aarch64_in_GEF_showing_MAIN__2.jpg" />
-<img alt="MAIN__ in GDB+GEF Part 1" src="../../../../../../_images/running_add_Fortran_aarch64_in_GEF_showing_MAIN__1.jpg" />
-<p>Rather than taking screenshots of the state of GEF after executing every instruction, we will place comments on the assembly instructions in <code class="docutils literal notranslate"><span class="pre">MAIN__</span></code> from the executable’s objdump output.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>00000000000007c4<span class="w"> </span><span class="o">(</span>MAIN__<span class="o">)</span>:
-program<span class="w"> </span>add
-<span class="w"> </span>7c4:<span class="w"> </span>d10043ff<span class="w"> </span>sub<span class="w"> </span>sp,<span class="w"> </span>sp,<span class="w"> </span><span class="c1">#0x10</span>
-
-<span class="w">    </span>implicit<span class="w"> </span>none
-
-<span class="w">    </span>integer<span class="w">    </span>::<span class="w"> </span>a,<span class="w"> </span>b,<span class="w"> </span>c
-
-<span class="w">    </span><span class="nv">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
-<span class="w"> </span>7c8:<span class="w"> </span><span class="m">52800020</span><span class="w"> </span>mov<span class="w"> </span>w0,<span class="w"> </span><span class="c1">#0x1                 // #1 - Moves a 1 into register w0</span>
-<span class="w"> </span>7cc:<span class="w"> </span>b9000fe0<span class="w"> </span>str<span class="w"> </span>w0,<span class="w"> </span><span class="o">[</span>sp,<span class="w"> </span><span class="c1">#12]            //  - Stores the contents of register w0 into the stack pointer + 12.</span>
-<span class="w">                                            </span>//<span class="w">  </span>Recall<span class="w"> </span>that<span class="w"> </span>even<span class="w"> </span>though<span class="w"> </span>the<span class="w"> </span>machine<span class="w"> </span>is<span class="w"> </span><span class="m">64</span><span class="w"> </span>bit,<span class="w"> </span>when<span class="w"> </span>defining<span class="w"> </span>a
-<span class="w">                                            </span>//<span class="w">  </span>variable<span class="w"> </span>as<span class="w"> </span>an<span class="w"> </span>integer,<span class="w"> </span>it<span class="w"> </span>is<span class="w"> </span><span class="m">32</span><span class="w"> </span>bits<span class="w"> </span><span class="k">in</span><span class="w"> </span>size.<span class="w">  </span>In<span class="w"> </span>Fortran<span class="w"> </span>there<span class="w"> </span>are
-<span class="w">                                            </span>//<span class="w">  </span>ways<span class="w"> </span>of<span class="w"> </span>changing<span class="w"> </span>the<span class="w"> </span>size<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>integer<span class="w"> </span>as<span class="w"> </span>stored<span class="w"> </span><span class="k">in</span><span class="w"> </span>memory.
-<span class="w">                                            </span>//<span class="w">  </span>The<span class="w"> </span>compiler<span class="w"> </span><span class="nb">set</span><span class="w"> </span>aside<span class="w"> </span><span class="nv">4x3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">12</span><span class="w"> </span>bytes<span class="w"> </span>to<span class="w"> </span>store<span class="w"> </span>these<span class="w"> </span>integers.
-<span class="w">                                            </span>//<span class="w">  </span>The<span class="w"> </span>integer<span class="w"> </span>variable<span class="w"> </span>a<span class="w"> </span>is<span class="w"> </span>at<span class="w"> </span>sp<span class="w"> </span>+<span class="w"> </span><span class="m">12</span>.
-
-<span class="w">    </span><span class="nv">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">9</span>
-<span class="w"> </span>7d0:<span class="w"> </span><span class="m">52800120</span><span class="w"> </span>mov<span class="w"> </span>w0,<span class="w"> </span><span class="c1">#0x9                 // #9 - Moves a 1 into register w0</span>
-<span class="w"> </span>7d4:<span class="w"> </span>b9000be0<span class="w"> </span>str<span class="w"> </span>w0,<span class="w"> </span><span class="o">[</span>sp,<span class="w"> </span><span class="c1">#8]             //  - Stores the contents of register w0 into stack pointer + 8.</span>
-
-<span class="w">    </span><span class="nv">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>a<span class="w"> </span>+<span class="w"> </span>b<span class="w">                               </span>//<span class="w">  </span>Now<span class="w"> </span>that<span class="w"> </span>the<span class="w"> </span>stack<span class="w"> </span>contains<span class="w"> </span>the<span class="w"> </span>addends,<span class="w"> </span>the<span class="w"> </span>machine<span class="w"> </span>can<span class="w"> </span>perform<span class="w"> </span>the<span class="w"> </span>operation.
-<span class="w"> </span>7d8:<span class="w"> </span>b9400fe1<span class="w"> </span>ldr<span class="w"> </span>w1,<span class="w"> </span><span class="o">[</span>sp,<span class="w"> </span><span class="c1">#12]            //  The variable a is loaded into register w1.</span>
-<span class="w"> </span>7dc:<span class="w"> </span>b9400be0<span class="w"> </span>ldr<span class="w"> </span>w0,<span class="w"> </span><span class="o">[</span>sp,<span class="w"> </span><span class="c1">#8]             //  The variable b is loaded into register w0.</span>
-<span class="w"> </span>7e0:<span class="w"> </span>0b000020<span class="w"> </span>add<span class="w"> </span>w0,<span class="w"> </span>w1,<span class="w"> </span>w0<span class="w">               </span>//<span class="w">  </span>w0<span class="w"> </span>+<span class="w"> </span>w1<span class="w"> </span>and<span class="w"> </span>store<span class="w"> </span>result<span class="w"> </span>into<span class="w"> </span>w0
-<span class="w"> </span>7e4:<span class="w"> </span>b90007e0<span class="w"> </span>str<span class="w"> </span>w0,<span class="w"> </span><span class="o">[</span>sp,<span class="w"> </span><span class="c1">#4]             //  Store the value in w0 into stack pointer + 4.</span>
-<span class="w">                                            </span>//<span class="w">  </span>Stack<span class="w"> </span>pointer<span class="w"> </span>+<span class="w"> </span><span class="m">4</span><span class="w"> </span>is<span class="w"> </span>reserved<span class="w"> </span><span class="k">for</span><span class="w"> </span>the<span class="w"> </span>integer<span class="w"> </span>variable<span class="w"> </span>c.
-
-end<span class="w"> </span>program<span class="w"> </span>add
-<span class="w"> </span>7e8:<span class="w"> </span>d503201f<span class="w"> </span>nop<span class="w">                          </span>//<span class="w">  </span>No<span class="w"> </span>Operation.<span class="w">  </span>Used<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="m">64</span>-bit<span class="w"> </span>boundary<span class="w"> </span>alignment.
-<span class="w"> </span>7ec:<span class="w"> </span>910043ff<span class="w"> </span>add<span class="w"> </span>sp,<span class="w"> </span>sp,<span class="w"> </span><span class="c1">#0x10            //  Clean up the stack.  Subtract 16 from the stack pointer.</span>
-<span class="w"> </span>7f0:<span class="w"> </span>d65f03c0<span class="w"> </span>ret<span class="w">                          </span>//<span class="w">  </span>Return<span class="w"> </span>to<span class="w"> </span>main<span class="w"> </span>by<span class="w"> </span>popping<span class="w"> </span>the<span class="w"> </span><span class="k">return</span><span class="w"> </span>address<span class="w"> </span>off<span class="w"> </span>of
+<p>Let’s break down the assembly <strong>section <code class="docutils literal notranslate"><span class="pre">.text</span></code></strong> step-by-step:</p>
+<hr class="docutils" />
+<section id="function-main">
+<h3>Function: <code class="docutils literal notranslate"><span class="pre">MAIN__</span></code><a class="headerlink" href="#function-main" title="Link to this heading">#</a></h3>
+<p>This is the Fortran-generated main subroutine (<code class="docutils literal notranslate"><span class="pre">program</span> <span class="pre">mult</span></code> compiles to <code class="docutils literal notranslate"><span class="pre">MAIN__</span></code>).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0000000000000000</span> <span class="o">&lt;</span><span class="n">MAIN__</span><span class="o">&gt;</span><span class="p">:</span>
 </pre></div>
 </div>
+<hr class="docutils" />
+<section id="prologue-stack-setup">
+<h4>1. <strong>Prologue: Stack setup</strong><a class="headerlink" href="#prologue-stack-setup" title="Link to this heading">#</a></h4>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="err">0:</span><span class="w">	</span><span class="nf">d10043ff</span><span class="w"> 	</span><span class="no">sub</span><span class="w">	</span><span class="no">sp</span><span class="p">,</span><span class="w"> </span><span class="no">sp</span><span class="p">,</span><span class="w"> </span><span class="mi">#0</span><span class="no">x10</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Allocate 16 bytes on the stack for local variables (<code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, <code class="docutils literal notranslate"><span class="pre">c</span></code>).</p></li>
+<li><p>Adjust the stack pointer (<code class="docutils literal notranslate"><span class="pre">sp</span></code>) downward to make room.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="initialize-a-2">
+<h4>2. <strong>Initialize <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">2</span></code></strong><a class="headerlink" href="#initialize-a-2" title="Link to this heading">#</a></h4>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="err">4:</span><span class="w">	</span><span class="err">52800040</span><span class="w"> 	</span><span class="nf">mov</span><span class="w">	</span><span class="no">w0</span><span class="p">,</span><span class="w"> </span><span class="mi">#0</span><span class="no">x2</span><span class="w">        </span><span class="c1">// w0 = 2</span>
+<span class="err">8:</span><span class="w">	</span><span class="nf">b9000fe0</span><span class="w"> 	</span><span class="no">str</span><span class="w">	</span><span class="no">w0</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="no">sp</span><span class="p">,</span><span class="w"> </span><span class="mi">#12</span><span class="p">]</span><span class="w">   </span><span class="c1">// store `a` at sp+12</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">w0</span></code> holds 32-bit immediate value <code class="docutils literal notranslate"><span class="pre">2</span></code></p></li>
+<li><p>It’s stored at offset <code class="docutils literal notranslate"><span class="pre">+12</span></code> on the stack (this becomes variable <code class="docutils literal notranslate"><span class="pre">a</span></code>)</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="initialize-b-3">
+<h4>3. <strong>Initialize <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">3</span></code></strong><a class="headerlink" href="#initialize-b-3" title="Link to this heading">#</a></h4>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nl">c:</span><span class="w">	</span><span class="err">52800060</span><span class="w"> 	</span><span class="nf">mov</span><span class="w">	</span><span class="no">w0</span><span class="p">,</span><span class="w"> </span><span class="mi">#0</span><span class="no">x3</span><span class="w">        </span><span class="c1">// w0 = 3</span>
+<span class="err">10:</span><span class="w">	</span><span class="nf">b9000be0</span><span class="w"> 	</span><span class="no">str</span><span class="w">	</span><span class="no">w0</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="no">sp</span><span class="p">,</span><span class="w"> </span><span class="mi">#8</span><span class="p">]</span><span class="w">    </span><span class="c1">// store `b` at sp+8</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">b</span></code> is stored at <code class="docutils literal notranslate"><span class="pre">sp+8</span></code></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="compute-c-a-b">
+<h4>4. <strong>Compute <code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">=</span> <span class="pre">a</span> <span class="pre">*</span> <span class="pre">b</span></code></strong><a class="headerlink" href="#compute-c-a-b" title="Link to this heading">#</a></h4>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="err">14:</span><span class="w">	</span><span class="nf">b9400fe1</span><span class="w"> 	</span><span class="no">ldr</span><span class="w">	</span><span class="no">w1</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="no">sp</span><span class="p">,</span><span class="w"> </span><span class="mi">#12</span><span class="p">]</span><span class="w">   </span><span class="c1">// w1 = a</span>
+<span class="err">18:</span><span class="w">	</span><span class="nf">b9400be0</span><span class="w"> 	</span><span class="no">ldr</span><span class="w">	</span><span class="no">w0</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="no">sp</span><span class="p">,</span><span class="w"> </span><span class="mi">#8</span><span class="p">]</span><span class="w">    </span><span class="c1">// w0 = b</span>
+<span class="err">1</span><span class="nl">c:</span><span class="w">	</span><span class="err">1</span><span class="nf">b007c20</span><span class="w"> 	</span><span class="no">mul</span><span class="w">	</span><span class="no">w0</span><span class="p">,</span><span class="w"> </span><span class="no">w1</span><span class="p">,</span><span class="w"> </span><span class="no">w0</span><span class="w">      </span><span class="c1">// w0 = w1 * w0 = a * b</span>
+<span class="err">20:</span><span class="w">	</span><span class="nf">b90007e0</span><span class="w"> 	</span><span class="no">str</span><span class="w">	</span><span class="no">w0</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="no">sp</span><span class="p">,</span><span class="w"> </span><span class="mi">#4</span><span class="p">]</span><span class="w">    </span><span class="c1">// store c at sp+4</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Load <code class="docutils literal notranslate"><span class="pre">a</span></code> into <code class="docutils literal notranslate"><span class="pre">w1</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code> into <code class="docutils literal notranslate"><span class="pre">w0</span></code></p></li>
+<li><p>Multiply <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">*</span> <span class="pre">b</span></code>, result in <code class="docutils literal notranslate"><span class="pre">w0</span></code></p></li>
+<li><p>Store result into <code class="docutils literal notranslate"><span class="pre">c</span></code> at <code class="docutils literal notranslate"><span class="pre">sp+4</span></code></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="epilogue-clean-up-stack">
+<h4>5. <strong>Epilogue: Clean up stack</strong><a class="headerlink" href="#epilogue-clean-up-stack" title="Link to this heading">#</a></h4>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="err">24:</span><span class="w">	</span><span class="nf">d503201f</span><span class="w"> 	</span><span class="no">nop</span><span class="w">              </span><span class="c1">// no-op</span>
+<span class="err">28:</span><span class="w">	</span><span class="err">910043</span><span class="nf">ff</span><span class="w"> 	</span><span class="no">add</span><span class="w">	</span><span class="no">sp</span><span class="p">,</span><span class="w"> </span><span class="no">sp</span><span class="p">,</span><span class="w"> </span><span class="mi">#0</span><span class="no">x10</span><span class="w">  </span><span class="c1">// restore original stack pointer</span>
+<span class="err">2</span><span class="nl">c:</span><span class="w">	</span><span class="nf">d65f03c0</span><span class="w"> 	</span><span class="no">ret</span><span class="w">              </span><span class="c1">// return from MAIN__</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Stack pointer restored</p></li>
+<li><p>Function returns</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="id1">
+<h3>Function: <code class="docutils literal notranslate"><span class="pre">main</span></code><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>This is the C <code class="docutils literal notranslate"><span class="pre">main</span></code> function, generated by the Fortran runtime to bootstrap the program.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0000000000000030</span> <span class="o">&lt;</span><span class="n">main</span><span class="o">&gt;</span><span class="p">:</span>
+</pre></div>
+</div>
+<section id="prologue">
+<h4>1. <strong>Prologue</strong><a class="headerlink" href="#prologue" title="Link to this heading">#</a></h4>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="err">30:</span><span class="w">	</span><span class="nf">a9be7bfd</span><span class="w"> 	</span><span class="no">stp</span><span class="w">	</span><span class="no">x29</span><span class="p">,</span><span class="w"> </span><span class="no">x30</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="no">sp</span><span class="p">,</span><span class="w"> </span><span class="mi">#-32</span><span class="p">]!</span>
+<span class="err">34:</span><span class="w">	</span><span class="err">910003</span><span class="nf">fd</span><span class="w"> 	</span><span class="no">mov</span><span class="w">	</span><span class="no">x29</span><span class="p">,</span><span class="w"> </span><span class="no">sp</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Save frame pointer and return address on the stack (standard procedure prologue)</p></li>
+<li><p>Set up new frame pointer</p></li>
+</ul>
+</section>
+<section id="store-argc-argv">
+<h4>2. <strong>Store argc, argv</strong><a class="headerlink" href="#store-argc-argv" title="Link to this heading">#</a></h4>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="err">38:</span><span class="w">	</span><span class="nf">b9001fe0</span><span class="w"> 	</span><span class="no">str</span><span class="w">	</span><span class="no">w0</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="no">sp</span><span class="p">,</span><span class="w"> </span><span class="mi">#28</span><span class="p">]</span><span class="w">  </span><span class="c1">// store argc</span>
+<span class="err">3</span><span class="nl">c:</span><span class="w">	</span><span class="nf">f9000be1</span><span class="w"> 	</span><span class="no">str</span><span class="w">	</span><span class="no">x1</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="no">sp</span><span class="p">,</span><span class="w"> </span><span class="mi">#16</span><span class="p">]</span><span class="w">  </span><span class="c1">// store argv</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Save arguments to stack</p></li>
+</ul>
+</section>
+<section id="initialize-fortran-runtime-arguments">
+<h4>3. <strong>Initialize Fortran runtime arguments</strong><a class="headerlink" href="#initialize-fortran-runtime-arguments" title="Link to this heading">#</a></h4>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="err">40:</span><span class="w">	</span><span class="nf">f9400be1</span><span class="w"> 	</span><span class="no">ldr</span><span class="w">	</span><span class="no">x1</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="no">sp</span><span class="p">,</span><span class="w"> </span><span class="mi">#16</span><span class="p">]</span><span class="w">     </span><span class="c1">// load argv</span>
+<span class="err">44:</span><span class="w">	</span><span class="nf">b9401fe0</span><span class="w"> 	</span><span class="no">ldr</span><span class="w">	</span><span class="no">w0</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="no">sp</span><span class="p">,</span><span class="w"> </span><span class="mi">#28</span><span class="p">]</span><span class="w">     </span><span class="c1">// load argc</span>
+<span class="err">48:</span><span class="w">	</span><span class="err">94000000</span><span class="w"> 	</span><span class="nf">bl</span><span class="w">	</span><span class="mh">0</span> <span class="p">&lt;</span><span class="no">_gfortran_set_args</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Calls Fortran runtime to set command-line args</p></li>
+<li><p>The relocations indicate linker will patch real address of <code class="docutils literal notranslate"><span class="pre">_gfortran_set_args</span></code></p></li>
+</ul>
+</section>
+<section id="set-fortran-runtime-options">
+<h4>4. <strong>Set Fortran runtime options</strong><a class="headerlink" href="#set-fortran-runtime-options" title="Link to this heading">#</a></h4>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="err">4</span><span class="nl">c:</span><span class="w">	</span><span class="err">90000000</span><span class="w"> 	</span><span class="nf">adrp</span><span class="w">	</span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="mh">0</span> <span class="p">&lt;</span><span class="no">MAIN__</span><span class="p">&gt;</span><span class="w">      </span><span class="c1">// load base address of .rodata (page)</span>
+<span class="err">50:</span><span class="w">	</span><span class="err">91000001</span><span class="w"> 	</span><span class="nf">add</span><span class="w">	</span><span class="no">x1</span><span class="p">,</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="mi">#0</span><span class="no">x0</span><span class="w">       </span><span class="c1">// offset within page</span>
+<span class="err">54:</span><span class="w">	</span><span class="err">528000</span><span class="nf">e0</span><span class="w"> 	</span><span class="no">mov</span><span class="w">	</span><span class="no">w0</span><span class="p">,</span><span class="w"> </span><span class="mi">#0</span><span class="no">x7</span><span class="w">           </span><span class="c1">// options mask?</span>
+<span class="err">58:</span><span class="w">	</span><span class="err">94000000</span><span class="w"> 	</span><span class="nf">bl</span><span class="w">	</span><span class="mh">0</span> <span class="p">&lt;</span><span class="no">_gfortran_set_options</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Sets runtime options, likely to enable formatting or I/O behavior</p></li>
+</ul>
+</section>
+<section id="call-fortran-main-program">
+<h4>5. <strong>Call Fortran main program</strong><a class="headerlink" href="#call-fortran-main-program" title="Link to this heading">#</a></h4>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="err">5</span><span class="nl">c:</span><span class="w">	</span><span class="err">97</span><span class="nf">ffffe9</span><span class="w"> 	</span><span class="no">bl</span><span class="w">	</span><span class="mh">0</span> <span class="p">&lt;</span><span class="no">MAIN__</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Branch to <code class="docutils literal notranslate"><span class="pre">MAIN__</span></code> to execute the Fortran logic</p></li>
+</ul>
+</section>
+<section id="return-from-main">
+<h4>6. <strong>Return from main</strong><a class="headerlink" href="#return-from-main" title="Link to this heading">#</a></h4>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="err">60:</span><span class="w">	</span><span class="err">52800000</span><span class="w"> 	</span><span class="nf">mov</span><span class="w">	</span><span class="no">w0</span><span class="p">,</span><span class="w"> </span><span class="mi">#0</span><span class="no">x0</span><span class="w">         </span><span class="c1">// return code 0</span>
+<span class="err">64:</span><span class="w">	</span><span class="nf">a8c27bfd</span><span class="w"> 	</span><span class="no">ldp</span><span class="w">	</span><span class="no">x29</span><span class="p">,</span><span class="w"> </span><span class="no">x30</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="no">sp</span><span class="p">],</span><span class="w"> </span><span class="mi">#32</span>
+<span class="err">68:</span><span class="w">	</span><span class="nf">d65f03c0</span><span class="w"> 	</span><span class="no">ret</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Restore frame pointer and return address</p></li>
+<li><p>Return from <code class="docutils literal notranslate"><span class="pre">main</span></code></p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="stack-layout-summary-inside-main">
+<h3>Stack Layout Summary (inside <code class="docutils literal notranslate"><span class="pre">MAIN__</span></code>)<a class="headerlink" href="#stack-layout-summary-inside-main" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Offset (from <code class="docutils literal notranslate"><span class="pre">sp</span></code>)</p></th>
+<th class="head"><p>Variable</p></th>
+<th class="head"><p>Size</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">+12</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a</span></code></p></td>
+<td><p>4B</p></td>
+<td><p>Integer a = 2</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">+8</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">b</span></code></p></td>
+<td><p>4B</p></td>
+<td><p>Integer b = 3</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">+4</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">c</span></code></p></td>
+<td><p>4B</p></td>
+<td><p>a * b = 6</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="summary">
+<h3>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h3>
+<p>This is a minimal Fortran program compiled to AArch64 that:</p>
+<ol class="arabic simple">
+<li><p>Initializes two integers <code class="docutils literal notranslate"><span class="pre">a=2</span></code>, <code class="docutils literal notranslate"><span class="pre">b=3</span></code></p></li>
+<li><p>Computes <code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">=</span> <span class="pre">a</span> <span class="pre">*</span> <span class="pre">b</span></code></p></li>
+<li><p>Stores the result on the stack</p></li>
+<li><p>Performs no I/O</p></li>
+<li><p>Exits gracefully via a C-compatible <code class="docutils literal notranslate"><span class="pre">main</span></code> function</p></li>
+</ol>
+<p>Let me know if you’d like the equivalent source in C or Fortran with comments.</p>
+</section>
+</section>
+<section id="explaining-the-disassembly-by-grok-4">
+<h2>Explaining the Disassembly by Grok 4<a class="headerlink" href="#explaining-the-disassembly-by-grok-4" title="Link to this heading">#</a></h2>
+<section id="overview-of-the-disassembly">
+<h3>Overview of the Disassembly<a class="headerlink" href="#overview-of-the-disassembly" title="Link to this heading">#</a></h3>
+<p>This disassembly represents the machine code generated by compiling a simple Fortran program using a compiler like gfortran (from the GNU Fortran suite) targeting the AArch64 architecture (ARM64, commonly used in modern ARM processors like those in Apple Silicon or server ARM chips). The Fortran source code, as annotated in the disassembly, is a basic program that declares three integers (<code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, <code class="docutils literal notranslate"><span class="pre">c</span></code>), assigns values to <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>, computes their product, and stores it in <code class="docutils literal notranslate"><span class="pre">c</span></code>. It doesn’t output anything or perform I/O, so it’s essentially a no-op beyond the computation.</p>
+<p>The disassembly is divided into two main functions:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;MAIN__&gt;</span></code>: This is the compiled body of the Fortran <code class="docutils literal notranslate"><span class="pre">program</span> <span class="pre">mult</span></code>. Fortran compilers often mangle the main program name to <code class="docutils literal notranslate"><span class="pre">MAIN__</span></code> (in uppercase with underscores) to distinguish it from other subroutines.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;main&gt;</span></code>: This is the actual program entry point, written in a C-like style. It’s generated by the compiler to handle runtime initialization for Fortran (e.g., setting up command-line arguments and options via the GNU Fortran runtime library, libgfortran). It calls <code class="docutils literal notranslate"><span class="pre">&lt;MAIN__&gt;</span></code> and then exits cleanly.</p></li>
+</ul>
+<p>The code uses stack-based storage for variables (common in optimized compilations without register allocation for such simple locals). Instructions are in hexadecimal offsets, followed by the opcode, mnemonic, and operands. Some instructions have relocations (e.g., <code class="docutils literal notranslate"><span class="pre">R_AARCH64_CALL26</span></code>), which are linker directives for resolving addresses at link time (e.g., calling external functions).</p>
+<p>I’ll explain each section in detail, breaking down every instruction, its purpose, and how it relates to the Fortran source. Note that AArch64 uses 64-bit registers (x0-x31 for general-purpose, w0-w31 for 32-bit views), stack pointer (sp), and program counter (pc). Memory access is little-endian by default.</p>
+</section>
+<section id="detailed-explanation-of-main-offset-0x0000000000000000">
+<h3>Detailed Explanation of <code class="docutils literal notranslate"><span class="pre">&lt;MAIN__&gt;</span></code> (Offset 0x0000000000000000)<a class="headerlink" href="#detailed-explanation-of-main-offset-0x0000000000000000" title="Link to this heading">#</a></h3>
+<p>This function corresponds directly to the Fortran program body. It allocates stack space for the three integers (<code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, <code class="docutils literal notranslate"><span class="pre">c</span></code>), assigns values, performs the multiplication, and then deallocates the stack before returning. Since Fortran integers are typically 32-bit (4 bytes), each variable takes 4 bytes on the stack.</p>
+<ul class="simple">
+<li><p><strong>0: d10043ff  sub sp, sp, #0x10</strong><br />
+Subtract 0x10 (16 in decimal) from the stack pointer (sp). This allocates 16 bytes of stack space: 4 bytes each for <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, <code class="docutils literal notranslate"><span class="pre">c</span></code> (12 bytes total), plus 4 bytes of padding to maintain 16-byte stack alignment (AArch64 ABI requirement). The stack grows downward, so subtracting from sp creates space. This corresponds to entering the <code class="docutils literal notranslate"><span class="pre">program</span> <span class="pre">mult</span></code> and preparing for variable declarations.</p></li>
+<li><p><strong>4: 52800040  mov w0, #0x2</strong><br />
+Move the immediate value 0x2 (2 in decimal) into the 32-bit register w0. This sets up the value for <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">2</span></code>. w0 is a temporary register here.</p></li>
+<li><p><strong>8: b9000fe0  str w0, [sp, #12]</strong><br />
+Store the value from w0 (2) into memory at [sp + 12]. This assigns to <code class="docutils literal notranslate"><span class="pre">a</span></code>, which is at offset 12 from the current sp (top of the allocated stack space).</p></li>
+<li><p><strong>c: 52800060  mov w0, #0x3</strong><br />
+Move 0x3 (3) into w0. This prepares <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">3</span></code>.</p></li>
+<li><p><strong>10: b9000be0  str w0, [sp, #8]</strong><br />
+Store w0 (3) into [sp + 8]. This assigns to <code class="docutils literal notranslate"><span class="pre">b</span></code> (next stack slot below <code class="docutils literal notranslate"><span class="pre">a</span></code>).</p></li>
+<li><p><strong>14: b9400fe1  ldr w1, [sp, #12]</strong><br />
+Load the value from [sp + 12] ( <code class="docutils literal notranslate"><span class="pre">a</span></code> = 2) into w1. This loads the first operand for the multiplication <code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">=</span> <span class="pre">a</span> <span class="pre">*</span> <span class="pre">b</span></code>.</p></li>
+<li><p><strong>18: b9400be0  ldr w0, [sp, #8]</strong><br />
+Load [sp + 8] ( <code class="docutils literal notranslate"><span class="pre">b</span></code> = 3) into w0. Now w0 holds <code class="docutils literal notranslate"><span class="pre">b</span></code>, w1 holds <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p></li>
+<li><p><strong>1c: 1b007c20  mul w0, w1, w0</strong><br />
+Multiply w1 ( <code class="docutils literal notranslate"><span class="pre">a</span></code> ) by w0 ( <code class="docutils literal notranslate"><span class="pre">b</span></code> ), storing the result in w0. This computes 2 * 3 = 6, corresponding to <code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">=</span> <span class="pre">a</span> <span class="pre">*</span> <span class="pre">b</span></code>. The <code class="docutils literal notranslate"><span class="pre">mul</span></code> instruction handles signed/unsigned multiplication (integers are signed in Fortran, but for positive values it doesn’t matter).</p></li>
+<li><p><strong>20: b90007e0  str w0, [sp, #4]</strong><br />
+Store the result from w0 (6) into [sp + 4]. This assigns to <code class="docutils literal notranslate"><span class="pre">c</span></code> (next stack slot).</p></li>
+<li><p><strong>24: d503201f  nop</strong><br />
+No operation. This is a padding instruction, often inserted by compilers for alignment or to avoid hazards. It marks the end of the computation before cleanup, corresponding to <code class="docutils literal notranslate"><span class="pre">end</span> <span class="pre">program</span> <span class="pre">mult</span></code>.</p></li>
+<li><p><strong>28: 910043ff  add sp, sp, #0x10</strong><br />
+Add 0x10 back to sp, deallocating the stack space. This cleans up after the variables.</p></li>
+<li><p><strong>2c: d65f03c0  ret</strong><br />
+Return from the function by jumping to the address in x30 (link register, set by the caller). This exits <code class="docutils literal notranslate"><span class="pre">&lt;MAIN__&gt;</span></code>.</p></li>
+</ul>
+<p>In summary, <code class="docutils literal notranslate"><span class="pre">&lt;MAIN__&gt;</span></code> is a straightforward translation: allocate stack, assign constants to <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>, load them, multiply, store to <code class="docutils literal notranslate"><span class="pre">c</span></code>, deallocate, and return. No optimizations like register allocation for variables are applied here (possibly due to debug mode or simple code), so everything uses stack memory.</p>
+</section>
+<section id="detailed-explanation-of-main-offset-0x0000000000000030">
+<h3>Detailed Explanation of <code class="docutils literal notranslate"><span class="pre">&lt;main&gt;</span></code> (Offset 0x0000000000000030)<a class="headerlink" href="#detailed-explanation-of-main-offset-0x0000000000000030" title="Link to this heading">#</a></h3>
+<p>This is the program’s true entry point, generated to bridge C-style startup (e.g., from the OS or loader) to Fortran. It saves registers, passes command-line arguments to the Fortran runtime, sets compiler options, calls <code class="docutils literal notranslate"><span class="pre">&lt;MAIN__&gt;</span></code>, and exits with status 0. It uses the AArch64 System V ABI for calling conventions (arguments in x0-x7, stack for more).</p>
+<ul class="simple">
+<li><p><strong>30: a9be7bfd  stp x29, x30, [sp, #-32]!</strong><br />
+Store pair: Save frame pointer (x29) and link register (x30) to [sp - 32], then set sp = sp - 32. This allocates 32 bytes of stack and saves caller-saved registers (ABI requirement for functions). The <code class="docutils literal notranslate"><span class="pre">!</span></code> indicates pre-indexed write-back.</p></li>
+<li><p><strong>34: 910003fd  mov x29, sp</strong><br />
+Set x29 (frame pointer) to current sp. This establishes a frame pointer for debugging or unwinding.</p></li>
+<li><p><strong>38: b9001fe0  str w0, [sp, #28]</strong><br />
+Store w0 (argc, the number of command-line arguments, passed by the OS) to [sp + 28].</p></li>
+<li><p><strong>3c: f9000be1  str x1, [sp, #16]</strong><br />
+Store x1 (argv, pointer to argument strings) to [sp + 16]. This saves the command-line args for later use.</p></li>
+<li><p><strong>40: f9400be1  ldr x1, [sp, #16]</strong><br />
+Load argv back into x1 (preparing for function call).</p></li>
+<li><p><strong>44: b9401fe0  ldr w0, [sp, #28]</strong><br />
+Load argc into w0.</p></li>
+<li><p><strong>48: 94000000  bl 0 &lt;_gfortran_set_args&gt;</strong><br />
+Branch with link (call) to <code class="docutils literal notranslate"><span class="pre">_gfortran_set_args</span></code> (a libgfortran function). This passes argc (w0) and argv (x1) to initialize Fortran’s argument handling. The address is a placeholder (0), resolved by the linker via <code class="docutils literal notranslate"><span class="pre">R_AARCH64_CALL26</span></code> (26-bit PC-relative call).</p></li>
+<li><p><strong>4c: 90000000  adrp x0, 0 &lt;MAIN__&gt;</strong><br />
+Address relative page: Load the high 21 bits of the address of the <code class="docutils literal notranslate"><span class="pre">.rodata</span></code> section (read-only data) into x0. This prepares to pass options data. Relocation: <code class="docutils literal notranslate"><span class="pre">R_AARCH64_ADR_PREL_PG_HI21</span></code> resolves the page-aligned address.</p></li>
+<li><p><strong>50: 91000001  add x1, x0, #0x0</strong><br />
+Add low 12 bits to x0, storing in x1. This completes the address of some options array in <code class="docutils literal notranslate"><span class="pre">.rodata</span></code>. Relocation: <code class="docutils literal notranslate"><span class="pre">R_AARCH64_ADD_ABS_LO12_NC</span></code> (no carry).</p></li>
+<li><p><strong>54: 528000e0  mov w0, #0x7</strong><br />
+Move 7 into w0. This is likely the number of options or a flags value for <code class="docutils literal notranslate"><span class="pre">_gfortran_set_options</span></code>.</p></li>
+<li><p><strong>58: 94000000  bl 0 &lt;_gfortran_set_options&gt;</strong><br />
+Call <code class="docutils literal notranslate"><span class="pre">_gfortran_set_options</span></code> with count/flags (w0) and options pointer (x1, per ABI; wait, actually x0 should be count, x1 options—wait, registers: mov set w0=7, but add set x1=address. Yes, call passes x0=unused?, but ABI: first arg x0, second x1. Wait, adrp/add set x0=page, x1=full addr, then mov w0=7 overwrites x0. So args: x0=7 (count), x1=options. Relocation: <code class="docutils literal notranslate"><span class="pre">R_AARCH64_CALL26</span></code>.</p></li>
+<li><p><strong>5c: 97ffffe9  bl 0 &lt;MAIN__&gt;</strong><br />
+Call <code class="docutils literal notranslate"><span class="pre">&lt;MAIN__&gt;</span></code> (PC-relative branch backward). The offset <code class="docutils literal notranslate"><span class="pre">ffffe9</span></code> is -23 in two’s complement, but actually computed to reach offset 0.</p></li>
+<li><p><strong>60: 52800000  mov w0, #0x0</strong><br />
+Move 0 into w0. This sets the exit status (success).</p></li>
+<li><p><strong>64: a8c27bfd  ldp x29, x30, [sp], #32</strong><br />
+Load pair: Restore x29 and x30 from [sp], then add 32 to sp (post-indexed). This cleans up the stack.</p></li>
+<li><p><strong>68: d65f03c0  ret</strong><br />
+Return to caller (e.g., OS or runtime), exiting the program with status in w0.</p></li>
+</ul>
+<p>In essence, <code class="docutils literal notranslate"><span class="pre">&lt;main&gt;</span></code> initializes the Fortran runtime with args and options, runs the program body, and exits. The relocations ensure external symbols (like libgfortran functions) are linked correctly.</p>
+</section>
+<section id="additional-notes">
+<h3>Additional Notes<a class="headerlink" href="#additional-notes" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Compilation Assumptions</strong>: This looks like unoptimized code (-O0), as variables are stack-stored and not optimized away (the computation is dead code since <code class="docutils literal notranslate"><span class="pre">c</span></code> isn’t used). In higher optimization, this might be elided entirely.</p></li>
+<li><p><strong>Runtime Dependencies</strong>: Relies on libgfortran for <code class="docutils literal notranslate"><span class="pre">_gfortran_set_args</span></code> and <code class="docutils literal notranslate"><span class="pre">_gfortran_set_options</span></code>, which handle things like backtrace options, floating-point settings, etc.</p></li>
+<li><p><strong>Execution Flow</strong>: OS calls <code class="docutils literal notranslate"><span class="pre">&lt;main&gt;</span></code>, which sets up, calls <code class="docutils literal notranslate"><span class="pre">&lt;MAIN__&gt;</span></code>, computes 2*3=6 (unused), returns, and exits.</p></li>
+<li><p><strong>Potential Extensions</strong>: If you ran this, it would do nothing visible—no print. To verify, you’d need to add I/O in Fortran or debug with GDB.</p></li>
+</ul>
+<p>This covers the disassembly exhaustively. If you have questions about specific instructions or want to simulate execution, let me know!</p>
+</section>
 </section>
 </section>
 
@@ -859,7 +1133,7 @@ end<span class="w"> </span>program<span class="w"> </span>add
         },
         kernelOptions: {
             name: "python3",
-            path: "./Sections/Cybersecurity/Disassembling_Binaries/Fortran/ARM64/ADD_INT"
+            path: "./Sections/Cybersecurity/Disassembling_Binaries/Fortran/ARM64/MULT_INT"
         },
         predefinedOutput: true
     }
@@ -877,20 +1151,20 @@ end<span class="w"> </span>program<span class="w"> </span>add
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../arm64.html"
+       href="../ADD_INT/add_int.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">ARM 64 Bit</p>
+        <p class="prev-next-title">Fortran - ARM 64-Bit Platform - Add Two Integers</p>
       </div>
     </a>
     <a class="right-next"
-       href="../MULT_INT/mult_int.html"
+       href="../../ARM32/arm32.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Fortran - ARM 64-Bit Platform - Multiply Two Integers</p>
+        <p class="prev-next-title">ARM32</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -912,9 +1186,37 @@ end<span class="w"> </span>program<span class="w"> </span>add
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-program-add-f08">The program <em>add.f08</em></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disassembling-add-int-fortran-aarch64-ggdb3-in-gdb-gef">Disassembling <em>add_int_Fortran_aarch64_ggdb3</em> in GDB + GEF</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-add-int-fortran-aarch64-ggdb3-in-gdb-gef">Running <em>add_int_Fortran_aarch64_ggdb3</em> in GDB + GEF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-program-mult-int-f08">The program <em>mult_int.f08</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disassembling-mult-int-fortran-aarch64-ggdb3">Disassembling <em>mult_int_Fortran_aarch64_ggdb3</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explaining-the-dissassembly-by-chatgpt-4o">Explaining the Dissassembly by ChatGPT 4o</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#function-main">Function: <code class="docutils literal notranslate"><span class="pre">MAIN__</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#prologue-stack-setup">1. <strong>Prologue: Stack setup</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-a-2">2. <strong>Initialize <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">2</span></code></strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-b-3">3. <strong>Initialize <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">3</span></code></strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-c-a-b">4. <strong>Compute <code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">=</span> <span class="pre">a</span> <span class="pre">*</span> <span class="pre">b</span></code></strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epilogue-clean-up-stack">5. <strong>Epilogue: Clean up stack</strong></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Function: <code class="docutils literal notranslate"><span class="pre">main</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#prologue">1. <strong>Prologue</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#store-argc-argv">2. <strong>Store argc, argv</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-fortran-runtime-arguments">3. <strong>Initialize Fortran runtime arguments</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#set-fortran-runtime-options">4. <strong>Set Fortran runtime options</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#call-fortran-main-program">5. <strong>Call Fortran main program</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#return-from-main">6. <strong>Return from main</strong></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stack-layout-summary-inside-main">Stack Layout Summary (inside <code class="docutils literal notranslate"><span class="pre">MAIN__</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explaining-the-disassembly-by-grok-4">Explaining the Disassembly by Grok 4</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-the-disassembly">Overview of the Disassembly</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#detailed-explanation-of-main-offset-0x0000000000000000">Detailed Explanation of <code class="docutils literal notranslate"><span class="pre">&lt;MAIN__&gt;</span></code> (Offset 0x0000000000000000)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#detailed-explanation-of-main-offset-0x0000000000000030">Detailed Explanation of <code class="docutils literal notranslate"><span class="pre">&lt;main&gt;</span></code> (Offset 0x0000000000000030)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-notes">Additional Notes</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
