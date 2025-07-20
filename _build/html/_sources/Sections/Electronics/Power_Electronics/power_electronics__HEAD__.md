@@ -21,4 +21,16 @@ Power Supplies
 ```
 :::
 
+:::{grid-item-card}
+:link: Hacking_the_TL494_LTSpice_Model/hacking_the_TL494_LTSpice_model
+:link-type: doc
+:class-header: bg-dark
+
+Hacking the TL494 LTSpice Model
+^^^
+```{image} images/TL494_jig.jpeg
+:height: 200
+```
+:::
+
 ::::
