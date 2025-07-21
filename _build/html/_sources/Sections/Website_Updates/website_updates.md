@@ -1,4 +1,8 @@
 # Website Updates
+This file contains a log of updates made to the MKDynamics website. It is used to track changes, additions, and improvements over time.
+
+## 7/21/2025
+- Added new section on Disassembling Binaries for Fortran ARM64, including `div_int` example.  Starting to work on 'sub_int'.
 
 ## 12/26/2024
 - Continuing to import SLAE64 from legacy HTML.  Added GDB Test and Hello World sections.  Added Amazon affiliate links.  Rebuilt book to clean up dangling links.

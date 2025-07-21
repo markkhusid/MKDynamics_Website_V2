@@ -20,6 +20,7 @@ parts:
           - file: Sections/Cybersecurity/Disassembling_Binaries/Fortran/ARM64/ADD_INT/add_int
           - file: Sections/Cybersecurity/Disassembling_Binaries/Fortran/ARM64/MULT_INT/mult_int
           - file: Sections/Cybersecurity/Disassembling_Binaries/Fortran/ARM64/DIV_INT/div_int
+          - file: Sections/Cybersecurity/Disassembling_Binaries/Fortran/ARM64/SUB_INT/sub_int
         - file: Sections/Cybersecurity/Disassembling_Binaries/Fortran/ARM32/arm32
         - file: Sections/Cybersecurity/Disassembling_Binaries/Fortran/AMD64/amd64
         - file: Sections/Cybersecurity/Disassembling_Binaries/Fortran/i386/i386
