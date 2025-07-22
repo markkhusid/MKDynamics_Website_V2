@@ -28,7 +28,7 @@ Add Two Integers
 
 Subtract Two Integers
 ^^^
-```{image} images/sub_int_Fortran_ARM64_splash.jpg
+```{image} images/sub_int_Fortran_ARM64_splash.png
 :height: 600
 :width: 800
 ```
