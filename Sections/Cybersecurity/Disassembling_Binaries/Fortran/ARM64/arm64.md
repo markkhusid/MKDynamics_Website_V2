@@ -60,4 +60,17 @@ Divide Two Integers
 ```
 :::
 
+:::{grid-item-card}
+:link: MOD_INT/mod_int
+:link-type: doc
+:class-header: bg-dark
+
+Modulo Two Integers
+^^^
+```{image} images/mod_int_Fortran_ARM64_splash.png
+:height: 600
+:width: 800
+```
+:::
+
 ::::
