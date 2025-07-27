@@ -248,6 +248,10 @@ parts:
           - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Call_By_Semantics_Call_By_Reference
           - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Call_By_Semantics_Call_By_Value
 
+        - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Cellular_Automata__Head__
+          sections:
+          - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Cellular_Automata
+
         - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Computing_Pi
           sections:
           - file: Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Computing_Pi_Compute_Pi
