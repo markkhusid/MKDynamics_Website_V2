@@ -1,6 +1,6 @@
 # My Resume
 
-[Download the PDF](EE_Resume/2024_06_01/Mark_Khusid_EE_Resume_2025_08_17.pdf) 
+[Download the PDF](EE_Resume/2025_08_17/Mark_Khusid_EE_Resume_2025_08_17.pdf) 
 
 ```{figure} EE_Resume/2025_08_17/Mark_Khusid_EE_Resume_2025_08_17-1.png
 :alt: Mark Khusid's Resume
