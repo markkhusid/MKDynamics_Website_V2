@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../../../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../../../../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../../../../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -77,7 +77,7 @@
     <link rel="icon" href="../../../../../../_static/spacey.jpg"/>
     <link rel="index" title="Index" href="../../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../../search.html" />
-    <link rel="next" title="C++" href="../../../C%2B%2B/c%2B%2B.html" />
+    <link rel="next" title="Dividing Integers: i386" href="../Div_Int/div_int.html" />
     <link rel="prev" title="Adding Integers: i386" href="../Add_Int/add_int.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -245,6 +245,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/C/Beej_s_Guide_to_C_Programming/section_6_6_1_arrays_getting_a_pointer_to_an_array.html">Section 6.6.1 Arrays and Pointers: Getting a Pointer to an Array</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/C/Beej_s_Guide_to_C_Programming/section_6_6_2_arrays_passing_single_dimensional_arrays_to_functions.html">Section 6.6.2 Arrays and Pointers: Passing Single-Dimensional Arrays to Functions</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/C/Beej_s_Guide_to_C_Programming/section_6_6_3_arrays_changing_arrays_in_functions.html">Section 6.6.3 Arrays and Pointers: Changing Arrays in Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/C/Beej_s_Guide_to_C_Programming/section_6_6_4_arrays_passing_multidimensional_arrays_to_functions.html">Section 6.6.4 Arrays and Pointers: Passing Multidimensional Arrays to Functions</a></li>
 </ul>
 </details></li>
 </ul>
@@ -317,6 +318,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Fortran_MOOC/Section_Bit_Manipulations__Head__.html">Section: Bit Manipulations</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Fortran_MOOC/Section_Floating_Point.html">Section: Floating Point</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Fortran_MOOC/Section_Call_By_Semantics.html">Section: Call By Semantics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Fortran_MOOC/Section_Cellular_Automata__Head__.html">Section: Cellular Automata</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Fortran_MOOC/Section_Computing_Pi.html">Section: Computing Pi</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Fortran_MOOC/Section_Implicit_vs_Explicit_Loops__Head__.html">Section: Implicit vs Explicit Loops</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/Fortran_MOOC/Section_Block_Matrices__Head__.html">Section: Block Matrices</a></li>
@@ -339,6 +341,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/CSV_Fortran/csv_fortran_write_csv.html">Section: Write CSV Files</a></li>
 </ul>
 </details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../Computer_Programming/Fortran/NERSC/NERSC__HEAD__.html">NERSC - National Energy Research Scientific Computing Center</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../Computer_Programming/Javascript/javascript.html">Javascript Programming</a></li>
@@ -384,6 +387,7 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../Electronics/Power_Electronics/power_electronics__HEAD__.html">Power Electronics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../../../../Electronics/Power_Electronics/Power_Supplies/power_supplies__HEAD__.html">Power Supplies</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../Electronics/Power_Electronics/Power_Supplies/Forward_Converter_100V_to_5V_10A/forward_converter_100V_to_5V_10A.html">Forward Converter 100V to 5V at 10A</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../Electronics/Power_Electronics/Hacking_the_TL494_LTSpice_Model/hacking_the_TL494_LTSpice_model.html">Electronics - Hacking the TL494 LTSpice Model</a></li>
 </ul>
 </details></li>
 </ul>
@@ -692,7 +696,7 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="multiplying-integers-i386">
 <h1>Multiplying Integers: i386<a class="headerlink" href="#multiplying-integers-i386" title="Link to this heading">#</a></h1>
-<a class="reference internal image-reference" href="../../../../../../_images/mult_int_C_i386_splash1.png"><img alt="../../../../../../_images/mult_int_C_i386_splash1.png" src="../../../../../../_images/mult_int_C_i386_splash1.png" style="width: 800px; height: 500px;" />
+<a class="reference internal image-reference" href="../../../../../../_images/mult_int_C_i386_splash.png"><img alt="../../../../../../_images/mult_int_C_i386_splash.png" src="../../../../../../_images/mult_int_C_i386_splash.png" style="width: 800px; height: 500px;" />
 </a>
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
@@ -1435,11 +1439,11 @@ Disassembly of section .eh_frame:
       </div>
     </a>
     <a class="right-next"
-       href="../../../C%2B%2B/c%2B%2B.html"
+       href="../Div_Int/div_int.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">C++</p>
+        <p class="prev-next-title">Dividing Integers: i386</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

@@ -20,7 +20,7 @@ Mark Khusid is a an electrical engineer in the aerospace industry and a graduate
 
 My Resume
 ^^^
-```{image} Resume/resume.png
+```{image} Resume/resume_2025_08_17.png
 :height: 200
 ```
 :::
