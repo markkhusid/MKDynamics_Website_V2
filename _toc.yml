@@ -299,6 +299,11 @@ parts:
         - file: Sections/Computer_Programming/Fortran/CSV_Fortran/csv_fortran_write_csv
 
       - file: Sections/Computer_Programming/Fortran/NERSC/NERSC__HEAD__
+        sections:
+        - file: Sections/Computer_Programming/Fortran/NERSC/Supercomputing_Crash_Course/SCC__HEAD__
+          sections:
+          - file: Sections/Computer_Programming/Fortran/NERSC/Supercomputing_Crash_Course/Computing_Pi_Serial/Computing_Pi_Serial
+
 
     - file: Sections/Computer_Programming/Javascript/javascript
 
