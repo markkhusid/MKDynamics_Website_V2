@@ -6,7 +6,7 @@
 
 ## Introduction
 
-From the {NERSC website}(https://www.nersc.gov/news-and-events/calendar-of-events/hpc-crash-course-jun2025):
+From the [NERSC website](https://www.nersc.gov/news-and-events/calendar-of-events/hpc-crash-course-jun2025):
 
 >"This hybrid training, as part of the 2025 Berkeley Lab Computational Sciences Summer Student Program, is also open to NERSC, ALCF, LANL, OLCF, and TACC users. This training is geared towards novice parallel programmers."
 
