@@ -15,7 +15,7 @@ In these sections, we will adapt the Fortran code that NERSC uses to teach about
 
 In these sections, we will compute Pi using various methods, include serial, using OpenMP, MPI, and various combinations of these.
 
-Course code can be found at the following link:
+Course code can be found at the following Github link:
 
 https://github.com/NERSC/crash-course-supercomputing
 

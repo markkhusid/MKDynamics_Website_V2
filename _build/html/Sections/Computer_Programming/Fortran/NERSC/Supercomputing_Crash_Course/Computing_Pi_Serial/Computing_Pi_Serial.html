@@ -723,24 +723,73 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Crash Course in Supercomputing: Compute Pi in a Serial Fashion</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#this-program-demonstrates-computing-pi-in-fortran-using-the-monte-carlo-method-in-a-serial-fashion">This program demonstrates computing <span class="math notranslate nohighlight">\(\pi\)</span> in Fortran using the Monte Carlo method in a Serial Fashion:</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-file-computing-pi-serial-f90">In file computing_pi_serial.f90</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-the-file-lcgenerator-mod-f90">In the file lcgenerator_mod.f90</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-the-file-get-nr-iters-mod-f90">In the file get_nr_iters_mod.f90</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-analysis-by-grok-4">Code Analysis by Grok 4</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-the-code">Overview of the Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#main-program-compute-pi-serial">Main Program: <code class="docutils literal notranslate"><span class="pre">compute_pi_serial</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#breakdown">Breakdown:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#module-get-nr-iters-mod">Module: <code class="docutils literal notranslate"><span class="pre">get_nr_iters_mod</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Breakdown:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#module-lcgenerator-mod">Module: <code class="docutils literal notranslate"><span class="pre">lcgenerator_mod</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Breakdown:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-and-notes">Key Concepts and Notes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-analysis-by-chatgpt-5-thinking">Code Analysis by ChatGPT 5 Thinking</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#what-the-code-does-high-level">What the code does (high-level)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#file-by-file-explanation">File-by-file explanation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-pi-serial-f90-main-program">1) <code class="docutils literal notranslate"><span class="pre">compute_pi_serial.f90</span></code> — main program</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modules-and-kinds">Modules and kinds</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#declarations-and-initialization">Declarations and initialization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#core-monte-carlo-loop">Core Monte-Carlo loop</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estimator-and-output">Estimator and output</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lcgenerator-mod-f90-linear-congruential-generator">2) <code class="docutils literal notranslate"><span class="pre">lcgenerator_mod.f90</span></code> — Linear congruential generator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-nr-iters-mod-f90-parse-number-of-trials">3) <code class="docutils literal notranslate"><span class="pre">get_nr_iters_mod.f90</span></code> — parse number of trials</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-properties-of-the-estimator-why-it-works">Statistical properties of the estimator (why it works)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#corrections-precision-improvements-recommended">Corrections &amp; precision improvements (recommended)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-set-num-trials-and-remove-the-stray-line">A) Set <code class="docutils literal notranslate"><span class="pre">num_trials</span></code> (and remove the stray <code class="docutils literal notranslate"><span class="pre">...</span></code> line)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-keep-all-arithmetic-in-double-precision">B) Keep all arithmetic in double precision</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-optional-guard-against-bad-inputs">C) Optional: guard against bad inputs</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#suggested-polished-version-of-compute-pi-serial-f90">Suggested polished version of <code class="docutils literal notranslate"><span class="pre">compute_pi_serial.f90</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-build-and-run">How to build and run</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#further-remarks-optional-enhancements">Further remarks &amp; optional enhancements</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-the-program-using-fpm-fortran-package-manager">Build the Program using FPM (Fortran Package Manager)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-program-using-fpm-fortran-package-manager">Run the Program using FPM (Fortran Package Manager)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iterations">10 Iterations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">100 Iterations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">1,000 Iterations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">10,000 Iterations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">100,000 Iterations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">1,000,000 Iterations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">10,000,000 Iterations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">100,000,000 Iterations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">1,000,000,000 Iterations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">100 Iterations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">1,000 Iterations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">10,000 Iterations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">100,000 Iterations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">1,000,000 Iterations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">10,000,000 Iterations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">100,000,000 Iterations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">1,000,000,000 Iterations</a></li>
 </ul>
 </li>
 </ul>
+</li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -794,9 +843,672 @@
 <span class="k">end program </span><span class="n">compute_pi_serial</span>
 </pre></div>
 </div>
-<p>The above program is compiled and run using Fortran Package Manager (fpm):</p>
+</section>
+<section id="in-the-file-lcgenerator-mod-f90">
+<h3>In the file lcgenerator_mod.f90<a class="headerlink" href="#in-the-file-lcgenerator-mod-f90" title="Link to this heading">#</a></h3>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">module </span><span class="n">lcgenerator_mod</span>
+<span class="w">  </span><span class="k">use</span><span class="p">,</span><span class="w"> </span><span class="k">intrinsic</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">iso_fortran_env</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">DP</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">REAL64</span><span class="p">,</span><span class="w"> </span><span class="n">I8</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">INT64</span>
+<span class="w">  </span><span class="k">implicit none</span>
+<span class="k">  private</span>
+<span class="k">  public</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">lcgrandom</span>
+
+<span class="w">  </span><span class="k">contains</span>
+<span class="k">    </span><span class="kt">real </span><span class="k">function </span><span class="n">lcgrandom</span><span class="p">()</span>
+<span class="w">      </span><span class="kt">integer</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">I8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">MULTIPLIER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1366</span>
+<span class="w">      </span><span class="kt">integer</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">I8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ADDEND</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">150889</span>
+<span class="w">      </span><span class="kt">integer</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">I8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">PMOD</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">714025</span>
+<span class="w">      </span><span class="kt">integer</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">I8</span><span class="p">),</span><span class="w"> </span><span class="k">save</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">random_last</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+
+<span class="w">      </span><span class="kt">integer</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">I8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">random_next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">      </span><span class="n">random_next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">mod</span><span class="p">((</span><span class="n">MULTIPLIER</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">random_last</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ADDEND</span><span class="p">),</span><span class="w"> </span><span class="n">PMOD</span><span class="p">)</span>
+<span class="w">      </span><span class="n">random_last</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">random_next</span>
+<span class="w">      </span><span class="n">lcgrandom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mf">1.0_DP</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">random_next</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">PMOD</span>
+<span class="w">      </span><span class="k">return</span>
+<span class="k">    end function </span><span class="n">lcgrandom</span>
+<span class="k">end module </span><span class="n">lcgenerator_mod</span>
+</pre></div>
+</div>
+</section>
+<section id="in-the-file-get-nr-iters-mod-f90">
+<h3>In the file get_nr_iters_mod.f90<a class="headerlink" href="#in-the-file-get-nr-iters-mod-f90" title="Link to this heading">#</a></h3>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">module </span><span class="n">get_nr_iters_mod</span>
+<span class="w">    </span><span class="k">implicit none</span>
+<span class="k">    private</span>
+<span class="k">    public</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">get_nr_iters</span>
+
+<span class="k">contains</span>
+
+<span class="k">    function </span><span class="n">get_nr_iters</span><span class="p">()</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">nr_iters</span><span class="p">)</span>
+<span class="w">        </span><span class="k">use</span><span class="p">,</span><span class="w"> </span><span class="k">intrinsic</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">iso_fortran_env</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">error_unit</span>
+<span class="w">        </span><span class="k">use</span><span class="p">,</span><span class="w"> </span><span class="k">intrinsic</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">iso_fortran_env</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">DP</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">REAL64</span><span class="p">,</span><span class="w"> </span><span class="n">I8</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">INT64</span>
+<span class="w">        </span><span class="k">implicit none</span>
+<span class="k">        </span><span class="kt">integer</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">I8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">nr_iters</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">I8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">default_nr_iters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000_I8</span>
+<span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">1024</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span>
+<span class="w">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">istat</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">command_argument_count</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">            call </span><span class="nb">get_command_argument</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">buffer</span><span class="p">)</span>
+<span class="w">            </span><span class="k">read</span><span class="w"> </span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=*</span><span class="p">,</span><span class="w"> </span><span class="n">iostat</span><span class="o">=</span><span class="n">istat</span><span class="p">,</span><span class="w"> </span><span class="n">iomsg</span><span class="o">=</span><span class="n">msg</span><span class="p">)</span><span class="w"> </span><span class="n">nr_iters</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">istat</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                write</span><span class="w"> </span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="n">error_unit</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(2A)&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                    </span><span class="s1">&#39;error: &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span>
+<span class="w">                </span><span class="k">stop </span><span class="mi">1</span>
+<span class="w">            </span><span class="k">end if</span>
+<span class="k">        else</span>
+<span class="k">            </span><span class="n">nr_iters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">default_nr_iters</span>
+<span class="w">        </span><span class="k">end if</span>
+<span class="k">    end function </span><span class="n">get_nr_iters</span>
+
+<span class="k">end module </span><span class="n">get_nr_iters_mod</span>
+</pre></div>
+</div>
 </section>
 </section>
+<section id="code-analysis-by-grok-4">
+<h2>Code Analysis by Grok 4<a class="headerlink" href="#code-analysis-by-grok-4" title="Link to this heading">#</a></h2>
+<section id="overview-of-the-code">
+<h3>Overview of the Code<a class="headerlink" href="#overview-of-the-code" title="Link to this heading">#</a></h3>
+<p>This Fortran code is a complete, self-contained program designed to approximate the value of π (pi) using the Monte Carlo simulation method. The approach is serial (non-parallel), meaning it runs sequentially on a single processor without any concurrency. The program generates pseudo-random points within a unit square and counts how many fall inside a quarter-circle inscribed in that square. The ratio of points inside the circle to the total points, multiplied by 4, provides an estimate of π.</p>
+<p>The code is structured as a main program (<code class="docutils literal notranslate"><span class="pre">compute_pi_serial</span></code>) and two supporting modules:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">get_nr_iters_mod</span></code>: Handles reading the number of iterations (trials) from command-line arguments or uses a default value.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lcgenerator_mod</span></code>: Provides a simple linear congruential generator (LCG) for pseudo-random number generation.</p></li>
+</ul>
+<p>The code uses modern Fortran features (e.g., from Fortran 2008/2018 standards), including intrinsic modules like <code class="docutils literal notranslate"><span class="pre">iso_fortran_env</span></code> for portable data types (e.g., 64-bit reals and integers). It employs double-precision arithmetic for accuracy and includes error handling for input.</p>
+<p>I’ll explain the code in detail, breaking it down by section: first the main program, then each module. I’ll cover the purpose, syntax, variables, logic, and any key Fortran concepts.</p>
+</section>
+<section id="main-program-compute-pi-serial">
+<h3>Main Program: <code class="docutils literal notranslate"><span class="pre">compute_pi_serial</span></code><a class="headerlink" href="#main-program-compute-pi-serial" title="Link to this heading">#</a></h3>
+<p>This is the entry point of the executable. It sets up the simulation, runs the Monte Carlo loop, computes the approximation, and prints results.</p>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">compute_pi_serial</span>
+<span class="w">  </span><span class="k">use</span><span class="p">,</span><span class="w"> </span><span class="k">intrinsic</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">iso_fortran_env</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">DP</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">REAL64</span><span class="p">,</span><span class="w"> </span><span class="n">I8</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">INT64</span>
+<span class="w">  </span><span class="k">use </span><span class="n">lcgenerator_mod</span><span class="p">,</span><span class="w">  </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">lcgrandom</span>
+<span class="w">  </span><span class="k">use </span><span class="n">get_nr_iters_mod</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">get_nr_iters</span>
+<span class="w">  </span>
+<span class="w">  </span><span class="k">implicit none</span>
+
+<span class="k">  </span><span class="kt">integer</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">I8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">num_trials</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">Ncirc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">DP</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">pi_computed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="n">pi_actual</span>
+<span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">DP</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span>
+<span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">DP</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">r_squared</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span>
+
+<span class="w">  </span><span class="n">pi_actual</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.0_DP</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">acos</span><span class="p">(</span><span class="mf">0.0_DP</span><span class="p">)</span>
+<span class="w">  </span>
+<span class="w">  </span><span class="n">r_squared</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="o">*</span><span class="n">r</span>
+
+<span class="w">  </span><span class="n">num_trials</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_nr_iters</span><span class="p">()</span>
+
+<span class="w">  </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">num_trials</span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lcgrandom</span><span class="p">()</span>
+<span class="w">    </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lcgrandom</span><span class="p">()</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="o">*</span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">r_squared</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">        </span><span class="n">Ncirc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ncirc</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="k">end if</span>
+<span class="k">  end do</span>
+
+<span class="k">  </span><span class="n">pi_computed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">4.0</span><span class="o">*</span><span class="p">((</span><span class="mf">1.0</span><span class="o">*</span><span class="n">Ncirc</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mf">1.0</span><span class="o">*</span><span class="n">num_trials</span><span class="p">))</span>
+
+<span class="w">  </span><span class="k">print</span><span class="w"> </span><span class="s1">&#39;(A, I10, A, F25.15)&#39;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;After &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">num_trials</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot; loops, Pi = &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">pi_computed</span>
+<span class="w">  </span><span class="k">print</span><span class="w"> </span><span class="s1">&#39;(A, F25.15)&#39;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Actual value of Pi = &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">pi_actual</span>
+<span class="w">  </span><span class="k">print</span><span class="w"> </span><span class="s1">&#39;(A, F25.15)&#39;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Absolute difference = &quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">pi_computed</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">pi_actual</span><span class="p">)</span>
+
+<span class="k">end program </span><span class="n">compute_pi_serial</span>
+</pre></div>
+</div>
+<section id="breakdown">
+<h4>Breakdown:<a class="headerlink" href="#breakdown" title="Link to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p><strong>Module Imports and Aliases</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">use,</span> <span class="pre">intrinsic</span> <span class="pre">::</span> <span class="pre">iso_fortran_env,</span> <span class="pre">only</span> <span class="pre">:</span> <span class="pre">DP</span> <span class="pre">=&gt;</span> <span class="pre">REAL64,</span> <span class="pre">I8</span> <span class="pre">=&gt;</span> <span class="pre">INT64</span></code>: This imports the intrinsic module <code class="docutils literal notranslate"><span class="pre">iso_fortran_env</span></code>, which provides portable kind parameters for data types. <code class="docutils literal notranslate"><span class="pre">DP</span></code> is aliased to <code class="docutils literal notranslate"><span class="pre">REAL64</span></code> (64-bit double-precision real), and <code class="docutils literal notranslate"><span class="pre">I8</span></code> to <code class="docutils literal notranslate"><span class="pre">INT64</span></code> (64-bit integer). This ensures cross-platform consistency for high-precision calculations.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">use</span> <span class="pre">lcgenerator_mod,</span> <span class="pre">only</span> <span class="pre">:</span> <span class="pre">lcgrandom</span></code>: Imports the <code class="docutils literal notranslate"><span class="pre">lcgrandom</span></code> function from the <code class="docutils literal notranslate"><span class="pre">lcgenerator_mod</span></code> module for generating pseudo-random numbers.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">use</span> <span class="pre">get_nr_iters_mod,</span> <span class="pre">only</span> <span class="pre">:</span> <span class="pre">get_nr_iters</span></code>: Imports the <code class="docutils literal notranslate"><span class="pre">get_nr_iters</span></code> function from the <code class="docutils literal notranslate"><span class="pre">get_nr_iters_mod</span></code> module to determine the number of trials.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">implicit</span> <span class="pre">none</span></code>: A good practice in Fortran to prevent undeclared variables; all variables must be explicitly declared.</p></li>
+</ul>
+</li>
+<li><p><strong>Variable Declarations</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">integer(kind=I8)</span> <span class="pre">::</span> <span class="pre">num_trials,</span> <span class="pre">i</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">Ncirc</span> <span class="pre">=</span> <span class="pre">0</span></code>: Declares 64-bit integers:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">num_trials</span></code>: Total number of Monte Carlo trials (points to generate).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">i</span></code>: Loop counter, initialized to 0.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Ncirc</span></code>: Counter for points inside the quarter-circle, initialized to 0.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">real(kind=DP)</span> <span class="pre">::</span> <span class="pre">pi_computed</span> <span class="pre">=</span> <span class="pre">0.0,</span> <span class="pre">pi_actual</span></code>: Double-precision reals:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">pi_computed</span></code>: The approximated value of π.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pi_actual</span></code>: The “true” value of π (computed using <code class="docutils literal notranslate"><span class="pre">acos</span></code>).</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">real(kind=DP)</span> <span class="pre">::</span> <span class="pre">x</span> <span class="pre">=</span> <span class="pre">0.0,</span> <span class="pre">y</span> <span class="pre">=</span> <span class="pre">0.0,</span> <span class="pre">r</span> <span class="pre">=</span> <span class="pre">1.0</span></code>: Coordinates and radius:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>: Pseudo-random coordinates in [0,1).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">r</span></code>: Radius of the circle (fixed at 1.0 for a unit circle).</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">real(kind=DP)</span> <span class="pre">::</span> <span class="pre">r_squared</span> <span class="pre">=</span> <span class="pre">0.0</span></code>: Precomputed <code class="docutils literal notranslate"><span class="pre">r*r</span></code> (1.0) to avoid repeated multiplication in the loop for minor efficiency.</p></li>
+</ul>
+</li>
+<li><p><strong>Computing the Actual π</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pi_actual</span> <span class="pre">=</span> <span class="pre">2.0_DP</span> <span class="pre">*</span> <span class="pre">acos(0.0_DP)</span></code>: Uses the intrinsic <code class="docutils literal notranslate"><span class="pre">acos</span></code> function (arc cosine) to compute π. <code class="docutils literal notranslate"><span class="pre">acos(0.0)</span></code> returns π/2, so multiplying by 2 gives π. The <code class="docutils literal notranslate"><span class="pre">_DP</span></code> suffix ensures double-precision literals.</p></li>
+</ul>
+</li>
+<li><p><strong>Precomputing r_squared</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">r_squared</span> <span class="pre">=</span> <span class="pre">r*r</span></code>: Stores 1.0 for use in the distance check inside the loop.</p></li>
+</ul>
+</li>
+<li><p><strong>Getting Number of Trials</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">num_trials</span> <span class="pre">=</span> <span class="pre">get_nr_iters()</span></code>: Calls the function from <code class="docutils literal notranslate"><span class="pre">get_nr_iters_mod</span></code> to read the number of iterations. If no command-line argument is provided, it defaults to 1000.</p></li>
+</ul>
+</li>
+<li><p><strong>Monte Carlo Loop</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">do</span> <span class="pre">i</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">num_trials</span></code>: A simple do-loop that runs <code class="docutils literal notranslate"><span class="pre">num_trials</span></code> times.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">lcgrandom()</span></code>: Generates a pseudo-random number in [0,1) for the x-coordinate.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">lcgrandom()</span></code>: Same for y-coordinate.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">((x*x</span> <span class="pre">+</span> <span class="pre">y*y)</span> <span class="pre">&lt;=</span> <span class="pre">r_squared)</span> <span class="pre">then</span></code>: Checks if the point (x,y) is inside the quarter-circle by testing if the squared distance from origin (x² + y²) ≤ 1.0.</p>
+<ul>
+<li><p>If true, <code class="docutils literal notranslate"><span class="pre">Ncirc</span> <span class="pre">=</span> <span class="pre">Ncirc</span> <span class="pre">+</span> <span class="pre">1</span></code>: Increments the counter.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>This implements the core Monte Carlo method: the probability a random point in the unit square falls inside the quarter-circle is π/4, so π ≈ 4 * (Ncirc / num_trials).</p></li>
+</ul>
+</li>
+<li><p><strong>Computing the Approximation</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pi_computed</span> <span class="pre">=</span> <span class="pre">4.0*((1.0*Ncirc)/(1.0*num_trials))</span></code>: Calculates the estimate. The <code class="docutils literal notranslate"><span class="pre">1.0*</span></code> ensures real division (avoiding integer truncation). Note: In modern Fortran, this could be simplified to <code class="docutils literal notranslate"><span class="pre">4.0</span> <span class="pre">*</span> <span class="pre">real(Ncirc,</span> <span class="pre">DP)</span> <span class="pre">/</span> <span class="pre">real(num_trials,</span> <span class="pre">DP)</span></code>, but the code uses explicit promotion.</p></li>
+</ul>
+</li>
+<li><p><strong>Output</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">print</span> <span class="pre">'(A,</span> <span class="pre">I10,</span> <span class="pre">A,</span> <span class="pre">F25.15)',</span> <span class="pre">&quot;After</span> <span class="pre">&quot;,</span> <span class="pre">num_trials,</span> <span class="pre">&quot;</span> <span class="pre">loops,</span> <span class="pre">Pi</span> <span class="pre">=</span> <span class="pre">&quot;,</span> <span class="pre">pi_computed</span></code>: Prints the result with 10 digits for the integer and 15 decimal places for the float.</p></li>
+<li><p>Similar prints for the actual π and absolute difference (<code class="docutils literal notranslate"><span class="pre">abs(pi_computed</span> <span class="pre">-</span> <span class="pre">pi_actual)</span></code>).</p></li>
+<li><p>Format specifiers: <code class="docutils literal notranslate"><span class="pre">A</span></code> for strings, <code class="docutils literal notranslate"><span class="pre">I10</span></code> for integers (width 10), <code class="docutils literal notranslate"><span class="pre">F25.15</span></code> for floats (width 25, 15 decimals).</p></li>
+</ul>
+</li>
+</ol>
+<p>This main program is straightforward and efficient for small <code class="docutils literal notranslate"><span class="pre">num_trials</span></code>, but for large values (e.g., millions), the approximation improves, though runtime increases linearly.</p>
+</section>
+</section>
+<section id="module-get-nr-iters-mod">
+<h3>Module: <code class="docutils literal notranslate"><span class="pre">get_nr_iters_mod</span></code><a class="headerlink" href="#module-get-nr-iters-mod" title="Link to this heading">#</a></h3>
+<p>This module provides a function to parse the number of iterations from command-line arguments, with error handling and a default value.</p>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">module </span><span class="n">get_nr_iters_mod</span>
+<span class="w">    </span><span class="k">implicit none</span>
+<span class="k">    private</span>
+<span class="k">    public</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">get_nr_iters</span>
+
+<span class="k">contains</span>
+
+<span class="k">    function </span><span class="n">get_nr_iters</span><span class="p">()</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">nr_iters</span><span class="p">)</span>
+<span class="w">        </span><span class="k">use</span><span class="p">,</span><span class="w"> </span><span class="k">intrinsic</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">iso_fortran_env</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">error_unit</span>
+<span class="w">        </span><span class="k">use</span><span class="p">,</span><span class="w"> </span><span class="k">intrinsic</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">iso_fortran_env</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">DP</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">REAL64</span><span class="p">,</span><span class="w"> </span><span class="n">I8</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">INT64</span>
+<span class="w">        </span><span class="k">implicit none</span>
+<span class="k">        </span><span class="kt">integer</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">I8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">nr_iters</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">I8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">default_nr_iters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000_I8</span>
+<span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">1024</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span>
+<span class="w">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">istat</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">command_argument_count</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">            call </span><span class="nb">get_command_argument</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">buffer</span><span class="p">)</span>
+<span class="w">            </span><span class="k">read</span><span class="w"> </span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=*</span><span class="p">,</span><span class="w"> </span><span class="n">iostat</span><span class="o">=</span><span class="n">istat</span><span class="p">,</span><span class="w"> </span><span class="n">iomsg</span><span class="o">=</span><span class="n">msg</span><span class="p">)</span><span class="w"> </span><span class="n">nr_iters</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">istat</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                write</span><span class="w"> </span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="n">error_unit</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(2A)&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                    </span><span class="s1">&#39;error: &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span>
+<span class="w">                </span><span class="k">stop </span><span class="mi">1</span>
+<span class="w">            </span><span class="k">end if</span>
+<span class="k">        else</span>
+<span class="k">            </span><span class="n">nr_iters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">default_nr_iters</span>
+<span class="w">        </span><span class="k">end if</span>
+<span class="k">    end function </span><span class="n">get_nr_iters</span>
+
+<span class="k">end module </span><span class="n">get_nr_iters_mod</span>
+</pre></div>
+</div>
+<section id="id1">
+<h4>Breakdown:<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p><strong>Module Structure</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">implicit</span> <span class="pre">none</span></code>: No implicit typing.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">private</span></code>: All entities are private by default.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">::</span> <span class="pre">get_nr_iters</span></code>: Only the function is exposed.</p></li>
+</ul>
+</li>
+<li><p><strong>Function <code class="docutils literal notranslate"><span class="pre">get_nr_iters</span></code></strong>:</p>
+<ul class="simple">
+<li><p>Returns an <code class="docutils literal notranslate"><span class="pre">integer(kind=I8)</span></code>: The number of iterations.</p></li>
+<li><p>Imports: Re-imports <code class="docutils literal notranslate"><span class="pre">iso_fortran_env</span></code> for <code class="docutils literal notranslate"><span class="pre">error_unit</span></code> (standard error stream) and types.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">integer(kind=I8),</span> <span class="pre">parameter</span> <span class="pre">::</span> <span class="pre">default_nr_iters</span> <span class="pre">=</span> <span class="pre">1000_I8</span></code>: Constant default value with <code class="docutils literal notranslate"><span class="pre">_I8</span></code> kind suffix.</p></li>
+<li><p>Variables: <code class="docutils literal notranslate"><span class="pre">buffer</span></code> (string to hold argument), <code class="docutils literal notranslate"><span class="pre">msg</span></code> (error message), <code class="docutils literal notranslate"><span class="pre">istat</span></code> (I/O status).</p></li>
+</ul>
+</li>
+<li><p><strong>Logic</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(command_argument_count()</span> <span class="pre">&gt;=</span> <span class="pre">1)</span> <span class="pre">then</span></code>: Checks if at least one command-line argument exists (using intrinsic <code class="docutils literal notranslate"><span class="pre">command_argument_count</span></code>).</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">call</span> <span class="pre">get_command_argument(1,</span> <span class="pre">buffer)</span></code>: Retrieves the first argument into <code class="docutils literal notranslate"><span class="pre">buffer</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read</span> <span class="pre">(buffer,</span> <span class="pre">fmt=*,</span> <span class="pre">iostat=istat,</span> <span class="pre">iomsg=msg)</span> <span class="pre">nr_iters</span></code>: Parses the string as an integer (free-format <code class="docutils literal notranslate"><span class="pre">*</span></code>).</p>
+<ul>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">istat</span> <span class="pre">/=</span> <span class="pre">0</span></code> (error), prints to stderr and stops with exit code 1.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Else: Uses default 1000.</p></li>
+</ul>
+</li>
+</ol>
+<p>This makes the program flexible: run as <code class="docutils literal notranslate"><span class="pre">./compute_pi_serial</span> <span class="pre">1000000</span></code> for 1 million trials.</p>
+</section>
+</section>
+<section id="module-lcgenerator-mod">
+<h3>Module: <code class="docutils literal notranslate"><span class="pre">lcgenerator_mod</span></code><a class="headerlink" href="#module-lcgenerator-mod" title="Link to this heading">#</a></h3>
+<p>This module implements a basic linear congruential generator (LCG) for pseudo-random numbers in [0,1).</p>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">module </span><span class="n">lcgenerator_mod</span>
+<span class="w">  </span><span class="k">use</span><span class="p">,</span><span class="w"> </span><span class="k">intrinsic</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">iso_fortran_env</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">DP</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">REAL64</span><span class="p">,</span><span class="w"> </span><span class="n">I8</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">INT64</span>
+<span class="w">  </span><span class="k">implicit none</span>
+<span class="k">  private</span>
+<span class="k">  public</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">lcgrandom</span>
+
+<span class="w">  </span><span class="k">contains</span>
+<span class="k">    </span><span class="kt">real </span><span class="k">function </span><span class="n">lcgrandom</span><span class="p">()</span>
+<span class="w">      </span><span class="kt">integer</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">I8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">MULTIPLIER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1366</span>
+<span class="w">      </span><span class="kt">integer</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">I8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ADDEND</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">150889</span>
+<span class="w">      </span><span class="kt">integer</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">I8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">PMOD</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">714025</span>
+<span class="w">      </span><span class="kt">integer</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">I8</span><span class="p">),</span><span class="w"> </span><span class="k">save</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">random_last</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+
+<span class="w">      </span><span class="kt">integer</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">I8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">random_next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">      </span><span class="n">random_next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">mod</span><span class="p">((</span><span class="n">MULTIPLIER</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">random_last</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ADDEND</span><span class="p">),</span><span class="w"> </span><span class="n">PMOD</span><span class="p">)</span>
+<span class="w">      </span><span class="n">random_last</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">random_next</span>
+<span class="w">      </span><span class="n">lcgrandom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mf">1.0_DP</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">random_next</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">PMOD</span>
+<span class="w">      </span><span class="k">return</span>
+<span class="k">    end function </span><span class="n">lcgrandom</span>
+<span class="k">end module </span><span class="n">lcgenerator_mod</span>
+</pre></div>
+</div>
+<section id="id2">
+<h4>Breakdown:<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p><strong>Module Structure</strong>:</p>
+<ul class="simple">
+<li><p>Imports types from <code class="docutils literal notranslate"><span class="pre">iso_fortran_env</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">implicit</span> <span class="pre">none</span></code>, <code class="docutils literal notranslate"><span class="pre">private</span></code>, <code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">::</span> <span class="pre">lcgrandom</span></code>: Similar to the previous module.</p></li>
+</ul>
+</li>
+<li><p><strong>Function <code class="docutils literal notranslate"><span class="pre">lcgrandom</span></code></strong>:</p>
+<ul class="simple">
+<li><p>Returns a <code class="docutils literal notranslate"><span class="pre">real</span></code> (implicitly double-precision via context).</p></li>
+<li><p>Parameters: LCG constants (multiplier a=1366, increment c=150889, modulus m=714025). These are from older literature (e.g., IBM RANDU-like, but custom).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">integer(kind=I8),</span> <span class="pre">save</span> <span class="pre">::</span> <span class="pre">random_last</span> <span class="pre">=</span> <span class="pre">0</span></code>: Static variable (via <code class="docutils literal notranslate"><span class="pre">save</span></code>) to hold the previous state (seed). Initializes to 0 on first call.</p></li>
+</ul>
+</li>
+<li><p><strong>Logic</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">random_next</span> <span class="pre">=</span> <span class="pre">mod((MULTIPLIER</span> <span class="pre">*</span> <span class="pre">random_last</span> <span class="pre">+</span> <span class="pre">ADDEND),</span> <span class="pre">PMOD)</span></code>: Core LCG formula: X_{n+1} = (a * X_n + c) mod m.</p>
+<ul>
+<li><p>Uses <code class="docutils literal notranslate"><span class="pre">mod</span></code> for modulo operation.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">random_last</span> <span class="pre">=</span> <span class="pre">random_next</span></code>: Updates the state for the next call.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lcgrandom</span> <span class="pre">=</span> <span class="pre">(1.0_DP</span> <span class="pre">*</span> <span class="pre">random_next)</span> <span class="pre">/</span> <span class="pre">PMOD</span></code>: Normalizes to [0,1) by dividing by m (promoting to real).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">return</span></code>: Explicit return (optional in Fortran).</p></li>
+</ul>
+</li>
+</ol>
+<p>This LCG is simple and deterministic (same sequence every run due to fixed seed). It’s not cryptographically secure or highly random but sufficient for this simulation. For better randomness, modern codes might use Fortran’s <code class="docutils literal notranslate"><span class="pre">random_number</span></code> intrinsic, but this demonstrates a custom generator.</p>
+</section>
+</section>
+<section id="key-concepts-and-notes">
+<h3>Key Concepts and Notes<a class="headerlink" href="#key-concepts-and-notes" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Monte Carlo Method</strong>: Statistical sampling to approximate π. Accuracy improves with more trials (O(1/sqrt(N)) convergence), but it’s probabilistic—results vary per run due to randomness.</p></li>
+<li><p><strong>Fortran-Specifics</strong>:</p>
+<ul>
+<li><p>Modules promote modularity and encapsulation.</p></li>
+<li><p>Kind parameters ensure portability.</p></li>
+<li><p>No explicit main; the <code class="docutils literal notranslate"><span class="pre">program</span></code> block is the executable.</p></li>
+</ul>
+</li>
+<li><p><strong>Compilation/Running</strong>: Compile with <code class="docutils literal notranslate"><span class="pre">gfortran</span> <span class="pre">compute_pi_serial.f90</span></code> (assuming all in one file). Run with optional argument for trials.</p></li>
+<li><p><strong>Limitations</strong>: LCG period is at most m=714025, so for very large <code class="docutils literal notranslate"><span class="pre">num_trials</span></code>, it repeats. Not thread-safe (due to shared <code class="docutils literal notranslate"><span class="pre">save</span></code> variable).</p></li>
+<li><p><strong>Extensions</strong>: Could be parallelized with OpenMP for multi-core speedup.</p></li>
+</ul>
+<p>This code is educational, demonstrating numerical methods, I/O, and modular design in Fortran.</p>
+</section>
+</section>
+<section id="code-analysis-by-chatgpt-5-thinking">
+<h2>Code Analysis by ChatGPT 5 Thinking<a class="headerlink" href="#code-analysis-by-chatgpt-5-thinking" title="Link to this heading">#</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="what-the-code-does-high-level">
+<h1>What the code does (high-level)<a class="headerlink" href="#what-the-code-does-high-level" title="Link to this heading">#</a></h1>
+<p>This is a <strong>serial Monte-Carlo estimator for <span class="math notranslate nohighlight">\(\pi\)</span></strong>. It repeatedly draws uniform random points <span class="math notranslate nohighlight">\((x,y)\in[0,1)\times[0,1)\)</span> and counts how many fall inside the quarter of a unit circle, i.e., where <span class="math notranslate nohighlight">\(x^2+y^2\le 1\)</span>. If <span class="math notranslate nohighlight">\(N\)</span> points are drawn and <span class="math notranslate nohighlight">\(N_{\text{circ}}\)</span> are inside, the estimator is</p>
+<div class="math notranslate nohighlight">
+\[
+\widehat{\pi}=4\,\frac{N_{\text{circ}}}{N}.
+\]</div>
+<p>Two small modules support the program:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">lcgenerator_mod.f90</span></code>: a tiny <strong>linear congruential generator (LCG)</strong> returning a uniform variate in <span class="math notranslate nohighlight">\([0,1)\)</span>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_nr_iters_mod.f90</span></code>: parses the <strong>first command-line argument</strong> as the number of trials (with a default if omitted).</p></li>
+</ul>
+<p>Below I walk through each file in detail, explain the Fortran choices (kinds, intrinsics, I/O), and then point out <strong>two important correctness/quality issues</strong> and offer drop-in fixes.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="file-by-file-explanation">
+<h1>File-by-file explanation<a class="headerlink" href="#file-by-file-explanation" title="Link to this heading">#</a></h1>
+<section id="compute-pi-serial-f90-main-program">
+<h2>1) <code class="docutils literal notranslate"><span class="pre">compute_pi_serial.f90</span></code> — main program<a class="headerlink" href="#compute-pi-serial-f90-main-program" title="Link to this heading">#</a></h2>
+<section id="modules-and-kinds">
+<h3>Modules and kinds<a class="headerlink" href="#modules-and-kinds" title="Link to this heading">#</a></h3>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">compute_pi_serial</span>
+<span class="w">  </span><span class="k">use</span><span class="p">,</span><span class="w"> </span><span class="k">intrinsic</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">iso_fortran_env</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">DP</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">REAL64</span><span class="p">,</span><span class="w"> </span><span class="n">I8</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">INT64</span>
+<span class="w">  </span><span class="k">use </span><span class="n">lcgenerator_mod</span><span class="p">,</span><span class="w">  </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">lcgrandom</span>
+<span class="w">  </span><span class="k">use </span><span class="n">get_nr_iters_mod</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">get_nr_iters</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">iso_fortran_env</span></code> provides <strong>portably sized kinds</strong>. Here:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">DP</span></code> aliases <code class="docutils literal notranslate"><span class="pre">REAL64</span></code> (IEEE double precision),</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">I8</span></code> aliases <code class="docutils literal notranslate"><span class="pre">INT64</span></code> (signed 64-bit integer).</p></li>
+</ul>
+</li>
+<li><p>Importing just the names you use (<code class="docutils literal notranslate"><span class="pre">only：…</span></code>) keeps the namespace clean and the intent explicit.</p></li>
+</ul>
+</section>
+<section id="declarations-and-initialization">
+<h3>Declarations and initialization<a class="headerlink" href="#declarations-and-initialization" title="Link to this heading">#</a></h3>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="kt">integer</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">I8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">num_trials</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">Ncirc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">DP</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">pi_computed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="n">pi_actual</span>
+<span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">DP</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span>
+<span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">DP</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">r_squared</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span>
+
+<span class="w">  </span><span class="n">pi_actual</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.0_DP</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">acos</span><span class="p">(</span><span class="mf">0.0_DP</span><span class="p">)</span>
+<span class="w">  </span><span class="n">r_squared</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="o">*</span><span class="n">r</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">num_trials</span></code> is the total number of Monte-Carlo samples (draws).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Ncirc</span></code> counts hits inside the quarter circle.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pi_actual</span></code> is computed as <span class="math notranslate nohighlight">\(2\arccos(0)=\pi\)</span> in double precision; this avoids hard-coding a constant and is <strong>portable</strong> across compilers.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">r=1</span></code> and <code class="docutils literal notranslate"><span class="pre">r_squared=1</span></code> define the unit circle.</p></li>
+</ul>
+<blockquote>
+<div><p><strong>Minor omission to fix:</strong> the program should <em>set</em> <code class="docutils literal notranslate"><span class="pre">num_trials</span></code> by calling <code class="docutils literal notranslate"><span class="pre">get_nr_iters()</span></code> before the loop (see “Corrections &amp; improvements”).</p>
+</div></blockquote>
+</section>
+<section id="core-monte-carlo-loop">
+<h3>Core Monte-Carlo loop<a class="headerlink" href="#core-monte-carlo-loop" title="Link to this heading">#</a></h3>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">num_trials</span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lcgrandom</span><span class="p">()</span>
+<span class="w">    </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lcgrandom</span><span class="p">()</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="o">*</span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">r_squared</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">        </span><span class="n">Ncirc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ncirc</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="k">end if</span>
+<span class="k">  end do</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Each iteration draws two independent uniform(0,1) variates.</p></li>
+<li><p>The predicate <code class="docutils literal notranslate"><span class="pre">x*x</span> <span class="pre">+</span> <span class="pre">y*y</span> <span class="pre">&lt;=</span> <span class="pre">1.0</span></code> tests membership in the quarter circle.</p></li>
+<li><p>Work and memory are <strong><span class="math notranslate nohighlight">\(O(N)\)</span></strong> and <strong><span class="math notranslate nohighlight">\(O(1)\)</span></strong> respectively.</p></li>
+</ul>
+</section>
+<section id="estimator-and-output">
+<h3>Estimator and output<a class="headerlink" href="#estimator-and-output" title="Link to this heading">#</a></h3>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="n">pi_computed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">4.0</span><span class="o">*</span><span class="p">((</span><span class="mf">1.0</span><span class="o">*</span><span class="n">Ncirc</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mf">1.0</span><span class="o">*</span><span class="n">num_trials</span><span class="p">))</span>
+
+<span class="w">  </span><span class="k">print</span><span class="w"> </span><span class="s1">&#39;(A, I10, A, F25.15)&#39;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;After &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">num_trials</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot; loops, Pi = &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">pi_computed</span>
+<span class="w">  </span><span class="k">print</span><span class="w"> </span><span class="s1">&#39;(A, F25.15)&#39;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Actual value of Pi = &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">pi_actual</span>
+<span class="w">  </span><span class="k">print</span><span class="w"> </span><span class="s1">&#39;(A, F25.15)&#39;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Absolute difference = &quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">pi_computed</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">pi_actual</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The estimator is <span class="math notranslate nohighlight">\(4\cdot N_{\text{circ}}/N\)</span>.</p></li>
+<li><p>Formatting:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">'I10'</span></code> prints a right-justified integer (width 10).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'F25.15'</span></code> prints a real number with total width 25 and 15 digits after the decimal point.</p></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<div><p><strong>Type-precision note:</strong> literals <code class="docutils literal notranslate"><span class="pre">4.0</span></code> and <code class="docutils literal notranslate"><span class="pre">1.0</span></code> are <strong>default real</strong> (usually 32-bit). The arithmetic will still be upcast when stored into a <code class="docutils literal notranslate"><span class="pre">REAL64</span></code> variable, but you lose precision in the intermediate steps. Prefer the <code class="docutils literal notranslate"><span class="pre">_DP</span></code> suffix and/or explicit <code class="docutils literal notranslate"><span class="pre">real(...,kind=DP)</span></code> casts (see fixes below).</p>
+</div></blockquote>
+</section>
+</section>
+<hr class="docutils" />
+<section id="lcgenerator-mod-f90-linear-congruential-generator">
+<h2>2) <code class="docutils literal notranslate"><span class="pre">lcgenerator_mod.f90</span></code> — Linear congruential generator<a class="headerlink" href="#lcgenerator-mod-f90-linear-congruential-generator" title="Link to this heading">#</a></h2>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">module </span><span class="n">lcgenerator_mod</span>
+<span class="w">  </span><span class="k">use</span><span class="p">,</span><span class="w"> </span><span class="k">intrinsic</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">iso_fortran_env</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">DP</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">REAL64</span><span class="p">,</span><span class="w"> </span><span class="n">I8</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">INT64</span>
+<span class="w">  </span><span class="k">implicit none</span>
+<span class="k">  private</span>
+<span class="k">  public</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">lcgrandom</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">private</span></code> by default shields internal names; only the function <code class="docutils literal notranslate"><span class="pre">lcgrandom</span></code> is exported.</p></li>
+</ul>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">contains</span>
+<span class="k">  </span><span class="kt">real </span><span class="k">function </span><span class="n">lcgrandom</span><span class="p">()</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">I8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">MULTIPLIER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1366</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">I8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ADDEND</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">150889</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">I8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">PMOD</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">714025</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">I8</span><span class="p">),</span><span class="w"> </span><span class="k">save</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">random_last</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+</pre></div>
+</div>
+<ul>
+<li><p>This encodes the classic LCG recurrence</p>
+<div class="math notranslate nohighlight">
+\[
+  X_{n+1} = (a X_n + c) \bmod m
+  \]</div>
+<p>with <span class="math notranslate nohighlight">\(a=1366\)</span>, <span class="math notranslate nohighlight">\(c=150{,}889\)</span>, <span class="math notranslate nohighlight">\(m=714{,}025\)</span>.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">save</span></code> makes <code class="docutils literal notranslate"><span class="pre">random_last</span></code> <strong>static state</strong> across calls.</p></li>
+</ul>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="kt">integer</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">I8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">random_next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="n">random_next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">mod</span><span class="p">((</span><span class="n">MULTIPLIER</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">random_last</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ADDEND</span><span class="p">),</span><span class="w"> </span><span class="n">PMOD</span><span class="p">)</span>
+<span class="w">    </span><span class="n">random_last</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">random_next</span>
+<span class="w">    </span><span class="n">lcgrandom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mf">1.0_DP</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">random_next</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">PMOD</span>
+<span class="w">    </span><span class="k">return</span>
+<span class="k">  end function </span><span class="n">lcgrandom</span>
+<span class="k">end module </span><span class="n">lcgenerator_mod</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The scaled output <span class="math notranslate nohighlight">\(\in[0,1)\)</span> is computed as <code class="docutils literal notranslate"><span class="pre">random_next</span> <span class="pre">/</span> <span class="pre">PMOD</span></code>.</p></li>
+<li><p>Using <code class="docutils literal notranslate"><span class="pre">1.0_DP</span> <span class="pre">*</span> <span class="pre">random_next</span></code> forces the numerator to <code class="docutils literal notranslate"><span class="pre">REAL64</span></code>. However, <strong>the function itself is declared as default <code class="docutils literal notranslate"><span class="pre">real</span></code></strong>, so the result is immediately <strong>down-cast</strong> to single precision upon return. See the fix below.</p></li>
+</ul>
+<p><strong>Quality and period.</strong> With <span class="math notranslate nohighlight">\(m=714{,}025\)</span> the <strong>maximum period is <span class="math notranslate nohighlight">\(m\)</span></strong>; after ~7×10^5 calls the sequence repeats. For large Monte-Carlo runs this is weak. Also, these parameters are not among the better-studied modern LCGs. This is fine pedagogically, but I would not use it for serious statistical work.</p>
+<p><strong>Reproducibility &amp; seeding.</strong> The generator <strong>always starts at 0</strong>, hence it is fully deterministic and reproducible across runs and compilers. You might want to add a seeding interface if you want variability.</p>
+<p><strong>Thread safety.</strong> The <code class="docutils literal notranslate"><span class="pre">save</span></code>d global state means <strong>not thread-safe</strong>. It’s fine here (the program is serial).</p>
+</section>
+<hr class="docutils" />
+<section id="get-nr-iters-mod-f90-parse-number-of-trials">
+<h2>3) <code class="docutils literal notranslate"><span class="pre">get_nr_iters_mod.f90</span></code> — parse number of trials<a class="headerlink" href="#get-nr-iters-mod-f90-parse-number-of-trials" title="Link to this heading">#</a></h2>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">module </span><span class="n">get_nr_iters_mod</span>
+<span class="w">  </span><span class="k">implicit none</span>
+<span class="k">  private</span>
+<span class="k">  public</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">get_nr_iters</span>
+<span class="k">contains</span>
+
+<span class="k">  function </span><span class="n">get_nr_iters</span><span class="p">()</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">nr_iters</span><span class="p">)</span>
+<span class="w">    </span><span class="k">use</span><span class="p">,</span><span class="w"> </span><span class="k">intrinsic</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">iso_fortran_env</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">error_unit</span>
+<span class="w">    </span><span class="k">use</span><span class="p">,</span><span class="w"> </span><span class="k">intrinsic</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">iso_fortran_env</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">DP</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">REAL64</span><span class="p">,</span><span class="w"> </span><span class="n">I8</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">INT64</span>
+<span class="w">    </span><span class="k">implicit none</span>
+<span class="k">    </span><span class="kt">integer</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">I8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">nr_iters</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">I8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">default_nr_iters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000_I8</span>
+<span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">1024</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span>
+<span class="w">    </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">istat</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The interface is simple: <strong>no arguments</strong>; returns an <code class="docutils literal notranslate"><span class="pre">INT64</span></code> count.</p></li>
+<li><p>A default of <strong>1000</strong> iterations is provided.</p></li>
+</ul>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">command_argument_count</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">        call </span><span class="nb">get_command_argument</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">buffer</span><span class="p">)</span>
+<span class="w">        </span><span class="k">read</span><span class="w"> </span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=*</span><span class="p">,</span><span class="w"> </span><span class="n">iostat</span><span class="o">=</span><span class="n">istat</span><span class="p">,</span><span class="w"> </span><span class="n">iomsg</span><span class="o">=</span><span class="n">msg</span><span class="p">)</span><span class="w"> </span><span class="n">nr_iters</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">istat</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">            write</span><span class="w"> </span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="n">error_unit</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(2A)&#39;</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;error: &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span>
+<span class="w">            </span><span class="k">stop </span><span class="mi">1</span>
+<span class="w">        </span><span class="k">end if</span>
+<span class="k">    else</span>
+<span class="k">        </span><span class="n">nr_iters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">default_nr_iters</span>
+<span class="w">    </span><span class="k">end if</span>
+<span class="k">  end function </span><span class="n">get_nr_iters</span>
+<span class="k">end module </span><span class="n">get_nr_iters_mod</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Uses <strong>deferred format read</strong> (<code class="docutils literal notranslate"><span class="pre">fmt=*</span></code>) to parse the first argument into <code class="docutils literal notranslate"><span class="pre">nr_iters</span></code>.</p></li>
+<li><p>On parse failure, it writes a helpful message to the <strong>standard error unit</strong> and exits with non-zero status (<code class="docutils literal notranslate"><span class="pre">stop</span> <span class="pre">1</span></code>).</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="statistical-properties-of-the-estimator-why-it-works">
+<h1>Statistical properties of the estimator (why it works)<a class="headerlink" href="#statistical-properties-of-the-estimator-why-it-works" title="Link to this heading">#</a></h1>
+<p>Let <span class="math notranslate nohighlight">\(Z_i=\mathbf{1}\{X_i^2+Y_i^2\le 1\}\)</span> be i.i.d. Bernoulli with <span class="math notranslate nohighlight">\(p=\Pr(Z=1)=\text{Area}( \{x^2+y^2\le 1\}\cap[0,1]^2)=\pi/4\)</span>. Then</p>
+<div class="math notranslate nohighlight">
+\[
+\widehat{\pi}=4\,\bar Z,\quad
+\mathbb{E}[\widehat{\pi}]=\pi,\quad
+\operatorname{Var}(\widehat{\pi})=\frac{16}{N}p(1-p)\approx\frac{2.6968}{N}.
+\]</div>
+<p>So the <strong>standard deviation</strong> is <span class="math notranslate nohighlight">\(\approx 1.642/\sqrt{N}\)</span>. As rules of thumb:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(N=10^3\)</span> ⇒ typical absolute error <span class="math notranslate nohighlight">\(\sim 5.2\times 10^{-2}\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(N=10^6\)</span> ⇒ <span class="math notranslate nohighlight">\(\sim 1.6\times 10^{-3}\)</span>.</p></li>
+</ul>
+<p>Monte-Carlo converges as <span class="math notranslate nohighlight">\(O(N^{-1/2})\)</span>; parallelizing increases <span class="math notranslate nohighlight">\(N\)</span> faster, but you cannot beat this rate without variance-reduction tricks.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="corrections-precision-improvements-recommended">
+<h1>Corrections &amp; precision improvements (recommended)<a class="headerlink" href="#corrections-precision-improvements-recommended" title="Link to this heading">#</a></h1>
+<p>There are three easy fixes that make the program numerically cleaner and compile-ready.</p>
+<section id="a-set-num-trials-and-remove-the-stray-line">
+<h2>A) Set <code class="docutils literal notranslate"><span class="pre">num_trials</span></code> (and remove the stray <code class="docutils literal notranslate"><span class="pre">...</span></code> line)<a class="headerlink" href="#a-set-num-trials-and-remove-the-stray-line" title="Link to this heading">#</a></h2>
+<p>Your <code class="docutils literal notranslate"><span class="pre">compute_pi_serial.f90</span></code> contains a literal line with <code class="docutils literal notranslate"><span class="pre">...</span></code> between <code class="docutils literal notranslate"><span class="pre">r_squared</span> <span class="pre">=</span> <span class="pre">r*r</span></code> and the loop. That will not compile. Replace that region with a call to <code class="docutils literal notranslate"><span class="pre">get_nr_iters()</span></code>:</p>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="n">r_squared</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="o">*</span><span class="n">r</span>
+
+<span class="w">  </span><span class="c">! Parse N from the command line (default 1000 if absent)</span>
+<span class="w">  </span><span class="n">num_trials</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_nr_iters</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="b-keep-all-arithmetic-in-double-precision">
+<h2>B) Keep all arithmetic in double precision<a class="headerlink" href="#b-keep-all-arithmetic-in-double-precision" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Make the RNG return <code class="docutils literal notranslate"><span class="pre">REAL64</span></code>.</p></li>
+<li><p>Use double-precision literals and explicit casts in the estimator.</p></li>
+</ul>
+<p><strong>In <code class="docutils literal notranslate"><span class="pre">lcgenerator_mod.f90</span></code>:</strong></p>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">DP</span><span class="p">)</span><span class="w"> </span><span class="k">function </span><span class="n">lcgrandom</span><span class="p">()</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="w">    </span><span class="n">lcgrandom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">random_next</span><span class="p">,</span><span class="w"> </span><span class="nb">kind</span><span class="o">=</span><span class="n">DP</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">PMOD</span><span class="p">,</span><span class="w"> </span><span class="nb">kind</span><span class="o">=</span><span class="n">DP</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>In <code class="docutils literal notranslate"><span class="pre">compute_pi_serial.f90</span></code>:</strong></p>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="n">pi_computed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">4.0_DP</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">Ncirc</span><span class="p">,</span><span class="w"> </span><span class="nb">kind</span><span class="o">=</span><span class="n">DP</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">num_trials</span><span class="p">,</span><span class="w"> </span><span class="nb">kind</span><span class="o">=</span><span class="n">DP</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This avoids any intermediate rounding to single precision.</p>
+</section>
+<section id="c-optional-guard-against-bad-inputs">
+<h2>C) Optional: guard against bad inputs<a class="headerlink" href="#c-optional-guard-against-bad-inputs" title="Link to this heading">#</a></h2>
+<p>You can reject non-positive <code class="docutils literal notranslate"><span class="pre">num_trials</span></code>:</p>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">num_trials</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0_I8</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">    write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot;num_trials must be positive&quot;</span>
+<span class="w">    </span><span class="k">stop </span><span class="mi">1</span>
+<span class="w">  </span><span class="k">end if</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="suggested-polished-version-of-compute-pi-serial-f90">
+<h1>Suggested polished version of <code class="docutils literal notranslate"><span class="pre">compute_pi_serial.f90</span></code><a class="headerlink" href="#suggested-polished-version-of-compute-pi-serial-f90" title="Link to this heading">#</a></h1>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">compute_pi_serial</span>
+<span class="w">  </span><span class="k">use</span><span class="p">,</span><span class="w"> </span><span class="k">intrinsic</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">iso_fortran_env</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">DP</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">REAL64</span><span class="p">,</span><span class="w"> </span><span class="n">I8</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">INT64</span>
+<span class="w">  </span><span class="k">use </span><span class="n">lcgenerator_mod</span><span class="p">,</span><span class="w">  </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">lcgrandom</span>
+<span class="w">  </span><span class="k">use </span><span class="n">get_nr_iters_mod</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">get_nr_iters</span>
+<span class="w">  </span><span class="k">implicit none</span>
+
+<span class="k">  </span><span class="kt">integer</span><span class="p">(</span><span class="n">I8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">num_trials</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">Ncirc</span>
+<span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="n">DP</span><span class="p">)</span><span class="w">    </span><span class="kd">::</span><span class="w"> </span><span class="n">pi_computed</span><span class="p">,</span><span class="w"> </span><span class="n">pi_actual</span>
+<span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="n">DP</span><span class="p">)</span><span class="w">    </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">r_squared</span>
+
+<span class="w">  </span><span class="c">! Initialize</span>
+<span class="w">  </span><span class="n">Ncirc</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="mi">0_I8</span>
+<span class="w">  </span><span class="n">pi_computed</span><span class="o">=</span><span class="w"> </span><span class="mf">0.0_DP</span>
+<span class="w">  </span><span class="n">pi_actual</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mf">2.0_DP</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">acos</span><span class="p">(</span><span class="mf">0.0_DP</span><span class="p">)</span><span class="w">     </span><span class="c">! = π</span>
+<span class="w">  </span><span class="n">r</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0_DP</span>
+<span class="w">  </span><span class="n">r_squared</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="o">*</span><span class="n">r</span>
+<span class="w">  </span><span class="n">num_trials</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_nr_iters</span><span class="p">()</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">num_trials</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0_I8</span><span class="p">)</span><span class="w"> </span><span class="k">stop</span><span class="w"> </span><span class="s2">&quot;num_trials must be positive&quot;</span>
+
+<span class="w">  </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1_I8</span><span class="p">,</span><span class="w"> </span><span class="n">num_trials</span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lcgrandom</span><span class="p">()</span>
+<span class="w">    </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lcgrandom</span><span class="p">()</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="o">*</span><span class="n">y</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">r_squared</span><span class="p">)</span><span class="w"> </span><span class="n">Ncirc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ncirc</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1_I8</span>
+<span class="w">  </span><span class="k">end do</span>
+
+<span class="k">  </span><span class="n">pi_computed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">4.0_DP</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">Ncirc</span><span class="p">,</span><span class="nb">kind</span><span class="o">=</span><span class="n">DP</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">num_trials</span><span class="p">,</span><span class="nb">kind</span><span class="o">=</span><span class="n">DP</span><span class="p">)</span>
+
+<span class="w">  </span><span class="k">print</span><span class="w"> </span><span class="s1">&#39;(A, I12, A, F25.15)&#39;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;After &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">num_trials</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot; loops, Pi = &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">pi_computed</span>
+<span class="w">  </span><span class="k">print</span><span class="w"> </span><span class="s1">&#39;(A, F25.15)&#39;</span><span class="p">,</span><span class="w">         </span><span class="s2">&quot;Actual value of Pi = &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">pi_actual</span>
+<span class="w">  </span><span class="k">print</span><span class="w"> </span><span class="s1">&#39;(A, F25.15)&#39;</span><span class="p">,</span><span class="w">         </span><span class="s2">&quot;Absolute difference = &quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">pi_computed</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">pi_actual</span><span class="p">)</span>
+<span class="k">end program </span><span class="n">compute_pi_serial</span>
+</pre></div>
+</div>
+<p>And in <code class="docutils literal notranslate"><span class="pre">lcgenerator_mod.f90</span></code>, change the function line to:</p>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">DP</span><span class="p">)</span><span class="w"> </span><span class="k">function </span><span class="n">lcgrandom</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="how-to-build-and-run">
+<h1>How to build and run<a class="headerlink" href="#how-to-build-and-run" title="Link to this heading">#</a></h1>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Build (gfortran example)</span>
+gfortran<span class="w"> </span>-std<span class="o">=</span>f2008<span class="w"> </span>-O3<span class="w"> </span>lcgenerator_mod.f90<span class="w"> </span>get_nr_iters_mod.f90<span class="w"> </span>compute_pi_serial.f90<span class="w"> </span>-o<span class="w"> </span>compute_pi_serial
+
+<span class="c1"># Run with 1,000,000 samples</span>
+./compute_pi_serial<span class="w"> </span><span class="m">1000000</span>
+</pre></div>
+</div>
+<p>You should see an estimate within ~<span class="math notranslate nohighlight">\(1.6\times 10^{-3}\)</span> of <span class="math notranslate nohighlight">\(\pi\)</span> on a typical run (with this LCG it will be deterministic per the current code).</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="further-remarks-optional-enhancements">
+<h1>Further remarks &amp; optional enhancements<a class="headerlink" href="#further-remarks-optional-enhancements" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>RNG quality/period.</strong> The modulus <span class="math notranslate nohighlight">\(m=714{,}025\)</span> caps the period at <span class="math notranslate nohighlight">\(m\)</span>. If you run more draws than that, the sequence repeats. For higher-quality randomness, either use the Fortran intrinsic <code class="docutils literal notranslate"><span class="pre">random_number</span></code> (simple, portable) or a 48- or 64-bit LCG/PCG with well-vetted parameters.</p></li>
+<li><p><strong>Seeding.</strong> Add a <code class="docutils literal notranslate"><span class="pre">seed_lcg(seed)</span></code> routine that sets <code class="docutils literal notranslate"><span class="pre">random_last</span></code>, and accept a 2nd CLI argument to seed runs.</p></li>
+<li><p><strong>Performance.</strong> In tight loops, the <code class="docutils literal notranslate"><span class="pre">mod</span></code> on 64-bit integers is the main cost. For serious speed you might:</p>
+<ul>
+<li><p>keep <code class="docutils literal notranslate"><span class="pre">random_last</span></code> and constants in 64-bit and choose <span class="math notranslate nohighlight">\(m=2^{k}\)</span> so modulo is a mask, or</p></li>
+<li><p>batch-generate variates and test multiple points per iteration (SIMD).</p></li>
+</ul>
+</li>
+<li><p><strong>Parallelization.</strong> The serial algorithm is embarrassingly parallel. If you later add OpenMP/MPI, ensure each thread/process gets an <strong>independent RNG stream</strong> (e.g., leapfrogging or distinct seeds with skip-ahead).</p></li>
+</ul>
+<hr class="docutils" />
+<p>If you’d like, I can produce a version that uses the standard <code class="docutils literal notranslate"><span class="pre">random_number</span></code> (for quality) and a command-line seed, plus a tiny unit test to verify the variance scaling.</p>
+<p>The above program and modules are compiled and run using Fortran Package Manager (fpm):</p>
 <section id="build-the-program-using-fpm-fortran-package-manager">
 <h2>Build the Program using FPM (Fortran Package Manager)<a class="headerlink" href="#build-the-program-using-fpm-fortran-package-manager" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
@@ -886,8 +1598,8 @@ Absolute difference =         0.058407394093923
 </div>
 </div>
 </section>
-<section id="id1">
-<h3>100 Iterations<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<section id="id3">
+<h3>100 Iterations<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it -r 10 -n 1
@@ -916,8 +1628,8 @@ Absolute difference =         0.101592691736766
 </div>
 </div>
 </section>
-<section id="id2">
-<h3>1,000 Iterations<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<section id="id4">
+<h3>1,000 Iterations<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it -r 10 -n 1
@@ -946,8 +1658,8 @@ Absolute difference =         0.081592710810252
 </div>
 </div>
 </section>
-<section id="id3">
-<h3>10,000 Iterations<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<section id="id5">
+<h3>10,000 Iterations<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it -r 10 -n 1
@@ -976,8 +1688,8 @@ Absolute difference =         0.030792625742503
 </div>
 </div>
 </section>
-<section id="id4">
-<h3>100,000 Iterations<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<section id="id6">
+<h3>100,000 Iterations<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it -r 10 -n 1
@@ -1006,8 +1718,8 @@ Absolute difference =         0.001647321385793
 </div>
 </div>
 </section>
-<section id="id5">
-<h3>1,000,000 Iterations<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<section id="id7">
+<h3>1,000,000 Iterations<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it -r 10 -n 1
@@ -1036,8 +1748,8 @@ Absolute difference =         0.000055400533132
 </div>
 </div>
 </section>
-<section id="id6">
-<h3>10,000,000 Iterations<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<section id="id8">
+<h3>10,000,000 Iterations<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it -r 10 -n 1
@@ -1066,8 +1778,8 @@ Absolute difference =         0.000014694529124
 </div>
 </div>
 </section>
-<section id="id7">
-<h3>100,000,000 Iterations<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<section id="id9">
+<h3>100,000,000 Iterations<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it -r 10 -n 1
@@ -1096,8 +1808,8 @@ Absolute difference =         0.000001041097097
 </div>
 </div>
 </section>
-<section id="id8">
-<h3>1,000,000,000 Iterations<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<section id="id10">
+<h3>1,000,000,000 Iterations<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it -r 10 -n 1
@@ -1194,24 +1906,73 @@ Absolute difference =         0.000000325841359
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Crash Course in Supercomputing: Compute Pi in a Serial Fashion</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#this-program-demonstrates-computing-pi-in-fortran-using-the-monte-carlo-method-in-a-serial-fashion">This program demonstrates computing <span class="math notranslate nohighlight">\(\pi\)</span> in Fortran using the Monte Carlo method in a Serial Fashion:</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-file-computing-pi-serial-f90">In file computing_pi_serial.f90</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-the-file-lcgenerator-mod-f90">In the file lcgenerator_mod.f90</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-the-file-get-nr-iters-mod-f90">In the file get_nr_iters_mod.f90</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-analysis-by-grok-4">Code Analysis by Grok 4</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-the-code">Overview of the Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#main-program-compute-pi-serial">Main Program: <code class="docutils literal notranslate"><span class="pre">compute_pi_serial</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#breakdown">Breakdown:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#module-get-nr-iters-mod">Module: <code class="docutils literal notranslate"><span class="pre">get_nr_iters_mod</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Breakdown:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#module-lcgenerator-mod">Module: <code class="docutils literal notranslate"><span class="pre">lcgenerator_mod</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Breakdown:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-and-notes">Key Concepts and Notes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-analysis-by-chatgpt-5-thinking">Code Analysis by ChatGPT 5 Thinking</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#what-the-code-does-high-level">What the code does (high-level)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#file-by-file-explanation">File-by-file explanation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-pi-serial-f90-main-program">1) <code class="docutils literal notranslate"><span class="pre">compute_pi_serial.f90</span></code> — main program</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modules-and-kinds">Modules and kinds</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#declarations-and-initialization">Declarations and initialization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#core-monte-carlo-loop">Core Monte-Carlo loop</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estimator-and-output">Estimator and output</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lcgenerator-mod-f90-linear-congruential-generator">2) <code class="docutils literal notranslate"><span class="pre">lcgenerator_mod.f90</span></code> — Linear congruential generator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-nr-iters-mod-f90-parse-number-of-trials">3) <code class="docutils literal notranslate"><span class="pre">get_nr_iters_mod.f90</span></code> — parse number of trials</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-properties-of-the-estimator-why-it-works">Statistical properties of the estimator (why it works)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#corrections-precision-improvements-recommended">Corrections &amp; precision improvements (recommended)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-set-num-trials-and-remove-the-stray-line">A) Set <code class="docutils literal notranslate"><span class="pre">num_trials</span></code> (and remove the stray <code class="docutils literal notranslate"><span class="pre">...</span></code> line)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-keep-all-arithmetic-in-double-precision">B) Keep all arithmetic in double precision</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-optional-guard-against-bad-inputs">C) Optional: guard against bad inputs</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#suggested-polished-version-of-compute-pi-serial-f90">Suggested polished version of <code class="docutils literal notranslate"><span class="pre">compute_pi_serial.f90</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-build-and-run">How to build and run</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#further-remarks-optional-enhancements">Further remarks &amp; optional enhancements</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-the-program-using-fpm-fortran-package-manager">Build the Program using FPM (Fortran Package Manager)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-program-using-fpm-fortran-package-manager">Run the Program using FPM (Fortran Package Manager)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iterations">10 Iterations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">100 Iterations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">1,000 Iterations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">10,000 Iterations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">100,000 Iterations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">1,000,000 Iterations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">10,000,000 Iterations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">100,000,000 Iterations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">1,000,000,000 Iterations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">100 Iterations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">1,000 Iterations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">10,000 Iterations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">100,000 Iterations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">1,000,000 Iterations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">10,000,000 Iterations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">100,000,000 Iterations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">1,000,000,000 Iterations</a></li>
 </ul>
 </li>
 </ul>
+</li>
+</ul>
+
   </nav></div>
 
 </div></div>
