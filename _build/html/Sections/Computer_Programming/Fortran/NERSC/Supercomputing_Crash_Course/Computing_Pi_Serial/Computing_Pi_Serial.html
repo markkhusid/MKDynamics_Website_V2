@@ -723,7 +723,6 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Crash Course in Supercomputing: Compute Pi in a Serial Fashion</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#this-program-demonstrates-computing-pi-in-fortran-using-the-monte-carlo-method-in-a-serial-fashion">This program demonstrates computing <span class="math notranslate nohighlight">\(\pi\)</span> in Fortran using the Monte Carlo method in a Serial Fashion:</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-file-computing-pi-serial-f90">In file computing_pi_serial.f90</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-the-file-lcgenerator-mod-f90">In the file lcgenerator_mod.f90</a></li>
@@ -747,32 +746,32 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-and-notes">Key Concepts and Notes</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-analysis-by-chatgpt-5-thinking">Code Analysis by ChatGPT 5 Thinking</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-analysis-by-chatgpt-5-thinking">Code Analysis by ChatGPT 5 Thinking</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-the-code-does-high-level">What the code does (high-level)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-by-file-explanation">File-by-file explanation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-pi-serial-f90-main-program">1) <code class="docutils literal notranslate"><span class="pre">compute_pi_serial.f90</span></code> — main program</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#modules-and-kinds">Modules and kinds</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#declarations-and-initialization">Declarations and initialization</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#core-monte-carlo-loop">Core Monte-Carlo loop</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#estimator-and-output">Estimator and output</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#what-the-code-does-high-level">What the code does (high-level)</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#file-by-file-explanation">File-by-file explanation</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-pi-serial-f90-main-program">1) <code class="docutils literal notranslate"><span class="pre">compute_pi_serial.f90</span></code> — main program</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modules-and-kinds">Modules and kinds</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#declarations-and-initialization">Declarations and initialization</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#core-monte-carlo-loop">Core Monte-Carlo loop</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estimator-and-output">Estimator and output</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lcgenerator-mod-f90-linear-congruential-generator">2) <code class="docutils literal notranslate"><span class="pre">lcgenerator_mod.f90</span></code> — Linear congruential generator</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#get-nr-iters-mod-f90-parse-number-of-trials">3) <code class="docutils literal notranslate"><span class="pre">get_nr_iters_mod.f90</span></code> — parse number of trials</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lcgenerator-mod-f90-linear-congruential-generator">2) <code class="docutils literal notranslate"><span class="pre">lcgenerator_mod.f90</span></code> — Linear congruential generator</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-nr-iters-mod-f90-parse-number-of-trials">3) <code class="docutils literal notranslate"><span class="pre">get_nr_iters_mod.f90</span></code> — parse number of trials</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-properties-of-the-estimator-why-it-works">Statistical properties of the estimator (why it works)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corrections-precision-improvements-recommended">Corrections &amp; precision improvements (recommended)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-set-num-trials-and-remove-the-stray-line">A) Set <code class="docutils literal notranslate"><span class="pre">num_trials</span></code> (and remove the stray <code class="docutils literal notranslate"><span class="pre">...</span></code> line)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#b-keep-all-arithmetic-in-double-precision">B) Keep all arithmetic in double precision</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#c-optional-guard-against-bad-inputs">C) Optional: guard against bad inputs</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-properties-of-the-estimator-why-it-works">Statistical properties of the estimator (why it works)</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#corrections-precision-improvements-recommended">Corrections &amp; precision improvements (recommended)</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-set-num-trials-and-remove-the-stray-line">A) Set <code class="docutils literal notranslate"><span class="pre">num_trials</span></code> (and remove the stray <code class="docutils literal notranslate"><span class="pre">...</span></code> line)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-keep-all-arithmetic-in-double-precision">B) Keep all arithmetic in double precision</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-optional-guard-against-bad-inputs">C) Optional: guard against bad inputs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#suggested-polished-version-of-compute-pi-serial-f90">Suggested polished version of <code class="docutils literal notranslate"><span class="pre">compute_pi_serial.f90</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-build-and-run">How to build and run</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#further-remarks-optional-enhancements">Further remarks &amp; optional enhancements</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#suggested-polished-version-of-compute-pi-serial-f90">Suggested polished version of <code class="docutils literal notranslate"><span class="pre">compute_pi_serial.f90</span></code></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-build-and-run">How to build and run</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#further-remarks-optional-enhancements">Further remarks &amp; optional enhancements</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-the-program-using-fpm-fortran-package-manager">Build the Program using FPM (Fortran Package Manager)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-program-using-fpm-fortran-package-manager">Run the Program using FPM (Fortran Package Manager)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iterations">10 Iterations</a></li>
@@ -787,9 +786,6 @@
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -1187,10 +1183,8 @@
 </section>
 <section id="code-analysis-by-chatgpt-5-thinking">
 <h2>Code Analysis by ChatGPT 5 Thinking<a class="headerlink" href="#code-analysis-by-chatgpt-5-thinking" title="Link to this heading">#</a></h2>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="what-the-code-does-high-level">
-<h1>What the code does (high-level)<a class="headerlink" href="#what-the-code-does-high-level" title="Link to this heading">#</a></h1>
+<section id="what-the-code-does-high-level">
+<h3>What the code does (high-level)<a class="headerlink" href="#what-the-code-does-high-level" title="Link to this heading">#</a></h3>
 <p>This is a <strong>serial Monte-Carlo estimator for <span class="math notranslate nohighlight">\(\pi\)</span></strong>. It repeatedly draws uniform random points <span class="math notranslate nohighlight">\((x,y)\in[0,1)\times[0,1)\)</span> and counts how many fall inside the quarter of a unit circle, i.e., where <span class="math notranslate nohighlight">\(x^2+y^2\le 1\)</span>. If <span class="math notranslate nohighlight">\(N\)</span> points are drawn and <span class="math notranslate nohighlight">\(N_{\text{circ}}\)</span> are inside, the estimator is</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1204,12 +1198,12 @@
 <p>Below I walk through each file in detail, explain the Fortran choices (kinds, intrinsics, I/O), and then point out <strong>two important correctness/quality issues</strong> and offer drop-in fixes.</p>
 </section>
 <hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="file-by-file-explanation">
-<h1>File-by-file explanation<a class="headerlink" href="#file-by-file-explanation" title="Link to this heading">#</a></h1>
+<section id="file-by-file-explanation">
+<h3>File-by-file explanation<a class="headerlink" href="#file-by-file-explanation" title="Link to this heading">#</a></h3>
 <section id="compute-pi-serial-f90-main-program">
-<h2>1) <code class="docutils literal notranslate"><span class="pre">compute_pi_serial.f90</span></code> — main program<a class="headerlink" href="#compute-pi-serial-f90-main-program" title="Link to this heading">#</a></h2>
+<h4>1) <code class="docutils literal notranslate"><span class="pre">compute_pi_serial.f90</span></code> — main program<a class="headerlink" href="#compute-pi-serial-f90-main-program" title="Link to this heading">#</a></h4>
 <section id="modules-and-kinds">
-<h3>Modules and kinds<a class="headerlink" href="#modules-and-kinds" title="Link to this heading">#</a></h3>
+<h5>Modules and kinds<a class="headerlink" href="#modules-and-kinds" title="Link to this heading">#</a></h5>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">compute_pi_serial</span>
 <span class="w">  </span><span class="k">use</span><span class="p">,</span><span class="w"> </span><span class="k">intrinsic</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">iso_fortran_env</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">DP</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">REAL64</span><span class="p">,</span><span class="w"> </span><span class="n">I8</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">INT64</span>
 <span class="w">  </span><span class="k">use </span><span class="n">lcgenerator_mod</span><span class="p">,</span><span class="w">  </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">lcgrandom</span>
@@ -1227,7 +1221,7 @@
 </ul>
 </section>
 <section id="declarations-and-initialization">
-<h3>Declarations and initialization<a class="headerlink" href="#declarations-and-initialization" title="Link to this heading">#</a></h3>
+<h5>Declarations and initialization<a class="headerlink" href="#declarations-and-initialization" title="Link to this heading">#</a></h5>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="kt">integer</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">I8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">num_trials</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">Ncirc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
 <span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">DP</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">pi_computed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="n">pi_actual</span>
 <span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">DP</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span>
@@ -1248,7 +1242,7 @@
 </div></blockquote>
 </section>
 <section id="core-monte-carlo-loop">
-<h3>Core Monte-Carlo loop<a class="headerlink" href="#core-monte-carlo-loop" title="Link to this heading">#</a></h3>
+<h5>Core Monte-Carlo loop<a class="headerlink" href="#core-monte-carlo-loop" title="Link to this heading">#</a></h5>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">num_trials</span>
 <span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lcgrandom</span><span class="p">()</span>
 <span class="w">    </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lcgrandom</span><span class="p">()</span>
@@ -1265,7 +1259,7 @@
 </ul>
 </section>
 <section id="estimator-and-output">
-<h3>Estimator and output<a class="headerlink" href="#estimator-and-output" title="Link to this heading">#</a></h3>
+<h5>Estimator and output<a class="headerlink" href="#estimator-and-output" title="Link to this heading">#</a></h5>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="n">pi_computed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">4.0</span><span class="o">*</span><span class="p">((</span><span class="mf">1.0</span><span class="o">*</span><span class="n">Ncirc</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mf">1.0</span><span class="o">*</span><span class="n">num_trials</span><span class="p">))</span>
 
 <span class="w">  </span><span class="k">print</span><span class="w"> </span><span class="s1">&#39;(A, I10, A, F25.15)&#39;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;After &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">num_trials</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot; loops, Pi = &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">pi_computed</span>
@@ -1289,7 +1283,7 @@
 </section>
 <hr class="docutils" />
 <section id="lcgenerator-mod-f90-linear-congruential-generator">
-<h2>2) <code class="docutils literal notranslate"><span class="pre">lcgenerator_mod.f90</span></code> — Linear congruential generator<a class="headerlink" href="#lcgenerator-mod-f90-linear-congruential-generator" title="Link to this heading">#</a></h2>
+<h4>2) <code class="docutils literal notranslate"><span class="pre">lcgenerator_mod.f90</span></code> — Linear congruential generator<a class="headerlink" href="#lcgenerator-mod-f90-linear-congruential-generator" title="Link to this heading">#</a></h4>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">module </span><span class="n">lcgenerator_mod</span>
 <span class="w">  </span><span class="k">use</span><span class="p">,</span><span class="w"> </span><span class="k">intrinsic</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">iso_fortran_env</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">DP</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">REAL64</span><span class="p">,</span><span class="w"> </span><span class="n">I8</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">INT64</span>
 <span class="w">  </span><span class="k">implicit none</span>
@@ -1337,7 +1331,7 @@
 </section>
 <hr class="docutils" />
 <section id="get-nr-iters-mod-f90-parse-number-of-trials">
-<h2>3) <code class="docutils literal notranslate"><span class="pre">get_nr_iters_mod.f90</span></code> — parse number of trials<a class="headerlink" href="#get-nr-iters-mod-f90-parse-number-of-trials" title="Link to this heading">#</a></h2>
+<h4>3) <code class="docutils literal notranslate"><span class="pre">get_nr_iters_mod.f90</span></code> — parse number of trials<a class="headerlink" href="#get-nr-iters-mod-f90-parse-number-of-trials" title="Link to this heading">#</a></h4>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">module </span><span class="n">get_nr_iters_mod</span>
 <span class="w">  </span><span class="k">implicit none</span>
 <span class="k">  private</span>
@@ -1379,8 +1373,8 @@
 </section>
 </section>
 <hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="statistical-properties-of-the-estimator-why-it-works">
-<h1>Statistical properties of the estimator (why it works)<a class="headerlink" href="#statistical-properties-of-the-estimator-why-it-works" title="Link to this heading">#</a></h1>
+<section id="statistical-properties-of-the-estimator-why-it-works">
+<h3>Statistical properties of the estimator (why it works)<a class="headerlink" href="#statistical-properties-of-the-estimator-why-it-works" title="Link to this heading">#</a></h3>
 <p>Let <span class="math notranslate nohighlight">\(Z_i=\mathbf{1}\{X_i^2+Y_i^2\le 1\}\)</span> be i.i.d. Bernoulli with <span class="math notranslate nohighlight">\(p=\Pr(Z=1)=\text{Area}( \{x^2+y^2\le 1\}\cap[0,1]^2)=\pi/4\)</span>. Then</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1396,11 +1390,11 @@
 <p>Monte-Carlo converges as <span class="math notranslate nohighlight">\(O(N^{-1/2})\)</span>; parallelizing increases <span class="math notranslate nohighlight">\(N\)</span> faster, but you cannot beat this rate without variance-reduction tricks.</p>
 </section>
 <hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="corrections-precision-improvements-recommended">
-<h1>Corrections &amp; precision improvements (recommended)<a class="headerlink" href="#corrections-precision-improvements-recommended" title="Link to this heading">#</a></h1>
+<section id="corrections-precision-improvements-recommended">
+<h3>Corrections &amp; precision improvements (recommended)<a class="headerlink" href="#corrections-precision-improvements-recommended" title="Link to this heading">#</a></h3>
 <p>There are three easy fixes that make the program numerically cleaner and compile-ready.</p>
 <section id="a-set-num-trials-and-remove-the-stray-line">
-<h2>A) Set <code class="docutils literal notranslate"><span class="pre">num_trials</span></code> (and remove the stray <code class="docutils literal notranslate"><span class="pre">...</span></code> line)<a class="headerlink" href="#a-set-num-trials-and-remove-the-stray-line" title="Link to this heading">#</a></h2>
+<h4>A) Set <code class="docutils literal notranslate"><span class="pre">num_trials</span></code> (and remove the stray <code class="docutils literal notranslate"><span class="pre">...</span></code> line)<a class="headerlink" href="#a-set-num-trials-and-remove-the-stray-line" title="Link to this heading">#</a></h4>
 <p>Your <code class="docutils literal notranslate"><span class="pre">compute_pi_serial.f90</span></code> contains a literal line with <code class="docutils literal notranslate"><span class="pre">...</span></code> between <code class="docutils literal notranslate"><span class="pre">r_squared</span> <span class="pre">=</span> <span class="pre">r*r</span></code> and the loop. That will not compile. Replace that region with a call to <code class="docutils literal notranslate"><span class="pre">get_nr_iters()</span></code>:</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="n">r_squared</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="o">*</span><span class="n">r</span>
 
@@ -1410,7 +1404,7 @@
 </div>
 </section>
 <section id="b-keep-all-arithmetic-in-double-precision">
-<h2>B) Keep all arithmetic in double precision<a class="headerlink" href="#b-keep-all-arithmetic-in-double-precision" title="Link to this heading">#</a></h2>
+<h4>B) Keep all arithmetic in double precision<a class="headerlink" href="#b-keep-all-arithmetic-in-double-precision" title="Link to this heading">#</a></h4>
 <ul class="simple">
 <li><p>Make the RNG return <code class="docutils literal notranslate"><span class="pre">REAL64</span></code>.</p></li>
 <li><p>Use double-precision literals and explicit casts in the estimator.</p></li>
@@ -1428,7 +1422,7 @@
 <p>This avoids any intermediate rounding to single precision.</p>
 </section>
 <section id="c-optional-guard-against-bad-inputs">
-<h2>C) Optional: guard against bad inputs<a class="headerlink" href="#c-optional-guard-against-bad-inputs" title="Link to this heading">#</a></h2>
+<h4>C) Optional: guard against bad inputs<a class="headerlink" href="#c-optional-guard-against-bad-inputs" title="Link to this heading">#</a></h4>
 <p>You can reject non-positive <code class="docutils literal notranslate"><span class="pre">num_trials</span></code>:</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">num_trials</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0_I8</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
 <span class="k">    write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot;num_trials must be positive&quot;</span>
@@ -1439,8 +1433,8 @@
 </section>
 </section>
 <hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="suggested-polished-version-of-compute-pi-serial-f90">
-<h1>Suggested polished version of <code class="docutils literal notranslate"><span class="pre">compute_pi_serial.f90</span></code><a class="headerlink" href="#suggested-polished-version-of-compute-pi-serial-f90" title="Link to this heading">#</a></h1>
+<section id="suggested-polished-version-of-compute-pi-serial-f90">
+<h3>Suggested polished version of <code class="docutils literal notranslate"><span class="pre">compute_pi_serial.f90</span></code><a class="headerlink" href="#suggested-polished-version-of-compute-pi-serial-f90" title="Link to this heading">#</a></h3>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">compute_pi_serial</span>
 <span class="w">  </span><span class="k">use</span><span class="p">,</span><span class="w"> </span><span class="k">intrinsic</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">iso_fortran_env</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">DP</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">REAL64</span><span class="p">,</span><span class="w"> </span><span class="n">I8</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">INT64</span>
 <span class="w">  </span><span class="k">use </span><span class="n">lcgenerator_mod</span><span class="p">,</span><span class="w">  </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">lcgrandom</span>
@@ -1481,8 +1475,8 @@
 </div>
 </section>
 <hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="how-to-build-and-run">
-<h1>How to build and run<a class="headerlink" href="#how-to-build-and-run" title="Link to this heading">#</a></h1>
+<section id="how-to-build-and-run">
+<h3>How to build and run<a class="headerlink" href="#how-to-build-and-run" title="Link to this heading">#</a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Build (gfortran example)</span>
 gfortran<span class="w"> </span>-std<span class="o">=</span>f2008<span class="w"> </span>-O3<span class="w"> </span>lcgenerator_mod.f90<span class="w"> </span>get_nr_iters_mod.f90<span class="w"> </span>compute_pi_serial.f90<span class="w"> </span>-o<span class="w"> </span>compute_pi_serial
 
@@ -1493,8 +1487,8 @@ gfortran<span class="w"> </span>-std<span class="o">=</span>f2008<span class="w"
 <p>You should see an estimate within ~<span class="math notranslate nohighlight">\(1.6\times 10^{-3}\)</span> of <span class="math notranslate nohighlight">\(\pi\)</span> on a typical run (with this LCG it will be deterministic per the current code).</p>
 </section>
 <hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="further-remarks-optional-enhancements">
-<h1>Further remarks &amp; optional enhancements<a class="headerlink" href="#further-remarks-optional-enhancements" title="Link to this heading">#</a></h1>
+<section id="further-remarks-optional-enhancements">
+<h3>Further remarks &amp; optional enhancements<a class="headerlink" href="#further-remarks-optional-enhancements" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>RNG quality/period.</strong> The modulus <span class="math notranslate nohighlight">\(m=714{,}025\)</span> caps the period at <span class="math notranslate nohighlight">\(m\)</span>. If you run more draws than that, the sequence repeats. For higher-quality randomness, either use the Fortran intrinsic <code class="docutils literal notranslate"><span class="pre">random_number</span></code> (simple, portable) or a 48- or 64-bit LCG/PCG with well-vetted parameters.</p></li>
 <li><p><strong>Seeding.</strong> Add a <code class="docutils literal notranslate"><span class="pre">seed_lcg(seed)</span></code> routine that sets <code class="docutils literal notranslate"><span class="pre">random_last</span></code>, and accept a 2nd CLI argument to seed runs.</p></li>
@@ -1509,6 +1503,8 @@ gfortran<span class="w"> </span>-std<span class="o">=</span>f2008<span class="w"
 <hr class="docutils" />
 <p>If you’d like, I can produce a version that uses the standard <code class="docutils literal notranslate"><span class="pre">random_number</span></code> (for quality) and a command-line seed, plus a tiny unit test to verify the variance scaling.</p>
 <p>The above program and modules are compiled and run using Fortran Package Manager (fpm):</p>
+</section>
+</section>
 <section id="build-the-program-using-fpm-fortran-package-manager">
 <h2>Build the Program using FPM (Fortran Package Manager)<a class="headerlink" href="#build-the-program-using-fpm-fortran-package-manager" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
@@ -1906,7 +1902,6 @@ Absolute difference =         0.000000325841359
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Crash Course in Supercomputing: Compute Pi in a Serial Fashion</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#this-program-demonstrates-computing-pi-in-fortran-using-the-monte-carlo-method-in-a-serial-fashion">This program demonstrates computing <span class="math notranslate nohighlight">\(\pi\)</span> in Fortran using the Monte Carlo method in a Serial Fashion:</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-file-computing-pi-serial-f90">In file computing_pi_serial.f90</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-the-file-lcgenerator-mod-f90">In the file lcgenerator_mod.f90</a></li>
@@ -1930,32 +1925,32 @@ Absolute difference =         0.000000325841359
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-and-notes">Key Concepts and Notes</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-analysis-by-chatgpt-5-thinking">Code Analysis by ChatGPT 5 Thinking</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-analysis-by-chatgpt-5-thinking">Code Analysis by ChatGPT 5 Thinking</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-the-code-does-high-level">What the code does (high-level)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-by-file-explanation">File-by-file explanation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-pi-serial-f90-main-program">1) <code class="docutils literal notranslate"><span class="pre">compute_pi_serial.f90</span></code> — main program</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#modules-and-kinds">Modules and kinds</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#declarations-and-initialization">Declarations and initialization</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#core-monte-carlo-loop">Core Monte-Carlo loop</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#estimator-and-output">Estimator and output</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#what-the-code-does-high-level">What the code does (high-level)</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#file-by-file-explanation">File-by-file explanation</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-pi-serial-f90-main-program">1) <code class="docutils literal notranslate"><span class="pre">compute_pi_serial.f90</span></code> — main program</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modules-and-kinds">Modules and kinds</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#declarations-and-initialization">Declarations and initialization</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#core-monte-carlo-loop">Core Monte-Carlo loop</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estimator-and-output">Estimator and output</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lcgenerator-mod-f90-linear-congruential-generator">2) <code class="docutils literal notranslate"><span class="pre">lcgenerator_mod.f90</span></code> — Linear congruential generator</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#get-nr-iters-mod-f90-parse-number-of-trials">3) <code class="docutils literal notranslate"><span class="pre">get_nr_iters_mod.f90</span></code> — parse number of trials</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lcgenerator-mod-f90-linear-congruential-generator">2) <code class="docutils literal notranslate"><span class="pre">lcgenerator_mod.f90</span></code> — Linear congruential generator</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-nr-iters-mod-f90-parse-number-of-trials">3) <code class="docutils literal notranslate"><span class="pre">get_nr_iters_mod.f90</span></code> — parse number of trials</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-properties-of-the-estimator-why-it-works">Statistical properties of the estimator (why it works)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corrections-precision-improvements-recommended">Corrections &amp; precision improvements (recommended)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-set-num-trials-and-remove-the-stray-line">A) Set <code class="docutils literal notranslate"><span class="pre">num_trials</span></code> (and remove the stray <code class="docutils literal notranslate"><span class="pre">...</span></code> line)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#b-keep-all-arithmetic-in-double-precision">B) Keep all arithmetic in double precision</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#c-optional-guard-against-bad-inputs">C) Optional: guard against bad inputs</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-properties-of-the-estimator-why-it-works">Statistical properties of the estimator (why it works)</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#corrections-precision-improvements-recommended">Corrections &amp; precision improvements (recommended)</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-set-num-trials-and-remove-the-stray-line">A) Set <code class="docutils literal notranslate"><span class="pre">num_trials</span></code> (and remove the stray <code class="docutils literal notranslate"><span class="pre">...</span></code> line)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-keep-all-arithmetic-in-double-precision">B) Keep all arithmetic in double precision</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-optional-guard-against-bad-inputs">C) Optional: guard against bad inputs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#suggested-polished-version-of-compute-pi-serial-f90">Suggested polished version of <code class="docutils literal notranslate"><span class="pre">compute_pi_serial.f90</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-build-and-run">How to build and run</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#further-remarks-optional-enhancements">Further remarks &amp; optional enhancements</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#suggested-polished-version-of-compute-pi-serial-f90">Suggested polished version of <code class="docutils literal notranslate"><span class="pre">compute_pi_serial.f90</span></code></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-build-and-run">How to build and run</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#further-remarks-optional-enhancements">Further remarks &amp; optional enhancements</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-the-program-using-fpm-fortran-package-manager">Build the Program using FPM (Fortran Package Manager)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-program-using-fpm-fortran-package-manager">Run the Program using FPM (Fortran Package Manager)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iterations">10 Iterations</a></li>
@@ -1970,9 +1965,6 @@ Absolute difference =         0.000000325841359
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-
   </nav></div>
 
 </div></div>
