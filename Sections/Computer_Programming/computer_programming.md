@@ -7,7 +7,7 @@ In this section, we will discuss and experiment with various computer programmin
 :gutter: 3
 
 :::{grid-item-card}
-:link: Fortran/fortran.html
+:link: Fortran/fortran__HEAD__
 :class-header: bg-auto
 
 FORTRAN Programming

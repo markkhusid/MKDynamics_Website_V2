@@ -7,7 +7,7 @@
 :align: center
 ```
 <br>
-Mark Khusid is a an electrical engineer in the aerospace industry and a graduate student at Arizona State University.  He has a Bachelor of Science in Electrical Engineering and Computer Engineering from Polytechnic University in Brooklyn, N.Y.  He has worked in the aerospace industry for over 11 years and is a licensed amateur radio operator (Extra Class).
+Mark Khusid is an electrical engineer in the aerospace industry and a graduate student at Arizona State University.  He has a Bachelor of Science in Electrical Engineering and Computer Engineering from Polytechnic University in Brooklyn, N.Y., as well as a Master of Computer Science (Cybersecurity) from Arizona State University.  He has worked in the aerospace industry for over 11 years and is a licensed amateur radio operator (Extra Class).
 <br><br>
 
 ::::{grid} 2 2 2 2
@@ -15,12 +15,12 @@ Mark Khusid is a an electrical engineer in the aerospace industry and a graduate
 :gutter: 3
 
 :::{grid-item-card}
-:link: Resume/resume.html
+:link: Resume/resume
 :class-header: bg-dark
 
 My Resume
 ^^^
-```{image} Resume/resume_2025_08_17.png
+```{image} Resume/resume.png
 :height: 200
 ```
 :::

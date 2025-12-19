@@ -5,7 +5,7 @@
 :gutter: 3
 
 :::{grid-item-card}
-:link: certificates_coursera.html
+:link: certificates_coursera
 :class-header: bg-dark
 
 Coursera Certificates
@@ -16,7 +16,7 @@ Coursera Certificates
 :::
 
 :::{grid-item-card}
-:link: certificates_kaggle.html
+:link: certificates_kaggle
 :class-header: bg-dark
 
 Kaggle Certificates
@@ -27,7 +27,7 @@ Kaggle Certificates
 :::
 
 :::{grid-item-card}
-:link: certificates_tryhackme.html
+:link: certificates_tryhackme
 :class-header: bg-dark
 
 Try Hack Me Certificates

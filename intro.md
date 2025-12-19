@@ -6,13 +6,9 @@ Additionally, I am a licensed HAM radio operator and enjoy experimenting with an
 
 ## Cybersecurity
 ::::{grid} 2 2 2 2
-:class-container: text-center
-:gutter: 3
 
 :::{grid-item-card}
 :link: Sections/Cybersecurity/cybersecurity
-:link-type: doc
-:class-header: bg-auto
 
 Cybersecurity
 ^^^
@@ -26,12 +22,9 @@ Cybersecurity
 ## Computer Programming
 
 ::::{grid} 2 2 2 2
-:class-container: text-center
-:gutter: 3
 
 :::{grid-item-card}
-:link: Sections/Computer_Programming/computer_programming.html
-:class-header: bg-auto
+:link: Sections/Computer_Programming/computer_programming
 
 Computer Programming
 ^^^
@@ -45,13 +38,9 @@ Computer Programming
 ## Raspberry Pi
 
 ::::{grid} 2 2 2 2
-:class-container: text-center
-:gutter: 3
 
 :::{grid-item-card}
 :link: Sections/Raspberry_Pi/raspberry_pi
-:link-type: doc
-:class-header: bg-auto
 
 Raspberry Pi Projects
 ^^^
@@ -65,13 +54,9 @@ Raspberry Pi Projects
 ## Electronics
 
 ::::{grid} 2 2 2 2
-:class-container: text-center
-:gutter: 3
 
 :::{grid-item-card}
 :link: Sections/Electronics/electronics
-:link-type: doc
-:class-header: bg-auto
 
 Electronics
 ^^^
@@ -86,8 +71,6 @@ Electronics
 ::::{grid} 2 2 2 2
 :::{grid-item-card}
 :link: Sections/Finite_Element_Analysis/finite_element_analysis
-:link-type: doc
-:class-header: bg-auto
 
 Exploring CAELinux for Thermal Analysis
 ^^^
@@ -102,8 +85,6 @@ Exploring CAELinux for Thermal Analysis
 ::::{grid} 2 2 2 2
 :::{grid-item-card}
 :link: Sections/Ham_Radio/ham_radio
-:link-type: doc
-:class-header: bg-auto
 
 HAM Radio Projects
 ^^^
@@ -118,12 +99,10 @@ HAM Radio Projects
 ::::{grid} 2 2 2 2
 :::{grid-item-card}
 :link: Sections/About_Me/aboutme
-:link-type: doc
-:class-header: bg-auto
 
 About Me
 ^^^
-```{image} images/about_me.jpg
+```{image} images/about_me_resized.jpg
 :height: 200
 :align: center
 ```

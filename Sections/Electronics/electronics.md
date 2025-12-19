@@ -19,7 +19,7 @@ Analog/Digital Designs and Projects
 :::
 
 :::{grid-item-card}
-:link: Power_Electronics/power_electronics__HEAD__.html
+:link: Power_Electronics/power_electronics__HEAD__
 :class-header: bg-dark
 
 Power Electronics Projects
@@ -31,7 +31,7 @@ Power Electronics Projects
 :::
 
 :::{grid-item-card}
-:link: Solar_Power_Projects/solar_power_projects__HEAD__.html
+:link: Solar_Power_Projects/solar_power_projects__HEAD__
 :class-header: bg-dark
 
 Solar Power Projects
@@ -43,7 +43,7 @@ Solar Power Projects
 :::
 
 :::{grid-item-card}
-:link: Single_Board_Computers_Running_Linux/single_board_computers_running_linux.html
+:link: Single_Board_Computers_Running_Linux/single_board_computers_running_linux
 :class-header: bg-dark
 
 Single Board Computers Running Linux
