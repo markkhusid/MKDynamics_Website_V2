@@ -12,7 +12,7 @@ Worked examples and exercises will be provided from the following textbooks and 
 ::::{grid} 2 2 2 2
 
 :::{grid-item-card}
-:link: Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp__HEAD__
+:link: Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp__HEAD__.md
 
 Object-Oriented Programming Using C++
 ^^^

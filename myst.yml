@@ -132,10 +132,10 @@ project:
             - file: Sections/Computer_Programming/CPP/cpp__HEAD__.md
               children:
                 - file: >-
-                    Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp__HEAD__.ipynb
+                    Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp__HEAD__.md
                   children:
                     - file: >-
-                        Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp_Ch_1.ipynb
+                        Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp_Ch_1.md
                       children:
                         - file: >-
                             Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Hello_Cpp.ipynb
@@ -144,14 +144,14 @@ project:
                         - file: >-
                             Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_1_7_The_Standard_Template_Library.ipynb
                     - file: >-
-                        Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp_Ch_2.ipynb
+                        Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp_Ch_2.md
                       children:
                         - file: >-
                             Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_2_3_Program_Structure.ipynb
                         - file: >-
                             Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_2_5_The_Traditional_Conversions.ipynb
                     - file: >-
-                        Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp_Ch_3.ipynb
+                        Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp_Ch_3.md
                       children:
                         - file: >-
                             Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_3_1_1_Function_Invocation.ipynb
