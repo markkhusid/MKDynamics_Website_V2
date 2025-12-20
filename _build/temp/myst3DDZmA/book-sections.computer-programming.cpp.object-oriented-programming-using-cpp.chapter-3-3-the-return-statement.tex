@@ -1,0 +1,80 @@
+\begin{verbatim}
+- - -
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+ - - -
+\end{verbatim}
+
+\subparagraph{The Return Statement}
+
+Adapted from: ``Object-Oriented Programming Using C++'' by Ira Pohl (Addison- Wesley)
+
+\subparagraph{Program that demonstrates the \textit{RETURN} statement in C++}
+
+\begin{verbatim}
+// Find the minimum of two ints.
+#include <iostream>
+
+int min(int x, int y)
+{
+    if (x < y)
+        return x;
+    else
+        return y;
+}
+
+int main()
+{
+    int j, k, m;
+
+    std::cout << "Input two integers: ";
+    std::cin >> j >> k;
+    m = min(j, k);
+    std::cout << '\n' << m << " is the minimum of " << j
+              << " and " << k << std::endl;
+}
+\end{verbatim}
+
+The above program is compiled and run using Gnu Compiler Collection (g++):
+
+\begin{verbatim}
+import os
+root_dir = os.getcwd()
+\end{verbatim}
+
+\begin{verbatim}
+code_dir = root_dir + "/" + "Cpp_Code/Chapter_3_3_The_Return_Statement"
+\end{verbatim}
+
+\begin{verbatim}
+ch_dir_stat = os.chdir(code_dir)
+\end{verbatim}
+
+\begin{verbatim}
+build_command = os.system("g++ min_int.cpp -w -o min_int")
+\end{verbatim}
+
+\begin{verbatim}
+exec_status = os.system("echo \"10 20\" | ./min_int")
+\end{verbatim}
+
+\begin{verbatim}
+Input two integers: 
+10 is the minimum of 10 and 20
+\end{verbatim}
+
+\begin{verbatim}
+exec_status = os.system("echo \"89 27\" | ./min_int")
+\end{verbatim}
+
+\begin{verbatim}
+Input two integers: 
+27 is the minimum of 89 and 27
+\end{verbatim}

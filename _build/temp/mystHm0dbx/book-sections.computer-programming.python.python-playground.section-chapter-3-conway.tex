@@ -1,0 +1,274 @@
+\begin{verbatim}
+- - -
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+ - - -
+\end{verbatim}
+
+\subparagraph{Chapter 3: Conway's Game of Life}
+
+Adapted from: \href{https://www.amazon.com/Python-Playground-2nd-Mahesh-Venkitachalam/dp/1718503040/ref=sr\_1\_4?keywords=python+playground\&sr=8-4}{``Python Playground: Geeky Projects for the Curious Programmer''} by Mahesh Venkitachalam (No Starch Press)
+
+This program runs the famous \href{https://en.wikipedia.org/wiki/Conway\%27s\_Game\_of\_Life}{Conway's Game of Life} simulation.  According to ChatGPT 4.0:
+
+\subparagraph{ChatGPT 4.0 Output}
+
+Conway's Game of Life is a cellular automaton devised by the British mathematician John Horton Conway in 1970. It's a zero-player game, meaning that its evolution is determined by its initial state, requiring no further input from human players. The game is a classic example of a complex system where simple rules can lead to complex behavior. It's often used in computer science, mathematics, physics, philosophy, and theoretical biology to study how intricate structures and patterns can emerge from simple underlying rules.
+
+\subparagraph{Rules}
+
+The game is played on an infinite, two-dimensional orthogonal grid of square cells, each of which is in one of two possible states: alive or dead. Every cell interacts with its eight neighbors, which are the cells that are horizontally, vertically, or diagonally adjacent. At each step in time (or ``tick''), the following transitions occur:
+
+\begin{enumerate}
+\item \textbf{Underpopulation}: A live cell with fewer than two live neighbors dies, as if by underpopulation.
+\item \textbf{Survival}: A live cell with two or three live neighbors lives on to the next generation.
+\item \textbf{Overpopulation}: A live cell with more than three live neighbors dies, as if by overpopulation.
+\item \textbf{Reproduction}: A dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.
+\end{enumerate}
+
+These rules are applied simultaneously to every cell in the grid, with births and deaths occurring simultaneously. The initial pattern constitutes the `seed' of the system. The first generation is created by applying the rules simultaneously to every cell in the seed, and this results in the creation of a second generation of cells. The rules continue to be applied repeatedly to create further generations.
+
+\subparagraph{Characteristics and Complexity}
+
+\begin{itemize}
+\item \textbf{Patterns}: Conway's Game of Life is known for its various patterns, some of which are stable, oscillate between states, or move across the grid (spaceships).
+\item \textbf{Turing Completeness}: Remarkably, the Game of Life is Turing complete, meaning that it can simulate a universal constructor or any other Turing machine. This implies that, in theory, it's possible to encode any computable algorithm within the Game of Life.
+\item \textbf{Emergent Behavior}: The game is a prime example of how complex structures can emerge from simple rules. The patterns that evolve in the Game of Life can exhibit highly varied and unpredictable behavior.
+\end{itemize}
+
+\subparagraph{Applications and Significance}
+
+\begin{itemize}
+\item \textbf{Educational Tool}: It's often used as an introductory example of cellular automata.
+\item \textbf{Research}: The game has intrigued scientists and mathematicians, leading to extensive research in various fields.
+\item \textbf{Art and Entertainment}: Its visual patterns have been used in digital art and recreational mathematics.
+\end{itemize}
+
+Overall, Conway's Game of Life stands as a significant work in the field of cellular automata, demonstrating how simplicity can lead to unexpected complexity and providing a platform for deep insights into the nature of computation and emergence.
+
+\subparagraph{In file conway.py}
+
+\begin{verbatim}
+import sys, argparse
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.animation as animation
+
+ON = 255
+OFF = 0
+
+vals = [ON, OFF]
+
+
+def randomGrid(N):
+    """ returns a grid of N x N values """
+    return np.random.choice(vals, N*N, p=[0.2, 0.8]).reshape(N, N)
+
+
+def addGlider(i, j, grid):
+    """ adds a glider with top -left cell at (i, j)"""
+    glider = np.array([[0, 0, 255],
+                       [255, 0, 255],
+                       [0, 255, 255]])
+    grid[i:i+3, j:j+3] = glider
+
+
+def update(framenum, img, grid, N):
+    # copy grid since we require 8 neighbors for calculation
+    # and we go line by line
+    newGrid = grid.copy()
+    for i in range(N):
+        for j in range(N):
+            # compute 8 -neighbor sum using toroidal boundary conditions
+            # x and y wrap around so that the simulation
+            # takes place on a toroidal surface
+            total = int((grid[i, (j -1) % N] + grid[i, (j+1) % N] +
+                         grid[(i -1) % N, j] + grid[(i+1) % N, j] +
+                         grid[(i -1) % N, (j -1) % N] + grid[(i -1) % N, (j+1) % N] +
+                         grid[(i+1) % N, (j -1) % N] + grid[(i+1) % N, (j+1) % N])/255)
+            # apply Conway's rules
+            if grid[i, j] == ON:
+                if (total < 2) or (total > 3):
+                    newGrid[i, j] = OFF
+            else:
+                if total == 3:
+                    newGrid[i, j] = ON
+    # update data
+    img.set_data(newGrid)
+    grid[:] = newGrid[:]
+    return img,
+
+
+# main function
+def main():
+    # command line arguments are in sys.argv[1], sys.argv[2], ...
+    # sys.argv[0] is the script name and can be ignored
+    # parse arguments
+    parser = argparse.ArgumentParser(description="Runs Conway's Game of Life simulation.")
+    # add arguments
+    parser.add_argument(' - -grid -size', dest='N', required=False)
+    parser.add_argument(' - -mov -file', dest='movfile', required=False)
+    parser.add_argument(' - -interval', dest='interval', required=False)
+    parser.add_argument(' - -glider', action='store_true', required=False)
+    parser.add_argument(' - -gosper', action='store_true', required=False)
+    args = parser.parse_args()
+
+    # set grid size
+    N = 100
+    if args.N and int(args.N) > 8:
+        N = int(args.N)
+
+    # set the animation update interval
+    updateInterval = 50
+    if args.interval:
+        updateInterval = int(args.interval)
+
+    # declare grid
+    grid = np.array([])
+    # check if "glider" demo flag is specified
+    if args.glider:
+        grid = np.zeros(N*N).reshape(N, N)
+        addGlider(1, 1, grid)
+    else:
+        # populate grid with random on/off - more off than on
+        grid = randomGrid(N)
+
+    # set up the animation
+    fig, ax = plt.subplots()
+    img = ax.imshow(grid, interpolation='nearest')
+    # I changed the number of frames from 10 to 100 in the next line.
+    ani = animation.FuncAnimation(fig, update, fargs=(img, grid, N, ),
+                                  frames=100,
+                                  interval=updateInterval,
+                                  save_count=50)
+
+    # number of frames?
+    # set the output file
+    # I added the next two lines to get script to work.
+    Writer = animation.writers['ffmpeg']
+    writer = Writer(fps=15, metadata=dict(artist='Me'), bitrate=1800)
+
+    if args.movfile:
+        # The line below is from the book, and seems to be causing file I/O errors
+        # ani.save(args.movfile, fps=30, extra_args=[' -vcoded', 'libx264'])
+        # I replaced the line above with the one below to get the script to work.
+        ani.save(args.movfile, writer=writer)
+    plt.show()
+
+
+# call main
+if __name__ == '__main__':
+    main()
+\end{verbatim}
+
+The program above was rewritten into a Jupyter Notebook format.
+
+\begin{verbatim}
+%matplotlib inline
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.animation as animation
+from IPython.display import HTML
+\end{verbatim}
+
+\begin{verbatim}
+# Define constants
+ON = 255
+OFF = 0
+vals = [ON, OFF]
+\end{verbatim}
+
+\begin{verbatim}
+def randomGrid(N):
+    """ returns a grid of N x N values """
+    return np.random.choice(vals, N*N, p=[0.2, 0.8]).reshape(N, N)
+\end{verbatim}
+
+\begin{verbatim}
+def addGlider(i, j, grid):
+    """ adds a glider with top -left cell at (i, j)"""
+    glider = np.array([[0, 0, 255],
+                       [255, 0, 255],
+                       [0, 255, 255]])
+    grid[i:i+3, j:j+3] = glider
+\end{verbatim}
+
+\begin{verbatim}
+def update(framenum, img, grid, N):
+    # copy grid since we require 8 neighbors for calculation
+    # and we go line by line
+    newGrid = grid.copy()
+    for i in range(N):
+        for j in range(N):
+            # compute 8 -neighbor sum using toroidal boundary conditions
+            # x and y wrap around so that the simulation
+            # takes place on a toroidal surface
+            total = int((grid[i, (j -1) % N] + grid[i, (j+1) % N] +
+                         grid[(i -1) % N, j] + grid[(i+1) % N, j] +
+                         grid[(i -1) % N, (j -1) % N] + grid[(i -1) % N, (j+1) % N] +
+                         grid[(i+1) % N, (j -1) % N] + grid[(i+1) % N, (j+1) % N])/255)
+            # apply Conway's rules
+            if grid[i, j] == ON:
+                if (total < 2) or (total > 3):
+                    newGrid[i, j] = OFF
+            else:
+                if total == 3:
+                    newGrid[i, j] = ON
+    # update data
+    img.set_data(newGrid)
+    grid[:] = newGrid[:]
+    return img,
+\end{verbatim}
+
+\begin{verbatim}
+# Set Grid Size (N)
+N = 100
+\end{verbatim}
+
+\begin{verbatim}
+# Set Update Interval (updateInterval)
+updateInterval = 50
+\end{verbatim}
+
+\begin{verbatim}
+# Declare Grid
+grid = np.array([])
+\end{verbatim}
+
+\begin{verbatim}
+# populate grid with random on/off - more off than on
+grid = randomGrid(N)
+\end{verbatim}
+
+\begin{verbatim}
+%%capture
+# set up the animation
+fig, ax = plt.subplots()
+fig.dpi = 200
+img = ax.imshow(grid, interpolation='nearest')
+# I changed the number of frames from 10 to 100 in the next line.
+#ani = animation.FuncAnimation(fig, update, fargs=(img, grid, N, ),
+#                            frames = 100,
+#                            interval = updateInterval,
+#                            save_count = 50)
+ani = animation.FuncAnimation(fig, update, fargs=(img, grid, N, ),
+                            frames = 100,
+                            interval = updateInterval)
+\end{verbatim}
+
+\begin{verbatim}
+HTML(ani.to_jshtml())
+\end{verbatim}
+
+\includegraphics[width=0.7\linewidth]{}
+
+0\textit{} \textit{} \textit{} \textit{} \textit{} \textit{} \textit{} \textit{} \textit{}
+
+[ ] Once [x] Loop [ ] Reflect

@@ -1,0 +1,310 @@
+\begin{verbatim}
+- - -
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+ - - -
+\end{verbatim}
+
+\subparagraph{Conditions and Operators: Conditions and Switch - Case: Fall Through}
+
+Adapted from: ``Learn Modern C++'' by cpptutor: \href{https://learnmoderncpp.com/conditions-and-operators/}{Learn Modern C++: Conditions and Operators}
+
+\subparagraph{Program that Demonstrates Conditions and Fall Through in the Switch Case Statement}
+
+\begin{verbatim}
+// 03 -fallthrough.cpp : demonstrate case clauses without break
+ 
+#include <iostream>
+using namespace std;
+ 
+int main() {
+    cout << "Please enter an integer between zero and three:\n";
+    int n{};
+    cin >> n;
+    switch (n) {
+    case 0:
+        cout << "Number is less than 1\n";
+        [[fallthrough]];
+    case 1:
+        cout << "Number is less than 2\n";
+        [[fallthrough]];
+    case 2:
+        cout << "Number is less than 3\n";
+        break;
+    case 3:
+        cout << "Number is exactly 3\n";
+        break;
+    default:
+        cout << "Number out of range!\n";
+        break;
+    }
+}
+\end{verbatim}
+
+\subparagraph{Explanation of the Above Code}
+
+This C++ program demonstrates the use of the \texttt{switch} statement with the \texttt{[[fallthrough]]} attribute to explicitly allow fall-through behavior between cases. Here's a breakdown of the code:
+
+\subparagraph{Code Explanation:}
+
+\begin{enumerate}
+\item \textbf{Header Inclusion}:
+
+\begin{verbatim}
+#include <iostream>
+\end{verbatim}
+
+\begin{itemize}
+\item The \texttt{\textless iostream\textgreater } header is included to enable input (\texttt{cin}) and output (\texttt{cout}) operations.
+\end{itemize}
+
+
+\item \textbf{Namespace}:
+
+\begin{verbatim}
+using namespace std;
+\end{verbatim}
+
+\begin{itemize}
+\item This allows the program to use standard library features (like \texttt{cin} and \texttt{cout}) without prefixing them with \texttt{std::}.
+\end{itemize}
+
+
+\item \textbf{Main Function}:
+
+\begin{verbatim}
+int main() {
+\end{verbatim}
+
+\begin{itemize}
+\item The \texttt{main} function is the entry point of the program.
+\end{itemize}
+
+
+\item \textbf{User Prompt and Input}:
+
+\begin{verbatim}
+cout << "Please enter an integer between zero and three:\n";
+int n{};
+cin >> n;
+\end{verbatim}
+
+\begin{itemize}
+\item The program prompts the user to enter an integer between 0 and 3.
+\item The input is stored in the variable \texttt{n}.
+\end{itemize}
+
+
+\item \textbf{Switch Statement}:
+
+\begin{verbatim}
+switch (n) {
+\end{verbatim}
+
+\begin{itemize}
+\item The \texttt{switch} statement evaluates the value of \texttt{n} and executes the corresponding case block.
+\end{itemize}
+
+
+\item \textbf{Case Blocks}:
+
+\begin{itemize}
+\item \textbf{Case 0}:
+
+\begin{verbatim}
+case 0:
+    cout << "Number is less than 1\n";
+    [[fallthrough]];
+\end{verbatim}
+
+\begin{itemize}
+\item Prints ``Number is less than 1''.
+\item The \texttt{[[fallthrough]]} attribute explicitly allows execution to continue to the next case (case 1).
+\end{itemize}
+
+
+\item \textbf{Case 1}:
+
+\begin{verbatim}
+case 1:
+    cout << "Number is less than 2\n";
+    [[fallthrough]];
+\end{verbatim}
+
+\begin{itemize}
+\item Prints ``Number is less than 2''.
+\item The \texttt{[[fallthrough]]} attribute allows execution to continue to the next case (case 2).
+\end{itemize}
+
+
+\item \textbf{Case 2}:
+
+\begin{verbatim}
+case 2:
+    cout << "Number is less than 3\n";
+    break;
+\end{verbatim}
+
+\begin{itemize}
+\item Prints ``Number is less than 3''.
+\item The \texttt{break} statement prevents further fall-through and exits the \texttt{switch} block.
+\end{itemize}
+
+
+\item \textbf{Case 3}:
+
+\begin{verbatim}
+case 3:
+    cout << "Number is exactly 3\n";
+    break;
+\end{verbatim}
+
+\begin{itemize}
+\item Prints ``Number is exactly 3''.
+\item The \texttt{break} statement exits the \texttt{switch} block.
+\end{itemize}
+
+
+\item \textbf{Default Case}:
+
+\begin{verbatim}
+default:
+    cout << "Number out of range!\n";
+    break;
+\end{verbatim}
+
+\begin{itemize}
+\item Handles any input that is not 0, 1, 2, or 3.
+\item Prints ``Number out of range!''.
+\end{itemize}
+\end{itemize}
+\end{enumerate}
+
+\subparagraph{Key Features:}
+
+\begin{itemize}
+\item \textbf{Fall-Through Behavior}:
+
+\begin{itemize}
+\item The \texttt{[[fallthrough]]} attribute is used to explicitly indicate intentional fall-through between cases. This improves code readability and avoids accidental fall-through, which can lead to bugs.
+\end{itemize}
+
+
+\item \textbf{Default Case}:
+
+\begin{itemize}
+\item The \texttt{default} case ensures that invalid inputs are handled gracefully.
+\end{itemize}
+\end{itemize}
+
+\subparagraph{Example Input/Output:}
+
+\begin{enumerate}
+\item \textbf{Input: 0}
+
+\begin{verbatim}
+Please enter an integer between zero and three:
+0
+Number is less than 1
+Number is less than 2
+Number is less than 3
+\end{verbatim}
+
+
+\item \textbf{Input: 3}
+
+\begin{verbatim}
+Please enter an integer between zero and three:
+3
+Number is exactly 3
+\end{verbatim}
+
+
+\item \textbf{Input: 5}
+
+\begin{verbatim}
+Please enter an integer between zero and three:
+5
+Number out of range!
+\end{verbatim}
+\end{enumerate}
+
+\subparagraph{Compile and Run Code}
+
+\subparagraph{Use Python to Change to Working Directory}
+
+\begin{verbatim}
+import os
+root_dir = os.getcwd()
+\end{verbatim}
+
+\begin{verbatim}
+code_dir = root_dir + "/" + "Cpp_Code/03_Conditions_and_Operators"
+\end{verbatim}
+
+\begin{verbatim}
+os.chdir(code_dir)
+\end{verbatim}
+
+\subparagraph{Use Docker to Compile the Code in a C++23 Environment}
+
+\begin{verbatim}
+!docker run - -rm -v $(pwd):/app cpp23 -clang18:latest clang++ -18 -std=c++23 -stdlib=libc++ /app/03 -fallthrough.cpp -o /app/03 -fallthrough
+\end{verbatim}
+
+\subparagraph{Use Docker to Run Executable in a C++23 Environment}
+
+\begin{verbatim}
+!echo "0" | docker run -i - -rm -v $(pwd):/app cpp23 -clang18:latest ./03 -fallthrough
+\end{verbatim}
+
+\begin{verbatim}
+Please enter an integer between zero and three:
+Number is less than 1
+Number is less than 2
+Number is less than 3
+\end{verbatim}
+
+\begin{verbatim}
+!echo "1" | docker run -i - -rm -v $(pwd):/app cpp23 -clang18:latest ./03 -fallthrough
+\end{verbatim}
+
+\begin{verbatim}
+Please enter an integer between zero and three:
+Number is less than 2
+Number is less than 3
+\end{verbatim}
+
+\begin{verbatim}
+!echo "2" | docker run -i - -rm -v $(pwd):/app cpp23 -clang18:latest ./03 -fallthrough
+\end{verbatim}
+
+\begin{verbatim}
+Please enter an integer between zero and three:
+Number is less than 3
+\end{verbatim}
+
+\begin{verbatim}
+!echo "3" | docker run -i - -rm -v $(pwd):/app cpp23 -clang18:latest ./03 -fallthrough
+\end{verbatim}
+
+\begin{verbatim}
+Please enter an integer between zero and three:
+Number is exactly 3
+\end{verbatim}
+
+\begin{verbatim}
+!echo "4" | docker run -i - -rm -v $(pwd):/app cpp23 -clang18:latest ./03 -fallthrough
+\end{verbatim}
+
+\begin{verbatim}
+Please enter an integer between zero and three:
+Number out of range!
+\end{verbatim}

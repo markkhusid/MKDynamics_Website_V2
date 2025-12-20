@@ -1,0 +1,1015 @@
+\begin{verbatim}
+- - -
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+ - - -
+\end{verbatim}
+
+\subparagraph{Section: BLAS/LAPACK - Linear Equations}
+
+Adapted from: \href{https://github.com/gjbex/Fortran-MOOC/tree/master/source\_code/blas\_lapack/linear\_equations}{https://github.com/gjbex/Fortran-MOOC/tree/master/source\_code/blas\_lapack/linear\_equations}
+
+\subparagraph{This program demonstrates solving linear algebra equations in Fortran.}
+
+\subparagraph{Linear Equation Problem}
+
+In this notebook we will use Fortran to solve a system of linear equations of the form:
+
+\begin{equation}
+\Large A \mathbf{x} = \mathbf{b}
+\end{equation}
+
+where: \newline
+
+\begin{equation}
+\Large A =
+\left[
+\begin{array}{cccc}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+\vdots & \vdots & \vdots & \vdots \\
+a_{m1} & a_{m2} & \cdots & a_{mn}
+\end{array}
+\right]
+\end{equation}
+
+\begin{equation}
+\Large \mathbf{x} =
+\left[
+\begin{array}{c}
+x_{1}  \\
+x_{2}  \\
+\vdots \\
+x_{n}
+\end{array}
+\right]
+\end{equation}
+
+\begin{equation}
+\Large \mathbf{b} = 
+\left[
+\begin{array}{c}
+b_{1}  \\
+b_{2}  \\
+\vdots \\
+b_{n}
+\end{array}
+\right]
+\end{equation}
+
+The approach will be to have a main program that reads in as parameters the number of equations, the matrix $\mathbf{A}$ and the vector $\mathbf{x}$ as text files.  The main program is called \textit{solve\_equations.f90}.  It makes use of the LAPACK linear equation solver routine called \textbf{DGESV}.  Information on this routine can be found at \href{https://netlib.org/lapack/explore-html/d7/d3b/group\_\_double\_g\_esolve\_ga5ee879032a8365897c3ba91e3dc8d512.html\#ga5ee879032a8365897c3ba91e3dc8d512}{LAPACK - DGESV}.
+
+The main program makes use of a module called \textit{linalg\_mod.f90}, which contains subroutines to read and write matrices and arrays to and from text files.
+
+Finally, there is a helper program called \textit{generate\_array.f90} which has a subroutine that gets arguments from the command line and generates either of vector or matrix of specified size.  Every element in the array or matrix is a random number.
+
+\subparagraph{Explanation of the Programs}
+
+The following explanation is given by ``Code Copilot'' within ChatGPT 4.
+
+\subparagraph{Explaining \texttt{generate\_array.f90}}
+
+The Fortran program \texttt{generate\_array.f90} serves to generate either a vector or a matrix with random elements, depending on the command line arguments provided. It uses routines from a module named \texttt{linalg\_mod} to handle array creation and output. Below is an explanation of the program structure and its key components:
+
+\subparagraph{Program Structure}
+
+\begin{enumerate}
+\item \textbf{Module Usage}
+
+\begin{itemize}
+\item \texttt{iso\_fortran\_env}: Utilized for standard environment variables and constants, specifically \texttt{error\_unit} for error messages and \texttt{DP} alias for \texttt{REAL64}, indicating double precision.
+\item \texttt{linalg\_mod}: Externally defined module used here for \texttt{write\_array} and \texttt{generate\_random\_array}, which handle array operations.
+\end{itemize}
+
+
+\item \textbf{Variable Declarations}
+
+\begin{itemize}
+\item \texttt{dimensions}: An allocatable integer array to store dimensions provided via command-line arguments.
+\item \texttt{vector}: An allocatable vector of type \texttt{real(kind=DP)}.
+\item \texttt{matrix}: An allocatable 2D array of type \texttt{real(kind=DP)}.
+\end{itemize}
+
+
+\item \textbf{Main Execution Logic}
+
+\begin{itemize}
+\item It begins by fetching command-line arguments into \texttt{dimensions}.
+\item Based on the size of \texttt{dimensions}, it either generates a 1D vector or a 2D matrix:
+
+\begin{itemize}
+\item For a single dimension, a vector of random elements is created and written.
+\item For two dimensions, a matrix is created and written.
+\end{itemize}
+
+
+\item If neither one nor two dimensions are provided, it outputs an error indicating that only rank 1 and 2 arrays are supported.
+\end{itemize}
+
+
+\item \textbf{Error Handling}
+
+\begin{itemize}
+\item The program checks for proper memory allocation and command-line argument processing, with appropriate error messages and stops if any issues occur.
+\end{itemize}
+\end{enumerate}
+
+\subparagraph{Subroutine: \texttt{get\_arguments}}
+
+\begin{itemize}
+\item \textbf{Purpose}: Fetches command-line arguments to determine the size of the array to be generated.
+\item \textbf{Process}:
+
+\begin{itemize}
+\item Determines the number of arguments (\texttt{rank}).
+\item Allocates the \texttt{dimensions} array based on \texttt{rank}.
+\item Reads each command argument into \texttt{dimensions}, converting from string to integer.
+\item Handles errors in conversion and allocation, stopping the program if necessary.
+\end{itemize}
+\end{itemize}
+
+\subparagraph{Key Functionalities}
+
+\begin{itemize}
+\item \textbf{Array Generation}: Depending on the input dimensions, it generates either a vector or a matrix with random values.
+\item \textbf{Modular Design}: Leverages external modules for specific functionalities, which simplifies the main program.
+\item \textbf{Flexibility}: The ability to handle both vectors and matrices makes the program versatile for different kinds of numerical data generation tasks.
+\end{itemize}
+
+\subparagraph{Usage}
+
+\begin{itemize}
+\item The program is executed with command-line arguments specifying the dimensions of the array to generate. For example:
+
+\begin{itemize}
+\item \texttt{./generate\_array 10} would generate a vector of size 10.
+\item \texttt{./generate\_array 3 4} would generate a 3x4 matrix.
+\end{itemize}
+\end{itemize}
+
+Now, let's move on to read and explain the \texttt{solve\_equations.f90} file.
+
+\subparagraph{Explaining \texttt{solve\_equations.f90}}
+
+The Fortran program \texttt{solve\_equations.f90} is designed to solve a system of linear equations using LAPACK's \texttt{dgesv} subroutine, which solves systems of linear equations ( AX = B ) by performing LU decomposition with partial pivoting. Here's a breakdown of its key components and functionalities:
+
+\subparagraph{Program Structure}
+
+\begin{enumerate}
+\item \textbf{Module Usage}
+
+\begin{itemize}
+\item \texttt{iso\_fortran\_env}: Standard intrinsic module providing access to the \texttt{error\_unit} and \texttt{DP} (double precision kind type alias).
+\item \texttt{linalg\_mod}: Custom module providing \texttt{read\_array} and \texttt{write\_array} functions, used to handle input/output operations for matrices and vectors.
+\end{itemize}
+
+
+\item \textbf{Variable Declarations}
+
+\begin{itemize}
+\item \texttt{nr\_eqns}: Number of equations in the system, derived from command-line arguments.
+\item \texttt{status}, \texttt{info}: Variables for checking statuses of operations; \texttt{info} is used specifically with \texttt{dgesv}.
+\item \texttt{matrix\_file\_name}, \texttt{vector\_file\_name}: File names for storing matrix ( A ) and vector ( B ).
+\item \texttt{b}: Vector ( B ) in the equation ( AX = B ).
+\item \texttt{pivot}: Integer array for pivot indices from the LU decomposition.
+\item \texttt{A}: Matrix ( A ) of the system.
+\end{itemize}
+
+
+\item \textbf{Explicit Interface for \texttt{dgesv}}
+
+\begin{itemize}
+\item The subroutine's interface is explicitly defined to ensure correct passing of arguments:
+
+\begin{itemize}
+\item \texttt{n}, \texttt{nrhs}, \texttt{a}, \texttt{lda}, \texttt{ipiv}, \texttt{b}, \texttt{ldb}, and \texttt{info} describe the system dimensions, matrix and vector storage details, and output for status information.
+\end{itemize}
+\end{itemize}
+
+
+\item \textbf{Main Execution Logic}
+
+\begin{itemize}
+\item \textbf{Argument Reading}: Fetches command-line arguments to determine the number of equations and file names for matrix ( A ) and vector ( B ).
+\item \textbf{Array Allocation}: Allocates memory for ( A ), ( B ), and pivot indices.
+\item \textbf{File Reading}: Reads matrix ( A ) and vector ( B ) from files specified by the user.
+\item \textbf{System Solving}: Calls \texttt{dgesv} to solve the linear system, where ( A ) is modified to store the factors from the LU decomposition, and ( B ) is overwritten with the solution ( X ).
+\item \textbf{Output}: Writes the solution vector ( X ) back to a file.
+\end{itemize}
+
+
+\item \textbf{Error Handling}
+
+\begin{itemize}
+\item Checks for successful allocation and reading operations, with appropriate error messages and program termination on failures.
+\end{itemize}
+\end{enumerate}
+
+\subparagraph{Subroutine: \texttt{get\_arguments}}
+
+\begin{itemize}
+\item \textbf{Purpose}: Fetches and validates command-line arguments to ensure correct program setup.
+\item \textbf{Parameters}:
+
+\begin{itemize}
+\item \texttt{nr\_eqns}: Number of equations/system size.
+\item \texttt{matrix\_file\_name}, \texttt{vector\_file\_name}: File paths for the matrix and vector data.
+\end{itemize}
+\end{itemize}
+
+\subparagraph{Key Functionalities}
+
+\begin{itemize}
+\item \textbf{Linear System Solver}: Uses \texttt{dgesv} for robust and efficient solving of linear systems, leveraging LAPACK's optimized routines.
+\item \textbf{Modular File Handling}: Employs modular functions from \texttt{linalg\_mod} for input/output operations, promoting code reuse and organization.
+\item \textbf{Error Management}: Extensive error checking ensures the program gracefully handles common issues like invalid input or memory allocation failures.
+\end{itemize}
+
+\subparagraph{Usage}
+
+The program is intended to be executed with three command-line arguments specifying the number of equations, matrix file name, and vector file name. For example:
+
+\begin{verbatim}
+./solve_equations 3 matrix.dat vector.dat
+\end{verbatim}
+
+This would solve a 3x3 system of equations using matrix and vector data from \texttt{matrix.dat} and \texttt{vector.dat}.
+
+Next, let's proceed to read and explain the \texttt{linalg\_mod.f90} file.
+
+\subparagraph{Explaining \texttt{linalg\_mod.f90}}
+
+The Fortran module \texttt{linalg\_mod.f90} provides utility functions for reading, writing, and generating arrays. This module likely supports the functionality required by the other programs you uploaded (\texttt{generate\_array.f90} and \texttt{solve\_equations.f90}). Here's a breakdown of its contents and functionalities:
+
+\subparagraph{Module Structure and Functions}
+
+\begin{enumerate}
+\item \textbf{Module \texttt{linalg\_mod}}
+
+\begin{itemize}
+\item Utilizes \texttt{iso\_fortran\_env} for standard environment definitions, such as \texttt{output\_unit}, \texttt{error\_unit}, and \texttt{DP} (double precision floating-point kind).
+\end{itemize}
+
+
+\item \textbf{Functionality Exposed}
+
+\begin{itemize}
+\item \texttt{read\_array}: Reads an array from a file whose dimensions and rank are defined by the inputs.
+\item \texttt{write\_array}: Writes an array to a file or standard output, handling both vectors and matrices.
+\item \texttt{generate\_random\_array}: Fills an allocatable array with random numbers, based on the dimensions provided.
+\end{itemize}
+
+
+\item \textbf{Detailed Function Descriptions}
+
+\begin{itemize}
+\item \textbf{\texttt{read\_array}}:
+
+\begin{itemize}
+\item Takes a file name, an array (allocatable), and its expected dimensions.
+\item Checks if the rank of the array matches the number of dimensions provided.
+\item Depending on the rank, it calls \texttt{read\_vector} or \texttt{read\_matrix} to perform the read operation.
+\item Errors are managed by stopping the program if the ranks or dimensions do not match expectations.
+\end{itemize}
+
+
+\item \textbf{\texttt{write\_array}}:
+
+\begin{itemize}
+\item Accepts an array and an optional file name for output.
+\item Uses rank-specific procedures (\texttt{write\_vector} or \texttt{write\_matrix}) to handle the output based on the array's rank.
+\item If no file name is provided, the output is directed to the standard output (\texttt{output\_unit}).
+\end{itemize}
+
+
+\item \textbf{\texttt{generate\_random\_array}}:
+
+\begin{itemize}
+\item Designed to allocate and populate an array (either vector or matrix) with random numbers.
+\item Checks the allocation status and initializes the array with random numbers using the intrinsic \texttt{random\_number} procedure.
+\item Manages errors related to mismatched ranks or failed allocations.
+\end{itemize}
+\end{itemize}
+\end{enumerate}
+
+\subparagraph{Subroutines for Vector and Matrix Handling}
+
+\begin{itemize}
+\item \textbf{\texttt{read\_vector} and \texttt{write\_vector}}:
+
+\begin{itemize}
+\item Handle reading and writing operations for vectors, respectively.
+\end{itemize}
+
+
+\item \textbf{\texttt{read\_matrix} and \texttt{write\_matrix}}:
+
+\begin{itemize}
+\item Handle reading and writing operations for matrices, respectively.
+\end{itemize}
+\end{itemize}
+
+\subparagraph{Key Functionalities and Error Handling}
+
+\begin{itemize}
+\item The module is equipped to handle errors related to input/output operations and array manipulations, which is critical for robust numerical software.
+\item Error messages are detailed, including specific issues like mismatched array ranks or failed memory allocations, which aids in debugging and user feedback.
+\item Flexibility to output to either a file or standard output enhances the module's usability across different computational scenarios.
+\end{itemize}
+
+\subparagraph{Usage}
+
+This module is utilized by other programs for managing arrays, particularly in numerical computations involving linear algebra. It abstracts away the details of file I/O and array initialization, allowing other parts of the software to focus on core computational logic.
+
+Overall, \texttt{linalg\_mod.f90} serves as a foundational component for array management in Fortran programs, providing essential services such as reading, writing, and generating arrays with a focus on error handling and user feedback.
+
+\subparagraph{Program Code}
+
+The individual program files are listed below:
+
+\subparagraph{In file linalg\_mod.f90}
+
+\begin{verbatim}
+module linalg_mod
+    use, intrinsic :: iso_fortran_env, only : output_unit, error_unit, DP => REAL64
+    implicit none
+
+    private
+
+    public :: read_array, write_array, generate_random_array
+
+contains
+
+    subroutine read_array(file_name, array, dimensions)
+        implicit none
+        character(len=*), intent(in) :: file_name
+        real(kind=DP), dimension(..), allocatable, intent(out) :: array
+        integer, dimension(:), intent(in) :: dimensions
+
+        if (rank(array) /= size(dimensions)) then
+            write (unit=error_unit, fmt='(A)') '# error: array rank does not match dimensions'
+            stop 3
+        end if
+        select rank(array)
+            rank(1)
+                call read_vector(file_name, dimensions(1), array)
+            rank(2)
+                call read_matrix(file_name, dimensions(1), dimensions(2), array)
+            rank default
+                write (unit=error_unit, fmt='(A, I0, A)') &
+                    '# error: rank ', rank(array), ' not supported'
+                stop 4
+        end select
+    end subroutine read_array
+
+    subroutine write_array(array, file_name)
+        implicit none
+        real(kind=DP), dimension(..), intent(in) :: array
+        character(len=*), intent(in), optional :: file_name
+
+        select rank(array)
+            rank(1)
+                call write_vector(array, file_name)
+            rank(2)
+                call write_matrix(array, file_name)
+            rank default
+                write (unit=error_unit, fmt='(A, I0, A)') &
+                    '# error: rank ', rank(array), ' not supported'
+                stop 4
+        end select
+    end subroutine write_array
+
+    subroutine read_vector(file_name, n, vector)
+        implicit none
+        character(len=*), intent(in) :: file_name
+        integer, value :: n
+        real(kind=DP), dimension(:), allocatable, intent(out) :: vector
+        integer :: i, status, unit_nr
+        character(len=1024) :: msg
+
+        open (newunit=unit_nr, file=trim(file_name), access='sequential', &
+            action='read', status='old', iostat=status, iomsg=msg)
+        if (status /= 0) then
+            write (unit=error_unit, fmt='(2A)') '# error: ', trim(msg)
+            stop 1
+        end if
+
+        if (.not. allocated(vector)) then
+            allocate (vector(n), stat=status)
+            if (status /= 0) then
+                write (unit=error_unit, fmt='(2A)') '# error: ', trim(msg)
+                stop 3
+            end if
+        end if
+
+        do i = 1, n
+            read (unit=unit_nr, fmt=*, iostat= status, iomsg=msg) vector(i)
+            if (status /= 0) then
+                write (unit=error_unit, fmt='(2A)') '# error: ', trim(msg)
+                stop 2
+            end if
+        end do
+
+        close (unit=unit_nr)
+
+    end subroutine read_vector
+
+    subroutine read_matrix(file_name, nr_rows, nr_cols, matrix)
+        implicit none
+        character(len=*), intent(in) :: file_name
+        integer, value :: nr_rows, nr_cols
+        real(kind=DP), dimension(:, :), allocatable, intent(out) :: matrix
+        integer :: i, status, unit_nr
+        character(len=1024) :: msg
+
+        open (newunit=unit_nr, file=trim(file_name), access='sequential', &
+            action='read', status='old', iostat=status, iomsg=msg)
+        if (status /= 0) then
+            write (unit=error_unit, fmt='(2A)') '# error: ', trim(msg)
+            stop 1
+        end if
+
+        if (.not. allocated(matrix)) then
+            allocate (matrix(nr_rows, nr_cols), stat=status)
+            if (status /= 0) then
+                write (unit=error_unit, fmt='(2A)') '# error: ', trim(msg)
+                stop 3
+            end if
+        end if
+
+        do i = 1, nr_rows
+            read (unit=unit_nr, fmt=*, iostat= status, iomsg=msg) matrix(i, :)
+            if (status /= 0) then
+                write (unit=error_unit, fmt='(2A)') '# error: ', trim(msg)
+                stop 2
+            end if
+        end do
+
+        close (unit=unit_nr)
+
+    end subroutine read_matrix
+
+    subroutine write_vector(vector, file_name)
+        implicit none
+        real(kind=DP), dimension(:), intent(in) :: vector
+        character(len=*), intent(in), optional :: file_name
+        integer :: unit_nr, i, status
+        character(len=1024) :: msg
+
+        if (present(file_name)) then
+            open (newunit=unit_nr, file=trim(file_name), access='sequential', &
+                action='write', status='replace', iostat=status, iomsg=msg)
+            if (status /= 0) then
+                write (unit=error_unit, fmt='(2A)') '# error: ', trim(msg)
+                stop 1
+            end if
+        else
+            unit_nr = output_unit
+        end if
+
+        do i = 1, size(vector)
+            write (unit=unit_nr, fmt='(F27.15)') vector(i)
+        end do
+
+        if (present(file_name)) close (unit_nr)
+    end subroutine write_vector
+
+    subroutine write_matrix(matrix, file_name)
+        implicit none
+        real(kind=DP), dimension(:, :), intent(in) :: matrix
+        character(len=*), intent(in), optional :: file_name
+        integer :: unit_nr, i, status
+        character(len=1024) :: msg
+
+        if (present(file_name)) then
+            open (newunit=unit_nr, file=trim(file_name), access='sequential', &
+                action='write', status='replace', iostat=status, iomsg=msg)
+            if (status /= 0) then
+                write (unit=error_unit, fmt='(2A)') '# error: ', trim(msg)
+                stop 1
+            end if
+        else
+            unit_nr = output_unit
+        end if
+
+        do i = 1, size(matrix, 1)
+            write (unit=unit_nr, fmt='(*(F27.15))') matrix(i, :)
+        end do
+
+        if (present(file_name)) close (unit_nr)
+    end subroutine write_matrix
+
+    subroutine generate_random_array(array, dimensions)
+        implicit none
+        real(kind=DP), dimension(..), allocatable, intent(out) :: array
+        integer, dimension(:), intent(in) :: dimensions
+        integer :: status
+
+        if (rank(array) /= size(dimensions)) then
+            write (unit=error_unit, fmt='(A)') '# error: array rank does not match dimensions'
+            stop 3
+        end if
+        select rank(array)
+            rank(1)
+                if (.not. allocated(array)) then
+                    allocate(array(dimensions(1)), stat=status)
+                    if (status /= 0) then
+                        write (unit=error_unit, fmt='(A, I0)') &
+                            '# error: can not allocate vector of size ', dimensions(1)
+                        stop 6
+                    end if
+                end if
+                call random_number(array)
+            rank(2)
+                if (.not. allocated(array)) then
+                    allocate(array(dimensions(1), dimensions(2)), stat=status)
+                    if (status /= 0) then
+                        write (unit=error_unit, fmt='(A,I0, A, I0)') &
+                            '# error: can not allocate matrix of size ', &
+                            dimensions(1), ' by ', dimensions(2)
+                        stop 6
+                    end if
+                end if
+                call random_number(array)
+            rank default
+                write (unit=error_unit, fmt='(A, I0, A)') &
+                    '# error: rank ', rank(array), ' not supported'
+                stop 4
+        end select
+    end subroutine generate_random_array
+
+end module linalg_mod
+\end{verbatim}
+
+\subparagraph{In file generate\_array.f90}
+
+\begin{verbatim}
+program generate_array
+    use, intrinsic :: iso_fortran_env, only : error_unit, DP => REAL64
+    use :: linalg_mod, only : write_array, generate_random_array
+    implicit none
+    integer, dimension(:), allocatable :: dimensions
+    real(kind=DP), dimension(:), allocatable :: vector
+    real(Kind=DP), dimension(:, :), allocatable :: matrix
+
+    call get_arguments(dimensions)
+    if (size(dimensions) == 1) then
+        call generate_random_array(vector, dimensions)
+        call write_array(vector)
+        deallocate (vector)
+    else if (size(dimensions) == 2) then
+        call generate_random_array(matrix, dimensions)
+        call write_array(matrix)
+        deallocate (matrix)
+    else
+        write (unit=error_unit, fmt='(A)') '# error: only rank 1 and 2 are supported'
+    end if
+
+contains
+
+   subroutine get_arguments(dimensions)
+        implicit none
+        integer, dimension(:), allocatable, intent(out) :: dimensions
+        integer :: rank, status, i
+        character(len=1024) :: buffer, msg
+        
+        rank = command_argument_count()
+        if (rank < 1) then
+            write (unit=error_unit, fmt='(A)') '# error: rank should be at least 1'
+            stop 10
+        end if
+        allocate (dimensions(rank), stat=status)
+        if (status /= 0) then
+            write (unit=error_unit, fmt='(A)') '# error: can not allocate dimensions'
+            stop 11
+        end if
+
+        do i = 1, rank
+            call get_command_argument(i, buffer)
+            read (buffer, fmt=*, iostat=status, iomsg=msg) dimensions(i)
+            if (status /= 0) then
+                write (unit=error_unit, fmt='(2A)') '# error: ', trim(msg)
+                stop 11
+            end if
+        end do
+    end subroutine get_arguments
+
+end program generate_array
+\end{verbatim}
+
+\subparagraph{In solve\_equations.f90}
+
+\begin{verbatim}
+program main
+    use, intrinsic :: iso_fortran_env, only : error_unit, DP => REAL64
+    use :: linalg_mod, only : read_array, write_array
+    implicit none
+    ! Made info an integer because the LAPACK routine DGESV uses an explicit
+    ! interface.  In the explicit interface, the argument info is an integer.
+    integer :: nr_eqns, status, info
+    character(len=1024) :: matrix_file_name, vector_file_name
+    ! The following line no longer works because the LAPACK routine DGESV uses
+    ! an explicit interface.  In the explicit interface, the argument info
+    ! is an integer, but in the implicit interface, it is a character(len=1024).
+    !character(len=1024) :: matrix_file_name, vector_file_name, info
+    real(kind=DP), dimension(:), allocatable :: b
+    integer, dimension(:), allocatable :: pivot
+    real(kind=DP), dimension(:, :), allocatable :: A
+    !external :: dgesv ! not needed in gfortran and throws an error
+
+    ! Explicit interface for the LAPACK routine DGESV
+    interface
+        subroutine dgesv(n, nrhs, a, lda, ipiv, b, ldb, info)
+            import :: DP
+            implicit none
+            ! .. Scalar Arguments ..
+            integer, intent (Out)             :: info
+            integer, intent (In)              :: lda, ldb, n, nrhs
+            ! .. Array Arguments ..
+            real (Kind=dp), intent (Inout)    :: a(lda, *), b(ldb, *)
+            integer, Intent (Out)             :: ipiv(n)
+        end subroutine dgesv
+    end interface
+
+    call get_arguments(nr_eqns, matrix_file_name, vector_file_name)
+
+    allocate (A(nr_eqns, nr_eqns), stat=status)
+
+    if (status /= 0) then
+        write (unit=error_unit, fmt='(A)') '#error: can not allocate A'
+        stop 15
+    end if
+
+    call read_array(matrix_file_name, A, [ nr_eqns, nr_eqns ])
+
+    allocate (b(nr_eqns), stat=status)
+
+    if (status /= 0) then
+        write (unit=error_unit, fmt='(A)') '#error: can not allocate b'
+        stop 15
+    end if
+
+    call read_array(vector_file_name, b, [ nr_eqns ])
+
+    allocate (pivot(size(b)), stat=status)
+
+    if (status /= 0) then
+        write (unit=error_unit, fmt='(A, I0)') '# error: can not allocate pivot of size ', size(b)
+        stop 12
+    end if
+
+    call dgesv(size(A, 2), 1, A, size(A, 1), pivot, b, size(b), info)
+    
+    call write_array(b)
+
+    deallocate (A, b, pivot)
+
+contains
+
+   subroutine get_arguments(nr_eqns, matrix_file_name, vector_file_name)
+        implicit none
+        integer, intent(out) :: nr_eqns
+        character(len=*), intent(out) :: matrix_file_name, vector_file_name
+        integer :: status
+        character(len=1024) :: buffer, msg
+        
+        if (command_argument_count() /= 3) then
+            write (unit=error_unit, fmt='(A)') &
+                '# error: argument nr_eqns, matrix_file_name, vector_file_name'
+            stop 10
+        end if
+
+        call get_command_argument(1, buffer)
+        read (buffer, fmt=*, iostat=status, iomsg=msg) nr_eqns
+        if (status /= 0) then
+            write (unit=error_unit, fmt='(2A)') '# error: ', trim(msg)
+            stop 11
+        end if
+
+        call get_command_argument(2, matrix_file_name)
+        call get_command_argument(3, vector_file_name)
+    end subroutine get_arguments
+
+end program main
+\end{verbatim}
+
+The above programs are compiled and run using Fortran Package Manager (fpm):
+
+\subparagraph{Build the Program using FPM (Fortran Package Manager)}
+
+\begin{verbatim}
+import os
+root_dir = ""
+root_dir = os.getcwd()
+\end{verbatim}
+
+Since the code makes use of the LAPACK library, the following FPM configuration file (fpm.toml) was used:
+
+\begin{verbatim}
+name = "Section_BLAS_LAPACK_Linear_Equations"
+
+[build]
+auto -executables = true
+auto -tests = true
+auto -examples = true
+link = ["blas", "lapack"]
+
+[install]
+library = false
+
+[[executable]]
+name="solve_equations"
+source -dir="app"
+main="solve_equations.f90"
+\end{verbatim}
+
+\begin{verbatim}
+code_dir = root_dir + "/" + "Fortran_Code/Section_BLAS_LAPACK_Linear_Equations"
+\end{verbatim}
+
+\begin{verbatim}
+os.chdir(code_dir)
+\end{verbatim}
+
+The files \textit{solve\_equations.f90} and \textit{generate\_array.f90} were placed into the ``app'' folder, while the file \textit{linalg\_mod.f90} was placed into the ``src'' folder.
+
+\begin{verbatim}
+build_status = os.system("fpm build 2>/dev/null")
+\end{verbatim}
+
+\subparagraph{Run the Program using FPM (Fortran Package Manager)}
+
+\subparagraph{Solve a Test Linear System of Two Equations}
+
+As our first run, we wish to solve the following set of linear equations:
+
+\begin{align*}
+2x+8y & = 20 \\
+x+2y  & = 4
+\end{align*}
+
+The variables in the equations are converted into components of the $\mathbf{x}$ vector as shown below:
+
+\begin{align*}
+2x_1+8x_2 & = 20 \\
+x_1+2x_2  & = 4
+\end{align*}
+
+These equations are converted into matrix form as shown below:
+
+\begin{equation*}
+\left[
+\begin{array}{cc}
+2 & 8 \\
+1 & 2 \\
+\end{array}
+\right]
+\left[
+\begin{array}{c}
+x_1 \\
+x_2 \\
+\end{array}
+\right]
+=
+\left[
+\begin{array}{c}
+20 \\
+4 \\
+\end{array}
+\right]
+\end{equation*}
+
+Therefore we have the following:
+
+\begin{equation}
+\mathbf{A} = 
+\left[
+\begin{array}{cc}
+2 & 8 \\
+1 & 2 
+\end{array}
+\right]
+\end{equation}
+
+\begin{equation}
+\mathbf{x} = 
+\left[
+\begin{array}{c}
+x_1 \\
+x_2  
+\end{array}
+\right]
+\end{equation}
+
+\begin{equation}
+\mathbf{b} = 
+\left[
+\begin{array}{c}
+20 \\
+4  
+\end{array}
+\right]
+\end{equation}
+
+The matrix $\mathbf{A}$ and the vector $\mathbf{b}$ are written into text files as shown below:
+
+\begin{verbatim}
+%%writefile A_test1.txt
+2 8
+1 2
+\end{verbatim}
+
+\begin{verbatim}
+Overwriting A_test1.txt
+\end{verbatim}
+
+\begin{verbatim}
+%%writefile b_test1.txt
+20
+4
+\end{verbatim}
+
+\begin{verbatim}
+Overwriting b_test1.txt
+\end{verbatim}
+
+The \textit{solve\_equations} program can now be run with the number of equations command line argument set to 2, and the files \textit{A\_test1.txt} and \textit{b\_test1.txt}
+
+\begin{verbatim}
+exec_status = \
+    os.system("fpm run solve_equations 2>/dev/null - - 2 A_test1.txt b_test1.txt")
+\end{verbatim}
+
+\begin{verbatim}
+-2.000000000000000
+          3.000000000000000
+\end{verbatim}
+
+The results are printed in scientfic notation and in the order of $x_1$, $x_2$.
+
+We now wish to use Python's Numpy library to test these results:
+
+\begin{verbatim}
+import numpy as np
+
+A = np.genfromtxt("A_test1.txt")
+b = np.genfromtxt("b_test1.txt")
+x = np.linalg.solve(A, b)
+print("x1 = {0:2.1f}".format(x[0]))
+print("x2 = {0:2.1f}".format(x[1]))
+\end{verbatim}
+
+\begin{verbatim}
+x1 = -2.0
+x2 = 3.0
+\end{verbatim}
+
+We can see that the Fortran code and Numpy produce the same results.
+
+\subparagraph{Solve a Test Linear System of Equations of Arbitrary Size}
+
+The Fortran code can be used to solve an arbitrarily large system of equations.  To test this functionality, we make use of the \textit{generate\_array.f90} program to generate arrays or matrices of arbitrary size filled with random numbers.
+
+As a start, we will use the \textit{generate\_array.f90} to generate a matrix file A\_test2.txt that contains a 10x10 matrix.
+
+\begin{verbatim}
+exec_status = os.system("fpm run generate_array 2>/dev/null - - 10 10 > A_test2.txt")
+\end{verbatim}
+
+The $\mathbf{A}$ matrix is shown below:
+
+\begin{verbatim}
+import pandas as pd
+A = pd.read_table("A_test2.txt", 
+    header=None, 
+    sep='\s+')
+A
+\end{verbatim}
+
+\bigskip\noindent
+\begin{tabular}{p{\dimexpr 0.091\linewidth-2\tabcolsep}p{\dimexpr 0.091\linewidth-2\tabcolsep}p{\dimexpr 0.091\linewidth-2\tabcolsep}p{\dimexpr 0.091\linewidth-2\tabcolsep}p{\dimexpr 0.091\linewidth-2\tabcolsep}p{\dimexpr 0.091\linewidth-2\tabcolsep}p{\dimexpr 0.091\linewidth-2\tabcolsep}p{\dimexpr 0.091\linewidth-2\tabcolsep}p{\dimexpr 0.091\linewidth-2\tabcolsep}p{\dimexpr 0.091\linewidth-2\tabcolsep}p{\dimexpr 0.091\linewidth-2\tabcolsep}}
+\toprule
+ & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
+\hline
+0 & 0.703510 & 0.202382 & 0.434502 & 0.823123 & 0.598179 & 0.359461 & 0.915096 & 0.080769 & 0.074797 & 0.157438 \\
+\hline
+1 & 0.014393 & 0.866718 & 0.533332 & 0.799576 & 0.984063 & 0.972012 & 0.251986 & 0.646510 & 0.297345 & 0.720808 \\
+\hline
+2 & 0.994645 & 0.618683 & 0.756751 & 0.672222 & 0.984897 & 0.616631 & 0.076491 & 0.115194 & 0.757834 & 0.092172 \\
+\hline
+3 & 0.344709 & 0.234893 & 0.379313 & 0.583371 & 0.885261 & 0.866031 & 0.588845 & 0.444886 & 0.342920 & 0.947386 \\
+\hline
+4 & 0.076227 & 0.206283 & 0.200860 & 0.882854 & 0.993644 & 0.346324 & 0.140073 & 0.091977 & 0.272357 & 0.884077 \\
+\hline
+5 & 0.991214 & 0.643971 & 0.121369 & 0.173456 & 0.853876 & 0.391243 & 0.705200 & 0.074699 & 0.055528 & 0.222621 \\
+\hline
+6 & 0.341052 & 0.813046 & 0.350718 & 0.384157 & 0.851606 & 0.875854 & 0.762841 & 0.367271 & 0.251329 & 0.058156 \\
+\hline
+7 & 0.895715 & 0.457687 & 0.948676 & 0.206311 & 0.497539 & 0.902769 & 0.395673 & 0.528295 & 0.961863 & 0.453459 \\
+\hline
+8 & 0.076177 & 0.141550 & 0.343010 & 0.932584 & 0.874417 & 0.839580 & 0.009292 & 0.433498 & 0.342560 & 0.788237 \\
+\hline
+9 & 0.444783 & 0.444451 & 0.442036 & 0.572829 & 0.416472 & 0.567496 & 0.137714 & 0.369299 & 0.263512 & 0.440125 \\
+\hline
+\bottomrule
+\end{tabular}
+
+\bigskip
+
+And now we generate the $\mathbf{b}$ vector:
+
+\begin{verbatim}
+exec_status = os.system("fpm run generate_array 2>/dev/null - - 10 > b_test2.txt")
+\end{verbatim}
+
+The $\mathbf{b}$ vector is shown below:
+
+\begin{verbatim}
+b = pd.read_table("b_test2.txt", 
+    header=None, 
+    sep='\s+')
+b
+\end{verbatim}
+
+\bigskip\noindent
+\begin{tabular}{p{\dimexpr 0.500\linewidth-2\tabcolsep}p{\dimexpr 0.500\linewidth-2\tabcolsep}}
+\toprule
+ & 0 \\
+\hline
+0 & 0.668307 \\
+\hline
+1 & 0.223183 \\
+\hline
+2 & 0.665817 \\
+\hline
+3 & 0.227163 \\
+\hline
+4 & 0.127290 \\
+\hline
+5 & 0.471034 \\
+\hline
+6 & 0.917908 \\
+\hline
+7 & 0.268782 \\
+\hline
+8 & 0.654408 \\
+\hline
+9 & 0.425688 \\
+\hline
+\bottomrule
+\end{tabular}
+
+\bigskip
+
+We now use the \textit{solve\_equation} Fortran code to solve this linear system of equations:
+
+\begin{verbatim}
+exec_status = \
+    os.system("fpm run solve_equations 2>/dev/null - - 10 A_test2.txt b_test2.txt")
+\end{verbatim}
+
+\begin{verbatim}
+0.606580074505919
+          0.262848995025362
+         -3.184160209474974
+          1.687834826210936
+         -0.841646660233418
+          0.736318982199287
+          0.406982190149781
+          0.765997586104040
+          2.013844506119154
+         -1.038783919070161
+\end{verbatim}
+
+And the results are compared to the output of Numpy:
+
+\begin{verbatim}
+A = np.genfromtxt("A_test2.txt")
+b = np.genfromtxt("b_test2.txt")
+x = np.linalg.solve(A, b)
+
+for i in range(len(x)):
+    print ("x{0:d} = {1:2.6f}".format(i+1, x[i]))
+\end{verbatim}
+
+\begin{verbatim}
+x1 = 0.606580
+x2 = 0.262849
+x3 = -3.184160
+x4 = 1.687835
+x5 = -0.841647
+x6 = 0.736319
+x7 = 0.406982
+x8 = 0.765998
+x9 = 2.013845
+x10 = -1.038784
+\end{verbatim}
+
+Again, we see that the results are the same.

@@ -1,0 +1,155 @@
+\begin{verbatim}
+- - -
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+ - - -
+\end{verbatim}
+
+\subparagraph{Variables, Scopes and Namespaces: Constexpr Variables}
+
+Adapted from: ``Learn Modern C++'' by cpptutor: \href{https://learnmoderncpp.com/variables-scopes-and-namespaces/}{Learn Modern C++: Variables, Scopes and Namespaces}
+
+\subparagraph{Program that Demonstrates Constexpr Variables}
+
+\begin{verbatim}
+// 02 -constexpr.cpp : introducing the constexpr keyword
+ 
+#include <print>
+#include <cmath>
+using namespace std;
+ 
+// constexpr double PI1 = acos( -1.0);
+constexpr double PI1 = 3.14159265358979323846; // Hardcoded value because compiler can not evaluate acos( -1.0) at compile time
+constexpr double PI2 = 22.0 / 7.0;
+ 
+static_assert(PI1 > 3.141 && PI1 < 3.143);
+static_assert(PI2 > 3.141 && PI2 < 3.143);
+ 
+int main() {
+    println("PI1 = {}", PI1);
+    println("PI2 = {}", PI2);
+}
+\end{verbatim}
+
+\subparagraph{Explanation of the Above Code}
+
+This C++ code demonstrates the use of the \texttt{constexpr} keyword, which is used to define compile-time constants. Here's a breakdown of the code:
+
+\subparagraph{Code Explanation:}
+
+\begin{enumerate}
+\item \textbf{Headers and Namespace}:
+
+\begin{verbatim}
+#include <print>
+#include <cmath>
+using namespace std;
+\end{verbatim}
+
+\begin{itemize}
+\item \texttt{\textless print\textgreater }: A C++23 header that provides the \texttt{println} function for formatted output.
+\item \texttt{\textless cmath\textgreater }: Provides mathematical functions like \texttt{acos}.
+\item \texttt{using namespace std;}: Allows usage of standard library functions without prefixing them with \texttt{std::}.
+\end{itemize}
+
+
+\item \textbf{\texttt{constexpr} Variables}:
+
+\begin{verbatim}
+constexpr double PI1 = acos( -1.0);
+constexpr double PI2 = 22.0 / 7.0;
+\end{verbatim}
+
+\begin{itemize}
+\item \texttt{constexpr} ensures that the values of \texttt{PI1} and \texttt{PI2} are computed at compile time.
+\item \texttt{PI1} is calculated using \texttt{acos(-1.0)}, which is a precise mathematical computation for $\pi$ (pi).
+\item \texttt{PI2} is an approximation of $\pi$ using the fraction \texttt{22/7}.
+\end{itemize}
+
+
+\item \textbf{Static Assertions}:
+
+\begin{verbatim}
+static_assert(PI1 > 3.141 && PI1 < 3.143);
+static_assert(PI2 > 3.141 && PI2 < 3.143);
+\end{verbatim}
+
+\begin{itemize}
+\item \texttt{static\_assert} checks conditions at compile time.
+\item These assertions ensure that both \texttt{PI1} and \texttt{PI2} fall within the range of valid $\pi$ values (between 3.141 and 3.143).
+\item If the conditions fail, the program will not compile.
+\end{itemize}
+
+
+\item \textbf{Main Function}:
+
+\begin{verbatim}
+int main() {
+    println("PI1 = {}", PI1);
+    println("PI2 = {}", PI2);
+}
+\end{verbatim}
+
+\begin{itemize}
+\item The \texttt{main} function prints the values of \texttt{PI1} and \texttt{PI2} using the \texttt{println} function from \texttt{\textless print\textgreater }.
+\item \texttt{\{\}} is a placeholder for the values of \texttt{PI1} and \texttt{PI2}.
+\end{itemize}
+\end{enumerate}
+
+\subparagraph{Key Concepts:}
+
+\begin{itemize}
+\item \textbf{\texttt{constexpr}}: Ensures that variables are evaluated at compile time, making the program more efficient.
+\item \textbf{\texttt{static\_assert}}: Validates conditions during compilation, preventing runtime errors.
+\item \textbf{Precision of $\pi$}: \texttt{PI1} is more precise than \texttt{PI2} because \texttt{acos(-1.0)} is mathematically accurate, while \texttt{22/7} is an approximation.
+\end{itemize}
+
+\subparagraph{Output:}
+
+If compiled and run, the program will output:
+
+\begin{verbatim}
+PI1 = 3.141592653589793
+PI2 = 3.142857142857143
+\end{verbatim}
+
+\subparagraph{Compile and Run Code}
+
+\subparagraph{Use Python to Change to Working Directory}
+
+\begin{verbatim}
+import os
+root_dir = os.getcwd()
+\end{verbatim}
+
+\begin{verbatim}
+code_dir = root_dir + "/" + "Cpp_Code/02_Variables_Scopes_and_Namespaces"
+\end{verbatim}
+
+\begin{verbatim}
+os.chdir(code_dir)
+\end{verbatim}
+
+\subparagraph{Use Docker to Compile the Code in a C++23 Environment}
+
+\begin{verbatim}
+!docker run - -rm -v $(pwd):/app cpp23 -clang18:latest clang++ -18 -std=c++23 -stdlib=libc++ /app/02 -constexpr.cpp -o /app/02 -constexpr
+\end{verbatim}
+
+\subparagraph{Use Docker to Run Executable in a C++23 Environment}
+
+\begin{verbatim}
+!docker run - -rm -v $(pwd):/app cpp23 -clang18:latest ./02 -constexpr
+\end{verbatim}
+
+\begin{verbatim}
+PI1 = 3.141592653589793
+PI2 = 3.142857142857143
+\end{verbatim}

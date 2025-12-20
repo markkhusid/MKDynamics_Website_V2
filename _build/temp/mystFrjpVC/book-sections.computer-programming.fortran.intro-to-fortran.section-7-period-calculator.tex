@@ -1,0 +1,173 @@
+\begin{verbatim}
+- - -
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+ - - -
+\end{verbatim}
+
+\subparagraph{Section 7: Pendulum Period Calculator}
+
+Adapted from: ``\href{https://open.umn.edu/opentextbooks/textbooks/introduction-to-programming-using-fortran-95-2003-2008}{Introduction to Programming Using Fortran 95/2003/2008}'' by Ed Jorgensen (March 2018 / Version 3.0.51).
+
+\subparagraph{Program to Calculate the Period of a Pendulum}
+
+\begin{verbatim}
+program period
+
+    ! Program to calculate the period of a pendulum
+
+    ! Declare variables
+    !   real constants -> gravity, pi
+    !   reals -> angle, length, alpha
+
+    implicit none
+
+    real                :: angle, length, pperiod, alpha
+    real, parameter     :: gravity = 980.0, pi = 3.14159
+
+    ! display initial header
+        
+        write (*,'(a)') "Pendulum Period Calculation Program"
+        print *
+
+    ! prompt for and read the length of the angle values
+    ! for the website, we will hard code the length and angle
+
+        !write (*,'(a)', advance="no") "Enter the Length and Angle values: "
+        !read (*,*) length, angle
+        length = 1 ! meters
+        angle = 10 ! degrees
+	    write (*, '(a, f8.2, a)') "The Length is: ", length, " meters"
+	    write (*, '(a, f8.2, a)') "The Angle  is: ", angle , " degrees"
+
+    ! convert degrees to radians
+        alpha = angle * pi / 180.0
+
+    ! calculate the period
+        pperiod = 2.0 * pi * sqrt(length / gravity) * ( 1.0 + 1.0/4.0 * sin( alpha / 2.0 )**2)
+
+    ! display the results
+        print *
+        write (*, '(a)') "Calculating Results......"
+        write (*,'(a, f8.2, a)') "The period is: ", pperiod, " seconds."
+        print *
+
+end program period
+\end{verbatim}
+
+\subparagraph{Program Explanation}
+
+The following explanation is given by ``Code Copilot'' within ChatGPT 4.
+
+The Fortran program provided is designed to calculate the period of a pendulum based on its length and the angle of displacement. Below is a detailed explanation of the program:
+
+\subparagraph{Structure Overview}
+
+\begin{itemize}
+\item \textbf{Program Name}: \texttt{period}
+\item \textbf{Purpose}: Calculates the period of a pendulum using the small-angle approximation for simple harmonic motion.
+\end{itemize}
+
+\subparagraph{Variable Declaration}
+
+\begin{itemize}
+\item \textbf{angle}: The initial angle of the pendulum swing (in degrees).
+\item \textbf{length}: The length of the pendulum (in meters).
+\item \textbf{pperiod}: Calculated period of the pendulum's oscillation (in seconds).
+\item \textbf{alpha}: Angle in radians, used in the period calculation formula.
+\item \textbf{gravity} and \textbf{pi}: Constants representing the acceleration due to gravity (cm/s\textsuperscript{2}) and the mathematical constant Pi, respectively.
+\end{itemize}
+
+\subparagraph{Program Flow}
+
+\begin{enumerate}
+\item \textbf{Header Display}: The program starts by displaying a header ``Pendulum Period Calculation Program'' to indicate its function.
+\item \textbf{Input Handling}:
+
+\begin{itemize}
+\item In a typical scenario, the program might prompt the user to enter the length and angle. However, for demonstration or specific usage (e.g., on a website), these values are hardcoded with:
+
+\begin{itemize}
+\item \texttt{length = 1} meter
+\item \texttt{angle = 10} degrees
+\end{itemize}
+
+
+\item It then displays these values back to the user.
+\end{itemize}
+
+
+\item \textbf{Angle Conversion}:
+
+\begin{itemize}
+\item The angle input in degrees is converted into radians. This is necessary because trigonometric functions in programming typically expect angles in radians.
+\item Conversion formula: \texttt{alpha = angle * pi / 180.0}
+\end{itemize}
+
+
+\item \textbf{Period Calculation}:
+
+\begin{itemize}
+\item The formula used for calculating the period of a pendulum under the small-angle approximation is:
+
+$\Large T = 2\pi \sqrt{\frac{\text{length}}{\text{gravity}}} \left(1 + \frac{1}{4} \sin^2\left(\frac{\alpha}{2}\right)\right)$
+
+
+\item This formula considers the correction for larger angles using the first term of the Taylor series expansion of the sine function.
+\end{itemize}
+
+
+\item \textbf{Result Display}:
+
+\begin{itemize}
+\item The calculated period of the pendulum is displayed in seconds, formatted to two decimal places.
+\end{itemize}
+\end{enumerate}
+
+\subparagraph{Final Output}
+
+The program outputs the formatted results of the pendulum's period calculation, providing a straightforward demonstration of basic physics calculations in Fortran.
+
+This program exemplifies good practices in Fortran programming, including clear variable naming, modular steps in calculations, and output formatting. However, note the potential unit discrepancy with the gravity constant, which could lead to incorrect results unless adjusted or documented properly.
+
+\subparagraph{Program Compilation and Execution}
+
+The above program is compiled and run using Fortran Package Manager (fpm):
+
+\begin{verbatim}
+import os
+root_dir = os.getcwd()
+\end{verbatim}
+
+\begin{verbatim}
+code_dir = root_dir + "/" + "Fortran_Code/Section_7_Period_Calculator"
+\end{verbatim}
+
+\begin{verbatim}
+os.chdir(code_dir)
+\end{verbatim}
+
+\begin{verbatim}
+build_status = os.system("fpm build 2>/dev/null")
+\end{verbatim}
+
+\begin{verbatim}
+exec_status = os.system("fpm run 2>/dev/null")
+\end{verbatim}
+
+\begin{verbatim}
+Pendulum Period Calculation Program
+
+The Length is:     1.00 meters
+The Angle  is:    10.00 degrees
+
+Calculating Results......
+The period is:     0.20 seconds.
+\end{verbatim}

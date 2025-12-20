@@ -1,0 +1,96 @@
+\begin{verbatim}
+- - -
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+ - - -
+\end{verbatim}
+
+\subparagraph{Function Prototypes}
+
+Adapted from: ``Object-Oriented Programming Using C++'' by Ira Pohl (Addison- Wesley)
+
+\subparagraph{Program that demonstrates function prototypes in C++}
+
+\begin{verbatim}
+// Add three ints - illustrating function prototypes
+#include <iostream>
+
+int add3(int, int, int);
+double average(int);
+
+using namespace std;
+
+int main()
+{
+    int score_1, score_2, score_3, sum;
+
+    cout << "\nEnter 3 scores: ";
+    cin >> score_1 >> score_2 >> score_3;
+    sum = add3(score_1, score_2, score_3);
+    cout << "\nTheir sum is " << sum;
+    cout << "\nTheir average is " << average(sum);
+    sum = add3(1.5 * score_1, score_2, 0.5 * score_3);
+    cout << "\nTheir weighted sum is " << sum << ".";
+    cout << "\nTheir weighted average is " << average(sum) << "." << endl;
+}
+
+int add3(int a, int b, int c)
+{
+    return (a + b + c);
+}
+
+double average(int s)
+{
+    return (s / 3.0);
+}
+\end{verbatim}
+
+The above program is compiled and run using Gnu Compiler Collection (g++):
+
+\begin{verbatim}
+import os
+root_dir = os.getcwd()
+\end{verbatim}
+
+\begin{verbatim}
+code_dir = root_dir + "/" + "Cpp_Code/Chapter_3_4_Function_Prototypes"
+\end{verbatim}
+
+\begin{verbatim}
+ch_dir_stat = os.chdir(code_dir)
+\end{verbatim}
+
+\begin{verbatim}
+build_command = os.system("g++ add3.cpp -w -o add3")
+\end{verbatim}
+
+\begin{verbatim}
+exec_status = os.system("echo \"10 20 30\" | ./add3")
+\end{verbatim}
+
+\begin{verbatim}
+Enter 3 scores: 
+Their sum is 60
+Their average is 20
+Their weighted sum is 50.
+Their weighted average is 16.6667.
+\end{verbatim}
+
+\begin{verbatim}
+exec_status = os.system("echo \"1210 8750 54360\" | ./add3")
+\end{verbatim}
+
+\begin{verbatim}
+Enter 3 scores: 
+Their sum is 64320
+Their average is 21440
+Their weighted sum is 37745.
+Their weighted average is 12581.7.
+\end{verbatim}

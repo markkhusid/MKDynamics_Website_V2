@@ -1,0 +1,69 @@
+\begin{verbatim}
+- - -
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+ - - -
+\end{verbatim}
+
+\subparagraph{Arrays and Pointers}
+
+Adapted from: ``Object-Oriented Programming Using C++'' by Ira Pohl (Addison- Wesley)
+
+\subparagraph{Program that demonstrates arrays and pointers in C++}
+
+\begin{verbatim}
+// Simple array processing
+#include <iostream>
+
+using namespace std;
+
+const int SIZE = 5;
+
+int main()
+{
+    int a[SIZE];    // get space for a[0], ....., a[4]
+    int i, sum = 0;
+
+    for (i = 0; i < SIZE; ++i) {
+        a[i] = i * i;
+        cout << "a[" << i << "] = " << a[i] << "   ";
+        sum += a[i];
+    }
+    cout << "\nsum = " << sum << endl;
+}
+\end{verbatim}
+
+The above program is compiled and run using Gnu Compiler Collection (g++):
+
+\begin{verbatim}
+import os
+root_dir = os.getcwd()
+\end{verbatim}
+
+\begin{verbatim}
+code_dir = root_dir + "/" + "Cpp_Code/Chapter_3_12_Arrays_and_Pointers"
+\end{verbatim}
+
+\begin{verbatim}
+ch_dir_stat = os.chdir(code_dir)
+\end{verbatim}
+
+\begin{verbatim}
+build_command = os.system("g++ sum_arr1.cpp -w -o sum_arr1")
+\end{verbatim}
+
+\begin{verbatim}
+exec_status = os.system("./sum_arr1")
+\end{verbatim}
+
+\begin{verbatim}
+a[0] = 0   a[1] = 1   a[2] = 4   a[3] = 9   a[4] = 16   
+sum = 30
+\end{verbatim}
