@@ -1,0 +1,185 @@
+\begin{verbatim}
+- - -
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+ - - -
+\end{verbatim}
+
+\subparagraph{Section 1.16: Factorial Recursion}
+
+Adapted from: ``\href{https://www.amazon.com/Guide-Fortran-Programming-Walter-brainerd/dp/1447167589/ref=sr\_1\_1?crid=JARCJZJ2KJZN\&keywords=guide+to+fortran+2008+programming\&qid=1581908665\&sprefix=guide+to+fortran+2008+programming\%2Caps\%2C189\&sr=8-1}{Guide to Fortran 2008 Programming}'' by Walter S. Brainerd (Springer 2015)
+
+\subparagraph{Program to calculate factorials using recursion in Fortran.}
+
+\begin{verbatim}
+module factorial_module
+
+    implicit none
+    public :: factorial
+
+contains
+
+    recursive function factorial(n) result (factorial_result)
+
+        integer, intent(in) :: n
+        integer :: factorial_result
+
+        if (n <= 0) then
+            factorial_result = 1
+        else
+            factorial_result = n * factorial(n - 1)
+        end if
+
+    end function factorial
+
+end module factorial_module
+
+program test_factorial
+    
+    use factorial_module
+    implicit none
+
+    integer :: n
+
+    read *, n ! Will be piped in from command line
+    print *
+    write (unit = *, fmt = "(i10, a, i10)") n, "! = ", factorial(n)
+
+end program test_factorial
+\end{verbatim}
+
+The following explanation is given by ``Code Copilot'' within ChatGPT 4.
+
+The provided Fortran program consists of two main components: a module named \texttt{factorial\_module} and a program named \texttt{test\_factorial}. Here is an explanation of each part and their interactions:
+
+\subparagraph{Module: factorial\_module}
+
+\subparagraph{Purpose:}
+
+The module defines and makes publicly available a recursive function \texttt{factorial} that computes the factorial of a given integer \texttt{n}. The factorial of a number is the product of all positive integers less than or equal to that number. It's defined as:
+
+\begin{itemize}
+\item $n! = n \times (n -1) \times ... \times 2 \times 1$
+\item $0! = 1$ (by definition)
+\end{itemize}
+
+\subparagraph{Structure:}
+
+\begin{itemize}
+\item \textbf{Function Declaration}: The function \texttt{factorial} is declared as recursive, allowing it to call itself within its definition.
+\item \textbf{Parameters}:
+\item \textbf{Input}: \texttt{n} (integer) - the number for which the factorial is to be computed.
+\item \textbf{Output}: \texttt{factorial\_result} (integer) - the computed factorial value.
+\item \textbf{Logic}:
+\item If \texttt{n} is less than or equal to zero, the factorial is defined as 1. This also correctly handles the base case for the recursion.
+\item Otherwise, the function computes the factorial by calling itself with \texttt{n - 1} and multiplying the result by \texttt{n}.
+\end{itemize}
+
+\subparagraph{Program: test\_factorial}
+
+\subparagraph{Purpose:}
+
+This program uses the \texttt{factorial} function defined in the \texttt{factorial\_module} to compute the factorial of an integer read from the command line.
+
+\subparagraph{Structure:}
+
+\begin{itemize}
+\item \textbf{Module Usage}: It includes the \texttt{factorial\_module} using the \texttt{use} statement to access the \texttt{factorial} function.
+\item \textbf{Input Handling}: Reads an integer \texttt{n} from the standard input. In the given context, this input is expected to be piped in from the command line.
+\item \textbf{Output}: Prints the result of the factorial computation in a formatted string showing \texttt{n} and \texttt{n!}.
+\end{itemize}
+
+\subparagraph{Execution Flow:}
+
+\begin{enumerate}
+\item \textbf{Compilation and Linking}:
+\end{enumerate}
+
+\begin{itemize}
+\item The \texttt{factorial\_module} is compiled first to ensure that the definition of the \texttt{factorial} function is available.
+\item The \texttt{test\_factorial} program is compiled and linked with the \texttt{factorial\_module}.
+\end{itemize}
+
+\begin{enumerate}[resume]
+\item \textbf{Running}:
+\end{enumerate}
+
+\begin{itemize}
+\item The program expects an integer input from the command line.
+\item It computes the factorial of the input integer using the \texttt{factorial} function.
+\item It outputs the result in the format ``\texttt{n! = result}''.
+\end{itemize}
+
+\subparagraph{Conclusion:}
+
+This Fortran setup efficiently demonstrates modular programming by separating the mathematical logic (factorial computation) into a module for reuse. The recursive function is a straightforward and classic implementation for calculating factorials, suitable for small to moderately large values of \texttt{n} due to potential stack overflow issues with very large recursion depths. The program is well-structured for educational purposes and basic computational tasks involving factorials.
+
+\subparagraph{Program Compilation and Execution}
+
+The above program is compiled and run using Fortran Package Manager (fpm):
+
+\begin{verbatim}
+import os
+root_dir = os.getcwd()
+\end{verbatim}
+
+\begin{verbatim}
+code_dir = root_dir + "/" + "Fortran_Code/Section_1_16_Factorial_Recursion"
+\end{verbatim}
+
+\begin{verbatim}
+os.chdir(code_dir)
+\end{verbatim}
+
+\begin{verbatim}
+build_status = os.system("fpm build 2>/dev/null")
+\end{verbatim}
+
+\subparagraph{Calculate:}
+
+\begin{equation}
+\Large 3!
+\end{equation}
+
+\begin{verbatim}
+exec_status = os.system("echo 3 | fpm run 2>/dev/null")
+\end{verbatim}
+
+\begin{verbatim}
+3! =          6
+\end{verbatim}
+
+\subparagraph{Calculate:}
+
+\begin{equation}
+\Large 6!
+\end{equation}
+
+\begin{verbatim}
+exec_status = os.system("echo 6 | fpm run 2>/dev/null")
+\end{verbatim}
+
+\begin{verbatim}
+6! =        720
+\end{verbatim}
+
+\subparagraph{Calculate:}
+
+\begin{equation}
+\Large 15!
+\end{equation}
+
+\begin{verbatim}
+exec_status = os.system("echo 15 | fpm run 2>/dev/null")
+\end{verbatim}
+
+\begin{verbatim}
+15! = 2004310016
+\end{verbatim}

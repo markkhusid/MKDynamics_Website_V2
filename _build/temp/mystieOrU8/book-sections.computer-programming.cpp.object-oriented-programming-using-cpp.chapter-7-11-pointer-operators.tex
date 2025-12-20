@@ -1,0 +1,139 @@
+\begin{verbatim}
+- - -
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+ - - -
+\end{verbatim}
+
+\subparagraph{Chapter 7.11: Pointer Operators}
+
+Adapted from: ``Object-Oriented Programming Using C++'' by Ira Pohl (Addison - Wesley)
+
+\subparagraph{Program that demonstrates overloading the pointer operator -\textgreater  in C++}
+
+In file triple.cpp
+
+\begin{verbatim}
+/*********************************************************************
+
+  Filename:  triple.cpp
+  Chapter:   7      Ad Hoc Polymorphism
+  Section:   7.11   Pointer Operators
+  Compiler:  Borland C++     Version 5.0       Summer 1996
+  Object Oriented Programming Using C++, Edition 2   By Ira Pohl
+
+*********************************************************************/
+
+// This file was not present together with the downloadable files that 
+// accompany Ira Pohl's book.  This file was typed and adapted from 
+// Ira Pohl's book.
+
+#include <iostream>
+
+using namespace std;
+
+class triple {
+public:
+    triple(int a, int b, int c) {
+        i = a;
+        j = b;
+        k = c;
+    }
+
+    void print() {
+        cout << "\ni = " << i << ", j = "
+             << j << ", k = " << k;
+    }
+
+private:
+    int i, j, k;
+};
+
+triple unauthor(0, 0, 0);
+
+class t_ptr {
+public:
+    t_ptr(bool f, triple* p) {
+        access = f;
+        ptr = p;
+    }
+
+    triple* operator ->() ;
+
+private:
+    bool    access;
+    triple* ptr;
+};
+
+triple* t_ptr::operator ->()
+{
+    if (access) {
+        cout << "\nauthorized access";
+        return (ptr);
+    }
+        
+    else {
+        cout << "\nunauthorized access";
+        return &unauthor;
+    }
+}
+
+int main()
+{
+    triple a(1, 2, 3), b(4, 5, 6);
+    t_ptr ta(false, &a), tb(true, &b);
+
+    cout << "Attempting to print triple a...";
+    ta -> print();
+
+    cout << endl; cout << endl;
+
+    cout << "Attempting to print triple b...";
+    tb -> print();
+}
+\end{verbatim}
+
+\subparagraph{Compilation Process}
+
+The above program is compiled and run using Gnu Compiler Collection (g++):
+
+\begin{verbatim}
+import os
+root_dir = os.getcwd()
+\end{verbatim}
+
+\begin{verbatim}
+code_dir = root_dir + "/" + \
+    "Cpp_Code/Chapter_7_11_Pointer_Operators"
+\end{verbatim}
+
+\begin{verbatim}
+os.chdir(code_dir)
+\end{verbatim}
+
+\begin{verbatim}
+build_command = os.system("g++ triple.cpp -w -o triple")
+\end{verbatim}
+
+\subparagraph{Execution Process}
+
+\begin{verbatim}
+exec_status = os.system("./triple")
+\end{verbatim}
+
+\begin{verbatim}
+Attempting to print triple a...
+unauthorized access
+i = 0, j = 0, k = 0
+
+Attempting to print triple b...
+authorized access
+i = 4, j = 5, k = 6
+\end{verbatim}

@@ -1,0 +1,419 @@
+\subparagraph{Python Exercise}
+
+\textbf{This notebook is an exercise in the \href{https://www.kaggle.com/learn/python}{Python} course.  You can reference the tutorial at \href{https://www.kaggle.com/colinmorris/hello-python}{this link}.}
+
+
+\bigskip
+\centerline{\rule{13cm}{0.4pt}}
+\bigskip
+
+Welcome to your first set of Python coding problems.  If this is your first time using Kaggle Notebooks, welcome!
+
+Notebooks are composed of blocks (called ``cells'') of text and code. Each of these is editable, though you'll mainly be editing the code cells to answer some questions.
+
+To get started, try running the code cell below (by pressing the ► button, or clicking on the cell and pressing ctrl+enter on your keyboard).
+
+\begin{verbatim}
+print("You've successfully run some Python code")
+print("Congratulations!")
+\end{verbatim}
+
+\begin{verbatim}
+You've successfully run some Python code
+Congratulations!
+\end{verbatim}
+
+Try adding another line of code in the cell above and re-running it.
+
+Now let's get a little fancier:  Add a new code cell by clicking on an existing code cell, hitting the escape key, and then hitting the \texttt{a} or \texttt{b} key.  The \texttt{a} key will add a cell above the current cell, and \texttt{b} adds a cell below.
+
+Great! Now you know how to use Notebooks.
+
+Each hands-on exercise starts by setting up our feedback and code checking mechanism. Run the code cell below to do that. Then you'll be ready to move on to question 0.
+
+\begin{verbatim}
+from learntools.core import binder; binder.bind(globals())
+from learntools.python.ex1 import *
+print("Setup complete! You're ready to start question 0.")
+\end{verbatim}
+
+\begin{verbatim}
+WARNING:root:Ignoring repeated attempt to bind to globals
+\end{verbatim}
+
+\begin{verbatim}
+Setup complete! You're ready to start question 0.
+\end{verbatim}
+
+\subparagraph{0.}
+
+\textit{This is a silly question intended as an introduction to the format we use for hands-on exercises throughout all Kaggle courses.}
+
+**What is your favorite color? **
+
+To complete this question, create a variable called \texttt{color} in the cell below with an appropriate value. The function call \texttt{q0.check()} (which we've already provided in the cell below) will check your answer.
+
+\begin{verbatim}
+# create a variable called color with an appropriate value on the line below
+# (Remember, strings in Python must be enclosed in 'single' or "double" quotes)
+color = 'blue'
+
+# Check your answer
+q0.check()
+\end{verbatim}
+
+\begin{verbatim}
+<IPython.core.display.Javascript object>
+\end{verbatim}
+
+\begin{verbatim}
+Correct
+\end{verbatim}
+
+Didn't get the right answer? How do you not even know your own favorite color?!
+
+Delete the \texttt{\#} in the line below to make one of the lines run. You can choose between getting a hint or the full answer by choosing which line to remove the \texttt{\#} from.
+
+Removing the \texttt{\#} is called uncommenting, because it changes that line from a ``comment'' which Python doesn't run to code, which Python does run.
+
+\begin{verbatim}
+q0.hint()
+q0.solution()
+\end{verbatim}
+
+\begin{verbatim}
+<IPython.core.display.Javascript object>
+\end{verbatim}
+
+\begin{verbatim}
+Hint: Your favorite color rhymes with *glue*.
+\end{verbatim}
+
+\begin{verbatim}
+<IPython.core.display.Javascript object>
+\end{verbatim}
+
+\begin{verbatim}
+Solution: 
+```python
+color = "blue"
+```
+\end{verbatim}
+
+The upcoming questions work the same way. The only thing that will change are the question numbers. For the next question, you'll call \texttt{q1.check()}, \texttt{q1.hint()}, \texttt{q1.solution()}, for question 2, you'll call \texttt{q2.check()}, and so on.
+
+
+\bigskip
+\centerline{\rule{13cm}{0.4pt}}
+\bigskip
+
+\subparagraph{1.}
+
+Complete the code below. In case it's helpful, here is the table of available arithmetic operations:
+
+\bigskip\noindent
+\begin{tabular}{p{\dimexpr 0.333\linewidth-2\tabcolsep}p{\dimexpr 0.333\linewidth-2\tabcolsep}p{\dimexpr 0.333\linewidth-2\tabcolsep}}
+\toprule
+Operator & Name & Description \\
+\hline
+\texttt{a + b} & Addition & Sum of \texttt{a} and \texttt{b} \\
+\texttt{a - b} & Subtraction & Difference of \texttt{a} and \texttt{b} \\
+\texttt{a * b} & Multiplication & Product of \texttt{a} and \texttt{b} \\
+\texttt{a / b} & True division & Quotient of \texttt{a} and \texttt{b} \\
+\texttt{a // b} & Floor division & Quotient of \texttt{a} and \texttt{b}, removing fractional parts \\
+\texttt{a \% b} & Modulus & Integer remainder after division of \texttt{a} by \texttt{b} \\
+\texttt{a ** b} & Exponentiation & \texttt{a} raised to the power of \texttt{b} \\
+\texttt{-a} & Negation & The negative of \texttt{a} \\
+\bottomrule
+\end{tabular}
+
+\bigskip
+
+\begin{verbatim}
+pi = 3.14159 # approximate
+diameter = 3
+
+# Create a variable called 'radius' equal to half the diameter
+radius = 0.5 * diameter
+
+# Create a variable called 'area', using the formula for the area of a circle: pi times the radius squared
+area = pi * (radius**2)
+
+# Check your answer
+q1.check()
+\end{verbatim}
+
+\begin{verbatim}
+<IPython.core.display.Javascript object>
+\end{verbatim}
+
+\begin{verbatim}
+Correct
+\end{verbatim}
+
+\begin{verbatim}
+# Uncomment and run the lines below if you need help.
+q1.hint()
+q1.solution()
+\end{verbatim}
+
+\begin{verbatim}
+<IPython.core.display.Javascript object>
+\end{verbatim}
+
+\begin{verbatim}
+Hint: The syntax to raise a to the b'th power is `a ** b`
+\end{verbatim}
+
+\begin{verbatim}
+<IPython.core.display.Javascript object>
+\end{verbatim}
+
+\begin{verbatim}
+Solution: 
+```python
+radius = diameter / 2
+area = pi * radius ** 2
+```
+\end{verbatim}
+
+
+\bigskip
+\centerline{\rule{13cm}{0.4pt}}
+\bigskip
+
+\subparagraph{2.}
+
+Add code to the following cell to swap variables \texttt{a} and \texttt{b} (so that \texttt{a} refers to the object previously referred to by \texttt{b} and vice versa).
+
+\begin{verbatim}
+########### Setup code - don't touch this part ######################
+# If you're curious, these are examples of lists. We'll talk about 
+# them in depth a few lessons from now. For now, just know that they're
+# yet another type of Python object, like int or float.
+a = [1, 2, 3]
+b = [3, 2, 1]
+q2.store_original_ids()
+######################################################################
+temp = a
+a = b
+b = temp
+
+# Your code goes here. Swap the values to which a and b refer.
+# If you get stuck, you can always uncomment one or both of the lines in
+# the next cell for a hint, or to peek at the solution.
+
+######################################################################
+
+# Check your answer
+q2.check()
+\end{verbatim}
+
+\begin{verbatim}
+<IPython.core.display.Javascript object>
+\end{verbatim}
+
+\begin{verbatim}
+Correct: 
+
+The most straightforward solution is to use a third variable to temporarily store one of the old values. e.g.:
+
+    tmp = a
+    a = b
+    b = tmp
+
+If you've read lots of Python code, you might have seen the following trick to swap two variables in one line:
+
+    a, b = b, a
+
+We'll demystify this bit of Python magic later when we talk about *tuples*.
+\end{verbatim}
+
+\begin{verbatim}
+q2.hint()
+\end{verbatim}
+
+\begin{verbatim}
+<IPython.core.display.Javascript object>
+\end{verbatim}
+
+\begin{verbatim}
+Hint: Try using a third variable.
+\end{verbatim}
+
+\begin{verbatim}
+q2.solution()
+\end{verbatim}
+
+\begin{verbatim}
+<IPython.core.display.Javascript object>
+\end{verbatim}
+
+\begin{verbatim}
+Solution: The most straightforward solution is to use a third variable to temporarily store one of the old values. e.g.:
+
+    tmp = a
+    a = b
+    b = tmp
+
+If you've read lots of Python code, you might have seen the following trick to swap two variables in one line:
+
+    a, b = b, a
+
+We'll demystify this bit of Python magic later when we talk about *tuples*.
+\end{verbatim}
+
+
+\bigskip
+\centerline{\rule{13cm}{0.4pt}}
+\bigskip
+
+\subparagraph{3a.}
+
+Add parentheses to the following expression so that it evaluates to 1.
+
+\begin{verbatim}
+(5 - 3) // 2
+\end{verbatim}
+
+\begin{verbatim}
+1
+\end{verbatim}
+
+\begin{verbatim}
+q3.a.hint()
+\end{verbatim}
+
+\begin{verbatim}
+<IPython.core.display.Javascript object>
+\end{verbatim}
+
+\begin{verbatim}
+Hint: Following its default "BEDMAS" -like rules for order of operations, Python will first divide 3 by 2, then subtract the result from 5. You need to add parentheses to force it to perform the subtraction first.
+\end{verbatim}
+
+\begin{verbatim}
+# Check your answer (Run this code cell to receive credit!)
+q3.a.solution()
+\end{verbatim}
+
+\begin{verbatim}
+<IPython.core.display.Javascript object>
+\end{verbatim}
+
+\begin{verbatim}
+Solution: 
+```python
+(5 - 3) // 2
+```
+\end{verbatim}
+
+\subparagraph{3b.  🌶️}
+
+Questions, like this one, marked a spicy pepper are a bit harder.
+
+Add parentheses to the following expression so that it evaluates to 0.
+
+\begin{verbatim}
+(8 - 3) * (2 - (1 + 1))
+\end{verbatim}
+
+\begin{verbatim}
+0
+\end{verbatim}
+
+\begin{verbatim}
+q3.b.hint()
+\end{verbatim}
+
+\begin{verbatim}
+<IPython.core.display.Javascript object>
+\end{verbatim}
+
+\begin{verbatim}
+Hint: You may need to use several pairs of parentheses.
+\end{verbatim}
+
+\begin{verbatim}
+# Check your answer (Run this code cell to receive credit!)
+q3.b.solution()
+\end{verbatim}
+
+\begin{verbatim}
+<IPython.core.display.Javascript object>
+\end{verbatim}
+
+\begin{verbatim}
+Solution: `(8 - 3) * (2 - (1 + 1))` is one solution. There may be others.
+\end{verbatim}
+
+
+\bigskip
+\centerline{\rule{13cm}{0.4pt}}
+\bigskip
+
+\subparagraph{4.}
+
+Alice, Bob and Carol have agreed to pool their Halloween candy and split it evenly among themselves.
+For the sake of their friendship, any candies left over will be smashed. For example, if they collectively
+bring home 91 candies, they'll take 30 each and smash 1.
+
+Write an arithmetic expression below to calculate how many candies they must smash for a given haul.
+
+\begin{verbatim}
+# Variables representing the number of candies collected by alice, bob, and carol
+alice_candies = 121
+bob_candies = 77
+carol_candies = 109
+
+# Your code goes here! Replace the right -hand side of this assignment with an expression
+# involving alice_candies, bob_candies, and carol_candies
+to_smash = (alice_candies + bob_candies + carol_candies) % 3
+
+# Check your answer
+q4.check()
+\end{verbatim}
+
+\begin{verbatim}
+<IPython.core.display.Javascript object>
+\end{verbatim}
+
+\begin{verbatim}
+Correct
+\end{verbatim}
+
+\begin{verbatim}
+q4.hint()
+q4.solution()
+\end{verbatim}
+
+\begin{verbatim}
+<IPython.core.display.Javascript object>
+\end{verbatim}
+
+\begin{verbatim}
+Hint 1: You'll probably want to use the modulo operator, `%`.
+(For another hint, call `.hint(2)`)
+\end{verbatim}
+
+\begin{verbatim}
+<IPython.core.display.Javascript object>
+\end{verbatim}
+
+\begin{verbatim}
+Solution: 
+```python
+(alice_candies + bob_candies + carol_candies) % 3
+```
+\end{verbatim}
+
+\subparagraph{Keep Going}
+
+Next up, you'll \textbf{\href{https://www.kaggle.com/colinmorris/functions-and-getting-help}{learn to write new functions and understand functions others write}}. This will make you at least 10 times more productive as a Python programmer.
+
+
+\bigskip
+\centerline{\rule{13cm}{0.4pt}}
+\bigskip
+
+\textit{Have questions or comments? Visit the \href{https://www.kaggle.com/learn/python/discussion}{course discussion forum} to chat with other learners.}

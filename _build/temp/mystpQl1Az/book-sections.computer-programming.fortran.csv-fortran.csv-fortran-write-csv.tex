@@ -1,0 +1,135 @@
+\begin{verbatim}
+- - -
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+ - - -
+\end{verbatim}
+
+\subparagraph{Section: Write CSV Files}
+
+In this section, we will write CSV files in Fortran using the CSV\_Fortran Module.  The CSV\_Fortran Module is a Fortran module that provides a simple interface for reading and writing CSV files.  The module is available at \href{https://github.com/jacobwilliams/csv-fortran}{https://github.com/jacobwilliams/csv-fortran}.  Documentation for the module is available at \href{https://jacobwilliams.github.io/csv-fortran/}{https://jacobwilliams.github.io/csv-fortran/}.
+
+\subparagraph{Example Programs}
+
+In the documentation for the CSV\_Fortran Module, there are several example programs that demonstrate how to read and write CSV files.  We will use the example programs to demonstrate how to write CSV files in Fortran.
+
+\subparagraph{Writing a CSV File}
+
+The following example program writes a CSV file named \texttt{test.csv}:
+
+\begin{verbatim}
+program csv_write_test
+
+  use csv_module
+    use iso_fortran_env, only: wp => real64
+
+    implicit none
+
+    type(csv_file) :: f
+    logical :: status_ok
+
+    ! set optional inputs:
+    call f%initialize(verbose = .true.)
+
+    ! open the file
+    call f%open('test.csv',n_cols=4,status_ok=status_ok)
+
+    ! add header
+    call f%add(['x','y','z','t'])
+    call f%next_row()
+
+    ! add some data:
+    call f%add([1.0_wp,2.0_wp,3.0_wp],real_fmt='(F5.3)')
+    call f%add(.true.)
+    call f%next_row()
+    call f%add([4.0_wp,5.0_wp,6.0_wp],real_fmt='(F5.3)')
+    call f%add(.false.)
+    call f%next_row()
+
+    ! finished
+    call f%close(status_ok)
+  
+end program csv_write_test
+\end{verbatim}
+
+The program writes a CSV file named \texttt{test.csv} with the following contents:
+
+\begin{verbatim}
+x,y,z,t
+1.000,2.000,3.000,T
+4.000,5.000,6.000,F
+\end{verbatim}
+
+\subparagraph{Building the Example Program using FPM (Fortran Package Manager)}
+
+\subparagraph{TOML File}
+
+The above program was compiled using the Fortran Package Manager (FPM).  The following is the \texttt{fpm.toml} file used to build the program:
+
+\begin{verbatim}
+name = "Section_CSV_Fortran_Write_CSV"
+
+[build]
+auto -executables = true
+auto -tests = true
+auto -examples = true
+
+[install]
+library = false
+
+[dependencies]
+csv -fortran = { git="https://github.com/jacobwilliams/csv -fortran.git" }
+
+[[executable]]
+name="Section_CSV_Fortran_Write_CSV"
+source -dir="app"
+main="section_csv_fortran_write_csv.f90"
+\end{verbatim}
+
+\subparagraph{Build the Program}
+
+\begin{verbatim}
+import os
+root_dir = ""
+root_dir = os.getcwd()
+\end{verbatim}
+
+\begin{verbatim}
+code_dir = root_dir + "/" + "Fortran_Code/Section_CSV_Fortran_Write_CSV"
+\end{verbatim}
+
+\begin{verbatim}
+os.chdir(code_dir)
+\end{verbatim}
+
+\begin{verbatim}
+build_status = os.system("fpm build 2>/dev/null")
+\end{verbatim}
+
+\subparagraph{Run the Program}
+
+The program is run and the output is saved into a file named 'data.dat
+
+\begin{verbatim}
+exec_status = \
+    os.system("fpm run 2>/dev/null")
+\end{verbatim}
+
+\subparagraph{Examine the Output File}
+
+\begin{verbatim}
+!cat test.csv
+\end{verbatim}
+
+\begin{verbatim}
+"x","y","z","t"
+1.000,2.000,3.000,T
+4.000,5.000,6.000,F
+\end{verbatim}

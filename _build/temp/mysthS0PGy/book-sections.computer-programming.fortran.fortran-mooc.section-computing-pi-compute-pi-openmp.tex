@@ -1,0 +1,313 @@
+\begin{verbatim}
+- - -
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+ - - -
+\end{verbatim}
+
+\subparagraph{Section Computing Pi: Compute Pi with OpenMP}
+
+Adapted from: \href{https://github.com/gjbex/Fortran-MOOC/tree/master/source\_code/computing\_pi}{https://github.com/gjbex/Fortran-MOOC/tree/master/source\_code/computing\_pi}
+
+\subparagraph{This program demonstrates computing $\pi$ in Fortran using OpenMP.  The program uses the following equation for computation:}
+
+\begin{equation}
+\Large \pi = 4 \int_{0}^{1} \sqrt{1-x^2}dx
+\end{equation}
+
+\subparagraph{In file section\_computing\_pi\_compute\_pi\_openmp.f90}
+
+\begin{verbatim}
+program compute_pi_omp
+  use, intrinsic :: iso_fortran_env, only : DP => REAL64, I8 => INT64
+  implicit none
+  integer(kind=I8) :: i, nr_iters
+  real(kind=DP) :: delta, x, pi_val
+  real(kind=DP) :: pi_val_actual
+
+  pi_val = 0.0_DP
+  pi_val_actual = 2.0_DP * acos(0.0_DP)
+  nr_iters = get_nr_iters()
+  delta = 1.0_DP/nr_iters
+  x = 0.0_DP
+
+  !$omp parallel do default(none) private(x) shared(delta, nr_iters) reduction(+:pi_val)
+  do i = 1, nr_iters
+      x = i*delta
+      pi_val = pi_val + sqrt(1.0_DP - x**2)
+  end do
+  !$omp end parallel do
+
+  pi_val = 4.0_DP*pi_val/nr_iters
+  print '(A, I15, A, F25.15)', "After ", nr_iters, " loops, Pi = ", pi_val
+  print '(A, F25.15)', "Actual value of Pi = ", pi_val_actual
+  print '(A, F25.15)', "Absolute difference = ", abs(pi_val - pi_val_actual)
+contains
+   
+  function get_nr_iters() result(nr_iters)
+      use, intrinsic :: iso_fortran_env, only : error_unit
+      implicit none
+      integer(kind=I8) :: nr_iters
+      integer(kind=I8), parameter :: default_nr_iters = 1000_I8
+      character(len=1024) :: buffer, msg
+      integer :: istat
+
+      if (command_argument_count() >= 1) then
+          call get_command_argument(1, buffer)
+          read (buffer, fmt=*, iostat=istat, iomsg=msg) nr_iters
+          if (istat /= 0) then
+              write (unit=error_unit, fmt='(2A)') &
+                  'error: ', msg
+              stop 1
+          end if
+      else
+          nr_iters = default_nr_iters
+      end if
+  end function get_nr_iters
+
+end program compute_pi_omp
+\end{verbatim}
+
+The above program is compiled and run using Fortran Package Manager (fpm):
+
+\subparagraph{Build the Program using FPM (Fortran Package Manager)}
+
+\begin{verbatim}
+import os
+root_dir = ""
+root_dir = os.getcwd()
+\end{verbatim}
+
+Since this program uses the OpenMP external library, the fpm.toml file had to be augmented as below.
+
+\begin{verbatim}
+name = "Section_Computing_Pi_Compute_Pi_OpenMP"
+
+[build]
+auto -executables = true
+auto -tests = true
+auto -examples = true
+
+[dependencies]
+openmp="*"
+
+[install]
+library = false
+
+[[executable]]
+name="Section_Computing_Pi_Compute_Pi_OpenMP"
+source -dir="app"
+main="section_computing_pi_compute_pi_openmp.f90"
+\end{verbatim}
+
+\begin{verbatim}
+code_dir = root_dir + "/" + "Fortran_Code/Section_Computing_Pi_Compute_Pi_OpenMP"
+\end{verbatim}
+
+\begin{verbatim}
+os.chdir(code_dir)
+\end{verbatim}
+
+We use FPM (Fortran Package Manager) to build and link OpenMP into the executable with the --flag -fopenmp switches.
+
+\begin{verbatim}
+build_status = os.system("fpm build - -flag -fopenmp 2>/dev/null")
+\end{verbatim}
+
+\subparagraph{Run the Program using FPM (Fortran Package Manager)}
+
+\subparagraph{10 Iterations}
+
+\begin{verbatim}
+%%timeit -r 10 -n 1
+exec_status = os.system("fpm run - - 10 2>/dev/null > output.txt")
+\end{verbatim}
+
+\begin{verbatim}
+71.7 ms \pm 23.7 ms per loop (mean \pm std. dev. of 10 runs, 1 loop each)
+\end{verbatim}
+
+\begin{verbatim}
+%cat output.txt
+\end{verbatim}
+
+\begin{verbatim}
+After         10 loops, Pi =         2.904518326248318
+Actual value of Pi =         3.141592653589793
+Absolute difference =         0.237074327341475
+\end{verbatim}
+
+\subparagraph{100 Iterations}
+
+\begin{verbatim}
+%%timeit -r 10 -n 1
+exec_status = os.system("fpm run - - 100 2>/dev/null > output.txt")
+\end{verbatim}
+
+\begin{verbatim}
+61.3 ms \pm 13.8 ms per loop (mean \pm std. dev. of 10 runs, 1 loop each)
+\end{verbatim}
+
+\begin{verbatim}
+%cat output.txt
+\end{verbatim}
+
+\begin{verbatim}
+After        100 loops, Pi =         3.120417031779046
+Actual value of Pi =         3.141592653589793
+Absolute difference =         0.021175621810747
+\end{verbatim}
+
+\subparagraph{1,000 Iterations}
+
+\begin{verbatim}
+%%timeit -r 10 -n 1
+exec_status = os.system("fpm run - - 1000 2>/dev/null > output.txt")
+\end{verbatim}
+
+\begin{verbatim}
+73.3 ms \pm 16.2 ms per loop (mean \pm std. dev. of 10 runs, 1 loop each)
+\end{verbatim}
+
+\begin{verbatim}
+%cat output.txt
+\end{verbatim}
+
+\begin{verbatim}
+After       1000 loops, Pi =         3.139555466911027
+Actual value of Pi =         3.141592653589793
+Absolute difference =         0.002037186678766
+\end{verbatim}
+
+\subparagraph{10,000 Iterations}
+
+\begin{verbatim}
+%%timeit -r 10 -n 1
+exec_status = os.system("fpm run - - 10000 2>/dev/null > output.txt")
+\end{verbatim}
+
+\begin{verbatim}
+65.7 ms \pm 16.7 ms per loop (mean \pm std. dev. of 10 runs, 1 loop each)
+\end{verbatim}
+
+\begin{verbatim}
+%cat output.txt
+\end{verbatim}
+
+\begin{verbatim}
+After      10000 loops, Pi =         3.141391477611325
+Actual value of Pi =         3.141592653589793
+Absolute difference =         0.000201175978468
+\end{verbatim}
+
+\subparagraph{100,000 Iterations}
+
+\begin{verbatim}
+%%timeit -r 10 -n 1
+exec_status = os.system("fpm run - - 100000 2>/dev/null > output.txt")
+\end{verbatim}
+
+\begin{verbatim}
+51.3 ms \pm 13.7 ms per loop (mean \pm std. dev. of 10 runs, 1 loop each)
+\end{verbatim}
+
+\begin{verbatim}
+%cat output.txt
+\end{verbatim}
+
+\begin{verbatim}
+After     100000 loops, Pi =         3.141572616401988
+Actual value of Pi =         3.141592653589793
+Absolute difference =         0.000020037187805
+\end{verbatim}
+
+\subparagraph{1,000,000 Iterations}
+
+\begin{verbatim}
+%%timeit -r 10 -n 1
+exec_status = os.system("fpm run - - 1000000 2>/dev/null > output.txt")
+\end{verbatim}
+
+\begin{verbatim}
+67.1 ms \pm 17.2 ms per loop (mean \pm std. dev. of 10 runs, 1 loop each)
+\end{verbatim}
+
+\begin{verbatim}
+%cat output.txt
+\end{verbatim}
+
+\begin{verbatim}
+After    1000000 loops, Pi =         3.141590652413799
+Actual value of Pi =         3.141592653589793
+Absolute difference =         0.000002001175994
+\end{verbatim}
+
+\subparagraph{10,000,000 Iterations}
+
+\begin{verbatim}
+%%timeit -r 10 -n 2
+exec_status = os.system("fpm run - - 10000000 2>/dev/null > output.txt")
+\end{verbatim}
+
+\begin{verbatim}
+62.9 ms \pm 16.5 ms per loop (mean \pm std. dev. of 10 runs, 2 loops each)
+\end{verbatim}
+
+\begin{verbatim}
+%cat output.txt
+\end{verbatim}
+
+\begin{verbatim}
+After        10000000 loops, Pi =         3.141592453552619
+Actual value of Pi =         3.141592653589793
+Absolute difference =         0.000000200037174
+\end{verbatim}
+
+\subparagraph{100,000,000 Iterations}
+
+\begin{verbatim}
+%%timeit -r 10 -n 2
+exec_status = os.system("fpm run - - 100000000 2>/dev/null > output.txt")
+\end{verbatim}
+
+\begin{verbatim}
+97.8 ms \pm 26.2 ms per loop (mean \pm std. dev. of 10 runs, 2 loops each)
+\end{verbatim}
+
+\begin{verbatim}
+%cat output.txt
+\end{verbatim}
+
+\begin{verbatim}
+After       100000000 loops, Pi =         3.141592633588637
+Actual value of Pi =         3.141592653589793
+Absolute difference =         0.000000020001156
+\end{verbatim}
+
+\subparagraph{1,000,000,000 Iterations}
+
+\begin{verbatim}
+%%timeit -r 10 -n 2
+exec_status = os.system("fpm run - - 1000000000 2>/dev/null > output.txt")
+\end{verbatim}
+
+\begin{verbatim}
+454 ms \pm 56.7 ms per loop (mean \pm std. dev. of 10 runs, 2 loops each)
+\end{verbatim}
+
+\begin{verbatim}
+%cat output.txt
+\end{verbatim}
+
+\begin{verbatim}
+After      1000000000 loops, Pi =         3.141592651589789
+Actual value of Pi =         3.141592653589793
+Absolute difference =         0.000000002000004
+\end{verbatim}

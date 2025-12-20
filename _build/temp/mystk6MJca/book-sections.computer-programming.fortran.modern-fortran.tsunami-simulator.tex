@@ -1,0 +1,259 @@
+\begin{verbatim}
+- - -
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+ - - -
+\end{verbatim}
+
+\subparagraph{Tsunami Simulator}
+
+The following program simulates a tsunami water wave. \newline
+
+Adapted from: ``\href{https://www.manning.com/books/modern-fortran}{Modern Fortran: Building Efficient Parallel Applications}'' by Milan Curcic (Manning)
+
+The tsunami water wave height and speed will be calculated using the advection equation.
+
+From \href{https://en.wikipedia.org/wiki/Advection}{wikipedia}:
+
+\begin{framed}
+\textbf{Note}\\
+In the field of physics, engineering, and earth sciences, advection is the transport of a substance or quantity by bulk motion of a fluid.
+\end{framed}
+
+\subparagraph{The Advection Equation}
+
+\begin{equation}
+\Large \frac{\delta u}{\delta t} + c\frac{\delta u}{\delta x} = 0
+\end{equation}
+
+\subparagraph{Program to Predict the Linear Advection of an Object, with Periodic Boundary Conditions}
+
+\begin{verbatim}
+program tsunami
+
+    implicit none
+    integer :: i, n
+    
+    integer, parameter :: grid_size = 100
+    integer, parameter :: num_time_steps = 100
+
+    real, parameter :: dt = 1 ! time step [s]
+    real, parameter :: dx = 1 ! grid spacing [m]
+    real, parameter :: c  = 1 ! phase speed [m/s]
+
+    real :: h(grid_size), dh(grid_size)
+    
+    integer, parameter :: icenter = 25
+    real, parameter    :: decay = 0.02
+    
+    logical :: file_exists
+    
+    open(9, file = 'tsunami_simulator_data.txt')
+    
+    if ( grid_size <= 0 ) stop 'grid_size must be > 0'
+    if ( dt <= 0 ) stop 'time step dt must be > 0'
+    if ( dx <= 0 ) stop 'grid spacing dx must be > 0'
+    if ( c <= 0 )  stop 'background flow speed c must be > 0'
+    
+    do concurrent (i = 1:grid_size)
+        h(i) = exp( -decay * (i - icenter)**2)
+    end do
+    
+    !print *, 0, h
+    write (9, *) 0, h
+    close(9)
+    
+    time_loop: do n=1,num_time_steps    
+        
+        dh(1) = h(1) - h(grid_size)
+        
+        do concurrent (i = 2:grid_size)
+            dh(i) = h(i) - h(i -1)       
+        end do
+        
+        do concurrent (i = 1:grid_size)
+            h(i)=h(i) -c*dh(i) / dx * dt
+        end do
+        
+        !print *, n, h
+        inquire(file = 'tsunami_simulator_data.txt', exist = file_exists)
+        if (file_exists) then
+            open(9, file = 'tsunami_simulator_data.txt', status = 'old', position = 'append', action = 'write')
+        else
+            open(9, file = 'tsunami_simulator_data.txt', status = "new", action = 'write')
+        end if
+        
+        write (9, *) n, h
+
+    end do time_loop
+
+    close (9)
+    
+end program tsunami
+\end{verbatim}
+
+\subparagraph{Program Explanation}
+
+The Fortran program \texttt{tsunami} simulates the propagation of a wave in a one-dimensional grid using a basic numerical scheme akin to the finite difference method. The purpose of the program is to approximate how a disturbance, initialized in the middle of the domain, evolves over time given the specified parameters.
+
+\subparagraph{Key Elements of the Program}
+
+\begin{enumerate}
+\item \textbf{Variable Declarations and Constants}:
+
+\begin{itemize}
+\item \texttt{grid\_size}: The number of grid points in the simulation domain.
+\item \texttt{num\_time\_steps}: The number of time steps for which the simulation will run.
+\item \texttt{dt}: Time step in seconds.
+\item \texttt{dx}: Spatial grid spacing in meters.
+\item \texttt{c}: Phase speed of the wave in meters per second.
+\item \texttt{h}: Height of the wave at each grid point.
+\item \texttt{dh}: Temporal change in height at each grid point between consecutive steps.
+\end{itemize}
+
+
+\item \textbf{Initialization}:
+
+\begin{itemize}
+\item An initial wave profile is set using a Gaussian-like exponential decay formula centered at \texttt{icenter}, influencing how sharply the wave amplitude decreases away from the center.
+\end{itemize}
+
+
+\item \textbf{File Handling}:
+
+\begin{itemize}
+\item The program opens a file named `tsunami\_simulator\_data.txt' for output and checks for its existence before each write operation to handle potential errors or file state changes during execution.
+\end{itemize}
+
+
+\item \textbf{Numerical Scheme}:
+
+\begin{itemize}
+\item The simulation uses a simple difference scheme to approximate the temporal evolution of the wave:
+
+\begin{itemize}
+\item \textbf{Boundary Condition}: A cyclic boundary condition is assumed (\texttt{dh(1) = h(1) - h(grid\_size)}), which allows the wave to wrap around the domain, simulating an infinite or periodic space.
+\item \textbf{Interior Points}: The change in height (\texttt{dh}) at each internal grid point is computed based on the difference with its immediate left neighbor.
+\item \textbf{Update Step}: The wave height at each grid point is updated using the computed differences, scaled by the wave speed, grid spacing, and time step.
+\end{itemize}
+\end{itemize}
+
+
+\item \textbf{Looping Structure}:
+
+\begin{itemize}
+\item The main loop (\texttt{time\_loop}) iterates over the number of time steps, updating the wave's profile at each step and writing the results to the output file.
+\item An \texttt{inquire} statement checks if the output file still exists before attempting to append new data, which helps in managing output data integrity.
+\end{itemize}
+
+
+\item \textbf{Output}:
+
+\begin{itemize}
+\item For each time step, the wave heights across the grid are written to the file. This output can be used for further analysis or visualization of the wave's propagation.
+\end{itemize}
+\end{enumerate}
+
+\subparagraph{Program Execution Details}
+
+\begin{itemize}
+\item \textbf{Initialization of \texttt{h}}:
+
+\begin{itemize}
+\item The wave height at each grid point is initialized to create a localized disturbance. The exponential decay formula makes the initial wave amplitude highest at the center and decreases moving away from the center.
+\end{itemize}
+
+
+\item \textbf{Time Evolution}:
+
+\begin{itemize}
+\item At each time step, the program computes the spatial gradient of the wave heights, then adjusts the heights based on this gradient, effectively simulating the wave propagation.
+\end{itemize}
+
+
+\item \textbf{File Operations}:
+
+\begin{itemize}
+\item Before writing to the file, the program ensures it's in the correct state (open and ready for appending), handling the possibility that the file might not be available or already open from previous operations.
+\end{itemize}
+\end{itemize}
+
+\subparagraph{Practical Applications}
+
+This program is a simplistic representation useful for educational purposes in teaching numerical methods for solving partial differential equations, specifically hyperbolic equations like the wave equation. It can also serve as a basic model in physical sciences and engineering for understanding wave dynamics in a controlled setting.
+
+\subparagraph{Program Compilation and Execution}
+
+The above program is compiled and run using Fortran Package Manager (fpm):
+
+\begin{verbatim}
+import os
+root_dir = os.getcwd()
+\end{verbatim}
+
+\begin{verbatim}
+code_dir = root_dir + "/" + "Fortran_Code/Tsunami_Simulator"
+\end{verbatim}
+
+\begin{verbatim}
+os.chdir(code_dir)
+\end{verbatim}
+
+\begin{verbatim}
+build_status = os.system("fpm build 2>/dev/null")
+\end{verbatim}
+
+\begin{verbatim}
+exec_status = os.system("fpm run 2>/dev/null")
+\end{verbatim}
+
+The above Fortran code writes the calculations to a file called \textbf{tsunami\_simulator\_data.txt}
+
+\begin{verbatim}
+import pandas as pd
+output_filename = 'tsunami_simulator_data.txt'
+data_file = code_dir + "/" + output_filename
+table = pd.read_fwf(data_file, header=None)
+table
+\end{verbatim}
+
+\bigskip\noindent
+\begin{tabular}{p{\dimexpr 0.045\linewidth-2\tabcolsep}p{\dimexpr 0.045\linewidth-2\tabcolsep}p{\dimexpr 0.045\linewidth-2\tabcolsep}p{\dimexpr 0.045\linewidth-2\tabcolsep}p{\dimexpr 0.045\linewidth-2\tabcolsep}p{\dimexpr 0.045\linewidth-2\tabcolsep}p{\dimexpr 0.045\linewidth-2\tabcolsep}p{\dimexpr 0.045\linewidth-2\tabcolsep}p{\dimexpr 0.045\linewidth-2\tabcolsep}p{\dimexpr 0.045\linewidth-2\tabcolsep}p{\dimexpr 0.045\linewidth-2\tabcolsep}p{\dimexpr 0.045\linewidth-2\tabcolsep}p{\dimexpr 0.045\linewidth-2\tabcolsep}p{\dimexpr 0.045\linewidth-2\tabcolsep}p{\dimexpr 0.045\linewidth-2\tabcolsep}p{\dimexpr 0.045\linewidth-2\tabcolsep}p{\dimexpr 0.045\linewidth-2\tabcolsep}p{\dimexpr 0.045\linewidth-2\tabcolsep}p{\dimexpr 0.045\linewidth-2\tabcolsep}p{\dimexpr 0.045\linewidth-2\tabcolsep}p{\dimexpr 0.045\linewidth-2\tabcolsep}p{\dimexpr 0.045\linewidth-2\tabcolsep}}
+\toprule
+ & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & ... & 91 & 92 & 93 & 94 & 95 & 96 & 97 & 98 & 99 & 100 \\
+\hline
+0 & 0 & 9.929509e-06 & 0.000025 & 0.000063 & 0.000148 & 0.000335 & 0.000732 & 0.001534 & 0.003089 & 0.005976 & ... & 1.459711e-38 & 1.021038e-39 & 6.862018e-41 & 4.430906e-42 & 2.746545e-43 & 1.681558e-44 & 1.401298e-45 & 0.000000e+00 & 0.000000e+00 & 0.000000e+00 \\
+\hline
+1 & 1 & 0.000000e+00 & 0.000010 & 0.000025 & 0.000063 & 0.000148 & 0.000335 & 0.000732 & 0.001534 & 0.003089 & ... & 2.005009e-37 & 1.459711e-38 & 1.021038e-39 & 6.862018e-41 & 4.430906e-42 & 2.746545e-43 & 1.681558e-44 & 1.401298e-45 & 0.000000e+00 & 0.000000e+00 \\
+\hline
+2 & 2 & 0.000000e+00 & 0.000000 & 0.000010 & 0.000025 & 0.000063 & 0.000148 & 0.000335 & 0.000732 & 0.001534 & ... & 2.646043e-36 & 2.005009e-37 & 1.459711e-38 & 1.021038e-39 & 6.862018e-41 & 4.430906e-42 & 2.746545e-43 & 1.681558e-44 & 1.401298e-45 & 0.000000e+00 \\
+\hline
+3 & 3 & 0.000000e+00 & 0.000000 & 0.000000 & 0.000010 & 0.000025 & 0.000063 & 0.000148 & 0.000335 & 0.000732 & ... & 3.355098e-35 & 2.646043e-36 & 2.005009e-37 & 1.459711e-38 & 1.021038e-39 & 6.862018e-41 & 4.430906e-42 & 2.746545e-43 & 1.681558e-44 & 1.401298e-45 \\
+\hline
+4 & 4 & 1.401298e-45 & 0.000000 & 0.000000 & 0.000000 & 0.000010 & 0.000025 & 0.000063 & 0.000148 & 0.000335 & ... & 4.087346e-34 & 3.355098e-35 & 2.646043e-36 & 2.005009e-37 & 1.459711e-38 & 1.021038e-39 & 6.862018e-41 & 4.430906e-42 & 2.746545e-43 & 1.681558e-44 \\
+\hline
+... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... \\
+\hline
+96 & 96 & 3.354626e-04 & 0.000732 & 0.001534 & 0.003089 & 0.005976 & 0.011109 & 0.019841 & 0.034047 & 0.056135 & ... & 2.746545e-43 & 1.681558e-44 & 1.401298e-45 & 0.000000e+00 & 0.000000e+00 & 0.000000e+00 & 9.929508e-06 & 2.541935e-05 & 6.252155e-05 & 1.477484e-04 \\
+\hline
+97 & 97 & 1.477484e-04 & 0.000335 & 0.000732 & 0.001534 & 0.003089 & 0.005976 & 0.011109 & 0.019841 & 0.034047 & ... & 4.430906e-42 & 2.746545e-43 & 1.681558e-44 & 1.401298e-45 & 0.000000e+00 & 0.000000e+00 & 0.000000e+00 & 9.929508e-06 & 2.541935e-05 & 6.252155e-05 \\
+\hline
+98 & 98 & 6.252155e-05 & 0.000148 & 0.000335 & 0.000732 & 0.001534 & 0.003089 & 0.005976 & 0.011109 & 0.019841 & ... & 6.862018e-41 & 4.430906e-42 & 2.746545e-43 & 1.681558e-44 & 1.401298e-45 & 0.000000e+00 & 0.000000e+00 & 0.000000e+00 & 9.929508e-06 & 2.541935e-05 \\
+\hline
+99 & 99 & 2.541935e-05 & 0.000063 & 0.000148 & 0.000335 & 0.000732 & 0.001534 & 0.003089 & 0.005976 & 0.011109 & ... & 1.021038e-39 & 6.862018e-41 & 4.430906e-42 & 2.746545e-43 & 1.681558e-44 & 1.401298e-45 & 0.000000e+00 & 0.000000e+00 & 0.000000e+00 & 9.929508e-06 \\
+\hline
+100 & 0 & 9.929508e-06 & 0.000025 & 0.000063 & 0.000148 & 0.000335 & 0.000732 & 0.001534 & 0.003089 & 0.005976 & ... & 1.459711e-38 & 1.021038e-39 & 6.862018e-41 & 4.430906e-42 & 2.746545e-43 & 1.681558e-44 & 1.401298e-45 & 0.000000e+00 & 0.000000e+00 & 0.000000e+00 \\
+\hline
+\bottomrule
+\end{tabular}
+
+\bigskip
+
+101 rows $\times$ 101 columns

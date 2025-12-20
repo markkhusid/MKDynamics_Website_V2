@@ -1,0 +1,77 @@
+\begin{verbatim}
+- - -
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+ - - -
+\end{verbatim}
+
+\subparagraph{Section Arrays: Matrix}
+
+Adapted from: \href{https://github.com/gjbex/Fortran-MOOC/tree/master/source\_code/arrays}{https://github.com/gjbex/Fortran-MOOC/tree/master/source\_code/arrays}
+
+\subparagraph{This program demonstrates a 2D matrix in Fortran.}
+
+\begin{verbatim}
+program matrix
+  implicit none
+  integer, parameter :: ROWS = 3, COLS = 5
+  real, dimension(ROWS, COLS) :: A
+  integer :: i, j
+  real :: total
+
+  A = reshape([ (((i - 1)*size(A, 2) + j, j=1,size(A, 2)), i=1,size(A, 1)) ], &
+              shape(A))
+  do i = 1, size(A, 1)
+      print *, A(i, :)
+  end do
+  total = 0.0
+  do j = 1, size(A, 2)
+      do i = 1, size(A, 1)
+          total = total + A(i, j)**2
+      end do
+  end do
+  print '(/, A, F10.2)', 'total = ', total
+end program matrix
+\end{verbatim}
+
+The above program is compiled and run using Fortran Package Manager (fpm):
+
+\subparagraph{Build the Program using FPM (Fortran Package Manager)}
+
+\begin{verbatim}
+import os
+root_dir = os.getcwd()
+\end{verbatim}
+
+\begin{verbatim}
+code_dir = root_dir + "/" + "Fortran_Code/Section_Arrays_Matrix"
+\end{verbatim}
+
+\begin{verbatim}
+os.chdir(code_dir)
+\end{verbatim}
+
+\begin{verbatim}
+build_status = os.system("fpm build 2>/dev/null")
+\end{verbatim}
+
+\subparagraph{Run the Program using FPM (Fortran Package Manager)}
+
+\begin{verbatim}
+exec_status = os.system("fpm run 2>/dev/null")
+\end{verbatim}
+
+\begin{verbatim}
+1.00000000       4.00000000       7.00000000       10.0000000       13.0000000    
+   2.00000000       5.00000000       8.00000000       11.0000000       14.0000000    
+   3.00000000       6.00000000       9.00000000       12.0000000       15.0000000    
+
+total =    1240.00
+\end{verbatim}

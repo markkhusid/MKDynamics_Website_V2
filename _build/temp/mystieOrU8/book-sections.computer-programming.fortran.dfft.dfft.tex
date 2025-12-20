@@ -1,0 +1,119 @@
+\paragraph{Discretized Fourier Transform of Arbitrary Signal Using FFTW3 in Fortran}
+
+\subparagraph{Table of Contents}
+
+\tableofcontents
+\subparagraph{Introduction}
+
+The Discrete Fourier Transform (DFT) is a mathematical technique used to convert a signal from its time domain representation to its frequency domain representation. The DFT is defined as follows:
+
+\begin{equation}
+X(k) = \sum_{n=0}^{N-1} x(n) e^{-j2\pi kn/N}
+\end{equation}
+
+where $X(k)$ is the DFT of the signal $x(n)$, $N$ is the number of samples in the signal, and $k$ is the frequency index. The DFT is a powerful tool in signal processing and is used in a wide range of applications, including audio and image processing, communications, and control systems.
+
+The Fast Fourier Transform (FFT) is an algorithm that computes the DFT of a signal more efficiently than the standard DFT algorithm. The FFT algorithm exploits the symmetry properties of the DFT to reduce the number of computations required to compute the DFT. The FFT algorithm is widely used in practice due to its speed and efficiency.
+
+In this tutorial, we will use the FFTW3 library to compute the DFT of an arbitrary signal. FFTW3 is a highly optimized library for computing the FFT of a signal and is widely used in scientific computing applications. We will demonstrate how to use the FFTW3 library to compute the DFT of a signal and visualize the frequency spectrum of the signal.
+
+\subparagraph{Prerequisites}
+
+To follow this tutorial, you will need:
+
+\begin{itemize}
+\item A basic understanding of Fortran programming
+\item A working Fortran compiler (e.g., gfortran)
+\item The FFTW3 library installed on your system
+\end{itemize}
+
+\subparagraph{Installing FFTW3}
+
+The FFTW3 library is a free and open-source library that can be downloaded from the FFTW website. To install FFTW3 on your system, follow these steps:
+
+\begin{enumerate}
+\item Download the FFTW3 library from the FFTW website.
+\item Extract the contents of the downloaded archive to a directory on your system.
+\item Run the following commands to configure, compile, and install the FFTW3 library:
+\end{enumerate}
+
+\begin{verbatim}
+./configure
+make
+make install
+\end{verbatim}
+
+\subparagraph{Computing the DFT Using FFTW3}
+
+To compute the DFT of an arbitrary signal using FFTW3, follow these steps:
+
+\begin{enumerate}
+\item Include the FFTW3 module in your Fortran program:
+\end{enumerate}
+
+\begin{verbatim}
+use, intrinsic :: iso_c_binding
+use fftw3
+\end{verbatim}
+
+\begin{enumerate}[resume]
+\item Define the size of the input signal and allocate memory for the input and output arrays:
+\end{enumerate}
+
+\begin{verbatim}
+integer, parameter :: N = 1024
+real(c_double), dimension(N) :: x
+complex(c_double), dimension(N) :: X
+\end{verbatim}
+
+\begin{enumerate}[resume]
+\item Create a plan for computing the FFT of the input signal:
+\end{enumerate}
+
+\begin{verbatim}
+type(c_ptr) :: plan
+plan = fftw_plan_dft_1d(N, c_loc(x), c_loc(X), FFTW_FORWARD, FFTW_ESTIMATE)
+\end{verbatim}
+
+\begin{enumerate}[resume]
+\item Generate a sample input signal (e.g., a sinusoidal signal) and compute its DFT:
+\end{enumerate}
+
+\begin{verbatim}
+do i = 1, N
+    x(i) = sin(2.0 * 3.14159 * i / N)
+end do
+call fftw_execute_dft(plan, c_loc(x), c_loc(X))
+\end{verbatim}
+
+\begin{enumerate}[resume]
+\item Visualize the frequency spectrum of the input signal using a plotting library (e.g., gnuplot):
+\end{enumerate}
+
+\begin{verbatim}
+open(unit=10, file='spectrum.dat', status='unknown')
+do i = 1, N
+    write(10, *) i, abs(X(i))
+end do
+close(10)
+\end{verbatim}
+
+\begin{enumerate}[resume]
+\item Plot the frequency spectrum using gnuplot:
+\end{enumerate}
+
+\begin{verbatim}
+gnuplot -persist -e "plot 'spectrum.dat' with lines"
+\end{verbatim}
+
+\subparagraph{Discussion}
+
+The plan here is to write a Fortran 2003 program that utilizes the FFTW3 library to generate a Discretized Fast Fourier Transforms of arbitrary waveforms. To test the code we start with a function whose DFFT is easily identifiable by inspection, and then increase in complexity. SciLAB and Python+Numpy on Jupyter Notebook are used to generate the the time domain functions, time domain and frequency domain plots and discretized time domain data. The Fortran 2003 code is then run on the discretized time domain data and the results plotted with GNUPlot. A comparison is made to check the veracity of the Fortran 2003 code output.
+
+\subparagraph{Examples}
+
+The following examples demonstrate the computation of the DFT of an arbitrary signal using the FFTW3 library in Fortran.
+
+\subparagraph{Conclusion}
+
+In this tutorial, we have demonstrated how to compute the Discrete Fourier Transform (DFT) of an arbitrary signal using the FFTW3 library in Fortran. The FFTW3 library provides a fast and efficient way to compute the DFT of a signal and is widely used in scientific computing applications. By following the steps outlined in this tutorial, you can compute the DFT of a signal and visualize its frequency spectrum using the FFTW3 library.

@@ -1,0 +1,88 @@
+\begin{verbatim}
+- - -
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+ - - -
+\end{verbatim}
+
+\subparagraph{Free Store Operators \textbf{new} and \textbf{delete}}
+
+Adapted from: ``Object-Oriented Programming Using C++'' by Ira Pohl (Addison- Wesley)
+
+\subparagraph{Program that demonstrates the free store operators \textit{new} and \textit{delete} in C++}
+
+\begin{verbatim}
+#include <iostream>
+#include <assert.h>
+using namespace std;
+
+double avg_arr(const int a[], int size)
+{
+    int sum = 0;
+    for (int i = 0; i < size; ++i)
+        sum += a[i];
+    return static_cast<double>(sum) / size;
+}
+
+int main()
+{
+    int *   data;
+    int     size;
+
+    for (int n_loop = 0; n_loop < 1; ++n_loop) {
+        cout << "\nEnter array size: ";
+        cin >> size;
+        assert(size > 0);
+
+        data = new int[size];
+        assert (data != 0);
+
+        for (int j = 0; j < size; ++j) {
+            cout << "\nEnter data at position " << j << " -> ";
+            cin >> data[j];
+        }
+        
+        cout << " average is " << avg_arr(data, size) << endl;
+        delete [] data;
+    }
+}
+\end{verbatim}
+
+The above program is compiled and run using Gnu Compiler Collection (g++):
+
+\begin{verbatim}
+import os
+root_dir = os.getcwd()
+\end{verbatim}
+
+\begin{verbatim}
+code_dir = root_dir + "/" + "Cpp_Code/Chapter_3_19_Free_Store_Operators_new_and_delete"
+\end{verbatim}
+
+\begin{verbatim}
+ch_dir_stat = os.chdir(code_dir)
+\end{verbatim}
+
+\begin{verbatim}
+build_command = os.system("g++ dynarray.cpp -w -o dynarray")
+\end{verbatim}
+
+\begin{verbatim}
+exec_status = os.system("echo \"5 123 456 789 321 654\" | ./dynarray")
+\end{verbatim}
+
+\begin{verbatim}
+Enter array size: 
+Enter data at position 0 -> 
+Enter data at position 1 -> 
+Enter data at position 2 -> 
+Enter data at position 3 -> 
+Enter data at position 4 ->  average is 468.6
+\end{verbatim}

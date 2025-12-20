@@ -1,0 +1,255 @@
+\begin{verbatim}
+- - -
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+ - - -
+\end{verbatim}
+
+\subparagraph{Section: BLAS/LAPACK - DDOT Timing}
+
+Adapted from: \href{https://github.com/gjbex/Fortran-MOOC/tree/master/source\_code/blas\_lapack}{https://github.com/gjbex/Fortran-MOOC/tree/master/source\_code/blas\_lapack}
+
+\subparagraph{This program demonstrates copying vectors using BLAS/LAPACK in Fortran.}
+
+\begin{verbatim}
+program ddot_timing
+  use, intrinsic :: iso_fortran_env, only : error_unit, DP => REAL64
+  implicit none
+  integer :: n, runs, run, i, istat
+  real(kind=DP), dimension(:), allocatable :: u, v
+  real(kind=DP) :: scale_u, scale_v, r, r_ddot
+  real(kind=DP) :: ddot_time, loop_time
+  real :: start_time, end_time 
+
+  interface
+    real(kind=DP) function ddot(n, dx, incx, dy, incy)
+      import :: DP
+      integer :: n, incx, incy
+      real(kind=DP), dimension(*) :: dx, dy
+    end function ddot
+  end interface
+
+  call get_arguments(runs, n)
+  allocate (u(n), v(n), stat=istat)
+  if (istat /= 0) then
+      write (unit=error_unit, fmt='(A)') 'error: can not allocate vectors'
+      stop 2
+  end if
+
+  do run = 1, runs
+      print *, "Received command line arguments..."
+      print '(A, I10)', 'Runs: ', runs
+      print '(A, I10)', 'Array size: ', n
+      print *, 'Filling arrays u, v with data...'
+      scale_u = 1.17*run
+      scale_v = 0.17*run
+      do i = 1, n
+          u(i) = scale_u*sqrt(real(i))/n
+          v(i) = scale_v*sqrt(real(i))/n
+      end do
+      print *, 'Starting DDOT run...'
+      call cpu_time(start_time)
+      r_ddot = ddot(n, u, 1, v, 1)
+      call cpu_time(end_time)
+      ddot_time = end_time - start_time
+      call cpu_time(start_time)
+      print *, 'Starting Loop run...'
+      r = 0.0_DP
+      do i = 1, n
+          r = r + u(i)*v(i)
+      end do
+      call cpu_time(end_time)
+      loop_time = end_time - start_time
+      print '(A, F10.6, A, F10.6)', 'ddot time: ', ddot_time, &
+                                    ', loop time: ', loop_time
+  end do
+
+  deallocate (u, v)
+
+contains
+
+  subroutine get_arguments(runs, n)
+      use, intrinsic :: iso_fortran_env, only : error_unit
+      implicit none
+      integer, intent(out) :: runs, n
+      integer :: istat
+      character(len=1024) :: buffer, msg
+      
+      runs = 1
+      if (command_argument_count() >= 1) then
+          call get_command_argument(1, buffer)
+          read (buffer, fmt=*, iostat=istat, iomsg=msg) runs
+          if (istat /= 0) then
+              write (unit=error_unit, fmt='(2A)') 'error: ', trim(msg)
+              stop 1
+          end if
+      end if
+      n = 50000000
+      if (command_argument_count() >= 2) then
+          call get_command_argument(2, buffer)
+          read (buffer, fmt=*) n
+          if (istat /= 0) then
+              write (unit=error_unit, fmt='(2A)') 'error: ', trim(msg)
+              stop 1
+          end if
+      end if
+  end subroutine get_arguments
+
+end program ddot_timing
+\end{verbatim}
+
+The above program is compiled and run using Fortran Package Manager (fpm):
+
+\subparagraph{Build the Program using FPM (Fortran Package Manager)}
+
+\begin{verbatim}
+import os
+root_dir = ""
+root_dir = os.getcwd()
+\end{verbatim}
+
+Since the code makes use of the LAPACK library, the following FPM configuration file (fpm.toml) was used:
+
+\begin{verbatim}
+name = "Section_BLAS_LAPACK_DDOT_Timing"
+
+[build]
+auto -executables = true
+auto -tests = true
+auto -examples = true
+link = ["blas", "lapack"]
+
+[install]
+library = false
+
+[[executable]]
+name="Section_BLAS_LAPACK_DDOT_Timing"
+source -dir="app"
+main="section_blas_lapack_ddot_timing.f90"
+\end{verbatim}
+
+\begin{verbatim}
+code_dir = root_dir + "/" + "Fortran_Code/Section_BLAS_LAPACK_DDOT_Timing"
+\end{verbatim}
+
+\begin{verbatim}
+os.chdir(code_dir)
+\end{verbatim}
+
+\begin{verbatim}
+build_status = os.system("fpm build 2>/dev/null")
+\end{verbatim}
+
+\subparagraph{Run the Program using FPM (Fortran Package Manager)}
+
+\begin{verbatim}
+exec_status = \
+    os.system("fpm run 2>/dev/null - - 1 1000")
+\end{verbatim}
+
+\begin{verbatim}
+Received command line arguments...
+Runs:          1
+Array size:       1000
+ Filling arrays u, v with data...
+ Starting DDOT run...
+ Starting Loop run...
+ddot time:   0.000006, loop time:   0.000003
+\end{verbatim}
+
+\begin{verbatim}
+exec_status = \
+    os.system("fpm run 2>/dev/null - - 1 10000")
+\end{verbatim}
+
+\begin{verbatim}
+Received command line arguments...
+Runs:          1
+Array size:      10000
+ Filling arrays u, v with data...
+ Starting DDOT run...
+ Starting Loop run...
+ddot time:   0.000015, loop time:   0.000022
+\end{verbatim}
+
+\begin{verbatim}
+exec_status = \
+    os.system("fpm run 2>/dev/null - - 1 100000")
+\end{verbatim}
+
+\begin{verbatim}
+Received command line arguments...
+Runs:          1
+Array size:     100000
+ Filling arrays u, v with data...
+ Starting DDOT run...
+ Starting Loop run...
+ddot time:   0.000143, loop time:   0.000267
+\end{verbatim}
+
+\begin{verbatim}
+exec_status = \
+    os.system("fpm run 2>/dev/null - - 1 1000000")
+\end{verbatim}
+
+\begin{verbatim}
+Received command line arguments...
+Runs:          1
+Array size:    1000000
+ Filling arrays u, v with data...
+ Starting DDOT run...
+ Starting Loop run...
+ddot time:   0.001544, loop time:   0.002459
+\end{verbatim}
+
+\begin{verbatim}
+exec_status = \
+    os.system("fpm run 2>/dev/null - - 1 10000000")
+\end{verbatim}
+
+\begin{verbatim}
+Received command line arguments...
+Runs:          1
+Array size:   10000000
+ Filling arrays u, v with data...
+ Starting DDOT run...
+ Starting Loop run...
+ddot time:   0.016614, loop time:   0.042484
+\end{verbatim}
+
+\begin{verbatim}
+exec_status = \
+    os.system("fpm run 2>/dev/null - - 1 100000000")
+\end{verbatim}
+
+\begin{verbatim}
+Received command line arguments...
+Runs:          1
+Array size:  100000000
+ Filling arrays u, v with data...
+ Starting DDOT run...
+ Starting Loop run...
+ddot time:   0.130864, loop time:   0.295137
+\end{verbatim}
+
+\begin{verbatim}
+exec_status = \
+    os.system("fpm run 2>/dev/null")
+\end{verbatim}
+
+\begin{verbatim}
+Received command line arguments...
+Runs:          1
+Array size:   50000000
+ Filling arrays u, v with data...
+ Starting DDOT run...
+ Starting Loop run...
+ddot time:   0.058750, loop time:   0.121549
+\end{verbatim}

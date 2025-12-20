@@ -1,0 +1,105 @@
+\begin{verbatim}
+- - -
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+ - - -
+\end{verbatim}
+
+\subparagraph{Section 3.6: Median of Three}
+
+Adapted from: ``Guide to Fortran 2008 Programming'' by Walter S. Brainerd (Springer 2015)
+
+\subparagraph{Program that finds the median of three numbers.}
+
+\begin{verbatim}
+program median_of_3_program
+
+    implicit none
+
+    real :: num1, num2, num3
+    real :: median
+    
+    write (*, '(a)') "This program finds the median of three numbers....."
+    write (*, '(a)') "Data piped in from command line...."
+    read *, num1, num2, num3
+    
+    write (*, '(a, 3f10.2)') "The three entered numbers were - ->", num1, num2, num3
+    
+    median = medianOf3(n1=num1, n2=num2, n3=num3)
+    
+    write (*, '(a, f10.2)') "The median value is - ->", median
+ 
+    contains
+
+        subroutine swap(a, b)
+            real, intent (in out) :: a, b
+            real :: temp
+            temp = a
+            a = b
+            b = temp
+        end subroutine swap
+    
+        subroutine sort(val1, val2, val3)
+            real, intent(in out) :: val1, val2, val3
+        
+            if (val1 > val2) then
+                call swap (val1, val2)
+            end if
+            if (val1 > val3) then
+                call swap (val1, val3)
+            end if
+            if (val2 > val3) then
+                call swap (val2, val3)
+            end if
+        end subroutine sort
+
+        function medianOf3(n1, n2, n3) result (median_value)
+ 
+            real, intent(in out) :: n1, n2, n3
+            real :: median_value
+        
+            call sort (val1=n1, val2=n2, val3=n3)
+            
+            median_value = n2
+     
+        end function medianOf3
+
+end program median_of_3_program
+\end{verbatim}
+
+The above program is compiled and run using Fortran Package Manager (fpm):
+
+\begin{verbatim}
+import os
+root_dir = os.getcwd()
+\end{verbatim}
+
+\begin{verbatim}
+code_dir = root_dir + "/" + "Fortran_Code/Section_3_6_Ex_1_Median_of_Three"
+\end{verbatim}
+
+\begin{verbatim}
+os.chdir(code_dir)
+\end{verbatim}
+
+\begin{verbatim}
+build_status = os.system("fpm build 2>/dev/null")
+\end{verbatim}
+
+\begin{verbatim}
+exec_status = os.system("echo '87 12 55' | fpm run 2>/dev/null")
+\end{verbatim}
+
+\begin{verbatim}
+This program finds the median of three numbers.....
+Data piped in from command line....
+The three entered numbers were - ->     87.00     12.00     55.00
+The median value is - ->     55.00
+\end{verbatim}
