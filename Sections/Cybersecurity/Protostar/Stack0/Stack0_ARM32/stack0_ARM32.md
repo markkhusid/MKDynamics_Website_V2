@@ -2,8 +2,6 @@
 
 **Under Contruction**
 
----
-
 ## **Introduction**
 
 In this section, we will complete the set of exploit exercises known as Protostar. The first challenge is called Stack0. The idea is to change an internal variable in a running program from the command line. The technique involves overflowing a buffer to overwrite the contents of the internal variable. The link is shown below.
@@ -12,8 +10,6 @@ In this section, we will complete the set of exploit exercises known as Protosta
 
 We will perform this exercise using the ARM32 platform instead of the original i386 platform. The C code should run the same way, while the underlying assembly code is very different. We will explore the similarities as well as the differences between the two platforms.
 
----
-
 ## **The Vulnerable C Program `stack0.c`**
 
 We start with the vulnerable C Program `stack0.c`. The program is vulnerable because the `gets` function does not have any bounds checking. In other words, it will take whatever amount of data is given to it and put this data into the `buffer` argument, even if the amount of data exceeds the storage space allocated for `buffer`. In this case, `buffer` is allocated 64 bytes.
@@ -21,7 +17,7 @@ We start with the vulnerable C Program `stack0.c`. The program is vulnerable bec
 If a properly coded payload is input into the `gets` function, it could overwrite the `buffer` variable and even other variables. In this case, the variable we wish to overwrite is called `modified`.
 
 ```{figure} images/stack0_c_3.jpg
-:name: stack0_c_3
+:name: stack0_c_3_ARM32
 :alt: stack0_c_3
 :align: center
 
@@ -29,8 +25,6 @@ The vulnerable program *stack0.c*
 ```
 
 [Click here to download `stack0.c`](code/stack0.c)
-
----
 
 ## **Running the Vulnerable C Program `stack0.c` Through GDB+GEF**
 
@@ -97,7 +91,14 @@ The instruction `push ebp` saves `main`'s `ebp` so that it can be restored after
 | **`ESP ->`**      | `main`'s saved `EBP`             | 4            |
 | Low Memory        | `garbage`                        | 4            |
 
-![State of execution after `push ebp`](../images/Protostar/Stack0/gef_step_1_push_ebp.jpg)
+```{figure} images/GEF_step_1_push_r11_lr.jpg
+:name: GEF_step_1_push_r11_lr.jpg
+:alt: GEF_step_1_push_r11_lr.jpg
+:align: center
+
+State of execution after `push r11_lr`
+```
+
 
 ---
 
@@ -105,9 +106,16 @@ The instruction `push ebp` saves `main`'s `ebp` so that it can be restored after
 
 The instruction `mov ebp, esp` moves the current stack pointer `esp` into `ebp`, allowing stack data to be referenced with respect to the base pointer `ebp`. The state of the stack does not change.
 
-![State of execution after `mov ebp, esp`](../images/Protostar/Stack0/gef_step_2_mov_ebp_esp.jpg)
 
----
+```{figure} images/GEF_step_2_add_r11_sp_4.jpg
+:name: GEF_step_2_add_r11_sp_4.jpg
+:alt: GEF_step_2_add_r11_sp_4.jpg
+:align: center
+
+State of execution after `add r11, sp, 4`
+```
+
+
 
 ### **Stepping From `main+3` to `main+6`**
 
@@ -121,9 +129,14 @@ The instruction `and esp, 0xfffffff0` clears out the last 4 bits of the `esp` re
 |                   | `main`'s saved `EBP`             | 4            |
 | **`ESP ->`**      | `0xf7f99000`                     | 4            |
 
-![State of execution after `and esp, 0xfffffff0`](../images/Protostar/Stack0/gef_step_3_and_esp_0xfffffff0.jpg)
 
----
+```{figure} images/GEF_step_3_sub_sp_sp_80.jpg
+:name: GEF_step_3_sub_sp_sp_80.jpg
+:alt: GEF_step_3_sub_sp_sp_80.jpg
+:align: center
+
+State of execution after sub, sp, 80
+```
 
 ### **Layout of the Stack in Program `stack0.c` After `and esp, 0xfffffff0` Instruction**
 
@@ -138,7 +151,6 @@ The table below illustrates the layout of the stack once `and esp, 0xfffffff0` i
 |                   | `garbage`                                              | 4            |
 | Low Memory        | `garbage`                                              | 4            |
 
----
 
 ## **Disassembling and Executing The Vulnerable C Program `stack0.c` with GDB+GEF**
 
@@ -148,9 +160,13 @@ In this section, we advance a single assembly instruction, describe what happene
 
 Execution was advanced a single step in GDB+GEF by using the `si` instruction. `EIP` now points to `main+9`.
 
-![State of execution after `sub esp, 0x60`](../images/Protostar/Stack0/gef_step_4_sub_esp_0x60.jpg)
+```{figure} images/GEF_step_4_str_r0_r11_80.jpg
+:name: GEF_step_4_str_r0_r11_80.jpg
+:alt: GEF_step_4_str_r0_r11_80.jpg
+:align: center
 
----
+State of execution after `str r0, [r11, 80]`
+```
 
 ### **Layout of the Stack in Program `stack0.c` After `sub esp, 0x60` Instruction**
 
@@ -175,9 +191,13 @@ In this section, we advance a single assembly instruction, describe what happene
 
 Execution was advanced a single step in GDB+GEF by using the `si` instruction. `EIP` now points to `main+17`.
 
-![State of execution after `mov DWORD PTR [esp+0x5c], 0x0`](../images/Protostar/Stack0/gef_step_5_mov_DWORD_PTR_esp+0x5c_0x0.jpg)
+```{figure} images/GEF_step_5_str_r1_r11_84.jpg
+:name: GEF_step_5_str_r1_r11_84.jpg
+:alt: GEF_step_5_str_r1_r11_84.jpg
+:align: center
 
----
+State of execution after `str r1, [r11, 84]`
+```
 
 ### **Layout of the Stack in Program `stack0.c` After `mov DWORD PTR [esp+0x5c], 0x0` Instruction**
 
@@ -202,9 +222,13 @@ In this section, we advance a single assembly instruction, describe what happene
 
 Execution was advanced a single step in GDB+GEF by using the `si` instruction. `EIP` now points to `main+21`.
 
-![State of execution after `lea eax, [esp+0x1c]`](../images/Protostar/Stack0/gef_step_6_lea_eax_[esp+0x1c].jpg)
+```{figure} images/GEF_step_6_mov_r3_0.jpg
+:name: GEF_step_6_mov_r3_0.jpg
+:alt: GEF_step_6_mov_r3_0.jpg
+:align: center
 
----
+State of execution after `mov r3, 0`
+```
 
 ### **Layout of the Stack in Program `stack0.c` After `lea eax, [esp+0x1c]` Instruction**
 
@@ -227,9 +251,14 @@ In this section, we advance a single assembly instruction, describe what happene
 
 Execution was advanced a single step in GDB+GEF by using the `si` instruction. `EIP` now points to `main+24`.
 
-![State of execution after `mov DWORD PTR [esp], eax`](../images/Protostar/Stack0/gef_step_7_mov_DWORD_PTR_[esp]_eax.jpg)
 
----
+```{figure} images/GEF_step_7_str_r3_r11_8.jpg
+:name: GEF_step_7_str_r3_r11_8.jpg
+:alt: GEF_step_7_str_r3_r11_8.jpg
+:align: center
+
+State of execution after `str r3, [r11, 8]`
+```
 
 ### **Layout of the Stack in Program `stack0.c` After `mov DWORD PTR [esp], eax` Instruction**
 
@@ -242,19 +271,29 @@ The table below illustrates the layout of the stack once `mov DWORD PTR [esp], e
 |                   | `RET` (Main's return address back to `libc`)           | 4            |
 | **`ESP ->`**      | `0xffffd11c` (Address of `buffer[64]`)                 | 4            |
 
----
+
 
 ### **Creating the Payload to Overwrite the Variable `modified`**
 
 We will create a Python script to build a payload. This payload will contain 64+4 characters, which is the 68 bytes necessary to completely overwrite the variable `modified`.
 
-![Python program to generate payload to input into `stack0.c`](../images/Protostar/Stack0/exploit_py.jpg)
+```{figure} images/exploit_py.jpg
+:name: exploit_py_ARM32
+:alt: exploit_py.jpg
+:align: center
+
+Python program to generate payload to input into `stack0.c`
+```
 
 The goal of this program is to generate 66 bytes. The reason it is not 68 bytes is because we need to account for the carriage return (CR) character that Python's `print` statement appends to the end. Below is the output of `exploit.py` and a view of the `xxd` output of the payload file.
 
-![Python program to generate payload to input into `stack0.c`](../images/Protostar/Stack0/exploit_py_output_and_xxd.jpg)
+```{figure} images/exploit_py_output_and_xxd.jpg
+:name: exploit_py_output_and_xxd_ARM32
+:alt: exploit_py_output_and_xxd.jpg
+:align: center  
 
----
+Output of `exploit.py` and `xxd` view of the payload file
+```
 
 ### **Layout of the Stack in Program `stack0.c` After `mov DWORD PTR [esp], eax` Instruction**
 

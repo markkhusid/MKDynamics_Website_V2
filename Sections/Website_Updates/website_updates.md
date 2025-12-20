@@ -1,6 +1,9 @@
 # Website Updates
 This file contains a log of updates made to the MKDynamics website. It is used to track changes, additions, and improvements over time.
 
+## 12/19/2025
+- Converting the entire website into the Jupyter Book 2 platform.  This involves converting all legacy content into Myst-NB markdown format.  This is a significant undertaking, but it will allow for a more modern and interactive website.
+
 ## 7/21/2025
 - Added new section on Disassembling Binaries for Fortran ARM64, including `div_int` example.  Starting to work on 'sub_int'.
 
