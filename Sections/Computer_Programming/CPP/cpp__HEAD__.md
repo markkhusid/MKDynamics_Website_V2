@@ -10,12 +10,9 @@ Worked examples and exercises will be provided from the following textbooks and 
 ## Table of Contents
 
 ::::{grid} 2 2 2 2
-:class-container: text-center
-:gutter: 3
 
 :::{grid-item-card}
-:link: Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp__HEAD__.html
-:class-header: bg-dark
+:link: Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp__HEAD__
 
 Object-Oriented Programming Using C++
 ^^^
@@ -25,8 +22,7 @@ Object-Oriented Programming Using C++
 :::
 
 :::{grid-item-card}
-:link: Learn_Modern_CPP/Learn_Modern_CPP__HEAD__.html
-:class-header: bg-dark
+:link: Learn_Modern_CPP/Learn_Modern_CPP__HEAD__
 
 Learn Modern C++
 ^^^
@@ -35,8 +31,6 @@ Learn Modern C++
 ```
 :::
 ::::
-
-
 
 ## Resources and Textbooks Used
 
