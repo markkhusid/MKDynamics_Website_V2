@@ -1,0 +1,14 @@
+name = "Section_Bit_Manipulations_Create_Lookup_Table"
+
+[build]
+auto-executables = true
+auto-tests = true
+auto-examples = true
+
+[install]
+library = false
+
+[[executable]]
+name="Section_Bit_Manipulations_Create_Lookup_Table"
+source-dir="app"
+main="section_bit_manipulations_create_lookup_table.f90"
