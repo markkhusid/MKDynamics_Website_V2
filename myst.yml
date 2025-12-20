@@ -553,6 +553,9 @@ project:
                 - file: Sections/About_Me/Certificates/certificates_coursera.md
                 - file: Sections/About_Me/Certificates/certificates_kaggle.md
                 - file: Sections/About_Me/Certificates/certificates_tryhackme.md
+    - title: Master's in Computer Science (Cybersecurity) Portfolio Project
+      children:
+        - file: Sections/MCS_Portfolio_Project/MCS_portfolio_project.md
     - title: Website Updates
       children:
         - file: Sections/Website_Updates/website_updates.md
