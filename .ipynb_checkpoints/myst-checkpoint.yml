@@ -1,0 +1,574 @@
+version: 1
+project:
+  title: MK Dynamics
+  authors:
+    - name: Mark Khusid
+  exclude:
+    - build
+    - FORD.md
+    - README.md
+    - ford.md
+  github: markkhusid/MKDynamics_Website_V2
+  thebe:
+    binder:
+      repo: markkhusid/MKDynamics_Website_V2
+      provider: github
+      url: https://mybinder.org
+      ref: master
+  exports:
+    - format: pdf
+      template: plain_latex_book
+      output: exports/book.pdf
+  toc:
+    - file: intro.md
+    - title: Cybersecurity
+      children:
+        - file: Sections/Cybersecurity/cybersecurity.md
+          children:
+            - file: >-
+                Sections/Cybersecurity/Basic_Linux_Exploits/basic_linux_exploits.md
+            - file: >-
+                Sections/Cybersecurity/Disassembling_Binaries/disassembling_binaries.md
+              children:
+                - file: >-
+                    Sections/Cybersecurity/Disassembling_Binaries/Fortran/fortran.md
+                  children:
+                    - file: >-
+                        Sections/Cybersecurity/Disassembling_Binaries/Fortran/ARM64/arm64.md
+                      children:
+                        - file: >-
+                            Sections/Cybersecurity/Disassembling_Binaries/Fortran/ARM64/ADD_INT/add_int.md
+                        - file: >-
+                            Sections/Cybersecurity/Disassembling_Binaries/Fortran/ARM64/MULT_INT/mult_int.md
+                        - file: >-
+                            Sections/Cybersecurity/Disassembling_Binaries/Fortran/ARM64/DIV_INT/div_int.md
+                        - file: >-
+                            Sections/Cybersecurity/Disassembling_Binaries/Fortran/ARM64/SUB_INT/sub_int.md
+                        - file: >-
+                            Sections/Cybersecurity/Disassembling_Binaries/Fortran/ARM64/MOD_INT/mod_int.md
+                    - file: >-
+                        Sections/Cybersecurity/Disassembling_Binaries/Fortran/ARM32/arm32.md
+                    - file: >-
+                        Sections/Cybersecurity/Disassembling_Binaries/Fortran/AMD64/amd64.md
+                    - file: >-
+                        Sections/Cybersecurity/Disassembling_Binaries/Fortran/i386/i386.md
+                - file: Sections/Cybersecurity/Disassembling_Binaries/C/c.md
+                  children:
+                    - file: >-
+                        Sections/Cybersecurity/Disassembling_Binaries/C/AMD64/amd64__HEAD__.md
+                    - file: >-
+                        Sections/Cybersecurity/Disassembling_Binaries/C/i386/i386__HEAD__.md
+                      children:
+                        - file: >-
+                            Sections/Cybersecurity/Disassembling_Binaries/C/i386/Add_Int/add_int.md
+                        - file: >-
+                            Sections/Cybersecurity/Disassembling_Binaries/C/i386/Mult_Int/mult_int.md
+                        - file: >-
+                            Sections/Cybersecurity/Disassembling_Binaries/C/i386/Div_Int/div_int.md
+                - file: Sections/Cybersecurity/Disassembling_Binaries/C++/c++.md
+                - file: Sections/Cybersecurity/Disassembling_Binaries/Ada/ada.md
+                  children:
+                    - file: >-
+                        Sections/Cybersecurity/Disassembling_Binaries/Ada/AMD64/amd64__HEAD__.md
+                    - file: >-
+                        Sections/Cybersecurity/Disassembling_Binaries/Ada/i386/i386__HEAD__.md
+                - file: >-
+                    Sections/Cybersecurity/Disassembling_Binaries/Pascal/pascal.md
+            - file: Sections/Cybersecurity/LiveOverflow/liveoverflow.md
+            - file: Sections/Cybersecurity/Protostar/protostar.md
+              children:
+                - file: Sections/Cybersecurity/Protostar/Stack0/stack0.md
+                  children:
+                    - file: >-
+                        Sections/Cybersecurity/Protostar/Stack0/Stack0_x86/stack0_x86.md
+                    - file: >-
+                        Sections/Cybersecurity/Protostar/Stack0/Stack0_AMD64/stack0_AMD64.md
+                    - file: >-
+                        Sections/Cybersecurity/Protostar/Stack0/Stack0_ARM32/stack0_ARM32.md
+                    - file: >-
+                        Sections/Cybersecurity/Protostar/Stack0/Stack0_ARM64/stack0_ARM64.md
+            - file: Sections/Cybersecurity/SLAE64/SLAE64.md
+              children:
+                - file: >-
+                    Sections/Cybersecurity/SLAE64/Modules/Module_1/Section_3_GDB_Test/section_3_GDB_test.md
+                - file: >-
+                    Sections/Cybersecurity/SLAE64/Modules/Module_1/Section_5_Hello_World/section_5_hello_world.md
+            - file: >-
+                Sections/Cybersecurity/Shellcode_Generation_and_Testing/shellcode_generation_and_testing.md
+    - title: Computer Programming
+      children:
+        - file: Sections/Computer_Programming/computer_programming.md
+          children:
+            - file: Sections/Computer_Programming/Assembly/assembly.md
+            - file: Sections/Computer_Programming/C/c__HEAD__.md
+              children:
+                - file: >-
+                    Sections/Computer_Programming/C/Backdoored_Webserver/backdoored_webserver.ipynb
+                - file: >-
+                    Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/Beej_s_Guide_to_C_Programming__HEAD__.md
+                  children:
+                    - file: >-
+                        Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/section_5_1_memory_and_variables.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/section_5_3_dereferencing.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/section_5_4_passing_pointers_as_arguments.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/section_6_1_arrays_an_easy_example.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/section_6_3_arrays_array_initializers.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/section_6_4_arrays_out_of_bounds.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/section_6_5_arrays_multidimensional_arrays.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/section_6_6_1_arrays_getting_a_pointer_to_an_array.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/section_6_6_2_arrays_passing_single_dimensional_arrays_to_functions.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/section_6_6_3_arrays_changing_arrays_in_functions.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/C/Beej_s_Guide_to_C_Programming/section_6_6_4_arrays_passing_multidimensional_arrays_to_functions.ipynb
+            - file: Sections/Computer_Programming/CPP/cpp__HEAD__.md
+              children:
+                - file: >-
+                    Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp__HEAD__.md
+                  children:
+                    - file: >-
+                        Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp_Ch_1.md
+                      children:
+                        - file: >-
+                            Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Hello_Cpp.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_1_5_Overloading.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_1_7_The_Standard_Template_Library.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp_Ch_2.md
+                      children:
+                        - file: >-
+                            Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_2_3_Program_Structure.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_2_5_The_Traditional_Conversions.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp_Ch_3.md
+                      children:
+                        - file: >-
+                            Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_3_1_1_Function_Invocation.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_3_2_Function_Definition.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_3_3_The_Return_Statement.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_3_4_Function_Prototypes.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_3_6_Overloading_Functions.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_3_10_Pointer_Types.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_3_12_Arrays_and_Pointers.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_3_16_Assertions_and_Program_Correctness.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_3_19_Free_Store_Operators_new_and_delete.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp_Ch_4.ipynb
+                      children:
+                        - file: >-
+                            Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_4_3_An_Example_Stack.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_4_7_Bit_Fields.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_4_8_Two_Dimensional_Dynamic_Arrays.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp_Ch_5.ipynb
+                      children:
+                        - file: >-
+                            Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_5_2_Access_Private_and_Public.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_5_7_The_This_Pointer.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_5_8_Static_and_Const_Member_Functions.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_5_9_Containers_and_Item_Access.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp_Ch_6.ipynb
+                      children:
+                        - file: >-
+                            Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_6_1_0_Classes_with_Constructors.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_6_1_3_Constructors_as_Conversions.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_6_2_1_The_Copy_Constructor.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_6_3_Classes_with_Destructors.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_6_4_An_Example__Dynamically_Allocated_Strings.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_6_5_A_Class_Vect.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_6_6_Members_that_Are_Class_Types.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_6_7_An_Example__A_Singly_Linked_List.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_6_8_Two_Dimensional_Arrays.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_6_9_Polynomials_as_a_Linked_List.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_6_10_Strings_Using_Reference_Semantics.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_6_11_No_Constructor_Copy_Constructor_and_Other_Mysteries.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp_Ch_7.ipynb
+                      children:
+                        - file: >-
+                            Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_7_1_ADT_Conversions.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_7_2_Overloading_and_Function_Selection.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_7_3_Friend_Functions.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_7_6_Binary_Operator_Overloading.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_7_7_Overloading_Assignment_and_Subscripting_Operators.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_7_10_Overloading_Operator_Parenthesis_for_Indexing.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_7_11_Pointer_Operators.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/CPP/Object_Oriented_Programming_Using_Cpp/Chapter_7_11_1_Pointer_to_Class_Member.ipynb
+                - file: >-
+                    Sections/Computer_Programming/CPP/Learn_Modern_CPP/Learn_Modern_CPP__HEAD__.md
+                  children:
+                    - file: >-
+                        Sections/Computer_Programming/CPP/Learn_Modern_CPP/01_Strings_and_Character_Literals.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/CPP/Learn_Modern_CPP/02_Variables_Scopes_and_Namespaces__Assign.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/CPP/Learn_Modern_CPP/02_Variables_Scopes_and_Namespaces__Swap.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/CPP/Learn_Modern_CPP/02_Variables_Scopes_and_Namespaces__Uniform.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/CPP/Learn_Modern_CPP/02_Variables_Scopes_and_Namespaces__Scopes.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/CPP/Learn_Modern_CPP/02_Variables_Scopes_and_Namespaces__Namespaces.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/CPP/Learn_Modern_CPP/02_Variables_Scopes_and_Namespaces__Constants.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/CPP/Learn_Modern_CPP/02_Variables_Scopes_and_Namespaces__References.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/CPP/Learn_Modern_CPP/02_Variables_Scopes_and_Namespaces__Constexpr.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/CPP/Learn_Modern_CPP/03_Conditions_and_Operators__Conditions_and_Switch_Case.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/CPP/Learn_Modern_CPP/03_Conditions_and_Operators__Conditions_and_Switch_Case_2.ipynb
+            - file: Sections/Computer_Programming/Fortran/fortran__HEAD__.md
+              children:
+                - file: >-
+                    Sections/Computer_Programming/Fortran/Modern_Fortran/modern_fortran__HEAD__.md
+                  children:
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/Modern_Fortran/Cold_Front_Calculator.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/Modern_Fortran/Cold_Front_Calculator_with_Loop.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/Modern_Fortran/Tsunami_Simulator.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/Modern_Fortran/Tsunami_Simulator_Plotter.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/Modern_Fortran/Tsunami_Simulator_with_Modules.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/Modern_Fortran/Tsunami_Simulator_with_Modules_Plotter.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/Modern_Fortran/Print_Compiler_Version.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/Modern_Fortran/Analyzing_Time_Series_Data_with_Arrays.ipynb
+                - file: >-
+                    Sections/Computer_Programming/Fortran/Intro_to_Fortran/intro_to_fortran__HEAD__.ipynb
+                  children:
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/Intro_to_Fortran/Section_7_Period_Calculator.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/Intro_to_Fortran/Section_9_3_SOS_Difference.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/Intro_to_Fortran/Section_12_8_Line_Numbers.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/Intro_to_Fortran/Section_14_Pi_Estimation.ipynb
+                - file: >-
+                    Sections/Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/guide_to_fortran_2008_programming.ipynb
+                  children:
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_1_8_Ex_2_Quadratic_Formula.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_1_16_Factorial_Recursion.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_2_1_Associate_Construct.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_2_1_Statement_Blocks.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_3_4_Putting_Procedures_in_a_Module.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_3_6_Ex_1_Median_of_Three.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_3_8_Argument_Passing.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_3_17_Case_Study__Adaptive_Numberical_Integration.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_4_1_Elsewhere_Example.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_8_1_Submodules.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_8_2_Time_Matrix_Multiply.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_8_7_Generic_Elemental_Procedures.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_8_8_Findloc_Function.ipynb
+                - file: >-
+                    Sections/Computer_Programming/Fortran/Fortran_MOOC/fortran_mooc.ipynb
+                  children:
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays.ipynb
+                      children:
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Allocate_from_Source.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Array_Arithmetic.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Array_Elements.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Array_Initialization.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Array_Timing.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Assumed.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Compute_Factorial.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Double_Deallocate.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Elemental_Subroutine.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Enlarge_Array.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Identity.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Linear_Transform.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Matrix.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Max_Array.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Normalize.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Normalize_Performance.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Reshape.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Subarrays.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Submatrices.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Trace.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Ball_Throw__Head__.ipynb
+                      children:
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Ball_Throw.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Bit_Manipulations__Head__.ipynb
+                      children:
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Bit_Manipulations_Create_Lookup_Table.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Bit_Manipulations_Bit_Count.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Floating_Point.ipynb
+                      children:
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_IEEE754_16_Zero_vs_Non_Zero.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Call_By_Semantics.ipynb
+                      children:
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Call_By_Semantics_Call_By_In_Reference.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Call_By_Semantics_Call_By_Reference.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Call_By_Semantics_Call_By_Value.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Cellular_Automata__Head__.ipynb
+                      children:
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Cellular_Automata.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Computing_Pi.ipynb
+                      children:
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Computing_Pi_Compute_Pi.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Computing_Pi_Compute_Pi_OpenMP.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Implicit_vs_Explicit_Loops__Head__.ipynb
+                      children:
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Implicit_vs_Explicit_Loops.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Block_Matrices__Head__.ipynb
+                      children:
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Block_Matrices.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_BLAS_LAPACK__Head__.ipynb
+                      children:
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_BLAS_LAPACK_BLAS95__Head__.ipynb
+                          children:
+                            - file: >-
+                                Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_BLAS_LAPACK_BLAS95.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_BLAS_LAPACK_Linear_Equations__Head__.ipynb
+                          children:
+                            - file: >-
+                                Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_BLAS_LAPACK_Linear_Equations.ipynb
+                            - file: >-
+                                Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_BLAS_LAPACK_Dot.ipynb
+                            - file: >-
+                                Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_BLAS_LAPACK_Copy.ipynb
+                            - file: >-
+                                Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_BLAS_LAPACK_DDOT_Timing.ipynb
+                            - file: >-
+                                Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_BLAS_LAPACK_GEMV.ipynb
+                            - file: >-
+                                Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_BLAS_LAPACK_Scal.ipynb
+                            - file: >-
+                                Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_BLAS_LAPACK_SV.ipynb
+                - file: >-
+                    Sections/Computer_Programming/Fortran/Neural_Fortran/neural_fortran__HEAD__.md
+                  children:
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/Neural_Fortran/Section_Examples_Sine_Wave.ipynb
+                - file: Sections/Computer_Programming/Fortran/DFFT/DFFT.md
+                  children:
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/DFFT/Sine_Wave_10_Hz/sine_wave_10_hz.md
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/DFFT/Square_Wave_1_Hz_50_pct/square_wave_1_hz_50_pct.md
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/DFFT/2_Sine_Waves/2sineXHz.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/DFFT/Switched_Sine_Wave_1_kHz/switched_sine_wave_1_kHz.ipynb
+                - file: >-
+                    Sections/Computer_Programming/Fortran/CSV_Fortran/CSV_Fortran__HEAD__.ipynb
+                  children:
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/CSV_Fortran/csv_fortran_read_csv.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/CSV_Fortran/csv_fortran_write_csv.ipynb
+                - file: Sections/Computer_Programming/Fortran/NERSC/NERSC__HEAD__.md
+                  children:
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/NERSC/Supercomputing_Crash_Course/SCC__HEAD__.md
+                      children:
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/NERSC/Supercomputing_Crash_Course/Computing_Pi_Serial/Computing_Pi_Serial.ipynb
+            - file: Sections/Computer_Programming/Javascript/javascript.md
+            - file: Sections/Computer_Programming/Kaggle/kaggle__HEAD__.md
+              children:
+                - file: >-
+                    Sections/Computer_Programming/Kaggle/Python/python__HEAD__.md
+                  children:
+                    - file: >-
+                        Sections/Computer_Programming/Kaggle/Python/Python_Tutorial/python_tutorial.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Kaggle/Python/Python_Exercise/python_exercise.ipynb
+            - file: Sections/Computer_Programming/PHP/php.md
+            - file: Sections/Computer_Programming/Python/python.md
+              children:
+                - file: >-
+                    Sections/Computer_Programming/Python/Python_Playground/Python_Playground__HEAD__.ipynb
+                  children:
+                    - file: >-
+                        Sections/Computer_Programming/Python/Python_Playground/Section_Chapter_2_Draw_Circle.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Python/Python_Playground/Section_Chapter_2_Draw_Spiro.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Python/Python_Playground/Section_Chapter_3_Conway.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Python/Python_Playground/Section_Chapter_4_Karplus_Strong.ipynb
+            - file: >-
+                Sections/Computer_Programming/Jupyter_Widgets/Using_Interact.ipynb
+    - title: Raspberry Pi
+      children:
+        - file: Sections/Raspberry_Pi/raspberry_pi.md
+          children:
+            - file: >-
+                Sections/Raspberry_Pi/Exploring_Raspberry_Pi/exploring_raspberry_pi__HEAD__.md
+    - title: Electronics
+      children:
+        - file: Sections/Electronics/electronics.md
+          children:
+            - file: Sections/Electronics/Analog_and_Digital/analog_and_digital.md
+              children:
+                - file: >-
+                    Sections/Electronics/Analog_and_Digital/AD9850_DDS/AD9850_DDS.md
+            - file: >-
+                Sections/Electronics/Power_Electronics/power_electronics__HEAD__.md
+              children:
+                - file: >-
+                    Sections/Electronics/Power_Electronics/Power_Supplies/power_supplies__HEAD__.md
+                  children:
+                    - file: >-
+                        Sections/Electronics/Power_Electronics/Power_Supplies/Forward_Converter_100V_to_5V_10A/forward_converter_100V_to_5V_10A.md
+                    - file: >-
+                        Sections/Electronics/Power_Electronics/Hacking_the_TL494_LTSpice_Model/hacking_the_TL494_LTSpice_model.md
+            - file: >-
+                Sections/Electronics/Solar_Power_Projects/solar_power_projects__HEAD__.md
+              children:
+                - file: Sections/Electronics/Solar_Power_Projects/Dual_Diode_Box/dual_diode_box.md
+            - file: >-
+                Sections/Electronics/Single_Board_Computers_Running_Linux/single_board_computers_running_linux.md
+    - title: Finite Element Analysis
+      children:
+        - file: Sections/Finite_Element_Analysis/finite_element_analysis.md
+          children:
+            - file: >-
+                Sections/Finite_Element_Analysis/CAELinux_for_Thermal_Analysis/caelinux_for_thermal_analysis.md
+    - title: Ham Radio
+      children:
+        - file: Sections/Ham_Radio/ham_radio.md
+          children:
+            - file: Sections/Ham_Radio/Ham_Radio_Projects/ham_radio_projects.md
+              children:
+                - file: >-
+                    Sections/Ham_Radio/Ham_Radio_Projects/Packet_Radio/packet_radio.md
+            - file: >-
+                Sections/Ham_Radio/Antenna_Simulation_using_4NEC2/antenna_simulation_using_4NEC2.md
+    - title: About Me
+      children:
+        - file: Sections/About_Me/aboutme.md
+          children:
+            - file: Sections/About_Me/Resume/resume.md
+            - file: Sections/About_Me/Certificates/certificates.md
+              children:
+                - file: Sections/About_Me/Certificates/certificates_coursera.md
+                - file: Sections/About_Me/Certificates/certificates_kaggle.md
+                - file: Sections/About_Me/Certificates/certificates_tryhackme.md
+    - title: Master's in Computer Science (Cybersecurity) Portfolio Project
+      children:
+        - file: Sections/MCS_Portfolio_Project/MCS_portfolio_project.md
+    - title: Website Updates
+      children:
+        - file: Sections/Website_Updates/website_updates.md
+    - title: Miscellaneous
+      children:
+        - file: Sections/Misc/misc__head__.md
+          children:
+            - file: Sections/Misc/useful_links.md
+            - file: Sections/Misc/cybersecurity_links.md
+site:
+  options:
+    logo: images/spacey.jpg
+    favicon: images/spacey.jpg
+    analytics_google: G-BZ3C1QVH0B
+    folders: true
+  template: book-theme
