@@ -10,12 +10,9 @@ Worked examples and exercises will be provided from the following textbooks and 
 ## Table of Contents
 
 ::::{grid} 2 2 2 2
-:class-container: text-center
-:gutter: 3
 
 :::{grid-item-card}
 :link: Modern_Fortran/modern_fortran__HEAD__
-:class-header: bg-auto
 
 Modern Fortran
 ^^^
@@ -26,7 +23,6 @@ Modern Fortran
 
 :::{grid-item-card}
 :link: NERSC/NERSC__HEAD__
-:class-header: bg-auto
 
 National Energy Research Scientific Computing Center (NERSC)
 ^^^
@@ -37,7 +33,6 @@ National Energy Research Scientific Computing Center (NERSC)
 
 :::{grid-item-card}
 :link: Neural_Fortran/neural_fortran__HEAD__.md
-:class-header: bg-auto
 
 Neural Fortran
 ^^^
@@ -48,7 +43,6 @@ Neural Fortran
 
 :::{grid-item-card}
 :link: Intro_to_Fortran/intro_to_fortran
-:class-header: bg-auto
 
 Introduction to Programming Using Fortran
 ^^^
@@ -59,7 +53,6 @@ Introduction to Programming Using Fortran
 
 :::{grid-item-card}
 :link: Guide_to_Fortran_2008_Programming/guide_to_fortran_2008_programming
-:class-header: bg-auto
 
 Guide to Fortran 2008 Programming
 ^^^
@@ -70,7 +63,6 @@ Guide to Fortran 2008 Programming
 
 :::{grid-item-card}
 :link: Fortran_MOOC/fortran_mooc
-:class-header: bg-auto
 
 PRACE MOOC on "Fortran for Scientific Programming"
 ^^^
@@ -80,8 +72,7 @@ PRACE MOOC on "Fortran for Scientific Programming"
 :::
 
 :::{grid-item-card}
-:link: DFFT/DFFT.html
-:class-header: bg-auto
+:link: DFFT/DFFT.md
 
 Discretized Fourier Transform of Arbitrary Signal Using FFTW3 Algorithm
 ^^^
@@ -92,7 +83,6 @@ Discretized Fourier Transform of Arbitrary Signal Using FFTW3 Algorithm
 
 :::{grid-item-card}
 :link: CSV_Fortran/CSV_Fortran__HEAD__
-:class-header: bg-auto
 
 Using the CSV Fortran Module to Read and Write CSV Files
 ^^^

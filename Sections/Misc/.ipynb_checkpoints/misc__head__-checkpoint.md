@@ -1,7 +1,6 @@
 # Miscellaneous Home
 
 ::::{grid} 2 2 2 2
-:class-container: text-center
 
 :::{grid-item-card}
 :link: useful_links.md
