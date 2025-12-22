@@ -36,7 +36,7 @@ National Energy Research Scientific Computing Center (NERSC)
 :::
 
 :::{grid-item-card}
-:link: Neural_Fortran/neural_fortran__HEAD__
+:link: Neural_Fortran/neural_fortran__HEAD__.md
 :class-header: bg-auto
 
 Neural Fortran
