@@ -22,7 +22,7 @@ Modern Fortran
 :::
 
 :::{grid-item-card}
-:link: NERSC/NERSC__HEAD__
+:link: NERSC/NERSC__HEAD__.md
 
 National Energy Research Scientific Computing Center (NERSC)
 ^^^
