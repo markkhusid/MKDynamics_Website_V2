@@ -52,7 +52,7 @@ Introduction to Programming Using Fortran
 :::
 
 :::{grid-item-card}
-:link: Guide_to_Fortran_2008_Programming/guide_to_fortran_2008_programming
+:link: Guide_to_Fortran_2008_Programming/guide_to_fortran_2008_programming__HEAD__.md
 
 Guide to Fortran 2008 Programming
 ^^^

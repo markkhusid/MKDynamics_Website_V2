@@ -10,28 +10,28 @@ In this section we will be following along with the examples from \"[Introductio
 :::{grid-item-card}
 :link: Section_7_Period_Calculator.ipynb
 
-Period Calculator
+Section 7: Period Calculator
 ^^^
 :::
 
 :::{grid-item-card}
 :link: Section_9_3_SOS_Difference.ipynb
 
-Difference Between Sum of Squares and Square of Sums
+Section 9.3: Difference Between Sum of Squares and Square of Sums
 ^^^
 :::
 
 :::{grid-item-card}
 :link: Section_12_8_Line_Numbers.ipynb
 
-Line Numbers
+Section 12.8: Line Numbers
 ^^^
 :::
 
 :::{grid-item-card}
 :link: Section_14_Pi_Estimation.ipynb
 
-Pi Estimation
+Section 14: Pi Estimation
 ^^^
 :::
     

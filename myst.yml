@@ -295,7 +295,7 @@ project:
                     - file: >-
                         Sections/Computer_Programming/Fortran/Intro_to_Fortran/Section_14_Pi_Estimation.ipynb
                 - file: >-
-                    Sections/Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/guide_to_fortran_2008_programming.ipynb
+                    Sections/Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/guide_to_fortran_2008_programming__HEAD__.md
                   children:
                     - file: >-
                         Sections/Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_1_8_Ex_2_Quadratic_Formula.ipynb
