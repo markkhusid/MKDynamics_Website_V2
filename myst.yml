@@ -284,7 +284,7 @@ project:
                     - file: >-
                         Sections/Computer_Programming/Fortran/Modern_Fortran/Analyzing_Time_Series_Data_with_Arrays.ipynb
                 - file: >-
-                    Sections/Computer_Programming/Fortran/Intro_to_Fortran/intro_to_fortran__HEAD__.ipynb
+                    Sections/Computer_Programming/Fortran/Intro_to_Fortran/intro_to_fortran__HEAD__.md
                   children:
                     - file: >-
                         Sections/Computer_Programming/Fortran/Intro_to_Fortran/Section_7_Period_Calculator.ipynb

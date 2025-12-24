@@ -42,7 +42,7 @@ Neural Fortran
 :::
 
 :::{grid-item-card}
-:link: Intro_to_Fortran/intro_to_fortran
+:link: Intro_to_Fortran/intro_to_fortran__HEAD__.md
 
 Introduction to Programming Using Fortran
 ^^^
