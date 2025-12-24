@@ -312,7 +312,7 @@ project:
                     - file: >-
                         Sections/Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_3_8_Argument_Passing.ipynb
                     - file: >-
-                        Sections/Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_3_17_Case_Study__Adaptive_Numberical_Integration.ipynb
+                        Sections/Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_3_17_Case_Study__Adaptive_Numerical_Integration.ipynb
                     - file: >-
                         Sections/Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_4_1_Elsewhere_Example.ipynb
                     - file: >-
