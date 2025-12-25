@@ -324,7 +324,7 @@ project:
                     - file: >-
                         Sections/Computer_Programming/Fortran/Guide_to_Fortran_2008_Programming/Section_8_8_Findloc_Function.ipynb
                 - file: >-
-                    Sections/Computer_Programming/Fortran/Fortran_MOOC/fortran_mooc.ipynb
+                    Sections/Computer_Programming/Fortran/Fortran_MOOC/fortran_mooc.md
                   children:
                     - file: >-
                         Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays.ipynb

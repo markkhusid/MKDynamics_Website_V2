@@ -62,7 +62,7 @@ Guide to Fortran 2008 Programming
 :::
 
 :::{grid-item-card}
-:link: Fortran_MOOC/fortran_mooc
+:link: Fortran_MOOC/fortran_mooc.md
 
 PRACE MOOC on "Fortran for Scientific Programming"
 ^^^
