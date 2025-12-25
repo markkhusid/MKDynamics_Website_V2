@@ -23,7 +23,7 @@ project:
     - file: intro.md
     - title: Cybersecurity
       children:
-        - file: Sections/Cybersecurity/cybersecurity.md
+        - file: Sections/Cybersecurity/cybersecurity__HEAD__.md
           children:
             - file: >-
                 Sections/Cybersecurity/Basic_Linux_Exploits/basic_linux_exploits.md
@@ -505,7 +505,7 @@ project:
                 Sections/Raspberry_Pi/Exploring_Raspberry_Pi/exploring_raspberry_pi__HEAD__.md
     - title: Electronics
       children:
-        - file: Sections/Electronics/electronics.md
+        - file: Sections/Electronics/electronics__HEAD__.md
           children:
             - file: Sections/Electronics/Analog_and_Digital/analog_and_digital.md
               children:
