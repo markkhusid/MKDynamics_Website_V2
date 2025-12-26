@@ -97,7 +97,7 @@ project:
                 Sections/Cybersecurity/Shellcode_Generation_and_Testing/shellcode_generation_and_testing.md
     - title: Computer Programming
       children:
-        - file: Sections/Computer_Programming/computer_programming.md
+        - file: Sections/Computer_Programming/computer_programming__HEAD__.md
           children:
             - file: Sections/Computer_Programming/Assembly/assembly.md
             - file: Sections/Computer_Programming/C/c__HEAD__.md
@@ -447,7 +447,7 @@ project:
                   children:
                     - file: >-
                         Sections/Computer_Programming/Fortran/Neural_Fortran/Section_Examples_Sine_Wave.ipynb
-                - file: Sections/Computer_Programming/Fortran/DFFT/DFFT.md
+                - file: Sections/Computer_Programming/Fortran/DFFT/DFFT__HEAD__.md
                   children:
                     - file: >-
                         Sections/Computer_Programming/Fortran/DFFT/Sine_Wave_10_Hz/sine_wave_10_hz.md
@@ -482,7 +482,7 @@ project:
                     - file: >-
                         Sections/Computer_Programming/Kaggle/Python/Python_Exercise/python_exercise.ipynb
             - file: Sections/Computer_Programming/PHP/php.md
-            - file: Sections/Computer_Programming/Python/python.md
+            - file: Sections/Computer_Programming/Python/python__HEAD__.md
               children:
                 - file: >-
                     Sections/Computer_Programming/Python/Python_Playground/Python_Playground__HEAD__.ipynb
@@ -535,7 +535,7 @@ project:
                 Sections/Finite_Element_Analysis/CAELinux_for_Thermal_Analysis/caelinux_for_thermal_analysis.md
     - title: Ham Radio
       children:
-        - file: Sections/Ham_Radio/ham_radio.md
+        - file: Sections/Ham_Radio/ham_radio__HEAD__.md
           children:
             - file: Sections/Ham_Radio/Ham_Radio_Projects/ham_radio_projects.md
               children:
@@ -567,7 +567,7 @@ project:
         - file: Sections/Website_Updates/website_updates.md
     - title: Miscellaneous
       children:
-        - file: Sections/Misc/misc__head__.md
+        - file: Sections/Misc/misc__HEAD__.md
           children:
             - file: Sections/Misc/useful_links.md
             - file: Sections/Misc/cybersecurity_links.md

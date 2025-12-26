@@ -1,3 +1,0 @@
-# Javascript Programming
-
-Under construction.
