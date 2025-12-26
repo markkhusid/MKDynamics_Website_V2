@@ -556,6 +556,12 @@ project:
     - title: Master's in Computer Science (Cybersecurity) Portfolio Project
       children:
         - file: Sections/MCS_Portfolio_Project/MCS_portfolio_project.md
+          children:
+            - file: Sections/MCS_Portfolio_Project/L3Firewall.ipynb
+            - file: Sections/MCS_Portfolio_Project/dataExtractor.ipynb
+            - file: Sections/MCS_Portfolio_Project/FNN_Sample_SA.ipynb
+            - file: Sections/MCS_Portfolio_Project/FNN_Sample_SB.ipynb
+            - file: Sections/MCS_Portfolio_Project/FNN_Sample_SC.ipynb
     - title: Website Updates
       children:
         - file: Sections/Website_Updates/website_updates.md
