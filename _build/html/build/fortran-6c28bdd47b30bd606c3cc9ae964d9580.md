@@ -4,13 +4,9 @@ In this section, we will disassemble Fortran binaries generated for the i386, AM
 
 
 ::::{grid} 1 1 1 1
-:class-container: text-center
-:gutter: 3
 
 :::{grid-item-card}
 :link: ARM64/arm64
-:link-type: doc
-:class-header: bg-dark
 
 ARM 64 - Bit
 ^^^
@@ -22,8 +18,6 @@ ARM 64 - Bit
 
 :::{grid-item-card}
 :link: ARM32/arm32
-:link-type: doc
-:class-header: bg-dark
 
 ARM 32 - Bit
 ^^^
@@ -35,8 +29,6 @@ ARM 32 - Bit
 
 :::{grid-item-card}
 :link: AMD64/amd64
-:link-type: doc
-:class-header: bg-dark
 
 AMD 64 - Bit
 ^^^
@@ -48,8 +40,6 @@ AMD 64 - Bit
 
 :::{grid-item-card}
 :link: i386/i386
-:link-type: doc
-:class-header: bg-dark
 
 i386 32 - Bit
 ^^^

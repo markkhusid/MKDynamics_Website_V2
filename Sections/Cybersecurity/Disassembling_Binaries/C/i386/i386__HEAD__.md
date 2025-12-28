@@ -10,9 +10,6 @@ C is a general-purpose programming language that was developed in the early 1970
 
 ## Table of Contents
 
-```{tableofcontents}
-```
-
 ::::{grid} 2 2 2 2
 :class-container: text-center
 :gutter: 3

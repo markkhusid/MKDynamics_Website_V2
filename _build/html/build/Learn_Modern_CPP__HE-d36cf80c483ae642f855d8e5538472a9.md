@@ -7,8 +7,6 @@ In this section, we will discuss and experiment with C++ programming. C++ is a h
 
 
 ## Table of Contents
-```{tableofcontents}
-```
 
 ## Resources and Textbooks Used
 

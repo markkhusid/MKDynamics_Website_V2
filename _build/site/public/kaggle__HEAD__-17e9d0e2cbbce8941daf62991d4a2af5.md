@@ -12,10 +12,8 @@ The platform is designed to allow users to find and publish data sets, explore a
 The website can be found here: [Kaggle](https://www.kaggle.com/)
 
 ## Table of Contents 
-```{tableofcontents}
-```
 
-## Tutorials
+### Tutorials
 ::::{grid} 2 2 2 2
 
 :::{grid-item-card}
