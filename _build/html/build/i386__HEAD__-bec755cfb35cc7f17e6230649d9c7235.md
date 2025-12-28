@@ -11,13 +11,9 @@ C is a general-purpose programming language that was developed in the early 1970
 ## Table of Contents
 
 ::::{grid} 2 2 2 2
-:class-container: text-center
-:gutter: 3
 
 :::{grid-item-card}
 :link: Add_Int/add_int
-:link-type: doc
-:class-header: bg-dark
 
 Adding Integers
 ^^^
@@ -29,8 +25,6 @@ Adding Integers
 
 :::{grid-item-card}
 :link: Mult_Int/mult_int
-:link-type: doc
-:class-header: bg-dark
 
 Multiplying Integers
 ^^^
@@ -42,8 +36,6 @@ Multiplying Integers
 
 :::{grid-item-card}
 :link: Div_Int/div_int
-:link-type: doc
-:class-header: bg-dark
 
 Dividing Integers
 ^^^

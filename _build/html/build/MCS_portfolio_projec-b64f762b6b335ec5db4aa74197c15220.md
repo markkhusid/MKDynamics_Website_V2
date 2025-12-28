@@ -651,7 +651,7 @@ A Project requirement is that the Gateway/Server must not be able to ping the Cl
 Server Ping to Client
 ```
 
-##### Project 2: SDN-Based Stateless Firewall Project
+#### Project 2: SDN-Based Stateless Firewall Project
 
 Once the firewalls were setup on the Controller, pings were blocked per the Project requirements.  For example, when Host 1 tried to ping Host 3, the pings were dropped, as shown in [](#CSE548_Fig_43): Check Blocking ICMP Traffic from 192.168.2.10 to 192.168.2.30 below:
 
@@ -678,6 +678,150 @@ HTTP Server Setup on Host 2
 HTTP Requests to Node 2 Blocked
 ```
 
+A Project requirement is that MAC address filtering is performed from Host 2 to Host 4.  To perform this test, the Linux command [arping](https://linux.die.net/man/8/arping) was used.  A successful test showing the MAC address filtering from Host 2 to Host 4 was performed and the results are shown in [](#CSE548_Fig_47): Host 2 to Host 4 MAC Address Filtering below:
+
+```{figure} images/CSE548_Fig_47.png
+:label: CSE548_Fig_47
+Host 2 to Host 4 MAC Address Filtering
+```
+
+It can be seen in [](#CSE548_Fig_47): Host 2 to Host 4 MAC Address Filtering that only one response is received from Node 4, while testing [arping](https://linux.die.net/man/8/arping) from Node 1 to Node 3 produced many responses.  This is taken as traffic from Node 2 to Node 4 is blocked based on MAC addresses, since the first reply is necessary for the Controller to learn the flow rule.
+
+A Project requirement is that both TCP and UDP traffic are blocked from Host 1 to Host 2.  The [hping3](https://linux.die.net/man/8/hping3) Linux command was used to send both TCP and UDP packets.  A successful test of TCP packets being blocked when sent from Host 1 to Host 2 is shown in [](#CSE548_Fig_48): Check Blocking of TCP Traffic from Host 1 to Host 2 below:
+
+```{figure} images/CSE548_Fig_48.png
+:label: CSE548_Fig_48   
+Check Blocking of TCP Traffic from Host 1 to Host 2
+```
+
+Likewise, for UDP traffic, a successful test showing that the UDP traffic from Host 1 to Host 2 is being blocked is shown in [](#CSE548_Fig_49): Check Blocking of UDP Traffic from Host 1 to Host 2 below:
+
+```{figure} images/CSE548_Fig_49.png
+:label: CSE548_Fig_49
+Check Blocking of UDP Traffic from Host 1 to Host 2
+```
+
+As can be seen from [](#CSE548_Fig_48): Check Blocking of TCP Traffic from Host 1 to Host 2 and [](#CSE548_Fig_49): Check Blocking of UDP Traffic from Host 1 to Host 2, both TCP and UDP traffic was successfully blocked from Host 1 to Host 2.
+
+#### Project 3: SDN-Based DoS Attacks and Mitigation Project
+
+As a baseline, a DoS flood test was performed from Host 1 to 192.168.2.20 (Host 2) with a spoofed source address of 10.10.10.1.  The commands used to initiate the flood test are shown in [](#CSE548_Fig_50): Packet Flood Test from Host 1 to Host 2 with Spoofed Source IP Address 10.10.10.1 below:
+
+```{figure} images/CSE548_Fig_50.png
+:label: CSE548_Fig_50
+Packet Flood Test from Host 1 to Host 2 with Spoofed Source IP Address
+```
+
+```{note} Explanation of hping3 Command by Copilot
+The command used in [](#CSE548_Fig_50): Packet Flood Test from Host 1 to Host 2 with Spoofed Source IP Address is:
+`hping3 10.0.0.2 -c 10000 -S --flood -a 10.10.10.1 -V`
+
+- `10.0.0.2`: target IP.
+- `-c 10000`: send (up to) 10,000 packets then exit.
+- `-S`: set the TCP SYN flag (crafts SYN packets).
+- `--flood`: send packets as fast as possible (no delays), i.e., a high‑rate send.
+- `-a 10.10.10.1`: spoof the source IP address to 10.10.10.1.
+- `-V`: verbose output (show packet headers/info).
+
+Summary: this issues a high‑rate SYN flood (DoS-style) toward 10.0.0.2 while spoofing the source IP. It requires root privileges, can disrupt networks/hosts, and may be illegal or against policy if run against systems you do not own — do not run this on networks without explicit authorization.
+```
+
+As the flood of packets was happening, the OpenFlow switch’s flow entries were updating in real time as shown in [](#CSE548_Fig_51): OpenFlow Entries during Packet Flood below:
+
+```{figure} images/CSE548_Fig_51.png
+:label: CSE548_Fig_51
+OpenFlow Entries during Packet Flood
+```
+
+The POX controller window was also displaying learned flow rules as shown in [](#CSE548_Fig_52): POX Controller Output during Packet Flood below: 
+
+```{figure} images/CSE548_Fig_52.png
+:label: CSE548_Fig_52
+POX Controller Output during Packet Flood
+```
+
+We used the [iptraf-ng](https://github.com/iptraf-ng/iptraf-ng)[^myref_12] Linux application to monitor the amount of IP packets during the packet flood.  The output of [iptraf-ng](https://github.com/iptraf-ng/iptraf-ng) is shown in [](#CSE548_Fig_53): Iptraf-ng Output during Packet Flood below:
+
+```{figure} images/CSE548_Fig_53.png
+:label: CSE548_Fig_53
+Iptraf-ng Output during Packet Flood
+```
+
+It can be seen from [](#CSE548_Fig_53): Iptraf-ng Output during Packet Flood that a huge amount of packets were being sent and a DoS attack was successful.
+
+To mitigate the DoS attack, I swapped out the baseline L3Firewall.py for my modified version and restarted the POX controller.  Again, a DoS was started as shown in [](#CSE548_Fig_54): DoS Attack from Host 1 to Host 2 with Spoofed Source Address of 10.10.10.1 below:
+
+```{figure} images/CSE548_Fig_54.png
+:label: CSE548_Fig_54
+DoS Attack from Host 1 to Host 2 with Spoofed Source Address of 10.10.10.1
+```
+
+As before, we observed the traffic flows on the OpenFlow switch.  The observation was performed using the Linux [watch](https://www.man7.org/linux/man-pages/man1/watch.1.html)[^myref_13] command, so as to be able to observe changes more easily without having to notice changes in a rapidly scrolling screen.  The results of the Linux [watch](https://www.man7.org/linux/man-pages/man1/watch.1.html) command are shown in [](#CSE548_Fig_55): Watch of OpenFlow Switch Traffic Flows.  We notice that a flow rule was added to drop packets from MAC address ending in 01 (i.e. the offending MAC address).
+
+```{figure} images/CSE548_Fig_55.png
+:label: CSE548_Fig_55
+Watch of OpenFlow Switch Traffic Flows
+```
+
+The output of the POX controller indicates that a MAC address was blocked.  This is shown in [](#CSE548_Fig_56): POX Controller Output Indicating Offending MAC Address Permanently Blocked below:
+
+```{figure} images/CSE548_Fig_56.png
+:label: CSE548_Fig_56
+POX Controller Output Indicating Offending MAC Address Permanently Blocked
+```
+
+Pinging between other hosts is still possible as the switch blocks the DoS attack from Host 1.  For example pinging from Host 4 to Host 3 is shown below in [](#CSE548_Fig_57): Pinging Allowed Between Host 4 and Host 3:
+
+```{figure} images/CSE548_Fig_57.png
+:label: CSE548_Fig_57
+Pinging Allowed Between Host 4 and Host 3
+```
+
+However, pinging from Host 1 to any other host is blocked, as shown in [](#CSE548_Fig_58): Pings Blocked from Host 1 to Any Other Host, [](#CSE548_Fig_59): Pings Blocked from Host 1 to Any Other Host, and [](#CSE548_Fig_60): Pings Blocked from Host 1 to Any Other Host below:
+
+```{figure} images/CSE548_Fig_58.png
+:label: CSE548_Fig_58
+Pings Blocked from Host 1 to Any Other Host
+```
+```{figure} images/CSE548_Fig_59.png
+:label: CSE548_Fig_59
+Pings Blocked from Host 1 to Any Other Host
+```
+```{figure} images/CSE548_Fig_60.png
+:label: CSE548_Fig_60
+Pings Blocked from Host 1 to Any Other Host
+```
+
+We can see from [](#CSE548_Fig_58), [](#CSE548_Fig_59), and [](#CSE548_Fig_60): Pings Blocked from Host 1 to Any Other Host, that pings from Host 1 to any other Host are effectively blocked by the firewall.
+
+#### Project 4: Machine Learning-Based Anomaly Detection Project
+
+Once the machine learning models were trained, the learned weights and biases were saved in the Keras[^myref_5] format.  The saving of the trained models prevents having to go through the very time – consuming training process during code development.  When saving the models, their training accuracy and loss histories were not preserved; therefore, their training accuracies and loss histories were saved as JSON files for later retrieval.  An example of the accuracy and loss history for Scenario A is shown in [](#CSE548_Fig_61): Scenario A Model Training Accuracy and Loss JSON File Contents below:
+
+```{figure} images/CSE548_Fig_61.png
+:label: CSE548_Fig_61
+Scenario A Model Training Accuracy and Loss JSON File Contents
+```
+
+For Scenario A, the training accuracy and loss were then evaluated using the SKLearn [evaluate()](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html) function.  The results of the evaluation are shown in [](#CSE548_Fig_62): Evaluate Training Accuracy and Loss:
+
+```{figure} images/CSE548_Fig_62.png
+:label: CSE548_Fig_62
+Evaluate Training Accuracy and Loss
+```
+
+We can see in [](#CSE548_Fig_62): Evaluate Training Accuracy and Loss, that the training accuracy is 0.9991 and the loss is 0.0036.  These are astonishingly great results, and may be an indication of overfitting.
+
+We then evaluate the learned model on the testing dataset.  The results of this evaluation are shown in below:[](#CSE548_Fig_63): Evaluate Scenario A Test Accuracy and Loss:
+
+```{figure} images/CSE548_Fig_63.png
+:label: CSE548_Fig_63
+Evaluate Scenario A Test Accuracy and Loss
+```
+
+Although the testing accuracy in [](#CSE548_Fig_63): Evaluate Scenario A Test Accuracy and Loss, is lower and the loss is higher than for training, the model does pretty well against a testing dataset that does not contain data from the same classes and subclasses.
+
+
 ** Under Construction **
 
 [^myref_1]: OpenFlow Switch Specification. https://opennetworking.org/
@@ -691,6 +835,8 @@ HTTP Requests to Node 2 Blocked
 [^myref_9]: Pandas. https://pandas.pydata.org/
 [^myref_10]: IPython. https://ipython.org/
 [^myref_11]: Internet Control Message Protocol (ICMP). https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol, https://tools.ietf.org/html/rfc792
+[^myref_12]: `iptraf-ng` is an ncurses-based IP LAN monitor that generates various network statistics including TCP info, UDP counts, ICMP   and OSPF information, Ethernet load info, node stats, IP checksum errors, and others.  If the `iptraf-ng` command is issued without any command-line options, the program comes up in interactive mode, with the various facilities accessed through the main menu. https://www.man7.org/linux/man-pages/man8/iptraf-ng.8.html, https://github.com/iptraf-ng/iptraf-ng
+[^myref_13]: `watch` runs command repeatedly, displaying its output and errors (the first screenful). This allows you to watch the program output change over time. By default, command is run every 2 seconds and `watch` will run until interrupted.  A header informs of the start and running time of command as well as its exit code. https://www.man7.org/linux/man-pages/man1/watch.1.html
 
 
 
