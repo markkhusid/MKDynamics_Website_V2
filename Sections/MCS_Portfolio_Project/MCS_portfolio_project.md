@@ -821,8 +821,207 @@ Evaluate Scenario A Test Accuracy and Loss
 
 Although the testing accuracy in [](#CSE548_Fig_63): Evaluate Scenario A Test Accuracy and Loss, is lower and the loss is higher than for training, the model does pretty well against a testing dataset that does not contain data from the same classes and subclasses.
 
+For Scenario B, the training and testing accuracy and loss are shown in [](#CSE548_Fig_64): Scenario B Training and Testing Accuracy and Loss below:
 
-** Under Construction **
+```{figure} images/CSE548_Fig_64.png
+:label: CSE548_Fig_64
+Scenario B Training and Testing Accuracy and Loss
+```
+
+We can see from [](#CSE548_Fig_64): Scenario B Training and Testing Accuracy and Loss that although Scenario A has better training accuracy and lower training loss, Scenario B has better testing accuracy and lower testing loss.
+
+For Scenario C, the training and testing accuracy and loss are shown in [](#CSE548_Fig_65): Scenario C Training and Testing Accuracy and Loss below:
+
+```{figure} images/CSE548_Fig_65.png
+:label: CSE548_Fig_65
+Scenario C Training and Testing Accuracy and Loss
+```
+
+We can see from [](#CSE548_Fig_65): Scenario C Training and Testing Accuracy and Loss that Scenario C has lower training accuracy and training loss than scenario A, but it has better testing accuracy and lower testing loss than both scenario A and scenario B.
+
+For Scenario A, we plot the training accuracy and loss as a function of training epoch.  The results are shown in [](#CSE548_Fig_66): Scenario A Model Training Accuracy and [](#CSE548_Fig_67): Scenario A Model Training Loss below:
+
+```{figure} images/CSE548_Fig_66.png
+:label: CSE548_Fig_66
+Scenario A Model Training Accuracy
+```
+
+```{figure} images/CSE548_Fig_67.png
+:label: CSE548_Fig_67
+Scenario A Model Training Loss
+```
+
+For Scenario B, we plot the training accuracy and loss in [](#CSE548_Fig_68): Scenario B Model Training Accuracy and [](#CSE548_Fig_69): Scenario B Model Training Loss below:
+
+```{figure} images/CSE548_Fig_68.png
+:label: CSE548_Fig_68
+Scenario B Model Training Accuracy
+```
+
+```{figure} images/CSE548_Fig_69.png
+:label: CSE548_Fig_69
+Scenario B Model Training Loss
+```
+
+For Scenario C, we have the following model training accuracy and loss as shown in [](#CSE548_Fig_70): Scenario C Model Training Accuracy and [](#CSE548_Fig_71): Scenario C Model Training Loss.  We can see that Scenario B and Scenario C have the same training accuracy and training loss curves since both scenarios used the same model parameters and training data.
+
+```{figure} images/CSE548_Fig_70.png
+:label: CSE548_Fig_70
+Scenario C Model Training Accuracy
+```
+
+```{figure} images/CSE548_Fig_71.png
+:label: CSE548_Fig_71
+Scenario C Model Training Loss
+```
+
+##### Display Confusion Matrices and Scores
+
+We now show the confusion matrices and scores for each Scenario.  For Scenario A, we have the following confusion matrix, shown in [](#CSE548_Fig_72): Scenario A Confusion Matrix below:
+
+```{figure} images/CSE548_Fig_72.png
+:label: CSE548_Fig_72
+Scenario A Confusion Matrix
+```
+
+The confusion matrix in [](#CSE548_Fig_72): Scenario A Confusion Matrix indicates a large number of False Negatives (2352), which is not a good result for an attack detection model.
+
+The model scores for Scenario A are shown in [](#CSE548_Fig_73): Scenario A Model Scores below:
+
+```{figure} images/CSE548_Fig_73.png
+:label: CSE548_Fig_73
+Scenario A Model Scores
+```
+
+As can be seen in [](#CSE548_Fig_73): Scenario A Model Scores, the precision is 0.8 for the Normal Class and 0.88 for the Attack Class.  This means that of all of the positive predictions, 0.8 of the predictions are correct for the Normal Class, and 0.88 are correct for the Attack Class.
+
+However, when considering the Recall (i.e. True Positive Rate), we see that of all of the actual positives, the model correctly identified 0.96 of the Normal Classes, but only 0.56 of the Attack Classes.  Therefore, we can say that the model struggles to correctly predict when an attack is occuring.  This is somewhat not surprising since the model was tested on subclasses that it was not trained on.
+
+For Scenario B, we have the following confusion matrix shown in [](#CSE548_Fig_74): Scenario B Confusion Matrix below:
+
+```{figure} images/CSE548_Fig_74.png
+:label: CSE548_Fig_74
+Scenario B Confusion Matrix
+```
+
+The confusion matrix shown in [](#CSE548_Fig_74): Scenario B Confusion Matrix indicates that Scenario B has a much lower amount of False Negatives (1558 vs 2352) than Scenario A.
+
+The model scores for Scenario B are shown in [](#CSE548_Fig_75): Scenario B Model Scores below:
+
+```{figure} images/CSE548_Fig_75.png
+:label: CSE548_Fig_75
+Scenario B Model Scores
+```
+
+We observe from [](#CSE548_Fig_75): Scenario B Model Scores, the precision is 0.85 for the Normal Class and 0.86 for the Attack Class.  This means that of all of the positive predictions, 0.85 of the predictions are correct for the Normal Class, and 0.86 are correct for the Attack Class.  The precision of the Scenario A model are just slightly better than the Scenario B model; however, the Scenario B model has drastically better recall (i.e. true positive rate) performance.
+
+We can see from [](#CSE548_Fig_75): Scenario B Model Scores, that the model for Scenario B had a recall (i.e. true positive rate) of 0.9 for the Normal Class and a recall (i.e. true positive rate) of 0.79 for the Attack Class.  The model in Scenario B performs much better in identifying actual attacks when compared to the model in Scenario A (recall of 0.79 vs recall of 0.56).
+
+For Scenario C, we have the following confusion matrix shown in [](#CSE548_Fig_76): Scenario C Confusion Matrix below:
+
+```{figure} images/CSE548_Fig_76.png
+:label: CSE548_Fig_76
+Scenario C Confusion Matrix
+```
+
+The confusion matrix shown in [](#CSE548_Fig_76): Scenario C Confusion Matrix seems to indicate many False Negatives (2178); however, as a ratio to True Negatives (8939) and True Positives (7770), the model in this Scenario seems to perform better than the models in both Scenarios A and B.
+
+The scores for the model in Scenario C are shown [](#CSE548_Fig_77): Scenario C Model Scores below:
+
+```{figure} images/CSE548_Fig_77.png
+:label: CSE548_Fig_77
+Scenario C Model Scores
+```
+
+Observing the model score shown in [](#CSE548_Fig_77): Scenario C Model Scores, we see that the model in Scenario C has comparable precision (i.e. proportion of predicted positives that are correct) and recall (i.e. proportion of actual positives correctly identified) to the model in Scenario B, but has higher support (i.e. the number of actual occurrences of a class in the dataset) for those scores.  What is astonishing is that the model has such high precision and recall despite being tested on data that it has not been trained on (i.e. trained on subclasses A and B, tested on sublasses A, B and C).
+
+It is observed that the model in Scenario A performed worse than the models in Scenario B and Scenario C when the testing subclasses differed from the training subclasses.  Astonishingly, even though scenario C was never training on attack subclass A3, it performed slightly better than scenario B.  Scenario B was trained on attack subclasses A1 and A2, but was tested on attack subclass A1.  Since it was already exposed to this attack subclass, it fared pretty well.  Scenario C was trained on attack subclasses A1 and A2, but not on A3.  Despite this, it still fared very well, even slightly better than scenario B.  This indicates that attack subclass A1 and A2 have some feature similarities to attack subclass C.
+
+We can see from the bar charts in [](#CSE548_Fig_22): A1 and A3 Training Dataset Distribution of Attack Types and [](#CSE548_Fig_24): A2 and A4 Testing Dataset Distribution of Attack Types that for scenario A, there is no overlap in attack names.  The only commonality is the normal column.  Since the normal column magnitude is roughly an order of magnitude higher than the attacks, the model must be learning to recognize what is normal and using this to make a distinction.
+
+For Scenario B, we can see from the bar charts in [](#CSE548_Fig_23): A1 and A2 Training Dataset Distribution of Attack Types and [](#CSE548_Fig_25): A1 Testing Dataset Distribution of Attack Types, that in addition to overlap on the normal class, there is significant overlap for the attack classes.
+
+For Scenario C, we can see from the bar charts in [](#CSE548_Fig_23): A1 and A2 Training Dataset Distribution of Attack Types and [](#CSE548_Fig_26): A1, A2 and A3 Testing Dataset Distribution of Attack Types that in addition to significant normal class overlap, there is significant overlap in attack types, as well as additional attack types not seen in the training data.
+
+We can get an even better idea of the performance of the model when observing the Receiver Operating Characteristic (ROC) Curve and Area Under the Curve (AUC).  For Scenario A, we have the following ROC and AUC shown in [](#CSE548_Fig_78): Scenario A Receiver Operating Characteristic Curve and Area Under the Curve below:
+
+```{figure} images/CSE548_Fig_78.png
+:label: CSE548_Fig_78
+Scenario A Receiver Operating Characteristic Curve and Area Under the Curve
+```
+
+The ROC curve shown in [](#CSE548_Fig_78): Scenario A Receiver Operating Characteristic Curve and Area Under the Curve shows that it is difficult for this model to achieve a good True Positive Rate without starting to get unacceptably high False Positive rates.  The model is about 30 % (i.e. 0.79 - 0.5) better than random guessing as indicated by the Area Under Curve[^myref_14].
+
+For Scenario B, we have the ROC and AUC shown in [](#CSE548_Fig_79): Scenario B Receiver Operating Characteristic Curve and Area Under the Curve.  The ROC curve for Scenario B shows that this model is much better at achieving a high True Positive rate without a high False Positive rate.  The model is about 40% (i.e. 0.89 - 0.5) better than random guessing as indicated by the Area Under Curve[^myref_14].
+
+```{figure} images/CSE548_Fig_79.png
+:label: CSE548_Fig_79
+Scenario B Receiver Operating Characteristic Curve and Area Under the Curve
+```
+
+For Scenario C, we have the ROC and AUC shown in [](#CSE548_Fig_80): Scenario C Receiver Operating Characteristic Curve and Area Under the Curve.  Scenario C has a ROC and AUC similar to scenario B.  This makes sense, since they were trained on the same dataset.  What is astonishing is that scenario C is tested on a wider variety of data but still performs slightly better than scenario B as seen from the AUC (0.9 for Scenario C vs 0.89 for Scenario B).  The conclusion is that there were enough similarities in the training and test data so that the model in Scenario C performed well.
+
+```{figure} images/CSE548_Fig_80.png
+:label: CSE548_Fig_80
+Scenario C Receiver Operating Characteristic Curve and Area Under the Curve
+```
+
+### Description of my Contributions to the Project
+
+#### Project 1: Packet Filter Firewall (iptables) Project
+
+For Project 1, I renamed the hostnames of the Virtual Machines (VMs) to ‘Client’ and ‘Server’ to enhance clarity of the report and prevent confusion as to which machine I am working with.  I figured out how to setup NAT networking on the two VMs so that they attached to the correct networks. 
+
+Additionally, it may not be apparent in the report, but working with `iptables`[^myref_15] and chains is very complicated.  I had to redo this section of the Project many times to get the operation that was required.  My selected method was to add one iptables rule at a time and test functionality.  If things operate as expected, then I add another rule.  If things break, I delete the rule and retest.  Sometimes, the rule sets get entangled and it is worth starting over.  I also learned about adding a default route to the Client.  This was necessary since the OS on the Client would not know what to do with packets whose destination IP address is outside of the attached network.
+I have been working with web server for many years, so I knew how to quickly setup an Apache webserver on the Gateway/Server, even though the Python simple webserver would have been sufficient.  I also used the `curl`[^myref_16] command to rapidly test whether the web server was working.
+
+#### Project 2: SDN-Based Stateless Firewall Project
+
+In Project 2, I used the Linux `Terminator`[^myref_17] terminal application to subdivide the terminal window into quadrants, so I can view the OpenFlow switch status, the POX controller status and the OpenFlow Switch’s traffic flows.  This greatly enhanced understanding of the operation of the components in real time.
+
+#### Project 3: SDN-Based DoS Attacks and Mitigation Project
+
+In Project 3, in order to see the DoS attack happening in real time, I used the `iptraf-ng`[myref_12] application to watch packet counters of packets on the network.  It was readily apparent that a packet flood was occurring since almost 4 million packets were sent by the offending Host, and the data rate was over 45 megabits/second.
+
+In the code writing process for the [`L3Firewall.py`](L3Firewall.ipynb) application, I placed many debug output points that helped to figure out whether the code was operating as intended.
+
+#### Project 4: Machine Learning-Based Anomaly Detection Project
+
+In Project 4, I converted the provided Python scripts into `IPython`[^myref_10] Notebooks in the `Jupyter Lab`[^myref_18] environment.  I broke down the provided scripts into code cells according to logical divisions and made enhancements such as debug points as necessary.  This enabled understanding of exactly what the scripts were supposed to do.  I also added the ability to save the trained models into `Keras`[^myref_5] files, and the training accuracy and loss history into `JSON`[^myref_19] files.  This enabled development of the code without having to wait an extremely long time to retrain the models.
+
+### Explanation of New Skills, Techniques, or Knowledge Acquired from the Project
+
+#### Project 1: Packet Filter Firewall (iptables) Project
+
+A lesson that I learned was that it was worth taking the time to enter the `iptables`[^myref_15] commands one at a time and checking the iptables chains using:
+
+```{code} bash
+iptables -L
+```
+
+I also learned how to fix errors by using the `–line-numbers` switch and the `-D` switch to delete mistakes.  `Iptables`[^myref_15] chains can become complicated, so it is worth to flush the entire chains and start over when things stop working.  I also learned that the `-A` switch will append a rule to the end, while the `-I` switch will insert a rule to the top.  The order of the rules matters, so that if there is a `DROP` before an `ACCEPT`, then the packet will be dropped.
+
+#### Project 2: SDN-Based Stateless Firewall Project
+
+An Open Virtual Switch[^mref_1] was set up and four containers were connected to it.  Firewall rules were set into place to provide security as per Project requirements.  The firewall was tested against various test conditions.  After performing the labs, the project was pretty straightforward.  I did learn about `hping`[^myref_20], which is a very powerful alternative to the standard Linux `ping`[^myref_21] command.
+
+One thing that I did notice is that the firewall would stop working after a certain time.  After restarting the POX process, the firewall would work correctly.  I am not sure if this is a bug or proper behavior.  The network traffic that was examined with `Wireshark`[^myref_22] did not exhibit any anomalous behavior that precipitated the firewall shutting down.
+
+#### Project 3: SDN-Based DoS Attacks and Mitigation Project
+
+An Open Virtual Switch was set up and 4 containers were connected to it.  A DoS attack was performed that indicated that the baseline firewall configuration was susceptible to such attacks.  The [`L3Firewall.py`](L3Firewall.ipynb) application was modified to detect and permanently block the offending host by `MAC`[^myref_23] address.  Successful operation of the DoS mitigation was demonstrated.
+
+I learned much about how the `Open Virtual Switch`[^myref_1] operates and deals with traffic flows by observing the addition of flow rules to the learning firewall.  When modifying the [`L3Firewall.py`](L3Firewall.ipynb) application, I learned about the format of the procedural calls and functions within the `Open Virtual Switch`[^myref_1] framework that examines flows and packets.  These procedural calls and functions can then be used to block traffic that matches the criteria of a DoS style attack.
+
+#### Project 4: Machine Learning-Based Anomaly Detection Project
+
+In Project 4, we were provided with lots of Python code to get started.  My favorite method of performing Data Science is to use `IPython Notebooks`[^myref_10] in the `Jupyter Lab`[^myref_18] environment.  I used the provided [`dataExtractor.py`](dataExtractor.ipynb) to create a `IPython Notebook`[^myref_10] based on this script to create the training subclass datasets.  Data label and preprocessing methods were taken out of the provided data_preprocessor.py and distinctLabelExtractor.py scripts and incorporated into more general Notebooks called [FNN_Sample_SA.ipynb](FNN_Sample_SA.ipynb), [FNN_Sample_SB.ipynb](FNN_Sample_SB.ipynb), [FNN_Sample_SC.ipynb](FNN_Sample_SC.ipynb).  It was decided to use three separate Notebooks to faciliate code reuse without having to rename general variable names.
+Since the model training takes a very long time, I learned how to save the trained model into a `Keras`[^myref_5] file, as well as saving the training accuracy and loss histories into `JSON`[^myref_19] files for later recall.  At first glance, it was not trivial to identify the best performing model, since the model in Scenario A had such a high training accuracy.  Therefore, I had to learn to investigate the precision, recall, ROC and AUC characteristics of each model to get a better feel for which model peformed the best.
+
+## CSE572 Data Mining: Portfolio Project Report
+
+**Under Construction**
+
 
 [^myref_1]: OpenFlow Switch Specification. https://opennetworking.org/
 [^myref_2]: Apache HTTP Server. https://httpd.apache.org/
@@ -837,6 +1036,18 @@ Although the testing accuracy in [](#CSE548_Fig_63): Evaluate Scenario A Test Ac
 [^myref_11]: Internet Control Message Protocol (ICMP). https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol, https://tools.ietf.org/html/rfc792
 [^myref_12]: `iptraf-ng` is an ncurses-based IP LAN monitor that generates various network statistics including TCP info, UDP counts, ICMP   and OSPF information, Ethernet load info, node stats, IP checksum errors, and others.  If the `iptraf-ng` command is issued without any command-line options, the program comes up in interactive mode, with the various facilities accessed through the main menu. https://www.man7.org/linux/man-pages/man8/iptraf-ng.8.html, https://github.com/iptraf-ng/iptraf-ng
 [^myref_13]: `watch` runs command repeatedly, displaying its output and errors (the first screenful). This allows you to watch the program output change over time. By default, command is run every 2 seconds and `watch` will run until interrupted.  A header informs of the start and running time of command as well as its exit code. https://www.man7.org/linux/man-pages/man1/watch.1.html
+[^myref_14]: https://en.wikipedia.org/wiki/Receiver_operating_characteristic
+[^myref_15]: Iptables is a user-space utility program that allows a system administrator to configure the IP packet filter rules of the Linux kernel firewall, implemented as different Netfilter modules. https://netfilter.org/projects/iptables/index.html
+[^myref_16]: `curl` is a command-line tool for transferring data specified with URL syntax. https://curl.se/docs/manpage.html
+[^myref_17]: Terminator is a terminal emulator for Linux which allows users to arrange multiple terminal windows in a grid. https://terminator-gtk3.readthedocs.io/en/latest/
+[^myref_18]: JupyterLab is an open-source web-based interactive development environment for Jupyter notebooks, code, and data. https://jupyter.org/
+[^myref_19]: JSON (JavaScript Object Notation) is a lightweight data-interchange format that is easy for humans to read and write, and easy for machines to parse and generate. https://www.json.org/json-en.html
+[^myref_20]: `hping` is a command-line oriented TCP/IP packet assembler/analyzer. The interface is inspired to the ping(8) Unix command, but hping isn’t only able to send ICMP echo requests. It supports TCP, UDP, ICMP and RAW-IP protocols, has a traceroute mode, the ability to send files between a covered channel, and many other features. https://en.wikipedia.org/wiki/Hping, https://www.hping.org/wiki-sub/index/
+[^myref_21]: `ping` is a computer network administration utility used to test the reachability of a host on an Internet Protocol (IP) network. It measures the round-trip time for messages sent from the originating host to a destination computer that are echoed back to the source. https://en.wikipedia.org/wiki/Ping_(networking_utility)
+[^myref_22]: Wireshark is a free and open-source packet analyzer. It is used for network troubleshooting, analysis, software and communications protocol development, and education. https://www.wireshark.org/
+[^myref_23]: A Media Access Control address (MAC address) is a unique identifier assigned to a network interface controller (NIC) for use as a network address in communications within a network segment. https://en.wikipedia.org/wiki/MAC_address
+
+
 
 
 
