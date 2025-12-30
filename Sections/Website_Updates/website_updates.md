@@ -1,6 +1,9 @@
 # Website Updates
 This file contains a log of updates made to the MKDynamics website. It is used to track changes, additions, and improvements over time.
 
+## 12/29/2025
+- Finished CSE548 portion of MCS Portfolio Project.  Starting on CSE572 portion.
+
 ## 12/26/2025
 - Added more content to MCS portfolio.  Numerous fixes throughout entire website.
 

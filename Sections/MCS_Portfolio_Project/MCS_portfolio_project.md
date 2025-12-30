@@ -47,7 +47,7 @@ Project 3 is titled: Cluster Validation Project.  In this Project, the person’
 
 ## CSE548 Advanced Network Security: Portfolio Project Report
 
-Abstract — This report presents the outcomes of four projects conducted within the scope of the CSE548 Advanced Network Security course, which emphasize the integration of network security principles with practical implementations and machine learning techniques. The projects include:
+**Abstract** — This report presents the outcomes of four projects conducted within the scope of the CSE548 Advanced Network Security course, which emphasize the integration of network security principles with practical implementations and machine learning techniques. The projects include:
 
 1. Packet Filter Firewall: Implementation of an iptables-based packet filter firewall with rules ensuring controlled access and restricted communication between nodes in a simulated network.
 2. SDN-Based Stateless Firewall: Design and testing of a stateless firewall using Software Defined Networking (SDN) principles with OpenFlow and POX controller to implement Layer 2 and Layer 3 filtering.
@@ -331,14 +331,14 @@ Per [](#CSE548_Fig_27): Scenario A Trained Model Summary, the structure of the n
 
 #### Project 1: Packet Filter Firewall (iptables) Project
 
-In order to meet the requirements of the Project, *iptables* rules were created such that network actions comply with the stipulations of the Project.  For example, the Client can not ping the Gateway/Server, etc.  The Gateway/Server’s *iptables* rules are shown in [](#CSE548_Fig_28): Gateway/Server's iptables Rules below:
+In order to meet the requirements of the Project, `iptables` rules were created such that network actions comply with the stipulations of the Project.  For example, the Client can not ping the Gateway/Server, etc.  The Gateway/Server’s `iptables` rules are shown in [](#CSE548_Fig_28): Gateway/Server's iptables Rules below:
 
 ```{figure} images/CSE548_Fig_28.png
 :label: CSE548_Fig_28
-Gateway/Server's *iptables* Rules
+Gateway/Server's `iptables` Rules
 ```
 
-As can be seen in [](#CSE548_Fig_28): Gateway/Server's *iptables* Rules, the policy is of the “whitelist” type, where only allowed actions are authorized, and every other action is dropped.
+As can be seen in [](#CSE548_Fig_28): Gateway/Server's `iptables` Rules, the policy is of the “whitelist” type, where only allowed actions are authorized, and every other action is dropped.
 
 #### Project 2: SDN-Based Stateless Firewall Project
 
@@ -1020,6 +1020,287 @@ Since the model training takes a very long time, I learned how to save the train
 
 ## CSE572 Data Mining: Portfolio Project Report
 
+**Abstract** — Insulin Pump and Continuous Glucose Monitor sensor data were analyzed from three different vantage points in this study.  The first analysis resulted in an understanding of the amount time a patient dwells in a blood glucose classification level.  The second study looked at whether certain extracted features could be used to train a Support Vector Machine to classify whether a patient has eaten a meal or not.  Remarkably, the accuracy of the learned model was > 99%.  Finally, clustering was performed on the extracted features and compared to ground truth.
+
+### 1. Introduction and Problem Statement
+
+In this portfolio project report, we will be reviewing the results obtained from the three projects in this course.  The first project consisted of extracting glucose level time series data and its properties for a person using an artificial pancreas.  The second project consisted of training a machine model to assess whether the person has eaten a meal or not.  While the third project consisted of clustering the glucose data to determine the amount of carbohydrates the person has consumed in each meal.
+
+The artificial pancreas used by the person is the Medtronic 670G[^myref_24] control system.  The system consists of a continuous glucose monitor (CGM), which is used to collect blood glucose measurements every five minutes.  Based on these readings a feedback control system delivers precise amounts of insulin to the person.  We will be analyzing the Insulin Pump and CGM Sensor data for the projects and this report.
+
+### Explanation of the Solution
+
+#### Project 1: Extracting Time Series Properties of Glucose Levels in Artificial Pancreas Project
+
+Data for this project was provided as two separated Comma Separated Value (CSV) files.  The first CSV file contained CGM sensor data, while the second contained insuling pump data.  Both the CGM sensor data and insulin pump data were in reversed chronological order, meaning the latest data were the first rows of the files.  Additionally, the data from the CGM sensor and insulin pump were taken asynchronously from each other; therefore, synchronization would have to be performed.  The CGM sensor and insulin pump data also had many columns that added unecessary dimensionality that needed to be reduced.  Finally, there were many missing data points and over fifty – five thousand rows of data.  An effective strategy was required for dealing with the missing data points and the sheer number of rows.
+
+The data for both the insulin pump and the CGM sensor were loaded into Pandas[^myref_9] dataframes.  In order to perform Exploratory Data Analysis (EDA) and plotting of the CGM sensor data, the data was reversed into proper chronological order and filtered to only include the date and time, Sensor Glucose reading in mg/dL, and raw sensor (ISIG) value columns.  The insulin pump data was reversed into proper chronological order and filtered to only include the date and time, and the alarm mode column.
+
+To effectively synchronize the CGM sensor and insulin pump data, a *“datetime”* column was added to each dataset using the `datatime()`[^myref_25] method in the Pandas Python module.  The *"datetime"* column is a concatenation of the date and time columns within the datasets.
+
+The project required knowledge of when the insulin pump was set to Auto Mode.  A reading of “AUTO MODE ACTIVE PLGM OFF” in the Alarm column of the insulin pump dataset indicates the start of the date and time for when Auto Mode is activated.  Once in Auto Mode, the insulin pump can not go back to manual mode without a reset.  With the datasets both having a datetime column, a search can be made from when the insulin pump was set to Auto Mode.  The corresponding data point with the closest time stamp in the CGM sensor dataset was then found.  A “Sensor Mode” column was added CGM sensor dataframe and each row was then assigned whether it is data from Manual Mode or Auto Mode.
+
+To find the daily averages, it is necessary to know the number of data points per day.  Since each data point corresponds to a 5 minute increment, simple arithmetic provides that there are 288 data points per 24 hour period.  Note that this number may include missing data points.  To find the overall averages required for the project, day numbers were added to the CGM dataframe.  Day numbers were simply derived as 24 – hour periods from the datetime column.  The maximum day number can then be used to calculate the overall averages that were required in this project.  The number of days of data per this methodology turned out to be 203.  The rows were then characterized as either day time or overnight by looking at the hour in the datetime column and assigning 6AM to 12AM as “daytime” and 12AM to 6AM as “overnight”.
+
+Handling missing data is an extremely critical part of data cleaning and preparation.  For this stage of the Project, the Pandas’ linear interpolation method was used on the CGM Sensor Glucose column without further consideration for correctness;  with the assumption being that glucose levels should follow an orderly change from a last known reading.
+
+Lastly, classification of glucose levels was required by the project as shown in [](#CSE572_Table_1): Glucose Classification Levels.
+
+```{table} Glucose Classification Levels
+:label: CSE572_Table_1
+| Glucose Level [mg/dL] | Classification Level |
+|-----------------------|----------------------|
+| level > 250 | Hyperglycemia Critical |
+| level > 180 | Hyperglycemia |
+| 70 <= level <= 180 | Normal |
+| 70 <= level <= 150 | Secondary |
+| 54 < level < 70 | Hypoglycemia Level 1 |
+| level <= 54 | Hypoglycemia Level 2 |
+```
+
+Now that the dataframes were cleaned and prepared, calculations of daily and overall means for the various categories could be performed.  The project required calculation of means for 18 different categories.  This number is arrived by realizing that there are 6 classification levels given in [](#CSE572_Table_1): Glucose Classification Levels, and each classification level is to be averaged over the overnight, day time and whole day time periods.  Additionally, these 18 categories are to be evaluated for both when the insulin pump is in Manual Mode or Auto Mode, for a total of 36 separate mean calculations.
+
+An example of a mean calculation would be to select from the overall data the appropriate categorical conditions, group that data by day and count the number of data items.  This effectively gives the amount of time the person’s blood glucose levels were in a specific range category per day.  A per day mean and a mean for the entire dataset can then be calculated.
+
+#### Project 2: Machine Model Training Project
+
+The goal of this project is to train a machine to differentiate between the person eating a meal versus not eating a meal given the person’s CGM sensor’s time series data.  As in Project 1, insulin pump and CGM sensor data were provided; however, for this project two sets of data were available.
+
+The datasets had similar problems that occurred in Project 1; however, Project 2’s insulin pump datasets had the additional issue of non – uniform date and time recording.  This necessitated an additional step of pre – processing of the date and time columns within the datasets.  As in Project 1, the now cleaned date and time columns were combined into a “datetime” column using the `to_datetime()`[^myref_27] method provided by the Pandas Python module.
+
+To train a machine learning model, rows from the datasets had to be extracted that corresponded to the person eating a meal.  It was assumed that an occurrence of a non – NaN and positive entry in the “BWZ Carb Input (grams)” column corresponds to the start of a meal.  The time stamps for each of these rows were saved into a sub – dataframe for further processing.
+
+A meal window was defined as a 2 hour time period from when there is an entry in the meal start time sub – dataframe.  If that window was empty, then the corresponding CGM sensor data for time period of meal time – 30 minute to meal time + 2 hours was added to a separate agglomerated dataset.  The adding of meal data to the separate agglomerated dataset was somewhat complicated by the fact that meals might occur within the 2 hour meal window.  In that case the meal occurs within the window is ignored.  If a meal occurs exactly at the end of the 2 hour window, then data from meal time – 1 hour and meal time + 4 hours is used.
+
+Since the CGM sensor provides data at 5 minute intervals, a time period of 2.5 hours results in 30 CGM sensor data points.  Sometimes, due to missing data from the CGM sensor, less than 30 data points are available.  It was decided to drop any rows that contained less than 30 data points, as there was sufficient data available to train the machine.  The separate agglomerated CGM sensor readings data were then converted into a Numpy[^myref_28] matrix to facilitate use of Sklearn’s[myref_8] machine learning Python Modules.
+
+For the no – meal data, a similar procedure was followed except that the post – absorbtive window was defined as a meal time + 2 hours to meal time + 4 hours.  If there were any meals in this post – absorbtive period, then data for that period was ignored.  However, if the post – absorbtive window had any 0 or NaN data points, the 0’s or NaN’s were ignored and data for that post – absorbtive stretch was added into the agglomerated sub – datasets.  
+
+Since the post – absorbtive window is 2 hours, CGM sensor data at 5 minute interval results in 24 data points.  Any rows that had less than 24 data points were dropped since there was sufficient data to train the machine.
+Even though rows with less than 30 data points in the meal data and rows with less than 24 data points in the no – meal data were excluded, the intra – row data might still contain NaN’s.  
+
+It was decided to use [imputation](https://grokipedia.com/page/Imputation_(statistics)) to handle these missing data points.  The problem is that if the amount of missing data points is too high, then imputation would provide erroneous results.  A heuristic threshold of 10% missing data points was chosen as a drop threshold.  From the rows that were left, the missing data points were handled with Sklearn’s[^myref_8] KNN (K – Nearest Neighbor) Imputer[^myref_29].  The K used for the KNN Imputer was 7.  This value was chosen based on a heuristic estimate.
+
+```{note} Additional Context from Copilot
+K in KNN (k‑Nearest Neighbors)
+
+- K = number of nearest training instances used to make a prediction.
+- Classification: predicted class = majority vote among the K nearest neighbors (ties often broken by using odd K or tie‑breaker rule).  
+- Regression: predicted value = average (or distance‑weighted average) of the K neighbors' values.
+- Effect:
+  - small K → low bias, high variance (sensitive to noise, more overfitting)
+  - large K → high bias, low variance (smoother decision boundary, may underfit)
+- Choosing K: use cross‑validation; ensure K ≤ number of training samples; common practice uses odd K for binary classification.
+```
+
+Now that the meal and no – meal datasets were cleaned and imputed, features can be extracted that are used to train the machine learning model.  The eight features that were selected were:
+- Mean for the row
+- Standard deviation for the row
+- Maximum value for the row
+- Minimum value for the row
+- Mean first derivative for the row
+- Mean second derivative for the row
+- Area of the curve (AUC) for the row
+- Time to reach the peak for the row
+
+These features were then extracted for each row using a feature extractor function.
+
+Since it is known which data corresponds to a meal or not, class labels were then added to the meal data and no – meal data feature matrices.  A class label of 1 was added to the meal data feature matrix and a class label of 0 was added to the no – meal feature matrix.  The meal and no meal feature matrices were then vertically stacked using Numpy’s[^myref_28] `vstack`[^myref_30] method.  The training data was then sliced off and labeled as “X”, while the class labels were sliced off and labeled as “y” following machine learning conventions.
+
+Sklearn’s[^myref_8] `train_test_split`[^myref_31] was then used to split the data into a training sub – dataset and a testing sub – dataset with a 80% / 20% ratio, respectively.  The training and testing datasets were then normalized using Sklearn’s[^myref_8] `StandardScaler`[^myref_32] class.
+
+For this Project, it was decided to employ a `Support Vector Machine (SVM)`[^myref_33] machine learning model, although a `Decision Tree`[^myref_34] machine learning model would have also been a good choice for this binary classification problem.  A linear kernel was chosen since the dimensionality of eight is rather high, but the features have linearly seperable charactersitics.  To prevent overfitting (low bias, high variance), a Regularization Parameter (C) of 0.1 was chosen.
+
+```{note} Additional Context from Copilot
+SVM kernels and the regularization parameter C — concise guide
+
+- Kernel concept  
+  - Kernel k(x,y)=⟨φ(x),φ(y)⟩ lets SVM operate in a transformed feature space without explicit mapping (kernel trick). Choose based on assumed decision-boundary shape.
+
+- Common kernels (form + when to use)
+  - Linear: k(x,y)=x·y  
+    - Use when data is (nearly) linearly separable or #features ≫ #samples; fast and interpretable.
+  - Polynomial: k(x,y)=(γ x·y + coef0)^degree  
+    - Captures feature interactions; degree controls complexity (degree=2 or 3 typical). Can overfit at high degree.
+  - RBF / Gaussian: k(x,y)=exp(-γ ||x-y||^2)  
+    - Default choice for many problems. γ controls influence radius: small γ → smooth boundary (underfit); large γ → localized, complex boundary (overfit).
+  - Sigmoid: k(x,y)=tanh(γ x·y + coef0)  
+    - Behaves like a two‑layer neural net; less commonly used and may not satisfy Mercer conditions for all params.
+  - Custom kernels: allowed but must be positive semi‑definite (Mercer) for SVM guarantees.
+
+- Kernel hyperparameters to tune  
+  - `degree` (polynomial), `gamma` (RBF/poly/sigmoid), `coef0` (poly/sigmoid). Defaults (e.g., `gamma='scale'`) are common but cross‑validate.
+
+- Regularization parameter C (intuition + effect)  
+  - SVM objective (soft‑margin): minimize 1/2 ||w||^2 + C Σ ξ_i  subject to margin constraints.  
+  - C controls trade‑off between margin width and training errors:
+    - Large C → penalize slack heavily → narrower margin, fewer training errors (low bias, higher variance / potential overfit).
+    - Small C → allow more slack → wider margin, more regularization (higher bias, lower variance / potential underfit).
+  - Practical rule: grid‑search C on log scale (e.g., 1e-3 … 1e3).
+
+- Practical tips
+  - Always scale/normalize features before kernel SVM.  
+  - If data is high‑dimensional and linear performance is acceptable, use linear SVM for speed (or LinearSVC).  
+  - Start with RBF + CV over {C, γ}; if that fails, try polynomial or custom kernels informed by domain knowledge.
+```
+
+The SVM model was then trained on the normalized training data and an accuracy of 99.71% was the result.  Additionally, the F1 score was calculated to be 1.00.  
+
+```{note} Additional Context from Copilot
+F1 score = harmonic mean of precision and recall:
+
+- Formula: $$F_1 = 2\cdot\frac{\text{precision}\cdot\text{recall}}{\text{precision}+\text{recall}}$$
+- Precision:
+$$\text{precision} = \frac{TP}{TP + FP}$$
+- Recall:
+$$\text{recall} = \frac{TP}{TP + FN}$$
+- Purpose: balances precision and recall into a single metric (better than arithmetic mean when values differ).  
+- Range: 0–1 (higher is better). Use when you need a single measure that penalizes extreme imbalance between precision and recall.
+
+What the extremes mean:
+- F1 = 0: occurs when `TP = 0` (so precision = 0 and/or recall = 0). The model makes no correct positive predictions or misses all positives.  
+- F1 = 1: occurs when `FP = 0` and `FN = 0` (so precision = 1 and recall = 1). The model perfectly identifies all positives with no false alarms.
+```
+
+The high accuracy and high F1 score led me to believe that the model exhibited overfitting.  Altering the kernel of Regularization parameter reduced the F1 score, but not by much.  It was therefore surmized that the choice of features were perhaps optimal for differentiating between a mean and no – meal.  `Principle Component Analysis (PCA)`[^myref_35], a `Confusion Matrix Heatmap`[^myref_36], and `Pairwise Plotting`[^myref_37] were then used to visualize the outputs of the SVM model.
+
+#### Project 3: Cluster Validation Project
+
+In this Project, the person’s carborhydrate input provided Insulin Pump dataset is separated into bins and an unsupervised clustering algorithm is used to cluster the data and compare it to the binned ground truth.
+
+Using techniques similar to Projects 1 and 2, the Insulin Pump data and the CGM sensor data were extracted to find the carbohydrates ingested and blood glucose levels.  The minimum and maximum carbohydrates ingested were then used as the binning limits and a bin size of 20 resulted in 6 bins.  Binning was easily accomplished using Numpy’s[^myref_28] `digitize`[^myref_38] method on the resulting carbohydrate input data from the Insulin Pump.  As in Project 2, the CGM sensor data was cleaned, missing data imputed, features extracted and normalized.
+
+Two methods of clustering were employed: `K-Means`[^myref_39] and `DBSCAN`[^myref_40] clustering.  For K-Means, the K parameter was set to the number of bins, which was six.  
+
+```{note} Additional Context from Copilot
+K in K‑means = the number of clusters the algorithm will find.
+
+- Role: K specifies how many centroids are created; each datapoint is assigned to the nearest centroid and centroids are updated to minimize within‑cluster sum of squared distances.  
+- Effect: small K → few/large clusters (high bias, underfit); large K → many/small clusters (low bias, high variance, possible overfit).  
+- How chosen: domain knowledge or heuristics such as the elbow method (plot total within‑cluster SSE vs K), silhouette score, gap statistic, or stability/consensus clustering; try multiple K and validate.  
+- Practical tips: scale features, use KMeans++ initialization and multiple random restarts to avoid poor local minima, and inspect cluster interpretability, not just numeric scores.
+```
+
+The Features Matrix was then sent through the `K-Means`[^myref_39] clustering algorithm.  For visualization, since the feature data has 8 dimensions, `PCA`[^myref_35] was used to find the primary two features to plot the clusters against.  In order to also visualize and compare the results of the `K-Means` clustering to the ground truth, each bin entry was plotted for each Features Matrix row.  Additionally, each K-Means clustering result was plotted for each Features Matrix row.  The `Sum of Squared Errors` were then computed.
+
+```{note} Additional Context from Copilot
+Sum of Squared Errors (SSE) in K‑means clustering:
+- Definition: SSE = Σ (distance between each point and its assigned cluster centroid)². It quantifies how tightly data points are clustered around their centroids.
+- Role: SSE is the objective function that K‑means aims to minimize during clustering. Lower SSE indicates more compact clusters.
+- Effect of K: As K increases, SSE typically decreases because more centroids allow points to be closer to their assigned centroid. However, too high K can lead to overfitting (each point its own cluster).
+- Choosing K: The "elbow method" involves plotting SSE vs K and looking for a point where the decrease in SSE starts to level off (the "elbow"). This suggests a good trade‑off between cluster compactness and model simplicity.
+```
+
+For `DBSCAN`[^myref_40], a similar process was taken; however, the `DBSCAN` algorithm assigns a “-1” to noise points.  These had to be handled so as to make a comparison to the results of the `K-Means`[^myref_39] clustering and the ground truth.  Finally, entropy and purity were computed for each cluster and for the overall clustering results.
+
+```{note} Additional Context from Copilot
+Entropy and Purity in Clustering:
+- Entropy:
+  - Definition: Entropy measures the disorder or uncertainty in cluster assignments. For a cluster C with classes {c1, c2, ..., cn}, entropy is calculated as:
+    $$Entropy(C) = - \sum_{i=1}^{n} p(c_i) \log_2 p(c_i)$$
+    where p(ci) is the proportion of points in cluster C that belong to class ci.
+  - Role: Lower entropy indicates that a cluster is more homogeneous (i.e., contains mostly points from a single class). Higher entropy indicates more mixed classes within the cluster.
+- Purity:
+  - Definition: Purity measures the extent to which clusters contain a single class. For a cluster C, purity is calculated as:
+    $$Purity(C) = \frac{1}{|C|} \max_{i} |c_i|$$
+    where |C| is the size of cluster C and |ci| is the number of points in C that belong to class ci.
+  - Role: Higher purity indicates that a cluster is more homogeneous. Purity ranges from 0 to 1, with 1 indicating that all points in the cluster belong to the same class.
+- Overall Measures:
+  - Overall Entropy: Weighted average of entropies of all clusters.
+  - Overall Purity: Weighted average of purities of all clusters.
+- Use Cases: Both metrics are used to evaluate clustering quality when ground truth class labels are available.
+```
+
+### Description of Results
+
+#### Project 1: Extracting Time Series Properties of Glucose Levels in Artificial Pancreas Project
+
+The insulin pump dataset contained 41,434 rows, many of which contained missing data.  The CGM sensor dataset contained 55,343 rows of data, of which 51,175 rows contained non-null Sensor Glucose information.  
+In the insulin pump dataset, the time stamp for when Auto Mode was activated shown in [](#CSE572_Fig_1): Insulin Pump Auto Mode Data Row:
+
+```{figure} images/CSE572_Fig_1.png
+:label: CSE572_Fig_1
+Insulin Pump Auto Mode Data Row
+```
+
+The corresponding data point with the closest time stamp in the CGM sensor dataset is shown in [](#CSE572_Fig_2): Corresponding CGM Sensor Auto Mode Data Row:
+
+```{figure} images/CSE572_Fig_2.png
+:label: CSE572_Fig_2
+Corresponding CGM Sensor Auto Mode Data Row
+```
+
+In order to visualize the CGM sensor data, a plot was made using Pandas.  On the x – axis we have the row number, and on the y – axis we have the sensor glucose output in [mg/dL] as shown in [](#CSE572_Fig_3): Plot of CGM Data vs Row Number.
+
+```{figure} images/CSE572_Fig_3.png
+:label: CSE572_Fig_3
+Plot of CGM Data vs Row Number
+```
+
+Not much can be seen from the plot in [](#CSE572_Fig_3): Plot of CGM Data vs Row Number at this point, except for maybe the minimums and maximums.  
+
+The CGM data was processed and placed into a `Pandas`[^myref_9] `Dataframe`[^myref_41] shown in [](#CSE572_Fig_4): Processed CGM Dataframe:
+
+```{figure} images/CSE572_Fig_4.png
+:label: CSE572_Fig_4
+Processed CGM Dataframe
+```
+
+To obtain the averages required for the Project, sub – dataframes were selected from the main dataframe shown in [](#CSE572_Fig_4): Processed CGM Dataframe based on the required mean.  For example, Manual Mode, Overnight Percentage of Time in Hyperglycemia range.  There were 166 CGM entries spanning 7 distinct days.  This data was aggregated by day using the `Pandas`[^myref_9] `groupby`[^myref_42] function and counted to obtain the quantity in hyperglycemia for that day.  This is shown in [](#CSE572_Fig_5): Manual Mode / Overnight / Hyperglycemia.
+
+```{figure} images/CSE572_Fig_5.png
+:label: CSE572_Fig_5
+Manual Mode / Overnight / Hyperglycemia
+```
+
+The percentage mean for the day was computed by dividing each row in [](#CSE572_Fig_5): Manual Mode / Overnight / Hyperglycemia by 288 and multiplying by 100.  An overall mean for this set of conditions was obtained by averaging the percentage mean for each day out of the total number of days in the the dataset.  Similar methodoly was undertaken for the 35 other combinations.  The results of all of the means for the 36 combinations are given in [Project 1 Results - Table of Calculated Percentage Means: Overnight](#CSE572_Code_1), [Project 1 Results - Table of Calculated Percentage Means: Daytime](#CSE572_Code_2) and [Project 1 Results - Table of Calculated Percentage Means: Whole Day](#CSE572_Code_3):
+
+```{embed} #CSE572_Code_1
+:remove-output: false
+```
+
+```{embed} #CSE572_Code_2
+:remove-output: false
+```
+
+```{embed} #CSE572_Code_3
+:remove-output: false
+```
+
+It can be seen from [Project 1 Results - Table of Calculated Percentage Means: Overnight](#CSE572_Code_1), [Project 1 Results - Table of Calculated Percentage Means: Daytime](#CSE572_Code_2) and [Project 1 Results - Table of Calculated Percentage Means: Whole Day](#CSE572_Code_3) that the person spent a majority of their time in either the normal or secondary ranges while in Auto Mode.  The numbers were non – sensical for Manual Mode, perhaps because the person was not recording data.
+
+#### Project 2: Machine Model Training Project
+
+The Meal and No Meal Data Matrices were extracted from the CGM sensor datasets.  A heatmap of the cleaned, imputed meal data matrix is shown in [](#CSE572_Fig_6): Heatmap of Meal Data Matrix 1:
+
+```{figure} images/CSE572_Fig_6.png
+:label: CSE572_Fig_6
+Heatmap of Meal Data Matrix 1
+```
+
+Features were extracted from the Meal Data Matrix using a [feature extractor](#CSE572_Code_4) function:
+
+```{embed} #CSE572_Code_4
+:remove-output: false
+```
+
+A moving average visulization of the row Maximum, Average, Minimum and Standard Deviation are shown in [](#CSE572_Fig_7): Moving Average of  the Maximum, Mean, Standard Deviation and Minimum of the Meal Features Matrix Rows.
+
+```{figure} images/CSE572_Fig_7.png
+:label: CSE572_Fig_7
+Moving Average of  the Maximum, Mean, Standard Deviation and Minimum of the Meal Features Matrix Rows
+```
+
+The `Seaborn`[^myref_43] `Pandas`[^myref_9] module was used to produce a `pairwise plot`[^myref_37] of the eight extrated features.  This plot is shown in [](#CSE572_Fig_8): Pairwise Plot of Meal Features Matrix.
+
+```{figure} images/CSE572_Fig_8.png
+:label: CSE572_Fig_8
+Pairwise Plot of Meal Features Matrix
+```
+
+It can be seen in [](#CSE572_Fig_8): Pairwise Plot of Meal Features Matrix that there is a strong positive linear correlation between Feature 1 (row mean) and Feature 7 (area under curve).
+
+
 **Under Construction**
 
 
@@ -1037,15 +1318,36 @@ Since the model training takes a very long time, I learned how to save the train
 [^myref_12]: `iptraf-ng` is an ncurses-based IP LAN monitor that generates various network statistics including TCP info, UDP counts, ICMP   and OSPF information, Ethernet load info, node stats, IP checksum errors, and others.  If the `iptraf-ng` command is issued without any command-line options, the program comes up in interactive mode, with the various facilities accessed through the main menu. https://www.man7.org/linux/man-pages/man8/iptraf-ng.8.html, https://github.com/iptraf-ng/iptraf-ng
 [^myref_13]: `watch` runs command repeatedly, displaying its output and errors (the first screenful). This allows you to watch the program output change over time. By default, command is run every 2 seconds and `watch` will run until interrupted.  A header informs of the start and running time of command as well as its exit code. https://www.man7.org/linux/man-pages/man1/watch.1.html
 [^myref_14]: https://en.wikipedia.org/wiki/Receiver_operating_characteristic
-[^myref_15]: Iptables is a user-space utility program that allows a system administrator to configure the IP packet filter rules of the Linux kernel firewall, implemented as different Netfilter modules. https://netfilter.org/projects/iptables/index.html
+[^myref_15]: `Iptables` is a user-space utility program that allows a system administrator to configure the IP packet filter rules of the Linux kernel firewall, implemented as different Netfilter modules. https://netfilter.org/projects/iptables/index.html
 [^myref_16]: `curl` is a command-line tool for transferring data specified with URL syntax. https://curl.se/docs/manpage.html
-[^myref_17]: Terminator is a terminal emulator for Linux which allows users to arrange multiple terminal windows in a grid. https://terminator-gtk3.readthedocs.io/en/latest/
-[^myref_18]: JupyterLab is an open-source web-based interactive development environment for Jupyter notebooks, code, and data. https://jupyter.org/
-[^myref_19]: JSON (JavaScript Object Notation) is a lightweight data-interchange format that is easy for humans to read and write, and easy for machines to parse and generate. https://www.json.org/json-en.html
+[^myref_17]: `Terminator` is a terminal emulator for Linux which allows users to arrange multiple terminal windows in a grid. https://terminator-gtk3.readthedocs.io/en/latest/
+[^myref_18]: `JupyterLab` is an open-source web-based interactive development environment for Jupyter notebooks, code, and data. https://jupyter.org/
+[^myref_19]: `JSON` (JavaScript Object Notation) is a lightweight data-interchange format that is easy for humans to read and write, and easy for machines to parse and generate. https://www.json.org/json-en.html
 [^myref_20]: `hping` is a command-line oriented TCP/IP packet assembler/analyzer. The interface is inspired to the ping(8) Unix command, but hping isn’t only able to send ICMP echo requests. It supports TCP, UDP, ICMP and RAW-IP protocols, has a traceroute mode, the ability to send files between a covered channel, and many other features. https://en.wikipedia.org/wiki/Hping, https://www.hping.org/wiki-sub/index/
 [^myref_21]: `ping` is a computer network administration utility used to test the reachability of a host on an Internet Protocol (IP) network. It measures the round-trip time for messages sent from the originating host to a destination computer that are echoed back to the source. https://en.wikipedia.org/wiki/Ping_(networking_utility)
-[^myref_22]: Wireshark is a free and open-source packet analyzer. It is used for network troubleshooting, analysis, software and communications protocol development, and education. https://www.wireshark.org/
-[^myref_23]: A Media Access Control address (MAC address) is a unique identifier assigned to a network interface controller (NIC) for use as a network address in communications within a network segment. https://en.wikipedia.org/wiki/MAC_address
+[^myref_22]: `Wireshark` is a free and open-source packet analyzer. It is used for network troubleshooting, analysis, software and communications protocol development, and education. https://www.wireshark.org/
+[^myref_23]: A `Media Access Control address (MAC address)` is a unique identifier assigned to a network interface controller (NIC) for use as a network address in communications within a network segment. https://en.wikipedia.org/wiki/MAC_address
+[^myref_24]: Medtronic 670G Hybrid Closed Loop System. https://www.medtronicdiabetes.com/products/minimed-670g-insulin-pump-system
+[^myref_25]: The `datetime` module supplies classes for manipulating dates and times in both simple and complex ways. While date and time arithmetic is supported, the focus of the implementation is on efficient attribute extraction for output formatting and manipulation. https://docs.python.org/3/library/datetime.html
+[^myref_27]: The `to_datetime()` function in the Pandas Python module is used to convert a string or a list of strings to datetime objects. https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.to_datetime.html
+[^myref_28]: `NumPy` is a library for the Python programming language, adding support for large, multi-dimensional arrays and matrices, along with a large collection of high-level mathematical functions to operate on these arrays. https://numpy.org/
+[^myref_29]: The `KNNImputer` class in the Sklearn Python module provides imputation for completing missing values using the k-Nearest Neighbors approach. https://scikit-learn.org/stable/modules/generated/sklearn.impute.KNNImputer.html
+[^myref_30]: The `vstack()` function in the Numpy Python module is used to stack arrays in sequence vertically (row wise). https://numpy.org/doc/stable/reference/generated/numpy.vstack.html
+[^myref_31]: The `train_test_split()` function in the Sklearn Python module is used to split arrays or matrices into random train and test subsets. https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html
+[^myref_32]: The StandardScaler class in the Sklearn Python module is used to standardize features by removing the mean and scaling to unit variance. https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html
+[^myref_33]: A `Support Vector Machine (SVM)` is a supervised machine learning model that uses classification algorithms for two-group classification problems. After giving an SVM model sets of labeled training data for each category, they’re able to categorize new text. https://en.wikipedia.org/wiki/Support_vector_machine
+[^myref_34]: `Decision Tree` learning is a supervised learning approach used in statistics, data mining and machine learning. In this formalism, a classification or regression decision tree is used as a predictive model to draw conclusions about a set of observations. https://en.wikipedia.org/wiki/Decision_tree_learning
+[^myref_35]: `Principal Component Analysis (PCA)` is a statistical procedure that uses an orthogonal transformation to convert a set of observations of possibly correlated variables into a set of values of linearly uncorrelated variables called principal components. https://en.wikipedia.org/wiki/Principal_component_analysis
+[^myref_36]: A `Confusion Matrix Heatmap` is a visualization tool used to evaluate the performance of a classification model by displaying the counts of true positive, true negative, false positive, and false negative predictions in a matrix format, often enhanced with color gradients to represent the magnitude of each count. https://en.wikipedia.org/wiki/Confusion_matrix
+[^myref_37]: `Pairwise Plotting` is a data visualization technique that involves creating scatter plots for every possible pair of variables in a dataset, allowing for the examination of relationships and correlations between multiple variables simultaneously. https://seaborn.pydata.org/generated/seaborn.pairplot.html
+[^myref_38]: The `digitize()` function in the Numpy Python module is used to return the indices of the bins to which each value in input array belongs. https://numpy.org/doc/stable/reference/generated/numpy.digitize.html
+[^myref_39]: `K-Means` is an unsupervised machine learning algorithm used for clustering data into K distinct groups based on feature similarity. https://en.wikipedia.org/wiki/K-means_clustering
+[^myref_40]: `DBSCAN` (Density-Based Spatial Clustering of Applications with Noise) is an unsupervised machine learning algorithm used for clustering data points based on their density, allowing it to identify clusters of varying shapes and sizes while effectively handling noise and outliers. https://en.wikipedia.org/wiki/DBSCAN
+[^myref_41]: A `DataFrame` is a two-dimensional, size-mutable, and potentially heterogeneous tabular data structure provided by the Pandas Python module, which allows for easy data manipulation, analysis, and storage in rows and columns. https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html
+[^myref_42]: The `groupby()` function in the Pandas Python module is used to split data into groups based on some criteria, allowing for aggregation, transformation, or filtration of the data within each group. https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html
+[^myref_43]: `Seaborn` is a Python data visualization library based on Matplotlib that provides a high-level interface for creating attractive and informative statistical graphics. https://seaborn.pydata.org/
+
+
 
 
 
