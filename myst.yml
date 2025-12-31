@@ -553,18 +553,25 @@ project:
                 - file: Sections/About_Me/Certificates/certificates_coursera.md
                 - file: Sections/About_Me/Certificates/certificates_kaggle.md
                 - file: Sections/About_Me/Certificates/certificates_tryhackme.md
-    - title: Master's in Computer Science (Cybersecurity) Portfolio Project
+    - title: Master's in Computer Science (Cybersecurity) Projects
       children:
-        - file: Sections/MCS_Portfolio_Project/MCS_portfolio_project.md
+        - file: Sections/MCS_Projects/MCS_projects__HEAD__.md
           children:
-            - file: Sections/MCS_Portfolio_Project/L3Firewall.ipynb
-            - file: Sections/MCS_Portfolio_Project/dataExtractor.ipynb
-            - file: Sections/MCS_Portfolio_Project/FNN_Sample_SA.ipynb
-            - file: Sections/MCS_Portfolio_Project/FNN_Sample_SB.ipynb
-            - file: Sections/MCS_Portfolio_Project/FNN_Sample_SC.ipynb
-            - file: Sections/MCS_Portfolio_Project/CSE572_Project_1.ipynb
-            - file: Sections/MCS_Portfolio_Project/CSE572_Project_2_train.ipynb
-            - file: Sections/MCS_Portfolio_Project/CSE572_Project_3.ipynb
+            - file: Sections/MCS_Projects/MCS_Portfolio_Project/MCS_portfolio_project.md
+              children:
+                - file: Sections/MCS_Projects/MCS_Portfolio_Project/L3Firewall.ipynb
+                - file: Sections/MCS_Projects/MCS_Portfolio_Project/dataExtractor.ipynb
+                - file: Sections/MCS_Projects/MCS_Portfolio_Project/FNN_Sample_SA.ipynb
+                - file: Sections/MCS_Projects/MCS_Portfolio_Project/FNN_Sample_SB.ipynb
+                - file: Sections/MCS_Projects/MCS_Portfolio_Project/FNN_Sample_SC.ipynb
+                - file: Sections/MCS_Projects/MCS_Portfolio_Project/CSE572_Project_1.ipynb
+                - file: Sections/MCS_Projects/MCS_Portfolio_Project/CSE572_Project_2_train.ipynb
+                - file: Sections/MCS_Projects/MCS_Portfolio_Project/CSE572_Project_3.ipynb
+    - title: Master of Science in Engineering - Electrical Engineering Projects
+      children:
+        - file: Sections/MSE_Projects/MSE_projects__HEAD__.md
+          children:
+            - file: Sections/MSE_Projects/EEE571_Power_System_Transients/EEE571_Power_System_Transients_Project.ipynb
     - title: Website Updates
       children:
         - file: Sections/Website_Updates/website_updates.md
