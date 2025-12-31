@@ -564,6 +564,7 @@ project:
             - file: Sections/MCS_Portfolio_Project/FNN_Sample_SC.ipynb
             - file: Sections/MCS_Portfolio_Project/CSE572_Project_1.ipynb
             - file: Sections/MCS_Portfolio_Project/CSE572_Project_2_train.ipynb
+            - file: Sections/MCS_Portfolio_Project/CSE572_Project_3.ipynb
     - title: Website Updates
       children:
         - file: Sections/Website_Updates/website_updates.md
