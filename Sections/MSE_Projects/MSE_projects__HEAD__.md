@@ -4,7 +4,7 @@
 
 ::::{grid} 2 2 2 2
 :::{grid-item-card}
-:link: EEE571_Power_System_Transients/EEE571_Power_System_Transients_Project.ipynb
+:link: EEE571_Power_System_Transients/Project/EEE571_Power_System_Transients_Project.ipynb
 
 EEE571 Power System Transients Project
 ^^^
@@ -13,4 +13,16 @@ EEE571 Power System Transients Project
 :align: center
 ```
 :::
+
+:::{grid-item-card}
+:link: EEE571_Power_System_Transients/Extra_Credit/EEE571_extra_credit.ipynb
+
+EEE571 Power System Transients Extra Credit
+^^^
+```{image} images/EEE571_extra_credit.png
+:height: 200
+:align: center
+```
+:::
+
 ::::
