@@ -1,6 +1,9 @@
 # Website Updates
 This file contains a log of updates made to the MKDynamics website. It is used to track changes, additions, and improvements over time.
 
+## 1/3/2026
+- Added EE571 AI Project 1.
+
 ## 1/1/2026
 - Happy New Year!  Started to add more MCS projects.
 

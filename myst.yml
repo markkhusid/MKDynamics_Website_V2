@@ -567,9 +567,15 @@ project:
                 - file: Sections/MCS_Projects/MCS_Portfolio_Project/CSE572_Project_1.ipynb
                 - file: Sections/MCS_Projects/MCS_Portfolio_Project/CSE572_Project_2_train.ipynb
                 - file: Sections/MCS_Projects/MCS_Portfolio_Project/CSE572_Project_3.ipynb
-            - file: Sections/MCS_Projects/CSE575_Stats_ML/Project_1/Project_1.ipynb
-            - file: Sections/MCS_Projects/CSE575_Stats_ML/Project_2/Project_2.ipynb
-            - file: Sections/MCS_Projects/CSE575_Stats_ML/Project_3/Project_3.ipynb
+            - file: Sections/MCS_Projects/CSE571_AI/CSE571_ai__HEAD__.md
+              children:
+                - file: Sections/MCS_Projects/CSE571_AI/Project_1/Project_1.md
+                - file: Sections/MCS_Projects/CSE571_AI/Project_1/Project_1_Data_Analysis.ipynb
+            - file: Sections/MCS_Projects/CSE575_Stats_ML/CSE575_stats_ml__HEAD__.md
+              children:
+                - file: Sections/MCS_Projects/CSE575_Stats_ML/Project_1/Project_1.ipynb
+                - file: Sections/MCS_Projects/CSE575_Stats_ML/Project_2/Project_2.ipynb
+                - file: Sections/MCS_Projects/CSE575_Stats_ML/Project_3/Project_3.ipynb
     - title: Master of Science in Engineering - Electrical Engineering Projects
       children:
         - file: Sections/MSE_Projects/MSE_projects__HEAD__.md
