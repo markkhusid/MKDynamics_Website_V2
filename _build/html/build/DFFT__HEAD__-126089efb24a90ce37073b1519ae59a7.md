@@ -77,70 +77,48 @@ The plan here is to write a Fortran 2003 program that utilizes the FFTW3 library
 The following examples demonstrate the computation of the DFT of an arbitrary signal using the FFTW3 library in Fortran.
 
 ::::{grid} 2 2 2 2
-:class-container: text-center
-:gutter: 3
 
 :::{grid-item-card}
 :link: Sine_Wave_10_Hz/sine_wave_10_hz.md
-:class-header: bg-auto
 
 Sine Wave at 10 Hz
 ^^^
 ```{image} images/sine_wave2_10Hz.jpeg
-
-:height: 200
 ```
 ```{image} images/DFFT_mag_sine_wave2_10Hz.jpeg
-
-:height: 200
 ```
 :::
 
 :::{grid-item-card}
 :link: Square_Wave_1_Hz_50_pct/square_wave_1_hz_50_pct.md
-:class-header: bg-auto
 
 Square Wave at 1 Hz with 50% Duty Cycle
 ^^^
 ```{image} images/sq_wave_1Hz_50pct.jpeg
-
-:height: 200
 ```
 ```{image} images/DFFT_mag_sq_wv2_1Hz_50pct.jpeg
-
-:height: 200
 ```
 :::
 
 :::{grid-item-card}
 :link: 2_Sine_Waves/2sineXHz.ipynb
-:class-header: bg-auto
 
 Two Sine Waves at 50 Hz and 100 Hz
 ^^^
 ```{image} images/2_sine_waves_100_Hz_50_Hz.png
-
-:height: 200
 ```
 ```{image} images/DFFT_2_sine_waves_100_Hz_50_Hz.png
-
-:height: 200
 ```
 :::
 
 :::{grid-item-card}
 :link: Switched_Sine_Wave_1_kHz/switched_sine_wave_1_kHz.ipynb
-:class-header: bg-auto
 
 Switched Sine Wave at 1 kHz
 ^^^
 ```{image} images/switched_sine_wave_1_kHz.png
-
-:height: 200
 ```
 ```{image} images/DFFT_switched_sine_wave_1_kHz.png
-
-:height: 200
 ```
 :::
 

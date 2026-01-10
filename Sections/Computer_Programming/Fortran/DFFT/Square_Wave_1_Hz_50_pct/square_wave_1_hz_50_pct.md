@@ -39,14 +39,10 @@ To execute the SciLAB code, copy and paste the code into the SciLAB console and 
 
 ### Time Domain Plot
 ```{image} images/scilab_sq_wave_1Hz_50pct.jpeg
-
-:height: 200
 ```
 
 ### Frequency Domain Plot
 ```{image} images/scilab_sq_wave_1Hz_50pct_DFFT.jpeg
-
-:height: 200
 ```
 
 ## Saving The Time Domain Data
@@ -173,14 +169,10 @@ The magnitude and phase plots are shown below:
 
 ### DFFT Magnitude Plot
 ```{image} images/DFFT_mag_sq_wv2_1Hz_50pct.jpeg
-
-:height: 200
 ```
 
 ### DFFT Phase Plot
 ```{image} images/DFFT_phase_sq_wv2_1Hz_50pct.jpeg
-
-:height: 200
 ```
 
 ## Discussion

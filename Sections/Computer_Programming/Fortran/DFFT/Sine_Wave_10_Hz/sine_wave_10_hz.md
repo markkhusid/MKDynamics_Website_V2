@@ -52,14 +52,10 @@ To execute the SciLAB code, copy and paste the code into the SciLAB console and 
 
 ### Time Domain Plot
 ```{image} images/scilab_sine_wave2_10Hz.jpeg
-
-:height: 200
 ```
 
 ### Frequency Domain Plot
 ```{image} images/scilab_sine_wave2_10Hz_FFT.jpg
-
-:height: 200
 ```
 
 ## Saving The Time Domain Data
@@ -67,8 +63,9 @@ The time-domain data is selected in SciLAB and saved into a CSV file.
 
 ## Processing of CSV File into a Format Suitable for Input into the Fortran 2003 DFFT Code
 Since the output of SciLAB is a comma separated value (CSV) file, a method is needed that will process that file into another file, where the commas are removed and each data element is on a separate line.
-Additionally, a the data elements need to be reformatted into fixed floating point, since the "e"
-floating point format was noticed to possibly cause errors when input into the FFTW3 algorithm.
+
+Additionally, a the data elements need to be reformatted into fixed floating point, since the "e" floating point format was noticed to possibly cause errors when input into the FFTW3 algorithm.
+
 These operations were done using a Python script, with its powerful object-oriented file techniques and its included CSV library. The Python script is shown below: 
 
 ```python
@@ -186,14 +183,10 @@ The magnitude and phase plots are shown below:
 
 ### DFFT Magnitude Plot
 ```{image} images/DFFT_mag_sine_wave2_10Hz.jpeg
-
-:height: 200
 ```
 
 ### DFFT Phase Plot
 ```{image} images/DFFT_phase_sine_wave2_10Hz.jpeg
-
-:height: 200
 ```
 
 ## Discussion

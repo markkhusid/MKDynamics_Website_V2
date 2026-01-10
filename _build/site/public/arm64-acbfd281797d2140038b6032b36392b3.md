@@ -5,13 +5,9 @@ This section contains examples of Fortran code compiled for ARM64 architecture. 
 ## Integer Operations
 
 ::::{grid} 1 1 1 1
-:class-container: text-center
-:gutter: 3
 
 :::{grid-item-card}
 :link: ADD_INT/add_int
-:link-type: doc
-:class-header: bg-dark
 
 Add Two Integers
 ^^^
@@ -23,8 +19,6 @@ Add Two Integers
 
 :::{grid-item-card}
 :link: SUB_INT/sub_int
-:link-type: doc
-:class-header: bg-dark
 
 Subtract Two Integers
 ^^^
@@ -36,8 +30,6 @@ Subtract Two Integers
 
 :::{grid-item-card}
 :link: MULT_INT/mult_int
-:link-type: doc
-:class-header: bg-dark
 
 Multiply Two Integers
 ^^^
@@ -49,8 +41,6 @@ Multiply Two Integers
 
 :::{grid-item-card}
 :link: DIV_INT/div_int
-:link-type: doc
-:class-header: bg-dark
 
 Divide Two Integers
 ^^^
@@ -62,8 +52,6 @@ Divide Two Integers
 
 :::{grid-item-card}
 :link: MOD_INT/mod_int
-:link-type: doc
-:class-header: bg-dark
 
 Modulo Two Integers
 ^^^

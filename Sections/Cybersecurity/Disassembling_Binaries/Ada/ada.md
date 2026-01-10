@@ -12,13 +12,9 @@ Ada is a high-level programming language that was originally designed for the U.
 ## Table of Contents
 
 ::::{grid} 1 1 1 1
-:class-container: text-center
-:gutter: 3
 
 :::{grid-item-card}
 :link: AMD64/amd64__HEAD__
-:link-type: doc
-:class-header: bg-dark
 
 Ada Binaries in AMD64
 ^^^
