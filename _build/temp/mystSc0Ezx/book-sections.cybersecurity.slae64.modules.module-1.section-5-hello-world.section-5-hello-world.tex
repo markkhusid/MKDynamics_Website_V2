@@ -1,0 +1,474 @@
+\paragraph{Section 5 - Hello World}
+
+\subparagraph{Introduction}
+
+In this section we will be following along with and completing course material from the Pentester Academy's SecurityTube Linux Assembly language Expert 64 Bit course. The second assignment is writing a Hello World program in 64 Bit assembly language. It is to be coded, assembled, linked and run. Execution is then to be monitored via GDB. We will use the GEF add-on for GDB to enhance the visual presentation from GDB.
+
+Project code is contained in my \href{https://github.com/markkhusid/SLAE64}{github}.
+
+\subparagraph{Lesson Content}
+
+\subparagraph{The Program \textit{helloworld.asm}}
+
+The screenshot below displays the contents of the program \textit{helloworld.asm}. The program contains a string called \texttt{hello\_world} that holds the string Hello World to the SLAE-64 Course. A new line is added by appending the 0x0a ASCII character. We need to assemble, link, run and instruction step this program in GDB.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.7\linewidth]{files/64bit_hello_world_as-78e95b08482d21f2bab0da42c1c3eb33.jpg}
+\caption[]{The program \textit{helloworld.asm}}
+\label{64bit_hello_world_asm_code}
+\end{figure}
+
+\subparagraph{Assembling, Linking and Running the Program \textit{helloworld.asm}}
+
+The program is assembled with:
+
+\begin{verbatim}
+$ nasm -felf64 helloworld.asm -o helloworld.o
+\end{verbatim}
+
+And linked with:
+
+\begin{verbatim}
+$ ld helloworld.o -o helloworld
+\end{verbatim}
+
+We then run the executable and look at it's objdump. The results of these operations is shown below:
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.7\linewidth]{files/64bit_hello_world_as-1cbba368bc3112abacf26f4b0bfaaa91.jpg}
+\caption[]{Assembling, Linking and Executing the Program \textit{helloworld.asm}}
+\label{64bit_hello_world_assembling_and_linking}
+\end{figure}
+
+In the above screenshot, we assemble and link the program. We then use the objdump tool to look at the opcodes within the .text section by using the \texttt{-d} switch. Finally the program is run using:
+
+\begin{verbatim}
+$ ./helloworld
+\end{verbatim}
+
+The \texttt{./} is needed because the executable is not in a directory listed in the PATH environment variable.
+
+In the objdump of the executable, we notice large amounts of null bytes (i.e. 00). These are not good for shellcode, since in many cases, a victim process encountering a null byte as input understands the null byte as an end of the input. This would prematurely end the victim program from receiving all of the shellcodes contents.
+
+In further videos in this course, the instructor shows how to remove these null bytes, while still maintaining the same functionality in the executable.
+
+\subparagraph{Running \textit{helloworld} in GDB + PEDA}
+
+\subparagraph{Setup and before run:}
+
+The screenshot below shows the setup of the GDB debugger with the PEDA add-on. The program \textit{helloworld} is loaded into GDB. The program is then run and the state of the registers and stack are shown.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.7\linewidth]{files/64bit_hello_world_in-a37474255b881d4acb44dd6c3e9c7f57.jpg}
+\caption[]{\textit{helloworld} in GDB before run}
+\label{64bit_hello_world_in_GDB_before_run}
+\end{figure}
+
+From the disassembly of the \texttt{\_start} function above, we can notice a difference between our written code and the disassembly of the \texttt{\_start} function. Namely, rather than involving the 64-bit versions of the registers, the assembler optimized away usage of those in favor of the 32-bit versions. For example, the register \texttt{RAX} was replaced with \texttt{EAX}.
+
+From a functionality point of view, this is a moot point. However, from a shellcoding perspective, it is desireable to have complete control over how the actual opcodes are produced.
+
+In the next sections, we will step through the code and describe what occurs.
+
+\subparagraph{Running step \textit{0x401000 \textless \_start\textgreater : mov eax,0x1}}
+
+Prior to running \texttt{mov eax, 0x1}, the state of the registers and stack is shown below:
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.7\linewidth]{files/64bit_hello_world_in-73b5bd85ea851bf943af8526652a0140.jpg}
+\caption[]{Before running step \texttt{0x401000 \textless \_start\textgreater : mov eax,0x1}}
+\label{64bit_hello_world_in_GDB_before_running_step1}
+\end{figure}
+
+The \texttt{mov eax, 0x1} instruction simply moves the immediate value 1 into the 32-bit register \texttt{eax}.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.7\linewidth]{files/64bit_hello_world_in-8d8bcbdd19d6e7ea0f4859b027595f76.jpg}
+\caption[]{After running step \texttt{0x401000 \textless \_start\textgreater : mov eax,0x1}}
+\label{64bit_hello_world_in_GDB_after_running_step1}
+\end{figure}
+
+The \texttt{mov eax, 0x1} instruction moved the immediate value 1 into the 64-bit register rax, as can be seen in the screen shot above. The purpose of moving the immediate 1 into eax is to set up the write system call. If you recall, the system calls are enumerated in:
+
+\begin{verbatim}
+/usr/include/asm/unistd_64.h
+\end{verbatim}
+
+A portion of this file is shown below:
+
+\begin{verbatim}
+$ more /usr/include/asm/unistd_64.h 
+#ifndef _ASM_X86_UNISTD_64_H
+#define _ASM_X86_UNISTD_64_H 1
+
+#define __NR_read 0
+#define __NR_write 1
+#define __NR_open 2
+#define __NR_close 3
+#define __NR_stat 4
+#define __NR_fstat 5
+#define __NR_lstat 6
+#define __NR_poll 7
+#define __NR_lseek 8
+#define __NR_mmap 9
+#define __NR_mprotect 10
+#define __NR_munmap 11
+#define __NR_brk 12
+#define __NR_rt_sigaction 13
+\end{verbatim}
+
+As can be seen from the file contents above, the number 1 is associated with the \texttt{WRITE} system call. Note that I have looked at the 64-bit version of the file. There also exists a 32-bit version, which we will not be using since this is 64-bit code.
+
+\subparagraph{Executing step \texttt{0x401005 \textless \_start+5\textgreater : mov edi,0x1}}
+
+Prior to executing the instruction \texttt{mov edi,0x1}, the state of the registers and stack are as shown below:
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.7\linewidth]{files/64bit_hello_world_in-38ddeeac15b37b7fe8af1802fa6f9b72.jpg}
+\caption[]{Before running step \texttt{0x401005 \textless \_start+5\textgreater : mov edi,0x1}}
+\label{64bit_hello_world_in_GDB_before_running_step2}
+\end{figure}
+
+The instruction \texttt{mov edi,0x1} simply moves the immediate value 1 into the 32-bit register \texttt{edi}.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.7\linewidth]{files/64bit_hello_world_in-266d402d7d578a6d175c1e8138d456c8.jpg}
+\caption[]{After running step \texttt{0x401005 \textless \_start+5\textgreater : mov edi,0x1}}
+\label{64bit_hello_world_in_GDB_after_running_step2}
+\end{figure}
+
+The \texttt{mov edi, 0x1} instruction simply moved the immediate value 1 into the 32-bit register \texttt{edi}, as can be seen in the screen shot above. The purpose of moving the 1 into \texttt{edi} is as a parameter to the \texttt{WRITE} system call. The 1 represents standard output, or \texttt{STDOUT}. This refers to the screen. Therefore, the \texttt{WRITE} system call will be writing to the screen, as opposed to writing to a network socket, or to a file on disk.
+
+\subparagraph{Executing step \texttt{0x40100a \textless \_start+10\textgreater : movabs rsi,0x402000}}
+
+Prior to executing the instruction \texttt{0x40100a \textless \_start+10\textgreater : movabs rsi,0x402000}, the state of the registers and stack are as shown below:
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.7\linewidth]{files/64bit_hello_world_in-23ce13eccb28147159b81f506097f045.jpg}
+\caption[]{Before running step \texttt{0x40100a \textless \_start+10\textgreater : movabs rsi,0x402000}}
+\label{64bit_hello_world_in_GDB_before_running_step3}
+\end{figure}
+
+The instruction \texttt{0x40100a \textless \_start+10\textgreater : movabs rsi,0x402000} simply moves the immediate value \texttt{0x402000} into the 64-bit register \texttt{rsi}.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.7\linewidth]{files/64bit_hello_world_in-8d26d225a4d2abcc346a65203cf3eee1.jpg}
+\caption[]{After running step \texttt{0x40100a \textless \_start+10\textgreater : movabs rsi,0x402000}}
+\label{64bit_hello_world_in_GDB_after_running_step3}
+\end{figure}
+
+What is the significance of the value \texttt{0x402000}? It is actually a memory address. We will examine the data at this memory address to see what it is, using the command:
+
+\begin{verbatim}
+gdb -peda$ x/s 0x402000  
+0x402000: "Hello World to the SLAE -64 Course\\n"  
+gdb -peda$
+\end{verbatim}
+
+So basically the contents of the array of addresses starting at \texttt{0x402000} contains the string \texttt{"Hello World to the SLAE-64 Course{\textbackslash}{\textbackslash}n"}. We can see this more clearly by issuing the command:
+
+\begin{verbatim}
+gdb -peda$ x/34xb 0x402000
+0x402000:	0x48	0x65	0x6c	0x6c	0x6f	0x20	0x57	0x6f
+0x402008:	0x72	0x6c	0x64	0x20	0x74	0x6f	0x20	0x74
+0x402010:	0x68	0x65	0x20	0x53	0x4c	0x41	0x45	0x2d
+0x402018:	0x36	0x34	0x20	0x43	0x6f	0x75	0x72	0x73
+0x402020:	0x65	0x0a
+gdb -peda$
+\end{verbatim}
+
+These are nothing but the hexadecimal representations of the bytes that make up the letters of the string \texttt{"Hello World to the SLAE-64 Course{\textbackslash}{\textbackslash}n"}. Notice the \texttt{0x0a} at the end, which is the newline character. This is another bit of setup before the \texttt{WRITE} system call is invoked. The \texttt{WRITE} system call will output the string located at \texttt{0x402000} to the screen.
+
+\subparagraph{Executing step \texttt{0x401014 \textless \_start+20\textgreater  mov edx, 0x22}}
+
+Prior to executing the instruction \texttt{0x401014 \textless \_start+20\textgreater  mov edx, 0x22}, the state of the registers and stack are as shown below:
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.7\linewidth]{files/64bit_hello_world_in-dbb1f8da67a3b1546e1bd8bd30a0e220.jpg}
+\caption[]{Before running step \texttt{0x401014 \textless \_start+20\textgreater  mov edx, 0x22}}
+\label{64bit_hello_world_in_GDB_before_running_step4}
+\end{figure}
+
+The instruction \texttt{0x401014 \textless \_start+20\textgreater  mov edx, 0x22} simply moves the immediate value \texttt{0x22} into the 32-bit register \texttt{edx}.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.7\linewidth]{files/64bit_hello_world_in-0f89189e4fc36287aae9077c3e35a153.jpg}
+\caption[]{After running step \texttt{0x401014 \textless \_start+20\textgreater  mov edx, 0x22}}
+\label{64bit_hello_world_in_GDB_after_running_step4}
+\end{figure}
+
+The instruction \texttt{0x401014 \textless \_start+20\textgreater  mov edx, 0x22} moved the immediate value \texttt{0x22} into the 32-bit register \texttt{edx}. The hex value \texttt{0x22} is \texttt{34} in decimal. We will confirm this by using IPython for conversion and to get comfortable with incorporating more Python use for computing activities.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.7\linewidth]{files/using_ipython_to_con-bf3670790ebe590ce86e494c2d8dfbb5.jpg}
+\caption[]{Using IPython to convert hex \texttt{0x22} into decimal}
+\label{using_ipython_to_convert_0x22_to_decimal}
+\end{figure}
+
+\texttt{0x22} hex or \texttt{34} decimal is the length of the string \texttt{"Hello World to the SLAE-64 Course{\textbackslash}{\textbackslash}n"}, including the newline character \texttt{{\textbackslash}{\textbackslash}n}. This was actually computed by the assembler and placed into the hardcoded opcodes. If you recall, the original assembly code was:
+
+\begin{verbatim}
+global _start
+
+section .text
+ 
+_start:
+ 
+ 	; print on screen
+ 	mov rax, 1
+ 	mov rdi, 1
+ 	mov rsi, hello_world
+ 	mov rdx, length
+ 	syscall
+ 
+ 	; exit gracefully
+ 	mov rax, 60
+ 	mov rdi, 11
+ 	syscall
+ 
+section .data
+ 	hello_world: db 'Hello World to the SLAE -64 Course',0x0a
+ 	length: equ $ -hello_world
+\end{verbatim}
+
+There was actually a trick used to obviate the need to manually count the number of characters in the string \texttt{"Hello World to the SLAE-64 Course"}. This trick was to create a constant called \texttt{length}, and to equate it to the memory location just after the string \texttt{"Hello World to the SLAE-64 Course"}, subtracted from its memory location. This memory location math gives exactly the length of the string \texttt{"Hello World to the SLAE-64 Course"}. The way to obtain the memory location of the constant is to use the \texttt{\$} directive in the assembly code, as can be seen from the code snippet:
+
+\begin{verbatim}
+length: equ $ -hello_world
+\end{verbatim}
+
+This is the last bit of setup needed before invoking the \texttt{WRITE} system call. The instruction \texttt{0x401014 \textless \_start+20\textgreater  mov edx, 0x22}, will let the \texttt{WRITE} system call know that the length of the string to output to the screen is \texttt{0x22} hex bytes long. We are now ready to invoke the system call. This will occur in the next instruction as shown in the next section.
+
+\subparagraph{Executing the instruction \texttt{0x401019 \textless \_start+25\textgreater : syscall}}
+
+Prior to executing the instruction \texttt{0x401019 \textless \_start+25\textgreater : syscall}, the state of the registers and stack are as shown below:
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.7\linewidth]{files/64bit_hello_world_in-622506f872d47c303f0f7ef39a9d662e.jpg}
+\caption[]{Before running step \texttt{0x401019 \textless \_start+25\textgreater : syscall}}
+\label{64bit_hello_world_in_GDB_before_running_step5}
+\end{figure}
+
+The \texttt{syscall} instruction invokes the Linux kernel to execute a system call. In this case, we are invoking the \texttt{WRITE} system call, which will print the string \texttt{"Hello World to the SLAE-64 Course"} to the screen. The results of this call are shown below.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.7\linewidth]{files/64bit_hello_world_in-cf92e320f39a6994c8756707255f4b0b.jpg}
+\caption[]{After running step \texttt{0x401019 \textless \_start+25\textgreater : syscall}}
+\label{64bit_hello_world_in_GDB_after_running_step5}
+\end{figure}
+
+It can be seen from the above screenshot that the \texttt{WRITE} system call was invoked properly as the string \texttt{"Hello World to the SLAE-64 Course"} was printed to the screen, and execution of the program is continuing normally. The next step is to invoke the \texttt{EXIT} system call. It is important to properly exit a program as the program counter may be pointing to an invalid instruction after the \texttt{WRITE} system call instructions. In this case the program will crash. Exiting properly will virtually guarantee that the program will exit gracefully back to the shell. We will look at exiting gracefully in the next section.
+
+\subparagraph{Executing the instruction \texttt{0x40101b \_start+27\textgreater : mov eax,0x3c}}
+
+As stated in the previous section, we must now have the program exit gracefully. In order to do this, we setup an invocation to the \texttt{EXIT} system call. This is done by loading eax with the system call number for the \texttt{EXIT} system call. In this case, it is \texttt{0x3c} hex, or \texttt{60} in decimal. To find the correct system call number, we again look at the \texttt{/usr/include/asm/unistd\_64} and search for the \texttt{EXIT} system call.
+
+\begin{verbatim}
+#define __NR_alarm 37
+#define __NR_setitimer 38
+#define __NR_getpid 39
+#define __NR_sendfile 40
+#define __NR_socket 41
+#define __NR_connect 42
+#define __NR_accept 43
+#define __NR_sendto 44
+#define __NR_recvfrom 45
+#define __NR_sendmsg 46
+#define __NR_recvmsg 47
+#define __NR_shutdown 48
+#define __NR_bind 49
+#define __NR_listen 50
+#define __NR_getsockname 51
+#define __NR_getpeername 52
+#define __NR_socketpair 53
+#define __NR_setsockopt 54
+#define __NR_getsockopt 55
+#define __NR_clone 56
+#define __NR_fork 57
+#define __NR_vfork 58
+#define __NR_execve 59
+\end{verbatim}
+
+\begin{verbatim}
+#define __NR_exit 60
+\end{verbatim}
+
+\begin{verbatim}
+#define __NR_wait4 61
+#define __NR_kill 62
+#define __NR_uname 63
+#define __NR_semget 64
+#define __NR_semop 65
+#define __NR_semctl 66
+#define __NR_shmdt 67
+#define __NR_msgget 68
+#define __NR_msgsnd 69
+#define __NR_msgrcv 70
+#define __NR_msgctl 71
+#define __NR_fcntl 72
+#define __NR_flock 73
+#define __NR_fsync 74
+#define __NR_fdatasync 75
+#define __NR_truncate 76
+\end{verbatim}
+
+From the above listing of the \texttt{/usr/include/asm/unistd\_64} file, we can see that indeed the \texttt{EXIT} system call number is \texttt{60}, and this is the reason to load \texttt{60}, or \texttt{0x3c} hex into the register \texttt{eax}.
+
+Prior to executing the instruction \texttt{0x40101b \textless \_start+27\textgreater : mov eax,0x3c}, the state of the stack and registers are as shown in the following screenshot.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.7\linewidth]{files/64bit_hello_world_in-644e41017117f2ee3f7ff4f49e341897.jpg}
+\caption[]{Before running step \texttt{0x40101b \textless \_start+27\textgreater : mov eax,0x3c}}
+\label{64bit_hello_world_in_GDB_before_running_step6}
+\end{figure}
+
+The instruction \texttt{0x40101b \textless \_start+27\textgreater : mov eax,0x3c} simply moves the immediate value \texttt{0x3c} hex or \texttt{60} decimal into the 32-bit register \texttt{eax}.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.7\linewidth]{files/64bit_hello_world_in-3f5e3e95ea032df5746e45527badaf1c.jpg}
+\caption[]{After running step \texttt{0x40101b \textless \_start+27\textgreater : mov eax,0x3c}}
+\label{64bit_hello_world_in_GDB_after_running_step6}
+\end{figure}
+
+It can be seen from the above screenshot that the the \texttt{0x3c} hex or \texttt{60} decimal was loaded into \texttt{eax}. This is the first part of setting up the \texttt{EXIT} system call. The last part is to tell the \texttt{EXIT} system call which return value to give back to the shell. It is really an exit status, and is arbitrary. Usually, when there are no errors, a zero is returned back to the shell. In our case, we wish to return \texttt{0xb} hex or \texttt{11} decimal as a learning tool. We can then check the return exit status with an appropriate command.
+
+\subparagraph{Executing the instruction \texttt{0x401020 \textless \_start+32\textgreater : mov edi,0xb}}
+
+Prior to executing the instruction \texttt{0x401020 \textless \_start+32\textgreater : mov edi,0xb}, the state of the stack and registers are as shown in the following screenshot.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.7\linewidth]{files/64bit_hello_world_in-de163f023058ab7cd92474d364511789.jpg}
+\caption[]{Before running step \texttt{0x401020 \textless \_start+32\textgreater : mov edi,0xb}}
+\label{64bit_hello_world_in_GDB_before_running_step7}
+\end{figure}
+
+The instruction:
+
+\begin{verbatim}
+0x401020 <_start+32>: mov edi,0xb
+\end{verbatim}
+
+simply moves the immediate value \texttt{0xb} hex or \texttt{11} decimal into the 32-bit register \texttt{edi}. This value is the return value of our executable to the calling shell.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.7\linewidth]{files/64bit_hello_world_in-3273f67854398da4472b2cedc55fd7ac.jpg}
+\caption[]{After running step \texttt{0x401020 \textless \_start+32\textgreater : mov edi,0xb}}
+\label{64bit_hello_world_in_GDB_after_running_step7}
+\end{figure}
+
+After executing the instruction:
+
+\begin{verbatim}
+0x401020 <_start+32>: mov edi,0xb
+\end{verbatim}
+
+\texttt{0xb} hex or \texttt{11} decimal was loaded into the 32-bit register \texttt{edi}. We are now ready to call the kernal to invoke the \texttt{EXIT} system call. This is shown in the next section.
+
+\subparagraph{Executing the instruction \texttt{0x401025 \textless \_start+37\textgreater : syscall}}
+
+Prior to executing the instruction \texttt{0x401025 \textless \_start+37\textgreater : syscall}, the state of the stack and registers are as shown in the following screenshot.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.7\linewidth]{files/64bit_hello_world_in-bf67a8836953839e58311317ca5670a0.jpg}
+\caption[]{Before running step \texttt{0x401025 \textless \_start+37\textgreater : syscall}}
+\label{64bit_hello_world_in_GDB_before_running_step8}
+\end{figure}
+
+After executing the instruction \texttt{0x401025 \textless \_start+37\textgreater : syscall}, the process is terminated and the exit status is returned to the shell. The exit status is \texttt{0xb} hex or \texttt{11} decimal. This is shown in the following screenshot.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.7\linewidth]{files/64bit_hello_world_in-8100c15447a0c387dfe6eaa7546f8eb0.jpg}
+\caption[]{After running step \texttt{0x401025 \textless \_start+37\textgreater : syscall}}
+\label{64bit_hello_world_in_GDB_after_running_step8}
+\end{figure}
+
+We can see from the above screenshot that the process terminated with an exit code of \texttt{013}. Why is it not \texttt{0xb} hex or \texttt{11} decimal? Because apparently, GDB displays the exit code in octal. As before, we will use Python to convert \texttt{013} octal into decimal. This is shown in the following screenshot:
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.7\linewidth]{files/using_ipython_to_con-db1f55ca08b002818c16adef513fb686.jpg}
+\caption[]{Using Python to convert \texttt{013} octal to decimal}
+\label{using_ipython_to_convert_013_octal_to_decimal}
+\end{figure}
+
+We can also verify the exit status of the process by using the command:
+
+\begin{verbatim}
+echo $?
+\end{verbatim}
+
+This can be seen from the following screenshot:
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.7\linewidth]{files/cmd_line_exit_status-b9267c37f4c190435154ba6fa90054a0.jpg}
+\caption[]{Using the Linux command line to obtain the exit status of a process}
+\label{cmd_line_exit_status}
+\end{figure}
+
+We can see from the above screenshot that the exit status of the terminated process is indeed \texttt{11}.
+
+\subparagraph{Conclusions on examining \textit{helloworld} in GDB.}
+
+In this section we looked at examining the execution of a simple 64 bit binary in GDB. We looked at how system calls are setup and how they are invoked. We also looked at how to obtain the exit status of a terminated process. In the next section, we will examine why the \texttt{helloworld} executable is not suitable for being used as shellcode. The reasons are that:
+
+\begin{itemize}
+\item The object code for the executable contains many nulls. This is evident by examining the object file's dump:
+\end{itemize}
+
+\begin{verbatim}
+$objdump -d helloworld.o
+\end{verbatim}
+
+\begin{verbatim}
+helloworld.o:     file format elf64 -x86 -64
+
+
+Disassembly of section .text:
+
+0000000000000000 <_start>:
+0:	48 b8 01 00 00 00 00 	movabs $0x1,%rax
+7:	00 00 00 
+a:	48 bf 01 00 00 00 00 	movabs $0x1,%rdi
+11:	00 00 00 
+14:	48 be 00 00 00 00 00 	movabs $0x0,%rsi
+1b:	00 00 00 
+1e:	48 ba 22 00 00 00 00 	movabs $0x22,%rdx
+25:	00 00 00 
+28:	0f 05                	syscall 
+2a:	48 b8 3c 00 00 00 00 	movabs $0x3c,%rax
+31:	00 00 00 
+34:	48 bf 0b 00 00 00 00 	movabs $0xb,%rdi
+3b:	00 00 00 
+3e:	0f 05                	syscall 
+
+$
+\end{verbatim}
+
+We can see from the objdump above that the code indeed includes many nulls. These nulls make the code above unsuitable for shellcode.
+
+\begin{itemize}
+\item The code makes use of the full 64-bit registers, which can hold very large numbers; however, the immediate numbers that we have used are relatively very small, less than then integer 100. This is an inefficient use of resources. In shellcoding, we want to make the shellcode as efficient and compact as possible.
+\end{itemize}
+
+In the next section, we will look at how to remove these nulls and optimize the code so that it can be suitable to be used as shellcode.

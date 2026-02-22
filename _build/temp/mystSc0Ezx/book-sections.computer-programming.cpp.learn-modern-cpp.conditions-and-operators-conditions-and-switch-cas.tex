@@ -1,0 +1,340 @@
+\begin{verbatim}
+- - -
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+ - - -
+\end{verbatim}
+
+\subparagraph{Conditions and Operators: Conditions and Switch - Case}
+
+Adapted from: ``Learn Modern C++'' by cpptutor: \href{https://learnmoderncpp.com/conditions-and-operators/}{Learn Modern C++: Conditions and Operators}
+
+\subparagraph{Program that Demonstrates Conditions and Switch Case}
+
+\begin{verbatim}
+// 03 -calc.cpp : simple calculator with four functions
+ 
+#include <iostream>
+using namespace std;
+ 
+int main() {
+    int r{}, x{}, y{};
+    char op{};
+    cout << "Please enter a calculation (number op number, op is one of + -*/):\n";
+    cin >> x >> op >> y;
+    switch (op) {
+    case '+':
+        r = x + y;
+        break;
+    case ' -':
+        r = x - y;
+        break;
+    case '*':
+        r = x * y;
+        break;
+    case '/':
+        if (y) {
+            r = x / y;
+        }
+        else {
+            cerr << "Error: divide by zero.\n";
+        }
+        break;
+    default:
+        cerr << "Error: invalid op.\n";
+        break;
+    }
+    cout << "Result: " << r << '\n';
+}
+\end{verbatim}
+
+\subparagraph{Explanation of the Above Code}
+
+This C++ program implements a simple calculator that performs basic arithmetic operations (+, -, *, /) based on user input. Here's a breakdown of the code:
+
+\subparagraph{Code Explanation:}
+
+\begin{enumerate}
+\item \textbf{Header Inclusion}:
+
+\begin{verbatim}
+#include <iostream>
+\end{verbatim}
+
+\begin{itemize}
+\item The \texttt{\textless iostream\textgreater } header is included to enable input (\texttt{cin}) and output (\texttt{cout} and \texttt{cerr}) operations.
+\end{itemize}
+
+
+\item \textbf{Namespace}:
+
+\begin{verbatim}
+using namespace std;
+\end{verbatim}
+
+\begin{itemize}
+\item This allows the program to use standard library features (like \texttt{cin}, \texttt{cout}, and \texttt{cerr}) without prefixing them with \texttt{std::}.
+\end{itemize}
+
+
+\item \textbf{Main Function}:
+
+\begin{verbatim}
+int main() {
+\end{verbatim}
+
+\begin{itemize}
+\item The \texttt{main} function is the entry point of the program.
+\end{itemize}
+
+
+\item \textbf{Variable Declarations}:
+
+\begin{verbatim}
+int r{}, x{}, y{};
+char op{};
+\end{verbatim}
+
+\begin{itemize}
+\item \texttt{r}: Stores the result of the calculation.
+\item \texttt{x} and \texttt{y}: Store the two numbers entered by the user.
+\item \texttt{op}: Stores the operator entered by the user.
+\end{itemize}
+
+
+\item \textbf{User Input}:
+
+\begin{verbatim}
+cout << "Please enter a calculation (number op number, op is one of + -*/):\n";
+cin >> x >> op >> y;
+\end{verbatim}
+
+\begin{itemize}
+\item Prompts the user to enter a calculation in the format \texttt{number operator number} (e.g., \texttt{5 + 3}).
+\item Reads the input values into \texttt{x}, \texttt{op}, and \texttt{y}.
+\end{itemize}
+
+
+\item \textbf{Switch Statement}:
+
+\begin{verbatim}
+switch (op) {
+\end{verbatim}
+
+\begin{itemize}
+\item Evaluates the operator (\texttt{op}) and performs the corresponding arithmetic operation.
+\item \textbf{Case `+'}:
+
+\begin{verbatim}
+case '+':
+    r = x + y;
+    break;
+\end{verbatim}
+
+\begin{itemize}
+\item Adds \texttt{x} and \texttt{y} and stores the result in \texttt{r}.
+\end{itemize}
+
+
+\item \textbf{Case `-'}:
+
+\begin{verbatim}
+case ' -':
+    r = x - y;
+    break;
+\end{verbatim}
+
+\begin{itemize}
+\item Subtracts \texttt{y} from \texttt{x} and stores the result in \texttt{r}.
+\end{itemize}
+
+
+\item \textbf{Case `*'}:
+
+\begin{verbatim}
+case '*':
+    r = x * y;
+    break;
+\end{verbatim}
+
+\begin{itemize}
+\item Multiplies \texttt{x} and \texttt{y} and stores the result in \texttt{r}.
+\end{itemize}
+
+
+\item \textbf{Case `/'}:
+
+\begin{verbatim}
+case '/':
+    if (y) {
+        r = x / y;
+    }
+    else {
+        cerr << "Error: divide by zero.\n";
+    }
+    break;
+\end{verbatim}
+
+\begin{itemize}
+\item Divides \texttt{x} by \texttt{y} and stores the result in \texttt{r}.
+\item Checks if \texttt{y} is zero to avoid division by zero. If \texttt{y} is zero, an error message is printed to \texttt{cerr}.
+\end{itemize}
+
+
+\item \textbf{Default Case}:
+
+\begin{verbatim}
+default:
+    cerr << "Error: invalid op.\n";
+    break;
+\end{verbatim}
+
+\begin{itemize}
+\item Handles invalid operators by printing an error message to \texttt{cerr}.
+\end{itemize}
+\end{itemize}
+
+
+\item \textbf{Output the Result}:
+
+\begin{verbatim}
+cout << "Result: " << r << '\n';
+\end{verbatim}
+
+\begin{itemize}
+\item Prints the result of the calculation to the console.
+\end{itemize}
+\end{enumerate}
+
+\subparagraph{Key Features:}
+
+\begin{itemize}
+\item \textbf{Error Handling}:
+
+\begin{itemize}
+\item Division by zero is explicitly checked, and an error message is displayed if it occurs.
+\item Invalid operators are handled with a default case in the \texttt{switch} statement.
+\end{itemize}
+
+
+\item \textbf{User Interaction}:
+
+\begin{itemize}
+\item The program is interactive, prompting the user for input and displaying the result.
+\end{itemize}
+\end{itemize}
+
+\subparagraph{Example Input/Output:}
+
+\begin{enumerate}
+\item \textbf{Valid Input}:
+
+\begin{verbatim}
+Input: 5 + 3
+Output: Result: 8
+\end{verbatim}
+
+
+\item \textbf{Division by Zero}:
+
+\begin{verbatim}
+Input: 5 / 0
+Output: Error: divide by zero.
+\end{verbatim}
+
+
+\item \textbf{Invalid Operator}:
+
+\begin{verbatim}
+Input: 5 % 3
+Output: Error: invalid op.
+\end{verbatim}
+\end{enumerate}
+
+\subparagraph{Compile and Run Code}
+
+\subparagraph{Use Python to Change to Working Directory}
+
+\begin{verbatim}
+import os
+root_dir = os.getcwd()
+\end{verbatim}
+
+\begin{verbatim}
+code_dir = root_dir + "/" + "Cpp_Code/03_Conditions_and_Operators"
+\end{verbatim}
+
+\begin{verbatim}
+os.chdir(code_dir)
+\end{verbatim}
+
+\subparagraph{Use Docker to Compile the Code in a C++23 Environment}
+
+\begin{verbatim}
+!docker run - -rm -v $(pwd):/app cpp23 -clang18:latest clang++ -18 -std=c++23 -stdlib=libc++ /app/03 -calc.cpp -o /app/03 -calc
+\end{verbatim}
+
+\subparagraph{Use Docker to Run Executable in a C++23 Environment}
+
+\begin{verbatim}
+!echo "5 + 5" | docker run -i - -rm -v $(pwd):/app cpp23 -clang18:latest ./03 -calc
+\end{verbatim}
+
+\begin{verbatim}
+Please enter a calculation (number op number, op is one of + -*/):
+Result: 10
+\end{verbatim}
+
+\begin{verbatim}
+!echo "5 * 5" | docker run -i - -rm -v $(pwd):/app cpp23 -clang18:latest ./03 -calc
+\end{verbatim}
+
+\begin{verbatim}
+Please enter a calculation (number op number, op is one of + -*/):
+Result: 25
+\end{verbatim}
+
+\begin{verbatim}
+!echo "25 / 5" | docker run -i - -rm -v $(pwd):/app cpp23 -clang18:latest ./03 -calc
+\end{verbatim}
+
+\begin{verbatim}
+Please enter a calculation (number op number, op is one of + -*/):
+Result: 5
+\end{verbatim}
+
+\begin{verbatim}
+!echo "15 - 5" | docker run -i - -rm -v $(pwd):/app cpp23 -clang18:latest ./03 -calc
+\end{verbatim}
+
+\begin{verbatim}
+Please enter a calculation (number op number, op is one of + -*/):
+Result: 10
+\end{verbatim}
+
+\begin{verbatim}
+!echo "15 / 0" | docker run -i - -rm -v $(pwd):/app cpp23 -clang18:latest ./03 -calc
+\end{verbatim}
+
+\begin{verbatim}
+Please enter a calculation (number op number, op is one of + -*/):
+Result: 0
+Error: divide by zero.
+\end{verbatim}
+
+\begin{verbatim}
+!echo "15 V 5" | docker run -i - -rm -v $(pwd):/app cpp23 -clang18:latest ./03 -calc
+\end{verbatim}
+
+\begin{verbatim}
+Please enter a calculation (number op number, op is one of + -*/):
+Result: 0
+Error: invalid op.
+\end{verbatim}

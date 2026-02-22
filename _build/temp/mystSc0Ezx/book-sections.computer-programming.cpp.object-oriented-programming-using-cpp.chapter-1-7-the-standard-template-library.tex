@@ -1,0 +1,64 @@
+\subparagraph{Chapter 1.7: The C++ Standard Template Library}
+
+Adapted from: ``Object-Oriented Programming Using C++'' by Ira Pohl (Addison- Wesley)
+
+\subparagraph{Program that demonstrates use of the C++ Standard Template Library}
+
+\begin{verbatim}
+// Using the list container.
+#include <iostream>
+#include <list>
+#include <numeric>
+using namespace std;
+
+void print(const list<double> &lst)
+{ // using an iterator to traverse lst
+    list<double>::const_iterator where;
+
+    for(where = lst.begin(); where != lst.end(); ++where)
+        cout << *where << '\t';
+    cout << endl;
+}
+
+int main()
+{
+    double w[4] = {0.9, 0.8, 88, -99.99};
+    list<double> z;
+
+    for (int i = 0; i < 4; ++i)
+        z.push_front(w[i]);
+    print(z);
+    z.sort();
+    print(z);
+    cout << "sum is " << accumulate(z.begin(), z.end(), 0.0) << endl;
+}
+\end{verbatim}
+
+The above program is compiled and run using Gnu Compiler Collection (g++):
+
+\begin{verbatim}
+import os
+root_dir = os.getcwd()
+\end{verbatim}
+
+\begin{verbatim}
+code_dir = root_dir + "/" + "Cpp_Code/Chapter_1_7_The_Standard_Template_Library"
+\end{verbatim}
+
+\begin{verbatim}
+os.chdir(code_dir)
+\end{verbatim}
+
+\begin{verbatim}
+build_command = os.system("g++ stl_list.cpp -w -o stl_list")
+\end{verbatim}
+
+\begin{verbatim}
+exec_status = os.system("./stl_list")
+\end{verbatim}
+
+\begin{verbatim}
+-99.99	88	0.8	0.9	
+ -99.99	0.8	0.9	88	
+sum is -10.29
+\end{verbatim}

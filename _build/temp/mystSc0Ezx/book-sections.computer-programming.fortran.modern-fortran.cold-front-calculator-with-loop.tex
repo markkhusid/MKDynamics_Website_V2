@@ -1,0 +1,138 @@
+\subparagraph{Cold Front Calculator With Loop}
+
+Adapted from: ``\href{https://www.manning.com/books/modern-fortran}{Modern Fortran: Building Efficient Parallel Applications}'' by Milan Curcic (Manning)
+
+\subparagraph{Program to Calculate the Temperature due to a Cold Front Using a Loop}
+
+\begin{verbatim}
+program cold_front
+
+    implicit none
+    integer :: n
+    real    :: nhours
+    
+    do n = 6, 48, 6
+        nhours = real(n)
+        print *, "Temperature after ", &
+            nhours, " hours is ", &
+            cold_front_temperature(12., 24., 20., 960., nhours), " degrees."
+    end do
+    
+contains
+
+    real function cold_front_temperature ( &
+        temp1, temp2, c, dx, dt) result(res)
+        
+        real, intent(in) :: temp1, temp2, c, dx, dt
+        res = temp2 - c * (temp2 - temp1) / dx * dt
+        
+    end function cold_front_temperature
+    
+end program cold_front
+\end{verbatim}
+
+\subparagraph{Program Explanation}
+
+The following explanation is given by ``Code Copilot'' within ChatGPT 4.
+
+The Fortran program named \texttt{cold\_front} is designed to calculate and display the temperature at different time intervals as a cold front moves through a region, altering the temperature linearly based on its speed and the initial temperature gradient over a given distance. The core computation is encapsulated within a function \texttt{cold\_front\_temperature}, which calculates the resulting temperature after the cold front has affected the area for a specified duration.
+
+\subparagraph{Program Structure and Explanation}
+
+\begin{enumerate}
+\item \textbf{Variable Declarations:}
+
+\begin{itemize}
+\item \texttt{n}: An integer used as a counter in the loop to represent time in hours.
+\item \texttt{nhours}: A real number that converts \texttt{n} into a real data type appropriate for passing to the \texttt{cold\_front\_temperature} function.
+\end{itemize}
+
+
+\item \textbf{Loop Execution:}
+
+\begin{itemize}
+\item The \texttt{do} loop runs from 6 to 48 hours in increments of 6 hours. For each iteration, it calculates the temperature after \texttt{nhours} using the \texttt{cold\_front\_temperature} function and prints the result.
+\end{itemize}
+
+
+\item \textbf{Function Definition (\texttt{cold\_front\_temperature}):}
+
+\begin{itemize}
+\item \textbf{Input Parameters:}
+
+\begin{itemize}
+\item \texttt{temp1} (Real): The initial temperature at the starting point (e.g., 12 degrees Celsius).
+\item \texttt{temp2} (Real): The initial temperature at a distance \texttt{dx} from the starting point (e.g., 24 degrees Celsius).
+\item \texttt{c} (Real): The speed of the cold front in km/hr (e.g., 20 km/hr).
+\item \texttt{dx} (Real): The distance over which the initial temperature difference \texttt{temp2 - temp1} is observed (e.g., 960 km).
+\item \texttt{dt} (Real): The time in hours for which the effect of the cold front is being calculated (e.g., \texttt{nhours}).
+\end{itemize}
+
+
+\item \textbf{Calculation and Result:}
+
+\begin{itemize}
+\item The formula \texttt{temp2 - c * (temp2 - temp1) / dx * dt} is used to calculate the temperature after the cold front has moved for \texttt{dt} hours. This calculation effectively adjusts the temperature at the point \texttt{temp2} by considering how the temperature gradient changes linearly with distance, scaled by the speed of the cold front and the time elapsed.
+\end{itemize}
+\end{itemize}
+\end{enumerate}
+
+\subparagraph{Calculation Explanation}
+
+\begin{itemize}
+\item The function calculates the change in temperature as a function of time due to the movement of the cold front:
+
+\begin{itemize}
+\item \texttt{(temp2 - temp1) / dx} computes the rate of temperature change per kilometer (temperature gradient).
+\item Multiplying this gradient by the cold front's speed \texttt{c} gives the rate of temperature change per hour.
+\item Multiplying further by \texttt{dt} scales this hourly change by the number of hours \texttt{nhours} to determine the total change in temperature over that period.
+\end{itemize}
+
+
+\item The result is subtracted from \texttt{temp2} because as the cold front moves, it brings the characteristics (temperature) of the starting point (\texttt{temp1}) towards the point initially at \texttt{temp2}.
+\end{itemize}
+
+\subparagraph{Usage and Output}
+
+\begin{itemize}
+\item The program is particularly useful for educational purposes or simple meteorological predictions to understand the impact of a moving cold front over time on the local temperature.
+\item It provides a straightforward and clear output showing how the temperature changes every 6 hours from 6 to 48 hours as a cold front progresses through the area.
+\end{itemize}
+
+This program is an excellent example of using procedural abstraction (\texttt{cold\_front\_temperature} function) to encapsulate the logic for a specific calculation, making the main program more readable and easier to manage.
+
+\subparagraph{Program Compilation and Execution}
+
+The above program is compiled and run using Fortran Package Manager (fpm):
+
+\begin{verbatim}
+import os
+root_dir = os.getcwd()
+\end{verbatim}
+
+\begin{verbatim}
+code_dir = root_dir + "/" + "Fortran_Code/Cold_Front_Calculator_with_Loop"
+\end{verbatim}
+
+\begin{verbatim}
+os.chdir(code_dir)
+\end{verbatim}
+
+\begin{verbatim}
+build_status = os.system("fpm build 2>/dev/null")
+\end{verbatim}
+
+\begin{verbatim}
+exec_status = os.system("fpm run 2>/dev/null")
+\end{verbatim}
+
+\begin{verbatim}
+Temperature after    6.00000000      hours is    22.5000000      degrees.
+ Temperature after    12.0000000      hours is    21.0000000      degrees.
+ Temperature after    18.0000000      hours is    19.5000000      degrees.
+ Temperature after    24.0000000      hours is    18.0000000      degrees.
+ Temperature after    30.0000000      hours is    16.5000000      degrees.
+ Temperature after    36.0000000      hours is    15.0000000      degrees.
+ Temperature after    42.0000000      hours is    13.5000000      degrees.
+ Temperature after    48.0000000      hours is    12.0000000      degrees.
+\end{verbatim}

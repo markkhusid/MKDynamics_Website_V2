@@ -1,0 +1,82 @@
+\begin{verbatim}
+- - -
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+ - - -
+\end{verbatim}
+
+\subparagraph{Strings and Character Literals}
+
+Adapted from: ``Learn Modern C++'' by cpptutor: \href{https://learnmoderncpp.com/string-and-character-literals/}{Learn Modern C++: String and Character Literals}
+
+\subparagraph{Program that Demonstrates Printing a Line of Text to the Console}
+
+\begin{verbatim}
+// 01 -hellow.cpp : prints a line of text to the console
+
+#include <print>
+using namespace std;
+
+int main()
+{
+    println("Hello, World!"); // prints "Hello, World!" to the console
+}
+\end{verbatim}
+
+\subparagraph{Explanation of the Above Code}
+
+The above program is compiled and run using clang-18 in a Docker container.  This is done so that the installation of a C++23 compiler is not required.  The Docker container is based on the Ubuntu 22.04 image and includes clang-18, which supports C++23 features.\newline
+
+The program uses the \texttt{print} library, which is a C++ library that provides a simple way to print formatted output to the console.  The \texttt{println} function is used to print a line of text followed by a newline character.  The \texttt{using namespace std;} statement allows us to use the standard library functions without prefixing them with \texttt{std::}.\newline
+
+The \texttt{\#include \textless print\textgreater } directive includes the \texttt{print} library, which is necessary for using the \texttt{println} function.  The \texttt{main} function is the entry point of the program, and it returns an integer value to indicate the success or failure of the program.  In this case, it returns 0 to indicate success.\newline
+
+The program is a simple example of how to print a line of text to the console in C++.  It demonstrates the basic syntax and structure of a C++ program, including the use of header files, namespaces, and functions.  The program can be compiled and run using clang to produce the desired output.\newline
+
+\subparagraph{Compile and Run Code}
+
+\subparagraph{Use Python to Change to Working Directory}
+
+\begin{verbatim}
+import os
+root_dir = os.getcwd()
+\end{verbatim}
+
+\begin{verbatim}
+code_dir = root_dir + "/" + "Cpp_Code/01_String_and_Character_Literals"
+\end{verbatim}
+
+\begin{verbatim}
+os.chdir(code_dir)
+\end{verbatim}
+
+\begin{verbatim}
+!dir
+\end{verbatim}
+
+\begin{verbatim}
+01 -hellow  01 -hellow.cpp  test.cpp
+\end{verbatim}
+
+\subparagraph{Use Docker to Compile the Code in a C++23 Environment}
+
+\begin{verbatim}
+!docker run - -rm -v $(pwd):/app cpp23 -clang18:latest clang++ -18 -std=c++23 -stdlib=libc++ /app/01 -hellow.cpp -o /app/01 -hellow
+\end{verbatim}
+
+\subparagraph{Use Docker to Run Executable in a C++23 Environment}
+
+\begin{verbatim}
+!docker run - -rm -v $(pwd):/app cpp23 -clang18:latest ./01 -hellow
+\end{verbatim}
+
+\begin{verbatim}
+Hello, World!
+\end{verbatim}

@@ -1,0 +1,715 @@
+\subparagraph{Adding Integers: i386}
+
+\includegraphics[width=0.7\linewidth]{files/add_int_C_i386_splas-77d183bcc281bc6412b2eeb010b68b40.jpg}
+
+\subparagraph{Introduction}
+
+In this section we will examine the disassembly of a simple C program that adds two integers. The program is compiled for the i386 architecture, which is a 32-bit architecture commonly used in older computers and embedded systems. The disassembly will help us understand how the C code translates into assembly instructions, and how these instructions are executed by the CPU.
+
+\subparagraph{The C Program}
+
+\begin{verbatim}
+#include <stdio.h>
+
+int main(int argc, char * argv[])
+{
+	int a, b, c;
+	
+	a = 1;
+	b = 9;
+
+	c = a + b;
+}
+\end{verbatim}
+
+\subparagraph{Compilation of the C Program to Produce Assembly Code and Object Code}
+
+The C program is compiled using the GCC compiler with the \texttt{-m32} flag to specify the i386 architecture. The \texttt{-masm=intel} flag creates assembly code in the Intel format. The \texttt{-S} flag generates assembly code, the -fverbose-asm flag includes C source code in the assembly code, and the \texttt{-c} flag compiles the assembly code into an object file.
+
+\begin{verbatim}
+gcc - -sysroot=/ -m32 -masm=intel -S -fverbose -asm add_int.c -o add_int.s
+gcc - -sysroot=/ -m32 -c add_int.s -o add_int.o
+\end{verbatim}
+
+\subparagraph{Viewing the Assembly Code}
+
+The assembly code is in Intel syntax, which is commonly used for x86 assembly language.
+
+\begin{verbatim}
+.file	"add_int.c"
+	.intel_syntax noprefix
+# GNU C17 (conda -forge gcc 14.2.0 -2) version 14.2.0 (x86_64 -conda -linux -gnu)
+#	compiled by GNU C version 14.2.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl -0.24 -GMP
+
+# GGC heuristics: - -param ggc -min -expand=100 - -param ggc -min -heapsize=131072
+# options passed: -m32 -masm=intel -mtune=generic -march=x86 -64
+	.text
+	.globl	main
+	.type	main, @function
+main:
+.LFB0:
+	.cfi_startproc
+	push	ebp	#
+	.cfi_def_cfa_offset 8
+	.cfi_offset 5, -8
+	mov	ebp, esp	#,
+	.cfi_def_cfa_register 5
+	sub	esp, 16	#,
+	call	__x86.get_pc_thunk.ax	#
+	add	eax, OFFSET FLAT:_GLOBAL_OFFSET_TABLE_	# tmp98,
+# add_int.c:7: 	a = 1;
+	mov	DWORD PTR -4[ebp], 1	# a,
+# add_int.c:8: 	b = 9;
+	mov	DWORD PTR -8[ebp], 9	# b,
+# add_int.c:10: 	c = a + b;
+	mov	edx, DWORD PTR -4[ebp]	# tmp105, a
+	mov	eax, DWORD PTR -8[ebp]	# tmp106, b
+	add	eax, edx	# c_3, tmp105
+	mov	DWORD PTR -12[ebp], eax	# c, c_3
+	mov	eax, 0	# _4,
+# add_int.c:11: }
+	leave	
+	.cfi_restore 5
+	.cfi_def_cfa 4, 4
+	ret	
+	.cfi_endproc
+.LFE0:
+	.size	main, . -main
+	.section	.text.__x86.get_pc_thunk.ax,"axG",@progbits,__x86.get_pc_thunk.ax,comdat
+	.globl	__x86.get_pc_thunk.ax
+	.hidden	__x86.get_pc_thunk.ax
+	.type	__x86.get_pc_thunk.ax, @function
+__x86.get_pc_thunk.ax:
+.LFB1:
+	.cfi_startproc
+	mov	eax, DWORD PTR [esp]	#,
+	ret
+	.cfi_endproc
+.LFE1:
+	.ident	"GCC: (conda -forge gcc 14.2.0 -2) 14.2.0"
+	.section	.note.GNU -stack,"",@progbits
+\end{verbatim}
+
+\subparagraph{Explanation of the Assembly Code}
+
+The attached file is an assembly code file (\texttt{add\_int.s}) generated from a C program (\texttt{add\_int.c}). It is written in Intel syntax and compiled for a 32-bit architecture (\texttt{-m32}) using GCC 14.2.0. Below is a detailed explanation of the code:
+
+
+\bigskip
+\centerline{\rule{13cm}{0.4pt}}
+\bigskip
+
+\subparagraph{\textbf{Header Information}}
+
+\begin{enumerate}
+\item \textbf{File Metadata}:
+
+\begin{itemize}
+\item \texttt{.file "add\_int.c"}: Indicates that this assembly file was generated from the C source file \texttt{add\_int.c}.
+\end{itemize}
+
+
+\item \textbf{Compiler Information}:
+
+\begin{itemize}
+\item The file was compiled using GCC 14.2.0 with the \texttt{-m32} flag for 32-bit architecture.
+\item Other flags include \texttt{-masm=intel} (Intel syntax), \texttt{-mtune=generic} (generic CPU tuning), and \texttt{-march=x86-64} (targeting x86-64 architecture).
+\end{itemize}
+
+
+\item \textbf{GCC Heuristics}:
+
+\begin{itemize}
+\item Parameters like \texttt{ggc-min-expand} and \texttt{ggc-min-heapsize} are used for garbage collection optimization during compilation.
+\end{itemize}
+\end{enumerate}
+
+
+\bigskip
+\centerline{\rule{13cm}{0.4pt}}
+\bigskip
+
+\subparagraph{\textbf{Main Function}}
+
+The main function (\texttt{main}) is defined as a global symbol (\texttt{.globl main}) and is marked as a function (\texttt{.type main, @function}).
+
+\subparagraph{\textbf{Prologue}}
+
+The prologue sets up the stack frame for the function:
+
+\begin{enumerate}
+\item \texttt{push ebp}: Saves the base pointer of the previous stack frame.
+\item \texttt{mov ebp, esp}: Sets the base pointer (\texttt{ebp}) to the current stack pointer (\texttt{esp}).
+\item \texttt{sub esp, 16}: Allocates 16 bytes of space on the stack for local variables.
+\end{enumerate}
+
+\subparagraph{\textbf{Global Offset Table Setup}}
+
+\begin{itemize}
+\item \texttt{call \_\_x86.get\_pc\_thunk.ax}: Calls a helper function to get the program counter (PC).
+\item \texttt{add eax, OFFSET FLAT:\_GLOBAL\_OFFSET\_TABLE\_}: Adjusts the PC to point to the Global Offset Table (GOT), used for position-independent code.
+\end{itemize}
+
+\subparagraph{\textbf{Variable Initialization}}
+
+The C code initializes three variables (\texttt{a}, \texttt{b}, and \texttt{c}):
+
+\begin{enumerate}
+\item \texttt{mov DWORD PTR -4[ebp], 1}: Assigns \texttt{1} to \texttt{a} (stored at \texttt{-4[ebp]}).
+\item \texttt{mov DWORD PTR -8[ebp], 9}: Assigns \texttt{9} to \texttt{b} (stored at \texttt{-8[ebp]}).
+\end{enumerate}
+
+\subparagraph{\textbf{Addition Operation}}
+
+The C code computes \texttt{c = a + b}:
+
+\begin{enumerate}
+\item \texttt{mov edx, DWORD PTR -4[ebp]}: Loads the value of \texttt{a} into \texttt{edx}.
+\item \texttt{mov eax, DWORD PTR -8[ebp]}: Loads the value of \texttt{b} into \texttt{eax}.
+\item \texttt{add eax, edx}: Adds \texttt{a} and \texttt{b}, storing the result in \texttt{eax}.
+\item \texttt{mov DWORD PTR -12[ebp], eax}: Stores the result (\texttt{c}) at \texttt{-12[ebp]}.
+\end{enumerate}
+
+\subparagraph{\textbf{Return Value}}
+
+\begin{itemize}
+\item \texttt{mov eax, 0}: Sets the return value of the function to \texttt{0} (standard for \texttt{int main()} in C).
+\end{itemize}
+
+\subparagraph{\textbf{Epilogue}}
+
+The epilogue restores the stack frame:
+
+\begin{enumerate}
+\item \texttt{leave}: Restores the previous base pointer and stack pointer.
+\item \texttt{ret}: Returns control to the caller.
+\end{enumerate}
+
+
+\bigskip
+\centerline{\rule{13cm}{0.4pt}}
+\bigskip
+
+\subparagraph{\textbf{Helper Function: \texttt{\_\_x86.get\_pc\_thunk.ax}}}
+
+This function is used to retrieve the program counter (PC) for position-independent code:
+
+\begin{enumerate}
+\item \texttt{mov eax, DWORD PTR [esp]}: Loads the return address (PC) from the stack into \texttt{eax}.
+\item \texttt{ret}: Returns to the caller.
+\end{enumerate}
+
+
+\bigskip
+\centerline{\rule{13cm}{0.4pt}}
+\bigskip
+
+\subparagraph{\textbf{Other Sections}}
+
+\begin{enumerate}
+\item \textbf{\texttt{.ident} Section}:
+
+\begin{itemize}
+\item Contains metadata about the compiler version: \texttt{"GCC: (conda-forge gcc 14.2.0-2) 14.2.0"}.
+\end{itemize}
+
+
+\item \textbf{\texttt{.note.GNU-stack} Section}:
+
+\begin{itemize}
+\item Indicates that the stack is not executable (a security feature).
+\end{itemize}
+\end{enumerate}
+
+
+\bigskip
+\centerline{\rule{13cm}{0.4pt}}
+\bigskip
+
+\subparagraph{\textbf{Summary}}
+
+This assembly code represents a simple C program that initializes two integers (\texttt{a = 1} and \texttt{b = 9}), adds them (\texttt{c = a + b}), and returns \texttt{0}. The code includes standard prologue and epilogue for stack management and uses a helper function for position-independent code.
+
+\subparagraph{Compilation to Produce Executable Code}
+
+The object file is linked to create an executable file using the \texttt{-o} flag.
+
+\begin{verbatim}
+/usr/bin/gcc -m32 add_int.o -o add_int_C_i386
+\end{verbatim}
+
+\subparagraph{Disassembly of the Executable Code}
+
+The executable file is disassembled using the \texttt{objdump} command with the \texttt{-d} flag to display the disassembly.
+
+\begin{verbatim}
+objdump -x -D -s -t -Mintel add_int.o > objdump_of_dot_o.txt
+objdump -x -D -s -t -Mintel add_int_C_i386 > objdump_of_dot_exe.txt
+\end{verbatim}
+
+\subparagraph{Explanation of the Switches used in the \texttt{objdump} command:}
+
+\begin{itemize}
+\item \texttt{-x}: Displays all headers.
+\item \texttt{-D}: Disassembles all sections.
+\item \texttt{-s}: Displays the full contents of all sections.
+\item \texttt{-t}: Displays the symbol table.
+\item \texttt{-Mintel}: Specifies Intel syntax for disassembly.
+\end{itemize}
+
+\subparagraph{Viewing the Object File Disassembly}
+
+\begin{verbatim}
+add_int.o:     file format elf32 -i386
+add_int.o
+architecture: i386, flags 0x00000011:
+HAS_RELOC, HAS_SYMS
+start address 0x00000000
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .group        00000008  00000000  00000000  00000034  2**2
+                  CONTENTS, READONLY, GROUP, LINK_ONCE_DISCARD
+  1 .text         00000030  00000000  00000000  0000003c  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  2 .data         00000000  00000000  00000000  0000006c  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  3 .bss          00000000  00000000  00000000  0000006c  2**0
+                  ALLOC
+  4 .text.__x86.get_pc_thunk.ax 00000004  00000000  00000000  0000006c  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  5 .comment      00000028  00000000  00000000  00000070  2**0
+                  CONTENTS, READONLY
+  6 .note.GNU -stack 00000000  00000000  00000000  00000098  2**0
+                  CONTENTS, READONLY
+  7 .note.gnu.property 00000028  00000000  00000000  00000098  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  8 .eh_frame     0000004c  00000000  00000000  000000c0  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+SYMBOL TABLE:
+00000000 l    df *ABS*	00000000 add_int.c
+00000000 l    d  .text	00000000 .text
+00000000 l    d  .text.__x86.get_pc_thunk.ax	00000000 .text.__x86.get_pc_thunk.ax
+00000000 g     F .text	00000030 main
+00000000 g     F .text.__x86.get_pc_thunk.ax	00000000 .hidden __x86.get_pc_thunk.ax
+00000000         *UND*	00000000 _GLOBAL_OFFSET_TABLE_
+
+
+Contents of section .group:
+ 0000 01000000 06000000                    ........        
+Contents of section .text:
+ 0000 5589e583 ec10e8fc ffffff05 01000000  U...............
+ 0010 c745fc01 000000c7 45f80900 00008b55  .E......E......U
+ 0020 fc8b45f8 01d08945 f4b80000 0000c9c3  ..E....E........
+Contents of section .text.__x86.get_pc_thunk.ax:
+ 0000 8b0424c3                             ..$.            
+Contents of section .comment:
+ 0000 00474343 3a202863 6f6e6461 2d666f72  .GCC: (conda -for
+ 0010 67652067 63632031 342e322e 302d3229  ge gcc 14.2.0 -2)
+ 0020 2031342e 322e3000                     14.2.0.        
+Contents of section .note.gnu.property:
+ 0000 04000000 18000000 05000000 474e5500  ............GNU.
+ 0010 020001c0 04000000 00000000 010001c0  ................
+ 0020 04000000 01000000                    ........        
+Contents of section .eh_frame:
+ 0000 14000000 00000000 017a5200 017c0801  .........zR..|..
+ 0010 1b0c0404 88010000 1c000000 1c000000  ................
+ 0020 00000000 30000000 00410e08 8502420d  ....0....A....B.
+ 0030 056cc50c 04040000 10000000 3c000000  .l..........<...
+ 0040 00000000 04000000 00000000           ............    
+
+Disassembly of section .group:
+
+00000000 <.group>:
+   0:	01 00                	add    DWORD PTR [eax],eax
+   2:	00 00                	add    BYTE PTR [eax],al
+   4:	06                   	push   es
+   5:	00 00                	add    BYTE PTR [eax],al
+	...
+
+Disassembly of section .text:
+
+00000000 <main>:
+   0:	55                   	push   ebp
+   1:	89 e5                	mov    ebp,esp
+   3:	83 ec 10             	sub    esp,0x10
+   6:	e8 fc ff ff ff       	call   7 <main+0x7>
+			7: R_386_PC32	__x86.get_pc_thunk.ax
+   b:	05 01 00 00 00       	add    eax,0x1
+			c: R_386_GOTPC	_GLOBAL_OFFSET_TABLE_
+  10:	c7 45 fc 01 00 00 00 	mov    DWORD PTR [ebp -0x4],0x1
+  17:	c7 45 f8 09 00 00 00 	mov    DWORD PTR [ebp -0x8],0x9
+  1e:	8b 55 fc             	mov    edx,DWORD PTR [ebp -0x4]
+  21:	8b 45 f8             	mov    eax,DWORD PTR [ebp -0x8]
+  24:	01 d0                	add    eax,edx
+  26:	89 45 f4             	mov    DWORD PTR [ebp -0xc],eax
+  29:	b8 00 00 00 00       	mov    eax,0x0
+  2e:	c9                   	leave
+  2f:	c3                   	ret
+
+Disassembly of section .text.__x86.get_pc_thunk.ax:
+
+00000000 <__x86.get_pc_thunk.ax>:
+   0:	8b 04 24             	mov    eax,DWORD PTR [esp]
+   3:	c3                   	ret
+
+Disassembly of section .comment:
+
+00000000 <.comment>:
+   0:	00 47 43             	add    BYTE PTR [edi+0x43],al
+   3:	43                   	inc    ebx
+   4:	3a 20                	cmp    ah,BYTE PTR [eax]
+   6:	28 63 6f             	sub    BYTE PTR [ebx+0x6f],ah
+   9:	6e                   	outs   dx,BYTE PTR ds:[esi]
+   a:	64 61                	fs popa
+   c:	2d 66 6f 72 67       	sub    eax,0x67726f66
+  11:	65 20 67 63          	and    BYTE PTR gs:[edi+0x63],ah
+  15:	63 20                	arpl   WORD PTR [eax],sp
+  17:	31 34 2e             	xor    DWORD PTR [esi+ebp*1],esi
+  1a:	32 2e                	xor    ch,BYTE PTR [esi]
+  1c:	30 2d 32 29 20 31    	xor    BYTE PTR ds:0x31202932,ch
+  22:	34 2e                	xor    al,0x2e
+  24:	32 2e                	xor    ch,BYTE PTR [esi]
+  26:	30 00                	xor    BYTE PTR [eax],al
+
+Disassembly of section .note.gnu.property:
+
+00000000 <.note.gnu.property>:
+   0:	04 00                	add    al,0x0
+   2:	00 00                	add    BYTE PTR [eax],al
+   4:	18 00                	sbb    BYTE PTR [eax],al
+   6:	00 00                	add    BYTE PTR [eax],al
+   8:	05 00 00 00 47       	add    eax,0x47000000
+   d:	4e                   	dec    esi
+   e:	55                   	push   ebp
+   f:	00 02                	add    BYTE PTR [edx],al
+  11:	00 01                	add    BYTE PTR [ecx],al
+  13:	c0 04 00 00          	rol    BYTE PTR [eax+eax*1],0x0
+  17:	00 00                	add    BYTE PTR [eax],al
+  19:	00 00                	add    BYTE PTR [eax],al
+  1b:	00 01                	add    BYTE PTR [ecx],al
+  1d:	00 01                	add    BYTE PTR [ecx],al
+  1f:	c0 04 00 00          	rol    BYTE PTR [eax+eax*1],0x0
+  23:	00 01                	add    BYTE PTR [ecx],al
+  25:	00 00                	add    BYTE PTR [eax],al
+	...
+
+Disassembly of section .eh_frame:
+
+00000000 <.eh_frame>:
+   0:	14 00                	adc    al,0x0
+   2:	00 00                	add    BYTE PTR [eax],al
+   4:	00 00                	add    BYTE PTR [eax],al
+   6:	00 00                	add    BYTE PTR [eax],al
+   8:	01 7a 52             	add    DWORD PTR [edx+0x52],edi
+   b:	00 01                	add    BYTE PTR [ecx],al
+   d:	7c 08                	jl     17 <.eh_frame+0x17>
+   f:	01 1b                	add    DWORD PTR [ebx],ebx
+  11:	0c 04                	or     al,0x4
+  13:	04 88                	add    al,0x88
+  15:	01 00                	add    DWORD PTR [eax],eax
+  17:	00 1c 00             	add    BYTE PTR [eax+eax*1],bl
+  1a:	00 00                	add    BYTE PTR [eax],al
+  1c:	1c 00                	sbb    al,0x0
+  1e:	00 00                	add    BYTE PTR [eax],al
+  20:	00 00                	add    BYTE PTR [eax],al
+			20: R_386_PC32	.text
+  22:	00 00                	add    BYTE PTR [eax],al
+  24:	30 00                	xor    BYTE PTR [eax],al
+  26:	00 00                	add    BYTE PTR [eax],al
+  28:	00 41 0e             	add    BYTE PTR [ecx+0xe],al
+  2b:	08 85 02 42 0d 05    	or     BYTE PTR [ebp+0x50d4202],al
+  31:	6c                   	ins    BYTE PTR es:[edi],dx
+  32:	c5 0c 04             	lds    ecx,FWORD PTR [esp+eax*1]
+  35:	04 00                	add    al,0x0
+  37:	00 10                	add    BYTE PTR [eax],dl
+  39:	00 00                	add    BYTE PTR [eax],al
+  3b:	00 3c 00             	add    BYTE PTR [eax+eax*1],bh
+  3e:	00 00                	add    BYTE PTR [eax],al
+  40:	00 00                	add    BYTE PTR [eax],al
+			40: R_386_PC32	.text.__x86.get_pc_thunk.ax
+  42:	00 00                	add    BYTE PTR [eax],al
+  44:	04 00                	add    al,0x0
+  46:	00 00                	add    BYTE PTR [eax],al
+  48:	00 00                	add    BYTE PTR [eax],al
+	...
+\end{verbatim}
+
+\subparagraph{Explanation the Object File Disassembly}
+
+This object code disassembly represents the compiled output of a C program for the i386 architecture. Below is an explanation of the key sections and their significance:
+
+
+\bigskip
+\centerline{\rule{13cm}{0.4pt}}
+\bigskip
+
+\subparagraph{\textbf{File Metadata}}
+
+\begin{verbatim}
+add_int.o:     file format elf32 -i386
+architecture: i386, flags 0x00000011:
+HAS_RELOC, HAS_SYMS
+start address 0x00000000
+\end{verbatim}
+
+\begin{itemize}
+\item \textbf{File format}: \texttt{elf32-i386} indicates the ELF (Executable and Linkable Format) for the 32-bit i386 architecture.
+\item \textbf{Flags}:
+
+\begin{itemize}
+\item \texttt{HAS\_RELOC}: The file contains relocation entries.
+\item \texttt{HAS\_SYMS}: The file contains a symbol table.
+\end{itemize}
+
+
+\item \textbf{Start address}: The starting address of the program is \texttt{0x00000000}.
+\end{itemize}
+
+
+\bigskip
+\centerline{\rule{13cm}{0.4pt}}
+\bigskip
+
+\subparagraph{\textbf{Sections}}
+
+The disassembly lists various sections in the object file, each serving a specific purpose:
+
+\begin{enumerate}
+\item \textbf{\texttt{.group}}
+
+\begin{itemize}
+\item Contains metadata for grouping related sections.
+\item Flags: \texttt{CONTENTS, READONLY, GROUP, LINK\_ONCE\_DISCARD}.
+\end{itemize}
+
+
+\item \textbf{\texttt{.text}}
+
+\begin{itemize}
+\item Contains the executable code (instructions).
+\item Flags: \texttt{CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE}.
+\end{itemize}
+
+
+\item \textbf{\texttt{.data}}
+
+\begin{itemize}
+\item Contains initialized global and static variables.
+\item Flags: \texttt{CONTENTS, ALLOC, LOAD, DATA}.
+\end{itemize}
+
+
+\item \textbf{\texttt{.bss}}
+
+\begin{itemize}
+\item Contains uninitialized global and static variables.
+\item Flags: \texttt{ALLOC}.
+\end{itemize}
+
+
+\item \textbf{\texttt{.text.\_\_x86.get\_pc\_thunk.ax}}
+
+\begin{itemize}
+\item Contains helper code for position-independent code (PIC).
+\item Flags: \texttt{CONTENTS, ALLOC, LOAD, READONLY, CODE}.
+\end{itemize}
+
+
+\item \textbf{\texttt{.comment}}
+
+\begin{itemize}
+\item Contains compiler version information.
+\item Flags: \texttt{CONTENTS, READONLY}.
+\end{itemize}
+
+
+\item \textbf{\texttt{.note.GNU-stack}}
+
+\begin{itemize}
+\item Marks the stack as non-executable for security purposes.
+\item Flags: \texttt{CONTENTS, READONLY}.
+\end{itemize}
+
+
+\item \textbf{\texttt{.eh\_frame}}
+
+\begin{itemize}
+\item Contains exception handling information for stack unwinding.
+\item Flags: \texttt{CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA}.
+\end{itemize}
+\end{enumerate}
+
+
+\bigskip
+\centerline{\rule{13cm}{0.4pt}}
+\bigskip
+
+\subparagraph{\textbf{Symbol Table}}
+
+The symbol table lists symbols (functions, variables, and sections) in the object file:
+
+\begin{verbatim}
+00000000 g     F .text	00000030 main
+00000000 g     F .text.__x86.get_pc_thunk.ax	00000000 .hidden __x86.get_pc_thunk.ax
+00000000         *UND*	00000000 _GLOBAL_OFFSET_TABLE_
+\end{verbatim}
+
+\begin{itemize}
+\item \texttt{main}: The main function is defined in the \texttt{.text} section and has a size of \texttt{0x30} bytes.
+\item \texttt{\_\_x86.get\_pc\_thunk.ax}: A helper function for position-independent code.
+\item \texttt{\_GLOBAL\_OFFSET\_TABLE\_}: An undefined symbol used for dynamic linking.
+\end{itemize}
+
+
+\bigskip
+\centerline{\rule{13cm}{0.4pt}}
+\bigskip
+
+\subparagraph{\textbf{Disassembly of \texttt{.text} Section}}
+
+This section contains the main function's instructions:
+
+\begin{verbatim}
+00000000 <main>:
+   0:	55                   	push   ebp
+   1:	89 e5                	mov    ebp,esp
+   3:	83 ec 10             	sub    esp,0x10
+   6:	e8 fc ff ff ff       	call   7 <main+0x7>
+			7: R_386_PC32	__x86.get_pc_thunk.ax
+   b:	05 01 00 00 00       	add    eax,0x1
+			c: R_386_GOTPC	_GLOBAL_OFFSET_TABLE_
+  10:	c7 45 f4 01 00 00 00 	mov    DWORD PTR [ebp -0xc],0x1
+  17:	c7 45 f8 09 00 00 00 	mov    DWORD PTR [ebp -0x8],0x9
+  1e:	8b 55 f4             	mov    edx,DWORD PTR [ebp -0xc]
+  21:	8b 45 f8             	mov    eax,DWORD PTR [ebp -0x8]
+  24:	01 d0                	add    eax,edx
+  26:	89 45 fc             	mov    DWORD PTR [ebp -0x4],eax
+  29:	b8 00 00 00 00       	mov    eax,0x0
+  2e:	c9                   	leave  
+  2f:	c3                   	ret
+\end{verbatim}
+
+\begin{itemize}
+\item \textbf{Prologue}:
+
+\begin{itemize}
+\item \texttt{push ebp}: Saves the base pointer of the previous stack frame.
+\item \texttt{mov ebp, esp}: Sets up the current stack frame.
+\item \texttt{sub esp, 0x10}: Allocates 16 bytes for local variables.
+\end{itemize}
+
+
+\item \textbf{Position-Independent Code Setup}:
+
+\begin{itemize}
+\item \texttt{call \_\_x86.get\_pc\_thunk.ax}: Calls a helper function to get the program counter.
+\item \texttt{add eax, \_GLOBAL\_OFFSET\_TABLE\_}: Adjusts the program counter for the Global Offset Table (GOT).
+\end{itemize}
+
+
+\item \textbf{Variable Initialization}:
+
+\begin{itemize}
+\item \texttt{mov DWORD PTR [ebp-0xc], 0x1}: Stores \texttt{1} in the local variable at \texttt{-0xc}.
+\item \texttt{mov DWORD PTR [ebp-0x8], 0x9}: Stores \texttt{9} in the local variable at \texttt{-0x8}.
+\end{itemize}
+
+
+\item \textbf{Addition}:
+
+\begin{itemize}
+\item \texttt{mov edx, DWORD PTR [ebp-0xc]}: Loads the first variable (\texttt{1}) into \texttt{edx}.
+\item \texttt{mov eax, DWORD PTR [ebp-0x8]}: Loads the second variable (\texttt{9}) into \texttt{eax}.
+\item \texttt{add eax, edx}: Adds \texttt{edx} to \texttt{eax} (result: \texttt{10}).
+\item \texttt{mov DWORD PTR [ebp-0x4], eax}: Stores the result (\texttt{10}) in the local variable at \texttt{-0x4}.
+\end{itemize}
+
+
+\item \textbf{Return Value}:
+
+\begin{itemize}
+\item \texttt{mov eax, 0x0}: Sets the return value to \texttt{0}.
+\item \texttt{leave}: Restores the previous stack frame.
+\item \texttt{ret}: Returns control to the caller.
+\end{itemize}
+\end{itemize}
+
+
+\bigskip
+\centerline{\rule{13cm}{0.4pt}}
+\bigskip
+
+\subparagraph{\textbf{Disassembly of \texttt{.text.\_\_x86.get\_pc\_thunk.ax}}}
+
+This helper function retrieves the program counter for position-independent code:
+
+\begin{verbatim}
+00000000 <__x86.get_pc_thunk.ax>:
+   0:	8b 04 24             	mov    eax,DWORD PTR [esp]
+   3:	c3                   	ret
+\end{verbatim}
+
+\begin{itemize}
+\item \texttt{mov eax, DWORD PTR [esp]}: Loads the return address (program counter) into \texttt{eax}.
+\item \texttt{ret}: Returns to the caller.
+\end{itemize}
+
+
+\bigskip
+\centerline{\rule{13cm}{0.4pt}}
+\bigskip
+
+\subparagraph{\textbf{Disassembly of \texttt{.comment}}}
+
+Contains metadata about the compiler:
+
+\begin{verbatim}
+00000000 <.comment>:
+   0:	00 47 43             	add    BYTE PTR [edi+0x43],al
+   ...
+\end{verbatim}
+
+\begin{itemize}
+\item This section is not executable and contains the string \texttt{GCC: (Ubuntu 7.3.0-27ubuntu1{\textasciitilde}18.04) 7.3.0}.
+\end{itemize}
+
+
+\bigskip
+\centerline{\rule{13cm}{0.4pt}}
+\bigskip
+
+\subparagraph{\textbf{Disassembly of \texttt{.eh\_frame}}}
+
+Contains exception handling information for stack unwinding:
+
+\begin{verbatim}
+00000000 <.eh_frame>:
+   0:	14 00                	adc    al,0x0
+   ...
+\end{verbatim}
+
+\begin{itemize}
+\item This section is used by the runtime for exception handling and debugging.
+\end{itemize}
+
+
+\bigskip
+\centerline{\rule{13cm}{0.4pt}}
+\bigskip
+
+\subparagraph{\textbf{Summary}}
+
+This object file disassembly shows:
+
+\begin{enumerate}
+\item \textbf{Code Structure}: The \texttt{.text} section contains the main function and helper code for position-independent execution.
+\item \textbf{Relocation}: The GOT setup ensures compatibility with dynamically linked libraries.
+\item \textbf{Metadata}: Sections like \texttt{.comment} and \texttt{.eh\_frame} provide additional information for debugging and exception handling.
+\end{enumerate}
+
+\subparagraph{Project Code on GitHub}
+
+Project code and resources can be found on my GitHub repository: \newline
+
+\href{https://github.com/markkhusid/Disassembling-Binaries/tree/master/C/Intel\_architecture/i386/Integer\_Operations/Add\_Int}{GitHub}

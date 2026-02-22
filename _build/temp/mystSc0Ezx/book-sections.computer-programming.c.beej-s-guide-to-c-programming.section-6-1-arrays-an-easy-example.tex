@@ -1,0 +1,86 @@
+\subparagraph{Section 6.1 Arrays: An Easy Example}
+
+Adapted from: ``Beej's Guide to C Programming'' by Brian (Beej Jorgensen) Hall: \href{https://beej.us/guide/bgc/html/split/arrays.html\#easy-example}{Beej's Guide to C Programming: 6.1 An Easy Example}
+
+\href{https://beej.us/}{Brian (Beej Jorgensen) Hall Website}
+
+\subparagraph{Program for Creating, Initializing, and Printing an Array}
+
+\begin{verbatim}
+#include <stdio.h>
+
+int main(void)
+{
+    int i;
+    float f[4];  // Declare an array of 4 floats
+
+    f[0] = 3.14159;  // Indexing starts at 0, of course.
+    f[1] = 1.41421;
+    f[2] = 1.61803;
+    f[3] = 2.71828;
+
+    // Print them all out:
+
+    for (i = 0; i < 4; i++) {
+        printf("%f\n", f[i]);
+    }
+}
+\end{verbatim}
+
+\subparagraph{Explanation of the Above Code}
+
+\begin{enumerate}
+\item \textbf{Include the Standard I/O Library}: The program starts by including the standard input/output library with \texttt{\#include \textless stdio.h\textgreater }, which allows us to use functions like \texttt{printf()}.
+\item \textbf{Main Function}: The \texttt{main()} function is the entry point of the program.
+\item \textbf{Variable Declaration}: Inside the \texttt{main()} function, we declare an integer variable \texttt{i} and a float array \texttt{f} with 4 elements.
+\item \textbf{Array Initialization}: We assign values to each element of the array \texttt{f} using indexing. The first element is \texttt{f[0]}, the second is \texttt{f[1]}, and so on.
+\item \textbf{Loop to Print Values}: We use a \texttt{for} loop to iterate through the array and print each value using \texttt{printf()}. The loop runs from \texttt{0} to \texttt{3}, which corresponds to the indices of the array.
+\item \textbf{Output}: The program prints the values of the array \texttt{f} to the console, each on a new line.
+\end{enumerate}
+
+\subparagraph{Output of the Program}
+
+When you run the program, it will output the following values:
+
+\begin{verbatim}
+3.141590
+1.414210
+1.618030
+2.718280
+\end{verbatim}
+
+\subparagraph{Summary}
+
+This simple program demonstrates how to create, initialize, and print an array in C. It uses a \texttt{for} loop to iterate through the array and print each value, showcasing the basic syntax and functionality of arrays in C programming.
+
+\subparagraph{Compile and Run Code}
+
+\subparagraph{Use Python to Change to Working Directory}
+
+\begin{verbatim}
+import os
+root_dir = os.getcwd()
+\end{verbatim}
+
+\begin{verbatim}
+code_dir = root_dir + "/" + "C_Code"
+\end{verbatim}
+
+\begin{verbatim}
+os.chdir(code_dir)
+\end{verbatim}
+
+\begin{verbatim}
+build_command = os.system("gcc -o section_6_1_easy_example section_6_1_easy_example.c")
+\end{verbatim}
+
+\begin{verbatim}
+exec_status = os.system("./section_6_1_easy_example")
+\end{verbatim}
+
+\begin{verbatim}
+3.141590
+1.414210
+1.618030
+2.718280
+\end{verbatim}

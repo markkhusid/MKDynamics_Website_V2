@@ -1,0 +1,142 @@
+\begin{verbatim}
+- - -
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+ - - -
+\end{verbatim}
+
+\subparagraph{Section Arrays: Normalize}
+
+Adapted from: \href{https://github.com/gjbex/Fortran-MOOC/tree/master/source\_code/arrays}{https://github.com/gjbex/Fortran-MOOC/tree/master/source\_code/arrays}
+
+\subparagraph{This program normalizes a randomly generated matrix in Fortran.}
+
+\begin{verbatim}
+program normalize
+  use, intrinsic :: iso_fortran_env, only : error_unit, DP => REAL64
+  implicit none
+  integer, parameter :: rows = 3, cols = 4
+  real(kind=DP), dimension(rows, cols) :: matrix, spread_norm
+  real(kind=DP), dimension(rows) :: norm
+
+  call random_number(matrix)
+  print '(A)', 'original:'
+  call print_matrix(matrix)
+
+  norm = sum(matrix, dim=2)
+  print '(A, *(F12.7))', 'norm:', norm
+
+  spread_norm = spread(norm, 2, size(matrix, 2))
+  call print_matrix(spread_norm)
+
+  matrix = matrix/spread_norm
+  print '(A)', 'row -normalized::'
+  call print_matrix(matrix)
+
+  norm = sum(matrix, dim=2)
+  print '(A, *(F12.7))', 'norm:', norm
+
+contains
+
+  subroutine print_matrix(matrix)
+      implicit none
+      real(kind=DP), dimension(:, :), intent(in) :: matrix
+      integer :: row
+
+      do row = 1, size(matrix, 1)
+          print '(*(F12.7))', matrix(row, :)
+      end do
+  end subroutine print_matrix
+
+end program normalize
+\end{verbatim}
+
+The above program is compiled and run using Fortran Package Manager (fpm):
+
+\subparagraph{Build the Program using FPM (Fortran Package Manager)}
+
+\begin{verbatim}
+import os
+root_dir = os.getcwd()
+\end{verbatim}
+
+\begin{verbatim}
+code_dir = root_dir + "/" + "Fortran_Code/Section_Arrays_Normalize"
+\end{verbatim}
+
+\begin{verbatim}
+os.chdir(code_dir)
+\end{verbatim}
+
+\begin{verbatim}
+build_status = os.system("fpm build 2>/dev/null")
+\end{verbatim}
+
+\subparagraph{Run the Program using FPM (Fortran Package Manager)}
+
+\begin{verbatim}
+exec_status = os.system("fpm run 2>/dev/null")
+\end{verbatim}
+
+\begin{verbatim}
+original:
+   0.9819122   0.5656663   0.0519671   0.6593946
+   0.4108865   0.3895287   0.9864829   0.4993061
+   0.1143754   0.7222470   0.3168408   0.5699719
+norm:   2.2589402   2.2862042   1.7234352
+   2.2589402   2.2589402   2.2589402   2.2589402
+   2.2862042   2.2862042   2.2862042   2.2862042
+   1.7234352   1.7234352   1.7234352   1.7234352
+row -normalized::
+   0.4346783   0.2504122   0.0230051   0.2919044
+   0.1797243   0.1703823   0.4314938   0.2183996
+   0.0663648   0.4190741   0.1838426   0.3307185
+norm:   1.0000000   1.0000000   1.0000000
+\end{verbatim}
+
+\begin{verbatim}
+exec_status = os.system("fpm run 2>/dev/null")
+\end{verbatim}
+
+\begin{verbatim}
+original:
+   0.9050181   0.2726466   0.6853125   0.2627178
+   0.5990356   0.6849099   0.2024486   0.6401817
+   0.4520195   0.7993657   0.2001478   0.3209484
+norm:   2.1256949   2.1265758   1.7724815
+   2.1256949   2.1256949   2.1256949   2.1256949
+   2.1265758   2.1265758   2.1265758   2.1265758
+   1.7724815   1.7724815   1.7724815   1.7724815
+row -normalized::
+   0.4257516   0.1282623   0.3223946   0.1235915
+   0.2816902   0.3220717   0.0951993   0.3010388
+   0.2550207   0.4509868   0.1129195   0.1810729
+norm:   1.0000000   1.0000000   1.0000000
+\end{verbatim}
+
+\begin{verbatim}
+exec_status = os.system("fpm run 2>/dev/null")
+\end{verbatim}
+
+\begin{verbatim}
+original:
+   0.5397559   0.6360928   0.7468544   0.9909061
+   0.2020675   0.2961180   0.5907776   0.1273281
+   0.7599353   0.6659968   0.0851879   0.3199028
+norm:   2.9136092   1.2162912   1.8310228
+   2.9136092   2.9136092   2.9136092   2.9136092
+   1.2162912   1.2162912   1.2162912   1.2162912
+   1.8310228   1.8310228   1.8310228   1.8310228
+row -normalized::
+   0.1852534   0.2183178   0.2563331   0.3400957
+   0.1661342   0.2434598   0.4857205   0.1046855
+   0.4150332   0.3637294   0.0465247   0.1747126
+norm:   1.0000000   1.0000000   1.0000000
+\end{verbatim}

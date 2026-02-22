@@ -567,6 +567,9 @@ project:
                 - file: Sections/MCS_Projects/MCS_Portfolio_Project/CSE572_Project_1.ipynb
                 - file: Sections/MCS_Projects/MCS_Portfolio_Project/CSE572_Project_2_train.ipynb
                 - file: Sections/MCS_Projects/MCS_Portfolio_Project/CSE572_Project_3.ipynb
+            - file: Sections/MCS_Projects/CSE545_Software_Security/CSE545_soft_sec__HEAD__.md
+              children:
+                - file: Sections/MCS_Projects/CSE545_Software_Security/Reflector/Reflector_Project.md
             - file: Sections/MCS_Projects/CSE571_AI/CSE571_ai__HEAD__.md
               children:
                 - file: Sections/MCS_Projects/CSE571_AI/Project_1/Project_1.md

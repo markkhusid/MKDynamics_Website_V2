@@ -1,0 +1,167 @@
+\begin{verbatim}
+- - -
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+ - - -
+\end{verbatim}
+
+\subparagraph{Variables, Scopes and Namespaces: Uniform Initialization}
+
+Adapted from: ``Learn Modern C++'' by cpptutor: \href{https://learnmoderncpp.com/variables-scopes-and-namespaces/}{Learn Modern C++: Variables, Scopes and Namespaces}
+
+\subparagraph{Program that Demonstrates Uniform Initialization}
+
+\begin{verbatim}
+// 02 -uniform.cpp : avoid compiler error with uniform initialization and explicit narrowing cast
+ 
+#include <print>
+using namespace std;
+ 
+int main() {
+    // int c = { 2.5 };                 // Error: this does NOT compile
+    int c = { static_cast<int>(2.5) };  // while this does
+    double d = { 1 };                   // and so does this
+    println("c = {}, d = {}", c, d);
+}
+\end{verbatim}
+
+\subparagraph{Explanation of the Above Code}
+
+This C++ code demonstrates \textbf{uniform initialization} and the use of \textbf{explicit narrowing casts} to avoid compiler errors. Here's a breakdown:
+
+\subparagraph{Code Explanation:}
+
+\begin{enumerate}
+\item \textbf{Header Inclusion}:
+
+\begin{verbatim}
+#include <print>
+\end{verbatim}
+
+\begin{itemize}
+\item The \texttt{\textless print\textgreater } header is part of the \textbf{C++23 standard library}. It provides the \texttt{println} function, which is used for formatted output, similar to Python's \texttt{print}.
+\end{itemize}
+
+
+\item \textbf{Namespace}:
+
+\begin{verbatim}
+using namespace std;
+\end{verbatim}
+
+\begin{itemize}
+\item This allows the program to use standard library features (like \texttt{println}) without needing to prefix them with \texttt{std::}.
+\end{itemize}
+
+
+\item \textbf{Main Function}:
+
+\begin{verbatim}
+int main() {
+\end{verbatim}
+
+\begin{itemize}
+\item The \texttt{main} function is the entry point of the program.
+\end{itemize}
+
+
+\item \textbf{Uniform Initialization}:
+
+\begin{verbatim}
+int c = { 2.5 };                 // Error: this does NOT compile
+\end{verbatim}
+
+\begin{itemize}
+\item \textbf{Uniform initialization} (using curly braces \texttt{\{\}}) enforces stricter type checking.
+\item Here, assigning a \texttt{double} value (\texttt{2.5}) to an \texttt{int} variable (\texttt{c}) causes a \textbf{compiler error} because it involves \textbf{narrowing conversion} (loss of precision).
+\end{itemize}
+
+
+\item \textbf{Explicit Narrowing Cast}:
+
+\begin{verbatim}
+int c = { static_cast<int>(2.5) };  // while this does
+\end{verbatim}
+
+\begin{itemize}
+\item The \texttt{static\_cast\textless int\textgreater (2.5)} explicitly converts the \texttt{double} value \texttt{2.5} to an \texttt{int} (truncating the decimal part). This resolves the compiler error.
+\end{itemize}
+
+
+\item \textbf{Another Example of Uniform Initialization}:
+
+\begin{verbatim}
+double d = { 1 };                   // and so does this
+\end{verbatim}
+
+\begin{itemize}
+\item Assigning an \texttt{int} value (\texttt{1}) to a \texttt{double} variable (\texttt{d}) is allowed because it does not involve narrowing conversion.
+\end{itemize}
+
+
+\item \textbf{Formatted Output}:
+
+\begin{verbatim}
+println("c = {}, d = {}", c, d);
+\end{verbatim}
+
+\begin{itemize}
+\item The \texttt{println} function outputs the values of \texttt{c} and \texttt{d} in a formatted string. The placeholders \texttt{\{\}} are replaced with the values of \texttt{c} and \texttt{d}.
+\end{itemize}
+\end{enumerate}
+
+\subparagraph{Output:}
+
+When executed, the program will output:
+
+\begin{verbatim}
+c = 2, d = 1
+\end{verbatim}
+
+\subparagraph{Key Concepts:}
+
+\begin{itemize}
+\item \textbf{Uniform Initialization}: Enforces stricter type checking and prevents implicit narrowing conversions.
+\item \textbf{Explicit Narrowing Cast}: Use \texttt{static\_cast} to explicitly convert types when narrowing is necessary.
+\item \textbf{Formatted Output}: The \texttt{println} function simplifies printing formatted strings in C++23.
+\end{itemize}
+
+\subparagraph{Compile and Run Code}
+
+\subparagraph{Use Python to Change to Working Directory}
+
+\begin{verbatim}
+import os
+root_dir = os.getcwd()
+\end{verbatim}
+
+\begin{verbatim}
+code_dir = root_dir + "/" + "Cpp_Code/02_Variables_Scopes_and_Namespaces"
+\end{verbatim}
+
+\begin{verbatim}
+os.chdir(code_dir)
+\end{verbatim}
+
+\subparagraph{Use Docker to Compile the Code in a C++23 Environment}
+
+\begin{verbatim}
+!docker run - -rm -v $(pwd):/app cpp23 -clang18:latest clang++ -18 -std=c++23 -stdlib=libc++ /app/02 -uniform.cpp -o /app/02 -uniform
+\end{verbatim}
+
+\subparagraph{Use Docker to Run Executable in a C++23 Environment}
+
+\begin{verbatim}
+!docker run - -rm -v $(pwd):/app cpp23 -clang18:latest ./02 -uniform
+\end{verbatim}
+
+\begin{verbatim}
+c = 2, d = 1
+\end{verbatim}

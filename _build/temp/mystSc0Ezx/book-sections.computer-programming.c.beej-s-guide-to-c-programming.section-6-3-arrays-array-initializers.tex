@@ -1,0 +1,127 @@
+\subparagraph{Section 6.3 Arrays: Array Initializers}
+
+Adapted from: ``Beej's Guide to C Programming'' by Brian (Beej Jorgensen) Hall: \href{https://beej.us/guide/bgc/html/split/arrays.html\#array-initializers}{Beej's Guide to C Programming: 6.3 Array Initializers}
+
+\href{https://beej.us/}{Brian (Beej Jorgensen) Hall Website}
+
+\subparagraph{Program for Initializing an Array from a List}
+
+\begin{verbatim}
+#include <stdio.h>
+
+int main(void)
+{
+    int i;
+    int a[5] = {22, 37, 3490, 18, 95};  // Initialize with these values
+
+    for (i = 0; i < 5; i++) {
+        printf("%d\n", a[i]);
+    }
+}
+\end{verbatim}
+
+\subparagraph{Explanation of the Above Code}
+
+This C code demonstrates how to initialize an array with specific values and iterate through it to print each element.
+
+\subparagraph{Code Breakdown:}
+
+\begin{verbatim}
+#include <stdio.h>
+\end{verbatim}
+
+\begin{itemize}
+\item The \texttt{\#include \textless stdio.h\textgreater } directive includes the standard input/output library, which provides the \texttt{printf} function for printing to the console.
+\end{itemize}
+
+\begin{verbatim}
+int main(void)
+\end{verbatim}
+
+\begin{itemize}
+\item The \texttt{main} function is the entry point of the program.
+\end{itemize}
+
+\begin{verbatim}
+int i;
+int a[5] = {22, 37, 3490, 18, 95};  // Initialize with these values
+\end{verbatim}
+
+\begin{itemize}
+\item \texttt{int i;}: Declares a variable \texttt{i} to be used as a loop counter.
+\item \texttt{int a[5] = \{22, 37, 3490, 18, 95\};}: Declares an integer array \texttt{a} of size 5 and initializes it with the values \texttt{\{22, 37, 3490, 18, 95\}}.
+\end{itemize}
+
+\begin{verbatim}
+for (i = 0; i < 5; i++) {
+    printf("%d\n", a[i]);
+}
+\end{verbatim}
+
+\begin{itemize}
+\item A \texttt{for} loop is used to iterate through the array \texttt{a}.
+
+\begin{itemize}
+\item \texttt{i = 0}: The loop starts with \texttt{i} set to 0.
+\item \texttt{i \textless  5}: The loop continues as long as \texttt{i} is less than 5 (the size of the array).
+\item \texttt{i++}: Increments \texttt{i} by 1 after each iteration.
+\end{itemize}
+
+
+\item Inside the loop, \texttt{printf("\%d{\textbackslash}n", a[i]);} prints the value of the \texttt{i}-th element of the array \texttt{a} followed by a newline (\texttt{{\textbackslash}n}).
+\end{itemize}
+
+\subparagraph{Output:}
+
+The program will print each element of the array on a new line:
+
+\begin{verbatim}
+22
+37
+3490
+18
+95
+\end{verbatim}
+
+\subparagraph{Key Concepts:}
+
+\begin{enumerate}
+\item \textbf{Array Initialization}: The array \texttt{a} is initialized with specific values at the time of declaration.
+\item \textbf{Iteration}: The \texttt{for} loop iterates through the array using the index \texttt{i}.
+\item \textbf{Accessing Array Elements}: The array elements are accessed using the syntax \texttt{a[i]}, where \texttt{i} is the index.
+\end{enumerate}
+
+This program demonstrates a simple way to initialize and process arrays in C.
+
+\subparagraph{Compile and Run Code}
+
+\subparagraph{Use Python to Change to Working Directory}
+
+\begin{verbatim}
+import os
+root_dir = os.getcwd()
+\end{verbatim}
+
+\begin{verbatim}
+code_dir = root_dir + "/" + "C_Code"
+\end{verbatim}
+
+\begin{verbatim}
+os.chdir(code_dir)
+\end{verbatim}
+
+\begin{verbatim}
+build_command = os.system("gcc -o section_6_3_array_initializers section_6_3_array_initializers.c")
+\end{verbatim}
+
+\begin{verbatim}
+exec_status = os.system("./section_6_3_array_initializers")
+\end{verbatim}
+
+\begin{verbatim}
+22
+37
+3490
+18
+95
+\end{verbatim}
