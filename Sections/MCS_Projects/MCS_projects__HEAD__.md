@@ -27,6 +27,17 @@ CSE571 Artificial Intelligence
 :::
 
 :::{grid-item-card}
+:link: CSE545_Software_Security/CSE545_soft_sec__HEAD__.md
+
+CSE545 Software Security
+^^^
+```{image} images/CSE545_Software_Security.jpg
+:height: 200
+:align: center
+```
+:::
+
+:::{grid-item-card}
 :link: CSE575_Stats_ML/CSE575_stats_ml__HEAD__.md
 
 CSE575 Statistical Machine Learning
