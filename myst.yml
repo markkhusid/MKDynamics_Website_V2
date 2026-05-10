@@ -583,8 +583,14 @@ project:
       children:
         - file: Sections/MSE_Projects/MSE_projects__HEAD__.md
           children:
-            - file: Sections/MSE_Projects/EEE571_Power_System_Transients/Project/EEE571_Power_System_Transients_Project.ipynb
-            - file: Sections/MSE_Projects/EEE571_Power_System_Transients/Extra_Credit/EEE571_extra_credit.ipynb
+            - file: Sections/MSE_Projects/EEE571_Power_System_Transients/EEE571_power_system_transients__HEAD__.md
+              children:
+                - file: Sections/MSE_Projects/EEE571_Power_System_Transients/Project/EEE571_Power_System_Transients_Project.ipynb
+                - file: Sections/MSE_Projects/EEE571_Power_System_Transients/Extra_Credit/EEE571_extra_credit.ipynb
+            - file: Sections/MSE_Projects/EEE591_Computer_Controlled_Systems/EEE591_computer_controlled_systems__HEAD__.md
+              children:
+                - file: Sections/MSE_Projects/EEE591_Computer_Controlled_Systems/Labs/Lab_3/EEE591_lab_3.ipynb
+          
     - title: Website Updates
       children:
         - file: Sections/Website_Updates/website_updates.md
