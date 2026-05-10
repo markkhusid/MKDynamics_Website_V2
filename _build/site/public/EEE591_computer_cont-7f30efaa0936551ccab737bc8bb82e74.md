@@ -1,0 +1,17 @@
+# Master of Science in Engineering: Electrical Engineering - EEE591 Computer Controlled Systems
+
+## Table of Contents
+
+::::{grid} 2 2 2 2
+:::{grid-item-card}
+:link: Labs/Lab_3/EEE591_computer_controlled_systems_lab_3.ipynb
+
+EEE591 Computer Controlled Systems Lab 3
+^^^
+```{image} images/EEE591_lab_3.png
+:height: 200
+:align: center
+```
+:::
+
+::::
