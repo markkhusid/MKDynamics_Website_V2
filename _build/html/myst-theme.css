@@ -1,1 +1,61 @@
-/* No Custom Stylesheet Provided */
+/* User Provided Stylesheet */
+
+/* Clickable / expandable figures and images */
+figure.clickable-figure img,
+figure.fig-figure img,
+article img,
+main img {
+  cursor: zoom-in;
+  transition: opacity 0.15s ease;
+}
+figure.clickable-figure img:hover,
+figure.fig-figure img:hover,
+article img:hover,
+main img:hover {
+  opacity: 0.92;
+}
+
+/* Hide captions on card/thumb figures */
+figure.no-caption > figcaption,
+.no-caption > figcaption {
+  display: none !important;
+}
+
+/* Simple lightbox overlay */
+#mk-lightbox-overlay {
+  display: none;
+  position: fixed;
+  z-index: 99999;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  cursor: zoom-out;
+}
+#mk-lightbox-overlay.open {
+  display: flex;
+}
+#mk-lightbox-overlay img {
+  max-width: min(96vw, 1400px);
+  max-height: 92vh;
+  object-fit: contain;
+  border-radius: 4px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+  cursor: zoom-out;
+  background: #111;
+}
+#mk-lightbox-close {
+  position: fixed;
+  top: 1rem;
+  right: 1.25rem;
+  color: #fff;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  user-select: none;
+  opacity: 0.85;
+}
+#mk-lightbox-close:hover {
+  opacity: 1;
+}

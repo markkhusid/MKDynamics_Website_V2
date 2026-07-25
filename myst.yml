@@ -682,4 +682,5 @@ site:
     favicon: images/spacey.jpg
     analytics_google: G-BZ3C1QVH0B
     folders: true
+    style: styles/clickable-images.css
   template: book-theme
