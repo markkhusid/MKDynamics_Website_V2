@@ -1,19 +1,27 @@
-/* Clickable / expandable figures and images */
-figure.clickable-figure img,
-figure.fig-figure img,
-article img,
-main img {
+/* Clickable / expandable content figures only (not card thumbs) */
+article figure.fig-figure:not(.myst-card figure) img,
+article figure.clickable-figure img,
+main article figure img,
+.article.content figure.fig-figure img {
   cursor: zoom-in;
   transition: opacity 0.15s ease;
 }
-figure.clickable-figure img:hover,
-figure.fig-figure img:hover,
-article img:hover,
-main img:hover {
+article figure.fig-figure img:hover,
+article figure.clickable-figure img:hover,
+main article figure img:hover,
+.article.content figure.fig-figure img:hover {
   opacity: 0.92;
 }
 
-/* Hide captions on card/thumb figures */
+/* Cards must look/behave like normal linked cards — no zoom cursor */
+.myst-card img,
+.myst-card figure img,
+a.myst-card img {
+  cursor: inherit;
+  opacity: 1 !important;
+}
+
+/* Hide captions on intentionally uncaptioned figures */
 figure.no-caption > figcaption,
 .no-caption > figcaption {
   display: none !important;

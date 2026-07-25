@@ -24,12 +24,18 @@
     img.alt = alt || '';
     el.classList.add('open');
   }
-  function isContentImage(img) {
+  function isContentFigureImage(img) {
     if (!img || img.tagName !== 'IMG') return false;
+    // Never intercept card / navigation chrome — cards must keep working as links
+    if (img.closest('.myst-card') || img.closest('[class*="myst-card"]')) return false;
+    if (img.closest('nav') || img.closest('header.myst-card-header')) return false;
     if (img.closest('button')) return false;
-    if (img.closest('nav') || img.closest('header')) return false;
     if (img.closest('#mk-lightbox-overlay')) return false;
-    // skip tiny icons / logos in chrome
+    // Only expand figures in article content (not bare card thumbs / logos)
+    var fig = img.closest('figure.fig-figure, figure.clickable-figure, figure');
+    if (!fig) return false;
+    if (!img.closest('article, main, .article, .content')) return false;
+    // skip tiny icons
     var w = img.naturalWidth || img.width || 0;
     var h = img.naturalHeight || img.height || 0;
     if (w && h && w < 48 && h < 48) return false;
@@ -38,10 +44,9 @@
     if (src.indexOf('favicon') !== -1) return false;
     return true;
   }
-  // Capture phase so we open the lightbox even when the image sits inside a card <a>
   document.addEventListener('click', function (e) {
     var img = e.target.closest && e.target.closest('img');
-    if (!isContentImage(img)) return;
+    if (!isContentFigureImage(img)) return;
     e.preventDefault();
     e.stopPropagation();
     openLightbox(img.currentSrc || img.src, img.alt);
