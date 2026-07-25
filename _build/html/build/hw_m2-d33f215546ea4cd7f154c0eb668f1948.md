@@ -18,7 +18,7 @@ printed (and sometimes plotted) output.
 
 Finite Integral — Quad vs Trapezoid
 ^^^
-```{image} ../images/card_m2_numerical.jpg
+```{image} ../images/card_m2_finite.jpg
 :height: 160
 :align: center
 ```
@@ -31,7 +31,7 @@ Compare SciPy `quad` to a hand-written composite trapezoidal rule for $I_1 = \in
 
 Infinite Integral — Substitution Method
 ^^^
-```{image} ../images/card_m2_numerical.jpg
+```{image} ../images/card_m2_infinite.jpg
 :height: 160
 :align: center
 ```

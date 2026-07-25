@@ -5,6 +5,8 @@ Local files under this directory are cropped/resized for site cards. Canonical c
 | Local file | Source | Author / notes | License |
 |------------|--------|----------------|---------|
 | `card_m1_fundamentals.jpg` | [Wikimedia: Screen-python-code-matplotlib-physics-simulation.jpg](https://commons.wikimedia.org/wiki/File:Screen-python-code-matplotlib-physics-simulation.jpg) | MikeRun | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
+| `card_m2_finite.jpg` | Original plot (finite integral trap panels) | Site original | Site original |
+| `card_m2_infinite.jpg` | Original plot (infinite integral + substitution) | Site original | Site original |
 | `card_m2_numerical.jpg` | [Unsplash `photo-1635070041078-e363dbe005cb`](https://images.unsplash.com/photo-1635070041078-e363dbe005cb) | Unsplash contributor | [Unsplash License](https://unsplash.com/license) |
 | `card_m3_circuits.jpg` | [Unsplash `photo-1518770660439-4636190af475`](https://images.unsplash.com/photo-1518770660439-4636190af475) | Unsplash contributor | [Unsplash License](https://unsplash.com/license) |
 | `card_m4_signals.jpg` | Generated with NumPy / Matplotlib for this site | Original | Site original |
