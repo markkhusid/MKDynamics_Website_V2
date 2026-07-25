@@ -348,7 +348,7 @@ project:
                     Sections/Computer_Programming/Fortran/Fortran_MOOC/fortran_mooc.md
                   children:
                     - file: >-
-                        Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays.ipynb
+                        Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays__HEAD__.md
                       children:
                         - file: >-
                             Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Arrays_Allocate_from_Source.ipynb
