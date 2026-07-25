@@ -23,4 +23,20 @@ __pycache__/
 _build
 
 # MyST build outputs
-_build
+
+# Large training / generated data (exceeds GitHub 100MB limit)
+**/sine_NN_data.csv
+
+# Fortran Package Manager / compiler build artifacts
+**/Fortran_Code/**/build/
+**/fpm_dependencies/
+*.mod
+*.o
+*.a
+
+# Large binary simulation outputs
+**/*.dat
+!**/images/**
+
+# Video / large media (optional local assets)
+*.mp4
