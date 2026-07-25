@@ -2,6 +2,7 @@
 This file contains a log of updates made to the MKDynamics website. It is used to track changes, additions, and improvements over time.
 
 ## 7/25/2026
+- Fortran MOOC Bit Manipulations: MD head with card TOC and Unsplash images; clean rebuild HTML.
 - Fix Ball Throw card image: commit built trajectory asset (was missing under /build due to gitignore).
 - Fortran MOOC Ball Throw: convert head to MD with single card TOC and parabolic trajectory image; clean rebuild HTML.
 - Fortran MOOC Arrays: new card images for Linear Transform and Submatrices; clean rebuild HTML.

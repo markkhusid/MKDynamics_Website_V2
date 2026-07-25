@@ -396,7 +396,7 @@ project:
                         - file: >-
                             Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Ball_Throw.ipynb
                     - file: >-
-                        Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Bit_Manipulations__Head__.ipynb
+                        Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Bit_Manipulations__HEAD__.md
                       children:
                         - file: >-
                             Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Bit_Manipulations_Create_Lookup_Table.ipynb

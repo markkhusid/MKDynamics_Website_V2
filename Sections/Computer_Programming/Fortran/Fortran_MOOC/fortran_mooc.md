@@ -41,7 +41,7 @@ Projectile motion with a Runge–Kutta ODE integrator.
 :::
 
 :::{grid-item-card}
-:link: Section_Bit_Manipulations__Head__.ipynb
+:link: Section_Bit_Manipulations__HEAD__.md
 
 Bit Manipulations
 ^^^
