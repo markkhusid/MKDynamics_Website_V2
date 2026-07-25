@@ -26,9 +26,9 @@
   }
   function isContentImage(img) {
     if (!img || img.tagName !== 'IMG') return false;
-    if (img.closest('a')) return false; // already linked
     if (img.closest('button')) return false;
     if (img.closest('nav') || img.closest('header')) return false;
+    if (img.closest('#mk-lightbox-overlay')) return false;
     // skip tiny icons / logos in chrome
     var w = img.naturalWidth || img.width || 0;
     var h = img.naturalHeight || img.height || 0;
@@ -38,6 +38,7 @@
     if (src.indexOf('favicon') !== -1) return false;
     return true;
   }
+  // Capture phase so we open the lightbox even when the image sits inside a card <a>
   document.addEventListener('click', function (e) {
     var img = e.target.closest && e.target.closest('img');
     if (!isContentImage(img)) return;
