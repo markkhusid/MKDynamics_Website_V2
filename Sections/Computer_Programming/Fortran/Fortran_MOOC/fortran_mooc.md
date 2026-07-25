@@ -28,7 +28,7 @@ Dynamic arrays, reshape, normalize, identity matrices, timing, and related demos
 :::
 
 :::{grid-item-card}
-:link: Section_Ball_Throw__Head__.ipynb
+:link: Section_Ball_Throw__HEAD__.md
 
 Ball Throw
 ^^^
