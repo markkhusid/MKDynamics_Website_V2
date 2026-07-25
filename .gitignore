@@ -18,3 +18,9 @@ __pycache__/
 # Conflict / backup copies
 **/Backups/
 *Edit conflict*
+
+# MyST build outputs
+_build
+
+# MyST build outputs
+_build

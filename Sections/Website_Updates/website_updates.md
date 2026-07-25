@@ -2,6 +2,7 @@
 This file contains a log of updates made to the MKDynamics website. It is used to track changes, additions, and improvements over time.
 
 ## 7/25/2026
+- Fortran MOOC Ball Throw: convert head to MD with single card TOC and parabolic trajectory image; clean rebuild HTML.
 - Fortran MOOC Arrays: new card images for Linear Transform and Submatrices; clean rebuild HTML.
 - Fortran MOOC Arrays section: card TOC with Unsplash images for all array subsections; clean rebuild HTML.
 - Fortran section: remove legacy jupytext raw cells; fix Floating Point page headings and card TOC; new floating-point card image; clean rebuild HTML.
