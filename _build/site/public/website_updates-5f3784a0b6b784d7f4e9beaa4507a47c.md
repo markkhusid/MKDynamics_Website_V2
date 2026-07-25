@@ -2,6 +2,7 @@
 This file contains a log of updates made to the MKDynamics website. It is used to track changes, additions, and improvements over time.
 
 ## 7/25/2026
+- HW Modules 10–11 debug enabled with annotated plots; single top-level headers cleaned in added EEE591 content; project cards with Unsplash images + credits; rebuild HTML.
 - Distinct Module 2 integral card images; HW3 with DEBUG on, executed outputs, and explanations; HW4 classical demodulator walkthrough with debug prints, annotated plots, and BER; rebuild HTML.
 - Added EEE591 Python for Rapid Engineering Solutions (homework modules with executable notebooks, projects), more SLAE64 Module 1 sections, LiveOverflow, shellcode x86, and DFFT 50 Hz sine content; cleaned junk files and rebuilt the site.
 
