@@ -16,7 +16,7 @@ Runge–Kutta method, packaged and run with **fpm**.
 
 Ball Throw (RK4 trajectory)
 ^^^
-```{image} images/card_ball_throw_trajectory.png
+```{image} images/card_ball_throw_trajectory.jpg
 :height: 160
 :align: center
 ```
