@@ -9,6 +9,9 @@ project:
     - README.md
     - ford.md
   github: markkhusid/MKDynamics_Website_V2
+  settings:
+    # Suppress matplotlib Text(...) artist reprs in notebook outputs
+    output_matplotlib_strings: remove
   thebe:
     binder:
       repo: markkhusid/MKDynamics_Website_V2
@@ -75,6 +78,9 @@ project:
                 - file: >-
                     Sections/Cybersecurity/Disassembling_Binaries/Pascal/pascal.md
             - file: Sections/Cybersecurity/LiveOverflow/liveoverflow.md
+              children:
+                - file: >-
+                    Sections/Cybersecurity/LiveOverflow/bin_0x0C/bin_0x0c.md
             - file: Sections/Cybersecurity/Protostar/protostar.md
               children:
                 - file: Sections/Cybersecurity/Protostar/Stack0/stack0.md
@@ -93,8 +99,23 @@ project:
                     Sections/Cybersecurity/SLAE64/Modules/Module_1/Section_3_GDB_Test/section_3_GDB_test.md
                 - file: >-
                     Sections/Cybersecurity/SLAE64/Modules/Module_1/Section_5_Hello_World/section_5_hello_world.md
+                - file: >-
+                    Sections/Cybersecurity/SLAE64/Modules/Module_1/Section_7_Reducing_Instruction_Sizes_and_Removing_Nulls/section_7_reducing_instruction_sizes_and_removing_nulls.md
+                - file: >-
+                    Sections/Cybersecurity/SLAE64/Modules/Module_1/Section_11_Moving_Data/section_11_moving_data.md
+                - file: >-
+                    Sections/Cybersecurity/SLAE64/Modules/Module_1/Section_12_The_Stack/section_12_the_stack.md
+                - file: >-
+                    Sections/Cybersecurity/SLAE64/Modules/Module_1/Section_13_Arithmetic_Operations/section_13_arithmetic_operations.md
+                - file: >-
+                    Sections/Cybersecurity/SLAE64/Modules/Module_1/Section_17_Loops/section_17_loops.md
+                - file: >-
+                    Sections/Cybersecurity/SLAE64/Modules/Module_1/Section_18_Load_Store_and_Move_Strings/section_18_load_store_and_move_strings.md
             - file: >-
                 Sections/Cybersecurity/Shellcode_Generation_and_Testing/shellcode_generation_and_testing.md
+              children:
+                - file: >-
+                    Sections/Cybersecurity/Shellcode_Generation_and_Testing/x86/shellcode_x86.md
     - title: Computer Programming
       children:
         - file: Sections/Computer_Programming/computer_programming__HEAD__.md
@@ -452,6 +473,8 @@ project:
                     - file: >-
                         Sections/Computer_Programming/Fortran/DFFT/Sine_Wave_10_Hz/sine_wave_10_hz.md
                     - file: >-
+                        Sections/Computer_Programming/Fortran/DFFT/Sine_Wave_50_Hz/sine_wave_50_hz.md
+                    - file: >-
                         Sections/Computer_Programming/Fortran/DFFT/Square_Wave_1_Hz_50_pct/square_wave_1_hz_50_pct.md
                     - file: >-
                         Sections/Computer_Programming/Fortran/DFFT/2_Sine_Waves/2sineXHz.ipynb
@@ -590,7 +613,60 @@ project:
             - file: Sections/MSE_Projects/EEE591_Computer_Controlled_Systems/EEE591_computer_controlled_systems__HEAD__.md
               children:
                 - file: Sections/MSE_Projects/EEE591_Computer_Controlled_Systems/Labs/Lab_3/EEE591_lab_3.ipynb
-          
+            - file: >-
+                Sections/MSE_Projects/EEE591_Python_for_Rapid_Engineering_Solutions/EEE591_python_for_rapid_engineering_solutions__HEAD__.md
+              children:
+                - file: >-
+                    Sections/MSE_Projects/EEE591_Python_for_Rapid_Engineering_Solutions/HW/homework__HEAD__.md
+                  children:
+                    - file: >-
+                        Sections/MSE_Projects/EEE591_Python_for_Rapid_Engineering_Solutions/HW/HW_M1/hw_m1.md
+                      children:
+                        - file: >-
+                            Sections/MSE_Projects/EEE591_Python_for_Rapid_Engineering_Solutions/HW/HW_M1/hw1_gcd.ipynb
+                        - file: >-
+                            Sections/MSE_Projects/EEE591_Python_for_Rapid_Engineering_Solutions/HW/HW_M1/hw1_prime_checker.ipynb
+                        - file: >-
+                            Sections/MSE_Projects/EEE591_Python_for_Rapid_Engineering_Solutions/HW/HW_M1/hw1_riemann_zeta.ipynb
+                        - file: >-
+                            Sections/MSE_Projects/EEE591_Python_for_Rapid_Engineering_Solutions/HW/HW_M1/hw1_591.ipynb
+                    - file: >-
+                        Sections/MSE_Projects/EEE591_Python_for_Rapid_Engineering_Solutions/HW/HW_M2/hw_m2.md
+                      children:
+                        - file: >-
+                            Sections/MSE_Projects/EEE591_Python_for_Rapid_Engineering_Solutions/HW/HW_M2/hw2_quad_accuracy.ipynb
+                        - file: >-
+                            Sections/MSE_Projects/EEE591_Python_for_Rapid_Engineering_Solutions/HW/HW_M2/hw2_substitution.ipynb
+                        - file: >-
+                            Sections/MSE_Projects/EEE591_Python_for_Rapid_Engineering_Solutions/HW/HW_M2/hw2_591.ipynb
+                    - file: >-
+                        Sections/MSE_Projects/EEE591_Python_for_Rapid_Engineering_Solutions/HW/HW_M3/HW3.ipynb
+                    - file: >-
+                        Sections/MSE_Projects/EEE591_Python_for_Rapid_Engineering_Solutions/HW/HW_M4/HW4_591.ipynb
+                    - file: >-
+                        Sections/MSE_Projects/EEE591_Python_for_Rapid_Engineering_Solutions/HW/HW_M10/HW_M10.ipynb
+                    - file: >-
+                        Sections/MSE_Projects/EEE591_Python_for_Rapid_Engineering_Solutions/HW/HW_M11/HW_M11.ipynb
+                    - file: >-
+                        Sections/MSE_Projects/EEE591_Python_for_Rapid_Engineering_Solutions/HW/HW_M12/HW8_Mark_Khusid.ipynb
+                    - file: >-
+                        Sections/MSE_Projects/EEE591_Python_for_Rapid_Engineering_Solutions/HW/HW_M13/HW_M13_calculators.ipynb
+                - file: >-
+                    Sections/MSE_Projects/EEE591_Python_for_Rapid_Engineering_Solutions/Projects/projects__HEAD__.md
+                  children:
+                    - file: >-
+                        Sections/MSE_Projects/EEE591_Python_for_Rapid_Engineering_Solutions/Projects/Project_1/project_1_591.ipynb
+                    - file: >-
+                        Sections/MSE_Projects/EEE591_Python_for_Rapid_Engineering_Solutions/Projects/Project_2/Project_2.ipynb
+                    - file: >-
+                        Sections/MSE_Projects/EEE591_Python_for_Rapid_Engineering_Solutions/Projects/Project_3/project3.ipynb
+                    - file: >-
+                        Sections/MSE_Projects/EEE591_Python_for_Rapid_Engineering_Solutions/Projects/Project_4/project_4.md
+                    - file: >-
+                        Sections/MSE_Projects/EEE591_Python_for_Rapid_Engineering_Solutions/Projects/Midterm_Project/Midterm_Project_Mark_Khusid.ipynb
+                    - file: >-
+                        Sections/MSE_Projects/EEE591_Python_for_Rapid_Engineering_Solutions/Projects/Final_Project/Final_Project_Mark_Khusid.ipynb
+
     - title: Website Updates
       children:
         - file: Sections/Website_Updates/website_updates.md

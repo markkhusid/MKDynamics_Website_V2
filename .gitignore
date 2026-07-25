@@ -1,12 +1,20 @@
+# Data / generated artifacts
 *.csv
+**/midterm_dataset/
+**/final_dataset/
+*.parquet
 
+# Python / Jupyter junk
+.ipynb_checkpoints/
+__pycache__/
+*.py[cod]
+.virtual_documents/
+*.bak
 
+# Editor / OS
+.DS_Store
+.qodo/
 
-# MyST build outputs
-_build
-
-# MyST build outputs
-_build
-
-# MyST build outputs
-_build
+# Conflict / backup copies
+**/Backups/
+*Edit conflict*

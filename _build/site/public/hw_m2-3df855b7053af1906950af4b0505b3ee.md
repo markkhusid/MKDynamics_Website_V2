@@ -1,0 +1,66 @@
+*Built with Grok Build*
+
+# Homework Module 2 — Numerical Accuracy
+
+Course: **EEE591 / EEE419 Python for Rapid Engineering Solutions**.
+
+Module 2 focuses on **numerical reliability**: how algebraic rearrangement, substitution
+methods, and quadrature choices affect floating-point accuracy in engineering calculations.
+Each topic below is an **executable notebook**: short explanations, then a code group with its
+printed (and sometimes plotted) output.
+
+## Subsections
+
+::::{grid} 2 2 2 2
+
+:::{grid-item-card}
+:link: hw2_quad_accuracy.ipynb
+
+Finite Integral — Quad vs Trapezoid
+^^^
+```{image} ../images/card_m2_numerical.jpg
+:height: 160
+:align: center
+```
+
+Compare SciPy `quad` to a hand-written composite trapezoidal rule for $I_1 = \int_{-4}^{5}(a x^5 + b x^2 - c)\,dx$.
+:::
+
+:::{grid-item-card}
+:link: hw2_substitution.ipynb
+
+Infinite Integral — Substitution Method
+^^^
+```{image} ../images/card_m2_numerical.jpg
+:height: 160
+:align: center
+```
+
+Evaluate $I_2 = \int_0^{\infty} 1/(1+x^2)\,dx = \pi/2$ with a change of variables and with direct infinite limits.
+:::
+
+:::{grid-item-card}
+:link: hw2_591.ipynb
+
+Energy Calculation (591)
+^^^
+```{image} ../images/card_m4_signals.jpg
+:height: 160
+:align: center
+```
+
+Compute $E(f)=\int |x(t,f)|^2\,dt$ for a damped sinusoid at 10 Hz, 20 Hz, and 1 MHz with `quad`.
+:::
+
+::::
+
+## Original scripts
+
+CLI-style sources remain in this folder for reference or regrading harnesses:
+
+- `HW2_Estimating_Quad_Accuracy.py` — finite integral accuracy (Problem 1)
+- `HW2_Accuracy_of_Subsitution_Method.py` — infinite integral / substitution (Problem 2)
+- `hw2.py` — combined Problems 1 and 2
+- `hw2_591.py` — energy calculation for the 591 track (Problem 3)
+
+Assignment PDFs in this folder document the official problem statements.

@@ -1,0 +1,247 @@
+# Shellcode Generation and Testing - x86
+
+## Introduction
+
+## Source: `sc2.asm`
+
+```{literalinclude} code/sc2.asm
+:language: nasm
+```
+
+This section will borrow heavily from Gray Hat Hacking, The Ethical Hacker's Handbook, by Regaldo, et. al, McGraw Hill, 4th. Edition.
+
+In this section, we will discuss developing and testing shellcode, as well as analyzing its execution with Gnu DeBugger (GDB).
+
+## Shellcode Generation
+
+### Developing Basic Shellcode in Assembly
+
+The following assembly instructions use kernel system calls to invoke the change the setreuid signature level to the highest privilege level possible, which is that of root, or user (0). This is accomplished by invoking the setreuid(0,0) system call. After escalating the privilege level, assembly instructions then invoke the execve system call to spawn a shell, by executing the command /bin/sh at the root priviliege level.
+
+System calls in Linux are invoked by first setting the appropriate values into appropriate CPU registers, and then sending a call to the kernel by executing the int 0x80 instruction. In the case of setreuid, the least significant bits of EAX, which are alternatively called AL, are set to the hex value 0x46. To ensure that the most significant bits of EAX do not have any information in them that will invalidate the system call, the entire EAX register is first cleared by xor'ing EAX with itself.
+
+Subesquently, the regsters EBX and ECX contain the real user ID (ruid), and the effective user id (euid), respectfully. Since we want ruid and euid to both be 0, or the privilege level of root, we clear them both by xor'ing them with themselves. It is important to use the xor reg, reg instruction to clear, rather than mov 0, reg, because we want to avoid any nulls in the shellcode. Any nulls in the shellcode will prevent vulnerable string manipulation C commands from working with the entire shellcode, since a null indicates the end of a string.
+
+A similar process is followed to spawn a shell. The system call that executes commands is execve. In order to use execve, the following format is required: evecve("/bin/sh", ["/bin/sh", NULL], NULL). The first argument is the command to be executed, the second argument is a pointer to a string array (i.e. the name of the string itself, which is in essence an address), and lastly, a pointer to the environment string to accompany the command. For our purposes an environment is not needed; therefore, we simply set this last argument to null.
+
+To set up the execve invocation properly, we need AL to contain the system call number for execve, which is 0xb. EBX needs to contain the memory address of /bin/sh. ECX needs to contain a pointer to the argument array (argv[]). EDX needs to contain a pointer to the environment array, which on our case can be a NULL, since we do not need any environment for the spawned shell.
+
+Obviously, there is a bit of complexity here because we are dealing with strings and their memory addresses, but we also want out shellcode to be compact. We can make use of the stack and the fact that it is simply a data structure in memory. First, we build up the argvp[] array. Since the last argument is a null, we clear eax to produce a NULL and push it onto the stack. The we then push the command string /bin//sh onto the stack in little endian format. The extra / in the command is byte padding to line up the command in memory properly, and does not change the command. After pushing the strings onto the stack, the stack pointer, ESP, contains the address of what is effectively the command string, which is what we require in EBX. Therefore, we copy the stack pointer contents into EBX.
+
+Now we work on a pointer to argv []. argv[] is an array of strings, where the first string is the command /bin//sh, and the second string is a NULL. The strings are memory addresses. If we can get the address of the command, and the address of the NULL, we effectively have argv[]. Since the command is already on the stack and stored in EBX, to get the NULL we first push the cleared EAX and then push EBX. The stack pointer ESP now contains the address of argv[]. We load this address into ECX as required. the environment string is NULL, which we can simply obtain by clearing EDX. Finally, the system call number 0xb is loaded into AL and the kernel is called with the int 0x80 instruction. Follow the comments in the code for a instruction by instruction explanation.
+
+## Assembling, Executing and Testing the Shellcode
+
+### Assembling and Linking sc2.asm and Viewing Hex Opcodes
+
+sc2.asm is assembled with NASM. The format of the object file is 32 bit Executable and Linkable Format (ELF). The contents of the produced object file are then viewed with objdump -D. The object file is then linked to produce an executable.
+
+```{figure} images/assembling_of_sc2.jpg
+:name: assembling-of-sc2-1
+:alt: assembling of sc2
+:align: center
+
+assembling of sc2
+```
+
+The object file's contents are saved into a text file for future viewing. Notice the produced hex opcodes in the left columns. These opcodes are what we are really after, as they need to be isolated and saved into a format that can be inserted into a C program for testing.
+
+### Running the Executable
+
+Once we have the executable, we can run it to see that it works correctly. Our main goal is to obtain a shell with root permissions. If the executable has permissions of a normal user, then the kernel will not allow the privilege escalation. At this stage, we want to see that the shellcode indeed drops a root shell upon execution. For this to happen, the owner of the executable needs to be root, and it needs to have sudo capabiility, to allow a regular user to escalate to root privileges.
+
+To make this happen, we change the owner of the executable to root, and give it sudo user permissions (SUID). We then run it as shown below:
+
+```{figure} images/running_sc2_to_get_root_shell.jpg
+:name: running-sc2-to-get-root-shell-2
+:alt: running sc2 to get root shell
+:align: center
+
+running sc2 to get root shell
+```
+
+We can see that upon execution, we obtain a root shell. Executing the command whoami returns the result root. What is important to note is that a regular user was able to execute a program that gave the user a root shell. This is because the shellcode changes the users real and effective UIDs to that of root, and then spawns a shell.
+
+What we will do with this shellcode is to eventually inject it into a vulerable program to obtain a root shell. Vulnerable programs can be affected by an exploit, which we will develop in further sections.
+
+### Viewing Hex Opcodes of ELF Executable
+
+Once we have the executable, we can then again use objdump -d to view the hex opcodes.
+
+```{figure} images/assembling_of_sc2_2.jpg
+:name: assembling-of-sc2-2-3
+:alt: assembling of sc2 2
+:align: center
+
+assembling of sc2 2
+```
+
+Since we are really after the hex opcodes, we need a method of extracting them from the executable. This is where the objcopy utility comes in, and is discussed in the next section.
+
+## Extracting the Hex Opcodes from the Executable
+
+### Using the objcopy Utility to Obtain the Hex Opcodes
+
+The GCC toolchain contains a utility called objcopy that can copy the hex opcodes from an executable. The format of invoking the utility is:
+
+ objcopy -O binary sc2 sc2.bin
+
+ We then look at the binary file with the more utility. It is as you can expect, garbled characters, because they are not displayable ASCII characters, but rather binary values. The binary values correspond to the hex opcodes described earlier.
+
+There is another utility called hexdump, which dumps the binary values into their hexadecimal representations onto the screen as displayable values. The format of invoking the hexdump utility is as follows:
+
+ hexdump -v -e '"\\""x" 1/1 "%02x" ""' execve3.bin
+
+ Notice that the formatting needs to be supplied by the user.
+
+Now we can finally see the hex opcodes, but they are still not usable in the sense that they are not easily inserted into a C program to test the shellcode. For this reason, I wrote a Python script that parses the binary file and prints out the hex opcodes in a format the is easily inserted into a C test program.
+
+```{figure} images/objcopy_of_sc2.jpg
+:name: objcopy-of-sc2-4
+:alt: objcopy of sc2
+:align: center
+
+objcopy of sc2
+```
+
+### Python Utility to Obtain the Hex Opcodes and Format to be C Program Ready
+
+The following Python script was written to parse the binary file and print out the hex opcodes, 10 to a line, with the appropriate quotation marks, so that they can be easily inserted into a C test program.
+
+The heart of the Python script is this construction:
+
+ print ("\\x" + "".join("{:02x}".format(byte)), end="")
+
+ The \ is escaped to print out a slash followed by an x, which signifies a hex value to the C compiler. The join function separates the hex values into pieces of 2 hex numbers, for a total of one bytes. So each value represents a single byte, which is what we are after. The format function formats the binary value on a per byte basis.
+
+A counter is set up to count to 10, and then a new line is created. Quotation marks are inserted before and after the hex opcodes for easy insertion into a C test program. Running the Python script against sc2.bin produces the following output:
+
+### Running the Hex Encode with Formatting Python Script on sc2.bin
+
+```{figure} images/hex_extract_python_script.jpg
+:name: hex-extract-python-script-5
+:alt: hex extract python script
+:align: center
+
+hex extract python script
+```
+
+As can be seen from the Python script output, the opcodes are formatted, 10 to a line, with quotation markes added. These quotation marks are needed because the opcodes will actually be part of string within the C test program. This is also why it is important that the shellcode does not contain any nulls, as this will prematurely terminate the shellcode.
+
+In the next section, we will use the formatted, extracted opcodes within a C test program to verify that we indeed get a root shell upon execution.
+
+## Inserting Extracted Hex Opcodes into C Test Program and Compiling C Test Program
+
+### C Test Program for Shellcode
+
+Now that we have the extracted hex opcodes with proper formatting that includes quotation marks and 10 opcodes per line, we can insert these opcodes into a C test program. It is important to not forget the trailing semicolon to terminate the string that is composed of the hex opcodes. The C test program is shown below:
+
+Referring to the C test program, we can see that a string called shellcode is setup. It is assigned the hex opcodes we obtained earlier. I have seperated out the opcodes that pertain to the setreuid as well as the opcodes that pertain to spawing a shell.
+
+In the main function, we set up a function pointer to a void. This pointer will then be cast into the type we need, which is a pointer to a string. The pointer is assigned the address of shellcode, which is recast into a void pointer. Finally, the function is called, which begins executing at the address of the pointer, in other words, it will start to execute our shellcode.
+
+To complile the C test program, I like to go through the extra steps of producing allot of debugging information, the preprocessed file, static compilation, generating the generic assembly code, compiling the generic assembly code into an object file, and finally linking the object file with gcc to produce an executable. All compilation will be done in 32 bit mode, and objdumps of both the object file and executable files will be produced and saved.
+
+### Compiling shellcode.c Into 32 Bit Mode, Statically, with Debugging Information, and Preprocessor Additions
+
+```{figure} images/shellcode_processed_dot_c.jpg
+:name: shellcode-processed-dot-c-6
+:alt: shellcode processed dot c
+:align: center
+
+shellcode processed dot c
+```
+
+I then generate a generic assembly code file of shellcode.c, mainly out of curiosity. In order to make a readable file for this example, I use shellcode.c as input, and do not include debugging information. I will then redo this step, but use processed.c as input and include the debug information. I will not show the results of the second step, as it is very verbose and little can be gleaned from it.
+
+### Compiling shellcode.c Into 32 Bit Mode Generic Assembly Instructions, with No Debugging Information for Clarity
+
+```{figure} images/generic_assembly_of_shellcode_c.jpg
+:name: generic-assembly-of-shellcode-c-7
+:alt: generic assembly of shellcode c
+:align: center
+
+generic assembly of shellcode c
+```
+
+We can see from the generic assemply above that there is a function prefix to set up the variables on the stack, and to load the address of the shellcode into EAX. The shellcode is then called by the instruction:
+
+ call *%eax
+
+ Finally, there is the function suffix to which ends in the ret instruction to return control back to the shell.
+
+ It is now time to generate the object file.
+
+```{figure} images/objdump_of_shellcode2_dot_o.jpg
+:name: objdump-of-shellcode2-dot-o-8
+:alt: objdump of shellcode2 dot o
+:align: center
+
+objdump of shellcode2 dot o
+```
+
+As before, we see the function prefix and suffix, as well as the call to *EAX, which is the address of our shellcode. It is now time to produce an executable, and move on to using the Gnu Debugger (GDB) to step through the assembly instructions, as well as the shellcode.
+
+```{figure} images/compiling_shellcode2_dot_o_into_executable.jpg
+:name: compiling-shellcode2-dot-o-into-executable-9
+:alt: compiling shellcode2 dot o into executable
+:align: center
+
+compiling shellcode2 dot o into executable
+```
+
+## Running, Recompiling and Rerunning C Test Program
+
+### Running C Test Program
+
+Now that we have compiled the C test program, we are ready to run it. However, as soon as we run it, we get a segmentation fault. This is because we have instructed the CPU to run code that is stored in the data section of the executable. Recall that we set up a function pointer, and pointed the address of the function pointer to the address of the shellcode. When the function is called, the instruction pointer is pointed to the shellcode, which is actually data. In modern kernels such as the Linux kernel, execution of code in the data segment is not allowed. There is an overide that can be used during compilation. First, we show the results of running the executable as is.
+
+### Running the Executable As-Is
+
+```{figure} images/running_shellcode2_getting_seg_fault.jpg
+:name: running-shellcode2-getting-seg-fault-10
+:alt: running shellcode2 getting seg fault
+:align: center
+
+running shellcode2 getting seg fault
+```
+
+We can see that a segmentation fault develops. An strace is performed to see what is causing the segmentation fault, but little information produced is of immediate value. Running the exeutable in GDB will produce a thourough understanding of what is cause the segmentation fault.
+
+### Running shellcode2 in GDB + PEDA.
+
+```{figure} images/gdb_peda_shellcode2.jpg
+:name: gdb-peda-shellcode2-11
+:alt: gdb peda shellcode2
+:align: center
+
+gdb peda shellcode2
+```
+
+We can see that as soon as the instruction pointer, EIP, points to the shellcode in the data segment, we get a segmentation fault.
+
+Notice that EAX contains an address, which is 0x80c3040, and at this memory address is 0x46b0c031, the first four bytes of our shellcode!
+
+ EAX: 0x80c3040 --> 0x46b0c031
+
+### Recompiling shellcode.c as before but with executable stack and no stack protections
+
+```{figure} images/recompiling_shellcode2_with_nx_disabled.jpg
+:name: recompiling-shellcode2-with-nx-disabled-12
+:alt: recompiling shellcode2 with nx disabled
+:align: center
+
+recompiling shellcode2 with nx disabled
+```
+
+We recompiled shellcode2.c so that the stack is executable, and there are no protections on the stack. Recall that the shellcode, which is data, is placed onto the stack when the function fp() is called in shellcode2.c. By enabling execution of data on the stack, we prevent a segmentation fault, as can be seen in the next section.
+
+```{figure} images/running_shellcode2_getting_root_shell.jpg
+:name: running-shellcode2-getting-root-shell-13
+:alt: running shellcode2 getting root shell
+:align: center
+
+running shellcode2 getting root shell
+```
+
+We can see that once we run the shellcode, we get a root shell. Success! We can now use this shellcode to exploit vulnerabilities in vulnerable programs.
