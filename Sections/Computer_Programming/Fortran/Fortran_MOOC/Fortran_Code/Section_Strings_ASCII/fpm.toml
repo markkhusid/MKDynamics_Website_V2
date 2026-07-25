@@ -1,0 +1,14 @@
+name = "Section_Strings_ASCII"
+
+[build]
+auto-executables = true
+auto-tests = true
+auto-examples = true
+
+[install]
+library = false
+
+[[executable]]
+name="Section_Strings_ASCII"
+source-dir="app"
+main="ascii.f90"

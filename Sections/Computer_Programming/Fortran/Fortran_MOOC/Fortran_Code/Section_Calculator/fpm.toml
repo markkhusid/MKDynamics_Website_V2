@@ -1,0 +1,14 @@
+name = "Section_Calculator"
+
+[build]
+auto-executables = true
+auto-tests = true
+auto-examples = true
+
+[install]
+library = false
+
+[[executable]]
+name="Section_Calculator"
+source-dir="app"
+main="calculator.f90"

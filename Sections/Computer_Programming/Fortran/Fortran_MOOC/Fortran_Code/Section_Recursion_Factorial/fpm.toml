@@ -1,0 +1,14 @@
+name = "Section_Recursion_Factorial"
+
+[build]
+auto-executables = true
+auto-tests = true
+auto-examples = true
+
+[install]
+library = false
+
+[[executable]]
+name="Section_Recursion_Factorial"
+source-dir="app"
+main="factorial.f90"

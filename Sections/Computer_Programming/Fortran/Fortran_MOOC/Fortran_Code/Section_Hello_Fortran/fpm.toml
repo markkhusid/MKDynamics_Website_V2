@@ -1,0 +1,14 @@
+name = "Section_Hello_Fortran"
+
+[build]
+auto-executables = true
+auto-tests = true
+auto-examples = true
+
+[install]
+library = false
+
+[[executable]]
+name="Section_Hello_Fortran"
+source-dir="app"
+main="hello_fortran.f90"

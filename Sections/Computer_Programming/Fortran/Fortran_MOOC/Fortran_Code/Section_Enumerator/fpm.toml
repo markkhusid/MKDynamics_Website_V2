@@ -1,0 +1,14 @@
+name = "Section_Enumerator"
+
+[build]
+auto-executables = true
+auto-tests = true
+auto-examples = true
+
+[install]
+library = false
+
+[[executable]]
+name="Section_Enumerator"
+source-dir="app"
+main="enumerator_test.f90"

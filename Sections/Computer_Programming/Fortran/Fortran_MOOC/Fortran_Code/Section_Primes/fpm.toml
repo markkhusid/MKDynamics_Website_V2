@@ -1,0 +1,14 @@
+name = "Section_Primes"
+
+[build]
+auto-executables = true
+auto-tests = true
+auto-examples = true
+
+[install]
+library = false
+
+[[executable]]
+name="Section_Primes"
+source-dir="app"
+main="prime_test.f90"

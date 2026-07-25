@@ -1,0 +1,14 @@
+name = "Section_GCD"
+
+[build]
+auto-executables = true
+auto-tests = true
+auto-examples = true
+
+[install]
+library = false
+
+[[executable]]
+name="Section_GCD"
+source-dir="app"
+main="gcd.f90"

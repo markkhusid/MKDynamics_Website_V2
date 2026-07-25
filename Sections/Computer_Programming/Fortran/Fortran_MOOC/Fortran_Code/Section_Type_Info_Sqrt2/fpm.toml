@@ -1,0 +1,14 @@
+name = "Section_Type_Info_Sqrt2"
+
+[build]
+auto-executables = true
+auto-tests = true
+auto-examples = true
+
+[install]
+library = false
+
+[[executable]]
+name="Section_Type_Info_Sqrt2"
+source-dir="app"
+main="sqrt2.f90"

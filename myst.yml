@@ -463,6 +463,78 @@ project:
                                 Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_BLAS_LAPACK_Scal.ipynb
                             - file: >-
                                 Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_BLAS_LAPACK_SV.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Hello_Basics__Head__.md
+                      children:
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Hello_Fortran.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_GCD.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Leap_Year.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Calculator.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Recursion_Factorial.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Enumerator.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Optional_Clamp.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Types_Precision__Head__.md
+                      children:
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Type_Info.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Type_Info_Overflow.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Type_Info_Sqrt2.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Type_Info_Conversion.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Precision_Real32_vs_Real64.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Strings_I_O__Head__.md
+                      children:
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Strings_ASCII.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Strings_Assignment.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Strings_Palindromes.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Sum_Values.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Sum_Values_No_Infinite.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Distance.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Random_Numbers_Sampling__Head__.md
+                      children:
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Random_Numbers.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Random_Integers.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Exp_Distr.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Buffon_Needles.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Sierpinski.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Algorithms__Head__.md
+                      children:
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Primes.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Fibonacci_Verify.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Kaprekar.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Coins_Change.ipynb
+                        - file: >-
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Towers_Of_Hanoi.ipynb
+
                 - file: >-
                     Sections/Computer_Programming/Fortran/Neural_Fortran/neural_fortran__HEAD__.md
                   children:

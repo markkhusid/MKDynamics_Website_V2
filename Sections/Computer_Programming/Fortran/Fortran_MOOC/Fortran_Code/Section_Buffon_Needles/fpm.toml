@@ -1,0 +1,14 @@
+name = "Section_Buffon_Needles"
+
+[build]
+auto-executables = true
+auto-tests = true
+auto-examples = true
+
+[install]
+library = false
+
+[[executable]]
+name="Section_Buffon_Needles"
+source-dir="app"
+main="buffon_needles.f90"

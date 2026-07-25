@@ -1,0 +1,14 @@
+name = "Section_Type_Info_Overflow"
+
+[build]
+auto-executables = true
+auto-tests = true
+auto-examples = true
+
+[install]
+library = false
+
+[[executable]]
+name="Section_Type_Info_Overflow"
+source-dir="app"
+main="overflow.f90"

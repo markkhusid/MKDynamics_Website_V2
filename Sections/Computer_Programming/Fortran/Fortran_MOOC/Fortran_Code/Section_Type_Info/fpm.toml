@@ -1,0 +1,14 @@
+name = "Section_Type_Info"
+
+[build]
+auto-executables = true
+auto-tests = true
+auto-examples = true
+
+[install]
+library = false
+
+[[executable]]
+name="Section_Type_Info"
+source-dir="app"
+main="type_info.f90"

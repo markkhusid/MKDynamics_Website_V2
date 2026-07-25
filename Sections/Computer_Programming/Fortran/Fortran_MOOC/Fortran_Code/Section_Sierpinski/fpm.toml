@@ -1,0 +1,14 @@
+name = "Section_Sierpinski"
+
+[build]
+auto-executables = true
+auto-tests = true
+auto-examples = true
+
+[install]
+library = false
+
+[[executable]]
+name="Section_Sierpinski"
+source-dir="app"
+main="sierpinski.f90"

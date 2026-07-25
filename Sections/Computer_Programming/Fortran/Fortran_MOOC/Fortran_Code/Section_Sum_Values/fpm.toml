@@ -1,0 +1,14 @@
+name = "Section_Sum_Values"
+
+[build]
+auto-executables = true
+auto-tests = true
+auto-examples = true
+
+[install]
+library = false
+
+[[executable]]
+name="Section_Sum_Values"
+source-dir="app"
+main="sum_values.f90"

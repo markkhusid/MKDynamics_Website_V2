@@ -1,0 +1,14 @@
+name = "Section_Leap_Year"
+
+[build]
+auto-executables = true
+auto-tests = true
+auto-examples = true
+
+[install]
+library = false
+
+[[executable]]
+name="Section_Leap_Year"
+source-dir="app"
+main="leapyear.f90"

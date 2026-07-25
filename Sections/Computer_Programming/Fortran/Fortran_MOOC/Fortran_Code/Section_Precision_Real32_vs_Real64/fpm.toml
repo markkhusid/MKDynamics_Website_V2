@@ -1,0 +1,14 @@
+name = "Section_Precision_Real32_vs_Real64"
+
+[build]
+auto-executables = true
+auto-tests = true
+auto-examples = true
+
+[install]
+library = false
+
+[[executable]]
+name="Section_Precision_Real32_vs_Real64"
+source-dir="app"
+main="read32_vs_real64.f90"
