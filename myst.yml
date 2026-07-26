@@ -403,7 +403,7 @@ project:
                         - file: >-
                             Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Bit_Manipulations_Bit_Count.ipynb
                     - file: >-
-                        Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Floating_Point.ipynb
+                        Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Floating_Point__HEAD__.md
                       children:
                         - file: >-
                             Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_IEEE754_16_Zero_vs_Non_Zero.ipynb

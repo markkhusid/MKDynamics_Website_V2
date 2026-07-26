@@ -54,7 +54,7 @@ Bit counting, lookup tables, and low-level bit operations.
 :::
 
 :::{grid-item-card}
-:link: Section_Floating_Point.ipynb
+:link: Section_Floating_Point__HEAD__.md
 
 Floating Point / IEEE
 ^^^

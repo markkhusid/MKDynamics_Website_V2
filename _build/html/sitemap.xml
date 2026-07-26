@@ -536,7 +536,7 @@
     <loc>http://localhost:3000/sections/computer-programming/fortran/fortran-mooc/section-bit-manipulations-bit-count</loc>
   </url>
   <url>
-    <loc>http://localhost:3000/sections/computer-programming/fortran/fortran-mooc/section-floating-point</loc>
+    <loc>http://localhost:3000/sections/computer-programming/fortran/fortran-mooc/section-floating-point-head</loc>
   </url>
   <url>
     <loc>http://localhost:3000/sections/computer-programming/fortran/fortran-mooc/section-ieee754-16-zero-vs-non-zero</loc>
