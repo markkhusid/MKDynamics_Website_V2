@@ -408,7 +408,7 @@ project:
                         - file: >-
                             Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_IEEE754_16_Zero_vs_Non_Zero.ipynb
                     - file: >-
-                        Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Call_By_Semantics.ipynb
+                        Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Call_By_Semantics__HEAD__.md
                       children:
                         - file: >-
                             Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Call_By_Semantics_Call_By_In_Reference.ipynb
@@ -417,37 +417,37 @@ project:
                         - file: >-
                             Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Call_By_Semantics_Call_By_Value.ipynb
                     - file: >-
-                        Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Cellular_Automata__Head__.ipynb
+                        Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Cellular_Automata__HEAD__.md
                       children:
                         - file: >-
                             Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Cellular_Automata.ipynb
                     - file: >-
-                        Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Computing_Pi.ipynb
+                        Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Computing_Pi__HEAD__.md
                       children:
                         - file: >-
                             Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Computing_Pi_Compute_Pi.ipynb
                         - file: >-
                             Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Computing_Pi_Compute_Pi_OpenMP.ipynb
                     - file: >-
-                        Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Implicit_vs_Explicit_Loops__Head__.ipynb
+                        Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Implicit_vs_Explicit_Loops__HEAD__.md
                       children:
                         - file: >-
                             Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Implicit_vs_Explicit_Loops.ipynb
                     - file: >-
-                        Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Block_Matrices__Head__.ipynb
+                        Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Block_Matrices__HEAD__.md
                       children:
                         - file: >-
                             Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Block_Matrices.ipynb
                     - file: >-
-                        Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_BLAS_LAPACK__Head__.ipynb
+                        Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_BLAS_LAPACK__HEAD__.md
                       children:
                         - file: >-
-                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_BLAS_LAPACK_BLAS95__Head__.ipynb
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_BLAS_LAPACK_BLAS95__HEAD__.md
                           children:
                             - file: >-
                                 Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_BLAS_LAPACK_BLAS95.ipynb
                         - file: >-
-                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_BLAS_LAPACK_Linear_Equations__Head__.ipynb
+                            Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_BLAS_LAPACK_Linear_Equations__HEAD__.md
                           children:
                             - file: >-
                                 Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_BLAS_LAPACK_Linear_Equations.ipynb
@@ -464,7 +464,7 @@ project:
                             - file: >-
                                 Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_BLAS_LAPACK_SV.ipynb
                     - file: >-
-                        Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Hello_Basics__Head__.md
+                        Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Hello_Basics__HEAD__.md
                       children:
                         - file: >-
                             Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Hello_Fortran.ipynb
@@ -481,7 +481,7 @@ project:
                         - file: >-
                             Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Optional_Clamp.ipynb
                     - file: >-
-                        Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Types_Precision__Head__.md
+                        Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Types_Precision__HEAD__.md
                       children:
                         - file: >-
                             Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Type_Info.ipynb
@@ -494,7 +494,7 @@ project:
                         - file: >-
                             Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Precision_Real32_vs_Real64.ipynb
                     - file: >-
-                        Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Strings_I_O__Head__.md
+                        Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Strings_I_O__HEAD__.md
                       children:
                         - file: >-
                             Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Strings_ASCII.ipynb
@@ -509,7 +509,7 @@ project:
                         - file: >-
                             Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Distance.ipynb
                     - file: >-
-                        Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Random_Numbers_Sampling__Head__.md
+                        Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Random_Numbers_Sampling__HEAD__.md
                       children:
                         - file: >-
                             Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Random_Numbers.ipynb
@@ -522,7 +522,7 @@ project:
                         - file: >-
                             Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Sierpinski.ipynb
                     - file: >-
-                        Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Algorithms__Head__.md
+                        Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Algorithms__HEAD__.md
                       children:
                         - file: >-
                             Sections/Computer_Programming/Fortran/Fortran_MOOC/Section_Primes.ipynb
