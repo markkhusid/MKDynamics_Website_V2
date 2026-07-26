@@ -19,10 +19,11 @@ __pycache__/
 **/Backups/
 *Edit conflict*
 
-# MyST build outputs
-_build
-
-# MyST build outputs
+# MyST build outputs: ignore intermediate artifacts, but keep the static site
+# so `git add -A` after `jupyter-book build --html` picks up new pages/images.
+_build/*
+!_build/html/
+!_build/html/**
 
 # Large training / generated data (exceeds GitHub 100MB limit)
 **/sine_NN_data.csv
