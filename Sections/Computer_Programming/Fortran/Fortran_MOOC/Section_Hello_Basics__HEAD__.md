@@ -26,7 +26,7 @@ Minimal program that prints a greeting.
 
 GCD
 ^^^
-```{image} images/card_gcd.jpg
+```{image} images/card_algorithms.jpg
 :height: 160
 :align: center
 ```
@@ -65,7 +65,7 @@ Parse and evaluate simple `x op y` expressions.
 
 Recursion — Factorial
 ^^^
-```{image} images/card_recursion.jpg
+```{image} images/card_block_matrix.jpg
 :height: 160
 :align: center
 ```
