@@ -2,7 +2,7 @@
 This file contains a log of updates made to the MKDynamics website. It is used to track changes, additions, and improvements over time.
 
 ## 9/26/2026
-- LT3010 decks and logs are named P5V rather than P5V_ISO.
+- LT3010 decks and logs are named P5V.
 - Analog/Digital notebook plots are stored in the notebooks so they render on GitHub. LT3010-5 worst-case and Monte Carlo now include an LTspice run next to the analytical and ngspice results. Pages added with Grok Build are marked "Created with Grok Build" under the title.
 
 ## 9/25/2026
