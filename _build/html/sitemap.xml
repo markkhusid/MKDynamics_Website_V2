@@ -845,6 +845,33 @@
     <loc>http://localhost:3000/sections/electronics/analog-and-digital/ad9850-dds/ad9850-dds</loc>
   </url>
   <url>
+    <loc>http://localhost:3000/sections/electronics/analog-and-digital/opa365-fig86/opa365-fig86</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/sections/electronics/analog-and-digital/opa365-fig86/analytical-transfer</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/sections/electronics/analog-and-digital/opa365-fig86/ngspice-vs-analytical</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/sections/electronics/analog-and-digital/opa365-fig86/ltspice-vs-analytical</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/sections/electronics/analog-and-digital/opa365-fig86/worst-case</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/sections/electronics/analog-and-digital/opa365-fig86/monte-carlo</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/sections/electronics/analog-and-digital/opa365-fig86/temperature-sweep</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/sections/electronics/analog-and-digital/opa365-fig86/sensitivity</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/sections/electronics/analog-and-digital/opa365-fig86/derating</loc>
+  </url>
+  <url>
     <loc>http://localhost:3000/sections/electronics/power-electronics/power-electronics-head</loc>
   </url>
   <url>

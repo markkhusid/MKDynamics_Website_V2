@@ -630,6 +630,25 @@ project:
               children:
                 - file: >-
                     Sections/Electronics/Analog_and_Digital/AD9850_DDS/AD9850_DDS.md
+                - file: >-
+                    Sections/Electronics/Analog_and_Digital/OPA365_Fig86/opa365_fig86.md
+                  children:
+                    - file: >-
+                        Sections/Electronics/Analog_and_Digital/OPA365_Fig86/01_analytical_transfer.ipynb
+                    - file: >-
+                        Sections/Electronics/Analog_and_Digital/OPA365_Fig86/02_ngspice_vs_analytical.ipynb
+                    - file: >-
+                        Sections/Electronics/Analog_and_Digital/OPA365_Fig86/03_ltspice_vs_analytical.ipynb
+                    - file: >-
+                        Sections/Electronics/Analog_and_Digital/OPA365_Fig86/04_worst_case.ipynb
+                    - file: >-
+                        Sections/Electronics/Analog_and_Digital/OPA365_Fig86/05_monte_carlo.ipynb
+                    - file: >-
+                        Sections/Electronics/Analog_and_Digital/OPA365_Fig86/06_temperature_sweep.ipynb
+                    - file: >-
+                        Sections/Electronics/Analog_and_Digital/OPA365_Fig86/07_sensitivity.ipynb
+                    - file: >-
+                        Sections/Electronics/Analog_and_Digital/OPA365_Fig86/08_derating.ipynb
             - file: >-
                 Sections/Electronics/Power_Electronics/power_electronics__HEAD__.md
               children:
