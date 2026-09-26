@@ -872,6 +872,39 @@
     <loc>http://localhost:3000/sections/electronics/analog-and-digital/opa365-fig86/derating</loc>
   </url>
   <url>
+    <loc>http://localhost:3000/sections/electronics/analog-and-digital/lt3010-5v-supply/lt3010-5v-supply</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/sections/electronics/analog-and-digital/lt3010-5v-supply/analytical-setpoint</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/sections/electronics/analog-and-digital/lt3010-5v-supply/ngspice-vs-analytical</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/sections/electronics/analog-and-digital/lt3010-5v-supply/worst-case</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/sections/electronics/analog-and-digital/lt3010-5v-supply/monte-carlo</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/sections/electronics/analog-and-digital/lt3010-5v-supply/ltspice-nominal-mc-wc</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/sections/electronics/analog-and-digital/lt3010-5v-supply/temperature-sweep</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/sections/electronics/analog-and-digital/lt3010-5v-supply/sensitivity</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/sections/electronics/analog-and-digital/lt3010-5v-supply/derating-thermal</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/sections/electronics/analog-and-digital/lt3010-5v-supply/supply-budget</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/sections/electronics/analog-and-digital/lt3010-5v-supply/time-domain</loc>
+  </url>
+  <url>
     <loc>http://localhost:3000/sections/electronics/power-electronics/power-electronics-head</loc>
   </url>
   <url>

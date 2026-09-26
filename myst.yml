@@ -649,6 +649,29 @@ project:
                         Sections/Electronics/Analog_and_Digital/OPA365_Fig86/07_sensitivity.ipynb
                     - file: >-
                         Sections/Electronics/Analog_and_Digital/OPA365_Fig86/08_derating.ipynb
+                - file: >-
+                    Sections/Electronics/Analog_and_Digital/LT3010_5V_Supply/lt3010_5v_supply.md
+                  children:
+                    - file: >-
+                        Sections/Electronics/Analog_and_Digital/LT3010_5V_Supply/01_analytical_setpoint.ipynb
+                    - file: >-
+                        Sections/Electronics/Analog_and_Digital/LT3010_5V_Supply/02_ngspice_vs_analytical.ipynb
+                    - file: >-
+                        Sections/Electronics/Analog_and_Digital/LT3010_5V_Supply/03_worst_case.ipynb
+                    - file: >-
+                        Sections/Electronics/Analog_and_Digital/LT3010_5V_Supply/04_monte_carlo.ipynb
+                    - file: >-
+                        Sections/Electronics/Analog_and_Digital/LT3010_5V_Supply/05_ltspice_nominal_mc_wc.ipynb
+                    - file: >-
+                        Sections/Electronics/Analog_and_Digital/LT3010_5V_Supply/06_temperature_sweep.ipynb
+                    - file: >-
+                        Sections/Electronics/Analog_and_Digital/LT3010_5V_Supply/07_sensitivity.ipynb
+                    - file: >-
+                        Sections/Electronics/Analog_and_Digital/LT3010_5V_Supply/08_derating_thermal.ipynb
+                    - file: >-
+                        Sections/Electronics/Analog_and_Digital/LT3010_5V_Supply/09_supply_budget.ipynb
+                    - file: >-
+                        Sections/Electronics/Analog_and_Digital/LT3010_5V_Supply/10_time_domain.ipynb
             - file: >-
                 Sections/Electronics/Power_Electronics/power_electronics__HEAD__.md
               children:
