@@ -1,6 +1,10 @@
 # Website Updates
 This file contains a log of updates made to the MKDynamics website. It is used to track changes, additions, and improvements over time.
 
+## 10/1/2026
+- CSE571 Project 1 data analysis: the trajectory movie is the saved MP4 published with the site, with a play button, so the live site can play it.
+- CSE572 Data Mining Project 2: removed the local random glucose-matrix notebook from the project page.
+
 ## 9/30/2026
 - Master's in Computer Science: CSE572 Data Mining course page with written summaries of the three projects (time in range, meal classifier, cluster validation). Assignment handouts and the glucose and insulin logs stay off the site.
 - CSE572 Data Mining: each project page links to its notebooks (Project 1 submission, Project 2 training, test, and test-matrix generator, Project 3 clustering and the training notebook stored with that project).

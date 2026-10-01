@@ -51,4 +51,21 @@
     e.stopPropagation();
     openLightbox(img.currentSrc || img.src, img.alt);
   }, true);
+  // MyST's player is autoplay-only. A play button is required when the browser
+  // does not start the movie on its own.
+  function enableVideoControls() {
+    var nodes = document.getElementsByTagName('video');
+    for (var i = 0; i < nodes.length; i++) {
+      if (!nodes[i].hasAttribute('controls')) nodes[i].setAttribute('controls', '');
+    }
+  }
+  enableVideoControls();
+  document.addEventListener('DOMContentLoaded', enableVideoControls);
+  var videoObserver = new MutationObserver(enableVideoControls);
+  videoObserver.observe(document.documentElement, {
+    childList: true,
+    subtree: true,
+    attributes: true,
+    attributeFilter: ['controls']
+  });
 })();

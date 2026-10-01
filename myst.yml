@@ -745,8 +745,6 @@ project:
                   hidden: true
                 - file: Sections/MCS_Projects/CSE572_Data_Mining/Projects/Project_2/Project_2_test.ipynb
                   hidden: true
-                - file: Sections/MCS_Projects/CSE572_Data_Mining/Projects/Project_2/generate_test_csv.ipynb
-                  hidden: true
                 - file: Sections/MCS_Projects/CSE572_Data_Mining/Projects/Project_3/Project_3.md
                 - file: Sections/MCS_Projects/CSE572_Data_Mining/Projects/Project_3/Project_3.ipynb
                   hidden: true

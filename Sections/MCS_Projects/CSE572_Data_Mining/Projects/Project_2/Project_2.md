@@ -48,17 +48,4 @@ Scores a glucose matrix with the saved classifier.
 ```
 :::
 
-:::{grid-item-card}
-:link: generate_test_csv.ipynb
-
-Project 2 - Machine Model Training
-^^^
-Writes a random 10 by 24 glucose matrix for a local test.
-
-```{image} ../../images/CSE572_Project_2.png
-:height: 200
-:align: center
-```
-:::
-
 ::::
