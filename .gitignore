@@ -5,6 +5,7 @@ Sections/MCS_Projects/CSE572_Data_Mining/**/*.pdf
 Sections/MCS_Projects/CSE572_Data_Mining/**/*.docx
 Sections/MCS_Projects/CSE572_Data_Mining/**/*.zip
 Sections/MCS_Projects/CSE572_Data_Mining/**/*.py
+Sections/MCS_Projects/CSE572_Data_Mining/**/*.pkl
 **/midterm_dataset/
 **/final_dataset/
 *.parquet
