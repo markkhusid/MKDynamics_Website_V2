@@ -739,13 +739,19 @@ project:
               children:
                 - file: Sections/MCS_Projects/CSE572_Data_Mining/Projects/Project_1/Project_1.md
                 - file: Sections/MCS_Projects/CSE572_Data_Mining/Projects/Project_1/Project_1_Submission.ipynb
+                  hidden: true
                 - file: Sections/MCS_Projects/CSE572_Data_Mining/Projects/Project_2/Project_2.md
                 - file: Sections/MCS_Projects/CSE572_Data_Mining/Projects/Project_2/Project_2_train.ipynb
+                  hidden: true
                 - file: Sections/MCS_Projects/CSE572_Data_Mining/Projects/Project_2/Project_2_test.ipynb
+                  hidden: true
                 - file: Sections/MCS_Projects/CSE572_Data_Mining/Projects/Project_2/generate_test_csv.ipynb
+                  hidden: true
                 - file: Sections/MCS_Projects/CSE572_Data_Mining/Projects/Project_3/Project_3.md
                 - file: Sections/MCS_Projects/CSE572_Data_Mining/Projects/Project_3/Project_3.ipynb
+                  hidden: true
                 - file: Sections/MCS_Projects/CSE572_Data_Mining/Projects/Project_3/Project_2_train.ipynb
+                  hidden: true
             - file: Sections/MCS_Projects/CSE575_Stats_ML/CSE575_stats_ml__HEAD__.md
               children:
                 - file: Sections/MCS_Projects/CSE575_Stats_ML/Project_1/Project_1.ipynb

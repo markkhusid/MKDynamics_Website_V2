@@ -1013,28 +1013,10 @@
     <loc>http://localhost:3000/sections/mcs-projects/cse572-data-mining/projects/project-1/project-1</loc>
   </url>
   <url>
-    <loc>http://localhost:3000/sections/mcs-projects/cse572-data-mining/projects/project-1/project-1-submission</loc>
-  </url>
-  <url>
     <loc>http://localhost:3000/sections/mcs-projects/cse572-data-mining/projects/project-2/project-2</loc>
   </url>
   <url>
-    <loc>http://localhost:3000/sections/mcs-projects/cse572-data-mining/projects/project-2/project-2-train</loc>
-  </url>
-  <url>
-    <loc>http://localhost:3000/sections/mcs-projects/cse572-data-mining/projects/project-2/project-2-test</loc>
-  </url>
-  <url>
-    <loc>http://localhost:3000/sections/mcs-projects/cse572-data-mining/projects/project-2/generate-test-csv</loc>
-  </url>
-  <url>
     <loc>http://localhost:3000/sections/mcs-projects/cse572-data-mining/projects/project-3/project-3</loc>
-  </url>
-  <url>
-    <loc>http://localhost:3000/sections/mcs-projects/cse572-data-mining/projects/project-3/project-3-1</loc>
-  </url>
-  <url>
-    <loc>http://localhost:3000/sections/mcs-projects/cse572-data-mining/projects/project-3/project-2-train</loc>
   </url>
   <url>
     <loc>http://localhost:3000/sections/mcs-projects/cse575-stats-ml/cse575-stats-ml-head</loc>
