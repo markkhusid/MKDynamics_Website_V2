@@ -1,0 +1,19 @@
+# CSE572 Data Mining - Project 1 - Extracting Time Series Properties of Glucose Levels
+
+Created with Grok Build
+
+## Problem
+
+The pump log and the continuous glucose monitor log were recorded on separate clocks and stored newest-first. Both files carried columns that were unused for this question, and the glucose series had missing samples. The project asked for the share of time spent in each glucose range, split by pump mode and by time of day.
+
+## Approach
+
+Each log was reversed into chronological order and reduced to the columns needed for alignment: date, time, and the glucose reading on the sensor side, and date, time, and the alarm field on the pump side. A single datetime column was built on each frame so the two series could be compared.
+
+Auto mode begins at the pump alarm that reports auto mode active, and the pump stays there until a reset. That timestamp was matched to the nearest later sensor sample, and every sensor row was labeled manual or auto. With a reading every five minutes, a full day is 288 samples. Day numbers were counted in 24-hour blocks from the first sample, which covered 203 days. Hours from midnight to 6 AM were labeled overnight, and 6 AM to midnight were labeled daytime.
+
+Missing glucose values were filled with linear interpolation, on the assumption that glucose moves smoothly between neighboring readings. Each sample was then placed in one of six ranges: hyperglycemia critical, hyperglycemia, normal, secondary, hypoglycemia level 1, and hypoglycemia level 2. Those six ranges, the two modes, and the three dayparts (overnight, daytime, and the whole day) give 36 percentages. Each percentage is a count of matching samples in a day, divided by 288, then averaged across days.
+
+## Result
+
+In auto mode the person spent most of the recorded time in the normal range or the secondary range. The manual-mode percentages were not interpretable. The manual-mode record was too sparse for those fractions to describe a real day.

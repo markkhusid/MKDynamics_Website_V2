@@ -1,5 +1,10 @@
 # Data / generated artifacts
 *.csv
+# CSE572 assignment handouts, submission scripts, and study logs stay off the site
+Sections/MCS_Projects/CSE572_Data_Mining/**/*.pdf
+Sections/MCS_Projects/CSE572_Data_Mining/**/*.docx
+Sections/MCS_Projects/CSE572_Data_Mining/**/*.zip
+Sections/MCS_Projects/CSE572_Data_Mining/**/*.py
 **/midterm_dataset/
 **/final_dataset/
 *.parquet

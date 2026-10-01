@@ -1007,6 +1007,18 @@
     <loc>http://localhost:3000/sections/mcs-projects/cse571-ai/project-1/project-1-data-analysis</loc>
   </url>
   <url>
+    <loc>http://localhost:3000/sections/mcs-projects/cse572-data-mining/cse572-data-mining-head</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/sections/mcs-projects/cse572-data-mining/projects/project-1/project-1</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/sections/mcs-projects/cse572-data-mining/projects/project-2/project-2</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/sections/mcs-projects/cse572-data-mining/projects/project-3/project-3</loc>
+  </url>
+  <url>
     <loc>http://localhost:3000/sections/mcs-projects/cse575-stats-ml/cse575-stats-ml-head</loc>
   </url>
   <url>
