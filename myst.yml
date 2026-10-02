@@ -755,6 +755,10 @@ project:
                 - file: Sections/MCS_Projects/CSE575_Stats_ML/Project_1/Project_1.ipynb
                 - file: Sections/MCS_Projects/CSE575_Stats_ML/Project_2/Project_2.ipynb
                 - file: Sections/MCS_Projects/CSE575_Stats_ML/Project_3/Project_3.ipynb
+            - file: Sections/MCS_Projects/CSE548_Advanced_Network_Security/CSE548_advanced_network_security__HEAD__.md
+              children:
+                - file: Sections/MCS_Projects/CSE548_Advanced_Network_Security/Project_1/Project_1.ipynb
+                - file: Sections/MCS_Projects/CSE548_Advanced_Network_Security/Project_2/Project_2.ipynb
     - title: Master of Science in Engineering - Electrical Engineering Projects
       children:
         - file: Sections/MSE_Projects/MSE_projects__HEAD__.md
