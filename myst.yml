@@ -576,6 +576,14 @@ project:
                         Sections/Computer_Programming/Fortran/DFFT/2_Sine_Waves/2sineXHz.ipynb
                     - file: >-
                         Sections/Computer_Programming/Fortran/DFFT/Switched_Sine_Wave_1_kHz/switched_sine_wave_1_kHz.ipynb
+                - file: Sections/Computer_Programming/Fortran/LFortran/lfortran__HEAD__.md
+                  children:
+                    - file: Sections/Computer_Programming/Fortran/LFortran/sine_10_hz.ipynb
+                    - file: Sections/Computer_Programming/Fortran/LFortran/sine_50_hz.ipynb
+                    - file: Sections/Computer_Programming/Fortran/LFortran/square_1_hz.ipynb
+                    - file: Sections/Computer_Programming/Fortran/LFortran/two_sines.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/LFortran/switched_sine_1_khz.ipynb
                 - file: >-
                     Sections/Computer_Programming/Fortran/CSV_Fortran/CSV_Fortran__HEAD__.ipynb
                   children:

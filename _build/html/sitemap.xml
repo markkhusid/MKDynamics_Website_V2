@@ -773,6 +773,24 @@
     <loc>http://localhost:3000/sections/computer-programming/fortran/dfft/switched-sine-wave-1-khz/switched-sine-wave-1-khz</loc>
   </url>
   <url>
+    <loc>http://localhost:3000/sections/computer-programming/fortran/lfortran/lfortran-head</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/sections/computer-programming/fortran/lfortran/sine-10-hz</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/sections/computer-programming/fortran/lfortran/sine-50-hz</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/sections/computer-programming/fortran/lfortran/square-1-hz</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/sections/computer-programming/fortran/lfortran/two-sines</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/sections/computer-programming/fortran/lfortran/switched-sine-1-khz</loc>
+  </url>
+  <url>
     <loc>http://localhost:3000/sections/computer-programming/fortran/csv-fortran/csv-fortran-head</loc>
   </url>
   <url>
