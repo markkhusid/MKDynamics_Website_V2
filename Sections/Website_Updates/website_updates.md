@@ -1,6 +1,9 @@
 # Website Updates
 This file contains a log of updates made to the MKDynamics website. It is used to track changes, additions, and improvements over time.
 
+## 10/3/2026
+- Electronics: the Solar Power Projects page now links to the Amazon page for Take Back the Power!
+
 ## 10/1/2026
 - Master's in Computer Science: CSE548 Advanced Network Security, with notebooks for the packet-filter firewall and the SDN firewall.
 - CSE571 Project 1 data analysis: the trajectory movie is the saved MP4 published with the site, with a play button, so the live site can play it.
