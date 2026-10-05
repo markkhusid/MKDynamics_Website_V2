@@ -7,6 +7,7 @@ This file contains a log of updates made to the MKDynamics website. It is used t
 - Python Playground: remove the jupytext header that was showing as text at the top of the pages.
 - Python Playground: the landing page shows image cards for the four chapters.
 - Fortran DFFT switched sine: the parameter comments now match the 100 kHz sample rate, the 1 kHz sine, and the 500 Hz gate.
+- Search engines: sitemap.xml and robots.txt list pages at https://www.mkdynamics.net.
 
 ## 10/3/2026
 - Electronics: the Solar Power Projects page now links to the Amazon page for Take Back the Power!
