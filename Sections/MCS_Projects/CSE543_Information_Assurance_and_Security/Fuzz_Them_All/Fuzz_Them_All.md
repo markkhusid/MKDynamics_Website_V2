@@ -2,7 +2,7 @@
 
 Created with Grok Build
 
-The submission is a mutational fuzzer in C. It was written in C so the loop would be fast. A seed is copied into a working buffer. Each iteration may replace a byte. Every 500 iterations, ten more bytes are appended. The buffer is then written out for a separate runner.
+The code is a mutational fuzzer in C. It was written in C so the loop would be fast. A seed is copied into a working buffer. Each iteration may replace a byte. Every 500 iterations, ten more bytes are appended. The buffer is then written out for a separate runner.
 
 The runner and the course programs it fed stay off this page. The novelty is the mutator itself.
 
@@ -42,5 +42,3 @@ int add_10_random_bytes(char *buf, int size)
 ```
 
 The main loop is those two calls. Mutate on every iteration. Grow when the iteration count is a multiple of 500. After the last iteration, write the buffer to stdout.
-
-The header comments on the submitted file carried a name, an email, and an id. Those lines are not part of this page.

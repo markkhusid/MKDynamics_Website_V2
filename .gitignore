@@ -10,6 +10,9 @@ Sections/MCS_Projects/CSE572_Data_Mining/**/*.pkl
 Sections/MCS_Projects/CSE543_Information_Assurance_and_Security/**/*.pdf
 Sections/MCS_Projects/CSE543_Information_Assurance_and_Security/**/*.zip
 Sections/MCS_Projects/CSE543_Information_Assurance_and_Security/**/*.rzdb
+# Raw fuzzer drop: header identifiers and the notebook stay local
+Sections/MCS_Projects/CSE543_Information_Assurance_and_Security/Fuzzer_Project/fuzzer.c
+Sections/MCS_Projects/CSE543_Information_Assurance_and_Security/Fuzzer_Project/fuzzer.ipynb
 **/midterm_dataset/
 **/final_dataset/
 *.parquet

@@ -66,7 +66,7 @@ exit(1);
 
 `scanf` with `%s` writes until it sees whitespace. It does not stop at 40 bytes. The submitted text was a run of the letter `A` thousands of characters long.
 
-Those bytes fill `buffer` and keep going, past the saved return address and off the stack. The process faults during the read. `exit(1)` is never reached. A shorter string that only overwrites the return address, and an input that aims that address at `win`, are a different exercise. Neither one is shown.
+Those bytes fill `buffer` and keep going, past the saved return address and off the stack. The process faults during the read. `exit(1)` is never reached. A shorter string that only overwrites the return address, and an input that aims that address at `win`, are a different exercise.
 
 ## The copy is into a smaller buffer
 

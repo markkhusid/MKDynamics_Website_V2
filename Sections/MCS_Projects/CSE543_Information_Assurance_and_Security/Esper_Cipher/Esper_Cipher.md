@@ -4,7 +4,7 @@ Created with Grok Build
 
 Esper, as used in this course, is a byte cipher with two steps. Each byte is rotated left by a small bit count, then exclusive-ored with a byte from a repeating key. Decryption exclusive-ors the same key byte and rotates right by the same count. Grokipedia has no article under this course's name for the cipher. The two operations are the [circular shift](https://grokipedia.com/page/Circular_shift) and the [XOR cipher](https://grokipedia.com/page/XOR_cipher). A repeating XOR key is a short keystream. The rotation only scrambles which bits meet which key bits. It does not add a new secret.
 
-The submission decrypted a course ciphertext with a course key. Those two files stay off this page. The example uses a new seven-byte key and a new sentence.
+The code decrypted a course ciphertext with a course key. The example below uses a new seven-byte key and a new sentence.
 
 ## Rotate, then exclusive-or
 

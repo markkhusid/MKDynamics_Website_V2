@@ -776,6 +776,7 @@ project:
                 - file: Sections/MCS_Projects/CSE543_Information_Assurance_and_Security/TCP_Spoofing/TCP_Spoofing.md
                 - file: Sections/MCS_Projects/CSE543_Information_Assurance_and_Security/UDP_Spoofing/UDP_Spoofing.md
                 - file: Sections/MCS_Projects/CSE543_Information_Assurance_and_Security/Fuzz_Them_All/Fuzz_Them_All.md
+                - file: Sections/MCS_Projects/CSE543_Information_Assurance_and_Security/Fuzzer_Project/Fuzzer_Project.md
     - title: Master of Science in Engineering - Electrical Engineering Projects
       children:
         - file: Sections/MSE_Projects/MSE_projects__HEAD__.md

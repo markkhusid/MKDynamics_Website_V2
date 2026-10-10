@@ -2,18 +2,64 @@
 
 Created with Grok Build
 
-TCP names a connection by addresses, ports, and sequence numbers. The sequence number is supposed to be hard to guess. This lab asked for a conversation that appeared to come from a host that was not the one sending the packets.
+TCP names a connection by addresses, ports, and sequence numbers. The sequence number is supposed to be hard to guess. The protocol itself is on the Grokipedia page for the [Transmission Control Protocol](https://grokipedia.com/page/Transmission_Control_Protocol).
 
-## What the submission did
+## What a handshake has to agree on
 
-The submission watched the sequence numbers a lab server chose, then sent packets whose source address was not the machine that transmitted them. A raw socket let the script fill in that address itself, instead of leaving it to the operating system. The server accepted a guessed sequence and continued the exchange.
+A SYN proposes an initial sequence number. The peer answers with a SYN-ACK whose acknowledgement is that number plus one, and whose own sequence number is a fresh value. The third packet acknowledges that fresh value. After those three packets, each side believes the other saw its number.
 
-## Why that is a weak authenticator
+The only secret in that exchange, on an old stack, is the initial sequence number. The source address is not a secret. It is a field.
 
-A source address is a field the sender writes. It is not proof of who sent the packet. The sequence number is the only secret in a classic handshake, and only when it is unpredictable. When the numbers follow a pattern, a third party can try likely values until one is accepted. The host that owns the address is not in the conversation.
+## What the submission was doing
 
-Current stacks randomize the initial sequence number and drop packets that do not belong to a socket they opened. An application should still not treat a finished handshake as proof of a user. That proof belongs in a protocol above TCP.
+The notebook did three jobs.
 
-## What stayed off this page
+1. It watched sequence numbers the lab server chose, and noticed that they were not random. One sample resembled the next.
+2. It built IP and TCP headers itself, so the kernel would not replace the source address or answer the SYN-ACK with a reset.
+3. It sent a SYN from the claimed address, then many acknowledgements, one of which matched a number the server would accept.
 
-The packet layouts, the search over sequence numbers, the lab host name, and the script that sent the packets are not published.
+Job 3 is what made the lab succeed. The list of candidate numbers and the loop that sent them are not on this page. Job 2 is represented by a packet object that is never handed to a socket.
+
+## What this page keeps
+
+A SYN is the start of the conversation. The object below is one SYN, aimed at documentation addresses, with sequence number 1. Nothing is transmitted.
+
+```python
+DISABLE_PACKET_INJECTION = True
+
+def safe_send(packet):
+    """Stand-in for a raw send. Nothing is transmitted."""
+    print("[SAFE MODE] Not sent:", packet.summary())
+
+def build_syn(source_ip, dest_ip):
+    # seq is a placeholder, not a guess.
+    # Scapy recomputes the checksum from the headers.
+    packet = (
+        IP(src=source_ip, dst=dest_ip)
+        / TCP(sport=40000, dport=40000, flags="S", seq=1)
+    )
+    del packet[TCP].chksum
+    del packet[IP].chksum
+    return packet
+
+def acknowledgement_for(initial_sequence):
+    # A normal handshake acknowledges the peer's number plus one.
+    # Guessing a number that was never seen is the part that
+    # made the submission succeed. This function does not guess.
+    return (initial_sequence + 1) & 0xFFFFFFFF
+
+packet = build_syn("192.0.2.10", "192.0.2.20")
+if DISABLE_PACKET_INJECTION:
+    safe_send(packet)
+print("A seen sequence of 1 would be acknowledged as", acknowledgement_for(1))
+```
+
+`del packet[TCP].chksum` is the same idiom as the reflector page. The checksum covers the header. Change the source address and the old checksum is wrong. Scapy fills a new one when the object is assembled. Showing that is protocol bookkeeping. It does not put the packet on a wire.
+
+`192.0.2.0/24` is reserved for documentation.
+
+## The part that was removed
+
+The server's initial sequence numbers shared structure from one sample to the next. The notebook turned that observation into a list of candidate acknowledgements and transmitted the list. A reader who wants the lab to succeed needs that list and a send. Both are omitted on purpose.
+
+A current stack draws the initial sequence number at random and drops a packet that does not belong to a socket it opened. That closes the pattern the notebook was using. An application should still not treat a finished handshake as proof of a user. That proof belongs in a protocol above TCP.

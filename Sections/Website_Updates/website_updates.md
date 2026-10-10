@@ -2,6 +2,8 @@
 This file contains a log of updates made to the MKDynamics website. It is used to track changes, additions, and improvements over time.
 
 ## 10/10/2026
+- CSE543 Fuzzer Project: a separate page walks through the submitted C program. Fuzz Them All stays the short mutator note. The handout, the seed file, and the notebook's notes on the target stay off the site.
+- CSE543 TCP and UDP spoofing: each page now shows a deweaponized packet builder. The send is a logger. The sequence-number search, the lab host, and the original notebooks stay off the site.
 - CSE543: the Caesar page links the Grokipedia article on the Caesar cipher. The Esper page links the Grokipedia articles on the circular shift and the XOR cipher.
 - CSE543 Pwn Them All: each step now covers the method, what was new, the lesson, and the mitigation. Request traces, passwords, and flags stay off the site.
 

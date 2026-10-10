@@ -2,7 +2,7 @@
 
 Created with Grok Build
 
-Seven labs from a graduate information-assurance course: two classical ciphers, a set of crashing C programs, a web-application lab, TCP and UDP spoofing, and a small mutational fuzzer.
+Eight writeups from a graduate information-assurance course: two classical ciphers, a set of crashing C programs, a web-application lab, TCP and UDP spoofing, a short note on mutation, and the fuzzer project.
 
 These pages are rewritten from the submissions. Assignment directions, names, and student IDs stay off the site. The crash page shows the lab C and why a short input faulted. It does not include an input that redirects execution into a success function. The cipher pages demonstrate the algorithms on an original sentence.
 
@@ -82,6 +82,17 @@ CSE543 Information Assurance and Security - UDP Spoofing
 CSE543 Information Assurance and Security - Fuzz Them All
 ^^^
 ```{image} images/CSE543_Fuzzer.png
+:height: 200
+:align: center
+```
+:::
+
+:::{grid-item-card}
+:link: Fuzzer_Project/Fuzzer_Project.md
+
+CSE543 Information Assurance and Security - Fuzzer Project
+^^^
+```{image} images/CSE543_Fuzzer_Project.png
 :height: 200
 :align: center
 ```
