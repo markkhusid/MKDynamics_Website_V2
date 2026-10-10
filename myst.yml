@@ -767,6 +767,15 @@ project:
               children:
                 - file: Sections/MCS_Projects/CSE548_Advanced_Network_Security/Project_1/Project_1.ipynb
                 - file: Sections/MCS_Projects/CSE548_Advanced_Network_Security/Project_2/Project_2.ipynb
+            - file: Sections/MCS_Projects/CSE543_Information_Assurance_and_Security/CSE543_information_assurance_and_security__HEAD__.md
+              children:
+                - file: Sections/MCS_Projects/CSE543_Information_Assurance_and_Security/Caesar_Cipher/Caesar_Cipher.md
+                - file: Sections/MCS_Projects/CSE543_Information_Assurance_and_Security/Esper_Cipher/Esper_Cipher.md
+                - file: Sections/MCS_Projects/CSE543_Information_Assurance_and_Security/Finding_Crashes/Finding_Crashes.md
+                - file: Sections/MCS_Projects/CSE543_Information_Assurance_and_Security/Pwn_Them_All/Pwn_Them_All.md
+                - file: Sections/MCS_Projects/CSE543_Information_Assurance_and_Security/TCP_Spoofing/TCP_Spoofing.md
+                - file: Sections/MCS_Projects/CSE543_Information_Assurance_and_Security/UDP_Spoofing/UDP_Spoofing.md
+                - file: Sections/MCS_Projects/CSE543_Information_Assurance_and_Security/Fuzz_Them_All/Fuzz_Them_All.md
     - title: Master of Science in Engineering - Electrical Engineering Projects
       children:
         - file: Sections/MSE_Projects/MSE_projects__HEAD__.md

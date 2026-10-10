@@ -6,6 +6,10 @@ Sections/MCS_Projects/CSE572_Data_Mining/**/*.docx
 Sections/MCS_Projects/CSE572_Data_Mining/**/*.zip
 Sections/MCS_Projects/CSE572_Data_Mining/**/*.py
 Sections/MCS_Projects/CSE572_Data_Mining/**/*.pkl
+# CSE543 instructor handouts and lab archives stay off the site
+Sections/MCS_Projects/CSE543_Information_Assurance_and_Security/**/*.pdf
+Sections/MCS_Projects/CSE543_Information_Assurance_and_Security/**/*.zip
+Sections/MCS_Projects/CSE543_Information_Assurance_and_Security/**/*.rzdb
 **/midterm_dataset/
 **/final_dataset/
 *.parquet

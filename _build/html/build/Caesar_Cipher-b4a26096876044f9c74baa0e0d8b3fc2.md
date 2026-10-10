@@ -1,0 +1,37 @@
+# CSE543 Information Assurance and Security - Caesar Cipher
+
+Created with Grok Build
+
+A Caesar cipher shifts each letter by a fixed amount and wraps at the end of the alphabet. There are 25 nontrivial shifts of the English capitals. With the shift known, decryption is the same walk in the other direction. The history, the shift of three that Suetonius recorded, and why frequency analysis breaks the cipher are on the Grokipedia page for the [Caesar cipher](https://grokipedia.com/page/Caesar_cipher).
+
+The submission read a one-letter shift and a ciphertext file. Those files stay off this page. The functions below use a short original sentence.
+
+## Shift one letter
+
+Uppercase letters move. Spaces and everything else stay put.
+
+```python
+def shift_char(ch, amount):
+    if "A" <= ch <= "Z":
+        base = ord("A")
+        return chr((ord(ch) - base + amount) % 26 + base)
+    return ch
+
+def caesar(text, amount):
+    return "".join(shift_char(ch, amount) for ch in text)
+```
+
+A shift of 3 turns `MEET AT THE NORTH GATE` into `PHHW DW WKH QRUWK JDWH`. Shifting by −3 returns the original sentence.
+
+## Every other shift
+
+The same sentence under each of the other shifts. Only one line is the plaintext. That is the whole search when the alphabet is capitals and the shift is unknown.
+
+```text
+ 1  NFFU BU UIF OPSUI HBUF
+ 2  OGGV CV VJG PQTVJ ICVG
+ 3  PHHW DW WKH QRUWK JDWH
+ 4  QIIX EX XLI RSVXL KEXI
+...
+25  LDDS ZS SGD MNQSG FZSD
+```
