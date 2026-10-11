@@ -7,6 +7,7 @@ This file contains a log of updates made to the MKDynamics website. It is used t
 - Fortran i386 disassembly: the built programs from the Disassembling-Binaries i386 tree now have objdump pages. Integer add, multiply, and divide, real add, and the if-then are listed with the address, the machine bytes, the instruction, and a comment. Default integer and real are four bytes. The real add uses the x87 unit. The if-then reads an integer and prints when it is greater than 5.
 - Finite element analysis: the CAELinux page replaces the under-construction note. It follows a Salome-Meca 2015.2 session from the sketch and the extrusion through the mesh, ElmerGUI, and a displacement plot.
 - Power electronics: the 120 V to 12 V buck and the 50 V to 12 V buck join the power-supplies section. The 120 V page includes the passives notebook, and the 50 V page includes the inductor-core sheet. The 100 V forward converter page adds the bench photos of the TL494 timing ramp.
+- Finite element analysis: the OpenFOAM propulsor page links the tutorial-propeller repository, plays the 10 s mid-plane movie, and shows the efficiency, thrust, and torque plots. The mean open-water efficiency on that coarse run is 0.564 and is marked illustrative.
 
 ## 10/10/2026
 - Fortran AMD64 disassembly: each operation's listing is now objdump output, with the address, the machine bytes, the instruction, and a comment, interleaved with the Fortran source.

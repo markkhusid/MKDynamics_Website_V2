@@ -11,4 +11,14 @@ CAELinux with Salome-Meca and Elmer
 :align: center
 ```
 :::
+:::{grid-item-card}
+:link: OpenFOAM_Propulsor/openfoam_propulsor.md
+
+OpenFOAM propulsor demo
+^^^
+```{image} OpenFOAM_Propulsor/images/propulsor_efficiency.png
+:height: 200
+:align: center
+```
+:::
 ::::
