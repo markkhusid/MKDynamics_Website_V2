@@ -41,6 +41,30 @@
     <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/fortran/amd64/amd64</loc>
   </url>
   <url>
+    <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/fortran/amd64/add-int/add-int</loc>
+  </url>
+  <url>
+    <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/fortran/amd64/mult-int/mult-int</loc>
+  </url>
+  <url>
+    <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/fortran/amd64/div-int/div-int</loc>
+  </url>
+  <url>
+    <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/fortran/amd64/add-reals/add-reals</loc>
+  </url>
+  <url>
+    <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/fortran/amd64/mult-reals/mult-reals</loc>
+  </url>
+  <url>
+    <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/fortran/amd64/if-then/if-then</loc>
+  </url>
+  <url>
+    <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/fortran/amd64/add-function/add-function</loc>
+  </url>
+  <url>
+    <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/fortran/amd64/print/print</loc>
+  </url>
+  <url>
     <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/fortran/i386/i386</loc>
   </url>
   <url>
@@ -62,7 +86,31 @@
     <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/c/i386/div-int/div-int</loc>
   </url>
   <url>
-    <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/c/c-1</loc>
+    <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/cpp/cpp</loc>
+  </url>
+  <url>
+    <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/cpp/amd64/amd64-head</loc>
+  </url>
+  <url>
+    <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/cpp/amd64/add-int/add-int</loc>
+  </url>
+  <url>
+    <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/cpp/arm64/arm64</loc>
+  </url>
+  <url>
+    <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/cpp/arm64/add-int/add-int</loc>
+  </url>
+  <url>
+    <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/cpp/arm32/arm32</loc>
+  </url>
+  <url>
+    <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/cpp/arm32/add-int/add-int</loc>
+  </url>
+  <url>
+    <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/cpp/i386/i386-head</loc>
+  </url>
+  <url>
+    <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/cpp/i386/add-int/add-int</loc>
   </url>
   <url>
     <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/ada/ada</loc>
@@ -71,10 +119,70 @@
     <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/ada/amd64/amd64-head</loc>
   </url>
   <url>
+    <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/ada/amd64/add-int/add-int</loc>
+  </url>
+  <url>
+    <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/ada/amd64/add-int-w-io/add-int-w-io</loc>
+  </url>
+  <url>
+    <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/ada/arm64/arm64</loc>
+  </url>
+  <url>
+    <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/ada/arm64/add-int/add-int</loc>
+  </url>
+  <url>
+    <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/ada/arm32/arm32</loc>
+  </url>
+  <url>
+    <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/ada/arm32/add-int-w-io/add-int-w-io</loc>
+  </url>
+  <url>
     <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/ada/i386/i386-head</loc>
   </url>
   <url>
+    <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/ada/i386/add-int/add-int</loc>
+  </url>
+  <url>
     <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/pascal/pascal</loc>
+  </url>
+  <url>
+    <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/pascal/amd64/amd64-head</loc>
+  </url>
+  <url>
+    <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/pascal/amd64/add-int/add-int</loc>
+  </url>
+  <url>
+    <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/pascal/amd64/add-floats/add-floats</loc>
+  </url>
+  <url>
+    <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/pascal/amd64/add-functions/add-functions</loc>
+  </url>
+  <url>
+    <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/pascal/amd64/writeln/writeln</loc>
+  </url>
+  <url>
+    <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/pascal/arm64/arm64</loc>
+  </url>
+  <url>
+    <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/pascal/arm64/add-int/add-int</loc>
+  </url>
+  <url>
+    <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/pascal/arm64/mult-int/mult-int</loc>
+  </url>
+  <url>
+    <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/pascal/arm64/add-floats/add-floats</loc>
+  </url>
+  <url>
+    <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/pascal/arm64/add-functions/add-functions</loc>
+  </url>
+  <url>
+    <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/pascal/arm32/arm32</loc>
+  </url>
+  <url>
+    <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/pascal/arm32/add-int/add-int</loc>
+  </url>
+  <url>
+    <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/pascal/i386/i386-head</loc>
   </url>
   <url>
     <loc>https://www.mkdynamics.net/sections/cybersecurity/liveoverflow/liveoverflow</loc>

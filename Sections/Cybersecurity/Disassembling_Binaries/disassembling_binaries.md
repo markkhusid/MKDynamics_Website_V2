@@ -36,7 +36,7 @@ C Binaries
 ::::{grid} 1 1 1 1
 
 :::{grid-item-card}
-:link: C++/c++
+:link: CPP/cpp
 
 C++ Binaries
 ^^^

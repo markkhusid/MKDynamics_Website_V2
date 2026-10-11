@@ -1,7 +1,15 @@
 # Website Updates
 This file contains a log of updates made to the MKDynamics website. It is used to track changes, additions, and improvements over time.
 
+## 10/11/2026
+- Ada disassembly: AMD64, ARM64, ARM32, and i386 pages now show objdump output, with the address, the machine bytes, the instruction, and a comment, interleaved with the Ada source. Where the two integers are constants, the compiler stores the sum 8. Where the program reads the integers, the listing shows the add and Ada's overflow check. The i386 object has no line-number table, so its three assignment lines were placed by hand.
+- C++ and Pascal disassembly: the built programs from the Disassembling-Binaries tree now have objdump pages. C++ `add.cpp` is on AMD64, ARM64, ARM32, and i386, and each object adds the two ints. Pascal pages cover the AMD64 integer add, real add, function call, and writeln, the ARM64 integer add, multiply, real add, and function call, and the ARM32 integer add. On these Free Pascal builds INTEGER is a 16-bit Smallint. The i386 Pascal directory saves sources, and the writeln object there is a 64-bit ELF whose code matches the AMD64 writeln page.
+
 ## 10/10/2026
+- Fortran AMD64 disassembly: each operation's listing is now objdump output, with the address, the machine bytes, the instruction, and a comment, interleaved with the Fortran source.
+- Fortran AMD64 disassembly: division, real add, real multiply, if-then, a function call, and print join the integer add and multiply pages. Each listing is from a current gfortran build of the program in the Disassembling-Binaries AMD64 tree.
+- Fortran AMD64 disassembly: a multiplication page joins the addition page. The product is one `imul` of the two integers. The placeholder HTML is not the page.
+- Fortran AMD64 disassembly: the addition page replaces the under-construction note. The writeup follows the captured Intel-syntax session. The ARM listing that had been pasted into the old HTML is not on the page.
 - CSE543 Fuzzer Project: a separate page walks through the submitted C program. Fuzz Them All stays the short mutator note. The handout, the seed file, and the notebook's notes on the target stay off the site.
 - CSE543 TCP and UDP spoofing: each page now shows a deweaponized packet builder. The send is a logger. The sequence-number search, the lab host, and the original notebooks stay off the site.
 - CSE543: the Caesar page links the Grokipedia article on the Caesar cipher. The Esper page links the Grokipedia articles on the circular shift and the XOR cipher.

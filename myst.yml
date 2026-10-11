@@ -53,6 +53,23 @@ project:
                         Sections/Cybersecurity/Disassembling_Binaries/Fortran/ARM32/arm32.md
                     - file: >-
                         Sections/Cybersecurity/Disassembling_Binaries/Fortran/AMD64/amd64.md
+                      children:
+                        - file: >-
+                            Sections/Cybersecurity/Disassembling_Binaries/Fortran/AMD64/ADD_INT/add_int.md
+                        - file: >-
+                            Sections/Cybersecurity/Disassembling_Binaries/Fortran/AMD64/MULT_INT/mult_int.md
+                        - file: >-
+                            Sections/Cybersecurity/Disassembling_Binaries/Fortran/AMD64/DIV_INT/div_int.md
+                        - file: >-
+                            Sections/Cybersecurity/Disassembling_Binaries/Fortran/AMD64/ADD_REALS/add_reals.md
+                        - file: >-
+                            Sections/Cybersecurity/Disassembling_Binaries/Fortran/AMD64/MULT_REALS/mult_reals.md
+                        - file: >-
+                            Sections/Cybersecurity/Disassembling_Binaries/Fortran/AMD64/IF_THEN/if_then.md
+                        - file: >-
+                            Sections/Cybersecurity/Disassembling_Binaries/Fortran/AMD64/ADD_FUNCTION/add_function.md
+                        - file: >-
+                            Sections/Cybersecurity/Disassembling_Binaries/Fortran/AMD64/PRINT/print.md
                     - file: >-
                         Sections/Cybersecurity/Disassembling_Binaries/Fortran/i386/i386.md
                 - file: Sections/Cybersecurity/Disassembling_Binaries/C/c.md
@@ -68,15 +85,84 @@ project:
                             Sections/Cybersecurity/Disassembling_Binaries/C/i386/Mult_Int/mult_int.md
                         - file: >-
                             Sections/Cybersecurity/Disassembling_Binaries/C/i386/Div_Int/div_int.md
-                - file: Sections/Cybersecurity/Disassembling_Binaries/C++/c++.md
+                - file: Sections/Cybersecurity/Disassembling_Binaries/CPP/cpp.md
+                  children:
+                    - file: >-
+                        Sections/Cybersecurity/Disassembling_Binaries/CPP/AMD64/amd64__HEAD__.md
+                      children:
+                        - file: >-
+                            Sections/Cybersecurity/Disassembling_Binaries/CPP/AMD64/ADD_INT/add_int.md
+                    - file: >-
+                        Sections/Cybersecurity/Disassembling_Binaries/CPP/ARM64/arm64.md
+                      children:
+                        - file: >-
+                            Sections/Cybersecurity/Disassembling_Binaries/CPP/ARM64/ADD_INT/add_int.md
+                    - file: >-
+                        Sections/Cybersecurity/Disassembling_Binaries/CPP/ARM32/arm32.md
+                      children:
+                        - file: >-
+                            Sections/Cybersecurity/Disassembling_Binaries/CPP/ARM32/ADD_INT/add_int.md
+                    - file: >-
+                        Sections/Cybersecurity/Disassembling_Binaries/CPP/i386/i386__HEAD__.md
+                      children:
+                        - file: >-
+                            Sections/Cybersecurity/Disassembling_Binaries/CPP/i386/ADD_INT/add_int.md
                 - file: Sections/Cybersecurity/Disassembling_Binaries/Ada/ada.md
                   children:
                     - file: >-
                         Sections/Cybersecurity/Disassembling_Binaries/Ada/AMD64/amd64__HEAD__.md
+                      children:
+                        - file: >-
+                            Sections/Cybersecurity/Disassembling_Binaries/Ada/AMD64/ADD_INT/add_int.md
+                        - file: >-
+                            Sections/Cybersecurity/Disassembling_Binaries/Ada/AMD64/ADD_INT_W_IO/add_int_w_io.md
+                    - file: >-
+                        Sections/Cybersecurity/Disassembling_Binaries/Ada/ARM64/arm64.md
+                      children:
+                        - file: >-
+                            Sections/Cybersecurity/Disassembling_Binaries/Ada/ARM64/ADD_INT/add_int.md
+                    - file: >-
+                        Sections/Cybersecurity/Disassembling_Binaries/Ada/ARM32/arm32.md
+                      children:
+                        - file: >-
+                            Sections/Cybersecurity/Disassembling_Binaries/Ada/ARM32/ADD_INT_W_IO/add_int_w_io.md
                     - file: >-
                         Sections/Cybersecurity/Disassembling_Binaries/Ada/i386/i386__HEAD__.md
+                      children:
+                        - file: >-
+                            Sections/Cybersecurity/Disassembling_Binaries/Ada/i386/ADD_INT/add_int.md
                 - file: >-
                     Sections/Cybersecurity/Disassembling_Binaries/Pascal/pascal.md
+                  children:
+                    - file: >-
+                        Sections/Cybersecurity/Disassembling_Binaries/Pascal/AMD64/amd64__HEAD__.md
+                      children:
+                        - file: >-
+                            Sections/Cybersecurity/Disassembling_Binaries/Pascal/AMD64/ADD_INT/add_int.md
+                        - file: >-
+                            Sections/Cybersecurity/Disassembling_Binaries/Pascal/AMD64/ADD_FLOATS/add_floats.md
+                        - file: >-
+                            Sections/Cybersecurity/Disassembling_Binaries/Pascal/AMD64/ADD_FUNCTIONS/add_functions.md
+                        - file: >-
+                            Sections/Cybersecurity/Disassembling_Binaries/Pascal/AMD64/WRITELN/writeln.md
+                    - file: >-
+                        Sections/Cybersecurity/Disassembling_Binaries/Pascal/ARM64/arm64.md
+                      children:
+                        - file: >-
+                            Sections/Cybersecurity/Disassembling_Binaries/Pascal/ARM64/ADD_INT/add_int.md
+                        - file: >-
+                            Sections/Cybersecurity/Disassembling_Binaries/Pascal/ARM64/MULT_INT/mult_int.md
+                        - file: >-
+                            Sections/Cybersecurity/Disassembling_Binaries/Pascal/ARM64/ADD_FLOATS/add_floats.md
+                        - file: >-
+                            Sections/Cybersecurity/Disassembling_Binaries/Pascal/ARM64/ADD_FUNCTIONS/add_functions.md
+                    - file: >-
+                        Sections/Cybersecurity/Disassembling_Binaries/Pascal/ARM32/arm32.md
+                      children:
+                        - file: >-
+                            Sections/Cybersecurity/Disassembling_Binaries/Pascal/ARM32/ADD_INT/add_int.md
+                    - file: >-
+                        Sections/Cybersecurity/Disassembling_Binaries/Pascal/i386/i386__HEAD__.md
             - file: Sections/Cybersecurity/LiveOverflow/liveoverflow.md
               children:
                 - file: >-
