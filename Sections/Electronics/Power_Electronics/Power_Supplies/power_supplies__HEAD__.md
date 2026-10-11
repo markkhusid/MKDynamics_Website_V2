@@ -22,4 +22,24 @@ Forward Converter 100V to 5V 10A
 ```
 :::
 
+:::{grid-item-card}
+:link: Buck_120V_to_12V_100mA/buck_120V_to_12V_100mA
+
+120V to 12V 100mA Buck Converter
+^^^
+```{image} images/LTC3639.jpeg
+:height: 200
+```
+:::
+
+:::{grid-item-card}
+:link: Buck_50V_to_12V_5A/buck_50V_to_12V_5A
+
+50V to 12V 5A Buck Converter
+^^^
+```{image} images/LTC3891.jpeg
+:height: 200
+```
+:::
+
 ::::

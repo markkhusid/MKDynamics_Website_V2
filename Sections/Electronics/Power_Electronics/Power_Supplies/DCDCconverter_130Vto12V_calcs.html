@@ -1,0 +1,1255 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+ <HEAD>
+  <TITLE>DCDCconverter_130Vto12V_calcs</TITLE>
+  <META NAME="generator" CONTENT="wxMaxima">
+  <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+  <STYLE TYPE="text/css">
+body {
+  background-color: rgb(255,255,255);
+}
+.input {
+  color: rgb(0,0,255);
+}
+.comment {
+  color: rgb(0,0,0);
+  background-color: rgb(255,255,255);
+  padding: 2mm;
+}
+.image {
+  color: rgb(0,0,0);
+  padding: 2mm;
+}
+.section {
+  color: rgb(0,0,0);
+  font-size: 1.5em;
+  padding: 2mm;
+}
+.subsect {
+  color: rgb(0,0,0);
+  font-size: 1.2em;
+  padding: 2mm;
+}
+.title {
+  color: rgb(0,0,0);
+  font-size: 2em;
+  padding: 2mm;
+}
+.prompt {
+  color: rgb(255,0,0);
+}
+table {
+  border: 0px;
+}
+td {
+  vertical-align: top;
+  padding: 1mm;
+}
+  </STYLE>
+ </HEAD>
+ <BODY>
+
+<!---------------------------------------------------------->
+<!--          Created with wxMaxima version 13.04.2         -->
+<!---------------------------------------------------------->
+
+
+<!-- Title cell -->
+
+
+<P CLASS="title">
+Peak Current Resistor Selection<BR>
+
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+I_peak is in amps.
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i1) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+I_peak: 0.1;
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_0.png">
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+R_iset is in ohms.
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i2) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+R_iset: I_peak * 10^6;
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_1.png">
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+V_in is in volts
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i3) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+V_in: 130;
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_2.png">
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+V_out is in volts
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i4) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+V_out: 12;
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_3.png">
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+freq is in Hertz.  This value is entered and will be optimized iteratively.  I will start with 100kHz as a first estimate.
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i5) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+freq: 200000;
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_4.png">
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Calculate inductor value (L) in Henries based on switching frequency, input and output voltages
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i6) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+L: (V_out/(freq*I_peak))*(1-(V_out/V_in));
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_5.png">
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Define minimum on time per datasheet page 11
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i7) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+t_on_min: 150*10^-9;
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_6.png">
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Ensure that inductance satisfies minimum value criteria
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i8) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+L_test1: ((V_in*t_on_min)/I_peak)*1.2;
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_7.png">
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i9) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+L_test2: ((V_out*3.5e-6)/1)*1.2;
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_8.png">
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Select actual inductor that satisfies the critera and is approximately close to the calculated value
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i10) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+L_actual: 500*10^-6;
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_9.png">
+</P>
+
+
+<!-- Title cell -->
+
+
+<P CLASS="title">
+Cin and Cout Selection
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Define allowable input ripple voltage.  I will assume a small value of 25mV since the source is sufficiently stiff.
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i11) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+delta_V_in: 25*10^-3;
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_10.png">
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Therefore, the minimum input capacitor criteria is defined by:
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i12) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+Cin: (L*I_peak^2)/(2*V_in*delta_V_in);
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_11.png">
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+For sufficient margin, a 1uF capacitor will be used.  The capacitor will be ceramic for low ESR and power dissipation due to ripple.
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i13) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+C_in_actual: 1*10^-6;
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_12.png">
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Calculate RMS ripple input current in the input capacitor:
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i14) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+I_RMS_in: I_peak*(V_out/V_in)*sqrt((V_in/V_out)-1);
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_13.png">
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Convert to floating point...
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i15) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+float(%), numer;
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_14.png">
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Define acceptable ripple voltage.  I will assume 50mV for these calculations as this is a good practical number.
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i16) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+delta_V_out: 50*10^-3;
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_15.png">
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Calculate the minimum output capacitance according to the criterion that [in farads]:
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i17) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+C_out_min: ((L_actual/2)*(I_peak/V_out)^2)*100;
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_16.png">
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Calculate worst case output capacitor ripple current [in amps]:
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i18) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+I_out_ripple_WC: I_peak/2;
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_17.png">
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Typical output capacitor ESR in ohms
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i19) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+ESR_C_out: 0.3;
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_18.png">
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Calculate power dissipation in output capacitor [watts]
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i20) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+P_diss_C_out: I_out_ripple_WC^2*ESR_C_out;
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_19.png">
+</P>
+
+
+<!-- Title cell -->
+
+
+<P CLASS="title">
+Input Filter Design
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Calculate require capacitance of snubber capacitor [Farads]
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i21) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+C_in_snubber: 4*C_in_actual;
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_20.png">
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i22) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+float(%), numer;
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_21.png">
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Choose input filter inductor value.  I will use 100 uH as a first pick, then refine. [Henries]
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i23) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+L_in_filter: 100*10^-6;
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_22.png">
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i24) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+float(%), numer;
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_23.png">
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Calculate required snubber resistor value [ohms]
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i25) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+R_snubber: sqrt(L_in_filter/C_in_snubber);
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_24.png">
+</P>
+
+
+<!-- Title cell -->
+
+
+<P CLASS="title">
+Calculate Feedback Resistor Divider
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Solve the given equation for a resistor value given an output voltage.  I will fix the lower resistor (R2) to 100 kohm to see <BR>
+if the upper resistor (R1) is a practical value.
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i26) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+R2_fb_inpractical: 100*10^3;
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_25.png">
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i27) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+solve(V_out=0.8*(1+(R1_fb_inpractical/R2_fb_inpractical)), R1_fb_inpractical);
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_26.png">
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i28) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+bfloat(%);
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_27.png">
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+R1 turns out to be an inpractical value because this will make the circuit less stable with low load current.  In this case, I will set the output<BR>
+voltage to 5V and use a resistive divider to divide 12V into 5V.  I will use the setup in Figure 8 (page 14) and set lower resistor R2 to 10kohms.
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i29) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+R2_fb: 10*10^3;
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_28.png">
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i30) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+solve(Vb=Va*(R2/(R1+R2)),R1);
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_29.png">
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Define the midpoint voltage of the resistive divider [volts]
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i31) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+V_midpoint: 5;
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_30.png">
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Solve for upper resistor R1 if lower resistor R2 is 10 kohms [ohms]
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i32) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+R1_fb: -(V_midpoint-V_out*R2_fb)/V_midpoint;
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_31.png">
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i33) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+float(%), numer;
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_32.png">
+</P>
+
+
+<!-- Title cell -->
+
+
+<P CLASS="title">
+Calculate Undervoltage and Overvoltage Lockout Resistive Divider
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Set total resistance of string [ohms]
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i34) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+R_lockout_total: 2*10^6;
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_33.png">
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Define Overvoltage Lockout threshold [volts]
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i35) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+OVLO_threshold: 135;
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_34.png">
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Define Undervoltage Lockout threshold [volts]
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i36) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+UVLO_threshold: 115;
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_35.png">
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Calculate R3, R4, R5 (Figure 10) based on given equations (page 15 of datasheet) [ohms]
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i37) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+R5: R_lockout_total*(1.21/OVLO_threshold);
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_36.png">
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i38) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+R4: (R_lockout_total*(1.21/UVLO_threshold))-R5;
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_37.png">
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i39) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+R3: R_lockout_total-R5-R4;
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_38.png">
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Define actual values used [ohms]
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i40) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+R5_actual: 18*10^3;
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_39.png">
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i41) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+R4_actual: 3.16*10^3;
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_40.png">
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i42) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+R3_actual: 1.98*10^6;
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_41.png">
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i43) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+R_total_actual: R5_actual+R4_actual+R3_actual;
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_42.png">
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Solve equations for under and over voltage lockout voltages given resistors as variables [volts]
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i44) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+solve(R5_eqn=(R_total_eqn*1.21/OVLO_threshold_eqn),OVLO_threshold_eqn);
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_43.png">
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i45) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+solve(R4_eqn=(R_total_eqn*1.21/UVLO_threshold_eqn)-R5_eqn,UVLO_threshold_eqn);
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_44.png">
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i46) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+OVLO_threshold_actual: (121*R_total_actual)/(100*R5_actual);
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_45.png">
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i47) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+UVLO_threshold_actual: (121*R_total_actual)/(100*R5_actual+100*R4_actual);
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_46.png">
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Ensure that voltage at OVLO pin is less than 6V per datasheet (page 15) [volts]
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i48) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+V_max_at_OVLO_pin: V_in*(R5_actual/R_total_actual);
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_47.png">
+</P>
+
+
+<!-- Title cell -->
+
+
+<P CLASS="title">
+Calculate Soft Start Capacitor Value
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Set the desired soft start time delay [seconds]
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i49) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+SS_time: 100*10^-3;
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_48.png">
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Calculate Soft Start Capacitor value
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i50) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+C_SS: SS_time*((5*10^-6)/0.8);
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_49.png">
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Choose standard value for SS capacitor [Farads]
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i51) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+C_SS_actual: 680*10^-9;
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_50.png">
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i52) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+float(%), numer;
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_51.png">
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Calculate actual soft start time [seconds]
+</P>
+
+
+<!-- Code cell -->
+
+
+<P><TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i53) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+SS_time_actual: (C_SS_actual*0.8)/(5*10^-6);
+  </SPAN></TD>
+</TR></TABLE>
+  <BR>
+  <IMG ALT="Result" SRC="DCDCconverter_130Vto12V_calcs_img/DCDCconverter_130Vto12V_calcs_52.png">
+</P>
+
+ <HR>
+ <SMALL> Created with <A HREF="http://wxmaxima.sourceforge.net/">wxMaxima</A>.</SMALL>
+
+ </BODY>
+</HTML>

@@ -786,6 +786,16 @@ project:
                     - file: >-
                         Sections/Electronics/Power_Electronics/Power_Supplies/Forward_Converter_100V_to_5V_10A/forward_converter_100V_to_5V_10A.md
                     - file: >-
+                        Sections/Electronics/Power_Electronics/Power_Supplies/Buck_120V_to_12V_100mA/buck_120V_to_12V_100mA.md
+                      children:
+                        - file: >-
+                            Sections/Electronics/Power_Electronics/Power_Supplies/Buck_120V_to_12V_100mA/design_calculations.ipynb
+                    - file: >-
+                        Sections/Electronics/Power_Electronics/Power_Supplies/Buck_50V_to_12V_5A/buck_50V_to_12V_5A.md
+                      children:
+                        - file: >-
+                            Sections/Electronics/Power_Electronics/Power_Supplies/Buck_50V_to_12V_5A/inductor_core_calculations.md
+                    - file: >-
                         Sections/Electronics/Power_Electronics/Hacking_the_TL494_LTSpice_Model/hacking_the_TL494_LTSpice_model.md
             - file: >-
                 Sections/Electronics/Solar_Power_Projects/solar_power_projects__HEAD__.md

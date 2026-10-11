@@ -1,5 +1,7 @@
 # Forward Converter 100V to 5V at 10A
 
+Created with Grok Build
+
 ```{figure} images/100V_to_5V_10A_Forward_Converter_Eagle_Sch.jpg
 :height: 400
 :class: clickable-figure
@@ -275,6 +277,62 @@ The bottom layer of the PCB is shown below:
 :class: clickable-figure
 
 100V to 5V 10A Forward Converter Eagle Brd Layer Bottom
+```
+
+## PCB Assembly and Test
+
+The bare board was photographed in a vise before parts were installed. The silkscreen marks the TL494CN, the LM324N, a 2N2222A, and the 1N5402 diodes.
+
+```{figure} images/20170111_153609.jpg
+:width: 900
+:align: center
+:class: clickable-figure
+
+Bare forward-converter board in the vise
+```
+
+One DIP was then placed near the center of the same board.
+
+```{figure} images/20170111_155837.jpg
+:width: 900
+:align: center
+:class: clickable-figure
+
+The board with one DIP installed
+```
+
+### Install PWM timing components and test
+
+The TL494CN is installed, with one axial resistor and a disc capacitor beside it. A probe is in the foreground.
+
+```{figure} images/20170115_234532.jpg
+:width: 900
+:align: center
+:class: clickable-figure
+
+PWM timing parts installed for the first check
+```
+
+### Timing capacitor voltage
+
+The ramp on the timing capacitor was checked on the bench. The supply next to the scope reads 14.0 V and 0.0 A. The Siglent shows the ramp, and the board under test is on the breadboard in front.
+
+```{figure} images/20170115_234541.jpg
+:width: 900
+:align: center
+:class: clickable-figure
+
+Bench measurement of the timing-capacitor ramp
+```
+
+The scope detail is the same timing-capacitor voltage. Channel 1 is 500 mV per division and the timebase is 250 µs. The frequency readout is 2.37867 kHz. Channel 2 is 1.00 V per division and is the unused trace. The utility menu is open on this capture.
+
+```{figure} images/SDS00001.png
+:width: 700
+:align: center
+:class: clickable-figure
+
+Timing-capacitor voltage, 2.37867 kHz
 ```
 
 
