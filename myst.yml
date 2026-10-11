@@ -72,6 +72,17 @@ project:
                             Sections/Cybersecurity/Disassembling_Binaries/Fortran/AMD64/PRINT/print.md
                     - file: >-
                         Sections/Cybersecurity/Disassembling_Binaries/Fortran/i386/i386.md
+                      children:
+                        - file: >-
+                            Sections/Cybersecurity/Disassembling_Binaries/Fortran/i386/ADD_INT/add_int.md
+                        - file: >-
+                            Sections/Cybersecurity/Disassembling_Binaries/Fortran/i386/MULT_INT/mult_int.md
+                        - file: >-
+                            Sections/Cybersecurity/Disassembling_Binaries/Fortran/i386/DIV_INT/div_int.md
+                        - file: >-
+                            Sections/Cybersecurity/Disassembling_Binaries/Fortran/i386/ADD_REALS/add_reals.md
+                        - file: >-
+                            Sections/Cybersecurity/Disassembling_Binaries/Fortran/i386/IF_THEN/if_then.md
                 - file: Sections/Cybersecurity/Disassembling_Binaries/C/c.md
                   children:
                     - file: >-

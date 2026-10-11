@@ -4,9 +4,9 @@
 :::{grid-item-card}
 :link: CAELinux_for_Thermal_Analysis/caelinux_for_thermal_analysis.md
 
-Exploring CAELinux for Thermal Analysis
+CAELinux with Salome-Meca and Elmer
 ^^^
-```{image} images/thermal_study.jpg
+```{image} images/Salome_elmer5.jpeg
 :height: 200
 :align: center
 ```

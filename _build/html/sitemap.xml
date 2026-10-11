@@ -68,6 +68,21 @@
     <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/fortran/i386/i386</loc>
   </url>
   <url>
+    <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/fortran/i386/add-int/add-int</loc>
+  </url>
+  <url>
+    <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/fortran/i386/mult-int/mult-int</loc>
+  </url>
+  <url>
+    <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/fortran/i386/div-int/div-int</loc>
+  </url>
+  <url>
+    <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/fortran/i386/add-reals/add-reals</loc>
+  </url>
+  <url>
+    <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/fortran/i386/if-then/if-then</loc>
+  </url>
+  <url>
     <loc>https://www.mkdynamics.net/sections/cybersecurity/disassembling-binaries/c/c</loc>
   </url>
   <url>
