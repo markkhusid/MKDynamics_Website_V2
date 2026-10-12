@@ -1,6 +1,10 @@
 # Website Updates
 This file contains a log of updates made to the MKDynamics website. It is used to track changes, additions, and improvements over time.
 
+## 10/12/2026
+- Ham radio: the 4NEC2 page replaces the under-construction note. It follows a 14.300 MHz dipole run in 4NEC2 5.8.16, with the symbols window, the feed-point result, and the three pattern views.
+- Ham radio: a Broadband Hamnet page joins the projects section. Two WRT54GL routers on firmware 3.1.0 link two laptops, and the page plays the mesh-status and HTTP clip.
+
 ## 10/11/2026
 - Ada disassembly: AMD64, ARM64, ARM32, and i386 pages now show objdump output, with the address, the machine bytes, the instruction, and a comment, interleaved with the Ada source. Where the two integers are constants, the compiler stores the sum 8. Where the program reads the integers, the listing shows the add and Ada's overflow check. The i386 object has no line-number table, so its three assignment lines were placed by hand.
 - C++ and Pascal disassembly: the built programs from the Disassembling-Binaries tree now have objdump pages. C++ `add.cpp` is on AMD64, ARM64, ARM32, and i386, and each object adds the two ints. Pascal pages cover the AMD64 integer add, real add, function call, and writeln, the ARM64 integer add, multiply, real add, and function call, and the ARM32 integer add. On these Free Pascal builds INTEGER is a 16-bit Smallint. The i386 Pascal directory saves sources, and the writeln object there is a 64-bit ELF whose code matches the AMD64 writeln page.

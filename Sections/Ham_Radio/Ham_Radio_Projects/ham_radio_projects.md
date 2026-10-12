@@ -16,4 +16,14 @@ Packet Radio
 ```
 :::
 
+:::{grid-item-card}
+:link: Broadband_Hamnet/broadband_hamnet
+
+Broadband Hamnet
+^^^
+```{image} images/broadband_hamnet.jpg
+:height: 200
+```
+:::
+
 ::::

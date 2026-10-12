@@ -819,6 +819,8 @@ project:
               children:
                 - file: >-
                     Sections/Ham_Radio/Ham_Radio_Projects/Packet_Radio/packet_radio.md
+                - file: >-
+                    Sections/Ham_Radio/Ham_Radio_Projects/Broadband_Hamnet/broadband_hamnet.md
             - file: >-
                 Sections/Ham_Radio/Antenna_Simulation_using_4NEC2/antenna_simulation_using_4NEC2.md
     - title: About Me
