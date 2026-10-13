@@ -1,0 +1,15 @@
+CM 20 m inverted V for 50 ohm at 14.300 MHz
+CM Apex 10.00 m, included angle 93.0 deg, each sloping leg 5.135 m
+CM AWG 14 copper, Sommerfeld average ground
+CE
+GW 1 40 0 -3.789694 6.465685 0 -0.064191 10.0000 0.000814
+GW 2 1 0 -0.064191 10.0000 0 0.064191 10.0000 0.000814
+GW 3 40 0 0.064191 10.0000 0 3.789694 6.465685 0.000814
+GE 1
+GN 2 0 0 0 13 0.005
+EK
+LD 5 0 0 0 5.8001E7
+EX 0 2 1 0 1 0
+FR 0 1 0 0 14.3 0
+RP 0 91 73 1000 0 0 1 5
+EN

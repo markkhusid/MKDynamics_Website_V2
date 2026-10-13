@@ -41,6 +41,33 @@ The feed result on that window is:
 
 A center-fed half-wave dipole is near 70 ohm. Half a wavelength at 14.300 MHz is about 10.5 m, and the 468/f estimate above is 9.975 m for the whole antenna. The feed impedance on this run is 3871 + j2095 ohm, and the 50 ohm SWR reads 100. This saved model is not a matched half-wave dipole.
 
+## Matched model
+
+The matched antenna keeps the 14.300 MHz design frequency and the 10 m support, and it is solved with NEC-2. The deck is `20m_inverted_v.nec`.
+
+A straight AWG 14 copper dipole at 10 m, lengthened to 10.25 m, resonates at 72.9 + j0 ohm. The 50 ohm SWR of that flat wire is 1.46. Over average ground the resonant resistance of a straight dipole stays near 60 ohm or higher at heights from 3 m to 15 m, so trimming the length alone leaves the SWR above 1.2.
+
+Dropping the ends into an inverted V lowers the feed resistance to 50 ohm. The apex is at 10.00 m. Each sloping leg is 5.135 m. The included angle at the apex is 93.0°. The tips are 6.47 m above the ground and 7.58 m apart. The source sits on a 12.8 cm horizontal segment at the apex. The wire is AWG 14 copper, radius 0.814 mm, conductivity 5.8001×10⁷ S/m. The ground is a Sommerfeld average ground, relative permittivity 13 and conductivity 0.005 S/m. Each leg has 40 segments.
+
+At 14.300 MHz the feed is 50.0 + j0.0 ohm and the 50 ohm SWR is 1.00. Wire efficiency is 97.9%. The maximum gain is 5.92 dBi at theta 57°, broadside to the wire, which is 33° above the horizon. Halving the segment length moves the feed to 49.7 + j0.2 ohm and the SWR to 1.01.
+
+| MHz | R (ohm) | X (ohm) | SWR |
+|---:|---:|---:|---:|
+| 14.000 | 47.4 | −31.4 | 1.89 |
+| 14.150 | 48.7 | −15.7 | 1.38 |
+| 14.300 | 50.0 | 0.0 | 1.00 |
+| 14.350 | 50.5 | +5.3 | 1.11 |
+
+The SWR stays under 1.5 from 14.11 MHz to 14.50 MHz, and under 2 from 13.97 MHz to 14.65 MHz.
+
+```{figure} images/20m_inverted_v_match.png
+:width: 900
+:align: center
+:class: clickable-figure
+
+The matched inverted V, and its 50 ohm SWR around 14.300 MHz
+```
+
 ## Radiation pattern
 
 The same run is shown three ways. The color scale is total gain in dBic. It runs from −111 to 9.04, with a tick at 7.74. The lobes lie broadside to the wire.
