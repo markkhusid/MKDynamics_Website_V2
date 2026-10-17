@@ -2,6 +2,7 @@
 This file contains a log of updates made to the MKDynamics website. It is used to track changes, additions, and improvements over time.
 
 ## 10/16/2026
+- C++ programming: the Object-Oriented Programming Using C++ lessons link the book title to its Amazon page.
 - C++ programming: the C++ samples on the Learn Modern C++ and Object-Oriented Programming Using C++ pages are syntax-highlighted. The Object-Oriented Programming Using C++ lessons no longer show the jupytext header.
 
 ## 10/12/2026
