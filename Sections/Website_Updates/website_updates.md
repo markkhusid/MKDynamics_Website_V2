@@ -1,6 +1,9 @@
 # Website Updates
 This file contains a log of updates made to the MKDynamics website. It is used to track changes, additions, and improvements over time.
 
+## 10/16/2026
+- C++ programming: the C++ samples on the Learn Modern C++ and Object-Oriented Programming Using C++ pages are syntax-highlighted. The Object-Oriented Programming Using C++ lessons no longer show the jupytext header.
+
 ## 10/12/2026
 - C++ programming: the Learn Modern C++ pages no longer show the jupytext header.
 - Ham radio: the 4NEC2 dipole is retuned as an inverted V with the apex at 10 m. At 14.300 MHz the feed is 50 ohm and the 50 ohm SWR is 1.00.
