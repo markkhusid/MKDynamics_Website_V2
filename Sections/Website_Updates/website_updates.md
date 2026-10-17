@@ -2,6 +2,7 @@
 This file contains a log of updates made to the MKDynamics website. It is used to track changes, additions, and improvements over time.
 
 ## 10/12/2026
+- C++ programming: the Learn Modern C++ pages no longer show the jupytext header.
 - Ham radio: the 4NEC2 dipole is retuned as an inverted V with the apex at 10 m. At 14.300 MHz the feed is 50 ohm and the 50 ohm SWR is 1.00.
 - Ham radio: the 4NEC2 page replaces the under-construction note. It follows a 14.300 MHz dipole run in 4NEC2 5.8.16, with the symbols window, the feed-point result, and the three pattern views.
 - Ham radio: a Broadband Hamnet page joins the projects section. Two WRT54GL routers on firmware 3.1.0 link two laptops, and the page plays the mesh-status and HTTP clip.
