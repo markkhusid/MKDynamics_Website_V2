@@ -67,7 +67,13 @@ class NetlistOptions:
     ac_points: int = 40  # points per decade
     temp_c: float = 25.0
     title: str = "OPA365 Fig8-6 Sallen-Key LPF"
-
+    # Time-domain source used when analysis == "tran".
+    # 1 V peak matches the AC source magnitude. 10 kHz is inside the
+    # passband of the ~20 kHz filter.
+    tran_freq_hz: float = 10e3
+    tran_amp_v: float = 1.0
+    tran_tstep_s: float = 1e-6
+    tran_tstop_s: float = 1.5e-3
 
 def _param_block(p: CircuitParams) -> str:
     """Emit .param lines for every variable R/C and bias source.
@@ -234,13 +240,15 @@ def _analysis_block(opt: NetlistOptions, p: CircuitParams) -> str:
             """
         )
     if opt.analysis == "tran":
-        # Full-scale sine about mid-rail for qualitative check
+        # Time-domain form of the AC source: same DC bias, sine amplitude
+        # tran_amp_v (default 1 V) at tran_freq_hz (default 10 kHz).
         return dedent(
             f"""\
-            Vin vin 0 DC {{VINBIAS}} SIN({{VINBIAS}} {{VINPEAK}} 1k 0 0 0)
+            * Passband sine: offset VINBIAS, amplitude {opt.tran_amp_v:.12g} V, f={opt.tran_freq_hz:.12g} Hz
+            Vin vin 0 DC {{VINBIAS}} SIN({{VINBIAS}} {opt.tran_amp_v:.12g} {opt.tran_freq_hz:.12g} 0 0 0)
             Vcc vcc 0 DC {{VSUP}}
             .temp {opt.temp_c}
-            .tran 1u 5m
+            .tran {opt.tran_tstep_s:.12g} {opt.tran_tstop_s:.12g}
             .control
             run
             wrdata vout_tran v(vout) v(vin)
@@ -314,8 +322,10 @@ def build_fig86_netlist(
             "Use 'ideal' or 'opa365', or supply a fully custom netlist file."
         )
 
-    # Optional light load
+    # Optional light load. Rbleed keeps Vcc connected for the ideal VCVS,
+    # which does not use the supply pin.
     parts.append("Rload vout 0 {RLOAD}")
+    parts.append("Rbleed vcc 0 10Meg")
     parts.append(_analysis_block(opt, p))
     parts.append(".end\n")
     return "\n".join(parts)
@@ -403,6 +413,8 @@ def write_ltspice_ac_deck(
         C3 n2 vout {{C3}}
         {amp}
         Rload vout 0 {{RLOAD}}
+        * Keeps the supply node connected when the ideal VCVS does not use it.
+        Rbleed vcc 0 10Meg
         Vin vin 0 {{VINBIAS}} AC 1 0
         Vcc vcc 0 {{VSUP}}
         .temp {temp_c}
@@ -413,6 +425,86 @@ def write_ltspice_ac_deck(
         .meas AC re_20k FIND re(V(vout)) AT 20k
         .meas AC im_20k FIND im(V(vout)) AT 20k
         .meas AC fc_3db WHEN mag(V(vout))=gain_100Hz/sqrt(2) FALL=1
+        .end
+        """
+    )
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(text, encoding="utf-8")
+    return path
+
+
+def write_ltspice_tran_deck(
+    path: Path | str,
+    p: CircuitParams | None = None,
+    opamp_model: str = "ideal",
+    root: Path | None = None,
+    temp_c: float = 25.0,
+    *,
+    freq_hz: float = 10e3,
+    amp_v: float = 1.0,
+    tstep_s: float = 1e-6,
+    tstop_s: float = 1.5e-3,
+    tmeas_from_s: float = 1.0e-3,
+    lib_path: Path | None = None,
+) -> Path:
+    """LTspice transient deck: AC source replaced by a passband sine.
+
+    ``Vin`` is ``SINE(VINBIAS, amp, freq)``.  ``.meas`` reports the
+    steady-state peak and the rising-crossing time of Vin and Vout inside
+    the measurement window so gain and phase can be recovered without
+    parsing the whole waveform.  Node names match the ngspice deck.
+    """
+    if p is None:
+        p = CircuitParams()
+    root = Path(root) if root is not None else Path.cwd()
+    deck_dir = Path(path).parent
+    if opamp_model == "ideal":
+        amp = dedent(
+            """\
+            VOS n3 vplus DC {VOS}
+            IBP n3 0 DC {IBP}
+            IBN vout 0 DC {IBN}
+            EAMP vout 0 vplus vout 1e6
+            """
+        )
+    else:
+        lib = Path(lib_path) if lib_path is not None else (root / DEFAULT_OPA365_LIB)
+        lib_s = _spice_lib_ref(lib, deck_dir)
+        amp = dedent(
+            f"""\
+            * OPA365.lib is not in this repo. Download TI SBOC133A into
+            * models/opa365/OPA365.lib. Path is relative to this deck.
+            .lib '{lib_s}'
+            XU1 n3 vout vcc 0 vout OPA365
+            """
+        )
+
+    sp = p.as_spice_params()
+    params = "\n".join(f".param {k}={v:.12g}" for k, v in sp.items())
+    text = dedent(
+        f"""\
+        * OPA365 Fig8-6 LTspice transient deck (generated)
+        * AC source replaced by a {freq_hz:.12g} Hz sine, {amp_v:.12g} V peak, about VINBIAS.
+        {params}
+        R1 vin n1 {{R1}}
+        C1 n1 0 {{C1}}
+        R2 n1 n2 {{R2}}
+        R3 n2 n3 {{R3}}
+        C2 n3 0 {{C2}}
+        C3 n2 vout {{C3}}
+        {amp}
+        Rload vout 0 {{RLOAD}}
+        Rbleed vcc 0 10Meg
+        Vin vin 0 SINE({{VINBIAS}} {amp_v:.12g} {freq_hz:.12g})
+        Vcc vcc 0 {{VSUP}}
+        .temp {temp_c}
+        .tran 0 {tstop_s:.12g} 0 {tstep_s:.12g}
+        .meas TRAN vin_max MAX V(vin) FROM {tmeas_from_s:.12g} TO {tstop_s:.12g}
+        .meas TRAN vin_min MIN V(vin) FROM {tmeas_from_s:.12g} TO {tstop_s:.12g}
+        .meas TRAN vout_max MAX V(vout) FROM {tmeas_from_s:.12g} TO {tstop_s:.12g}
+        .meas TRAN vout_min MIN V(vout) FROM {tmeas_from_s:.12g} TO {tstop_s:.12g}
+        .four {freq_hz:.12g} 1 5 V(vin) V(vout)
         .end
         """
     )

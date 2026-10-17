@@ -1,6 +1,9 @@
 # Website Updates
 This file contains a log of updates made to the MKDynamics website. It is used to track changes, additions, and improvements over time.
 
+## 10/17/2026
+- Electronics, Analog/Digital Designs: the OPA365 Figure 8-6 notebooks add a 10 kHz passband transient, the DC sensitivity of the output voltage, and bar charts of applied voltage and power against the rating and the derating limit. The datasheet PDF and the TI macromodel stay off the site.
+
 ## 10/16/2026
 - C++ programming: the Object-Oriented Programming Using C++ lessons link the book title to its Amazon page.
 - C++ programming: the C++ samples on the Learn Modern C++ and Object-Oriented Programming Using C++ pages are syntax-highlighted. The Object-Oriented Programming Using C++ lessons no longer show the jupytext header.

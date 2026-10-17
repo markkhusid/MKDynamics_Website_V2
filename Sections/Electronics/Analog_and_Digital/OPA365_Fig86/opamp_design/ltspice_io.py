@@ -28,6 +28,7 @@ import os
 import re
 import shutil
 import subprocess
+import sys
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterable
@@ -106,6 +107,12 @@ def find_ltspice(explicit: str | Path | None = None) -> Path:
         Path(r"C:\Program Files\LTC\LTspiceXVII\XVIIx64.exe"),
         Path(shutil.which("LTspice") or ""),
     ]
+    wine_root = Path.home() / ".wine" / "drive_c"
+    if wine_root.is_dir():
+        candidates.extend(
+            wine_root.glob("users/*/AppData/Local/Programs/ADI/LTspice/LTspice.exe")
+        )
+        candidates.extend(wine_root.glob("Program Files/ADI/LTspice/LTspice.exe"))
     for c in candidates:
         if c and c.is_file():
             return c
@@ -135,13 +142,22 @@ def run_ltspice_deck(
             log.unlink()
         except OSError:
             pass
-    cmd = [str(lt), "-b", "-Run", str(deck)]
+    env = os.environ.copy()
+    # On Linux the ADI binary is a Windows executable. Run it under wine
+    # from the deck directory so the log and raw land next to the deck and
+    # the argument does not need a Wine path translation.
+    if lt.suffix.lower() == ".exe" and sys.platform != "win32":
+        env["WINEDEBUG"] = "-all"
+        cmd = ["wine", str(lt), "-b", deck.name]
+    else:
+        cmd = [str(lt), "-b", "-Run", deck.name]
     subprocess.run(
         cmd,
         cwd=str(deck.parent),
         capture_output=True,
         text=True,
         timeout=timeout_s,
+        env=env,
     )
     if not log.is_file():
         # Some versions write uppercase .LOG
@@ -240,6 +256,64 @@ def parse_meas_log(
         )
 
     return found
+
+
+def parse_ltspice_raw_tran(
+    raw_path: Path | str,
+) -> tuple[np.ndarray, dict[str, np.ndarray]]:
+    """Parse a real transient ``.raw``.
+
+    LTspice 24 stores ``time`` as float64 and every other variable as
+    float32 when ``Flags`` contains ``real``.  Returns ``(time, traces)``
+    with lower-case names such as ``v(vout)``.
+    """
+    raw_path = Path(raw_path)
+    data = raw_path.read_bytes()
+    marker = "Binary:\n".encode("utf-16-le")
+    idx = data.find(marker)
+    if idx < 0:
+        raise ValueError(f"No UTF-16 Binary marker in {raw_path}")
+    data_start = idx + len(marker)
+    header = data[:idx].decode("utf-16-le", errors="replace")
+    n_vars = n_pts = None
+    flags = ""
+    var_names: list[str] = []
+    in_vars = False
+    for line in header.splitlines():
+        ls = line.strip()
+        if ls.lower().startswith("no. variables:"):
+            n_vars = int(ls.split(":")[1].strip())
+        elif ls.lower().startswith("no. points:"):
+            n_pts = int(ls.split(":")[1].strip())
+        elif ls.lower().startswith("flags:"):
+            flags = ls.split(":", 1)[1].strip().lower()
+        elif ls.lower().startswith("variables:"):
+            in_vars = True
+        elif in_vars:
+            parts = re.split(r"\t+", ls)
+            if len(parts) >= 2 and parts[0].strip().isdigit():
+                var_names.append(parts[1].strip().lower())
+    if n_vars is None or n_pts is None or len(var_names) != n_vars:
+        raise ValueError(f"Could not parse transient raw header {raw_path}")
+    if "complex" in flags:
+        raise ValueError(f"{raw_path} is an AC raw file, not a transient")
+    # time is float64; remaining variables are float32.
+    point_bytes = 8 + 4 * (n_vars - 1)
+    blob = data[data_start : data_start + n_pts * point_bytes]
+    if len(blob) < n_pts * point_bytes:
+        raise ValueError(f"Transient raw short: {raw_path}")
+    time = np.empty(n_pts, dtype=float)
+    traces: dict[str, np.ndarray] = {}
+    bufs = {name: np.empty(n_pts, dtype=float) for name in var_names[1:]}
+    off = 0
+    for i in range(n_pts):
+        time[i] = np.frombuffer(blob, dtype="<f8", count=1, offset=off)[0]
+        off += 8
+        vals = np.frombuffer(blob, dtype="<f4", count=n_vars - 1, offset=off)
+        off += 4 * (n_vars - 1)
+        for name, val in zip(var_names[1:], vals):
+            bufs[name][i] = float(val)
+    return time, bufs
 
 
 def parse_ltspice_raw_ac(

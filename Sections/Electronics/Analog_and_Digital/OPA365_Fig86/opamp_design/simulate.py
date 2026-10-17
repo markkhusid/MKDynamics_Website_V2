@@ -115,7 +115,7 @@ def run_ngspice(
 ) -> subprocess.CompletedProcess:
     """Batch-run a deck; log written to ``workdir/ngspice.log``."""
     cir_path = Path(cir_path).resolve()
-    workdir = Path(workdir) if workdir is not None else cir_path.parent
+    workdir = Path(workdir).resolve() if workdir is not None else cir_path.parent
     workdir.mkdir(parents=True, exist_ok=True)
     exe = find_ngspice(ngspice)
     log_path = workdir / "ngspice.log"
@@ -199,19 +199,62 @@ def parse_op_log(log_path: Path) -> OpResult:
 
 def parse_tran_wrdata(path: Path) -> TranResult:
     path = Path(path)
-    hits = list(path.parent.glob("vout_tran*")) if not path.is_file() else [path]
-    if not path.is_file():
-        if not hits:
-            raise FileNotFoundError(path)
-        path = hits[0]
+    candidates = [path]
+    if path.suffix == "":
+        candidates.append(Path(str(path) + ".data"))
+    hits = [c for c in candidates if c.is_file()]
+    if not hits:
+        hits = list(path.parent.glob("vout_tran*")) if path.parent.exists() else []
+    if not hits:
+        raise FileNotFoundError(path)
+    path = hits[0]
     raw = np.loadtxt(path)
     if raw.ndim == 1:
         raw = raw.reshape(1, -1)
-    # time vout time vin
+    # ngspice wrdata repeats the x column: time vout time vin
     t = raw[:, 0]
     vout = raw[:, 1]
     vin = raw[:, 3] if raw.shape[1] >= 4 else raw[:, 1]
     return TranResult(time=t, vout=vout, vin=vin)
+
+
+def simulate_tran(
+    p: CircuitParams | None = None,
+    *,
+    opamp_model: str = "ideal",
+    workdir: Path | str,
+    root: Path | str | None = None,
+    ngspice: Path | str | None = None,
+    freq_hz: float = 10e3,
+    amp_v: float = 1.0,
+    tstep_s: float = 1e-6,
+    tstop_s: float = 1.5e-3,
+    temp_c: float = 25.0,
+    lib_path: Path | None = None,
+    timeout_s: float = 120.0,
+) -> TranResult:
+    """Build a Fig. 8-6 transient deck, run ngspice, return Vin and Vout."""
+    workdir = Path(workdir)
+    workdir.mkdir(parents=True, exist_ok=True)
+    root_p = Path(root) if root is not None else _guess_root(workdir)
+    opt = NetlistOptions(
+        opamp_model=opamp_model,
+        analysis="tran",
+        temp_c=temp_c,
+        tran_freq_hz=freq_hz,
+        tran_amp_v=amp_v,
+        tran_tstep_s=tstep_s,
+        tran_tstop_s=tstop_s,
+        lib_path=lib_path,
+    )
+    cir = workdir / "fig86_tran.cir"
+    write_netlist(cir, p=p, opt=opt, root=root_p)
+    proc = run_ngspice(cir, workdir=workdir, ngspice=ngspice, timeout_s=timeout_s)
+    if proc.returncode not in (0, None) and not list(workdir.glob("vout_tran*")):
+        raise RuntimeError(
+            f"ngspice transient failed (code {proc.returncode}). See {workdir / 'ngspice.log'}"
+        )
+    return parse_tran_wrdata(workdir / "vout_tran")
 
 
 def simulate_ac(

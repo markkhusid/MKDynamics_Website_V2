@@ -4,7 +4,8 @@ HOW TO ADAPT FOR ANOTHER NETLIST
 --------------------------------
 Replace ``draw_fig86_schematic`` with a drawing of your topology, or skip
 schematic generation entirely and embed a PNG export from LTspice / your CAD.
-Notebooks only call this for documentation; nothing in the math depends on it.
+Notebook 01 displays ``results/figures/fig86_schematic.png``, exported from
+the LTspice schematic. Nothing in the math depends on this drawing.
 """
 
 from __future__ import annotations
@@ -21,6 +22,8 @@ def draw_fig86_schematic(
     path: str | Path | None = None,
     p: CircuitParams | None = None,
     figsize: tuple[float, float] = (10.5, 4.2),
+    title: str | None = None,
+    vin_label: str | None = None,
 ) -> Path | None:
     """Render a simple annotated schematic; save if path given.
 
@@ -36,7 +39,8 @@ def draw_fig86_schematic(
     ax.set_aspect("equal")
     ax.axis("off")
     ax.set_title(
-        "OPA365 Fig. 8-6 — Three-Pole 20 kHz Unity-Gain Sallen–Key LPF",
+        title
+        or "OPA365 Fig. 8-6 — Three-Pole 20 kHz Unity-Gain Sallen–Key LPF",
         fontsize=12,
         pad=8,
     )
@@ -57,7 +61,12 @@ def draw_fig86_schematic(
     x_vin, x_n1, x_n2, x_n3, x_op, x_out = 0.8, 3.0, 5.5, 8.0, 10.2, 12.8
 
     # Input
-    label(x_vin - 0.15, y + 0.35, r"$V_{\mathrm{IN}}$" + f"\n{p.op.v_in_bias:g} V bias")
+    label(
+        x_vin - 0.15,
+        y + 0.55,
+        vin_label
+        or (r"$V_{\mathrm{IN}}$" + f"\n{p.op.v_in_bias:g} V bias"),
+    )
     wire(x_vin, y, x_n1, y)
     # R1
     ax.add_patch(FancyBboxPatch((1.5, y - 0.18), 1.0, 0.36, boxstyle="round,pad=0.02", fill=False, lw=1.2))

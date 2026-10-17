@@ -258,6 +258,183 @@ def evaluate_derating(
     return pd.DataFrame(rows)
 
 
+def passband_stresses(
+    p: CircuitParams | None = None,
+    *,
+    freq_hz: float = 10e3,
+    amp_v: float = 1.0,
+) -> list[StressEstimate]:
+    """Stress at the 10 kHz passband sine, plus the DC bias.
+
+    Resistor dissipation is the average of the sine: ``Vdc²/R + Vpeak²/(2R)``.
+    Capacitor applied voltage is ``|Vdc| + |Vac|``, the peak of the waveform.
+    The op-amp supply is the 5 V rail. Its dissipation is quiescent power
+    ``Vs·Iq`` plus the small load power in ``Rload``.
+    """
+    from .analysis import solve_frequency
+
+    if p is None:
+        p = CircuitParams()
+    bias = p.op.v_in_bias
+    s = 1j * 2.0 * np.pi * float(freq_hz)
+    dc = solve_frequency(0.0, p, vin=bias)
+    ac = solve_frequency(s, p, vin=amp_v)
+
+    def dc_of(name: str) -> float:
+        if name == "vin":
+            return float(bias)
+        return float(dc[name].real)
+
+    def ac_of(name: str) -> complex:
+        if name == "vin":
+            return complex(amp_v)
+        return complex(ac[name])
+
+    out: list[StressEstimate] = []
+    for name, a, b in (("R1", "vin", "V1"), ("R2", "V1", "V2"), ("R3", "V2", "V3")):
+        vd = dc_of(a) - dc_of(b)
+        va = ac_of(a) - ac_of(b)
+        R = getattr(p, name)
+        p_avg = (vd ** 2) / R + (abs(va) ** 2) / (2.0 * R)
+        v_peak = abs(vd) + abs(va)
+        out.append(
+            StressEstimate(
+                name=name,
+                kind="R",
+                v_peak=float(v_peak),
+                i_rms_est=float(np.sqrt(p_avg / R)) if R > 0 else 0.0,
+                p_est=float(p_avg),
+                notes=f"10 kHz, {amp_v:g} V peak about {bias:g} V",
+            )
+        )
+
+    caps = {
+        "C1": ("V1", None),
+        "C2": ("V3", None),
+        "C3": ("V2", "Vout"),
+    }
+    for name, (a, b) in caps.items():
+        if b is None:
+            vd, va = dc_of(a), ac_of(a)
+        else:
+            vd = dc_of(a) - dc_of(b)
+            va = ac_of(a) - ac_of(b)
+        v_peak = abs(vd) + abs(va)
+        i_rms = 2.0 * np.pi * freq_hz * getattr(p, name) * abs(va) / np.sqrt(2.0)
+        out.append(
+            StressEstimate(
+                name=name,
+                kind="C",
+                v_peak=float(v_peak),
+                i_rms_est=float(i_rms),
+                p_est=0.0,
+                notes=f"peak |Vdc|+|Vac| at {freq_hz:.0f} Hz",
+            )
+        )
+
+    i_load_rms = abs(amp_v) / np.sqrt(2.0) / p.op.r_load
+    p_load = (abs(amp_v) ** 2) / (2.0 * p.op.r_load)
+    iq = 4.6e-3
+    out.append(
+        StressEstimate(
+            name=p.opamp.name,
+            kind="U",
+            v_peak=float(p.op.v_supply),
+            i_rms_est=float(iq),
+            p_est=float(p.op.v_supply * iq + p_load),
+            notes=f"supply; Iq typ 4.6 mA plus Rload ({p_load*1e6:.2f} µW)",
+        )
+    )
+    return out
+
+
+def stress_vs_limits(
+    p: CircuitParams | None = None,
+    *,
+    temp_c: float = 25.0,
+    stresses: list[StressEstimate] | None = None,
+) -> pd.DataFrame:
+    """Applied stress next to the rated limit and the derated limit.
+
+    Resistor power: rated package power, derated at ``temp_c``, and the
+    50 % use fraction of that derated power.
+    Capacitor voltage: rated VR and the recommended fraction of VR.
+    Op-amp: recommended operating supply (5.5 V) and the study's 0.5 W
+    package-power allowance.
+    """
+    if p is None:
+        p = CircuitParams()
+    if stresses is None:
+        stresses = passband_stresses(p)
+    d = p.derating
+    p_der = d.derated_power_w(temp_c)
+    p_allow = p_der * d.resistor_power_use_fraction
+    rows = []
+    for s in stresses:
+        if s.kind == "R":
+            rows.append(
+                {
+                    "component": s.name,
+                    "quantity": "voltage",
+                    "unit": "V",
+                    "applied": s.v_peak,
+                    "derated_limit": 150.0,
+                    "rated_limit": 150.0,
+                    "notes": "0805 working-voltage guideline",
+                }
+            )
+            rows.append(
+                {
+                    "component": s.name,
+                    "quantity": "power",
+                    "unit": "W",
+                    "applied": s.p_est,
+                    "derated_limit": p_allow,
+                    "rated_limit": d.resistor_power_rated_w,
+                    "notes": f"derated limit is {d.resistor_power_use_fraction:.0%} of the {temp_c:.0f} °C curve",
+                }
+            )
+        elif s.kind == "C":
+            rows.append(
+                {
+                    "component": s.name,
+                    "quantity": "voltage",
+                    "unit": "V",
+                    "applied": s.v_peak,
+                    "derated_limit": d.capacitor_v_max_recommended,
+                    "rated_limit": d.capacitor_v_rated,
+                    "notes": f"≤{d.capacitor_v_use_fraction:.0%} of VR",
+                }
+            )
+        else:
+            rows.append(
+                {
+                    "component": s.name,
+                    "quantity": "voltage",
+                    "unit": "V",
+                    "applied": s.v_peak,
+                    "derated_limit": 5.5,
+                    "rated_limit": 5.5,
+                    "notes": "recommended operating maximum",
+                }
+            )
+            rows.append(
+                {
+                    "component": s.name,
+                    "quantity": "power",
+                    "unit": "W",
+                    "applied": s.p_est,
+                    "derated_limit": 0.5,
+                    "rated_limit": 0.5,
+                    "notes": "package allowance used in this study",
+                }
+            )
+    frame = pd.DataFrame(rows)
+    frame["utilization_of_derated"] = frame["applied"] / frame["derated_limit"]
+    frame["utilization_of_rated"] = frame["applied"] / frame["rated_limit"]
+    return frame
+
+
 def power_derating_curve(
     p: CircuitParams | None = None,
     temps: np.ndarray | None = None,
