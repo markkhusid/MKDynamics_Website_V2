@@ -755,6 +755,25 @@ project:
                     - file: >-
                         Sections/Electronics/Analog_and_Digital/OPA365_Fig86/08_derating.ipynb
                 - file: >-
+                    Sections/Electronics/Analog_and_Digital/OPA365_Fig85/opa365_fig85.md
+                  children:
+                    - file: >-
+                        Sections/Electronics/Analog_and_Digital/OPA365_Fig85/01_analytical_transfer.ipynb
+                    - file: >-
+                        Sections/Electronics/Analog_and_Digital/OPA365_Fig85/02_ngspice_vs_analytical.ipynb
+                    - file: >-
+                        Sections/Electronics/Analog_and_Digital/OPA365_Fig85/03_ltspice_vs_analytical.ipynb
+                    - file: >-
+                        Sections/Electronics/Analog_and_Digital/OPA365_Fig85/04_worst_case.ipynb
+                    - file: >-
+                        Sections/Electronics/Analog_and_Digital/OPA365_Fig85/05_monte_carlo.ipynb
+                    - file: >-
+                        Sections/Electronics/Analog_and_Digital/OPA365_Fig85/06_temperature_sweep.ipynb
+                    - file: >-
+                        Sections/Electronics/Analog_and_Digital/OPA365_Fig85/07_sensitivity.ipynb
+                    - file: >-
+                        Sections/Electronics/Analog_and_Digital/OPA365_Fig85/08_derating.ipynb
+                - file: >-
                     Sections/Electronics/Analog_and_Digital/LT3010_5V_Supply/lt3010_5v_supply.md
                   children:
                     - file: >-

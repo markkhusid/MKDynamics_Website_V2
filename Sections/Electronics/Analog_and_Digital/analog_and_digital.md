@@ -27,6 +27,16 @@ OPA365 Figure 8-6 Sallen–Key Low-Pass Filter
 :::
 
 :::{grid-item-card}
+:link: OPA365_Fig85/opa365_fig85
+
+OPA365 Figure 8-5 Multiple-Feedback Low-Pass Filter
+^^^
+```{image} OPA365_Fig85/images/fig85_schematic.png
+:height: 200
+```
+:::
+
+:::{grid-item-card}
 :link: LT3010_5V_Supply/lt3010_5v_supply
 
 LT3010-5 5 V Supply with Shutdown
