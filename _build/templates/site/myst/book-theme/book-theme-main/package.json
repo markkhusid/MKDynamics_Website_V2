@@ -7,14 +7,17 @@
     "start": "node ./server.js"
   },
   "dependencies": {
-    "@remix-run/express": "^1.15.0",
-    "@remix-run/node": "^1.15.0",
+    "@remix-run/express": "^2.17.5",
+    "@remix-run/node": "^2.17.5",
     "compression": "^1.8.2",
     "cross-env": "^7.0.3",
     "express": "^4.22.3",
     "get-port": "^5.1.1",
     "isbot": "^3.6.10",
     "morgan": "^1.12.1"
+  },
+  "overrides": {
+    "turbo-stream": "3.2.1"
   },
   "engines": {
     "node": ">=16"
