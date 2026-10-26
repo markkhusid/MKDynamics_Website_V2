@@ -32,30 +32,34 @@ AD9850 DDS Circuit
 
 ## Building the Circuit
 
-To build the circuit, follow these steps:
+The schematic above is Richard Visokey AD7C’s drawing. The connections below match that parallel HD44780 hookup and the sketch in the [project repository](https://github.com/markkhusid/AD9850_DDS_VFO) (`W_CLK` 8, `FQ_UD` 9, `DATA` 10, `RESET` 11, `Rotary(2, 3)`, `LiquidCrystal lcd(12, 13, 7, 6, 5, 4)`, pushbutton on `A0`). This page describes an assembly of that design.
 
 1. Connect the AD9850 DDS module to the Arduino Uno as follows:
    - Connect the AD9850 module's VCC pin to the Arduino's 5V pin.
    - Connect the AD9850 module's GND pin to the Arduino's GND pin.
-   - Connect the AD9850 module's DATA pin to the Arduino's digital pin 8.
-   - Connect the AD9850 module's W_CLK pin to the Arduino's digital pin 9.
-   - Connect the AD9850 module's FQ_UD pin to the Arduino's digital pin 10.
+   - Connect the AD9850 module's W_CLK pin to the Arduino's digital pin 8.
+   - Connect the AD9850 module's FQ_UD pin to the Arduino's digital pin 9.
+   - Connect the AD9850 module's DATA pin to the Arduino's digital pin 10.
    - Connect the AD9850 module's RESET pin to the Arduino's digital pin 11.
+   - The schematic labels the module DATA net as D7 because that wire is tied to the AD9850 chip pin D7. The Arduino still drives DATA from digital pin 10, not from Arduino D7.
 
-2. Connect the 16x2 LCD display to the Arduino Uno as follows:
+2. Connect the 16x2 LCD as a parallel HD44780 (the schematic calls out a GDM1602K or Hitachi HD44780). There is no I2C backpack and no SDA/SCL wiring.
 
-    - Connect the LCD display's VCC pin to the Arduino's 5V pin.
-    - Connect the LCD display's GND pin to the Arduino's GND pin.
-    - Connect the LCD display's SDA pin to the Arduino's analog pin A4.
-    - Connect the LCD display's SCL pin to the Arduino's analog pin A5.
+    - Connect LCD VSS to GND and LCD VDD to the Arduino's 5V pin.
+    - Connect VO to the wiper of the contrast potentiometer shown on the schematic.
+    - Tie R/W to GND. The sketch uses Arduino `LiquidCrystal` in write-only mode and does not drive R/W.
+    - Connect RS to digital pin 12 and E to digital pin 13.
+    - Connect data lines D4, D5, D6, and D7 to Arduino digital pins 7, 6, 5, and 4. That is `LiquidCrystal lcd(12, 13, 7, 6, 5, 4)`.
+    - Feed the backlight LED through the series resistor shown on the schematic.
 
 3. Connect the rotary encoder to the Arduino Uno as follows:
 
-    - Connect the rotary encoder's CLK pin to the Arduino's digital pin 2.
-    - Connect the rotary encoder's DT pin to the Arduino's digital pin 3.
-    - Connect the rotary encoder's SW pin to the Arduino's digital pin 4.
+    - Connect the rotary encoder's CLK (A) pin to the Arduino's digital pin 2.
+    - Connect the rotary encoder's DT (B) pin to the Arduino's digital pin 3.
+    - The encoder handler below is constructed with those two pins, and the sketch calls `Rotary(2, 3)`.
+    - Connect the encoder pushbutton between analog pin A0 and GND. The sketch enables the internal pull-up on A0. Digital pin 4 is LCD data D7, not the switch.
 
-4. Connect the power supply to the circuit. The AD9850 module requires a 5V power supply.
+4. Power the Uno from the 9 V battery on the barrel jack, as drawn on the schematic. The AD9850 module and the LCD take 5 V from the Uno.
 
 ## Programming the Arduino
 
