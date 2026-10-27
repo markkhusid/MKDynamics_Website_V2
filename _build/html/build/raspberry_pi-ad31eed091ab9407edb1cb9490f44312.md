@@ -37,5 +37,6 @@ This book may be purchased here: <br>
 
 ## Project Code on Github
 
-Project code and resources can be found on my GitHub repository: <br>
-[GitHub Repository](https://github.com/markkhusid/Raspberry-Pi#)
+The programs from my [Raspberry-Pi](https://github.com/markkhusid/Raspberry-Pi) repository are written out on the Exploring Raspberry Pi page. That page includes Hello World, the short programs, variable sizes and the saved ARM run, the C and C++ string programs, the Boost.Python module, the GPIO LED programs, the Cython sine integral, function callbacks, POSIX threads, the GPIO notebook, and the cyclictest summary.
+
+The repository still holds the object files, binaries, preprocessor dumps, objdump logs, and the full `histogram.dat` log. The `rt-tests` entry is a submodule pin of upstream rt-tests.

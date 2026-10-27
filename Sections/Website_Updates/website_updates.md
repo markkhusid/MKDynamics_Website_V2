@@ -1,6 +1,9 @@
 # Website Updates
 This file contains a log of updates made to the MKDynamics website. It is used to track changes, additions, and improvements over time.
 
+## 10/27/2026
+- Raspberry Pi: the Exploring Raspberry Pi page now includes the programs from the [Raspberry-Pi](https://github.com/markkhusid/Raspberry-Pi) repository. The page shows each C, C++, Cython, and Chapter 6 source once, the saved ARM sizeof output, the GPIO notebook, and the cyclictest summary from `histogram.dat`. The object files, binaries, and the rt-tests submodule pin remain in the repository.
+
 ## 10/17/2026
 - Electronics, Analog/Digital Designs: the OPA365 Figure 8-5 multiple-feedback 500 kHz low-pass filter joins the section. Eight notebooks cover the closed form, ngspice, LTspice, a 32-corner transient check, Monte Carlo, temperature, sensitivity, and derating. The datasheet PDF and the TI macromodel stay off the site.
 - Electronics, Analog/Digital Designs: the OPA365 Figure 8-6 notebooks add a 10 kHz passband transient, the DC sensitivity of the output voltage, and bar charts of applied voltage and power against the rating and the derating limit. The datasheet PDF and the TI macromodel stay off the site.

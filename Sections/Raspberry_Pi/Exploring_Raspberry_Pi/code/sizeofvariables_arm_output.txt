@@ -1,0 +1,6 @@
+a val 3.1416 & size 8 bytes (@addr 0x7e986618).
+b val %4.2 & size 67042 bytes (@addr (nil)).
+c val 545 (oct 1041, hex 221) &  size 4 bytes (@addr 0x7e986610).
+d val 123 & size 4 bytes (@ addr 0x7e98660c).
+e val A & size 1 bytes (@ addr 0x7e98660b).
+f val     1 & size 1 bytes (@ addr 0x1).
