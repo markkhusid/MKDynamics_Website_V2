@@ -1,0 +1,17 @@
+name = "Section_Examples_Merge"
+
+[build]
+auto-executables = true
+auto-tests = true
+auto-examples = true
+
+[install]
+library = false
+
+[dependencies]
+neural-fortran = { git = "https://github.com/modern-fortran/neural-fortran.git" }
+
+[[executable]]
+name = "Section_Examples_Merge"
+source-dir = "app"
+main = "merge_networks.f90"

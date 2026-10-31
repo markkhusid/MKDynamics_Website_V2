@@ -1,0 +1,164 @@
+Fitting quadratic function
+============================================================
+Layer: input
+------------------------------------------------------------
+Output shape: 1
+Parameters: 0
+
+Layer: dense
+------------------------------------------------------------
+Input shape: 1
+Output shape: 3
+Parameters: 6
+Activation: sigmoid
+
+Layer: dense
+------------------------------------------------------------
+Input shape: 3
+Output shape: 1
+Parameters: 4
+Activation: sigmoid
+
+Stochastic gradient descent
+----------------------------------
+Epoch:  100/1000, RMSE =  0.172108
+Epoch:  200/1000, RMSE =  0.145631
+Epoch:  300/1000, RMSE =  0.144169
+Epoch:  400/1000, RMSE =  0.143590
+Epoch:  500/1000, RMSE =  0.143261
+Epoch:  600/1000, RMSE =  0.143045
+Epoch:  700/1000, RMSE =  0.142891
+Epoch:  800/1000, RMSE =  0.142777
+Epoch:  900/1000, RMSE =  0.142688
+Epoch: 1000/1000, RMSE =  0.142617
+ 
+Stochastic gradient descent
+----------------------------------
+Epoch:  100/1000, RMSE =  0.146755
+Epoch:  200/1000, RMSE =  0.145369
+Epoch:  300/1000, RMSE =  0.144599
+Epoch:  400/1000, RMSE =  0.144008
+Epoch:  500/1000, RMSE =  0.143530
+Epoch:  600/1000, RMSE =  0.143139
+Epoch:  700/1000, RMSE =  0.142856
+Epoch:  800/1000, RMSE =  0.142685
+Epoch:  900/1000, RMSE =  0.142580
+Epoch: 1000/1000, RMSE =  0.142511
+ 
+Stochastic gradient descent
+----------------------------------
+Epoch:  100/1000, RMSE =  0.144792
+Epoch:  200/1000, RMSE =  0.143589
+Epoch:  300/1000, RMSE =  0.143005
+Epoch:  400/1000, RMSE =  0.142684
+Epoch:  500/1000, RMSE =  0.142501
+Epoch:  600/1000, RMSE =  0.142395
+Epoch:  700/1000, RMSE =  0.142330
+Epoch:  800/1000, RMSE =  0.142287
+Epoch:  900/1000, RMSE =  0.142258
+Epoch: 1000/1000, RMSE =  0.142237
+ 
+Batch gradient descent
+----------------------------------
+Epoch:  100/1000, RMSE =  0.439151
+Epoch:  200/1000, RMSE =  0.383086
+Epoch:  300/1000, RMSE =  0.342935
+Epoch:  400/1000, RMSE =  0.314051
+Epoch:  500/1000, RMSE =  0.292913
+Epoch:  600/1000, RMSE =  0.277103
+Epoch:  700/1000, RMSE =  0.265010
+Epoch:  800/1000, RMSE =  0.255563
+Epoch:  900/1000, RMSE =  0.248040
+Epoch: 1000/1000, RMSE =  0.241946
+ 
+Minibatch gradient descent
+----------------------------------
+Epoch:  100/1000, RMSE =  0.241941
+Epoch:  200/1000, RMSE =  0.214759
+Epoch:  300/1000, RMSE =  0.206426
+Epoch:  400/1000, RMSE =  0.202580
+Epoch:  500/1000, RMSE =  0.200415
+Epoch:  600/1000, RMSE =  0.199044
+Epoch:  700/1000, RMSE =  0.198105
+Epoch:  800/1000, RMSE =  0.197423
+Epoch:  900/1000, RMSE =  0.196907
+Epoch: 1000/1000, RMSE =  0.196503
+ 
+RMSProp optimizer
+----------------------------------
+Epoch:  100/1000, RMSE =  0.196830
+Epoch:  200/1000, RMSE =  0.171572
+Epoch:  300/1000, RMSE =  0.146137
+Epoch:  400/1000, RMSE =  0.142902
+Epoch:  500/1000, RMSE =  0.142335
+Epoch:  600/1000, RMSE =  0.142210
+Epoch:  700/1000, RMSE =  0.142174
+Epoch:  800/1000, RMSE =  0.142159
+Epoch:  900/1000, RMSE =  0.142149
+Epoch: 1000/1000, RMSE =  0.142141
+ 
+Adam optimizer
+----------------------------------
+Epoch:  100/1000, RMSE =  0.201922
+Epoch:  200/1000, RMSE =  0.195165
+Epoch:  300/1000, RMSE =  0.193220
+Epoch:  400/1000, RMSE =  0.187602
+Epoch:  500/1000, RMSE =  0.177662
+Epoch:  600/1000, RMSE =  0.163955
+Epoch:  700/1000, RMSE =  0.152955
+Epoch:  800/1000, RMSE =  0.148619
+Epoch:  900/1000, RMSE =  0.147041
+Epoch: 1000/1000, RMSE =  0.146180
+ 
+Adam optimizer
+----------------------------------
+Epoch:  100/1000, RMSE =  0.201922
+Epoch:  200/1000, RMSE =  0.195165
+Epoch:  300/1000, RMSE =  0.193219
+Epoch:  400/1000, RMSE =  0.187602
+Epoch:  500/1000, RMSE =  0.177664
+Epoch:  600/1000, RMSE =  0.163976
+Epoch:  700/1000, RMSE =  0.152973
+Epoch:  800/1000, RMSE =  0.148621
+Epoch:  900/1000, RMSE =  0.147042
+Epoch: 1000/1000, RMSE =  0.146181
+ 
+Adam optimizer
+----------------------------------
+Epoch:  100/1000, RMSE =  0.201922
+Epoch:  200/1000, RMSE =  0.195165
+Epoch:  300/1000, RMSE =  0.193220
+Epoch:  400/1000, RMSE =  0.187603
+Epoch:  500/1000, RMSE =  0.177663
+Epoch:  600/1000, RMSE =  0.163957
+Epoch:  700/1000, RMSE =  0.152956
+Epoch:  800/1000, RMSE =  0.148620
+Epoch:  900/1000, RMSE =  0.147043
+Epoch: 1000/1000, RMSE =  0.146180
+ 
+Adagrad optimizer
+----------------------------------
+Epoch:  100/1000, RMSE =  0.394946
+Epoch:  200/1000, RMSE =  0.353824
+Epoch:  300/1000, RMSE =  0.327160
+Epoch:  400/1000, RMSE =  0.307970
+Epoch:  500/1000, RMSE =  0.293384
+Epoch:  600/1000, RMSE =  0.281894
+Epoch:  700/1000, RMSE =  0.272606
+Epoch:  800/1000, RMSE =  0.264944
+Epoch:  900/1000, RMSE =  0.258522
+Epoch: 1000/1000, RMSE =  0.253065
+ 
+Adagrad optimizer
+----------------------------------
+Epoch:  100/1000, RMSE =  0.502918
+Epoch:  200/1000, RMSE =  0.502700
+Epoch:  300/1000, RMSE =  0.502603
+Epoch:  400/1000, RMSE =  0.502545
+Epoch:  500/1000, RMSE =  0.502506
+Epoch:  600/1000, RMSE =  0.502477
+Epoch:  700/1000, RMSE =  0.502454
+Epoch:  800/1000, RMSE =  0.502436
+Epoch:  900/1000, RMSE =  0.502421
+Epoch: 1000/1000, RMSE =  0.502408
+ 

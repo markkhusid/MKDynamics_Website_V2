@@ -1,0 +1,62 @@
+Getting and setting network parameters
+============================================================
+
+First, let's instantiate small dense network net1
+of shape (1,5,1) and fit it to a sine function:
+
+Layer: input
+------------------------------------------------------------
+Output shape: 1
+Parameters: 0
+
+Layer: dense
+------------------------------------------------------------
+Input shape: 1
+Output shape: 5
+Parameters: 10
+Activation: sigmoid
+
+Layer: dense
+------------------------------------------------------------
+Input shape: 5
+Output shape: 1
+Parameters: 6
+Activation: sigmoid
+
+Number of iterations, loss: 0  0.132005
+Number of iterations, loss: 10000  0.025490
+Number of iterations, loss: 20000  0.022391
+Number of iterations, loss: 30000  0.006663
+Number of iterations, loss: 40000  0.006865
+Number of iterations, loss: 50000  0.007404
+Number of iterations, loss: 60000  0.006925
+Number of iterations, loss: 70000  0.006743
+Number of iterations, loss: 80000  0.006418
+Number of iterations, loss: 90000  0.006463
+Number of iterations, loss: 100000  0.006520
+
+Now, let's see how many network parameters there are
+by printing the result of net1 % get_num_params():
+
+net1 % get_num_params() = 16
+
+We can see the values of the network parameters
+by printing the result of net1 % get_params():
+
+net1 % get_params() = -2.70280743 1.65739667 -3.43811417 -2.56082535 1.50492740 8.60139656 -1.99624050 2.83752728 4.83122206 -1.65443444 3.33986306 -0.688524127 -5.12525511 2.87342095 -0.315281779 -1.09757423
+
+Now, let's create another network of the same shape and set
+the parameters from the original network to it
+by calling call net2 % set_params(net1 % get_params()):
+
+We can check that the second network now has the same
+parameters as net1:
+
+net2 % get_params() = -2.70280743 1.65739667 -3.43811417 -2.56082535 1.50492740 8.60139656 -1.99624050 2.83752728 4.83122206 -1.65443444 3.33986306 -0.688524127 -5.12525511 2.87342095 -0.315281779 -1.09757423
+
+We can also check that the two networks produce the same output:
+
+net1 output: 0.529398024 0.580482662 0.670077443 0.787198007 0.885833263 0.938447833 0.958378315 0.961797357 0.954628587 0.936587930 0.905120313 0.857825518 0.792102873 0.702996671 0.586569905 0.452750772 0.329366893 0.239083663 0.182911754 0.150601938 0.132469445 0.122307166 0.116580568 0.113333620 0.111482792 0.110422902 0.109813400 0.109461367 0.109257087 0.109137945
+net2 output: 0.529398024 0.580482662 0.670077443 0.787198007 0.885833263 0.938447833 0.958378315 0.961797357 0.954628587 0.936587930 0.905120313 0.857825518 0.792102873 0.702996671 0.586569905 0.452750772 0.329366893 0.239083663 0.182911754 0.150601938 0.132469445 0.122307166 0.116580568 0.113333620 0.111482792 0.110422902 0.109813400 0.109461367 0.109257087 0.109137945
+
+Original and cloned network outputs match: T

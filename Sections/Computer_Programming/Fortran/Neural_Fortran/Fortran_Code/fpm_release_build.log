@@ -1,0 +1,158 @@
+ + mkdir -p build/dependencies
+[  0%]              nf_base_layer.f90
+[  1%]              nf_base_layer.f90  done.
+[  1%]                nf_datasets.f90
+[  2%]                nf_datasets.f90  done.
+[  2%]          nf_datasets_mnist.f90
+[  3%]          nf_datasets_mnist.f90  done.
+[  3%]                 nf_metrics.f90
+[  5%]                 nf_metrics.f90  done.
+[  5%]                nf_parallel.f90
+[  6%]                nf_parallel.f90  done.
+[  6%]                  nf_random.f90
+[  7%]                  nf_random.f90  done.
+[  7%]              nf_activation.f90
+[  8%]              nf_activation.f90  done.
+[  8%]              nf_optimizers.f90
+[ 10%]              nf_optimizers.f90  done.
+[ 10%]               nf_io_binary.f90
+[ 11%]               nf_io_binary.f90  done.
+[ 11%] nf_datasets_mnist_submodule.f9
+[ 12%] nf_datasets_mnist_submodule.f9  done.
+[ 12%]      nf_datasets_submodule.f90
+[ 14%]      nf_datasets_submodule.f90  done.
+[ 14%]           nf_input1d_layer.f90
+[ 15%]           nf_input1d_layer.f90  done.
+[ 15%]           nf_input3d_layer.f90
+[ 16%]           nf_input3d_layer.f90  done.
+[ 16%]                    nf_loss.f90
+[ 17%]                    nf_loss.f90  done.
+[ 17%]         nf_maxpool2d_layer.f90
+[ 19%]         nf_maxpool2d_layer.f90  done.
+[ 19%]      nf_parallel_submodule.f90
+[ 20%]      nf_parallel_submodule.f90  done.
+[ 20%]           nf_dropout_layer.f90
+[ 21%]           nf_dropout_layer.f90  done.
+[ 21%]         nf_embedding_layer.f90
+[ 23%]         nf_embedding_layer.f90  done.
+[ 23%]           nf_flatten_layer.f90
+[ 24%]           nf_flatten_layer.f90  done.
+[ 24%]           nf_input2d_layer.f90
+[ 25%]           nf_input2d_layer.f90  done.
+[ 25%]         nf_maxpool1d_layer.f90
+[ 26%]         nf_maxpool1d_layer.f90  done.
+[ 26%]         nf_reshape2d_layer.f90
+[ 28%]         nf_reshape2d_layer.f90  done.
+[ 28%]         nf_reshape3d_layer.f90
+[ 29%]         nf_reshape3d_layer.f90  done.
+[ 29%]            nf_conv1d_layer.f90
+[ 30%]            nf_conv1d_layer.f90  done.
+[ 30%]            nf_conv2d_layer.f90
+[ 32%]            nf_conv2d_layer.f90  done.
+[ 32%]             nf_dense_layer.f90
+[ 33%]             nf_dense_layer.f90  done.
+[ 33%]                   nf_layer.f90
+[ 34%]                   nf_layer.f90  done.
+[ 34%]               nf_layernorm.f90
+[ 35%]               nf_layernorm.f90  done.
+[ 35%]          nf_linear2d_layer.f90
+[ 37%]          nf_linear2d_layer.f90  done.
+[ 37%] nf_locally_connected2d_layer.f
+[ 38%] nf_locally_connected2d_layer.f  done.
+[ 38%]     nf_io_binary_submodule.f90
+[ 39%]     nf_io_binary_submodule.f90  done.
+[ 39%] nf_input1d_layer_submodule.f90
+[ 41%] nf_input1d_layer_submodule.f90  done.
+[ 41%] nf_input3d_layer_submodule.f90
+[ 42%] nf_input3d_layer_submodule.f90  done.
+[ 42%]          nf_loss_submodule.f90
+[ 43%]          nf_loss_submodule.f90  done.
+[ 43%] nf_dropout_layer_submodule.f90
+[ 44%] nf_dropout_layer_submodule.f90  done.
+[ 44%] nf_input2d_layer_submodule.f90
+[ 46%] nf_input2d_layer_submodule.f90  done.
+[ 46%] nf_reshape2d_layer_submodule.f
+[ 47%] nf_reshape2d_layer_submodule.f  done.
+[ 47%] nf_reshape3d_layer_submodule.f
+[ 48%] nf_reshape3d_layer_submodule.f  done.
+[ 48%]  nf_conv1d_layer_submodule.f90
+[ 50%]  nf_conv1d_layer_submodule.f90  done.
+[ 50%]  nf_conv2d_layer_submodule.f90
+[ 51%]  nf_conv2d_layer_submodule.f90  done.
+[ 51%]   nf_dense_layer_submodule.f90
+[ 52%]   nf_dense_layer_submodule.f90  done.
+[ 52%] nf_embedding_layer_submodule.f
+[ 53%] nf_embedding_layer_submodule.f  done.
+[ 53%] nf_flatten_layer_submodule.f90
+[ 55%] nf_flatten_layer_submodule.f90  done.
+[ 55%]     nf_layernorm_submodule.f90
+[ 56%]     nf_layernorm_submodule.f90  done.
+[ 56%] nf_linear2d_layer_submodule.f9
+[ 57%] nf_linear2d_layer_submodule.f9  done.
+[ 57%] nf_maxpool1d_layer_submodule.f
+[ 58%] nf_maxpool1d_layer_submodule.f  done.
+[ 58%] nf_maxpool2d_layer_submodule.f
+[ 60%] nf_maxpool2d_layer_submodule.f  done.
+[ 60%] nf_multihead_attention_layer.f
+[ 61%] nf_multihead_attention_layer.f  done.
+[ 61%]                 nf_network.f90
+[ 62%]                 nf_network.f90  done.
+[ 62%]      nf_layer_constructors.f90
+[ 64%]      nf_layer_constructors.f90  done.
+[ 64%] nf_locally_connected2d_layer_s
+[ 65%] nf_locally_connected2d_layer_s  done.
+[ 65%]                         nf.f90
+[ 66%]                         nf.f90  done.
+[ 66%] nf_multihead_attention_layer_s
+[ 67%] nf_multihead_attention_layer_s  done.
+[ 67%]    nf_self_attention_layer.f90
+[ 69%]    nf_self_attention_layer.f90  done.
+[ 69%]         nf_layer_submodule.f90
+[ 70%]         nf_layer_submodule.f90  done.
+[ 70%]       nf_network_submodule.f90
+[ 71%]       nf_network_submodule.f90  done.
+[ 71%] nf_layer_constructors_submodul
+[ 73%] nf_layer_constructors_submodul  done.
+[ 73%]     get_set_network_params.f90
+[ 74%]     get_set_network_params.f90  done.
+[ 74%]         network_parameters.f90
+[ 75%]         network_parameters.f90  done.
+[ 75%]                  quadratic.f90
+[ 76%]                  quadratic.f90  done.
+[ 76%]                     simple.f90
+[ 78%]                     simple.f90  done.
+[ 78%]                       sine.f90
+[ 79%]                       sine.f90  done.
+[ 79%]                dense_mnist.f90
+[ 80%]                dense_mnist.f90  done.
+[ 80%]                 mha_simple.f90
+[ 82%]                 mha_simple.f90  done.
+[ 82%]                  cnn_mnist.f90
+[ 83%]                  cnn_mnist.f90  done.
+[ 83%]             merge_networks.f90
+[ 84%]             merge_networks.f90  done.
+[ 84%]               cnn_mnist_1d.f90
+[ 85%]               cnn_mnist_1d.f90  done.
+[ 85%]            libneural-fortran.a
+[ 87%]            libneural-fortran.a  done.
+[ 87%]         get_set_network_params
+[ 88%]         get_set_network_params  done.
+[ 88%]             network_parameters
+[ 89%]             network_parameters  done.
+[ 89%]                      quadratic
+[ 91%]                      quadratic  done.
+[ 91%]                         simple
+[ 92%]                         simple  done.
+[ 92%]                           sine
+[ 93%]                           sine  done.
+[ 93%]                    dense_mnist
+[ 94%]                    dense_mnist  done.
+[ 94%]                     mha_simple
+[ 96%]                     mha_simple  done.
+[ 96%]                      cnn_mnist
+[ 97%]                      cnn_mnist  done.
+[ 97%]                 merge_networks
+[ 98%]                 merge_networks  done.
+[ 98%]                   cnn_mnist_1d
+[100%]                   cnn_mnist_1d  done.
+[100%] Project compiled successfully.

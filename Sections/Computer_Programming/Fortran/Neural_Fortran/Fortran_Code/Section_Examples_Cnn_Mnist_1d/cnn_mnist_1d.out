@@ -1,0 +1,75 @@
+Layer: input
+------------------------------------------------------------
+Output shape: 784
+Parameters: 0
+
+Layer: reshape2d
+------------------------------------------------------------
+Input shape: 784
+Output shape: 28 28
+Parameters: 0
+Activation: 
+
+Layer: locally_connected2d
+------------------------------------------------------------
+Input shape: 28 28
+Output shape: 8 26
+Parameters: 17680
+Activation: relu
+
+Layer: maxpool1d
+------------------------------------------------------------
+Input shape: 8 26
+Output shape: 8 13
+Parameters: 0
+Activation: 
+
+Layer: locally_connected2d
+------------------------------------------------------------
+Input shape: 8 13
+Output shape: 16 11
+Parameters: 4400
+Activation: relu
+
+Layer: maxpool1d
+------------------------------------------------------------
+Input shape: 16 11
+Output shape: 16 5
+Parameters: 0
+Activation: 
+
+Layer: flatten
+------------------------------------------------------------
+Input shape: 16 5
+Output shape: 80
+Parameters: 0
+Activation: 
+
+Layer: dense
+------------------------------------------------------------
+Input shape: 80
+Output shape: 10
+Parameters: 810
+Activation: softmax
+
+Epoch  1 done, Accuracy: 35.37 %
+Epoch  2 done, Accuracy: 33.75 %
+Epoch  3 done, Accuracy: 54.39 %
+Epoch  4 done, Accuracy: 72.94 %
+Epoch  5 done, Accuracy: 75.59 %
+Epoch  6 done, Accuracy: 78.07 %
+Epoch  7 done, Accuracy: 84.07 %
+Epoch  8 done, Accuracy: 85.83 %
+Epoch  9 done, Accuracy: 86.91 %
+Epoch 10 done, Accuracy: 87.42 %
+Epoch 11 done, Accuracy: 88.48 %
+Epoch 12 done, Accuracy: 88.57 %
+Epoch 13 done, Accuracy: 87.61 %
+Epoch 14 done, Accuracy: 89.51 %
+Epoch 15 done, Accuracy: 89.04 %
+Epoch 16 done, Accuracy: 89.46 %
+Epoch 17 done, Accuracy: 89.72 %
+Epoch 18 done, Accuracy: 90.53 %
+Epoch 19 done, Accuracy: 89.12 %
+Epoch 20 done, Accuracy: 90.71 %
+Testing accuracy: 90.49%

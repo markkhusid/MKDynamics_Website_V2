@@ -1,0 +1,17 @@
+name = "Section_Examples_Mha"
+
+[build]
+auto-executables = true
+auto-tests = true
+auto-examples = true
+
+[install]
+library = false
+
+[dependencies]
+neural-fortran = { git = "https://github.com/modern-fortran/neural-fortran.git" }
+
+[[executable]]
+name = "Section_Examples_Mha"
+source-dir = "app"
+main = "mha_simple.f90"

@@ -1,0 +1,38 @@
+MNIST
+============================================================
+Layer: input
+------------------------------------------------------------
+Output shape: 784
+Parameters: 0
+
+Layer: dense
+------------------------------------------------------------
+Input shape: 784
+Output shape: 64
+Parameters: 50240
+Activation: relu
+
+Layer: dropout
+------------------------------------------------------------
+Input shape: 64
+Output shape: 64
+Dropout rate: .20
+
+Layer: dense
+------------------------------------------------------------
+Input shape: 64
+Output shape: 10
+Parameters: 650
+Activation: softmax
+
+Initial accuracy:  5.99 %
+Epoch  1 done, Accuracy: 93.730%, Loss: 47.561, Pearson correlation:  0.946
+Epoch  2 done, Accuracy: 95.210%, Loss: 37.546, Pearson correlation:  0.957
+Epoch  3 done, Accuracy: 95.530%, Loss: 34.491, Pearson correlation:  0.961
+Epoch  4 done, Accuracy: 95.960%, Loss: 31.249, Pearson correlation:  0.964
+Epoch  5 done, Accuracy: 96.250%, Loss: 28.894, Pearson correlation:  0.967
+Epoch  6 done, Accuracy: 96.680%, Loss: 25.048, Pearson correlation:  0.972
+Epoch  7 done, Accuracy: 96.690%, Loss: 25.196, Pearson correlation:  0.972
+Epoch  8 done, Accuracy: 96.890%, Loss: 23.082, Pearson correlation:  0.974
+Epoch  9 done, Accuracy: 97.040%, Loss: 22.433, Pearson correlation:  0.975
+Epoch 10 done, Accuracy: 97.000%, Loss: 22.373, Pearson correlation:  0.975

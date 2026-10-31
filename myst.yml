@@ -661,6 +661,24 @@ project:
                   children:
                     - file: >-
                         Sections/Computer_Programming/Fortran/Neural_Fortran/Section_Examples_Sine_Wave.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/Neural_Fortran/Section_Examples_Simple.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/Neural_Fortran/Section_Examples_Network_Parameters.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/Neural_Fortran/Section_Examples_Get_Set.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/Neural_Fortran/Section_Examples_Merge.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/Neural_Fortran/Section_Examples_Mha.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/Neural_Fortran/Section_Examples_Quadratic.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/Neural_Fortran/Section_Examples_Dense_Mnist.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/Neural_Fortran/Section_Examples_Cnn_Mnist.ipynb
+                    - file: >-
+                        Sections/Computer_Programming/Fortran/Neural_Fortran/Section_Examples_Cnn_Mnist_1d.ipynb
                 - file: Sections/Computer_Programming/Fortran/DFFT/DFFT__HEAD__.md
                   children:
                     - file: >-

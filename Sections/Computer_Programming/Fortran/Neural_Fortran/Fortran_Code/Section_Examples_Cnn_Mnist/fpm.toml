@@ -1,0 +1,17 @@
+name = "Section_Examples_Cnn_Mnist"
+
+[build]
+auto-executables = true
+auto-tests = true
+auto-examples = true
+
+[install]
+library = false
+
+[dependencies]
+neural-fortran = { git = "https://github.com/modern-fortran/neural-fortran.git" }
+
+[[executable]]
+name = "Section_Examples_Cnn_Mnist"
+source-dir = "app"
+main = "cnn_mnist.f90"
