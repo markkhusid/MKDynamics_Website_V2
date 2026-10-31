@@ -1,0 +1,14 @@
+$ cmake -S src -B build
+-- The CXX compiler identification is GNU 14.2.0
+-- The Fortran compiler identification is GNU 14.2.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Detecting Fortran compiler ABI info
+-- Detecting Fortran compiler ABI info - done
+-- Check for working Fortran compiler: /usr/bin/gfortran - skipped
+-- Configuring done (0.9s)
+-- Generating done (0.0s)
+-- Build files have been written to: /tmp/oop_learn/fortran_cpp/build

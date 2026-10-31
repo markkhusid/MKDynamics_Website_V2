@@ -108,6 +108,16 @@ Using the CSV Fortran Module to Read and Write CSV Files
 ```
 :::
 
+:::{grid-item-card}
+:link: OOP_Fortran/oop_fortran__HEAD__.md
+
+Object-oriented Fortran
+^^^
+```{image} OOP_Fortran/images/oop_fortran.png
+:height: 220
+```
+:::
+
 ::::
 
 ## Resources and Textbooks Used
@@ -142,6 +152,10 @@ This project is available at the following Github repository: <br>
 
 ### Fortran - Lang Website with Lots of Links to Learning Resources
 This website has a lot of links to Fortran learning resources: https://fortran-lang.org/learn/
+
+### Object-oriented Fortran
+The shape classes, the Fortran calls into C++, the Qt particle viewer, and the 2D bar element are from Jonas Lindemann's repository: <br>
+[oop_fortran](https://github.com/jonaslindemann/oop_fortran)
 
 ### Using the CSV Fortran Module to Read and Write CSV Files
 This project is available at the following Github repository: <br>

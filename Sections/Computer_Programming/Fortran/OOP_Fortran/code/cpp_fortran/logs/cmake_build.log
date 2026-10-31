@@ -1,0 +1,50 @@
+/usr/bin/cmake -Ssrc -Bbuild --check-build-system CMakeFiles/Makefile.cmake 0
+[  0%] Built target cpp_fortran_autogen_timestamp_deps
+[  8%] Automatic MOC and UIC for target cpp_fortran
+/usr/bin/cmake -E cmake_autogen build/CMakeFiles/cpp_fortran_autogen.dir/AutogenInfo.json ""
+AutoGen: Refreshing parse cache because it doesn't exist.
+AutoMoc: Generating "BIN:/cpp_fortran_autogen/moc_predefs.h", because it doesn't exist.
+/usr/bin/c++ -std=gnu++17 -dM -E -c /usr/share/cmake-3.31/Modules/CMakeCXXCompilerABI.cpp
+AutoGen: Parsing "SRC:/particle_canvas.h"
+AutoGen: Parsing "SRC:/particle_interface.h"
+AutoGen: Parsing "SRC:/main.cpp"
+AutoGen: Parsing "SRC:/mainwindow.cpp"
+AutoGen: Parsing "SRC:/particle_canvas.cpp"
+AutoGen: Parsing "SRC:/mainwindow.h"
+AutoMoc: Generating "BIN:/cpp_fortran_autogen/EWIEGA46WW/moc_mainwindow.cpp", because it doesn't exist, from "SRC:/mainwindow.h"
+/home/haxor/opt/qt6root/usr/lib/qt6/libexec/moc -o build/cpp_fortran_autogen/EWIEGA46WW/moc_mainwindow.cpp src/mainwindow.h
+AutoMoc: Generating "BIN:/cpp_fortran_autogen/EWIEGA46WW/moc_particle_canvas.cpp", because it doesn't exist, from "SRC:/particle_canvas.h"
+/home/haxor/opt/qt6root/usr/lib/qt6/libexec/moc -o build/cpp_fortran_autogen/EWIEGA46WW/moc_particle_canvas.cpp src/particle_canvas.h
+AutoUic: Generating "BIN:/cpp_fortran_autogen/include/./ui_mainwindow.h", because it doesn't exist, from "SRC:/mainwindow.ui"
+/home/haxor/opt/qt6root/usr/lib/qt6/libexec/uic -o build/cpp_fortran_autogen/include/./ui_mainwindow.h src/mainwindow.ui
+AutoMoc: Reading dependencies from "BIN:/cpp_fortran_autogen/EWIEGA46WW/moc_particle_canvas.cpp.d"
+AutoMoc: Reading dependencies from "BIN:/cpp_fortran_autogen/EWIEGA46WW/moc_mainwindow.cpp.d"
+AutoMoc: Generating MOC compilation "BIN:/cpp_fortran_autogen/mocs_compilation.cpp"
+AutoMoc: Merging MOC dependencies into "BIN:/cpp_fortran_autogen/deps"
+AutoGen: Writing the parse cache file "BIN:/CMakeFiles/cpp_fortran_autogen.dir/ParseCache.txt"
+AutoGen: Writing the settings file "BIN:/CMakeFiles/cpp_fortran_autogen.dir/AutogenUsed.txt"
+/usr/bin/cmake -E touch build/cpp_fortran_autogen/timestamp
+[  8%] Built target cpp_fortran_autogen
+Consolidate compiler generated dependencies of target cpp_fortran
+[ 16%] Building Fortran object CMakeFiles/cpp_fortran.dir/mf_datatypes.f90.o
+/usr/bin/gfortran  -c src/mf_datatypes.f90 -o CMakeFiles/cpp_fortran.dir/mf_datatypes.f90.o
+[ 25%] Building Fortran object CMakeFiles/cpp_fortran.dir/mf_utils.f90.o
+/usr/bin/gfortran  -c src/mf_utils.f90 -o CMakeFiles/cpp_fortran.dir/mf_utils.f90.o
+[ 33%] Building Fortran object CMakeFiles/cpp_fortran.dir/particle_utils.f90.o
+/usr/bin/gfortran  -c src/particle_utils.f90 -o CMakeFiles/cpp_fortran.dir/particle_utils.f90.o
+[ 41%] Building Fortran object CMakeFiles/cpp_fortran.dir/particle_classes.f90.o
+/usr/bin/gfortran  -c src/particle_classes.f90 -o CMakeFiles/cpp_fortran.dir/particle_classes.f90.o
+[ 50%] Building Fortran object CMakeFiles/cpp_fortran.dir/particle_interface.f90.o
+/usr/bin/gfortran  -c src/particle_interface.f90 -o CMakeFiles/cpp_fortran.dir/particle_interface.f90.o
+[ 58%] Building CXX object CMakeFiles/cpp_fortran.dir/cpp_fortran_autogen/mocs_compilation.cpp.o
+/usr/bin/c++ -std=gnu++17 -o CMakeFiles/cpp_fortran.dir/cpp_fortran_autogen/mocs_compilation.cpp.o -c build/cpp_fortran_autogen/mocs_compilation.cpp
+[ 66%] Building CXX object CMakeFiles/cpp_fortran.dir/main.cpp.o
+/usr/bin/c++ -std=gnu++17 -o CMakeFiles/cpp_fortran.dir/main.cpp.o -c src/main.cpp
+[ 75%] Building CXX object CMakeFiles/cpp_fortran.dir/mainwindow.cpp.o
+/usr/bin/c++ -std=gnu++17 -o CMakeFiles/cpp_fortran.dir/mainwindow.cpp.o -c src/mainwindow.cpp
+[ 83%] Building CXX object CMakeFiles/cpp_fortran.dir/particle_canvas.cpp.o
+/usr/bin/c++ -std=gnu++17 -o CMakeFiles/cpp_fortran.dir/particle_canvas.cpp.o -c src/particle_canvas.cpp
+[ 91%] Linking CXX executable cpp_fortran
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cpp_fortran.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cpp_fortran.dir/cpp_fortran_autogen/mocs_compilation.cpp.o CMakeFiles/cpp_fortran.dir/main.cpp.o CMakeFiles/cpp_fortran.dir/mainwindow.cpp.o CMakeFiles/cpp_fortran.dir/particle_canvas.cpp.o CMakeFiles/cpp_fortran.dir/mf_datatypes.f90.o CMakeFiles/cpp_fortran.dir/mf_utils.f90.o CMakeFiles/cpp_fortran.dir/particle_classes.f90.o CMakeFiles/cpp_fortran.dir/particle_utils.f90.o CMakeFiles/cpp_fortran.dir/particle_interface.f90.o -o cpp_fortran  -Wl,-rpath,/home/haxor/opt/qt6root/usr/lib/x86_64-linux-gnu: /home/haxor/opt/qt6root/usr/lib/x86_64-linux-gnu/libQt6Widgets.so.6.8.2 /home/haxor/opt/qt6root/usr/lib/x86_64-linux-gnu/libQt6Gui.so.6.8.2 /usr/lib/x86_64-linux-gnu/libGLX.so /usr/lib/x86_64-linux-gnu/libOpenGL.so /home/haxor/opt/qt6root/usr/lib/x86_64-linux-gnu/libQt6Core.so.6.8.2 -lgfortran -lquadmath -Wl,-rpath-link,/home/haxor/opt/qt6root/usr/lib/x86_64-linux-gnu
+[100%] Built target cpp_fortran

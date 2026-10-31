@@ -1,0 +1,13 @@
+/usr/bin/cmake -Ssrc -Bbuild --check-build-system CMakeFiles/Makefile.cmake 0
+[ 20%] Building Fortran object CMakeFiles/simple_frame_2d.dir/mf_datatypes.f90.o
+/usr/bin/f95  -c src/mf_datatypes.f90 -o CMakeFiles/simple_frame_2d.dir/mf_datatypes.f90.o
+[ 40%] Building Fortran object CMakeFiles/simple_frame_2d.dir/mf_utils.f90.o
+/usr/bin/f95  -c src/mf_utils.f90 -o CMakeFiles/simple_frame_2d.dir/mf_utils.f90.o
+[ 60%] Building Fortran object CMakeFiles/simple_frame_2d.dir/calfem.f90.o
+/usr/bin/f95  -c src/calfem.f90 -o CMakeFiles/simple_frame_2d.dir/calfem.f90.o
+[ 80%] Building Fortran object CMakeFiles/simple_frame_2d.dir/main.f90.o
+/usr/bin/f95  -c src/main.f90 -o CMakeFiles/simple_frame_2d.dir/main.f90.o
+[100%] Linking Fortran executable simple_frame_2d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/simple_frame_2d.dir/link.txt --verbose=1
+/usr/bin/f95 CMakeFiles/simple_frame_2d.dir/calfem.f90.o CMakeFiles/simple_frame_2d.dir/main.f90.o CMakeFiles/simple_frame_2d.dir/mf_datatypes.f90.o CMakeFiles/simple_frame_2d.dir/mf_utils.f90.o -o simple_frame_2d
+[100%] Built target simple_frame_2d

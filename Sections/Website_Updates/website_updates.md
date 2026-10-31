@@ -1,6 +1,11 @@
 # Website Updates
 This file contains a log of updates made to the MKDynamics website. It is used to track changes, additions, and improvements over time.
 
+## 10/31/2026
+- Fortran: each object-oriented Fortran page credits Jonas Lindemann and links to his [oop_fortran](https://github.com/jonaslindemann/oop_fortran) repository.
+- Fortran: the object-oriented Fortran pages show each procedure as highlighted source, then explain it. Calculations sit next to the Fortran or C++ that implements them. The pages keep the configure, compile, and run output from this machine, and the particle page plays a short recording of the Qt window. The lecture PDF stays in Jonas Lindemann's repository.
+- Fortran: object-oriented Fortran examples from Jonas Lindemann's [oop_fortran](https://github.com/jonaslindemann/oop_fortran) repository join the Fortran section. The pages cover the shape classes, a Fortran main that calls C++, a Qt particle viewer, and a 2D bar stiffness matrix. The lecture PDF stays in that repository.
+
 ## 10/27/2026
 - Raspberry Pi: the Exploring Raspberry Pi page now includes the programs from the [Raspberry-Pi](https://github.com/markkhusid/Raspberry-Pi) repository. The page shows each C, C++, Cython, and Chapter 6 source once, the saved ARM sizeof output, the GPIO notebook, and the cyclictest summary from `histogram.dat`. The object files, binaries, and the rt-tests submodule pin remain in the repository.
 

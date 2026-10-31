@@ -1,0 +1,8 @@
+$ cmake -S src -B build
+-- The Fortran compiler identification is GNU 14.2.0
+-- Detecting Fortran compiler ABI info
+-- Detecting Fortran compiler ABI info - done
+-- Check for working Fortran compiler: /usr/bin/f95 - skipped
+-- Configuring done (0.3s)
+-- Generating done (0.0s)
+-- Build files have been written to: /tmp/oop_learn/simple_frame_2d/build

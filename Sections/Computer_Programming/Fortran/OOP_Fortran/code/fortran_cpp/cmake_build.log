@@ -1,0 +1,9 @@
+/usr/bin/cmake -Ssrc -Bbuild --check-build-system CMakeFiles/Makefile.cmake 0
+[ 33%] Building Fortran object CMakeFiles/fortran_cpp.dir/main.f90.o
+/usr/bin/gfortran  -c src/main.f90 -o CMakeFiles/fortran_cpp.dir/main.f90.o
+[ 66%] Building CXX object CMakeFiles/fortran_cpp.dir/mycpp.cpp.o
+/usr/bin/c++ -o CMakeFiles/fortran_cpp.dir/mycpp.cpp.o -c src/mycpp.cpp
+[100%] Linking CXX executable fortran_cpp
+/usr/bin/cmake -E cmake_link_script CMakeFiles/fortran_cpp.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/fortran_cpp.dir/main.f90.o CMakeFiles/fortran_cpp.dir/mycpp.cpp.o -o fortran_cpp  -lgfortran -lquadmath
+[100%] Built target fortran_cpp

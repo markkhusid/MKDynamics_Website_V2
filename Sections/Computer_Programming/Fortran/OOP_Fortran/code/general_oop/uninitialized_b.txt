@@ -1,0 +1,7 @@
+ square_print()
+ side =    0.00000000    
+ shape_print()
+ x =   -97504.0078    
+ y =    3.08832169E-41
+ square_print()
+ side =    0.00000000    

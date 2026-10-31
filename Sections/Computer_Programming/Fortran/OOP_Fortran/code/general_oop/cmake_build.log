@@ -1,0 +1,9 @@
+/usr/bin/cmake -Ssrc -Bbuild --check-build-system CMakeFiles/Makefile.cmake 0
+[ 33%] Building Fortran object CMakeFiles/oop1.dir/shape_classes.f90.o
+/usr/bin/f95  -c src/shape_classes.f90 -o CMakeFiles/oop1.dir/shape_classes.f90.o
+[ 66%] Building Fortran object CMakeFiles/oop1.dir/main.f90.o
+/usr/bin/f95  -c src/main.f90 -o CMakeFiles/oop1.dir/main.f90.o
+[100%] Linking Fortran executable oop1
+/usr/bin/cmake -E cmake_link_script CMakeFiles/oop1.dir/link.txt --verbose=1
+/usr/bin/f95 CMakeFiles/oop1.dir/main.f90.o CMakeFiles/oop1.dir/shape_classes.f90.o -o oop1
+[100%] Built target oop1

@@ -1,0 +1,34 @@
+ shape_constructor()
+ shape_init()
+ shape_destructor()
+ shape_destructor()
+ shape_print()
+ x =    0.00000000    
+ y =    0.00000000    
+ shape_print()
+ x =    2.00000000    
+ y =    2.00000000    
+ shape_init()
+ shape_print()
+ x =    5.00000000    
+ y =    6.00000000    
+ shape_destructor()
+ shape_init()
+ shape_print()
+ x =    0.00000000    
+ y =    0.00000000    
+ shape_destructor()
+ square_init()
+ shape_init()
+ square_print()
+ side =    1.00000000    
+ shape_print()
+ x =    0.00000000    
+ y =    0.00000000    
+ circle_init()
+ shape_init()
+ cirlce_print()
+ radius =    1.00000000    
+ shape_print()
+ x =    0.00000000    
+ y =    0.00000000    
