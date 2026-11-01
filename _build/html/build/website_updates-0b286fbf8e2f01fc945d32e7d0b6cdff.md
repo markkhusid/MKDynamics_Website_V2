@@ -1,6 +1,9 @@
 # Website Updates
 This file contains a log of updates made to the MKDynamics website. It is used to track changes, additions, and improvements over time.
 
+## 11/01/2026
+- Control Systems: a new top-level section starts with the Laplace-transform notebook from John D. Hedengren's [Process Dynamics and Control](https://apmonitor.com/pdc) course. The notebook is [`Sympy_Laplace.ipynb`](https://github.com/APMonitor/pdc/blob/master/Sympy_Laplace.ipynb) in the [APMonitor/pdc](https://github.com/APMonitor/pdc) repository. The cells were run in the jlab environment with SymPy 1.14.0 and GEKKO 1.3.3.
+
 ## 10/31/2026
 - Fortran: the Neural Fortran section adds the programs from the `example/` directory of [neural-fortran](https://github.com/modern-fortran/neural-fortran). Each page shows the unchanged source, an fpm package file, the fpm 0.10.1 release build, and the saved run. The existing sine-wave page stays the CSV tutorial. On this machine the dense MNIST network reached 97.000% validation accuracy after 10 epochs. The locally connected network reached 90.71% validation accuracy and 90.49% test accuracy after 20 epochs. The convolutional network reached 90.94% validation accuracy at epoch 16, then the last epoch printed 9.83% and the test accuracy was 9.82%.
 - Fortran: each object-oriented Fortran page credits Jonas Lindemann and links to his [oop_fortran](https://github.com/jonaslindemann/oop_fortran) repository.

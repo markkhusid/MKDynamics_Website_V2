@@ -62,6 +62,20 @@ Electronics
 :::
 ::::
 
+## Control Systems
+::::{grid} 2 2 2 2
+:::{grid-item-card}
+:link: Sections/Control_Systems/control_systems.md
+
+Control Systems
+^^^
+```{image} Sections/Control_Systems/images/sympy_laplace_response.png
+:height: 200
+:align: center
+```
+:::
+::::
+
 ## Finite Element Analysis
 ::::{grid} 2 2 2 2
 :::{grid-item-card}

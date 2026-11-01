@@ -846,6 +846,11 @@ project:
                 - file: Sections/Electronics/Solar_Power_Projects/Dual_Diode_Box/dual_diode_box.md
             - file: >-
                 Sections/Electronics/Single_Board_Computers_Running_Linux/single_board_computers_running_linux.md
+    - title: Control Systems
+      children:
+        - file: Sections/Control_Systems/control_systems.md
+          children:
+            - file: Sections/Control_Systems/Sympy_Laplace/Sympy_Laplace.ipynb
     - title: Finite Element Analysis
       children:
         - file: Sections/Finite_Element_Analysis/finite_element_analysis.md
