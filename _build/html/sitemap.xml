@@ -1151,7 +1151,19 @@
     <loc>https://www.mkdynamics.net/sections/control-systems/control-systems</loc>
   </url>
   <url>
+    <loc>https://www.mkdynamics.net/sections/control-systems/solve-odes-with-scipy/solve-odes-with-scipy</loc>
+  </url>
+  <url>
+    <loc>https://www.mkdynamics.net/sections/control-systems/solve-odes-with-gekko/solve-odes-with-gekko</loc>
+  </url>
+  <url>
     <loc>https://www.mkdynamics.net/sections/control-systems/sympy-laplace/sympy-laplace</loc>
+  </url>
+  <url>
+    <loc>https://www.mkdynamics.net/sections/control-systems/root-locus-plot/root-locus-plot</loc>
+  </url>
+  <url>
+    <loc>https://www.mkdynamics.net/sections/control-systems/dual-tank-level/dual-tank-level</loc>
   </url>
   <url>
     <loc>https://www.mkdynamics.net/sections/finite-element-analysis/finite-element-analysis</loc>

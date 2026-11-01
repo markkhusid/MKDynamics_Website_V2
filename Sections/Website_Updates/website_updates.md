@@ -2,6 +2,8 @@
 This file contains a log of updates made to the MKDynamics website. It is used to track changes, additions, and improvements over time.
 
 ## 11/01/2026
+- Control Systems: the root-locus and dual-tank notebooks from John D. Hedengren's [Process Dynamics and Control](https://apmonitor.com/pdc) course join the section. They are [`Root_Locus_Plot.ipynb`](https://github.com/APMonitor/pdc/blob/master/Root_Locus_Plot.ipynb) and [`Dual_Tank_Level.ipynb`](https://github.com/APMonitor/pdc/blob/master/Dual_Tank_Level.ipynb). The lessons are [Stability Analysis](https://apmonitor.com/pdc/index.php/Main/StabilityAnalysis) and [Liquid Level Control](https://apmonitor.com/pdc/index.php/Main/LevelControl). The cells were run in the jlab environment with SymPy 1.14.0 and SciPy 1.17.1.
+- Control Systems: the SciPy and GEKKO differential-equation notebooks from John D. Hedengren's [Process Dynamics and Control](https://apmonitor.com/pdc) course join the section. They are [`Solve_ODEs_with_scipy.ipynb`](https://github.com/APMonitor/pdc/blob/master/Solve_ODEs_with_scipy.ipynb) and [`Solve_ODEs_with_gekko.ipynb`](https://github.com/APMonitor/pdc/blob/master/Solve_ODEs_with_gekko.ipynb). The cells were run in the jlab environment with SciPy 1.17.1 and GEKKO 1.3.3.
 - Control Systems: a new top-level section starts with the Laplace-transform notebook from John D. Hedengren's [Process Dynamics and Control](https://apmonitor.com/pdc) course. The notebook is [`Sympy_Laplace.ipynb`](https://github.com/APMonitor/pdc/blob/master/Sympy_Laplace.ipynb) in the [APMonitor/pdc](https://github.com/APMonitor/pdc) repository. The cells were run in the jlab environment with SymPy 1.14.0 and GEKKO 1.3.3.
 
 ## 10/31/2026

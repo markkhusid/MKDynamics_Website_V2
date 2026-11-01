@@ -850,7 +850,15 @@ project:
       children:
         - file: Sections/Control_Systems/control_systems.md
           children:
+            - file: >-
+                Sections/Control_Systems/Solve_ODEs_with_scipy/Solve_ODEs_with_scipy.ipynb
+            - file: >-
+                Sections/Control_Systems/Solve_ODEs_with_gekko/Solve_ODEs_with_gekko.ipynb
             - file: Sections/Control_Systems/Sympy_Laplace/Sympy_Laplace.ipynb
+            - file: >-
+                Sections/Control_Systems/Root_Locus_Plot/Root_Locus_Plot.ipynb
+            - file: >-
+                Sections/Control_Systems/Dual_Tank_Level/Dual_Tank_Level.ipynb
     - title: Finite Element Analysis
       children:
         - file: Sections/Finite_Element_Analysis/finite_element_analysis.md
