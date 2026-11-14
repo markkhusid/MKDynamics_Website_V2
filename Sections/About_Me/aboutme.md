@@ -52,7 +52,7 @@ https://www.linkedin.com/in/mark-khusid-6916a847/
 ### SPIE
 
 [**Free-space optical communication systems (FOCUS): a U.S. Army overview**  
-Neil J. Vallestero ; **Mark Khusid** ; Narasimha S. Prasad ; John C. Carrano; George Duchak ; Jennifer C. Ricklin ; Mikhail A. Vorontsov](http://proceedings.spiedigitallibrary.org/proceeding.aspx?articleid=869436)
+Neil J. Vallestero ; **Mark Khusid** ; Narasimha S. Prasad ; John C. Carrano; George Duchak ; Jennifer C. Ricklin ; Mikhail A. Vorontsov](https://doi.org/10.1117/12.450522)
 
 [**Free-space optical communication link performance enhancement via modified receiver geometric characteristics**  
 Narasimha S. Prasad, Patrick T Kratovil, Sara C. Tucker, Neil J. Vallestero, **Mark Khusid**](https://doi.org/10.1117/12.510630)
