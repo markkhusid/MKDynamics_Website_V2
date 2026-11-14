@@ -1,0 +1,19 @@
+# CSE572 Data Mining - Project 2 - Machine Model Training
+
+Created with Grok Build
+
+## Problem
+
+The task was to train a classifier that decides, from a continuous glucose monitor window, whether the person was eating a meal. Two pump-and-sensor collections were available. The pump timestamps were not written in one consistent date and time format, so that field had to be parsed before any window could be cut.
+
+## Approach
+
+A meal start was a positive carbohydrate entry in the pump log. A meal window is the two hours after that entry. When the window contained no other meal, the sensor samples from 30 minutes before the meal to two hours after it were kept. That span is two and a half hours, which is 30 samples at a five-minute cadence. A meal that fell inside the window was ignored. A meal that landed on the end of the window used a wider span, from one hour before the meal to four hours after it. Windows with fewer than 30 samples were dropped.
+
+No-meal examples came from the post-absorptive stretch, two to four hours after a meal, and only when that stretch contained no other meal. That is 24 samples. Shorter rows were dropped. Zero and missing samples inside an otherwise usable stretch were skipped rather than rejecting the whole stretch.
+
+Eight features were taken from each kept window, including the row mean and the area under the curve. Those two features were strongly correlated on both the meal matrix and the no-meal matrix. The two matrices were stacked, scaled, and labeled. A support vector machine was trained on an 80 percent / 20 percent split.
+
+## Result
+
+On the held-out windows the support vector machine reached 99.71 percent accuracy and an F1 score of 1.00. The area-under-curve feature is what separated the classes: its meal and no-meal histograms barely overlapped, so the decision did not depend on a subtle combination of the other features.

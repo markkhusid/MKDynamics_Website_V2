@@ -146,6 +146,20 @@ About Me
 :::
 ::::
 
+## Applied Data Science Capstone
+::::{grid} 2 2 2 2
+:::{grid-item-card}
+:link: Sections/Applied_Data_Science_Capstone/applied_data_science_capstone.md
+
+Applied Data Science Capstone
+^^^
+```{image} Sections/Applied_Data_Science_Capstone/images/success_rate_vs_year.png
+:height: 200
+:align: center
+```
+:::
+::::
+
 ## Website Updates
 ::::{grid} 2 2 2 2
 :::{grid-item-card}

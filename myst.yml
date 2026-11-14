@@ -1009,6 +1009,22 @@ project:
                     - file: >-
                         Sections/MSE_Projects/EEE591_Python_for_Rapid_Engineering_Solutions/Projects/Final_Project/Final_Project_Mark_Khusid.ipynb
 
+    - title: Applied Data Science Capstone
+      children:
+        - file: >-
+            Sections/Applied_Data_Science_Capstone/applied_data_science_capstone.md
+          children:
+            - file: >-
+                Sections/Applied_Data_Science_Capstone/Week_1_Introduction/week_1.md
+            - file: >-
+                Sections/Applied_Data_Science_Capstone/Week_2_Exploratory_Data_Analysis/week_2.md
+            - file: >-
+                Sections/Applied_Data_Science_Capstone/Week_3_Interactive_Visual_Analytics/week_3.md
+            - file: >-
+                Sections/Applied_Data_Science_Capstone/Week_4_Predictive_Analysis/week_4.md
+            - file: >-
+                Sections/Applied_Data_Science_Capstone/Week_5_Presentation/presentation.md
+
     - title: Website Updates
       children:
         - file: Sections/Website_Updates/website_updates.md
