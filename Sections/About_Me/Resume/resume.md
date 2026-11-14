@@ -1,39 +1,43 @@
 # My Resume
 
-[Download the PDF](EE_Resume/2025_12_15/Mark_Khusid_EE_Resume_2025_12_15.pdf) 
+[Download the PDF](EE_Resume/2026_11_14/Mark_Khusid_EE_Resume_2026_11_14.pdf) 
 
-```{figure} EE_Resume/2025_12_15/Mark_Khusid_EE_Resume_2025_12_15-1.png
+```{figure} EE_Resume/2026_11_14/Mark_Khusid_EE_Resume_2026_11_14-1.png
 :alt: Mark Khusid's Resume
 :height: 1000
 :width: 800
 :align: center
 :class: clickable-figure
 
-Mark Khusid EE Resume 2025 12 15 1
+Mark Khusid EE Resume 2026 11 14 1
 ```
 
-```{figure} EE_Resume/2025_12_15/Mark_Khusid_EE_Resume_2025_12_15-2.png
+```{figure} EE_Resume/2026_11_14/Mark_Khusid_EE_Resume_2026_11_14-2.png
 :alt: Mark Khusid's Resume
 :height: 1000
 :width: 800
 :align: center
 :class: clickable-figure
 
-Mark Khusid EE Resume 2025 12 15 2
+Mark Khusid EE Resume 2026 11 14 2
 ```
 
-```{figure} EE_Resume/2025_12_15/Mark_Khusid_EE_Resume_2025_12_15-3.png
+```{figure} EE_Resume/2026_11_14/Mark_Khusid_EE_Resume_2026_11_14-3.png
 :alt: Mark Khusid's Resume
 :height: 1000
 :width: 800
 :align: center
 :class: clickable-figure
 
-Mark Khusid EE Resume 2025 12 15 3
+Mark Khusid EE Resume 2026 11 14 3
 ```
 
-```{figure} EE_Resume/2025_12_15/Mark_Khusid_EE_Resume_2025_12_15-4.png
+```{figure} EE_Resume/2026_11_14/Mark_Khusid_EE_Resume_2026_11_14-4.png
 :alt: Mark Khusid's Resume
 :height: 1000
 :width: 800
 :align: center
+:class: clickable-figure
+
+Mark Khusid EE Resume 2026 11 14 4
+```

@@ -1,6 +1,9 @@
 # Website Updates
 This file contains a log of updates made to the MKDynamics website. It is used to track changes, additions, and improvements over time.
 
+## 11/14/2026
+- Resume: the ASU engineering coursework now lists Computer Controlled Systems and Python for Rapid Engineering Solutions.
+
 ## 11/13/2026
 - Applied Data Science Capstone: a new top-level section, placed above Website Updates, publishes the Falcon 9 landing study from [Applied_Data_Science_Capstone](https://github.com/markkhusid/Applied_Data_Science_Capstone). The lab notebooks are off this site. The week pages carry the results: the 90-flight table, the SQL queries, the six exploratory plots, the CCAFS SLC-40 distances, the Dash screenshots, and the four classifiers. On the saved test split, logistic regression, the support vector machine, and k-nearest neighbors each score 0.833. The decision tree's cross-validation score is 0.875 and its test accuracy is 0.667. The December 2022 slide deck stays in that repository. The counts on the week 1 page come from `dataset_part_2.csv`, because the notebook filed as the wrangling lab in the repository is a second copy of the web-scraping lab.
 - Applied Data Science Capstone: the week pages now include original SQL and Python for those published results. The IBM notebooks stay off the site.
