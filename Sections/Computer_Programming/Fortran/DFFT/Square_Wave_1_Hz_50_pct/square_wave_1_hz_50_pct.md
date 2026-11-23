@@ -125,7 +125,7 @@ language: fortran
 To compile the Fortran 2003 code, type the following command:
 
 ```bash
-gfortran -o dfft_fftw3 dfft_fftw3.f08 -lfftw3
+gfortran -o dfft_fftw3 dfft_fftw3.f08 -I/usr/include -lfftw3
 ```
 
 ## Execute the Fortran 2003 Code
