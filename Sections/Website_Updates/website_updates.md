@@ -1,6 +1,10 @@
 # Website Updates
 This file contains a log of updates made to the MKDynamics website. It is used to track changes, additions, and improvements over time.
 
+## 11/22/2026
+- Fortran DFFT: the 1 Hz square-wave introduction now says 1 Hz. The documented run passes the sample rate and the number of periods, and the frequency column starts at 0 Hz. The tutorial example is a real-to-complex FFTW3 program. The compile lines include `-I/usr/include`.
+- Power electronics: the 120 V to 12 V buck feedback divider is 14 kohm over 10 kohm, which divides 12 V down to 5 V.
+
 ## 11/14/2026
 - Resume: the ASU engineering coursework now lists Computer Controlled Systems and Python for Rapid Engineering Solutions.
 
