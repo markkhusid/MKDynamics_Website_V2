@@ -399,8 +399,9 @@ module MKDynamics_FFT
               !write (*, '(a, f30.20)'), 'The value of imag_float is ->', imag_float
               
               ! Obtain the corrected frequency based on the sampe rate and the next power of two of the total number of samples (i.e. 100 samples -> next power of 2 = 128.)
-              !corrected_frequency = floor(float(i) * (float(sample_rate)/float(num_bins_int_pow2)))
-              corrected_frequency = (float(i) * (float(sample_rate)/float(num_bins_int_pow2)))
+              ! The Fortran index starts at 1, and element 1 is the DC bin, so the bin number is (i - 1).
+              !corrected_frequency = floor(float(i - 1) * (float(sample_rate)/float(num_bins_int_pow2)))
+              corrected_frequency = (float(i - 1) * (float(sample_rate)/float(num_bins_int_pow2)))
               
               ! Since there are num_bins_int number of data elements in FFT array, and the FFT array is symmetric, we divide the magnitude by half the num_bins_int to get the normalized magnitude.
               magnitude = (sqrt((real_float**2) + (imag_float**2)))/float(num_bins_int/2)

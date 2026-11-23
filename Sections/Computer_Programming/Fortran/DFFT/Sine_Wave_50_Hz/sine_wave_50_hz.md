@@ -65,13 +65,13 @@ language: fortran
 ## Compile the Fortran 2003 Code
 
 ```bash
-gfortran -o dfft_fftw3 ../code/dfft_fftw3.f08 -lfftw3
+gfortran -o dfft_fftw3 ../code/dfft_fftw3.f08 -I/usr/include -lfftw3
 ```
 
 (Or, with the original V1-style filename and flags:)
 
 ```bash
-gfortran -o a.out data_file_FFTW_ver6.F03 -lfftw3
+gfortran -o a.out data_file_FFTW_ver6.F03 -I/usr/include -lfftw3
 ```
 
 ## Execute the Fortran 2003 Code

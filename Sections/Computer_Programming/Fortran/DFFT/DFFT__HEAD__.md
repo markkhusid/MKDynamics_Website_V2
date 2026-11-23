@@ -36,36 +36,41 @@ make install
 
 ## Computing the DFT Using FFTW3
 To compute the DFT of an arbitrary signal using FFTW3, follow these steps:
-1. Include the FFTW3 module in your Fortran program:
+1. Include the FFTW3 Fortran 2003 interface in your Fortran program. The interface shipped with FFTW3 is the `fftw3.f03` include file:
 ```fortran
+program dfft_example
 use, intrinsic :: iso_c_binding
-use fftw3
+implicit none
+include 'fftw3.f03'
 ```
-2. Define the size of the input signal and allocate memory for the input and output arrays:
+2. Define the size of the input signal and allocate memory for the input and output arrays. The signal below is real, so the transform returns `N/2 + 1` complex bins. The two arrays need different names, because Fortran does not distinguish `x` from `X`:
 ```fortran
 integer, parameter :: N = 1024
-real(c_double), dimension(N) :: x
-complex(c_double), dimension(N) :: X
+real(C_DOUBLE), dimension(N) :: x_in
+complex(C_DOUBLE_COMPLEX), dimension(N/2 + 1) :: x_out
+integer :: i
+type(C_PTR) :: plan
 ```
-3. Create a plan for computing the FFT of the input signal:
+3. Create a plan for computing the real-to-complex FFT of the input signal. The Fortran 2003 interface takes the arrays themselves:
 ```fortran
-type(c_ptr) :: plan
-plan = fftw_plan_dft_1d(N, c_loc(x), c_loc(X), FFTW_FORWARD, FFTW_ESTIMATE)
+plan = fftw_plan_dft_r2c_1d(N, x_in, x_out, FFTW_ESTIMATE)
 ```
 4. Generate a sample input signal (e.g., a sinusoidal signal) and compute its DFT:
 ```fortran
 do i = 1, N
-    x(i) = sin(2.0 * 3.14159 * i / N)
+    x_in(i) = sin(2.0 * 3.14159 * i / N)
 end do
-call fftw_execute_dft(plan, c_loc(x), c_loc(X))
+call fftw_execute_dft_r2c(plan, x_in, x_out)
 ```
-5. Visualize the frequency spectrum of the input signal using a plotting library (e.g., gnuplot):
+5. Visualize the frequency spectrum of the input signal using a plotting library (e.g., gnuplot). Only the `N/2 + 1` bins written by the real-to-complex plan are defined:
 ```fortran
 open(unit=10, file='spectrum.dat', status='unknown')
-do i = 1, N
-    write(10, *) i, abs(X(i))
+do i = 1, N/2 + 1
+    write(10, *) i, abs(x_out(i))
 end do
 close(10)
+call fftw_destroy_plan(plan)
+end program dfft_example
 ```
 6. Plot the frequency spectrum using gnuplot:
 ```bash
