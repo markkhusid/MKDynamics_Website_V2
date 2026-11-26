@@ -42,6 +42,34 @@ Installation via fpm:
 fplotlib = { git = "https://github.com/fortran-lang/fplotlib" }
 ```
 
+## Notebooks
+
+::::{grid} 2 2 2 2
+
+:::{grid-item-card}
+:link: fplotlib_demo.ipynb
+
+fplotlib demo in Jupyter
+^^^
+```{image} demo_subplots.svg
+:alt: Two fplotlib panels, a damped sine above a damped cosine
+:height: 300
+```
+:::
+
+:::{grid-item-card}
+:link: fplotlib_animation_demo.ipynb
+
+fplotlib Animations Demo in Jupyter
+^^^
+```{image} mobius.png
+:alt: Rotating Möbius strip drawn by fplotlib
+:height: 300
+```
+:::
+
+::::
+
 ## Notes
 
 This page was added to document the release of fplotlib, a significant addition to the modern Fortran ecosystem for scientific computing and visualization.

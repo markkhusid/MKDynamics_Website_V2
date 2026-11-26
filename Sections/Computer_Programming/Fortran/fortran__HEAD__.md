@@ -123,6 +123,10 @@ Object-oriented Fortran
 
 fplotlib: Pure Fortran Plotting
 ^^^
+```{image} fplotlib/demo_both.svg
+:alt: Damped sine and cosine drawn by fplotlib
+:height: 300
+```
 :::
 
 ::::
