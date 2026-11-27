@@ -1,0 +1,16 @@
+Reading case_t0001.vtu.
+VTU has 2313 points and 11311 cells.
+Point fields: potential, joule heating, volume current.
+Drawing potential and Joule heating. This script does not solve either field.
+Camera azimuth 35 degrees, elevation 25 degrees. The copper is shifted left to leave room for the legend.
+Saved potential.png.
+  Electric potential (V): minimum 11.99665, maximum 12.
+  The color bar is in the right margin, clear of the copper.
+  File: images/potential.png
+Saved joule_heating.png.
+  Joule heating (W/m^3): minimum 2.9011442e-14, maximum 33182451.
+  The color bar is in the right margin, clear of the copper.
+  File: images/joule_heating.png
+Volume current is a 3-component vector. VTK's range on that array is the first component only: -444830.84 to 38960462 A/m^2.
+Volume-current magnitude over the nodes: 0.00018796744 to 39182509 A/m^2.
+A 0.5 A current in a 0.4 mm by 0.035 mm section is about 3.57e7 A/m^2.

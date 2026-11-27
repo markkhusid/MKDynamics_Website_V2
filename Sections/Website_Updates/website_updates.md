@@ -2,6 +2,7 @@
 This file contains a log of updates made to the MKDynamics website. It is used to track changes, additions, and improvements over time.
 
 ## 11/26/2026
+- Finite element analysis: a new page solves static current conduction and Joule heating in a one-net copper trace. KiCad 9 exports the copper, Salome 9.16 meshes it, and ElmerSolver 26.2 drives 0.5 A through the trace from a 12 V pad. The board dielectric and the air are not in the model. The potential drop on this short path is 3.35 mV.
 - Fortran: fplotlib is now a section under Fortran. Two LFortran notebooks sit under that page. The demo notebook shows a damped sine, the sine and cosine together, and the same pair as subplots. The animation notebook shows a rotating Möbius strip. The section cards use those figures.
 - Fortran: the fplotlib section now includes the travelling-wave notebook. It draws the damped wave from the fplotlib gallery and saves a 40-frame GIF. The section card uses that animation.
 

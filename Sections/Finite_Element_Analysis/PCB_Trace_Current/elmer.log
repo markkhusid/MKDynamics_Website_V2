@@ -1,0 +1,142 @@
+==================================================================
+ElmerGrid mesh conversion and manipulation utility, Welcome!
+Version: 26.2 (Rev: NA, Compiled: NA)
+This program is free software licensed under GPL
+==================================================================
+Elmergrid reading in-line arguments
+Output will be saved to file mesh.
+
+Elmergrid loading data:
+-----------------------
+Reading mesh from universal mesh file trace.unv.
+First round for allocating data
+Units dataset content is currently omitted!
+Part UID = 1
+Part name = SMESH_Mesh
+Coord system name = Global
+There are 2313 nodes in the mesh
+Element type range in mesh [202,504]
+Allocating mesh with 2313 nodes and 11311 4-node elements in 3 dims.
+Physical index interval is [2,2]
+Group index interval is [1,2]
+Second round for reading data
+Reading Coordinate system information
+Reading node coordinates
+Reading element topologies
+Reading element groups in mode 2467
+Reading 1:th group with index 1 with 692 entities: input
+Element type range in group is [303 303]
+Reading 2:th group with index 2 with 623 entities: output
+Element type range in group is [303 303]
+Group given for 1315 elements out of 11311
+Physical index and group index collide: 2
+Replacing physical index 2 with free index 3
+Using mapped physical entity index for 9996 elements
+Entity 1 (input) count is 692
+Entity 2 (output) count is 623
+Entity 3 count is 9996
+Moving bulk elements to boundary elements
+Moving boundarynames together with elements
+Leading bulk elementtype is 504
+Trailing bulk elementtype is 202
+Checking that different dimensions have unique boundary tags!
+Tag interval for boundaries: [1 3]
+We have an overlap, applying offsets!
+Replacing tag in 1-dim 3 -> 4
+Renumbered tags for boundary elements!
+There are 5131 (out of 11311) lower dimensional elements.
+Node 2249 belongs to maximum of 76 elements
+Found correctly 5131 side elements.
+Parent elements were reordered up to index 6180.
+Moved 6180 elements (out of 11311) to new positions
+The Universal mesh was loaded from file trace.unv.
+
+Elmergrid creating and manipulating meshes:
+-------------------------------------------
+Scaling mesh with vector [0.001 0.001 0.001]
+Bounding box of all nodes in mesh:
+X:[0.002,0.01] Y:[-0.005,-0.003] Z:[-4e-05,0.00157]
+Calculate Mesh Pieces in mesh:
+There is a single piece in the mesh, so the mesh is conforming.
+
+Elmergrid saving data with method 2:
+-------------------------------------
+Saving mesh in ElmerSolver format to directory mesh.
+Saving 2313 coordinates to mesh.nodes.
+Saving 6180 element topologies to mesh.elements.
+Saving boundary elements to mesh.boundary.
+Saving header info to mesh.header.
+Saving names info to mesh.names.
+Saving entities info to entities.sif.
+
+Thank you for using ElmerGrid!
+Repository: https://github.com/ElmerCSC/elmerfem
+Contact: elmeradm@csc.fi
+ELMER SOLVER (v 26.2) STARTED AT: 2026/11/27 16:42:18
+ParCommInit: Initialize #PEs: 1
+MAIN: OMP_NUM_THREADS not set. Using only 1 thread per task.
+MAIN: 
+MAIN: =============================================================
+MAIN: ElmerSolver finite element software, Welcome!
+MAIN: This program is free software licensed under (L)GPL
+MAIN: Copyright April 1st 1995 -> , CSC - IT Center for Science Ltd.
+MAIN: Repository https://www.github.org/elmerCSC/elmerfem
+MAIN: Homepage https://www.elmerfem.org/,  Email elmeradm@csc.fi
+MAIN: Version: 26.2-unknown (Rev: unknown, Compiled: 2026-11-25)
+MAIN:  Running one task without MPI parallelization.
+MAIN:  Running with just one thread per task.
+MAIN:  HYPRE library linked in.
+MAIN:  MUMPS library linked in.
+MAIN:  Lua interpreter linked in.
+MAIN: =============================================================
+MAIN: 
+MAIN: 
+MAIN: -------------------------------------
+MAIN: Reading Model: case.sif
+LoadInputFile: Scanning input file: case.sif
+LoadInputFile: Scanning only size info
+LoadInputFile: First time visiting
+LoadInputFile: Reading base load of sif file
+LoadInputFile: Loading input file: case.sif
+LoadInputFile: Reading base load of sif file
+LoadInputFile: Number of BCs: 2
+LoadInputFile: Number of Body Forces: 0
+LoadInputFile: Number of Initial Conditions: 0
+LoadInputFile: Number of Materials: 1
+LoadInputFile: Number of Equations: 1
+LoadInputFile: Number of Solvers: 1
+LoadInputFile: Number of Bodies: 1
+ElmerMeshReader: Base mesh name: ./mesh
+PrepareMesh: Preparing mesh for the future
+LoadMesh: Elapsed REAL time:     0.0395 (s)
+MAIN: -------------------------------------
+AddVtuOutputSolverHack: Adding ResultOutputSolver to write VTU output in file: case
+OptimizeBandwidth: Initial bandwidth for stat current solver: 2148
+OptimizeBandwidth: Optimized bandwidth for stat current solver: 109
+MAIN: Number of timesteps to be saved: 1
+MAIN: 
+MAIN: -------------------------------------
+MAIN:  Steady state iteration:            1
+MAIN: -------------------------------------
+MAIN: 
+StatCurrentSolver: ------------------------------------------------
+StatCurrentSolver: Solving static current conduction solver
+StatCurrentSolverBulkAssembly: Elapsed REAL time:     0.0452 (s)
+StatCurrentSolverBCAssembly: Elapsed REAL time:     0.0063 (s)
+      20 0.2441E-05
+      27 0.3748E-10
+ComputeChange: NS (ITER=1) (NRM,RELC): (  11.998374      2.0000000     ) :: stat current solver
+StatCurrentSolver_post: ------------------------------------------------
+StatCurrentSolver_post: Calculating postprocessing fields
+ComputeChange: SS (ITER=1) (NRM,RELC): (  11.998374      2.0000000     ) :: stat current solver
+ResultOutputSolver: -------------------------------------
+ResultOutputSolver: Saving with prefix: case
+CreateListForSaving: Field Variables for Saving
+ResultOutputSolver: Saving in unstructured VTK XML (.vtu) format
+VtuOutputSolver: Saving results in VTK XML format with prefix: case
+VtuOutputSolver: Saving number of partitions: 1
+ResultOutputSolver: -------------------------------------
+MAIN: *** Elmer Solver: ALL DONE ***
+MAIN: The end
+SOLVER TOTAL TIME(CPU,REAL):         0.33        1.01
+ELMER SOLVER FINISHED AT: 2026/11/27 16:42:19

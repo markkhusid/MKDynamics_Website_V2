@@ -1,0 +1,87 @@
+! Static current in the copper of trace.kicad_pcb.
+! This case does not solve temperature. Calculate Joule Heating stores the
+! volumetric heating, in W/m^3, that a later heat case would use as its source.
+! A temperature solution also needs the FR4 solid, which this mesh does not have.
+!
+! Mesh coordinates are metres. ElmerGrid scaled the Salome UNV by 0.001.
+! The output pad area measured in Salome is 4.0e-6 m^2. Current of 0.5 A
+! leaves that face, so the applied density is -0.5/4.0e-6 = -125000 A/m^2.
+! Measure the pad again before reusing this number on another board.
+
+Header
+  ! Mesh directory written by ElmerGrid. "." is the directory that holds this file.
+  Mesh DB "." "mesh"
+End
+
+Simulation
+  ! 5 prints the linear iterations and the post-processing fields.
+  Max Output Level = 5
+  Coordinate System = Cartesian
+  ! One solution of the steady current problem. There is no time step.
+  Simulation Type = Steady State
+  Steady State Max Iterations = 1
+  ! Write the result on the only iteration.
+  Output Intervals(1) = 1
+  ! Elmer appends the step, so the file on disk is case_t0001.vtu.
+  Post File = case.vtu
+End
+
+Body 1
+  ! ElmerGrid renames the single copper volume. Salome had one solid, and the
+  ! UNV physical index collided with a group index, so the body id became 3.
+  ! Name and Target Bodies must both point at that id. Check mesh.names if a
+  ! new mesh is numbered differently.
+  Name = body3
+  Target Bodies(1) = 3
+  Equation = 1
+  Material = 1
+End
+
+Solver 1
+  ! Static current continuity. The unknown is the electric potential, in volts.
+  ! Current density follows from the conductivity and the potential gradient.
+  Equation = "Stat Current Solver"
+  Procedure = "StatCurrentSolve" "StatCurrentSolver"
+  Variable = Potential
+  ! Nodal current vector, A/m^2. The narrow 0.4 mm traces hold the peak.
+  Calculate Volume Current = True
+  ! Nodal heating, W/m^3. This is sigma times the square of the electric field.
+  ! It is a result of this solve, not a temperature.
+  Calculate Joule Heating = True
+  Linear System Solver = Iterative
+  ! BiCGStab with ILU1 reached 3.75e-11 in 27 iterations on this mesh.
+  Linear System Iterative Method = BiCGStab
+  Linear System Preconditioning = ILU1
+  Linear System Max Iterations = 500
+  Linear System Convergence Tolerance = 1.0e-10
+  ! Print the residual every 20 iterations, and on the iteration that converges.
+  Linear System Residual Output = 20
+  Steady State Convergence Tolerance = 1.0e-8
+End
+
+Equation 1
+  ! The copper body runs solver 1 and no other solver.
+  Active Solvers(1) = 1
+End
+
+Material 1
+  ! Generic copper, S/m. No thermal conductivity is set, because this solver
+  ! does not use one.
+  Electric Conductivity = 47.00e6
+End
+
+Boundary Condition 1
+  ! The front pad. Mesh group "input" is boundary 1 in mesh.names.
+  Name = input
+  Target Boundaries(1) = 1
+  ! Fixed potential. The other pad is not fixed, so the drop is a result.
+  Potential = 12.0
+End
+
+Boundary Condition 2
+  ! The back pad. Mesh group "output" is boundary 2.
+  ! Negative density means current leaves the copper. Positive would inject it.
+  Name = output
+  Target Boundaries(1) = 2
+  Current Density = -125000.0
+End

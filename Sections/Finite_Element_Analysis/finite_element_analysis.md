@@ -21,4 +21,14 @@ OpenFOAM propulsor demo
 :align: center
 ```
 :::
+:::{grid-item-card}
+:link: PCB_Trace_Current/pcb_trace_current.md
+
+PCB trace current and Joule heating
+^^^
+```{image} PCB_Trace_Current/images/potential.png
+:height: 200
+:align: center
+```
+:::
 ::::

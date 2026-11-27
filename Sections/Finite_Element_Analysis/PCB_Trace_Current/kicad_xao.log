@@ -1,0 +1,19 @@
+Determining PCB data.
+Build XAO data.
+Create PCB solid model.
+Board outline: found 4 initial points.
+Build board outlines (1 outlines) with 4 points.
+Build board cutouts and holes (1 hole(s)).
+Subtracting holes for pads
+Subtracting holes for vias
+Fusing shapes
+Generate board full shape.
+Writing XAO file.
+Pad definitions:
+Number	Name	Area (m^2)
+1	Pad_B_J1_B_TRACE	4e-06
+2	Pad_F_J1_A_TRACE	4e-06
+
+XAO file '/work/trace.xao' created.
+
+Export time 0.058 s

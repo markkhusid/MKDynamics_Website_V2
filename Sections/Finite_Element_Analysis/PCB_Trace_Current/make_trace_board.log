@@ -1,0 +1,18 @@
+KiCad pcbnew 9.0.9
+Writing the layout to /work/trace.kicad_pcb
+This step draws copper only. It does not export the XAO or solve a field.
+Board has 2 copper layers and a finished thickness of 1.6 mm.
+Added net TRACE. The XAO export keeps copper on this net and drops the rest.
+Outline is a 12 mm by 8 mm rectangle on Edge.Cuts. The current XAO export leaves this outline out.
+Footprint J1 holds both pads. KiCad will name the XAO faces from J1, the pad, and the net.
+Pad A is 2 mm by 2 mm on F.Cu, centered at (3 mm, 4 mm), on net TRACE.
+Pad B is 2 mm by 2 mm on B.Cu, centered at (9 mm, 4 mm), on net TRACE.
+Front trace is 0.4 mm wide on F.Cu, from (3 mm, 4 mm) to the via at (6 mm, 4 mm).
+Back trace is 0.4 mm wide on B.Cu, from the via at (6 mm, 4 mm) to (9 mm, 4 mm).
+Through via at (6 mm, 4 mm): drill 0.3 mm, pad 0.6 mm, from F.Cu to B.Cu, on net TRACE.
+Stackup written under setup: F.Cu 0.035 mm copper, 1.53 mm FR4 core, B.Cu 0.035 mm copper.
+Wrote trace.kicad_pcb: 4568 bytes.
+Next command is the XAO export. It fuses the TRACE copper and leaves the FR4 behind.
+  kicad-cli pcb export xao --output trace.xao --no-board-body --no-components \
+      --include-tracks --include-pads --include-zones --fuse-shapes \
+      --net-filter TRACE trace.kicad_pcb

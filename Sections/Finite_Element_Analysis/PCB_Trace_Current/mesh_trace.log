@@ -1,0 +1,15 @@
+Imported trace.xao.
+The file holds one fused copper solid and the named pad faces. There is no FR4 in it.
+Bounding box of the solid, millimetres: x from 2 to 10, y from -5 to -3, z from -0.0400001 to 1.57.
+KiCad's Y axis is flipped in this solid, so the pads sit at negative y.
+Group Pad_B_J1_B_TRACE: length 8 mm, area 4 mm^2 (4e-06 m^2), volume 0 mm^3.
+  The output pad sinks 0.5 A, so the boundary current density is -125000 A/m^2. case.sif must use this value.
+Group Pad_F_J1_A_TRACE: length 8 mm, area 4 mm^2 (4e-06 m^2), volume 0 mm^3.
+Meshing with Netgen 1D-2D-3D. Maximum element 0.2 mm, minimum element 0.08 mm, linear tetrahedra.
+  The minimum size 0.08 mm is thicker than the 0.035 mm foil. Netgen can still fill this solid.
+  Compute returned True. Nodes 2313, faces 4482, tetrahedra 6180.
+  Mesh group input (Pad_F_J1_A_TRACE) has 692 faces. Mesh group output (Pad_B_J1_B_TRACE) has 623 faces.
+  Those two names are the boundary names in case.sif.
+Wrote trace.unv (1440735 bytes) with element sizes 0.2 mm maximum and 0.08 mm minimum.
+The UNV header says metres, but the node coordinates are still millimetres.
+Next command: ElmerGrid 8 2 trace.unv -scale 1.0e-3 1.0e-3 1.0e-3 -out mesh

@@ -872,6 +872,8 @@ project:
                 Sections/Finite_Element_Analysis/CAELinux_for_Thermal_Analysis/caelinux_for_thermal_analysis.md
             - file: >-
                 Sections/Finite_Element_Analysis/OpenFOAM_Propulsor/openfoam_propulsor.md
+            - file: >-
+                Sections/Finite_Element_Analysis/PCB_Trace_Current/pcb_trace_current.md
     - title: Ham Radio
       children:
         - file: Sections/Ham_Radio/ham_radio__HEAD__.md
