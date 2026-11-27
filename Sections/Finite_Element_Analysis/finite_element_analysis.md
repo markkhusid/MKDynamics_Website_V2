@@ -31,4 +31,14 @@ PCB trace current and Joule heating
 :align: center
 ```
 :::
+:::{grid-item-card}
+:link: R2512_FR4/r2512_fr4.ipynb
+
+2512 resistor on FR4
+^^^
+```{image} R2512_FR4/images/temperature.png
+:height: 200
+:align: center
+```
+:::
 ::::

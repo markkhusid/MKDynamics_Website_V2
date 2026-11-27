@@ -1,0 +1,31 @@
+Imported R_2512_6332Metric.step.
+Bounding box as read: x -0.0031501 to 0.0031501, y -0.0016001 to 0.0016001, z -1e-07 to 0.0006001.
+Scaled the solid by 1000. Later numbers are millimetres.
+Chip bounding box, millimetres: x -3.1501 to 3.1501, y -1.6001 to 1.6001, z -0.0001 to 0.6001.
+Chip after the lift: z 0.0350 to 0.6352. Volume 11.0970 mm^3, surface 51.5884 mm^2.
+Bottom face, millimetres: x -3.0901 to -2.6099, y -1.6001 to 1.6001, area 1.5360 mm^2.
+Bottom face, millimetres: x 2.6099 to 3.0901, y -1.6001 to 1.6001, area 1.5360 mm^2.
+Left trace x -28.4901 to -2.6099 mm. The outer 25.4000 mm is the 1 inch run. The inner part covers the end-cap bottom.
+Right trace x 2.6099 to 28.4901 mm. Width 0.5080 mm (20 mil). Thickness 0.035 mm.
+FR4 coupon, millimetres: x -30.4901 to 30.4901, y -6.6001 to 6.6001, z -1.6000 to 0. Thickness 1.6 mm. Side margin 5.0 mm, end margin 2.0 mm.
+Partition produced 4 solids.
+Solid chip: volume 11.0970 mm^3, x -3.1502 to 3.1502, y -1.6002 to 1.6002, z 0.0348 to 0.6353.
+Solid copper_left: volume 0.4603 mm^3, x -28.4903 to -2.6097, y -0.2542 to 0.2542, z -0.0002 to 0.0353.
+Solid copper_right: volume 0.4603 mm^3, x 2.6097 to 28.4903, y -0.2542 to 0.2542, z -0.0002 to 0.0353.
+Solid fr4: volume 1287.9213 mm^3, x -30.4901 to 30.4901, y -6.6001 to 6.6001, z -1.6000 to 0.0000.
+Contact face, chip to copper_left: 0.2438 mm^2.
+Contact face, FR4 to copper_left: 13.1471 mm^2.
+Contact face, chip to copper_right: 0.2438 mm^2.
+Contact face, FR4 to copper_right: 13.1471 mm^2.
+Air skin has 44 faces.
+Wrote case.sif. Heat source 4.50571e+07 W/m^3 over 1.1097e-08 m^3 is 0.500000 W.
+Meshing with Netgen 1D-2D-3D. Maximum element 0.35 mm, minimum element 0.08 mm, linear tetrahedra.
+  Compute returned True. Nodes 56040, faces 63619, tetrahedra 244247.
+  Volume group chip: 16146 tetrahedra.
+  Volume group copper_left: 8932 tetrahedra.
+  Volume group copper_right: 9440 tetrahedra.
+  Volume group fr4: 209729 tetrahedra.
+  Face group air: 57622 triangles.
+Wrote r2512.unv (50046009 bytes), element sizes 0.35 mm maximum and 0.08 mm minimum.
+Node coordinates are millimetres. ElmerGrid must scale them by 0.001.
+Next: ElmerGrid 8 2 r2512.unv -scale 1.0e-3 1.0e-3 1.0e-3 -autoclean -out mesh

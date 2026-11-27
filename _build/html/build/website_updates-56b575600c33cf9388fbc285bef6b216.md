@@ -1,6 +1,9 @@
 # Website Updates
 This file contains a log of updates made to the MKDynamics website. It is used to track changes, additions, and improvements over time.
 
+## 11/27/2026
+- Finite element analysis: a notebook integrates transient heat conduction for one 2512 chip on an FR4 coupon at 0.1 W. The chip is the KiCad solid `R_2512_6332Metric.step`. Each trace is 20 mil wide and 1 inch long. The run covers 585 s. On this coupon the hottest node reaches 56.53 °C, and the page includes a movie of that rise.
+
 ## 11/26/2026
 - Finite element analysis: a new page solves static current conduction and Joule heating in a one-net copper trace. KiCad 9 exports the copper, Salome 9.16 meshes it, and ElmerSolver 26.2 drives 0.5 A through the trace from a 12 V pad. The board dielectric and the air are not in the model. The potential drop on this short path is 3.35 mV.
 - Fortran: fplotlib is now a section under Fortran. Two LFortran notebooks sit under that page. The demo notebook shows a damped sine, the sine and cosine together, and the same pair as subplots. The animation notebook shows a rotating Möbius strip. The section cards use those figures.

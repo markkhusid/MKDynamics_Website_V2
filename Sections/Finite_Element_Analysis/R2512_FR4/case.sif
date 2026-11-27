@@ -1,0 +1,144 @@
+! Transient heat conduction for one 2512 chip on FR4.
+! The chip solid is R_2512_6332Metric.step, scaled to metres by ElmerGrid.
+! It is one body. The 0.1 W is uniform in that volume. There is no separate
+! resistive film in the CAD file.
+!
+! Chip conductivity is 24.7 W/(m K), CoorsTek ADD-96 96% alumina, ASTM C408.
+! The tin terminations are not a separate solid, so they use that same value.
+! Copper is 401 W/(m K), pure copper near 300 K. The foil is 0.035 mm (1 oz).
+! FR4 is 0.4 W/(m K) in every direction, the single Isola 370HR value from
+! ASTM E1952. That test is through the thickness. The glass fabric is
+! anisotropic; this case does not add an in-plane conductivity.
+! Alumina density is 3720 kg/m^3 and specific heat is 880 J/(kg K)
+! at 100 C, CoorsTek AD-96, ASTM C20 and ASTM E1269.
+! Copper density is 8960 kg/m^3 and specific heat is 385 J/(kg K).
+! Isola does not publish a 370HR density or specific heat. This case uses
+! 1850 kg/m^3, the usual FR-4 specific gravity of 1.85, and
+! 1000 J/(kg K). Those two numbers set how fast the board warms.
+! They do not set the final temperature.
+!
+! Each trace is 20 mil wide and 1 inch long, measured from the outer end of
+! the body. Under the part, the trace covers the bottom metal of that end cap
+! and stays 20 mil wide. It does not widen into the Vishay land pattern.
+! Open surfaces lose heat by a coefficient of 10 W/(m^2 K) to air at 25 C.
+! That coefficient is a mid-range natural-convection value, not a measurement
+! of this coupon.
+!
+! Chip volume 1.10970223e-08 m^3. Alumina density 3720.0 kg/m^3.
+! Heat source 2.42242646e+03 W/kg. Product 0.100000 W.
+! Steps: 10 20 24 intervals of 0.5 5.0 20.0 seconds. The last frame is at 585 s.
+
+Header
+  Mesh DB "." "mesh"
+End
+
+! ElmerGrid writes these $ names. They have to be included before the
+! Body sections. The solver does not load mesh.names until after this file
+! is parsed, so a bare "$ chip" is an unknown MATC name without this line.
+Include "mesh/mesh.names"
+
+Simulation
+  Max Output Level = 4
+  Coordinate System = Cartesian
+  Simulation Type = Transient
+  Timestepping Method = BDF
+  BDF Order = 2
+  Timestep Intervals(3) = 10 20 24
+  Timestep Sizes(3) = 0.5 5.0 20.0
+  Output Intervals(3) = 1 1 1
+  Post File = case.vtu
+End
+
+Body 1
+  Name = chip
+  Target Bodies(1) = $ chip
+  Equation = 1
+  Material = 1
+  Body Force = 1
+  Initial Condition = 1
+End
+
+Body 2
+  Name = copper_left
+  Target Bodies(1) = $ copper_left
+  Equation = 1
+  Material = 2
+  Initial Condition = 1
+End
+
+Body 3
+  Name = copper_right
+  Target Bodies(1) = $ copper_right
+  Equation = 1
+  Material = 2
+  Initial Condition = 1
+End
+
+Body 4
+  Name = fr4
+  Target Bodies(1) = $ fr4
+  Equation = 1
+  Material = 3
+  Initial Condition = 1
+End
+
+Solver 1
+  Equation = Heat Equation
+  Variable = Temperature
+  Variable Dofs = 1
+  Procedure = "HeatSolve" "HeatSolver"
+  Linear System Solver = Iterative
+  Linear System Iterative Method = BiCGStab
+  Linear System Preconditioning = ILU1
+  Linear System Max Iterations = 2000
+  Linear System Convergence Tolerance = 1.0e-10
+  Nonlinear System Max Iterations = 1
+  Nonlinear System Convergence Tolerance = 1.0e-8
+  Steady State Convergence Tolerance = 1.0e-8
+End
+
+Equation 1
+  Name = Heat
+  Active Solvers(1) = 1
+End
+
+! HeatSolve multiplies Heat Source by Density. The source is therefore
+! W/kg, and Density * Heat Source * volume is the electrical power.
+! The storage term is Density * Heat Capacity * dT/dt.
+Material 1
+  Name = alumina
+  Heat Conductivity = 24.7
+  Density = 3720.0
+  Heat Capacity = 880.0
+End
+
+Material 2
+  Name = copper
+  Heat Conductivity = 401.0
+  Density = 8960.0
+  Heat Capacity = 385.0
+End
+
+Material 3
+  Name = fr4
+  Heat Conductivity = 0.4
+  Density = 1850.0
+  Heat Capacity = 1000.0
+End
+
+Body Force 1
+  Name = chip_power
+  Heat Source = 2.42242646e+03
+End
+
+Initial Condition 1
+  Name = ambient
+  Temperature = 25.0
+End
+
+Boundary Condition 1
+  Name = air
+  Target Boundaries(1) = $ air
+  Heat Transfer Coefficient = 10.0
+  External Temperature = 25.0
+End
