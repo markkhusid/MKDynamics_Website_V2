@@ -3,6 +3,7 @@ This file contains a log of updates made to the MKDynamics website. It is used t
 
 ## 11/26/2026
 - Fortran: fplotlib is now a section under Fortran. Two LFortran notebooks sit under that page. The demo notebook shows a damped sine, the sine and cosine together, and the same pair as subplots. The animation notebook shows a rotating Möbius strip. The section cards use those figures.
+- Fortran: the fplotlib section now includes the travelling-wave notebook. It draws the damped wave from the fplotlib gallery and saves a 40-frame GIF. The section card uses that animation.
 
 ## 11/22/2026
 - Fortran DFFT: the 1 Hz square-wave introduction now says 1 Hz. The documented run passes the sample rate and the number of periods, and the frequency column starts at 0 Hz. The tutorial example is a real-to-complex FFTW3 program. The compile lines include `-I/usr/include`.

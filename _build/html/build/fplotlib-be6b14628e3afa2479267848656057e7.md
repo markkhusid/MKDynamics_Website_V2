@@ -68,6 +68,17 @@ fplotlib Animations Demo in Jupyter
 ```
 :::
 
+:::{grid-item-card}
+:link: fplotlib_wave_animation.ipynb
+
+fplotlib Wave Animation in Jupyter
+^^^
+```{image} wave.gif
+:alt: Damped travelling wave drawn by fplotlib
+:height: 300
+```
+:::
+
 ::::
 
 ## Notes

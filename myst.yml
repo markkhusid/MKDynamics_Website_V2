@@ -410,6 +410,7 @@ project:
                   children:
                     - file: Sections/Computer_Programming/Fortran/fplotlib/fplotlib_demo.ipynb
                     - file: Sections/Computer_Programming/Fortran/fplotlib/fplotlib_animation_demo.ipynb
+                    - file: Sections/Computer_Programming/Fortran/fplotlib/fplotlib_wave_animation.ipynb
                 - file: >-
                     Sections/Computer_Programming/Fortran/Modern_Fortran/modern_fortran__HEAD__.md
                   children:
